@@ -1,1 +1,45 @@
-﻿
+﻿## Hagia Sophia PMs
+
+
+
+## Masjid al-Haram PMs
+eocfm_masjid_al_haram_base = {
+	texture = "gfx/interface/icons/production_method_icons/eocfm_holy_site.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pol_str_mult = 0.1
+			country_authority_add = 50
+			country_prestige_add = 25
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+		}
+		level_scaled = {
+			building_employment_clergymen_add = 500
+		}
+	}
+}
+pm_eocfm_masjid_al_haram_museum = {
+	texture = "gfx/interface/icons/production_method_icons/eocfm_religious_museum.dds"
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 10
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add = 100
+			building_employment_clerks_add = 400
+		}
+	}
+}
+pm_eocfm_masjid_al_haram_ruins = {
+	texture = "gfx/interface/icons/production_method_icons/eocfm_ruins.dds"
+}
+
+## Orthodox Holy Site PMs
