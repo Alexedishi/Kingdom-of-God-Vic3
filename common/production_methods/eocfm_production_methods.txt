@@ -3,7 +3,7 @@
 
 
 ## Masjid al-Haram PMs
-eocfm_masjid_al_haram_base = {
+pm_eocfm_masjid_al_haram_base = {
 	texture = "gfx/interface/icons/production_method_icons/eocfm_holy_site.dds"
 
 	country_modifiers = {
@@ -19,6 +19,9 @@ eocfm_masjid_al_haram_base = {
 		level_scaled = {
 			building_employment_clergymen_add = 500
 		}
+	}
+	unlocking_production_methods = {
+		pm_eocfm_masjid_al_haram_base
 	}
 }
 pm_eocfm_masjid_al_haram_museum = {
@@ -37,9 +40,16 @@ pm_eocfm_masjid_al_haram_museum = {
 			building_employment_clerks_add = 400
 		}
 	}
+	unlocking_production_methods = {
+		pm_eocfm_masjid_al_haram_museum
+	}
 }
 pm_eocfm_masjid_al_haram_ruins = {
 	texture = "gfx/interface/icons/production_method_icons/eocfm_ruins.dds"
+	
+	unlocking_production_methods = {
+		pm_eocfm_masjid_al_haram_ruins
+	}
 }
 
 ## Orthodox Holy Site PMs
