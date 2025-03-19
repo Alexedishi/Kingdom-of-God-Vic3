@@ -210,7 +210,7 @@ eocfm.001 = { # The Bishops of the East (Generic)
 		name = eocfm.001.a
 		default_option = yes
 		eocfm_update_seat_bonus_effect = yes
-		custom_tooltip = turkfm_no_effects
+		custom_tooltip = eocfm_no_effects
 	}
 	
 }
@@ -261,7 +261,7 @@ eocfm.003 = { # Greek Holy Synod
 		name = eocfm.003.a
 		default_option = yes
 		eocfm_update_seat_bonus_effect = yes
-		custom_tooltip = turkfm_no_effects
+		custom_tooltip = eocfm_no_effects
 	}
 
 }
@@ -311,7 +311,7 @@ eocfm.004 = { # Most Holy Synod (RUS)
 			add = 100
 		}
 		eocfm_update_seat_bonus_effect = yes
-		custom_tooltip = turkfm_no_effects
+		custom_tooltip = eocfm_no_effects
 	}
 
 }
@@ -604,7 +604,7 @@ eocfm.020 = { # Commissioning an Icon
 			limit = {
 				eocfm_has_icon_trigger = no
 			}
-			custom_tooltip = turkfm_no_effects
+			custom_tooltip = eocfm_no_effects
 		}
 		else = {
 			eocfm_remove_icon_modifiers_effect = yes
@@ -3847,7 +3847,7 @@ eocfm.169 = { # The Living Law
 		video = "southamerica_christianity"
 	}
 	
-	icon = "gfx/interface/icons/event_icons/event_aquila.dds"
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
@@ -5055,17 +5055,6 @@ eocfm.302 = { # The Orthodox Realms
 		name = eocfm.302.a
 		default_option = yes
 		change_tag = EOC_ODX
-		add_modifier = {
-			name = modifier_grefm_imperial_glory
-		}
-		s:STATE_EASTERN_THRACE = {
-			random_scope_state = {
-				add_modifier = {
-					name = modifier_grefm_the_queen_of_cities
-					months = long_modifier_time
-				}
-			}
-		}
 	}
 	
 }
@@ -5092,9 +5081,10 @@ eocfm.303 = { # The Capture of the Great Mosque
 	dlc = dlc_eocfm
 
 	trigger = {
-		owns_entire_state_region = STATE_HEDJAZ
-		NOT = { has_global_variable = grefm_smoked_mecca }
-		has_variable = eocfm_crusades_unlocked
+		always = no
+#		owns_entire_state_region = STATE_HEDJAZ
+#		NOT = { has_global_variable = grefm_smoked_mecca }
+#		has_variable = eocfm_crusades_unlocked
 	}
 	
 	immediate = {
@@ -5106,7 +5096,7 @@ eocfm.303 = { # The Capture of the Great Mosque
 		if = {
 			limit = {
 				any_state = {
-					state_in_arabia = yes
+					region = sr:region_arabic
 					NOT = {
 						owner = ROOT
 						}
@@ -5133,10 +5123,10 @@ eocfm.303 = { # The Capture of the Great Mosque
 			value = very_large_radicals
 			religion = rel:shiite
 		}
-		scope:hedjaz_state = {
-			remove_building = gbbf_building_masjid_al_haram
-			set_devastation = 90
-		}
+#		scope:hedjaz_state = {
+#			remove_building = gbbf_building_masjid_al_haram
+#			set_devastation = 90
+#		}
 		if = {
 			limit = {
 				exists = scope:byzantium_arabia_target
@@ -5158,10 +5148,10 @@ eocfm.303 = { # The Capture of the Great Mosque
 			value = medium_radicals
 			religion = rel:shiite
 		}
-		scope:hedjaz_state = {
-			remove_building = gbbf_building_masjid_al_haram
-			set_devastation = 10
-		}
+#		scope:hedjaz_state = {
+#			remove_building = gbbf_building_masjid_al_haram
+#			set_devastation = 10
+#		}
 		change_infamy = 10
 	}
 	
@@ -5523,6 +5513,34 @@ eocfm.309 = { # The Supreme Pontiff of the Universal Church
 
 #### HIDDEN EVENTS ####
 
+eocfm.900 = { # Orthdox Variable Dumpster Fire Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		# DO NOT CALL THIS EVENT
+	}
+	
+	immediate = {
+		remove_variable = eocfm_devout_leader_var
+		remove_variable = eocfm_rome_patriarch_var
+		remove_variable = eocfm_constantinople_patriarch_var
+		remove_variable = eocfm_antioch_patriarch_var
+		remove_variable = eocfm_jerusalem_patriarch_var
+		remove_variable = eocfm_alexandria_patriarch_var
+		remove_variable = eocfm_moscow_patriarch_var
+		remove_variable = eocfm_crusade_counter
+		remove_variable = eocfm_deposition_counter
+		remove_variable = eocfm_crusade_attacker
+		remove_variable = eocfm_crusade_defender
+		remove_variable = 
+		remove_variable = 
+		remove_variable = 
+	}
+	
+	orphan = yes
+
+}
 
 
 ########################################
