@@ -341,7 +341,10 @@ eocfm_can_host_council_trigger = {
 	OR = {
 		AND = {
 			NOT = { has_global_variable = eocfm_crusades_unlocked }
-			country_tier >= empire
+			OR = {
+				country_tier = empire
+				country_tier = hegemony
+			}
 		}
 		AND = {
 			NOT = { has_global_variable = eocfm_epistle_considered }

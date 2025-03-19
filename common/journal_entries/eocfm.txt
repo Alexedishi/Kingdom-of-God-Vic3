@@ -96,7 +96,10 @@ je_eocfm_the_orthodox_realms = {
 	}
 	
 	fail = {
-		country_tier >= empire
+		OR = {
+			country_tier = empire
+			country_tier = hegemony
+		}
 	}
 
 	on_fail = {

@@ -4245,7 +4245,7 @@ eocfm.183 = { # Patriarch Denounces Schism (Stall Event)
 		}
 		OR = {
 			eocfm_has_low_relations_with_any_patriarch_trigger = yes
-			has_journal_entry = je_balkfm_bul_bulgarian_exarchate
+			has_variable = eocfm_schism_var
 		}
 		var:eocfm_schism_var > 30
 	}
@@ -5106,7 +5106,7 @@ eocfm.303 = { # The Capture of the Great Mosque
 				save_scope_as = byzantium_arabia_target
 			}
 		}
-		set_global_variable = grefm_smoked_mecca
+#		set_global_variable = grefm_smoked_mecca
 	}
 	
 	option = { # burn it down
@@ -5531,11 +5531,6 @@ eocfm.900 = { # Orthdox Variable Dumpster Fire Event
 		remove_variable = eocfm_moscow_patriarch_var
 		remove_variable = eocfm_crusade_counter
 		remove_variable = eocfm_deposition_counter
-		remove_variable = eocfm_crusade_attacker
-		remove_variable = eocfm_crusade_defender
-		remove_variable = 
-		remove_variable = 
-		remove_variable = 
 	}
 	
 	orphan = yes
