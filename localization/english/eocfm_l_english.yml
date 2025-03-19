@@ -590,48 +590,25 @@
  eocfm_crusades_enabled: "Enables [Concept('concept_crusades','$concept_crusades$')] against Muslim nations. #italic Theoú thélontos!#!"
  eocfm_ongoing_crusade_NOT: "There is not an ongoing [concept_crusade]."
  
- eocfm_constantinople: ""
+ eocfm_constantinople: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_constantinople_details')] Constantinople#!#!#!"
  eocfm_constantinople_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_constantinople').GetName]#!\n$TOOLTIP_DELIMITER$
- \n•#italic Seated in [GetStateRegion('STATE_EASTERN_THRACE').GetName]#!
- \n•#white Answers to:#!
- \n•#white Led By:#!
- \n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_constantinople_relations_var').GetValue]#!
+ \n•#italic Seated in [GetStateRegion('STATE_EASTERN_THRACE').GetName]#!\n•#white Led By:#! Ecumenical Patriarch [GetPlayer.MakeScope.Var('eocfm_constantinople_patriarch_var').GetCharacter.GetLastName]\n•#white Answers to:#! [GetPlayer.MakeScope.Var('eocfm_constantinople_controller_var').GetCountry.GetName]\n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_constantinople_relations_var').GetValue]#!"
  
- eocfm_antioch: ""
- eocfm_antioch_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_antioch').GetName]#!\n$TOOLTIP_DELIMITER$
- \n•#italic Seated in [GetStateRegion('STATE_SYRIA').GetName]#!
- \n•#white Answers to:#!
- \n•#white Led By:#!
- \n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_antioch_relations_var').GetValue]#!
+ eocfm_antioch: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_antioch_details')] Antioch#!#!#!"
+ eocfm_antioch_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_antioch').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_SYRIA').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_antioch_patriarch_var').GetCharacter.GetLastName]\n•#white Answers to:#! [GetPlayer.MakeScope.Var('eocfm_antioch_controller_var').GetCountry.GetName]\n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_antioch_relations_var').GetValue]#!"
  
- eocfm_jerusalem: ""
- eocfm_jerusalem_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_jerusalem').GetName]#!\n$TOOLTIP_DELIMITER$
- \n•#italic Seated in [GetStateRegion('STATE_PALESTINE').GetName]#!
- \n•#white Answers to:#!
- \n•#white Led By:#!
- \n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_jerusalem_relations_var').GetValue]#!
+ eocfm_jerusalem: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_jerusalem_details')] Jerusalem#!#!#!"
+ eocfm_jerusalem_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_jerusalem').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_PALESTINE').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_jerusalem_patriarch_var').GetCharacter.GetLastName]\n•#white Answers to:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_jerusalem_controller_type')]\n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_jerusalem_relations_var').GetValue]#!"
  
  
- eocfm_alexandria: ""
- eocfm_alexandria_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_alexandria').GetName]#!\n$TOOLTIP_DELIMITER$
- \n•#italic Seated in [GetStateRegion('STATE_LOWER_EGYPT').GetName]#!
- \n•#white Answers to:#!
- \n•#white Led By:#!
- \n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_alexandria_relations_var').GetValue]#!
+ eocfm_alexandria: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_alexandria_details')] Alexandria#!#!#!"
+ eocfm_alexandria_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_alexandria').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LOWER_EGYPT').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_alexandria_patriarch_var').GetCharacter.GetLastName]\n•#white Answers to:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_alexandria_controller_type')]\n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_alexandria_relations_var').GetValue"
  
- eocfm_moscow: ""
- eocfm_moscow_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_moscow').GetName]#!\n$TOOLTIP_DELIMITER$
- \n•#italic Seated in [GetStateRegion('STATE_MOSCOW').GetName]#!
- \n•#white Answers to:#!
- \n•#white Led By:#!
- \n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_moscow_relations_var').GetValue]#!
+ eocfm_moscow: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_moscow_details')] Moscow#!#!#!"
+ eocfm_moscow_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_moscow').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_MOSCOW').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_moscow_patriarch_var').GetCharacter.GetLastName]\n•#white Answers to:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_moscow_controller_type')]\n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_moscow_relations_var').GetValue]#!"
  
- eocfm_rome: ""
- eocfm_rome_details: "#bold The [GetBuildingType('').GetName]#!\n$TOOLTIP_DELIMITER$
- \n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!
- \n•#white Answers to:#!
- \n•#white Led By:#!
- \n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_rome_relations_var').GetValue]#!
+ eocfm_rome: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_rome_details')] Rome#!#!#!"
+ eocfm_rome_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_rome').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_rome_patriarch_var').GetCharacter.GetLastName]\n•#white Answers to:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_rome_controller_type')]\n•#white Current Relations:#! [GetPlayer.MakeScope.Var('eocfm_rome_relations_var').GetValue]#!"
  
  eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Control#!#!"
  eocfm_controls: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controls#!#!"
