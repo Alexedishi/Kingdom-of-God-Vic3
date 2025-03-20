@@ -40,7 +40,6 @@ eocfm_monthly_pulse = {
 		eocfm.303 # The Capture of the Great Mosque
 		eocfm.307 # The Throne of Saint Peter
 		eocfm.309 # The Supreme Pontiff of the Universal Church
-		eocfm.901 # Patriarchal Seat Orthodox Event
 	}
 	random_events = {
 		chance_of_no_event = 95
@@ -123,13 +122,13 @@ eocfm_schism_monthly_pulse = {
 }
 
 eocfm_global_pulse = { # Monitored from all scopes; used to deactivate holy sites
-	trigger = {
-		NOT = {
-			country_has_state_religion = rel:orthodox
-		}
-	}
 	events = {
-		eocfm.902 # Patriarchal Seat Non-Orthodox Event
+		eocfm.901 # Constantinopole Holy Site Event
+		eocfm.902 # Antioch Holy Site Event
+		eocfm.903 # Jerusalem Holy Site Event
+		eocfm.904 # Alexandria Holy Site Event
+		eocfm.905 # Moscow Holy Site Event
+		eocfm.906 # Rome Holy Site Event
 	}
 }
 
