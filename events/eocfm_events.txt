@@ -1540,7 +1540,7 @@ eocfm.111 = { # Constantinopole Usurped by Country
 	option = {
 		name = eocfm.111.a
 		default_option = yes
-		custom_tooltip = eocfm_usurped_constantinople_tt
+		custom_tooltip = eocfm_usurped_constantinople
 		scope:eocfm_controller_scope ?= {
 			change_relations = {
 				country = root
@@ -1689,7 +1689,7 @@ eocfm.113 = { # Antioch Usurped by Country
 	option = {
 		name = eocfm.111.a
 		default_option = yes
-		custom_tooltip = eocfm_usurped_antioch_tt
+		custom_tooltip = eocfm_usurped_antioch
 		scope:eocfm_controller_scope ?= {
 			change_relations = {
 				country = root
@@ -1838,7 +1838,7 @@ eocfm.115 = { # Jerusalem Usurped by Country
 	option = {
 		name = eocfm.115.a
 		default_option = yes
-		custom_tooltip = eocfm_usurped_jerusalem_tt
+		custom_tooltip = eocfm_usurped_jerusalem
 		scope:eocfm_controller_scope ?= {
 			change_relations = {
 				country = root
@@ -1987,7 +1987,7 @@ eocfm.117 = { # Alexandria Usurped by Country
 	option = {
 		name = eocfm.117.a
 		default_option = yes
-		custom_tooltip = eocfm_usurped_alexandria_tt
+		custom_tooltip = eocfm_usurped_alexandria
 		scope:eocfm_controller_scope ?= {
 			change_relations = {
 				country = root
@@ -2136,7 +2136,7 @@ eocfm.119 = { # Moscow Usurped by Country
 	option = {
 		name = eocfm.119.a
 		default_option = yes
-		custom_tooltip = eocfm_usurped_moscow_tt
+		custom_tooltip = eocfm_usurped_moscow
 		scope:eocfm_controller_scope = {
 			change_relations = {
 				country = root
@@ -2361,7 +2361,7 @@ eocfm.122 = { # Birth of the New Crusades
 		trigger = {
 			has_modifier = modifier_eocfm_hosting_council
 		}
-		custom_tooltip = eocfm_crusades_enabled_tt
+		custom_tooltip = eocfm_crusades_enabled
 		eocfm_council_cleanup_effect = yes
 	}
 	
@@ -2370,7 +2370,7 @@ eocfm.122 = { # Birth of the New Crusades
 		trigger = {
 			NOT = { has_modifier = modifier_eocfm_hosting_council }
 		}
-		custom_tooltip = eocfm_crusades_enabled_tt
+		custom_tooltip = eocfm_crusades_enabled
 		eocfm_council_cleanup_effect = yes
 	}
 
@@ -2898,7 +2898,7 @@ eocfm.129 = { # The Byzantine Commonwealth
 	option = {
 		name = eocfm.129.a
 		default_option = yes
-		custom_tooltip = eocfm_orthodox_realms_warning_tt
+		custom_tooltip = eocfm_orthodox_realms_info
 	}
 
 }
@@ -3643,7 +3643,7 @@ eocfm.161 = { # The Patriarch's Blessings
 			name = modifier_eocfm_divine_mandate
 			months = normal_modifier_time
 		}
-		custom_tooltip = eocfm_relations_maintain_80_tt
+		custom_tooltip = eocfm_relations_maintain_80
 	}
 
 }
@@ -3694,7 +3694,7 @@ eocfm.162 = { # Ecumenical Partiarch Denounces Secularism
 		add_modifier = {
 			name = modifier_eocfm_secularism_denounced
 		}
-		custom_tooltip = eocfm_relations_constantinople_need_80_tt
+		custom_tooltip = eocfm_relations_constantinople_need_80
 	}
 
 }
@@ -3817,17 +3817,10 @@ eocfm.168 = { # Ecumenical Patriarch Deposed
 		name = eocfm.168.a
 		default_option = yes
 		custom_tooltip = {
-			text = eocfm_patriarch_deposed_tt
-			hidden_effect = {
-				change_variable = {
-					name = eocfm_constantinople_relations_var
-					add = -50
-				}
-				clamp_variable = {
-					name = eocfm_constantinople_relations_var
-					min = 0
-					max = 100
-				}
+			text = eocfm_patriarch_deposed
+			set_variable = {
+				name = eocfm_constantinople_relations_var
+				value = 0
 			}
 		}
 	}
@@ -4052,7 +4045,7 @@ eocfm.180 = { # Traditionalists March in Capital (Stall Event)
 	option = { # Slow Down the Process
 		name = eocfm.180.b
 		custom_tooltip = {
-			text = eocfm_schism_lose_24_tt
+			text = eocfm_schism_lose_24
 			hidden_effect = {
 				change_variable = {
 					name = eocfm_schism_var
@@ -4276,7 +4269,7 @@ eocfm.183 = { # Patriarch Denounces Schism (Stall Event)
 		}
 		eocfm_decrease_patriarch_opinion_effect = yes
 		custom_tooltip = {
-			text = eocfm_schism_gain_6_tt
+			text = eocfm_schism_gain_6
 			change_variable = {
 				name = eocfm_schism_var
 				add = 6
@@ -4292,7 +4285,7 @@ eocfm.183 = { # Patriarch Denounces Schism (Stall Event)
 		}
 		eocfm_increase_patriarch_opinion_effect = yes
 		custom_tooltip = {
-			text = eocfm_schism_gain_6_tt
+			text = eocfm_schism_gain_6
 			change_variable = {
 				name = eocfm_schism_var
 				add = 6
@@ -4367,7 +4360,7 @@ eocfm.184 = { # Liturgical Language (Debate Event)
 			value = medium_radicals
 		}
 		custom_tooltip = {
-			text = eocfm_schism_gain_12_tt
+			text = eocfm_schism_gain_12
 			change_variable = {
 				name = eocfm_schism_var
 				add = 12
@@ -4450,7 +4443,7 @@ eocfm.185 = { # Ecclesiatic Purges (Advance Event)
 			value = 5
 		}
 		custom_tooltip = {
-			text = eocfm_schism_gain_12_tt
+			text = eocfm_schism_gain_12
 			change_variable = {
 				name = eocfm_schism_var
 				add = 12
@@ -4466,7 +4459,7 @@ eocfm.185 = { # Ecclesiatic Purges (Advance Event)
 			value = medium_radicals
 		}
 		custom_tooltip = {
-			text = eocfm_schism_lose_24_tt
+			text = eocfm_schism_lose_24
 			change_variable = {
 				name = eocfm_schism_var
 				subtract = 24
@@ -4522,7 +4515,7 @@ eocfm.186 = { # Promoting Local Bishops (Advance Event)
 		default_option = yes
 		add_modifier = modifier_eocfm_fast_tracking_bishops
 		custom_tooltip = {
-			text = eocfm_schism_gain_12_tt
+			text = eocfm_schism_gain_12
 			change_variable = {
 				name = eocfm_schism_var
 				add = 12
@@ -4589,7 +4582,7 @@ eocfm.187 = { # Monastic Brawls (Stall Event)
 		default_option = yes
 		add_modifier = modifier_eocfm_monk_smackdown_tolerated
 		custom_tooltip = {
-			text = eocfm_schism_lose_24_tt
+			text = eocfm_schism_lose_24
 			change_variable = {
 				name = eocfm_schism_var
 				subtract = 24
@@ -4601,7 +4594,7 @@ eocfm.187 = { # Monastic Brawls (Stall Event)
 		name = eocfm.187.b
 		add_modifier = modifier_eocfm_monk_smackdown_stopped
 		custom_tooltip = {
-			text = eocfm_schism_lose_12_tt
+			text = eocfm_schism_lose_12
 			change_variable = {
 				name = eocfm_schism_var
 				subtract = 12
@@ -4698,7 +4691,7 @@ eocfm.188 = { # Agitator Condemns Schism (Stall Event)
 		default_option = yes
 		add_modifier = modifier_eocfm_agitator_delay
 		custom_tooltip = {
-			text = eocfm_schism_lose_12_tt
+			text = eocfm_schism_lose_12
 			change_variable = {
 				name = eocfm_schism_var
 				subtract = 12
@@ -4789,7 +4782,7 @@ eocfm.189 = { # Prominent Priest Assassinated (Stall Event)
 	option = { # Turn a Blind Eye
 		name = eocfm.189.b
 		custom_tooltip = {
-			text = eocfm_schism_lose_12_tt
+			text = eocfm_schism_lose_12
 			change_variable = {
 				name = eocfm_schism_var
 				subtract = 12
@@ -5257,7 +5250,7 @@ eocfm.305 = { # The Restoration of the Pentarchy
 	option = {
 		name = eocfm.305.a
 		default_option = yes
-		custom_tooltip = eocfm_mending_possible_tt
+		custom_tooltip = eocfm_mending_possible
 		add_modifier = {
 			name = modifier_eocfm_secured_pentarchy
 			is_decaying = yes
@@ -5398,7 +5391,7 @@ eocfm.307 = { # The Throne of Saint Peter
 	option = {
 		name = eocfm.307.a
 		default_option = yes
-		custom_tooltip = eocfm_usurped_rome_tt
+		custom_tooltip = eocfm_usurped_rome
 		if = {
 			limit = {
 				exists = scope:eocfm_controller_scope
@@ -5536,12 +5529,454 @@ eocfm.900 = { # The Partiarch's Variable Dumpster Fire
 
 }
 
-eocfm.901 = { # Patriarchal Seat Orthodox Event
-	orphan = yes
+eocfm.901 = { # Constantinopole Holy Site Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_state_in_state_region = STATE_EASTERN_THRACE
+		OR = {
+			AND = {
+				country_has_state_religion = rel:orthodox
+				s:STATE_EASTERN_THRACE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_constantinople
+							production_method = pm_eocfm_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+				s:STATE_EASTERN_THRACE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_constantinople
+							production_method = pm_eocfm_patriarchate_constantinople
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			s:STATE_EASTERN_THRACE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_constantinople
+						prodution_method = pm_eocfm_patriarchate_constantinople
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+			}
+			s:STATE_EASTERN_THRACE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_constantinople
+						prodution_method = pm_eocfm_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+	
 }
 
-eocfm.902 = { # Patriarchal Seat Non-Orthodox Event
-	orphan = yes
+eocfm.902 = { # Antioch Holy Site Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_state_in_state_region = STATE_SYRIA
+		OR = {
+			AND = {
+				country_has_state_religion = rel:orthodox
+				s:STATE_SYRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_antioch
+							production_method = pm_eocfm_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+				s:STATE_SYRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_antioch
+							production_method = pmg_eocfm_patriarchate_antioch
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			s:STATE_SYRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_antioch
+						prodution_method = pmg_eocfm_patriarchate_antioch
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+			}
+			s:STATE_SYRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_antioch
+						prodution_method = pm_eocfm_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+eocfm.903 = { # Jerusalem Holy Site Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_state_in_state_region = STATE_PALESTINE
+		OR = {
+			AND = {
+				country_has_state_religion = rel:orthodox
+				s:STATE_PALESTINE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_jerusalem
+							production_method = pm_eocfm_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+				s:STATE_PALESTINE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_jerusalem
+							production_method = pm_eocfm_patriarchate_jerusalem
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			s:STATE_PALESTINE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_jerusalem
+						prodution_method = pm_eocfm_patriarchate_jerusalem
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+			}
+			s:STATE_PALESTINE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_jerusalem
+						prodution_method = pm_eocfm_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+eocfm.904 = { # Alexandria Holy Site Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_state_in_state_region = STATE_LOWER_EGYPT
+		OR = {
+			AND = {
+				country_has_state_religion = rel:orthodox
+				s:STATE_LOWER_EGYPT = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_alexandria
+							production_method = pm_eocfm_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+				s:STATE_LOWER_EGYPT = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_alexandria
+							production_method = pm_eocfm_patriarchate_alexandria
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			s:STATE_LOWER_EGYPT = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_alexandria
+						prodution_method = pm_eocfm_patriarchate_alexandria
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+			}
+			s:STATE_LOWER_EGYPT = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_alexandria
+						prodution_method = pm_eocfm_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+eocfm.905 = { # Moscow Holy Site Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_state_in_state_region = STATE_MOSCOW
+		OR = {
+			AND = {
+				country_has_state_religion = rel:orthodox
+				s:STATE_MOSCOW = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_moscow
+							production_method = pm_eocfm_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+				s:STATE_MOSCOW = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_moscow
+							production_method = pm_eocfm_patriarchate_moscow
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			s:STATE_MOSCOW = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_moscow
+						prodution_method = pm_eocfm_patriarchate_moscow
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+			}
+			s:STATE_MOSCOW = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_moscow
+						prodution_method = pm_eocfm_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+eocfm.906 = { # Rome Holy Site Event
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_state_in_state_region = STATE_LAZIO
+		OR = {
+			AND = {
+				country_has_state_religion = rel:orthodox
+				s:STATE_LAZIO = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_rome
+							production_method = pm_eocfm_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+				s:STATE_LAZIO = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = eocfm_building_patriarchate_rome
+							production_method = pm_eocfm_patriarchate_rome
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				country_has_state_religion = rel:orthodox
+			}
+			s:STATE_LAZIO = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_rome
+						prodution_method = pm_eocfm_patriarchate_rome
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_has_state_religion = rel:orthodox
+				}
+			}
+			s:STATE_LAZIO = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = eocfm_building_patriarchate_rome
+						prodution_method = pm_eocfm_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+	
 }
 
 
