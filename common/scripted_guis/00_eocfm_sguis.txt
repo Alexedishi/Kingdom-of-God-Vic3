@@ -420,7 +420,7 @@ eocfm_declare_autocephaly_sgui = {
 				}
 			}
 			custom_tooltip = {
-				text = eocfm_unite_romania_tt
+				text = eocfm_romania_united
 				hidden_trigger = {
 					c:ROM ?= this
 				}
@@ -482,19 +482,19 @@ eocfm_convoke_council_sgui = {
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_convoke_council_tt1
+			text = eocfm_council_counter_below_4
 			hidden_trigger = {
 				global_var:eocfm_council_var < 4
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_convoke_council_tt2
+			text = eocfm_theological_matter
 			hidden_trigger = {
 				eocfm_can_host_council_trigger = yes
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_convoke_council_tt3
+			text = eocfm_council_active_NOT
 			hidden_trigger = {
 				NOT = {
 					any_country = {
@@ -538,7 +538,7 @@ eocfm_secure_tetrarchy_sgui = {
 	
 	is_valid = {
 		custom_tooltip = {
-			text = eocfm_gui_secure_tetrarchy_tt2
+			text = eocfm_controls_and_owns_tetrarchy
 			hidden_trigger = {
 				eocfm_controls_and_owns_tetrarchy_trigger = yes
 			}
@@ -568,7 +568,7 @@ eocfm_secure_pentarchy_sgui = {
 	
 	is_valid = {
 		custom_tooltip = {
-			text = eocfm_gui_secure_pentarchy_tt2
+			text = eocfm_controls_and_owns_pentarchy
 			hidden_trigger = {
 				eocfm_controls_and_owns_pentarchy_trigger = yes
 			}
