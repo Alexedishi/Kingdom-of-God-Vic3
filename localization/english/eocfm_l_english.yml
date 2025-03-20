@@ -128,8 +128,8 @@
  je_eocfm_the_orthodox_realms_black_sea: "Has completed the #bold Across the Hospitable Sea#! [concept_journal_entry]"
  je_eocfm_the_metropolitan_lands: "The Metropolitan Lands"
  je_eocfm_the_metropolitan_lands_reason: "In the decades following the Ascension of Christ and the missions of the Twelve Apostles, Anatolia served as the cradle of Early Christianity. We will free these lands from the Saracens."
- je_eocfm_the_metropolitan_lands_tt1: "Directly or indirectly control 10 or more states in the Balkans."
- je_eocfm_the_metropolitan_lands_tt2: "Directly or indirectly control 9 or more states in Anatolia."
+ je_eocfm_the_metropolitan_lands_complete_1: "Directly or indirectly control 10 or more states in the Balkans."
+ je_eocfm_the_metropolitan_lands_complete_2: "Directly or indirectly control 9 or more states in Anatolia."
  je_eocfm_the_holy_land: "The Holy Land"
  je_eocfm_the_holy_land_reason: "The Levant is the birthplace of Christianity and the Holiest Lands to our faith. The Patriarchs have both granted and imposed a mandate that we reclaim these lands from their Muslim occupiers."
  je_eocfm_texas_left: "Across the Hospitable Sea"
@@ -630,8 +630,10 @@
  eocfm_controls_jerusalem: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [concept_patriarchal_seat] of $eocfm_jerusalem$"
  eocfm_controls_alexandria: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [concept_patriarchal_seat] of $eocfm_alexandria$"
  eocfm_controls_moscow: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [concept_patriarchal_seat] of $eocfm_moscow$"
- eocfm_needs_controller_tt: "A [concept_country] must have $eocfm_control$ of $eocfm_constantinople$"
+ eocfm_needs_controller: "A [concept_country] must have $eocfm_control$ of $eocfm_constantinople$"
  eocfm_rome_reclaimed: "$eocfm_rome$ is controlled by an [GetReligion('orthodox').GetName [concept_country]"
+ eocfm_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
+ eocfm_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $eocfm_constantinople$"
  
  eocfm_controls_rome_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $eocfm_control$ the [concept_patriarchal_seat] of $eocfm_rome$"
  eocfm_controls_constantinople_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $eocfm_control$ the [concept_patriarchal_seat] of $eocfm_constantinople$"
@@ -675,20 +677,17 @@
  eocfm_has_junior_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater [Concept('concept_ecumenism','$concept_ecumenical_relations$')] with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_junior_seats')] Junior#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
  eocfm_has_senior_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater [Concept('concept_ecumenism','$concept_ecumenical_relations$')] with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_senior_seats')] Senior#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
  
- eocfm_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
- eocfm_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $eocfm_constantinople$"
- 
  eocfm_patriarch_deposed_cooldown: "The #bold Ecumenical Patriarch#! has not been deposed within the last five years."
  eocfm_council_active: "An [concept_ecumenical_council] is currently being held."
  eocfm_council_active_NOT: "An [concept_ecumenical_council] is #bold not#! currently being held."
  eocfm_council_counter_below_4: "There have been less than #variable 4#! councils."
- eocfm_theological_matter: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('je_eocfm_convoke_council_tt')] Theologial Matter#!#! calling the Church's attention."
- eocfm_theological_matter_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_orthodox_realms_tt')] Orthodox Commonwealth#!#!."
+ eocfm_theological_matter: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_theological_matter_list')] Theologial Matter#!#! calling the Church's attention."
+ eocfm_theological_matter_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_declare_commonwealth_possible')] Orthodox Commonwealth#!#!."
  
  eocfm_crusades_enabled: "Enables [Concept('concept_crusades','$concept_crusades$')] against Muslim nations. #italic Theoú thélontos!#!"
  eocfm_ongoing_crusade_NOT: "There is not an ongoing [concept_crusade]"
  
- eocfm_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_east_patriarchal_seats_tt')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
+ eocfm_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
  eocfm_romania_united: "We have #bold United the Principalities#!"
- eocfm_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_east_patriarchal_seats_tt')] Eastern Patriarchates#!#, they will be able to form the #bold Orthodox Commonwealth#!"
+ eocfm_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern Patriarchates#!#, they will be able to form the #bold Orthodox Commonwealth#!"
  
