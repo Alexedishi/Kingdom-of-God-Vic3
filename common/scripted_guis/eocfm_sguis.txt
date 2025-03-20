@@ -601,16 +601,23 @@ eocfm_mend_schism_sgui = {
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_gui_mend_schism_tt2
+			text = eocfm_controls_and_owns_pentarchy
 			hidden_trigger = {
 				eocfm_controls_and_owns_pentarchy_trigger = yes
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_gui_mend_schism_tt3
+			text = eocfm_mending_started_NOT
 			hidden_trigger = {
-				NOR = {
+				NOT = {
 					has_global_variable = eocfm_mending_started
+				}
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_mending_completed_NOT
+			hidden_trigger = {
+				NOT = {
 					has_global_variable = eocfm_schism_mended
 				}
 			}
@@ -669,7 +676,7 @@ eocfm_seek_mandate_sgui = {
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_has_mandate_tt
+			text = eocfm_has_mandate_NOT
 			hidden_trigger = {
 				eocfm_has_mandate_trigger = no
 			}
@@ -681,7 +688,7 @@ eocfm_seek_mandate_sgui = {
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_has_ecumenical_patriarch_approval_tt
+			text = eocfm_has_ecumenical_patriarch_approval
 			hidden_trigger = {
 				var:eocfm_constantinople_relations_var >= 80
 			}
@@ -745,14 +752,14 @@ eocfm_demand_deposition_sgui = {
 				}
 			}
 			custom_tooltip = {
-				text = eocfm_has_junior_patriarch_approval_tt
+				text = eocfm_has_junior_patriarch_approval
 				hidden_trigger = {
 					eocfm_has_junior_patriarch_approval_trigger = yes
 				}
 			}
 		}
 		custom_tooltip = {
-			text = eocfm_patriarch_deposed_cooldown_tt
+			text = eocfm_patriarch_deposed_cooldown
 			hidden_trigger = {
 				NOT = {
 					has_global_variable = eocfm_patriarch_deposed_var
