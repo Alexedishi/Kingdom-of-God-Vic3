@@ -201,7 +201,7 @@ eocfm.001 = { # The Bishops of the East (Generic)
 	dlc = dlc_eocfm
 	
 	trigger = {
-		country_has_state_religion = rel:orthodox
+		eocfm_is_eastern_christian_trigger = yes
 		NOT = { 
 			has_variable = eocfm_starter_var
 		}
@@ -1042,7 +1042,7 @@ eocfm.100 = { # Country Declaration of Schism
 			limit = {
 				OR = {
 					AND = {
-						country_has_state_religion = rel:orthodox
+						eocfm_is_eastern_christian_trigger = yes
 						NOT = {
 							this = ROOT
 						}
@@ -1392,7 +1392,7 @@ eocfm.107 = { # Autocephaly Completion Technical Event
 			limit = {
 				OR = {
 					AND = {
-						country_has_state_religion = rel:orthodox
+						eocfm_is_eastern_christian_trigger = yes
 						NOT = {
 							this = ROOT
 						}
@@ -1444,7 +1444,7 @@ eocfm.110 = { # Constantinopole Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_constantinople
 				}
@@ -1526,7 +1526,7 @@ eocfm.111 = { # Constantinopole Usurped by Country
 					has_variable = eocfm_integrating_constantinople
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_constantinople
 				}
 			}
@@ -1594,7 +1594,7 @@ eocfm.112 = { # Antioch Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_antioch
 				}
@@ -1676,7 +1676,7 @@ eocfm.113 = { # Antioch Usurped by Country
 					has_variable = eocfm_integrating_antioch
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_antioch
 				}
 			}
@@ -1743,7 +1743,7 @@ eocfm.114 = { # Jerusalem Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_jerusalem
 				}
@@ -1825,7 +1825,7 @@ eocfm.115 = { # Jerusalem Usurped by Country
 					has_variable = eocfm_integrating_jerusalem
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_jerusalem
 				}
 			}
@@ -1892,7 +1892,7 @@ eocfm.116 = { # Alexandria Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_alexandria
 				}
@@ -1974,7 +1974,7 @@ eocfm.117 = { # Alexandria Usurped by Country
 					has_variable = eocfm_integrating_alexandria
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_alexandria
 				}
 			}
@@ -2041,7 +2041,7 @@ eocfm.118 = { # Moscow Claimed by Country
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = {
 					has_variable = eocfm_controls_moscow
 				}
@@ -2123,7 +2123,7 @@ eocfm.119 = { # Moscow Usurped by Country
 					has_variable = eocfm_integrating_moscow
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					has_variable = eocfm_controls_moscow
 				}
 			}
@@ -2235,7 +2235,7 @@ eocfm.121 = { # Council of X
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				NOT = { has_modifier = modifier_eocfm_hosting_council }
 			}
 			trigger_event = {
@@ -2353,7 +2353,7 @@ eocfm.122 = { # Birth of the New Crusades
 			}
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					NOT = { has_modifier = modifier_eocfm_hosting_council }
 				}
 				trigger_event = {
@@ -2415,7 +2415,7 @@ eocfm.123 = { # Epistle to the Easterners
 			}
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					NOT = { has_modifier = modifier_eocfm_hosting_council }
 				}
 				trigger_event = {
@@ -2619,7 +2619,7 @@ eocfm.125 = { # Problems with Phyletism
 			}
 			every_country = {
 				limit = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					NOT = { has_modifier = modifier_eocfm_hosting_council }
 				}
 				trigger_event = {
@@ -3775,7 +3775,7 @@ eocfm.167 = { # Country Demands Deposition
 		}
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			trigger_event = {
 				id = eocfm.168 # Ecumenical Partiarch Deposed
@@ -4877,7 +4877,7 @@ eocfm.300 = { # The Partiarchate Rises
 	immediate = {
 		every_country = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			trigger_event = {
 				id = eocfm.129 # The Byzantine Commonwealth
@@ -5378,7 +5378,7 @@ eocfm.307 = { # The Throne of Saint Peter
 					has_variable = eocfm_integrating_rome
 				}
 				OR = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 					country_has_state_religion = rel:catholic
 				}
 			}
@@ -5546,7 +5546,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 		has_state_in_state_region = STATE_EASTERN_THRACE
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_EASTERN_THRACE = {
 					any_scope_state = {
 						owner = root
@@ -5559,7 +5559,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_EASTERN_THRACE = {
 					any_scope_state = {
@@ -5577,7 +5577,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_EASTERN_THRACE = {
 				random_scope_state = {
@@ -5594,7 +5594,7 @@ eocfm.901 = { # Constantinopole Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_EASTERN_THRACE = {
@@ -5621,7 +5621,7 @@ eocfm.902 = { # Antioch Holy Site Event
 		has_state_in_state_region = STATE_SYRIA
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_SYRIA = {
 					any_scope_state = {
 						owner = root
@@ -5634,7 +5634,7 @@ eocfm.902 = { # Antioch Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_SYRIA = {
 					any_scope_state = {
@@ -5652,7 +5652,7 @@ eocfm.902 = { # Antioch Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_SYRIA = {
 				random_scope_state = {
@@ -5669,7 +5669,7 @@ eocfm.902 = { # Antioch Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_SYRIA = {
@@ -5696,7 +5696,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 		has_state_in_state_region = STATE_PALESTINE
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_PALESTINE = {
 					any_scope_state = {
 						owner = root
@@ -5709,7 +5709,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_PALESTINE = {
 					any_scope_state = {
@@ -5727,7 +5727,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_PALESTINE = {
 				random_scope_state = {
@@ -5744,7 +5744,7 @@ eocfm.903 = { # Jerusalem Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_PALESTINE = {
@@ -5771,7 +5771,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 		has_state_in_state_region = STATE_LOWER_EGYPT
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_LOWER_EGYPT = {
 					any_scope_state = {
 						owner = root
@@ -5784,7 +5784,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_LOWER_EGYPT = {
 					any_scope_state = {
@@ -5802,7 +5802,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_LOWER_EGYPT = {
 				random_scope_state = {
@@ -5819,7 +5819,7 @@ eocfm.904 = { # Alexandria Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_LOWER_EGYPT = {
@@ -5846,7 +5846,7 @@ eocfm.905 = { # Moscow Holy Site Event
 		has_state_in_state_region = STATE_MOSCOW
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_MOSCOW = {
 					any_scope_state = {
 						owner = root
@@ -5859,7 +5859,7 @@ eocfm.905 = { # Moscow Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_MOSCOW = {
 					any_scope_state = {
@@ -5877,7 +5877,7 @@ eocfm.905 = { # Moscow Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_MOSCOW = {
 				random_scope_state = {
@@ -5894,7 +5894,7 @@ eocfm.905 = { # Moscow Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_MOSCOW = {
@@ -5921,7 +5921,7 @@ eocfm.906 = { # Rome Holy Site Event
 		has_state_in_state_region = STATE_LAZIO
 		OR = {
 			AND = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 				s:STATE_LAZIO = {
 					any_scope_state = {
 						owner = root
@@ -5934,7 +5934,7 @@ eocfm.906 = { # Rome Holy Site Event
 			}
 			AND = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 				s:STATE_LAZIO = {
 					any_scope_state = {
@@ -5952,7 +5952,7 @@ eocfm.906 = { # Rome Holy Site Event
 	immediate = {
 		if = {
 			limit = {
-				country_has_state_religion = rel:orthodox
+				eocfm_is_eastern_christian_trigger = yes
 			}
 			s:STATE_LAZIO = {
 				random_scope_state = {
@@ -5969,7 +5969,7 @@ eocfm.906 = { # Rome Holy Site Event
 		else_if = {
 			limit = {
 				NOT = {
-					country_has_state_religion = rel:orthodox
+					eocfm_is_eastern_christian_trigger = yes
 				}
 			}
 			s:STATE_LAZIO = {
