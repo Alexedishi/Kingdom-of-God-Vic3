@@ -20,6 +20,7 @@ eocfm_gui_toogle_effect = {
 	eocfm_update_patriarch_variables_effect = yes
 	eocfm_update_seat_controllers_effect = yes
 	eocfm_check_relations_variables_effect = yes
+	eocfm_update_rite_modifiers_effect = yes
 }
 
 #### SETUP EFFECTS ####
@@ -1139,11 +1140,56 @@ eocfm_update_approval_bonus_effect = {
 
 #### CAESAROPAPISM BONUS/MALUS EFFECT ####
 
-eocfm_update_caesaropapism_bonus_effect = {
-	remove_modifier = modifier_eocfm_base
-	add_modifier = {
-		name = modifier_eocfm_base
-		multiplier = eocfm_caesaropapism_multiplier_value
+eocfm_update_rite_modifiers_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_roman_rite
+		}
+		remove_modifier = modifier_eocfm_roman_rite
+		add_modifier = {
+			name = modifier_eocfm_roman_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_byzantine_rite
+		}
+		remove_modifier = modifier_eocfm_byzantine_rite
+		add_modifier = {
+			name = modifier_eocfm_byzantine_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_alexandrian_rite
+		}
+		remove_modifier = modifier_eocfm_alexandrian_rite
+		add_modifier = {
+			name = modifier_eocfm_alexandrian_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_syriac_rite
+		}
+		remove_modifier = modifier_eocfm_syriac_rite
+		add_modifier = {
+			name = modifier_eocfm_syriac_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_armenian_rite
+		}
+		remove_modifier = modifier_eocfm_armenian_rite
+		add_modifier = {
+			name = modifier_eocfm_armenian_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
 	}
 }
 
@@ -1992,6 +2038,39 @@ eocfm_moscow_replace_effect = {
 }
 
 #### CLEANUP EFFECTS ####
+
+eocfm_remove_rite_modifiers_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_roman_rite
+		}
+		remove_modifier = modifier_eocfm_roman_rite
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_byzantine_rite
+		}
+		remove_modifier = modifier_eocfm_byzantine_rite
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_alexandrian_rite
+		}
+		remove_modifier = modifier_eocfm_alexandrian_rite
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_syriac_rite
+		}
+		remove_modifier = modifier_eocfm_syriac_rite
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_armenian_rite
+		}
+		remove_modifier = modifier_eocfm_armenian_rite
+	}
+}
 
 eocfm_remove_all_modifiers_effect = {
 	remove_modifier ?= modifier_eocfm_hosting_council
