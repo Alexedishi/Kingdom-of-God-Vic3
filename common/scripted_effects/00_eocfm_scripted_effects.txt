@@ -25,33 +25,6 @@ eocfm_gui_toogle_effect = {
 
 #### SETUP EFFECTS ####
 
-eocfm_initialize_patriarchs_relations_effect = {
-	set_variable = {
-		name = eocfm_rome_relations_var
-		value = 0
-	}
-	set_variable = {
-		name = eocfm_constantinople_relations_var
-		value = 0
-	}
-	set_variable = {
-		name = eocfm_antioch_relations_var
-		value = 0
-	}
-	set_variable = {
-		name = eocfm_jerusalem_relations_var
-		value = 0
-	}
-	set_variable = {
-		name = eocfm_alexandria_relations_var
-		value = 0
-	}
-	set_variable = {
-		name = eocfm_moscow_relations_var
-		value = 0
-	}
-}
-
 eocfm_initialize_patriarchs_effect = {
 	if = {
 		limit = {
@@ -167,6 +140,33 @@ eocfm_initialize_patriarchs_effect = {
 				place_character_in_void = 180 # 15 year shelf life
 			}
 		}
+	}
+}
+
+eocfm_initialize_patriarchs_relations_effect = {
+	set_variable = {
+		name = eocfm_rome_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_constantinople_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_antioch_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_jerusalem_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_alexandria_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_moscow_relations_var
+		value = 0
 	}
 }
 
