@@ -155,9 +155,6 @@ eocfm_initialize_metropolis_effect = {
 		}
 	}
 	else = { # TODO Add unique rites functionality
-		limit = {
-			country_has_state_religion = rel:oriental_orthodox
-		}
 		set_variable = {
 			name = eocfm_liturgical_rite_var
 			value = 3 # Coptic
@@ -190,28 +187,6 @@ eocfm_initialize_metropolis_effect = {
 		value = 0
 	}
 	
-	# Last, Fire Opener Events
-	if = {
-		limit = {
-			c:GRE ?= this
-		}
-		trigger_event = {
-			id = eocfm.003 # Greek Holy Synod (GRE)
-		}
-	}
-	else_if = {
-		limit = {
-			c:RUS ?= this
-		}
-		trigger_event = {
-			id = eocfm.004 # Most Holy Synod (RUS)
-		}
-	}
-	else = {
-		trigger_event = {
-			id = eocfm.001 # The Bishops of the East
-		}
-	}
 }
 
 #### SCOPE AND CHARACTER UPKEEP EFFECTS ####
