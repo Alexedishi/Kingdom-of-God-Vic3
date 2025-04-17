@@ -96,32 +96,12 @@
 		eocfm_initialize_patriarchs_effect = yes
 	}
 	
-### Opener Event Triggers	
+### Initialize Variables and First Opener Events	
 	every_country = {
 		limit = {
 			eocfm_is_eastern_christian_trigger = yes
 		}
-		if = {
-			limit = {
-				c:GRE ?= this
-			}
-			trigger_event = {
-				id = eocfm.003 # Greek Holy Synod (GRE)
-			}
-		}
-		else_if = {
-			limit = {
-				c:RUS ?= this
-			}
-			trigger_event = {
-				id = eocfm.004 # Most Holy Synod (RUS)
-			}
-		}
-		else = {
-			trigger_event = {
-				id = eocfm.001 # The Bishops of the East
-			}
-		}
+		eocfm_initialize_metropolis_effect = yes
 	}
 
 ### Final Setup

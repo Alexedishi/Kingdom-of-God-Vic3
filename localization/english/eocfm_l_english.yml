@@ -91,6 +91,12 @@
  custom_eocfm_schismatic: "We are #bold #red In Schism#!#! with Constantinople."
  custom_eocfm_autocephalous: "Our [concept_autocephaly] has #bold #green Been Recognized#!#! by Constantinople."
  
+ custom_eocfm_no_focus: "#bold None#!"
+ custom_eocfm_emphasize_unity_focus: "#bold #green Emphasizing Pan-Orthodox Unity#!#!"
+ custom_eocfm_enforce_attendance_focus: "#bold #red Enforcing Church Attendance#!#!"
+ custom_eocfm_theologize_dogma_focus: "#bold #greece Theologizing Novel Dogma#!#!"
+ custom_eocfm_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
+ 
  # decisions
  
  
@@ -169,11 +175,13 @@
  modifier_eocfm_syriac_rite: "Syriac Rites"
  modifier_eocfm_armenian_rite: "Armenian Rites"
  
- modifier_eocfm_roman_rite_placeholder: "Roman Rites"
- modifier_eocfm_byzantine_rite_placeholder: "Byzantine Rites"
- modifier_eocfm_alexandrian_rite_placeholder: "Alexandrian Rites"
+ modifier_eocfm_roman_rite_placeholder: "Roman Rite"
+ modifier_eocfm_byzantine_rite_placeholder: "Byzantine Rite"
+ modifier_eocfm_alexandrian_rite_placeholder: "Alexandrian Rite"
+ modifier_eocfm_armenian_rite_placeholder: "Armenian Rite"
  modifier_eocfm_syriac_rite_placeholder: "Syriac Rites"
- modifier_eocfm_armenian_rite_placeholder: "Armenian Rites"
+ modifier_eocfm_elysian_rite: "Elysian Rite"
+ modifier_eocfm_mixtec_rite: "Mixtec Rite"
  
  modifier_eocfm_ecumenical_aspirations: "Ecumenical Aspirations"
  modifier_eocfm_ecumenical_aspirations_desc: "Ecumenical Aspirations"
@@ -611,6 +619,12 @@
  eocfm_konak: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_konak_details')] Qudshanis#!#!#!"
  eocfm_konak_details: "" # STATE_DIYARBAKIR - east syriac
  
+ ## Basileia Romaion
+ eocfm_elysium: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_elysium_details')] Elysium#!#!#!"
+ eocfm_elysium_details: "" # STATE_DISTRICT_OF_COLUMBIA
+ 
+ eocfm_yucu_dzaa: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_yucu_dzaa_details')] Yucu Dzaa#!#!#!"
+ eocfm_yucu_dzaa_details: "" # STATE_OAXACA
  
  # tooltips
  eocfm_no_effects: "No immedate effects..."
@@ -635,11 +649,13 @@
  eocfm_byzantine_rite: "@eocfm_rite! #o #tooltip:[GetRawTextTooltipTag('eocfm_byzantine_rite_concept')] Byzantine Rite"
  eocfm_byzantine_rite_concept: "The #bold Byzantine Rite#!, also called the Greek Rite, encompasses the range of rituals and traditions that exemplify the [GetReligion('orthodox').GetName] church. Developed from centuries of syncretism between the traditions of Constantinople and the communities of the Levant, this rite is know for its elaborate and mystical traits."
  eocfm_alexandrian_rite: "@eocfm_rite! #o #tooltip:[GetRawTextTooltipTag('eocfm_alexandrian_rite_concept')] Alexandrian Rite"
- eocfm_alexandrian_rite_concept: "The #bold Alexandrian Rite#! traces its split from the remainder of Christianity to the rejection of the Council of Chalcedon by the [GetReligion('oriental_othorodx').GetName]. Widely "
+ eocfm_alexandrian_rite_concept: "The #bold Alexandrian Rite#! traces its split from the remainder of Christianity to the rejection of the Council of Chalcedon by the [GetReligion('oriental_othorodx').GetName]. This rite is characterized by the use of a variety of liturgies, both historically and in the present."
  eocfm_syriac_rites: "@eocfm_rite! #o #tooltip:[GetRawTextTooltipTag('eocfm_syriac_rites_concept')] Syriac Rites"
- eocfm_syriac_rites_concept: "The #bold Syriac Rites#! consist of two distinct liturigcal traditions that emerged as a result of Christianity spreading eastwards, beyond the lands administered by the Roman Empire. They are both dis"
- eocfm_armenian_rite: "@eocfm_rite! #o #tooltip:[GetRawTextTooltipTag('eocfm_armenian_rite_concept')] Armenian Rites"
+ eocfm_syriac_rites_concept: "The #bold Syriac Rites#! consist of two distinct liturigcal traditions that emerged as a result of Christianity spreading eastwards, beyond the lands administered by the Roman Empire. They are both distinguished by features derived from syncretism with near-Eastern religions outside of the supervision of Rome and Constantinople."
+ eocfm_armenian_rite: "@eocfm_rite! #o #tooltip:[GetRawTextTooltipTag('eocfm_armenian_rite_concept')] Armenian Rite"
  eocfm_armenian_rite_concept: ""
+ eocfm_elysian_rite: "@eocfm_rite! #o #tooltip:[GetRawTextTooltipTag('eocfm_elysian_rite_details')] Elysian Rite"
+ eocfm_elysian_rite_details: ""
  
  eocfm_need_100_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 100#! @eocfm_caesaropapism! [concept_caesaropapism]"
  eocfm_need_200_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 200#! @eocfm_caesaropapism! [concept_caesaropapism]"
