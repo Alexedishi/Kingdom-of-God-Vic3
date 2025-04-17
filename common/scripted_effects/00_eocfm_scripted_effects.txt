@@ -154,7 +154,7 @@ eocfm_initialize_metropolis_effect = {
 			value = 1 # Byzantine
 		}
 	}
-	else_if = { # TODO Add unique rites functionality
+	else = { # TODO Add unique rites functionality
 		limit = {
 			country_has_state_religion = rel:oriental_orthodox
 		}
@@ -207,7 +207,7 @@ eocfm_initialize_metropolis_effect = {
 			id = eocfm.004 # Most Holy Synod (RUS)
 		}
 	}
-	else_if = {
+	else = {
 		trigger_event = {
 			id = eocfm.001 # The Bishops of the East
 		}
@@ -1194,7 +1194,7 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	if = {
 		limit =	{
-			eocfm_liturgical_rite_var ?= 1 # Byzantine
+			var:eocfm_liturgical_rite_var ?= 1 # Byzantine
 		}
 		add_modifier = {
 			name = modifier_eocfm_byzantine_rite
@@ -1203,7 +1203,7 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_liturgical_rite_var ?= 2 # Roman
+			var:eocfm_liturgical_rite_var ?= 2 # Roman
 		}
 		add_modifier = {
 			name = modifier_eocfm_roman_rite
@@ -1212,7 +1212,7 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_liturgical_rite_var ?= 3 # Coptic
+			var:eocfm_liturgical_rite_var ?= 3 # Coptic
 		}
 		add_modifier = {
 			name = modifier_eocfm_alexandrian_rite
@@ -1221,7 +1221,7 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_liturgical_rite_var ?= 4 # Armenian
+			var:eocfm_liturgical_rite_var ?= 4 # Armenian
 		}
 		add_modifier = {
 			name = modifier_eocfm_armenian_rite
@@ -1230,7 +1230,7 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_liturgical_rite_var ?= 5 # Syriac
+			var:eocfm_liturgical_rite_var ?= 5 # Syriac
 		}
 		add_modifier = {
 			name = modifier_eocfm_syriac_rite
@@ -1239,7 +1239,7 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_liturgical_rite_var ?= 6 # Elysian Orthodox
+			var:eocfm_liturgical_rite_var ?= 6 # Elysian Orthodox
 		}
 		add_modifier = {
 			name = modifier_eocfm_elysian_rite
@@ -1289,7 +1289,7 @@ eocfm_change_rite_effect = {
 	# Next Show New Modifier Addition & Update Variable
 	if = {
 		limit =	{
-			eocfm_adoption_rite_var ?= 1 # Byzantine
+			var:eocfm_adoption_rite_var ?= 1 # Byzantine
 		}
 		add_modifier = {
 			name = modifier_eocfm_byzantine_rite
@@ -1302,7 +1302,7 @@ eocfm_change_rite_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_adoption_rite_var ?= 2 # Roman
+			var:eocfm_adoption_rite_var ?= 2 # Roman
 		}
 		add_modifier = {
 			name = modifier_eocfm_roman_rite
@@ -1315,7 +1315,7 @@ eocfm_change_rite_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_adoption_rite_var ?= 3 # Coptic
+			var:eocfm_adoption_rite_var ?= 3 # Coptic
 		}
 		add_modifier = {
 			name = modifier_eocfm_alexandrian_rite
@@ -1328,7 +1328,7 @@ eocfm_change_rite_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_adoption_rite_var ?= 4 # Armenian
+			var:eocfm_adoption_rite_var ?= 4 # Armenian
 		}
 		add_modifier = {
 			name = modifier_eocfm_armenian_rite
@@ -1341,7 +1341,7 @@ eocfm_change_rite_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_adoption_rite_var ?= 5 # Syriac
+			var:eocfm_adoption_rite_var ?= 5 # Syriac
 		}
 		add_modifier = {
 			name = modifier_eocfm_syriac_rite
@@ -1354,7 +1354,7 @@ eocfm_change_rite_effect = {
 	}
 	else_if = {
 		limit =	{
-			eocfm_adoption_rite_var ?= 6 # Elysian Orthodox
+			var:eocfm_adoption_rite_var ?= 6 # Elysian Orthodox
 		}
 		add_modifier = {
 			name = modifier_eocfm_elysian_rite
