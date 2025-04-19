@@ -1,4 +1,31 @@
-﻿eocfm_metropolitan_focus_type = {
+﻿eocfm_denomination_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			country_has_state_religion = rel:orthodox
+		}
+		localization_key = eocfm_gui_main_orthodox
+	}
+	text = {
+		trigger = {
+			country_has_state_religion = rel:oriental_orthodox
+			NOT = {
+				var:eocfm_liturgical_rite_var ?= 5 # Syriac
+			}
+		}
+		localization_key = eocfm_gui_main_oriental_orthodox
+	}
+	text = {
+		trigger = {
+			country_has_state_religion = rel:oriental_orthodox
+			var:eocfm_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = eocfm_gui_main_ancient_east
+	}
+}
+
+eocfm_metropolitan_focus_type = {
 	type = country
 	
 	text = {
