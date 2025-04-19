@@ -105,9 +105,15 @@ eocfm_liturgical_rite_type = {
 	}
 	text = {
 		trigger = {
-			var:eocfm_liturgical_rite_var ?= 6 # Elysian Orthodox
+			var:eocfm_liturgical_rite_var ?= 101 # Elysian
 		}
 		localization_key = eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			var:eocfm_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
 	}
 }
 

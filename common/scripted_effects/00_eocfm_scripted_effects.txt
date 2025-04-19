@@ -1214,10 +1214,19 @@ eocfm_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:eocfm_liturgical_rite_var ?= 6 # Elysian Orthodox
+			var:eocfm_liturgical_rite_var ?= 101 # Elysian
 		}
 		add_modifier = {
 			name = modifier_eocfm_elysian_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:eocfm_liturgical_rite_var ?= 102 # Mixtec
+		}
+		add_modifier = {
+			name = modifier_eocfm_mixtec_rite
 			multiplier = eocfm_caesaropapism_multiplier_value
 		}
 	}
@@ -1329,7 +1338,7 @@ eocfm_change_rite_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:eocfm_adoption_rite_var ?= 6 # Elysian Orthodox
+			var:eocfm_adoption_rite_var ?= 101 # Elysian
 		}
 		add_modifier = {
 			name = modifier_eocfm_elysian_rite
@@ -1337,7 +1346,20 @@ eocfm_change_rite_effect = {
 		}
 		set_variable = {
 			name = eocfm_liturgical_rite_var
-			value = 6 # Syriac
+			value = 101 # Elysian
+		}
+	}
+	else_if = {
+		limit =	{
+			var:eocfm_adoption_rite_var ?= 102 # Mixtec
+		}
+		add_modifier = {
+			name = modifier_eocfm_mixtec_rite
+			multiplier = eocfm_caesaropapism_multiplier_value
+		}
+		set_variable = {
+			name = eocfm_liturgical_rite_var
+			value = 102 # Mixtec
 		}
 	}
 }
