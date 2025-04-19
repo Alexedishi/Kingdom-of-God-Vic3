@@ -7,6 +7,34 @@ eocfm_is_eastern_christian_trigger = {
 	}
 }
 
+eocfm_is_eastern_orthodox_trigger = {
+	country_has_state_religion = rel:orthodox
+}
+
+eocfm_is_oriental_orthodox_trigger = {
+	country_has_state_religion = rel:oriental_orthodox
+}
+
+eocfm_is_oriental_armenian_trigger = {
+	country_has_primary_culture = cu:armenian
+}
+
+eocfm_is_rus_orthodox_trigger = {
+	c:RUS ?= this
+}
+
+eocfm_is_roman_catholic_trigger = {
+	country_has_state_religion = rel:catholic
+}
+
+eocfm_is_elysian_orthodox_trigger = { # Basileia Romaion
+	always = no
+}
+
+eocfm_is_mixtec_orthodox_trigger = { # Basileia Romaion
+	always = no
+}
+
 eocfm_has_icon_trigger = {
 	OR = {
 		has_modifier = modifier_eocfm_icon_christ_pantocrator
@@ -297,6 +325,13 @@ eocfm_has_syriac_rite_trigger = {
 	}
 }
 
+eocfm_has_russian_rite_trigger = {
+	custom_tooltip = {
+		text = eocfm_has_syriac_rite_trigger
+		eocfm_liturgical_rite_var ?= 6 # Russian
+	}
+}
+
 eocfm_has_elysian_rite_trigger = {
 	custom_tooltip = {
 		text = eocfm_has_elysian_rite_trigger
@@ -313,10 +348,15 @@ eocfm_has_mixtec_rite_trigger = {
 
 eocfm_has_same_rite_trigger = {
 	custom_tooltip = {
-		text = eocfm_has_same_rite
-		scope:target = {
-			var:eocfm_liturgical_rite_var = root.var:eocfm_liturgical_rite_var
-		}
+		text = eocfm_has_same_rite_trigger
+		scope:target.var:eocfm_liturgical_rite_var = root.var:eocfm_liturgical_rite_var
+	}
+}
+
+eocfm_has_different_rite_trigger = {
+	custom_tooltip = {
+		text = eocfm_has_different_rite_trigger
+		scope:target.var:eocfm_liturgical_rite_var != root.var:eocfm_liturgical_rite_var
 	}
 }
 
