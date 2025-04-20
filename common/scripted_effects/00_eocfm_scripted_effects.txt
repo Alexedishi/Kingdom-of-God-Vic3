@@ -185,7 +185,7 @@ eocfm_initialize_metropolis_effect = {
 		limit = {
 			eocfm_is_oriental_orthodox_trigger = yes
 		}
-		else_if = {
+		if = {
 			limit = {
 				always = no # TODO set up Syriac Rites
 			}
@@ -994,6 +994,33 @@ eocfm_check_relations_variables_effect = {
 		set_variable = {
 			name = eocfm_moscow_relations_var
 			value = 0
+		}
+	}
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		if  = {
+			limit = {
+				NOT = {
+					has_variable = eocfm_elysium_relations_var
+				}
+			}
+			set_variable = {
+				name = eocfm_elysium_relations_var
+				value = 0
+			}
+		}
+		if  = {
+			limit = {
+				NOT = {
+					has_variable = eocfm_tututepec_relations_var
+				}
+			}
+			set_variable = {
+				name = eocfm_tututepec_relations_var
+				value = 0
+			}
 		}
 	}	
 }
