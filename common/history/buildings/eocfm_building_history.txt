@@ -65,6 +65,29 @@
 		}
 	}
 	
+	## Basileia Romaion Seats
+	if = {
+		limit = {	
+			basileia_is_active = yes
+		}
+		p:x700080 = { # Elysium
+			state = {
+				create_building = {
+					building="eocfm_building_patriarchate_elysium"
+					level=1
+				}
+			}
+		}
+		p:x1BC4D0 = { # Mixtec
+			state = {
+				create_building = {
+					building="eocfm_building_patriarchate_tututepec"
+					level=1
+				}
+			}
+		}
+	}
+	
 	## Great Mosque
 	if = {
 		limit = {
