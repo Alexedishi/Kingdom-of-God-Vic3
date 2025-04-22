@@ -59,6 +59,20 @@ eocfm_monthly_pulse = {
 		eocfm_update_rite_modifiers_effect = yes
 		eocfm_update_approval_bonus_effect = yes
 		eocfm_check_patriarch_modifiers_effect = yes
+		if = { # Adds the Orthodox button to the community sidebar
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:eocfm_sidebar_button_sgui
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:eocfm_sidebar_button_sgui
+			}
+		}
 	}
 }
 

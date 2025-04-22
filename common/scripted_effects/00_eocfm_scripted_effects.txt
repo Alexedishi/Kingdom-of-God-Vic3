@@ -347,7 +347,7 @@ eocfm_initialize_metropolis_effect = {
 			value = 0
 		}
 		set_variable = {
-			name = eocfm_tututepec_opinion_var
+			name = eocfm_mixtec_opinion_var
 			value = 0
 		}
 	}
@@ -386,7 +386,7 @@ eocfm_initialize_metropolis_effect = {
 			value = 0
 		}
 		set_variable = {
-			name = eocfm_tututepec_relations_var
+			name = eocfm_mixtec_relations_var
 			value = 0
 		}
 	}
@@ -1302,7 +1302,7 @@ eocfm_update_seat_controllers_effect = {
 		}
 	}
 	if = {	
-		limit {
+		limit = {
 			basileia_is_active = yes
 		}
 		if = {
@@ -1339,6 +1339,7 @@ eocfm_update_seat_controllers_effect = {
 				}
 			}
 		}
+	}
 }
 
 eocfm_update_patriarch_opinions_effect = {
@@ -1375,8 +1376,8 @@ eocfm_update_patriarch_opinions_effect = {
 			value = eocfm_elysium_opinion_value
 		}
 		set_variable = {
-			name = eocfm_tututepec_opinion_var
-			value = eocfm_tututepec_opinion_value
+			name = eocfm_mixtec_opinion_var
+			value = eocfm_mixtec_opinion_value
 		}
 	}
 }
