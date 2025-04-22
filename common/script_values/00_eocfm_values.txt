@@ -497,58 +497,117 @@ eocfm_schism_progress_value = {
 	max = 10
 }
 
-eocfm_rome_progress_value = {
+## Patriarch Opinion Values
+
+eocfm_rome_opinion_value = {
 	value = 0
-	subtract = {
-		value = 0.5
-		desc = eocfm_value_from_base_decay
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_rome
+			has_law = law_type:law_freedom_of_conscience
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_swaying_seat
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
 		}
-
 	}
 	if = {
 		limit = {
 			has_variable = eocfm_controls_rome
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_controlling_seat
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_rome_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_rome_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_rome
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_having_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_rome_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
 		}
 	}
 }
 
-eocfm_constantinople_progress_value = {
+eocfm_constantinople_opinion_value = {
 	value = 0
-	subtract = {
-		value = 0.5
-		desc = eocfm_value_from_base_decay
-	}
+	
+	# Sources
 	if = {
 		limit = {
-			NOR = {
-				has_variable = eocfm_is_autocephalous
-				has_variable = eocfm_schism_var
-			}
+			has_law = law_type:law_state_religion
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_communion
+			value = 20
+			desc = eocfm_value_from_state_religion
 		}
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_constantinople
+			has_law = law_type:law_freedom_of_conscience
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_swaying_seat
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
 		}
 	}
 	if = {
@@ -556,34 +615,88 @@ eocfm_constantinople_progress_value = {
 			has_variable = eocfm_controls_constantinople
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_controlling_seat
+			value = 10
+			desc = eocfm_value_from_seat_control
 		}
 	}
 	if = {
 		limit = {
-			has_variable = eocfm_schism_var
+			var:eocfm_liturgical_rite_var = global_var:eocfm_constantinople_liturgical_rite_var
 		}
-		subtract = {
-			value = 1.0
-			desc = eocfm_value_from_schism
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_constantinople_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_constantinople
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_constantinople_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
 		}
 	}
 }
 
-eocfm_antioch_progress_value = {
+eocfm_antioch_opinion_value = {
 	value = 0
-	subtract = {
-		value = 0.5
-		desc = eocfm_value_from_base_decay
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_antioch
+			has_law = law_type:law_freedom_of_conscience
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_swaying_seat
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
 		}
 	}
 	if = {
@@ -591,25 +704,88 @@ eocfm_antioch_progress_value = {
 			has_variable = eocfm_controls_antioch
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_controlling_seat
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_antioch_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_antioch_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_antioch
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_antioch_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
 		}
 	}
 }
 
-eocfm_jerusalem_progress_value = {
+eocfm_jerusalem_opinion_value = {
 	value = 0
-	subtract = {
-		value = 0.5
-		desc = eocfm_value_from_base_decay
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_jerusalem
+			has_law = law_type:law_freedom_of_conscience
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_swaying_seat
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
 		}
 	}
 	if = {
@@ -617,25 +793,88 @@ eocfm_jerusalem_progress_value = {
 			has_variable = eocfm_controls_jerusalem
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_controlling_seat
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_jerusalem_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_jerusalem_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_jerusalem
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_jerusalem_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
 		}
 	}
 }
 
-eocfm_alexandria_progress_value = {
+eocfm_alexandria_opinion_value = {
 	value = 0
-	subtract = {
-		value = 0.5
-		desc = eocfm_value_from_base_decay
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_alexandria
+			has_law = law_type:law_freedom_of_conscience
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_swaying_seat
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
 		}
 	}
 	if = {
@@ -643,25 +882,88 @@ eocfm_alexandria_progress_value = {
 			has_variable = eocfm_controls_alexandria
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_controlling_seat
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_alexandria_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_alexandria_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_alexandria
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_alexandria_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
 		}
 	}
 }
 
-eocfm_moscow_progress_value = {
+eocfm_moscow_opinion_value = {
 	value = 0
-	subtract = {
-		value = 0.5
-		desc = eocfm_value_from_base_decay
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_moscow
+			has_law = law_type:law_freedom_of_conscience
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_swaying_seat
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
 		}
 	}
 	if = {
@@ -669,10 +971,242 @@ eocfm_moscow_progress_value = {
 			has_variable = eocfm_controls_moscow
 		}
 		add = {
-			value = 1.0
-			desc = eocfm_value_from_controlling_seat
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_moscow_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_moscow_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_moscow
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_moscow_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
 		}
 	}
 }
 
-######
+eocfm_elysium_opinion_value = {
+	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_elysium
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_elysium_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_elysium_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_elysium
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_elysium_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
+		}
+	}
+}
+
+eocfm_tututepec_opinion_value = {
+	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = eocfm_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_mixtec
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var = global_var:eocfm_mixtec_liturgical_rite_var
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_matching_liturgial_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = var:eocfm_mixtec_relations_var
+		desc = eocfm_from_relations_improved
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_mixtec
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			var:eocfm_liturgical_rite_var != global_var:eocfm_mixtec_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_differing_liturgial_rite
+		}
+	}
+}
