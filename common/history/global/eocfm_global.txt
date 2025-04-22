@@ -23,9 +23,21 @@
 			set_variable = eocfm_controls_constantinople
 		}
 	}
-	p:x186A43 = { # Antioch
-		owner = {
-			set_variable = eocfm_controls_antioch
+	if = { # Antioch in BR
+		limit = {
+			basileia_is_active = yes
+		}
+		p:xE01160 = {
+			owner = {
+				set_variable = eocfm_controls_antioch
+			}
+		}
+	}
+	else = { # Antioch in Reality
+		p:x186A43 = { # Antioch
+			owner = {
+				set_variable = eocfm_controls_antioch
+			}
 		}
 	}
 	p:xC9CBC0 = { # Jerusalem
@@ -46,6 +58,21 @@
 	p:xB040A0 = { # Rome
 		owner = {
 			set_variable = eocfm_controls_rome
+		}
+	}
+	if = {
+		limit = {	
+			basileia_is_active = yes
+		}
+		p:x700080 = { # Elysium
+			owner = {
+				set_variable = eocfm_controls_elysium
+			}
+		}
+		p:x1BC4D0 = { # Mixtec
+			owner = {
+				set_variable = eocfm_controls_mixtec
+			}
 		}
 	}
 
