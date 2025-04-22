@@ -165,6 +165,7 @@ eocfm_rome_controller_type = {
 	
 	text = {
 		trigger = {
+			has_variable = eocfm_rome_controller_var
 			exists = var:eocfm_rome_controller_var
 		}
 		localization_key = custom_eocfm_rome_owner1
@@ -187,6 +188,7 @@ eocfm_constantinople_controller_type = {
 	
 	text = {
 		trigger = {
+			has_variable = eocfm_constantinople_controller_var
 			exists = var:eocfm_constantinople_controller_var
 		}
 		localization_key = custom_eocfm_constantinople_owner1
@@ -209,6 +211,7 @@ eocfm_antioch_controller_type = {
 	
 	text = {
 		trigger = {
+			has_variable = eocfm_antioch_controller_var
 			exists = var:eocfm_antioch_controller_var
 		}
 		localization_key = custom_eocfm_antioch_owner1
@@ -231,6 +234,7 @@ eocfm_jerusalem_controller_type = {
 	
 	text = {
 		trigger = {
+			has_variable = eocfm_jerusalem_controller_var
 			exists = var:eocfm_jerusalem_controller_var
 		}
 		localization_key = custom_eocfm_jerusalem_owner1
@@ -253,6 +257,7 @@ eocfm_alexandria_controller_type = {
 	
 	text = {
 		trigger = {
+			has_variable = eocfm_alexandria_controller_var
 			exists = var:eocfm_alexandria_controller_var
 		}
 		localization_key = custom_eocfm_alexandria_owner1
@@ -275,6 +280,7 @@ eocfm_moscow_controller_type = {
 	
 	text = {
 		trigger = {
+			has_variable = eocfm_moscow_controller_var
 			exists = var:eocfm_moscow_controller_var
 		}
 		localization_key = custom_eocfm_moscow_owner1
@@ -288,6 +294,52 @@ eocfm_moscow_controller_type = {
 			}
 		}
 		localization_key = custom_eocfm_moscow_owner2
+	}
+	
+}
+
+eocfm_elysium_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_elysium_controller_var
+			exists = var:eocfm_elysium_controller_var
+		}
+		localization_key = custom_eocfm_elysium_owner1
+	}
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_elysium_controller_var
+				exists = var:eocfm_elysium_controller_var
+			}
+		}
+		localization_key = custom_eocfm_elysium_owner2
+	}
+	
+}
+
+eocfm_mixtec_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_mixtec_controller_var
+			exists = var:eocfm_mixtec_controller_var
+		}
+		localization_key = custom_eocfm_mixtec_owner1
+	}
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_mixtec_controller_var
+				exists = var:eocfm_mixtec_controller_var
+			}
+		}
+		localization_key = custom_eocfm_mixtec_owner2
 	}
 	
 }
@@ -335,6 +387,20 @@ eocfm_seat_event_type = {
 			has_variable = eocfm_moscow_event_var
 		}
 		localization_key = custom_eocfm_moscow
+	}
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_elysium_event_var
+		}
+		localization_key = custom_eocfm_elysium
+	}
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_mixtec_event_var
+		}
+		localization_key = custom_eocfm_mixtec
 	}
 	
 }
