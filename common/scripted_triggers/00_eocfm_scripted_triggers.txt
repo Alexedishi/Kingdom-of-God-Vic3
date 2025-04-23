@@ -1,9 +1,25 @@
 ﻿#### GENERAL TRIGGERS
 
+## Religion Macro-group Trigger
+eocfm_is_christian_trigger = {
+	OR = {
+		eocfm_is_roman_catholic_trigger = yes
+		eocfm_is_eastern_orthodox_trigger = yes
+		eocfm_is_oriental_orthodox_trigger = yes
+		eocfm_is_elysian_orthodox_trigger = yes
+	}
+}
+
+## Religion Key Triggers
+eocfm_is_roman_catholic_trigger = {
+	country_has_state_religion = rel:catholic
+}
+
 eocfm_is_eastern_christian_trigger = {
 	OR = {
 		country_has_state_religion = rel:orthodox
 		country_has_state_religion = rel:oriental_orthodox
+		eocfm_is_elysian_orthodox_trigger = yes
 	}
 }
 
@@ -15,16 +31,13 @@ eocfm_is_oriental_orthodox_trigger = {
 	country_has_state_religion = rel:oriental_orthodox
 }
 
+## Denominational Triggers
 eocfm_is_oriental_armenian_trigger = {
-	country_has_primary_culture = cu:armenian
+	var:eocfm_liturgical_rite_var ?= 4 # Armenian
 }
 
 eocfm_is_rus_orthodox_trigger = {
-	c:RUS ?= this
-}
-
-eocfm_is_roman_catholic_trigger = {
-	country_has_state_religion = rel:catholic
+	var:eocfm_liturgical_rite_var ?= 6 # Russian
 }
 
 eocfm_is_elysian_orthodox_trigger = { # Basileia Romaion
@@ -32,9 +45,11 @@ eocfm_is_elysian_orthodox_trigger = { # Basileia Romaion
 }
 
 eocfm_is_mixtec_orthodox_trigger = { # Basileia Romaion
-	always = no
+	eocfm_is_elysian_orthodox_trigger = yes
+	var:eocfm_liturgical_rite_var ?= 102 # Mixtec
 }
 
+## General Triggers
 eocfm_has_icon_trigger = {
 	OR = {
 		has_modifier = modifier_eocfm_icon_christ_pantocrator

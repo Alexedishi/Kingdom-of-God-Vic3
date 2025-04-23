@@ -8,6 +8,7 @@ eocfm_gui_toogle_effect = {
 	eocfm_update_patriarch_variables_effect = yes
 	eocfm_update_patriarch_opinions_effect = yes
 	eocfm_update_rite_modifiers_effect = yes
+	eocfm_update_seat_controllers_effect = yes
 }
 
 #### History Initialization Effects
@@ -277,15 +278,6 @@ eocfm_initialize_metropolis_effect = {
 			}
 		}
 	}
-	else_if = { # Safety option incase a Catholic tag gets passed
-		limit = {
-			eocfm_is_roman_catholic_trigger = yes
-		}
-		set_variable = {
-			name = eocfm_liturgical_rite_var
-			value = 2 # Roman
-		}
-	}
 	else_if = { # Basileia Romaion Rites
 		limit = {
 			eocfm_is_elysian_orthodox_trigger = yes
@@ -309,7 +301,7 @@ eocfm_initialize_metropolis_effect = {
 	else = {
 		set_variable = {
 			name = eocfm_liturgical_rite_var
-			value = 1 # Byzantine
+			value = 2 # Roman
 		}
 	}
 	

@@ -318,7 +318,7 @@ widget = {
 			}
 		}
 		
-		### CONTENT WRAPPER
+		### Orthodox Widget Wrapper
 		vbox = {
 			datacontext = "[AccessPlayer]"
 			layoutpolicy_vertical = expanding
@@ -333,13 +333,13 @@ widget = {
 			using = clickthrough_blocker
 			using = default_fade_in_out
 			
-			### ORTHODOX WIDGET CONTENT
+			### Orthodox Widget Content
 			hbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 				spacing = 5
 				
-				### CAESAROPAPISM & AUTOCEPHALY STATUS
+				### Caesaropapism & Autocephaly Status
 				vbox = {
 					layoutstretchfactor_horizontal = 1
 					layoutpolicy_horizontal = expanding
@@ -386,13 +386,13 @@ widget = {
 						}
 					}
 					
-					### METROPOLITAN STATS AND HOLY SITES
+					### Metropolitan Character Panel and Stats
 					vbox = {
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 						margin = { 5 5 }
 						
-						# Metropolitan Portrait
+						# Metropolitan Portrait & Church Details
 						character_with_background = {
 							visible = "[Country.HasRuler]"
 							datacontext = "[GetPlayer.MakeScope.Var('eocfm_devout_leader_var').GetCharacter]"
@@ -408,7 +408,7 @@ widget = {
 								size = { 110% 110% }
 							}
 							
-							# ruler stats
+							# Ruler Stats Container
 							flowcontainer = {
 								parentanchor = right|bottom
 								position = { -5 -15 }
@@ -439,7 +439,7 @@ widget = {
 										}
 									}
 									blockoverride "label" {
-										raw_text = "#o Metropolitan#!"
+										raw_text = "[concept_metropolitan_bishop]"
 									}
 									blockoverride "text" {
 										text = "[Character.GetFullName]"
@@ -505,7 +505,7 @@ widget = {
 							}
 						}
 						
-						### HOLY SITES
+						### Holy Sites Panel
 						vbox = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = preferred
@@ -520,7 +520,7 @@ widget = {
 								layoutpolicy_horizontal = expanding
 								size = { 0 44 }
 								blockoverride "text" {
-									raw_text = "Holy Sites"
+									raw_text = "[concept_holy_site]#o s#!"
 								}
 							}
 							

@@ -18,6 +18,14 @@
 	eocfm_specific_country_setups_effect = yes
 	
 ### Seat Control Initialization
+	# Catholic Church Seats
+	p:xB040A0 = { # Rome
+		owner = {
+			set_variable = eocfm_controls_rome
+		}
+	}
+	
+	# Orthodox Church Seats
 	p:xF0A020 = { # Constantinople
 		owner = {
 			set_variable = eocfm_controls_constantinople
@@ -55,11 +63,11 @@
 			set_variable = eocfm_controls_moscow
 		}
 	}
-	p:xB040A0 = { # Rome
-		owner = {
-			set_variable = eocfm_controls_rome
-		}
-	}
+	
+	# Oriental Orthodox Church Seats
+	
+	
+	# Elysian Orthodox Seats
 	if = {
 		limit = {	
 			basileia_is_active = yes
@@ -87,7 +95,7 @@
 ### Initialize Variables and First Opener Events	
 	every_country = {
 		limit = {
-			eocfm_is_eastern_christian_trigger = yes
+			eocfm_is_christian_trigger = yes
 		}
 		eocfm_initialize_metropolis_effect = yes
 	}
