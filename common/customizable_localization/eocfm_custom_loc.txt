@@ -89,7 +89,7 @@ eocfm_liturgical_rite_type = {
 		trigger = {
 			var:eocfm_liturgical_rite_var ?= 3 # Coptic
 		}
-		localization_key = modifier_eocfm_alexandrian_rite
+		localization_key = custom_eocfm_alexandrian_rite
 	}
 	text = {
 		trigger = {
@@ -113,7 +113,7 @@ eocfm_liturgical_rite_type = {
 		trigger = {
 			var:eocfm_liturgical_rite_var ?= 101 # Elysian
 		}
-		localization_key = eocfm_elysian_rite
+		localization_key = custom_eocfm_elysian_rite
 	}
 	text = {
 		trigger = {
@@ -168,7 +168,7 @@ eocfm_rome_controller_type = {
 			has_variable = eocfm_rome_controller_var
 			exists = var:eocfm_rome_controller_var
 		}
-		localization_key = custom_eocfm_rome_owner1
+		localization_key = custom_eocfm_rome_owner
 	}
 	
 	text = {
@@ -178,7 +178,7 @@ eocfm_rome_controller_type = {
 				exists = var:eocfm_rome_controller_var
 			}
 		}
-		localization_key = custom_eocfm_rome_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -191,7 +191,7 @@ eocfm_constantinople_controller_type = {
 			has_variable = eocfm_constantinople_controller_var
 			exists = var:eocfm_constantinople_controller_var
 		}
-		localization_key = custom_eocfm_constantinople_owner1
+		localization_key = custom_eocfm_constantinople_owner
 	}
 	
 	text = {
@@ -201,7 +201,7 @@ eocfm_constantinople_controller_type = {
 				exists = var:eocfm_constantinople_controller_var
 			}
 		}
-		localization_key = custom_eocfm_constantinople_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -214,7 +214,7 @@ eocfm_antioch_controller_type = {
 			has_variable = eocfm_antioch_controller_var
 			exists = var:eocfm_antioch_controller_var
 		}
-		localization_key = custom_eocfm_antioch_owner1
+		localization_key = custom_eocfm_antioch_owner
 	}
 	
 	text = {
@@ -224,7 +224,7 @@ eocfm_antioch_controller_type = {
 				exists = var:eocfm_antioch_controller_var
 			}
 		}
-		localization_key = custom_eocfm_antioch_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -237,7 +237,7 @@ eocfm_jerusalem_controller_type = {
 			has_variable = eocfm_jerusalem_controller_var
 			exists = var:eocfm_jerusalem_controller_var
 		}
-		localization_key = custom_eocfm_jerusalem_owner1
+		localization_key = custom_eocfm_jerusalem_owner
 	}
 	
 	text = {
@@ -247,7 +247,7 @@ eocfm_jerusalem_controller_type = {
 				exists = var:eocfm_jerusalem_controller_var
 			}
 		}
-		localization_key = custom_eocfm_jerusalem_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -260,7 +260,7 @@ eocfm_alexandria_controller_type = {
 			has_variable = eocfm_alexandria_controller_var
 			exists = var:eocfm_alexandria_controller_var
 		}
-		localization_key = custom_eocfm_alexandria_owner1
+		localization_key = custom_eocfm_alexandria_owner
 	}
 	
 	text = {
@@ -270,7 +270,7 @@ eocfm_alexandria_controller_type = {
 				exists = var:eocfm_alexandria_controller_var
 			}
 		}
-		localization_key = custom_eocfm_alexandria_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -283,7 +283,7 @@ eocfm_moscow_controller_type = {
 			has_variable = eocfm_moscow_controller_var
 			exists = var:eocfm_moscow_controller_var
 		}
-		localization_key = custom_eocfm_moscow_owner1
+		localization_key = custom_eocfm_moscow_owner
 	}
 	
 	text = {
@@ -293,7 +293,7 @@ eocfm_moscow_controller_type = {
 				exists = var:eocfm_moscow_controller_var
 			}
 		}
-		localization_key = custom_eocfm_moscow_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -306,7 +306,7 @@ eocfm_elysium_controller_type = {
 			has_variable = eocfm_elysium_controller_var
 			exists = var:eocfm_elysium_controller_var
 		}
-		localization_key = custom_eocfm_elysium_owner1
+		localization_key = custom_eocfm_elysium_owner
 	}
 	
 	text = {
@@ -316,7 +316,7 @@ eocfm_elysium_controller_type = {
 				exists = var:eocfm_elysium_controller_var
 			}
 		}
-		localization_key = custom_eocfm_elysium_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -329,7 +329,7 @@ eocfm_mixtec_controller_type = {
 			has_variable = eocfm_mixtec_controller_var
 			exists = var:eocfm_mixtec_controller_var
 		}
-		localization_key = custom_eocfm_mixtec_owner1
+		localization_key = custom_eocfm_mixtec_owner
 	}
 	
 	text = {
@@ -339,7 +339,7 @@ eocfm_mixtec_controller_type = {
 				exists = var:eocfm_mixtec_controller_var
 			}
 		}
-		localization_key = custom_eocfm_mixtec_owner2
+		localization_key = custom_eocfm_no_owner
 	}
 	
 }
@@ -403,4 +403,430 @@ eocfm_seat_event_type = {
 		localization_key = custom_eocfm_mixtec
 	}
 	
+}
+
+#### Liturgical Rite Types
+
+eocfm_rome_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_rome_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_constantinople_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_constantinople_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_antioch_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_antioch_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_jerusalem_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_jerusalem_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_alexandria_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_alexandria_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_moscow_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_moscow_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_elysium_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_elysium_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
+}
+
+eocfm_mixtec_liturgical_rite_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 1 # Byzantine
+		}
+		localization_key = custom_eocfm_byzantine_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 2 # Roman
+		}
+		localization_key = custom_eocfm_roman_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 3 # Coptic
+		}
+		localization_key = custom_eocfm_alexandrian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 4 # Armenian
+		}
+		localization_key = custom_eocfm_armenian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 5 # Syriac
+		}
+		localization_key = custom_eocfm_syriac_rites
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 6 # Russian
+		}
+		localization_key = custom_eocfm_russian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 101 # Elysian
+		}
+		localization_key = custom_eocfm_elysian_rite
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_mixtec_liturgical_rite_var ?= 102 # Mixtec
+		}
+		localization_key = custom_eocfm_mixtec_rite
+	}
 }

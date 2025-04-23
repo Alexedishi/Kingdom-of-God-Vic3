@@ -38,7 +38,7 @@ eocfm_initialize_patriarchs_effect = {
 		# Rome
 		set_global_variable = {
 			name = eocfm_rome_liturgical_rite_var
-			value = 1 # Byzantine
+			value = 2 # Roman
 		}
 		
 		# Constantinople
@@ -146,7 +146,7 @@ eocfm_initialize_patriarchs_effect = {
 		# Rome
 		set_global_variable = {
 			name = eocfm_rome_liturgical_rite_var
-			value = 1 # Byzantine
+			value = 2 # Roman
 		}
 		
 		# Constantinople
@@ -1183,7 +1183,7 @@ eocfm_replace_mixtec_patriarch_effect = {
 			min = 0
 			max = 50
 		}
-		post_notification = notification_eocfm_elysium_replaced
+		post_notification = notification_eocfm_mixtec_replaced
 	}
 }
 
@@ -1310,16 +1310,16 @@ eocfm_update_seat_controllers_effect = {
 				any_country = {
 					has_variable = eocfm_controls_elysium
 				}
-				random_country = {
-					limit = {
-						has_variable = eocfm_controls_elysium
-					}
-					save_scope_as = eocfm_elysium_controller_scope
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_elysium
 				}
-				set_variable = {
-					name = eocfm_elysium_controller_var
-					value = scope:eocfm_elysium_controller_scope
-				}
+				save_scope_as = eocfm_elysium_controller_scope
+			}
+			set_variable = {
+				name = eocfm_elysium_controller_var
+				value = scope:eocfm_elysium_controller_scope
 			}
 		}
 		if = {
@@ -1327,16 +1327,16 @@ eocfm_update_seat_controllers_effect = {
 				any_country = {
 					has_variable = eocfm_controls_mixtec
 				}
-				random_country = {
-					limit = {
-						has_variable = eocfm_controls_mixtec
-					}
-					save_scope_as = eocfm_mixtec_controller_scope
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_mixtec
 				}
-				set_variable = {
-					name = eocfm_mixtec_controller_var
-					value = scope:eocfm_elysium_controller_scope
-				}
+				save_scope_as = eocfm_mixtec_controller_scope
+			}
+			set_variable = {
+				name = eocfm_mixtec_controller_var
+				value = scope:eocfm_elysium_controller_scope
 			}
 		}
 	}
