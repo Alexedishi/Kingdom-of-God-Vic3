@@ -25,6 +25,8 @@
  eocfm_gui_eocfm_focus_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_metropolitan_focus_type')]"
  eocfm_gui_liturgical_rite_header: "@eocfm_rite! [concept_liturgical_rite]:"
  eocfm_gui_liturgical_rite_type: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_liturgical_rite_type')]"
+ eocfm_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('eocfm_gui_religious_law_tooltip')] Religious Law#!#!"
+ eocfm_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_church_and_state').GetDesc]"
  
  # GUI Metropolitan Buttons
  eocfm_gui_commission_icon_button: "We can use some of our influence over the Church to commission icons to inspire the faithful. These icons will endure for 10 years before needing replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"

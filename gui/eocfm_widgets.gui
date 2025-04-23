@@ -419,7 +419,7 @@ widget = {
 								
 								background = {
 									using = dark_area
-									alpha = 0.75
+									alpha = 0.95
 									
 									modify_texture = {
 										texture = "gfx/interface/masks/fade_horizontal_left_full.dds"
@@ -429,8 +429,6 @@ widget = {
 							
 								### Metropolitan Title
 								ruler_stats_entry = {
-									raw_tooltip = "Priest"
-
 									blockoverride "ruler_icon" {
 										widget = {
 											size = { 35 35 }
@@ -454,7 +452,7 @@ widget = {
 											size = { 35 35 }
 											icon = {
 												size = { 100% 100% }
-												texture = "gfx/interface/icons/religion_icons/orthodox.dds"
+												texture = "[GetPlayer.GetStateReligion.GetTexture]"
 											}
 										}
 									}
@@ -493,15 +491,15 @@ widget = {
 											size = { 35 35 }
 											icon = {
 												size = { 100% 100% }
-												texture = "gfx/interface/icons/law_icons/state_religion.dds"
+												texture = "[AccessPlayer.AccessActiveLawFromGroup('lawgroup_church_and_state').GetTexture]"
 											}
 										}
 									}
 									blockoverride "label" {
-										raw_text = "#o Religious Law#!"
+										text = "eocfm_gui_religious_law_header"
 									}
 									blockoverride "text" {
-										raw_text = "#yellow State Religion#!"
+										raw_text = "[AccessPlayer.AccessActiveLawFromGroup('lawgroup_church_and_state').GetName]"
 									}
 								}
 							}
@@ -526,83 +524,461 @@ widget = {
 								}
 							}
 							
-							hbox = {
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = preferred
-								spacing = 5
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-									tooltip = "eocfm_rome"
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
+							textbox = {
+								text = "eocfm_gui_holy_site_count"
+								autoresize = yes
+								elide = right
+								using = fontsize_large
 							}
+							
+							# Catholic Holy Sites
 							hbox = {
 								layoutpolicy_horizontal = expanding
 								layoutpolicy_vertical = preferred
 								spacing = 5
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
+								
+								# Rome
+								widget = {
+									size = { 100 100 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_rome').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 100 100 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_rome.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_rome').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_rome_control_status"
 								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
+								
+								vertical_divider_full = {}
+								
+								# Santiago
+								widget = {
 									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_santiago').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_santiago.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_santiago').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_santiago_control_status"
 								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
+								
+								# Paris
+								widget = {
 									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_paris').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_paris.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_paris').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_paris_control_status"
 								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
+								
+								# Cologne / Koln
+								widget = {
 									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_koln').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_koln.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_koln').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_koln_control_status"
 								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
+								
+								# Vienna
+								widget = {
 									size = { 75 75 }
-								}
-							}
-							hbox = {
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = preferred
-								spacing = 5
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
-								}
-								icon = {
-									texture = "gfx/interface/icons/alert_icons/alert_button.dds"
-									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_vienna').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_vienna.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_vienna').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_vienna_control_status"
 								}
 							}
 							
+							# Orthodox Holy Sites
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = preferred
+								spacing = 5
+								
+								datacontext = "[AccessPlayer]"
+								
+								# Constantinople
+								widget = {
+									size = { 100 100 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_constantinople').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 100 100 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_constantinople.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_constantinople').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_constantinople_control_status"
+								}
+								
+								vertical_divider_full = {}
+								
+								# Antioch
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_antioch').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_antioch.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_antioch').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_antioch_control_status"
+								}
+								
+								# Jerusalem
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_jerusalem').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_jerusalem.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_jerusalem').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_jerusalem_control_status"
+								}
+								
+								# Alexandria
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_alexandria').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_alexandria.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_alexandria').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_alexandria_control_status"
+								}
+								
+								# Moscow
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_moscow').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_moscow.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_moscow').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_moscow_control_status"
+								}
+							}
+							
+							# Oriental Orthodox Holy Sites
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = preferred
+								spacing = 5
+								
+								# Coptic Alexandria
+								widget = {
+									size = { 100 100 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_coptic_alexandria').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 100 100 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_coptic_alexandria.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_coptic_alexandria').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_coptic_alexandria_control_status"
+								}
+								
+								vertical_divider_full = {}
+								
+								# Syric Antioch
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_syriac_antioch').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_syriac_antioch.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_syriac_antioch').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_syriac_antioch_control_status"
+								}
+								
+								# Etchmiadzin
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_etchmiadzin').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_etchmiadzin.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_etchmiadzin').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_etchmiadzin_control_status"
+								}
+								
+								# Addis Ababa
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_addis_ababa').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_addis_ababa.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_addis_ababa').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_addis_ababa_control_status"
+								}
+								
+								# Konak
+								widget = {
+									size = { 75 75 }
+									
+									icon = {
+										visible = "[GetPlayer.MakeScope.Var('eocfm_controls_konak').IsSet]"
+										using = selected_sidepanel_animation
+										size = { 90% 90% }
+										alwaystransparent = yes
+										parentanchor = center
+										using = default_fade_in_out
+									}
+									icon = {
+										size = { 75 75 }
+										texture = "gfx/interface/icons/gui_icons/holy_site_konak.dds"
+										
+										modify_texture = {
+											visible = "[Not(GetPlayer.MakeScope.Var('eocfm_controls_konak').IsSet)]"
+											texture = "gfx/interface/backgrounds/grey.dds"
+											spriteType = Corneredstretched
+											spriteborder = { 0 0 }
+											blend_mode = normal
+											alpha = 0.5
+										}
+									}
+									tooltip = "eocfm_gui_konak_control_status"
+								}
+							}
 						}
 					}
 				}
