@@ -1,5 +1,4 @@
 ﻿GLOBAL = {
-
 ### Global Variable Setup
 	set_global_variable = {
 		name = eocfm_council_var
@@ -13,95 +12,27 @@
 		name = eocfm_deposition_counter
 		value = 0
 	}
-
-### Specific Country Setups
-	eocfm_specific_country_setups_effect = yes
 	
-### Seat Control Initialization
-	# Catholic Church Seats
-	p:xB040A0 = { # Rome
+	eocfm_initialize_liturgical_rites_effect = yes # Liturgical Rite Setup
+	
+	p:xB040A0 = { # A Country MUST own the Rome province for this effect to succeed
 		owner = {
-			set_variable = eocfm_controls_rome
+			eocfm_initialize_patriarchs_effect = yes # Patriarch Characters Setup
 		}
 	}
 	
-	# Orthodox Church Seats
-	p:xF0A020 = { # Constantinople
-		owner = {
-			set_variable = eocfm_controls_constantinople
-		}
-	}
-	if = { # Antioch in BR
-		limit = {
-			basileia_is_active = yes
-		}
-		p:xE01160 = {
-			owner = {
-				set_variable = eocfm_controls_antioch
-			}
-		}
-	}
-	else = { # Antioch in Reality
-		p:x186A43 = { # Antioch
-			owner = {
-				set_variable = eocfm_controls_antioch
-			}
-		}
-	}
-	p:xC9CBC0 = { # Jerusalem
-		owner = {
-			set_variable = eocfm_controls_jerusalem
-		}
-	}
-	p:xA0D020 = { # Alexandria
-		owner = {
-			set_variable = eocfm_controls_alexandria
-		}
-	}
-	p:x13D91C = { # Moscow
-		owner = {
-			set_variable = eocfm_controls_moscow
-		}
-	}
+	eocfm_initialize_seat_controllers_effect = yes # Seat Control Initialization
 	
-	# Oriental Orthodox Church Seats
+	eocfm_specific_country_setups_effect = yes # Specific Country Setups
 	
-	
-	# Elysian Orthodox Seats
-	if = {
-		limit = {	
-			basileia_is_active = yes
-		}
-		p:x700080 = { # Elysium
-			owner = {
-				set_variable = eocfm_controls_elysium
-			}
-		}
-		p:x1BC4D0 = { # Mixtec
-			owner = {
-				set_variable = eocfm_controls_mixtec
-			}
-		}
-	}
-
-### Patriarch Initialization
-	random_country = {
-		limit = {
-			has_variable = eocfm_controls_constantinople
-		}
-		eocfm_initialize_patriarchs_effect = yes
-	}
-	
-### Initialize Variables and First Opener Events	
 	every_country = {
 		limit = {
 			eocfm_is_christian_trigger = yes
 		}
-		eocfm_initialize_metropolis_effect = yes
+		eocfm_initialize_metropolis_effect = yes # Initialize Variables and First Opener Events	
 	}
-
-### Final Setup
-	add_to_global_variable_list = {
+	
+	add_to_global_variable_list = { # Final Setup
 		name = custom_button_list_flag
 		target = flag:eocfm_sidebar_button_sgui
 	}

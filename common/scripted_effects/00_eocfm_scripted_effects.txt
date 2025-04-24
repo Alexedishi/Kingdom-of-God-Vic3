@@ -11,189 +11,7 @@ eocfm_gui_toogle_effect = {
 	eocfm_update_seat_controllers_effect = yes
 }
 
-#### History Initialization Effects
-
-eocfm_specific_country_setups_effect = {
-	# Override this effect for mod-specific starting setups
-	# This is done this way to avoid having to integrate dummy country definitions into eocfm
-	# Unless you are making a TC or alt-history mod, probably leave this untouched
-	c:GRE ?= {
-		add_modifier = modifier_eocfm_reformed_synod
-		add_modifier = modifier_eocfm_dissolved_monasteries
-		set_variable = eocfm_dissolved_monasteries
-		set_variable = eocfm_ruler_conversion_considered
-	}
-	c:RUS ?= {
-		add_modifier = modifier_eocfm_reformed_synod
-		set_variable = eocfm_is_autocephalous
-	}
-}
-
-eocfm_initialize_patriarchs_effect = {
-	# WARNING: If no country is able to control Constantinople, eocfm WILL NOT initialize; you MUST ENSURE A COUNTRY IS ABLE TO CONTROL CONSTANTINOPLE
-	
-	## Catholic Churches
-	# Rome
-	if = {
-		limit = {
-			NOT = {
-				c:PAP ?= {
-					has_law = law_type:law_theocracy
-				}
-			}
-		}
-		create_character = {
-			template = template_eocfm_rome_patriarch
-			first_name = "Gregorius"
-			last_name = "Cappellari"
-			historical = yes
-			culture = cu:south_italian
-			religion = rel:catholic
-			birth_date = 1765.9.18
-			dna = dna_pope_gregory_16
-			interest_group = ig_devout
-			ideology = ideology_theocrat
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-	}
-	set_global_variable = {	
-		name = eocfm_rome_liturgical_rite_var
-		value = 2 # Roman
-	}
-	
-	# Santiago
-	set_global_variable = {
-		name = eocfm_santiago_liturgical_rite_var
-		value = 2 # Roman
-	}
-	
-	# Paris
-	set_global_variable = {
-		name = eocfm_paris_liturgical_rite_var
-		value = 2 # Roman
-	}
-	
-	# Koln
-	set_global_variable = {
-		name = eocfm_koln_liturgical_rite_var
-		value = 2 # Roman
-	}
-	
-	# Vienna
-	set_global_variable = {
-		name = eocfm_vienna_liturgical_rite_var
-		value = 2 # Roman
-	}
-	
-	## Orthodox Churches
-	# Constantinople
-	create_character = {
-		template = template_eocfm_constantinople_patriarch
-		first_name = "Georgios"
-		last_name = "Fourtouniadis"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
-		}
-	}
-	set_global_variable = {
-		name = eocfm_constantinople_liturgical_rite_var
-		value = 1 # Byzantine
-	}
-
-	# Antioch
-	create_character = {
-		template = template_eocfm_antioch_patriarch
-		first_name = "Methodius"
-		last_name = "Methodius"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
-		}
-	}
-	set_global_variable = {
-		name = eocfm_antioch_liturgical_rite_var
-		value = 1 # Byzantine
-	}
-	
-	# Jerusalem
-	create_character = {
-		template = template_eocfm_jerusalem_patriarch
-		first_name = "Methodius"
-		last_name = "Methodius"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
-		}
-	}
-	set_global_variable = {
-		name = eocfm_jerusalem_liturgical_rite_var
-		value = 1 # Byzantine
-	}
-	
-	# Alexandria
-	create_character = {
-		template = template_eocfm_alexandria_patriarch
-		first_name = "Hierotheus"
-		last_name = "Hierotheus"
-		culture = cu:greek
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
-		}
-	}
-	set_global_variable = {
-		name = eocfm_alexandria_liturgical_rite_var
-		value = 1 # Byzantine
-	}
-	
-	# Moscow
-	create_character = {
-		template = template_eocfm_moscow_patriarch
-		first_name = "Vasily"
-		last_name = "Drozdov"
-		culture = cu:russian
-		on_created = {
-			place_character_in_void = 180 # 15 year shelf life
-		}
-	}
-	set_global_variable = {
-		name = eocfm_moscow_liturgical_rite_var
-		value = 6 # Russian
-	}
-	
-	## Oriental Orthodox Churches
-	# Coptic Alexandria
-	set_global_variable = {
-		name = eocfm_coptic_alexandria_liturgical_rite_var
-		value = 3 # Coptic
-	}
-	
-	# Syriac Antioch
-	set_global_variable = {
-		name = eocfm_syriac_antioch_liturgical_rite_var
-		value = 5 # Syro-Antiochian
-	}
-	
-	# Armenia
-	set_global_variable = {
-		name = eocfm_etchmiadzin_liturgical_rite_var
-		value = 4 # Armenian
-	}
-	
-	# Addis Ababa
-	set_global_variable = {
-		name = eocfm_addis_ababa_liturgical_rite_var
-		value = 3 # Coptic
-	}
-	
-	# Konak
-	set_global_variable = {
-		name = eocfm_konak_liturgical_rite_var
-		value = 7 # Nestorian
-	}
-}
+#### Metropolis Initialization Effect
 
 eocfm_initialize_metropolis_effect = {
 	# First Initialize Liturgical Rites
@@ -443,7 +261,9 @@ eocfm_initialize_metropolis_effect = {
 }
 
 #### Variable Upkeep Effects
+# This huge stack of scripted effects to is allow Patriarchs to get pulled for events
 
+## Patriarch Upkeep Effects
 eocfm_update_patriarch_variables_effect = {
 	# Local Metropolitan
 	ig:ig_devout = {
@@ -456,21 +276,32 @@ eocfm_update_patriarch_variables_effect = {
 		value = scope:eocfm_devout_leader_scope
 	}
 	eocfm_update_rome_effect = yes
+	eocfm_update_sanitago_effect = yes
+	eocfm_update_paris_effect = yes
+	eocfm_update_koln_effect = yes
+	eocfm_update_vienna_effect = yes
 	eocfm_update_constantinople_effect = yes
 	eocfm_update_antioch_effect = yes
 	eocfm_update_jerusalem_effect = yes
 	eocfm_update_alexandria_effect = yes
 	eocfm_update_moscow_effect = yes
+	eocfm_update_coptic_alexandria_effect = yes
+	eocfm_update_syriac_antioch_effect = yes
+	eocfm_update_etchmiadzin_effect = yes
+	eocfm_update_addis_ababa_effect = yes
+	eocfm_update_konak_effect = yes
 	if = {
 		limit = {
 			basileia_is_active = yes
 		}
 		eocfm_update_elysium_effect = yes
 		eocfm_update_mixtec_effect = yes
+		eocfm_update_cahokia_effect = yes
 	}
-}	
-	
-eocfm_update_rome_effect = {	
+}
+
+eocfm_update_rome_effect = {
+	# First, check for the papacy
 	if = {
 		limit = {
 			c:PAP ?= {
@@ -483,6 +314,7 @@ eocfm_update_rome_effect = {
 			}
 		}
 	}
+	# Failing that, attempt to find character in void
 	else_if = {
 		limit = {
 			any_character_in_void = {
@@ -496,8 +328,68 @@ eocfm_update_rome_effect = {
 			save_scope_as = eocfm_rome_patriarch_scope
 		}
 	}
+	# Failing that, generate a new character
 	else = {
-		eocfm_replace_rome_patriarch_effect = yes
+		# Attempt to generate using the Rome controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_rome
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_rome
+				}
+				create_character = {
+					template = template_eocfm_rome_patriarch
+					religion = rel:orthodox
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to an Italian Catholic
+		else = {
+			create_character = {
+				template = template_eocfm_rome_patriarch
+				culture = cu:south_italian
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_rome_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_rome_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_rome_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_rome_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_rome_replaced
+		}
+		# Save the new character
 		random_character_in_void = {
 			limit = {
 				has_template = template_eocfm_rome_patriarch
@@ -505,289 +397,396 @@ eocfm_update_rome_effect = {
 			save_scope_as = eocfm_rome_patriarch_scope
 		}
 	}
+	# Finally, set the new variable
 	set_variable = {
 		name = eocfm_rome_patriarch_var
 		value = scope:eocfm_rome_patriarch_scope
 	}
 }
 
-eocfm_update_constantinople_effect = {
+eocfm_update_sanitago_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
 			any_character_in_void = {
-				has_template = template_eocfm_constantinople_patriarch
+				has_template = template_eocfm_santiago_patriarch
 			}
 		}
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_constantinople_patriarch
+				has_template = template_eocfm_santiago_patriarch
 			}
-			save_scope_as = eocfm_constantinople_patriarch_scope
+			save_scope_as = eocfm_santiago_patriarch_scope
 		}
 	}
+	# Failing that, generate a new character
 	else = {
-		eocfm_replace_constantinople_patriarch_effect = yes
-		random_character_in_void = {
+		# Attempt to generate using the Santiago controller
+		if = {
 			limit = {
-				has_template = template_eocfm_constantinople_patriarch
+				any_country = {
+					has_variable = eocfm_controls_santiago
+					eocfm_is_christian_trigger = yes
+				}
 			}
-			save_scope_as = eocfm_constantinople_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_constantinople_patriarch_var
-		value = scope:eocfm_constantinople_patriarch_scope
-	}
-}
-
-eocfm_update_antioch_effect = {
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = template_eocfm_antioch_patriarch
-			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_antioch_patriarch
-			}
-			save_scope_as = eocfm_antioch_patriarch_scope
-		}
-	}
-	else = {
-		eocfm_replace_antioch_patriarch_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_antioch_patriarch
-			}
-			save_scope_as = eocfm_antioch_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_antioch_patriarch_var
-		value = scope:eocfm_antioch_patriarch_scope
-	}
-}
-
-eocfm_update_jerusalem_effect = {
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = template_eocfm_jerusalem_patriarch
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_santiago
+				}
+				create_character = {
+					template = template_eocfm_santiago_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
 			}
 		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_jerusalem_patriarch
-			}
-			save_scope_as = eocfm_jerusalem_patriarch_scope
-		}
-	}
-	else = {
-		eocfm_replace_jerusalem_patriarch_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_jerusalem_patriarch
-			}
-			save_scope_as = eocfm_jerusalem_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_jerusalem_patriarch_var
-		value = scope:eocfm_jerusalem_patriarch_scope
-	}
-}
-	
-eocfm_update_alexandria_effect = {
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = template_eocfm_alexandria_patriarch
-			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_alexandria_patriarch
-			}
-			save_scope_as = eocfm_alexandria_patriarch_scope
-		}
-	}
-	else = {
-		eocfm_replace_alexandria_patriarch_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_alexandria_patriarch
-			}
-			save_scope_as = eocfm_alexandria_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_alexandria_patriarch_var
-		value = scope:eocfm_alexandria_patriarch_scope
-	}
-}
-	
-eocfm_update_moscow_effect = {
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = template_eocfm_moscow_patriarch
-			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_moscow_patriarch
-			}
-			save_scope_as = eocfm_moscow_patriarch_scope
-		}
-	}
-	else = {
-		eocfm_replace_moscow_patriarch_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_moscow_patriarch
-			}
-			save_scope_as = eocfm_moscow_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_moscow_patriarch_var
-		value = scope:eocfm_moscow_patriarch_scope
-	}
-}
-
-
-eocfm_update_elysium_effect = {
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = template_eocfm_elysium_patriarch
-			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_elysium_patriarch
-			}
-			save_scope_as = eocfm_elysium_patriarch_scope
-		}
-	}
-	else = {
-		eocfm_replace_elysium_patriarch_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_elysium_patriarch
-			}
-			save_scope_as = eocfm_elysium_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_elysium_patriarch_var
-		value = scope:eocfm_elysium_patriarch_scope
-	}
-}
-
-eocfm_update_mixtec_effect = {
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = template_eocfm_mixtec_patriarch
-			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_mixtec_patriarch
-			}
-			save_scope_as = eocfm_mixtec_patriarch_scope
-		}
-	}
-	else = {
-		eocfm_replace_mixtec_patriarch_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_mixtec_patriarch
-			}
-			save_scope_as = eocfm_mixtec_patriarch_scope
-		}
-	}
-	set_variable = {
-		name = eocfm_mixtec_patriarch_var
-		value = scope:eocfm_mixtec_patriarch_scope
-	}
-}
-
-eocfm_replace_rome_patriarch_effect = {
-	if = {
-		limit = {
-			any_country = {
-				has_variable = eocfm_controls_rome
-				eocfm_is_eastern_christian_trigger = yes
-			}
-		}
-		random_country = {
-			limit = {
-				has_variable = eocfm_controls_rome
-			}
+		# Fallback to Spanish Catholic
+		else = {
 			create_character = {
-				template = template_eocfm_rome_patriarch
-				religion = rel:orthodox
+				template = template_eocfm_santiago_patriarch
+				culture = cu:spanish
+				religion = rel:catholic
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	else = {
-		create_character = {
-			template = template_eocfm_rome_patriarch
-			culture = cu:south_italian
-			religion = rel:catholic
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_rome_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_santiago_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_santiago_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
-				name = eocfm_rome_relations_var
-				value = 0
+			change_variable = {
+				name = eocfm_santiago_relations_var
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_santiago_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_santiago_replaced
 		}
-		change_variable = {
-			name = eocfm_rome_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_santiago_patriarch
+			}
+			save_scope_as = eocfm_santiago_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_rome_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_rome_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_santiago_patriarch_var
+		value = scope:eocfm_santiago_patriarch_scope
 	}
 }
 
-eocfm_replace_constantinople_patriarch_effect = {
+eocfm_update_paris_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_constantinople_patriarch
+			any_character_in_void = {
+				has_template = template_eocfm_paris_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_paris_patriarch
+			}
+			save_scope_as = eocfm_paris_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Paris controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_paris
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_paris
+				}
+				create_character = {
+					template = template_eocfm_paris_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
 				}
 			}
 		}
+		# Fallback to French Catholic
+		else = {
+			create_character = {
+				template = template_eocfm_paris_patriarch
+				culture = cu:french
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_paris_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_paris_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_paris_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_paris_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_paris_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_paris_patriarch
+			}
+			save_scope_as = eocfm_paris_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_paris_patriarch_var
+		value = scope:eocfm_paris_patriarch_scope
+	}
+}
+
+eocfm_update_koln_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_koln_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_koln_patriarch
+			}
+			save_scope_as = eocfm_koln_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Koln controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_koln
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_koln
+				}
+				create_character = {
+					template = template_eocfm_koln_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to North German
+		else = {
+			create_character = {
+				template = template_eocfm_koln_patriarch
+				culture = cu:north_german
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_koln_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_koln_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_koln_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_koln_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_koln_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_koln_patriarch
+			}
+			save_scope_as = eocfm_koln_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_koln_patriarch_var
+		value = scope:eocfm_koln_patriarch_scope
+	}
+}
+
+eocfm_update_vienna_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_vienna_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_vienna_patriarch
+			}
+			save_scope_as = eocfm_vienna_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Vienna controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_vienna
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_vienna
+				}
+				create_character = {
+					template = template_eocfm_vienna_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to South German Catholic
+		else = {
+			create_character = {
+				template = template_eocfm_vienna_patriarch
+				culture = cu:south_german
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_vienna_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_vienna_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_vienna_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_vienna_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_vienna_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_vienna_patriarch
+			}
+			save_scope_as = eocfm_vienna_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_vienna_patriarch_var
+		value = scope:eocfm_vienna_patriarch_scope
+	}
+}
+
+eocfm_update_constantinople_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_constantinople_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_constantinople_patriarch
+			}
+			save_scope_as = eocfm_constantinople_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Constantinople controller
 		if = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_constantinople
-					eocfm_is_eastern_christian_trigger = yes
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
@@ -802,58 +801,82 @@ eocfm_replace_constantinople_patriarch_effect = {
 				}
 			}
 		}
+		# Fallback to Greek Orthodox
 		else = {
 			create_character = {
 				template = template_eocfm_constantinople_patriarch
 				culture = cu:greek
+				religion = rel:orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_constantinople_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_constantinople_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_constantinople_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
+			change_variable = {
 				name = eocfm_constantinople_relations_var
-				value = 0
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_constantinople_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_constantinople_replaced
 		}
-		change_variable = {
-			name = eocfm_constantinople_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_constantinople_patriarch
+			}
+			save_scope_as = eocfm_constantinople_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_constantinople_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_constantinople_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_constantinople_patriarch_var
+		value = scope:eocfm_constantinople_patriarch_scope
 	}
 }
 
-eocfm_replace_antioch_patriarch_effect = {
+eocfm_update_antioch_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_antioch_patriarch
-				}
+			any_character_in_void = {
+				has_template = template_eocfm_antioch_patriarch
 			}
 		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_antioch_patriarch
+			}
+			save_scope_as = eocfm_antioch_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Antioch controller
 		if = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_antioch
-					eocfm_is_eastern_christian_trigger = yes
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
@@ -868,59 +891,82 @@ eocfm_replace_antioch_patriarch_effect = {
 				}
 			}
 		}
+		# Fallback to Greek Orthodox
 		else = {
 			create_character = {
 				template = template_eocfm_antioch_patriarch
 				culture = cu:greek
+				religion = rel:orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_antioch_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_antioch_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_antioch_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
+			change_variable = {
 				name = eocfm_antioch_relations_var
-				value = 0
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_antioch_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_antioch_replaced
 		}
-		change_variable = {
-			name = eocfm_antioch_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_antioch_patriarch
+			}
+			save_scope_as = eocfm_antioch_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_antioch_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_antioch_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_antioch_patriarch_var
+		value = scope:eocfm_antioch_patriarch_scope
 	}
 }
 
-
-eocfm_replace_jerusalem_patriarch_effect = {
+eocfm_update_jerusalem_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_jerusalem_patriarch
-				}
+			any_character_in_void = {
+				has_template = template_eocfm_jerusalem_patriarch
 			}
 		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_jerusalem_patriarch
+			}
+			save_scope_as = eocfm_jerusalem_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Jerusalem controller
 		if = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_jerusalem
-					eocfm_is_eastern_christian_trigger = yes
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
@@ -935,58 +981,82 @@ eocfm_replace_jerusalem_patriarch_effect = {
 				}
 			}
 		}
+		# Fallback to Greek Orthodox
 		else = {
 			create_character = {
 				template = template_eocfm_jerusalem_patriarch
 				culture = cu:greek
+				religion = rel:orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_jerusalem_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_jerusalem_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_jerusalem_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
+			change_variable = {
 				name = eocfm_jerusalem_relations_var
-				value = 0
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_jerusalem_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_jerusalem_replaced
 		}
-		change_variable = {
-			name = eocfm_jerusalem_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_jerusalem_patriarch
+			}
+			save_scope_as = eocfm_jerusalem_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_constantinople_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_jerusalem_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_jerusalem_patriarch_var
+		value = scope:eocfm_jerusalem_patriarch_scope
 	}
 }
 
-eocfm_replace_alexandria_patriarch_effect = {
+eocfm_update_alexandria_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_alexandria_patriarch
-				}
+			any_character_in_void = {
+				has_template = template_eocfm_alexandria_patriarch
 			}
 		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_alexandria_patriarch
+			}
+			save_scope_as = eocfm_alexandria_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the alexandria controller
 		if = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_alexandria
-					eocfm_is_eastern_christian_trigger = yes
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
@@ -1001,58 +1071,82 @@ eocfm_replace_alexandria_patriarch_effect = {
 				}
 			}
 		}
+		# Fallback to Greek Orthodox
 		else = {
 			create_character = {
 				template = template_eocfm_alexandria_patriarch
 				culture = cu:greek
+				religion = rel:orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_alexandria_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_alexandria_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_alexandria_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
+			change_variable = {
 				name = eocfm_alexandria_relations_var
-				value = 0
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_alexandria_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_alexandria_replaced
 		}
-		change_variable = {
-			name = eocfm_alexandria_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_alexandria_patriarch
+			}
+			save_scope_as = eocfm_alexandria_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_alexandria_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_alexandria_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_alexandria_patriarch_var
+		value = scope:eocfm_alexandria_patriarch_scope
 	}
 }
 
-eocfm_replace_moscow_patriarch_effect = {
+eocfm_update_moscow_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_moscow_patriarch
-				}
+			any_character_in_void = {
+				has_template = template_eocfm_moscow_patriarch
 			}
 		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_moscow_patriarch
+			}
+			save_scope_as = eocfm_moscow_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Moscow controller
 		if = {
 			limit = {
 				any_country = {
 					has_variable = eocfm_controls_moscow
-					eocfm_is_eastern_christian_trigger = yes
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
@@ -1067,189 +1161,525 @@ eocfm_replace_moscow_patriarch_effect = {
 				}
 			}
 		}
+		# Fallback to Russian Orthodox
 		else = {
 			create_character = {
 				template = template_eocfm_moscow_patriarch
 				culture = cu:russian
+				religion = rel:orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_moscow_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_moscow_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_moscow_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
+			change_variable = {
 				name = eocfm_moscow_relations_var
-				value = 0
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_moscow_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_moscow_replaced
 		}
-		change_variable = {
-			name = eocfm_moscow_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_moscow_patriarch
+			}
+			save_scope_as = eocfm_moscow_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_moscow_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_moscow_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_moscow_patriarch_var
+		value = scope:eocfm_moscow_patriarch_scope
 	}
 }
 
-eocfm_replace_elysium_patriarch_effect = {
+eocfm_update_coptic_alexandria_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_elysium_patriarch
-				}
+			any_character_in_void = {
+				has_template = template_eocfm_coptic_alexandria_patriarch
 			}
 		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_coptic_alexandria_patriarch
+			}
+			save_scope_as = eocfm_coptic_alexandria_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Coptic Alexandria controller
 		if = {
 			limit = {
 				any_country = {
-					has_variable = eocfm_controls_elysium
-					eocfm_is_eastern_christian_trigger = yes
+					has_variable = eocfm_controls_coptic_alexandria
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
 				limit = {
-					has_variable = eocfm_controls_elysium
+					has_variable = eocfm_controls_coptic_alexandria
 				}
 				create_character = {
-					template = template_eocfm_elysium_patriarch
+					template = template_eocfm_coptic_alexandria_patriarch
 					on_created = {
 						place_character_in_void = 180 # 15 year shelf life
 					}
 				}
 			}
 		}
+		# Fallback to Misri Oriental Orthodox
 		else = {
 			create_character = {
-				template = template_eocfm_elysium_patriarch
-				culture = cu:greek
+				template = template_eocfm_coptic_alexandria_patriarch
+				culture = cu:misri
+				religion = rel:oriental_orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_elysium_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_coptic_alexandria_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_coptic_alexandria_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
-				name = eocfm_elysium_relations_var
-				value = 0
+			change_variable = {
+				name = eocfm_coptic_alexandria_relations_var
+				add = -25
 			}
+			clamp_variable = {
+				name = eocfm_coptic_alexandria_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_coptic_alexandria_replaced
 		}
-		change_variable = {
-			name = eocfm_elysium_relations_var
-			add = -25
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_coptic_alexandria_patriarch
+			}
+			save_scope_as = eocfm_coptic_alexandria_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_elysium_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_elysium_replaced
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_coptic_alexandria_patriarch_var
+		value = scope:eocfm_coptic_alexandria_patriarch_scope
 	}
 }
 
-eocfm_replace_mixtec_patriarch_effect = {
+eocfm_update_syriac_antioch_effect = {
+	# First, try to find the character in the void
 	if = {
 		limit = {
-			NOT = {
-				any_character_in_void = {
-					has_template = template_eocfm_mixtec_patriarch
-				}
+			any_character_in_void = {
+				has_template = template_eocfm_syriac_antioch_patriarch
 			}
 		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_syriac_antioch_patriarch
+			}
+			save_scope_as = eocfm_syriac_antioch_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Syriac Antioch controller
 		if = {
 			limit = {
 				any_country = {
-					has_variable = eocfm_controls_mixtec
-					eocfm_is_eastern_christian_trigger = yes
+					has_variable = eocfm_controls_syriac_antioch
+					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
 				limit = {
-					has_variable = eocfm_controls_mixtec
+					has_variable = eocfm_controls_syriac_antioch
 				}
 				create_character = {
-					template = template_eocfm_mixtec_patriarch
+					template = template_eocfm_syriac_antioch_patriarch
 					on_created = {
 						place_character_in_void = 180 # 15 year shelf life
 					}
 				}
 			}
 		}
+		# Fallback to Mashriqi Oriental Orthodox
 		else = {
 			create_character = {
-				template = template_eocfm_mixtec_patriarch
-				culture = cu:mixtec
+				template = template_eocfm_syriac_antioch_patriarch
+				culture = cu:mashriqi
+				religion = rel:oriental_orthodox
 				on_created = {
 					place_character_in_void = 180 # 15 year shelf life
 				}
 			}
 		}
-	}
-	every_country = {
-		limit = {
-			eocfm_is_eastern_christian_trigger = yes
-		}
-		if = {
+		# Update Relations Variables
+		every_country = {
 			limit = {
-				NOT = {
-					has_variable = eocfm_mixtec_relations_var
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_syriac_antioch_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_syriac_antioch_relations_var
+					value = 0
 				}
 			}
-			set_variable = {
-				name = eocfm_mixtec_relations_var
-				value = 0
+			change_variable = {
+				name = eocfm_syriac_antioch_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_syriac_antioch_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_syriac_antioch_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_syriac_antioch_patriarch
+			}
+			save_scope_as = eocfm_syriac_antioch_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_syriac_antioch_patriarch_var
+		value = scope:eocfm_syriac_antioch_patriarch_scope
+	}
+}
+
+eocfm_update_etchmiadzin_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_etchmiadzin_patriarch
 			}
 		}
-		change_variable = {
-			name = eocfm_mixtec_relations_var
-			add = -25
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_etchmiadzin_patriarch
+			}
+			save_scope_as = eocfm_etchmiadzin_patriarch_scope
 		}
-		clamp_variable = {
-			name = eocfm_mixtec_relations_var
-			min = 0
-			max = 50
-		}
-		post_notification = notification_eocfm_mixtec_replaced
 	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the etchmiadzin controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_etchmiadzin
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_etchmiadzin
+				}
+				create_character = {
+					template = template_eocfm_etchmiadzin_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Armenian Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_eocfm_etchmiadzin_patriarch
+				culture = cu:armenian
+				religion = rel:oriental_orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_etchmiadzin_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_etchmiadzin_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_etchmiadzin_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_etchmiadzin_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_etchmiadzin_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_etchmiadzin_patriarch
+			}
+			save_scope_as = eocfm_etchmiadzin_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_etchmiadzin_patriarch_var
+		value = scope:eocfm_etchmiadzin_patriarch_scope
+	}
+}
+
+eocfm_update_addis_ababa_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_key_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_key_patriarch
+			}
+			save_scope_as = eocfm_key_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the key controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_key
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_key
+				}
+				create_character = {
+					template = template_eocfm_key_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Oromo Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_eocfm_key_patriarch
+				culture = cu:oromo
+				religion = rel:oriental_orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_key_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_key_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_key_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_key_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_key_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_key_patriarch
+			}
+			save_scope_as = eocfm_key_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_key_patriarch_var
+		value = scope:eocfm_key_patriarch_scope
+	}
+}
+
+eocfm_update_konak_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_konak_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_konak_patriarch
+			}
+			save_scope_as = eocfm_konak_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the konak controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_konak
+					eocfm_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_konak
+				}
+				create_character = {
+					template = template_eocfm_konak_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Assyrian Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_eocfm_konak_patriarch
+				culture = cu:assyrian
+				religion = rel:oriental_orthodox # This is inaccurate, I know
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = eocfm_konak_relations_var
+					}
+				}
+				set_variable = {
+					name = eocfm_konak_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = eocfm_konak_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = eocfm_konak_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = notification_eocfm_konak_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_konak_patriarch
+			}
+			save_scope_as = eocfm_konak_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = eocfm_konak_patriarch_var
+		value = scope:eocfm_konak_patriarch_scope
+	}
+}
+
+eocfm_update_elysium_effect = {
+	
+}
+
+eocfm_update_mixtec_effect = {
+	
+}
+
+eocfm_update_cahokia_effect = {
+	
 }
 
 eocfm_update_seat_controllers_effect = {
-	# First, clear controller variables
-	remove_variable = eocfm_rome_controller_var
-	remove_variable = eocfm_constantinople_controller_var
-	remove_variable = eocfm_antioch_controller_var
-	remove_variable = eocfm_jerusalem_controller_var
-	remove_variable = eocfm_alexandria_controller_var
-	remove_variable = eocfm_moscow_controller_var
-	remove_variable = eocfm_elysium_controller_var
-	remove_variable = eocfm_mixtec_controller_var
-	
-	# Second, attempt to set the Controller variables
-	if = { # Rome
+	## Catholic Seats
+	# Rome
+	if = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_rome
@@ -1266,7 +1696,97 @@ eocfm_update_seat_controllers_effect = {
 			value = scope:eocfm_rome_controller_scope
 		}
 	}
-	if = { # Constantinople
+	else = {
+		remove_variable = eocfm_rome_controller_var
+	}
+	# Santiago
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_santiago
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_santiago
+			}
+			save_scope_as = eocfm_santiago_controller_scope
+		}
+		set_variable = {
+			name = eocfm_santiago_controller_var
+			value = scope:eocfm_santiago_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_santiago_controller_var
+	}
+	# Paris
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_paris
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_paris
+			}
+			save_scope_as = eocfm_paris_controller_scope
+		}
+		set_variable = {
+			name = eocfm_paris_controller_var
+			value = scope:eocfm_paris_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_paris_controller_var
+	}
+	# Cologne
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_koln
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_koln
+			}
+			save_scope_as = eocfm_koln_controller_scope
+		}
+		set_variable = {
+			name = eocfm_koln_controller_var
+			value = scope:eocfm_koln_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_koln_controller_var
+	}
+	# Vienna
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_vienna
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_vienna
+			}
+			save_scope_as = eocfm_vienna_controller_scope
+		}
+		set_variable = {
+			name = eocfm_vienna_controller_var
+			value = scope:eocfm_vienna_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_vienna_controller_var
+	}
+	
+	## Orthodox Seats
+	# Constantinople
+	if = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_constantinople
@@ -1283,7 +1803,11 @@ eocfm_update_seat_controllers_effect = {
 			value = scope:eocfm_constantinople_controller_scope
 		}
 	}
-	if = { # Antioch
+	else = {
+		remove_variable = eocfm_constantinople_controller_var
+	}
+	# Antioch
+	if = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_antioch
@@ -1300,7 +1824,11 @@ eocfm_update_seat_controllers_effect = {
 			value = scope:eocfm_antioch_controller_scope
 		}
 	}
-	if = { # Jerusalem
+	else = {
+		remove_variable = eocfm_antioch_controller_var
+	}
+	# Jerusalem
+	if = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_jerusalem
@@ -1317,7 +1845,11 @@ eocfm_update_seat_controllers_effect = {
 			value = scope:eocfm_jerusalem_controller_scope
 		}
 	}
-	if = { # Alexandria
+	else = {
+		remove_variable = eocfm_jerusalem_controller_var
+	}
+	# Alexandria
+	if = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_alexandria
@@ -1334,7 +1866,11 @@ eocfm_update_seat_controllers_effect = {
 			value = scope:eocfm_alexandria_controller_scope
 		}
 	}
-	if = { # Moscow
+	else = {
+		remove_variable = eocfm_alexandria_controller_var
+	}
+	# Moscow
+	if = {
 		limit = {
 			any_country = {
 				has_variable = eocfm_controls_moscow
@@ -1351,6 +1887,117 @@ eocfm_update_seat_controllers_effect = {
 			value = scope:eocfm_moscow_controller_scope
 		}
 	}
+	else = {
+		remove_variable = eocfm_moscow_controller_var
+	}
+	
+	## Oriental Orthodox Seats
+	# Coptic Alexandria
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_coptic_alexandria
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_coptic_alexandria
+			}
+			save_scope_as = eocfm_coptic_alexandria_controller_scope
+		}
+		set_variable = {
+			name = eocfm_coptic_alexandria_controller_var
+			value = scope:eocfm_coptic_alexandria_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_coptic_alexandria_controller_var
+	}
+	# Syriac Antioch
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_syriac_antioch
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_syriac_antioch
+			}
+			save_scope_as = eocfm_syriac_antioch_controller_scope
+		}
+		set_variable = {
+			name = eocfm_syriac_antioch_controller_var
+			value = scope:eocfm_syriac_antioch_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_syriac_antioch_controller_var
+	}
+	# Etchmiadzin
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_etchmiadzin
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_etchmiadzin
+			}
+			save_scope_as = eocfm_etchmiadzin_controller_scope
+		}
+		set_variable = {
+			name = eocfm_etchmiadzin_controller_var
+			value = scope:eocfm_etchmiadzin_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_etchmiadzin_controller_var
+	}
+	# Addis Ababa
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_addis_ababa
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_addis_ababa
+			}
+			save_scope_as = eocfm_addis_ababa_controller_scope
+		}
+		set_variable = {
+			name = eocfm_addis_ababa_controller_var
+			value = scope:eocfm_addis_ababa_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_addis_ababa_controller_var
+	}
+	# Konak
+	if = {
+		limit = {
+			any_country = {
+				has_variable = eocfm_controls_konak
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_konak
+			}
+			save_scope_as = eocfm_konak_controller_scope
+		}
+		set_variable = {
+			name = eocfm_konak_controller_var
+			value = scope:eocfm_konak_controller_scope
+		}
+	}
+	else = {
+		remove_variable = eocfm_konak_controller_var
+	}
+	## Basileia Romaion Seats
 	if = {	
 		limit = {
 			basileia_is_active = yes
@@ -1372,6 +2019,9 @@ eocfm_update_seat_controllers_effect = {
 				value = scope:eocfm_elysium_controller_scope
 			}
 		}
+		else = {
+			remove_variable = eocfm_elysium_controller_var
+		}
 		if = {
 			limit = {
 				any_country = {
@@ -1386,17 +2036,58 @@ eocfm_update_seat_controllers_effect = {
 			}
 			set_variable = {
 				name = eocfm_mixtec_controller_var
-				value = scope:eocfm_elysium_controller_scope
+				value = scope:eocfm_mixtec_controller_scope
 			}
+		}
+		else = {
+			remove_variable = eocfm_mixtec_controller_var
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_variable = eocfm_controls_cahokia
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = eocfm_controls_cahokia
+				}
+				save_scope_as = eocfm_cahokia_controller_scope
+			}
+			set_variable = {
+				name = eocfm_cahokia_controller_var
+				value = scope:eocfm_cahokia_controller_scope
+			}
+		}
+		else = {
+			remove_variable = eocfm_cahokia_controller_var
 		}
 	}
 }
 
 eocfm_update_patriarch_opinions_effect = {
+	# Catholic Seats
 	set_variable = {
 		name = eocfm_rome_opinion_var
 		value = eocfm_rome_opinion_value
 	}
+	set_variable = {
+		name = eocfm_santiago_opinion_var
+		value = eocfm_santiago_opinion_value
+	}
+	set_variable = {
+		name = eocfm_paris_opinion_var
+		value = eocfm_paris_opinion_value
+	}
+	set_variable = {
+		name = eocfm_koln_opinion_var
+		value = eocfm_koln_opinion_value
+	}
+	set_variable = {
+		name = eocfm_vienna_opinion_var
+		value = eocfm_vienna_opinion_value
+	}
+	# Orthodox Seats
 	set_variable = {
 		name = eocfm_constantinople_opinion_var
 		value = eocfm_constantinople_opinion_value
@@ -1417,6 +2108,28 @@ eocfm_update_patriarch_opinions_effect = {
 		name = eocfm_moscow_opinion_var
 		value = eocfm_moscow_opinion_value
 	}
+	# Oriental Orthodox Seats
+	set_variable = {
+		name = eocfm_coptic_alexandria_opinion_var
+		value = eocfm_coptic_alexandria_opinion_value
+	}
+	set_variable = {
+		name = eocfm_syriac_antioch_opinion_var
+		value = eocfm_syriac_antioch_opinion_value
+	}
+	set_variable = {
+		name = eocfm_etchmiadzin_opinion_var
+		value = eocfm_etchmiadzin_opinion_value
+	}
+	set_variable = {
+		name = eocfm_addis_ababa_opinion_var
+		value = eocfm_addis_ababa_opinion_value
+	}
+	set_variable = {
+		name = eocfm_konak_opinion_var
+		value = eocfm_konak_opinion_value
+	}
+	# Basileia Romaion Seats
 	if = {
 		limit = {
 			basileia_is_active = yes
@@ -1428,6 +2141,10 @@ eocfm_update_patriarch_opinions_effect = {
 		set_variable = {
 			name = eocfm_mixtec_opinion_var
 			value = eocfm_mixtec_opinion_value
+		}
+		set_variable = {
+			name = eocfm_cahokia_opinion_var
+			value = eocfm_cahokia_opinion_value
 		}
 	}
 }
@@ -1567,7 +2284,6 @@ eocfm_update_rite_modifiers_effect = {
 		remove_modifier = modifier_eocfm_nestorian_rite
 		remove_modifier = modifier_eocfm_elysian_rite
 		remove_modifier = modifier_eocfm_mixtec_rite
-		
 	}
 	if = {
 		limit =	{
