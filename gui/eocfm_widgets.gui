@@ -519,7 +519,7 @@ widget = {
 								layoutpolicy_horizontal = expanding
 								size = { 0 44 }
 								blockoverride "text" {
-									raw_text = "[concept_holy_site]#o s#!"
+									raw_text = "Holy Sites"
 								}
 							}
 							
@@ -1833,7 +1833,7 @@ widget = {
 									}
 								}
 
-								### OPEN
+								### Ecumenical Council Panel
 								vbox = {
 									layoutpolicy_horizontal = expanding
 									layoutpolicy_vertical = preferred
@@ -1843,10 +1843,17 @@ widget = {
 										layoutpolicy_horizontal = expanding
 										size = { 0 44 }
 										blockoverride "text" {
-											raw_text = ""
+											raw_text = "Ecumenical Council"
 										}
 									}
 									
+									textbox = {
+										autoresize = yes
+										raw_text = "#italic #lore There is no Ecumenical Council in session#!"
+										elide = right
+										using = fontsize_xl
+									}
+				
 									expand = {}
 									
 								}
@@ -1889,7 +1896,7 @@ widget = {
 					### SEAT GROUP BUTTONS
 					vbox = {
 						margin = { 5 5 }
-						spacing = 10
+						spacing = 5
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = preferred
 						
@@ -1899,8 +1906,8 @@ widget = {
 							
 							button = {
 								using = default_button
-								size = { 190 45 }
-								raw_text = "#bold [GetReligion('orthodox').GetName] Seats#!"
+								size = { 140 45 }
+								raw_text = "Catholicism"
 								using = fontsize_medium
 								
 #								datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
@@ -1911,8 +1918,8 @@ widget = {
 							}
 							button = {
 								using = default_button
-								size = { 190 45 }
-								raw_text = "#bold [GetReligion('oriental_orthodox').GetName] Seats#!"
+								size = { 140 45 }
+								raw_text = "Eastern Orthodoxy"
 								using = fontsize_medium
 								
 #								datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
@@ -1923,8 +1930,20 @@ widget = {
 							}
 							button = {
 								using = default_button
-								size = { 190 45 }
-								raw_text = "#bold #yellow Elysian Orthodox#! Seats#!"
+								size = { 140 45 }
+								raw_text = "Oriental Orthodoxy"
+								using = fontsize_medium
+								
+#								datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
+#								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+#								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+#								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+#								tooltip = "eocfm_gui_declare_autocephaly_button"
+							}
+							button = {
+								using = default_button
+								size = { 140 45 }
+								raw_text = "Elysian Orthodoxy"
 								using = fontsize_medium
 								
 #								datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
