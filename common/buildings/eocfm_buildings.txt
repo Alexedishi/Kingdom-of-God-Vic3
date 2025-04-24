@@ -1,4 +1,4 @@
-﻿#### VANILLA BUILDINGS ####
+﻿#### VANILLA BUILDINGS
 building_hagia_sophia = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/hagia_sophia.dds"
@@ -30,7 +30,7 @@ building_hagia_sophia = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
-#### EOCFM BUILDINGS ####
+#### EOCFM BUILDINGS
 eocfm_building_masjid_al_haram = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/eocfm_building_masjid_al_haram.dds"
@@ -60,6 +60,151 @@ eocfm_building_masjid_al_haram = {
 
 }
 
+#### PATRIARCHATE BUILDINGS
+
+# Catholic Buildings
+eocfm_building_patriarchate_rome = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_catholic.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_rome
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+eocfm_building_patriarchate_santiago = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_catholic.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_santiago
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+eocfm_building_patriarchate_paris = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_catholic.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_paris
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+eocfm_building_patriarchate_koln = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_catholic.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_koln
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+eocfm_building_patriarchate_vienna = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_catholic.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_vienna
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+
+# Orthodox Buildings
 eocfm_building_patriarchate_constantinople = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/eocfm_building_orthodox.dds"
@@ -228,9 +373,67 @@ eocfm_building_patriarchate_moscow = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 
 }
+
+# Oriental Orthodox
+eocfm_building_patriarchate_coptic_alexandria = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_oriental_orthodox.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_coptic_alexandria
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+eocfm_building_patriarchate_syriac_antioch = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_oriental_orthodox.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_syriac_antioch
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
 eocfm_building_patriarchate_addis_ababa = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/eocfm_building_orthodox.dds"
+	icon = "gfx/interface/icons/building_icons/eocfm_building_oriental_orthodox.dds"
 	
 	expandable = no
 	buildable = no
@@ -258,7 +461,7 @@ eocfm_building_patriarchate_addis_ababa = {
 }
 eocfm_building_patriarchate_etchmiadzin = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/eocfm_building_orthodox.dds"
+	icon = "gfx/interface/icons/building_icons/eocfm_building_oriental_orthodox.dds"
 	
 	expandable = no
 	buildable = no
@@ -286,7 +489,7 @@ eocfm_building_patriarchate_etchmiadzin = {
 }
 eocfm_building_patriarchate_konak = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/eocfm_building_orthodox.dds"
+	icon = "gfx/interface/icons/building_icons/eocfm_building_oriental_orthodox.dds"
 	
 	expandable = no
 	buildable = no
@@ -316,7 +519,7 @@ eocfm_building_patriarchate_konak = {
 #### BASILEIA ROMAION BUILDINGS ####
 eocfm_building_patriarchate_elysium = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/eocfm_building_orthodox.dds"
+	icon = "gfx/interface/icons/building_icons/eocfm_building_elysian_orthodox.dds"
 	
 	expandable = no
 	buildable = no
@@ -344,7 +547,7 @@ eocfm_building_patriarchate_elysium = {
 }
 eocfm_building_patriarchate_tututepec = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/eocfm_building_orthodox.dds"
+	icon = "gfx/interface/icons/building_icons/eocfm_building_elysian_orthodox.dds"
 	
 	expandable = no
 	buildable = no
@@ -353,6 +556,34 @@ eocfm_building_patriarchate_tututepec = {
 	
 	production_method_groups = {
 		pmg_eocfm_patriarchate_tututepec
+	}
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		always = no
+	}
+	
+	can_build_private = {
+		always = no
+	}
+
+	ai_value = 0
+	
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+}
+eocfm_building_patriarchate_cahokia = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/eocfm_building_elysian_orthodox.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+	
+	production_method_groups = {
+		pmg_eocfm_patriarchate_cahokia
 	}
 
 	required_construction = construction_cost_monument
