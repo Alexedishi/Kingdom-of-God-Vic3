@@ -31,313 +31,143 @@ eocfm_specific_country_setups_effect = {
 
 eocfm_initialize_patriarchs_effect = {
 	# WARNING: If no country is able to control Constantinople, eocfm WILL NOT initialize; you MUST ENSURE A COUNTRY IS ABLE TO CONTROL CONSTANTINOPLE
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		
-		# Rome
-		set_global_variable = {
-			name = eocfm_rome_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Santiago
-		set_global_variable = {
-			name = eocfm_santiago_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Paris
-		set_global_variable = {
-			name = eocfm_paris_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Koln
-		set_global_variable = {
-			name = eocfm_koln_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Vienna
-		set_global_variable = {
-			name = eocfm_vienna_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Constantinople
-		create_character = {
-			template = template_eocfm_constantinople_patriarch
-			first_name = "Neophytus"
-			last_name = "Neophytus"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_constantinople_liturgical_rite_var
-			value = 1 # Byzantine
-		}
-
-		# Antioch
-		create_character = {
-			template = template_eocfm_antioch_patriarch
-			first_name = "Sylvester"
-			last_name = "Dabbas"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_antioch_liturgical_rite_var
-			value = 1 # Byzantine
-		}
-		
-		# Jerusalem
-		create_character = {
-			template = template_eocfm_jerusalem_patriarch
-			first_name = "Parthenius"
-			last_name = "Parthenius"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_jerusalem_liturgical_rite_var
-			value = 1 # Byzantine
-		}
-		
-		# Alexandria
-		create_character = {
-			template = template_eocfm_alexandria_patriarch
-			first_name = "Kosmas"
-			last_name = "Kosmas"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_alexandria_liturgical_rite_var
-			value = 1 # Byzantine
-		}
-		
-		# Moscow
-		create_character = {
-			template = template_eocfm_moscow_patriarch
-			first_name = "Theophan"
-			last_name = "Theophan"
-			culture = cu:russian
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_moscow_liturgical_rite_var
-			value = 6 # Russian
-		}
-		
-		## Oriental Orthodox Churches
-		# Coptic Alexandria
-		set_global_variable = {
-			name = eocfm_coptic_alexandria_liturgical_rite_var
-			value = 3 # Coptic
-		}
-		
-		# Syriac Antioch
-		set_global_variable = {
-			name = eocfm_syriac_antioch_liturgical_rite_var
-			value = 5 # Syro-Antiochian
-		}
-		
-		# Armenia
-		set_global_variable = {
-			name = eocfm_etchmiadzin_liturgical_rite_var
-			value = 4 # Armenian
-		}
-		
-		# Addis Ababa
-		set_global_variable = {
-			name = eocfm_addis_ababa_liturgical_rite_var
-			value = 3 # Coptic
-		}
-		
-		# Konak
-		set_global_variable = {
-			name = eocfm_konak_liturgical_rite_var
-			value = 7 # Nestorian
-		}
-		
-		## Elysian Orthodox Churches
-		# Elysium
-		create_character = {
-			template = template_eocfm_mixtec_patriarch
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_elysium_liturgical_rite_var
-			value = 101 # Elysian
-		}
-		
-		# Mixtec
-		create_character = {
-			template = template_eocfm_mixtec_patriarch
-			culture = cu:mixtec
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_mixtec_liturgical_rite_var
-			value = 102 # Mixtec
+	
+	## Catholic Churches
+	# Rome
+	set_global_variable = {
+		name = eocfm_rome_liturgical_rite_var
+		value = 2 # Roman
+	}
+	
+	# Santiago
+	set_global_variable = {
+		name = eocfm_santiago_liturgical_rite_var
+		value = 2 # Roman
+	}
+	
+	# Paris
+	set_global_variable = {
+		name = eocfm_paris_liturgical_rite_var
+		value = 2 # Roman
+	}
+	
+	# Koln
+	set_global_variable = {
+		name = eocfm_koln_liturgical_rite_var
+		value = 2 # Roman
+	}
+	
+	# Vienna
+	set_global_variable = {
+		name = eocfm_vienna_liturgical_rite_var
+		value = 2 # Roman
+	}
+	
+	## Orthodox Churches
+	# Constantinople
+	create_character = {
+		template = template_eocfm_constantinople_patriarch
+		first_name = "Georgios"
+		last_name = "Fourtouniadis"
+		culture = cu:greek
+		on_created = {
+			place_character_in_void = 180 # 15 year shelf life
 		}
 	}
-	else = {
-	
-		## Catholic Churches
-		# Rome
-		set_global_variable = {
-			name = eocfm_rome_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Santiago
-		set_global_variable = {
-			name = eocfm_santiago_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Paris
-		set_global_variable = {
-			name = eocfm_paris_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Koln
-		set_global_variable = {
-			name = eocfm_koln_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		# Vienna
-		set_global_variable = {
-			name = eocfm_vienna_liturgical_rite_var
-			value = 2 # Roman
-		}
-		
-		## Orthodox Churches
-		# Constantinople
-		create_character = {
-			template = template_eocfm_constantinople_patriarch
-			first_name = "Georgios"
-			last_name = "Fourtouniadis"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_constantinople_liturgical_rite_var
-			value = 1 # Byzantine
-		}
+	set_global_variable = {
+		name = eocfm_constantinople_liturgical_rite_var
+		value = 1 # Byzantine
+	}
 
-		# Antioch
-		create_character = {
-			template = template_eocfm_antioch_patriarch
-			first_name = "Methodius"
-			last_name = "Methodius"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
+	# Antioch
+	create_character = {
+		template = template_eocfm_antioch_patriarch
+		first_name = "Methodius"
+		last_name = "Methodius"
+		culture = cu:greek
+		on_created = {
+			place_character_in_void = 180 # 15 year shelf life
 		}
-		set_global_variable = {
-			name = eocfm_antioch_liturgical_rite_var
-			value = 1 # Byzantine
+	}
+	set_global_variable = {
+		name = eocfm_antioch_liturgical_rite_var
+		value = 1 # Byzantine
+	}
+	
+	# Jerusalem
+	create_character = {
+		template = template_eocfm_jerusalem_patriarch
+		first_name = "Methodius"
+		last_name = "Methodius"
+		culture = cu:greek
+		on_created = {
+			place_character_in_void = 180 # 15 year shelf life
 		}
-		
-		# Jerusalem
-		create_character = {
-			template = template_eocfm_jerusalem_patriarch
-			first_name = "Methodius"
-			last_name = "Methodius"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
+	}
+	set_global_variable = {
+		name = eocfm_jerusalem_liturgical_rite_var
+		value = 1 # Byzantine
+	}
+	
+	# Alexandria
+	create_character = {
+		template = template_eocfm_alexandria_patriarch
+		first_name = "Hierotheus"
+		last_name = "Hierotheus"
+		culture = cu:greek
+		on_created = {
+			place_character_in_void = 180 # 15 year shelf life
 		}
-		set_global_variable = {
-			name = eocfm_jerusalem_liturgical_rite_var
-			value = 1 # Byzantine
+	}
+	set_global_variable = {
+		name = eocfm_alexandria_liturgical_rite_var
+		value = 1 # Byzantine
+	}
+	
+	# Moscow
+	create_character = {
+		template = template_eocfm_moscow_patriarch
+		first_name = "Vasily"
+		last_name = "Drozdov"
+		culture = cu:russian
+		on_created = {
+			place_character_in_void = 180 # 15 year shelf life
 		}
-		
-		# Alexandria
-		create_character = {
-			template = template_eocfm_alexandria_patriarch
-			first_name = "Hierotheus"
-			last_name = "Hierotheus"
-			culture = cu:greek
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_alexandria_liturgical_rite_var
-			value = 1 # Byzantine
-		}
-		
-		# Moscow
-		create_character = {
-			template = template_eocfm_moscow_patriarch
-			first_name = "Vasily"
-			last_name = "Drozdov"
-			culture = cu:russian
-			on_created = {
-				place_character_in_void = 180 # 15 year shelf life
-			}
-		}
-		set_global_variable = {
-			name = eocfm_moscow_liturgical_rite_var
-			value = 6 # Russian
-		}
-		
-		## Oriental Orthodox Churches
-		# Coptic Alexandria
-		set_global_variable = {
-			name = eocfm_coptic_alexandria_liturgical_rite_var
-			value = 3 # Coptic
-		}
-		
-		# Syriac Antioch
-		set_global_variable = {
-			name = eocfm_syriac_antioch_liturgical_rite_var
-			value = 5 # Syro-Antiochian
-		}
-		
-		# Armenia
-		set_global_variable = {
-			name = eocfm_etchmiadzin_liturgical_rite_var
-			value = 4 # Armenian
-		}
-		
-		# Addis Ababa
-		set_global_variable = {
-			name = eocfm_addis_ababa_liturgical_rite_var
-			value = 3 # Coptic
-		}
-		
-		# Konak
-		set_global_variable = {
-			name = eocfm_konak_liturgical_rite_var
-			value = 7 # Nestorian
-		}
+	}
+	set_global_variable = {
+		name = eocfm_moscow_liturgical_rite_var
+		value = 6 # Russian
+	}
+	
+	## Oriental Orthodox Churches
+	# Coptic Alexandria
+	set_global_variable = {
+		name = eocfm_coptic_alexandria_liturgical_rite_var
+		value = 3 # Coptic
+	}
+	
+	# Syriac Antioch
+	set_global_variable = {
+		name = eocfm_syriac_antioch_liturgical_rite_var
+		value = 5 # Syro-Antiochian
+	}
+	
+	# Armenia
+	set_global_variable = {
+		name = eocfm_etchmiadzin_liturgical_rite_var
+		value = 4 # Armenian
+	}
+	
+	# Addis Ababa
+	set_global_variable = {
+		name = eocfm_addis_ababa_liturgical_rite_var
+		value = 3 # Coptic
+	}
+	
+	# Konak
+	set_global_variable = {
+		name = eocfm_konak_liturgical_rite_var
+		value = 7 # Nestorian
 	}
 }
 
