@@ -94,6 +94,12 @@
  EOC_ODX_peoples_republic: "Orthodox People's Republic"
  
  # custom loc
+ custom_eocfm_roman_catholic: "The Roman Catholic Church"
+ custom_eocfm_eastern_orthodox: "The Eastern Orthodox Church"
+ custom_eocfm_oriental_orthodox: "The Oriental Orthdox Churches"
+ custom_eocfm_ancient_east: "The Ancient Church of the East"
+ custom_eocfm_elysian_orthodox: "The Elysian Orthdox Church"
+ 
  custom_eocfm_no_autocephaly: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $eocfm_constantinople$."
  custom_eocfm_schismatic: "[GetPlayer.GetName] is #bold #red In Schism#!#! with Constantinople."
  custom_eocfm_autocephalous: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by Constantinople."
@@ -208,9 +214,10 @@
  modifier_eocfm_roman_rite: "Roman Rites"
  modifier_eocfm_byzantine_rite: "Byzantine Rites"
  modifier_eocfm_alexandrian_rite: "Alexandrian Rites"
- modifier_eocfm_syriac_rite: "Syriac Rites"
  modifier_eocfm_armenian_rite: "Armenian Rites"
+ modifier_eocfm_syro_antiochian_rite: "Syro-Antiochian Rite"
  modifier_eocfm_russian_rite: "Russian Rite"
+ modifier_eocfm_nestorian_rite: "Nestorian Rite"
  modifier_eocfm_elysian_rite: "Elysian Rite"
  modifier_eocfm_mixtec_rite: "Mixtec Rite"
  
@@ -218,10 +225,30 @@
  modifier_eocfm_byzantine_rite_placeholder: "Byzantine Rite"
  modifier_eocfm_alexandrian_rite_placeholder: "Alexandrian Rite"
  modifier_eocfm_armenian_rite_placeholder: "Armenian Rite"
- modifier_eocfm_syriac_rite_placeholder: "Syriac Rites"
+ modifier_eocfm_syro_antiochian_rite_placeholder: "Syriac Rites"
  modifier_eocfm_russian_rite_placeholder: "Russian Rite"
+ modifier_eocfm_nestorian_rite_placeholder: "Nestorian Rite"
  modifier_eocfm_elysian_rite_placeholder: "Elysian Rite"
  modifier_eocfm_mixtec_rite_placeholder: "Mixtec Rite"
+ 
+ modifier_eocfm_controls_rome: "Controls $eocfm_"
+ modifier_eocfm_controls_santiago: "Controls $eocfm_"
+ modifier_eocfm_controls_paris: "Controls $eocfm_"
+ modifier_eocfm_controls_koln: "Controls $eocfm_"
+ modifier_eocfm_controls_vienna: "Controls $eocfm_"
+ modifier_eocfm_controls_constantinople: "Controls $eocfm_"
+ modifier_eocfm_controls_antioch: "Controls $eocfm_"
+ modifier_eocfm_controls_jerusalem: "Controls $eocfm_"
+ modifier_eocfm_controls_alexandria: "Controls $eocfm_"
+ modifier_eocfm_controls_moscow: "Controls $eocfm_"
+ modifier_eocfm_controls_coptic_alexandria: "Controls $eocfm_"
+ modifier_eocfm_controls_syriac_antioch: "Controls $eocfm_"
+ modifier_eocfm_controls_addis_ababa: "Controls $eocfm_"
+ modifier_eocfm_controls_etchmiadzin: "Controls $eocfm_"
+ modifier_eocfm_controls_konak: "Controls $eocfm_"
+ modifier_eocfm_controls_elysium: "Controls $eocfm_"
+ modifier_eocfm_controls_mixtec: "Controls $eocfm_"
+ modifier_eocfm_controls_cahokia: "Controls $eocfm_"
  
  modifier_eocfm_ecumenical_aspirations: "Ecumenical Aspirations"
  
@@ -563,8 +590,10 @@
  
  eocfm_value_from_autocephaly: "From #bold Having Declared [concept_autocephaly]#!"
  eocfm_value_from_seat_control: "From controlling this [concept_patriarchal_seat]"
+ eocfm_value_from_matching_religion: "From share the same [concept_religion]"
  eocfm_value_from_matching_liturgial_rite: "From sharing a [concept_liturgical_rite]"
  eocfm_from_relations_improved: "From improving our [concept_relations] with this [concept_patriarchal_seat]"
+ eocfm_value_from_different_religion: "From differences in [concept_religion]"
  eocfm_value_from_differing_liturgial_rite: "From differences in [concept_liturgical_rite]"
  
  eocfm_value_from_restored_synod: "From #bold Restoring the Synod#!"
@@ -603,42 +632,6 @@
  # tooltips
  eocfm_no_effects: "No immedate effects..."
  eocfm_nothing_happens: "Nothing happens..."
- 
- eocfm_byzantine_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_byzantine_rite_details')] Byzantine Rite#!#!"
- eocfm_byzantine_rite_details: "The #bold Byzantine Rite#!, also called the Greek Rite, encompasses the range of rituals and traditions that exemplify the [GetReligion('orthodox').GetName] church. Developed from centuries of syncretism between the traditions of Constantinople and the communities of the Levant, this rite is know for its elaborate and mystical traits.\n$TOOLTIP_DELIMITER$\n$eocfm_byzantine_rite_modifier$"
- eocfm_byzantine_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_byzantine_rite_placeholder').GetDesc]#!"
- 
- eocfm_roman_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_roman_rite_details')] Roman Rite#!#!"
- eocfm_roman_rite_details: "The #bold Roman Rite#!, #italic Rītus Rōmānus in Latin#!, is the primary [concept_liturgical_rite] of the [GetReligion('catholic').GetName] church. Recognized for its practical and dignified expression, its rituals harken back to an era when Christendom lived in the shadows of the caesars of Rome.\n$TOOLTIP_DELIMITER$\n$eocfm_roman_rite_modifier$"
- eocfm_roman_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_roman_rite_placeholder').GetDesc]#!"
- 
- eocfm_alexandrian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_alexandrian_rite_details')] Alexandrian Rite#!#!"
- eocfm_alexandrian_rite_details: "The #bold Alexandrian Rite#! traces its split from the remainder of Christianity to the rejection of the Council of Chalcedon by the [GetReligion('oriental_orthodox').GetName]. This rite is characterized by the use of a variety of liturgies, both historically and in the present.\n$TOOLTIP_DELIMITER$\n$eocfm_alexandrian_rite_modifier$"
- eocfm_alexandrian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_alexandrian_rite_placeholder').GetDesc]#!"
- 
- eocfm_armenian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_armenian_rite_details')] Armenian Rite#!"
- eocfm_armenian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_armenian_rite_modifier$"
- eocfm_armenian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_armenian_rite_placeholder').GetDesc]#!"
- 
- eocfm_syro_antiochian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_syro_antiochian_rite_details')] Syro-Antiochian Rite#!"
- eocfm_syro_antiochian_rite_details: "The #bold Syro-Antiochian Rite#! .\n$TOOLTIP_DELIMITER$\n$eocfm_syro_antiochian_rite_modifier$"
- eocfm_syro_antiochian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_syro_antiochian_rite_placeholder').GetDesc]#!"
- 
- eocfm_russian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Russian Rite#!"
- eocfm_russian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_russian_rite_modifier$"
- eocfm_russian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_russian_rite_placeholder').GetDesc]#!"
- 
- eocfm_nestorian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Nestorian Rite#!"
- eocfm_nestorian_rite_details: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Nestorian Rite#! \n$TOOLTIP_DELIMITER$\n$eocfm_nestorian_rite_modifier$"
- eocfm_nestorian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_nestorian_rite').GetDesc]#!"
- 
- eocfm_elysian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_elysian_rite_details')] Elysian Rite#!#!"
- eocfm_elysian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_elysian_rite_modifier$"
- eocfm_elysian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_elysian_rite_placeholder').GetDesc]#!"
- 
- eocfm_mixtec_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_mixtec_rite_details')] Mixtec Rite#!#!"
- eocfm_mixtec_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_mixtec_rite_modifier$"
- eocfm_mixtec_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_mixtec_rite_placeholder').GetDesc]#!"
  
  eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Control#!#!"
  eocfm_controls: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controls#!#!"
@@ -701,6 +694,7 @@
  eocfm_rome: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_rome_details')] Rome#!#!#!"
  eocfm_rome_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_rome').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_rome_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_rome_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_rome_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_rome_opinion_var').GetValue|+=]#!"
  eocfm_rome_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_rome_opinion_value')]"
+ eocfm_rome_modifier: "#bold Holding and Controlling Rome will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_rome').GetDesc]"
  
  eocfm_santiago: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_santiago_details')] Rome#!#!#!"
  eocfm_santiago_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_santiago').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_santiago_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_santiago_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_santiago_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_santiago_opinion_var').GetValue|+=]#!"
@@ -769,3 +763,40 @@
  eocfm_mixtec: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_mixtec_details')] Rome#!#!#!"
  eocfm_mixtec_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_mixtec').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_mixtec_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_mixtec_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_mixtec_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_mixtec_opinion_var').GetValue|+=]#!"
  eocfm_mixtec_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_mixtec_opinion_value')]"
+ 
+ # Liturgical Rites Loc
+ eocfm_byzantine_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_byzantine_rite_details')] Byzantine Rite#!#!"
+ eocfm_byzantine_rite_details: "The #bold Byzantine Rite#!, also called the Greek Rite, encompasses the range of rituals and traditions that exemplify the [GetReligion('orthodox').GetName] church. Developed from centuries of syncretism between the traditions of Constantinople and the communities of the Levant, this rite is know for its elaborate and mystical traits.\n$TOOLTIP_DELIMITER$\n$eocfm_byzantine_rite_modifier$"
+ eocfm_byzantine_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_byzantine_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_roman_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_roman_rite_details')] Roman Rite#!#!"
+ eocfm_roman_rite_details: "The #bold Roman Rite#!, #italic Rītus Rōmānus in Latin#!, is the primary [concept_liturgical_rite] of the [GetReligion('catholic').GetName] church. Recognized for its practical and dignified expression, its rituals harken back to an era when Christendom lived in the shadows of the caesars of Rome.\n$TOOLTIP_DELIMITER$\n$eocfm_roman_rite_modifier$"
+ eocfm_roman_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_roman_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_alexandrian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_alexandrian_rite_details')] Alexandrian Rite#!#!"
+ eocfm_alexandrian_rite_details: "The #bold Alexandrian Rite#! traces its split from the remainder of Christianity to the rejection of the Council of Chalcedon by the [GetReligion('oriental_orthodox').GetName]. This rite is characterized by the use of a variety of liturgies, both historically and in the present.\n$TOOLTIP_DELIMITER$\n$eocfm_alexandrian_rite_modifier$"
+ eocfm_alexandrian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_alexandrian_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_armenian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_armenian_rite_details')] Armenian Rite#!"
+ eocfm_armenian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_armenian_rite_modifier$"
+ eocfm_armenian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_armenian_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_syro_antiochian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_syro_antiochian_rite_details')] Syro-Antiochian Rite#!"
+ eocfm_syro_antiochian_rite_details: "The #bold Syro-Antiochian Rite#! .\n$TOOLTIP_DELIMITER$\n$eocfm_syro_antiochian_rite_modifier$"
+ eocfm_syro_antiochian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_syro_antiochian_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_russian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Russian Rite#!"
+ eocfm_russian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_russian_rite_modifier$"
+ eocfm_russian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_russian_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_nestorian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Nestorian Rite#!"
+ eocfm_nestorian_rite_details: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Nestorian Rite#! \n$TOOLTIP_DELIMITER$\n$eocfm_nestorian_rite_modifier$"
+ eocfm_nestorian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_nestorian_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_elysian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_elysian_rite_details')] Elysian Rite#!#!"
+ eocfm_elysian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_elysian_rite_modifier$"
+ eocfm_elysian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_elysian_rite_placeholder').GetDesc]#!"
+ 
+ eocfm_mixtec_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_mixtec_rite_details')] Mixtec Rite#!#!"
+ eocfm_mixtec_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_mixtec_rite_modifier$"
+ eocfm_mixtec_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_mixtec_rite_placeholder').GetDesc]#!"
