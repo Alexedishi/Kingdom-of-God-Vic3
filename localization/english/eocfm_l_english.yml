@@ -96,9 +96,9 @@
  # custom loc
  custom_eocfm_roman_catholic: "The Roman Catholic Church"
  custom_eocfm_eastern_orthodox: "The Eastern Orthodox Church"
- custom_eocfm_oriental_orthodox: "The Oriental Orthdox Churches"
+ custom_eocfm_oriental_orthodox: "The Oriental Orthodox Churches"
  custom_eocfm_ancient_east: "The Ancient Church of the East"
- custom_eocfm_elysian_orthodox: "The Elysian Orthdox Church"
+ custom_eocfm_elysian_orthodox: "The Elysian Orthodox Church"
  
  custom_eocfm_no_autocephaly: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $eocfm_constantinople$."
  custom_eocfm_schismatic: "[GetPlayer.GetName] is #bold #red In Schism#!#! with Constantinople."
@@ -165,7 +165,7 @@
  concept_patriarchate: "Patriarchate"
  concept_patriarchal_seats: "Patriarchal Seats"
  concept_ecumenical_council: "Ecumenical Council"# traits
- concept_ecumenical_council_desc: "#bold Ecumenical Councils#! are large gatherings of prominent bishops for the purpose of settling religious questions or disputes. First called by the Roman Emperors, these councils have become a cornerstone of making critical interpretations of or changes to church dogma. In the Eastern Orthodoxy, these are held to be the supreme legal authority in the church... provided their contents are accepted by the Orthdox community at large.
+ concept_ecumenical_council_desc: "#bold Ecumenical Councils#! are large gatherings of prominent bishops for the purpose of settling religious questions or disputes. First called by the Roman Emperors, these councils have become a cornerstone of making critical interpretations of or changes to church dogma. In the Eastern Orthodoxy, these are held to be the supreme legal authority in the church... provided their contents are accepted by the Orthodox community at large.
  concept_councils: "Ecumenical Councils"
  concept_crusades: "Crusades"
  concept_crusades_desc: "The Crusades were a series of religiously-motivated wars initiated by Western European countries against non-Christians. While popularly conceptualized as centered on reclaiming the Holy Land from Muslim rulers, similar religious conflicts saw Chrstian expansion into Scandanavia, Eastern Europe, and Iberia. These wars were generally motivated by a desire for fame from nobles and a desire for indulgences by the commonfolk."
@@ -231,28 +231,28 @@
  modifier_eocfm_elysian_rite_placeholder: "Elysian Rite"
  modifier_eocfm_mixtec_rite_placeholder: "Mixtec Rite"
  
- modifier_eocfm_controls_rome: "Controls $eocfm_"
- modifier_eocfm_controls_santiago: "Controls $eocfm_"
- modifier_eocfm_controls_paris: "Controls $eocfm_"
- modifier_eocfm_controls_koln: "Controls $eocfm_"
- modifier_eocfm_controls_vienna: "Controls $eocfm_"
- modifier_eocfm_controls_constantinople: "Controls $eocfm_"
- modifier_eocfm_controls_antioch: "Controls $eocfm_"
- modifier_eocfm_controls_jerusalem: "Controls $eocfm_"
- modifier_eocfm_controls_alexandria: "Controls $eocfm_"
- modifier_eocfm_controls_moscow: "Controls $eocfm_"
- modifier_eocfm_controls_coptic_alexandria: "Controls $eocfm_"
- modifier_eocfm_controls_syriac_antioch: "Controls $eocfm_"
- modifier_eocfm_controls_addis_ababa: "Controls $eocfm_"
- modifier_eocfm_controls_etchmiadzin: "Controls $eocfm_"
- modifier_eocfm_controls_konak: "Controls $eocfm_"
- modifier_eocfm_controls_elysium: "Controls $eocfm_"
- modifier_eocfm_controls_mixtec: "Controls $eocfm_"
- modifier_eocfm_controls_cahokia: "Controls $eocfm_"
+ modifier_eocfm_controls_rome: "Controls $eocfm_rome$"
+ modifier_eocfm_controls_santiago: "Controls $eocfm_santiago$"
+ modifier_eocfm_controls_paris: "Controls $eocfm_paris$"
+ modifier_eocfm_controls_koln: "Controls $eocfm_koln$"
+ modifier_eocfm_controls_vienna: "Controls $eocfm_vienna$"
+ modifier_eocfm_controls_constantinople: "Controls $eocfm_constantinople$"
+ modifier_eocfm_controls_antioch: "Controls $eocfm_antioch$"
+ modifier_eocfm_controls_jerusalem: "Controls $eocfm_jerusalem$"
+ modifier_eocfm_controls_alexandria: "Controls $eocfm_alexandria$"
+ modifier_eocfm_controls_moscow: "Controls $eocfm_moscow$"
+ modifier_eocfm_controls_coptic_alexandria: "Controls $eocfm_coptic_alexandria$"
+ modifier_eocfm_controls_syriac_antioch: "Controls $eocfm_syriac_antioch$"
+ modifier_eocfm_controls_addis_ababa: "Controls $eocfm_addis_ababa$"
+ modifier_eocfm_controls_etchmiadzin: "Controls $eocfm_etchmiadzin$"
+ modifier_eocfm_controls_konak: "Controls $eocfm_konak$"
+ modifier_eocfm_controls_elysium: "Controls $eocfm_elysium$"
+ modifier_eocfm_controls_mixtec: "Controls $eocfm_mixtec$"
+ modifier_eocfm_controls_cahokia: "Controls $eocfm_cahokia$"
  
  modifier_eocfm_ecumenical_aspirations: "Ecumenical Aspirations"
  
- modifier_eocfm_emphasize_unity: "Emphasizing Orthdox Unity"
+ modifier_eocfm_emphasize_unity: "Emphasizing Orthodox Unity"
  modifier_eocfm_enforce_attendance: "Enforcing Church Attendance"
  modifier_eocfm_theologize_dogma: "Theologizing Church Dogma"
  modifier_eocfm_promote_ecumenism: "Promoting Ecumenism"
@@ -635,8 +635,9 @@
  
  eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Control#!#!"
  eocfm_controls: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controls#!#!"
- eocfm_control_concept: "A [concept_country] #bold controls#! a [concept_patriarchal_seat] if it has #bold integrated#! that seat into its religious administration"
+ eocfm_controlling: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controlling#!#!"
  eocfm_controller:  "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controller#!#!"
+ eocfm_control_concept: "A [concept_country] #bold controls#! a [concept_patriarchal_seat] if it has #bold integrated#! that seat into its religious administration"
  
  eocfm_usurped_rome: "[GetPlayer.GetNameNoFlag] now $eocfm_controls$ the [concept_patriarchal_seat] of $eocfm_rome$"
  eocfm_usurped_constantinople: "[GetPlayer.GetNameNoFlag] now $eocfm_controls$ the [concept_patriarchal_seat] of $eocfm_constantinople$"
@@ -694,75 +695,96 @@
  eocfm_rome: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_rome_details')] Rome#!#!#!"
  eocfm_rome_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_rome').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_rome_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_rome_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_rome_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_rome_opinion_var').GetValue|+=]#!"
  eocfm_rome_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_rome_opinion_value')]"
- eocfm_rome_modifier: "#bold Holding and Controlling Rome will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_rome').GetDesc]"
+ eocfm_rome_modifier: "#bold Holding and $eocfm_controlling$ Rome will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_rome').GetDesc]"
  
- eocfm_santiago: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_santiago_details')] Rome#!#!#!"
+ eocfm_santiago: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_santiago_details')] Santiago#!#!#!"
  eocfm_santiago_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_santiago').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_santiago_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_santiago_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_santiago_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_santiago_opinion_var').GetValue|+=]#!"
  eocfm_santiago_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_santiago_opinion_value')]"
+ eocfm_santiago_modifier: "#bold Holding and $eocfm_controlling$ Santiago will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_santiago').GetDesc]"
  
- eocfm_paris: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_paris_details')] Rome#!#!#!"
+ eocfm_paris: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_paris_details')] Paris#!#!#!"
  eocfm_paris_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_paris').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_paris_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_paris_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_paris_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_paris_opinion_var').GetValue|+=]#!"
  eocfm_paris_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_paris_opinion_value')]"
+ eocfm_paris_modifier: "#bold Holding and $eocfm_controlling$ Paris will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_paris').GetDesc]"
  
- eocfm_koln: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_koln_details')] Rome#!#!#!"
+ eocfm_koln: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_koln_details')] Cologne#!#!#!"
  eocfm_koln_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_koln').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_koln_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_koln_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_koln_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_koln_opinion_var').GetValue|+=]#!"
  eocfm_koln_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_koln_opinion_value')]"
+ eocfm_koln_modifier: "#bold Holding and $eocfm_controlling$ Cologne will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_koln').GetDesc]"
  
- eocfm_vienna: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_vienna_details')] Rome#!#!#!"
+ eocfm_vienna: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_vienna_details')] Vienna#!#!#!"
  eocfm_vienna_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_vienna').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_vienna_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_vienna_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_vienna_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_vienna_opinion_var').GetValue|+=]#!"
  eocfm_vienna_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_vienna_opinion_value')]"
+ eocfm_vienna_modifier: "#bold Holding and $eocfm_controlling$ Vienna will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_vienna').GetDesc]"
  
- ## Eastern Orthdox Church
- eocfm_constantinople: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_constantinople_details')] Rome#!#!#!"
+ ## Eastern Orthodox Church
+ eocfm_constantinople: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_constantinople_details')] Constantinople#!#!#!"
  eocfm_constantinople_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_constantinople').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_constantinople_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_constantinople_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_constantinople_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_constantinople_opinion_var').GetValue|+=]#!"
  eocfm_constantinople_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_constantinople_opinion_value')]"
+ eocfm_constantinople_modifier: "#bold Holding and $eocfm_controlling$ Constantinople will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_constantinople').GetDesc]"
  
- eocfm_antioch: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_antioch_details')] Rome#!#!#!"
+ eocfm_antioch: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_antioch_details')] Orthodox Antioch#!#!#!"
  eocfm_antioch_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_antioch').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_antioch_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_antioch_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_antioch_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_antioch_opinion_var').GetValue|+=]#!"
  eocfm_antioch_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_antioch_opinion_value')]"
+ eocfm_anitoch_modifier: "#bold Holding and $eocfm_controlling$ Antioch will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_antioch').GetDesc]"
  
- eocfm_jerusalem: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_jerusalem_details')] Rome#!#!#!"
+ eocfm_jerusalem: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_jerusalem_details')] Jerusalem#!#!#!"
  eocfm_jerusalem_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_jerusalem').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_jerusalem_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_jerusalem_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_jerusalem_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_jerusalem_opinion_var').GetValue|+=]#!"
  eocfm_jerusalem_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_jerusalem_opinion_value')]"
+ eocfm_jerusalem_modifier: "#bold Holding and $eocfm_controlling$ Jerusalem will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_jerusalem').GetDesc]"
  
- eocfm_alexandria: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_alexandria_details')] Rome#!#!#!"
+ eocfm_alexandria: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_alexandria_details')] Orthodox Alexandria#!#!#!"
  eocfm_alexandria_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_alexandria').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_alexandria_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_alexandria_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_alexandria_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_alexandria_opinion_var').GetValue|+=]#!"
  eocfm_alexandria_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_alexandria_opinion_value')]"
+ eocfm_alexandria_modifier: "#bold Holding and $eocfm_controlling$ Alexandria will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_alexandria').GetDesc]"
  
- eocfm_moscow: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_moscow_details')] Rome#!#!#!"
+ eocfm_moscow: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_moscow_details')] Moscow#!#!#!"
  eocfm_moscow_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_moscow').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_moscow_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_moscow_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_moscow_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_moscow_opinion_var').GetValue|+=]#!"
  eocfm_moscow_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_moscow_opinion_value')]"
+ eocfm_moscow_modifier: "#bold Holding and $eocfm_controlling$ Moscow will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_moscow').GetDesc]"
  
  ## Oriental Orthodox Churches
- eocfm_coptic_alexandria: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_coptic_alexandria_details')] Rome#!#!#!"
+ eocfm_coptic_alexandria: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_coptic_alexandria_details')] Coptic Alexandria#!#!#!"
  eocfm_coptic_alexandria_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_coptic_alexandria').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_coptic_alexandria_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_coptic_alexandria_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_opinion_var').GetValue|+=]#!"
  eocfm_coptic_alexandria_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_coptic_alexandria_opinion_value')]"
+ eocfm_coptic_alexandria_modifier: "#bold Holding and $eocfm_controlling$ Coptic Alexandria will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_coptic_alexandria').GetDesc]"
  
- eocfm_syriac_antioch: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_syriac_antioch_details')] Rome#!#!#!"
+ eocfm_syriac_antioch: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_syriac_antioch_details')] Syriac Antioch#!#!#!"
  eocfm_syriac_antioch_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_syriac_antioch').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_syriac_antioch_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_syriac_antioch_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_syriac_antioch_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_syriac_antioch_opinion_var').GetValue|+=]#!"
  eocfm_syriac_antioch_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_syriac_antioch_opinion_value')]"
+ eocfm_syriac_antioch_modifier: "#bold Holding and $eocfm_controlling$ Syriac Antioch will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_syriac_antioch').GetDesc]"
  
- eocfm_addis_ababa: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_addis_ababa_details')] Rome#!#!#!"
+ eocfm_addis_ababa: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_addis_ababa_details')] Addis Ababa#!#!#!"
  eocfm_addis_ababa_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_addis_ababa').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_addis_ababa_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_addis_ababa_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_addis_ababa_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_addis_ababa_opinion_var').GetValue|+=]#!"
  eocfm_addis_ababa_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_addis_ababa_opinion_value')]"
- 
- eocfm_etchmiadzin: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_etchmiadzin_details')] Rome#!#!#!"
+ eocfm_addis_ababa_modifier: "#bold Holding and $eocfm_controlling$ Addis Ababa will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_addis_ababa').GetDesc]"
+  
+ eocfm_etchmiadzin: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_etchmiadzin_details')] Etchmiadzin#!#!#!"
  eocfm_etchmiadzin_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_etchmiadzin').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_etchmiadzin_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_etchmiadzin_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_etchmiadzin_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_etchmiadzin_opinion_var').GetValue|+=]#!"
  eocfm_etchmiadzin_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_etchmiadzin_opinion_value')]"
+ eocfm_etchmiadzin_modifier: "#bold Holding and $eocfm_controlling$ Etchmiadzin will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_etchmiadzin').GetDesc]"
  
  ## Church of the East
- eocfm_konak: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_konak_details')] Rome#!#!#!"
+ eocfm_konak: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_konak_details')] Qudshanis#!#!#!"
  eocfm_konak_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_konak').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_konak_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_konak_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_konak_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_konak_opinion_var').GetValue|+=]#!"
  eocfm_konak_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_konak_opinion_value')]"
+ eocfm_konak_modifier: "#bold Holding and $eocfm_controlling$ Qudshanis will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_konak').GetDesc]"
  
  ## Basileia Romaion
- eocfm_elysium: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_elysium_details')] Rome#!#!#!"
- eocfm_elysium_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_elysium').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_elysium_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_elysium_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_elysium_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_elysium_opinion_var').GetValue|+=]#!"
+ eocfm_elysium: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_elysium_details')] Elysium#!#!#!"
+ eocfm_elysium_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_elysium').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_DISTRICT_OF_COLUMBIA').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_elysium_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_elysium_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_elysium_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_elysium_opinion_var').GetValue|+=]#!"
  eocfm_elysium_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_elysium_opinion_value')]"
+ eocfm_elysium_modifier: "#bold Holding and $eocfm_controlling$ Elysium will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_elysium').GetDesc]"
  
- eocfm_mixtec: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_mixtec_details')] Rome#!#!#!"
- eocfm_mixtec_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_mixtec').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_mixtec_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_mixtec_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_mixtec_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_mixtec_opinion_var').GetValue|+=]#!"
+ eocfm_mixtec: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_mixtec_details')] Yucu Dzaa#!#!#!"
+ eocfm_mixtec_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_mixtec').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_OAXACA').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_mixtec_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_mixtec_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_mixtec_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_mixtec_opinion_var').GetValue|+=]#!"
  eocfm_mixtec_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_mixtec_opinion_value')]"
+ eocfm_mixtec_modifier: "#bold Holding and $eocfm_controlling$ Yucu Dzaa will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_mixtec').GetDesc]"
+ 
+ eocfm_cahokia: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_cahokia_details')] Cahokia#!#!#!"
+ eocfm_cahokia_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_cahokia').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_ILLINOIS').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_cahokia_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_cahokia_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_cahokia_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_cahokia_opinion_var').GetValue|+=]#!"
+ eocfm_cahokia_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_cahokia_opinion_value')]"
+ eocfm_cahokia_modifier: "#bold Holding and $eocfm_controlling$ Rome will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_rome').GetDesc]"
  
  # Liturgical Rites Loc
  eocfm_byzantine_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_byzantine_rite_details')] Byzantine Rite#!#!"

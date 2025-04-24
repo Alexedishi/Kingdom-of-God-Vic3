@@ -420,10 +420,29 @@ eocfm_initialize_metropolis_effect = {
 	}
 	
 	# Second, Set Opinion Variables
+	## Catholic Seats
 	set_variable = {
 		name = eocfm_rome_opinion_var
 		value = 0
 	}
+	set_variable = {
+		name = eocfm_santiago_opinion_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_paris_opinion_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_koln_opinion_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_vienna_opinion_var
+		value = 0
+	}
+	
+	## Orthodox Seats
 	set_variable = {
 		name = eocfm_constantinople_opinion_var
 		value = 0
@@ -444,6 +463,30 @@ eocfm_initialize_metropolis_effect = {
 		name = eocfm_moscow_opinion_var
 		value = 0
 	}
+	
+	## Oriental Orthodox Seats
+	set_variable = {
+		name = eocfm_coptic_alexandria_opinion_value
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_syriac_antioch_opinion_value
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_addis_ababa_opinion_value
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_etchmiadzin_opinion_value
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_konak_opinion_value
+		value = 0
+	}
+	
+	## Basileia Romaion Seats
 	if = {
 		limit = {
 			basileia_is_active = yes
@@ -456,13 +499,36 @@ eocfm_initialize_metropolis_effect = {
 			name = eocfm_mixtec_opinion_var
 			value = 0
 		}
+		set_variable = {
+			name = eocfm_cahokia_opinion_value
+			value = 0
+		}
 	}
 	
 	# Third, Set Relation Improvement Variables
+	## Catholic Seats
 	set_variable = {
 		name = eocfm_rome_relations_var
 		value = 0
 	}
+	set_variable = {
+		name = eocfm_santiago_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_paris_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_koln_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_vienna_relations_var
+		value = 0
+	}
+	
+	## Orthodox Seats
 	set_variable = {
 		name = eocfm_constantinople_relations_var
 		value = 0
@@ -483,6 +549,30 @@ eocfm_initialize_metropolis_effect = {
 		name = eocfm_moscow_relations_var
 		value = 0
 	}
+	
+	## Oriental Orthodox Seats
+	set_variable = {
+		name = eocfm_coptic_alexandria_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_syriac_antioch_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_etchmiadzin_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_addis_ababa_relations_var
+		value = 0
+	}
+	set_variable = {
+		name = eocfm_konak_relations_var
+		value = 0
+	}
+	
+	## Basileia Romaion Seats
 	if = {
 		limit = {
 			basileia_is_active = yes
