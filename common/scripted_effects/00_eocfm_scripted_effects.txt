@@ -34,7 +34,31 @@ eocfm_initialize_patriarchs_effect = {
 	
 	## Catholic Churches
 	# Rome
-	set_global_variable = {
+	if = {
+		limit = {
+			NOT = {
+				c:PAP ?= {
+					has_law = law_type:law_theocracy
+				}
+			}
+		}
+		create_character = {
+			template = template_eocfm_rome_patriarch
+			first_name = "Gregorius"
+			last_name = "Cappellari"
+			historical = yes
+			culture = cu:south_italian
+			religion = rel:catholic
+			birth_date = 1765.9.18
+			dna = dna_pope_gregory_16
+			interest_group = ig_devout
+			ideology = ideology_theocrat
+			on_created = {
+				place_character_in_void = 180 # 15 year shelf life
+			}
+		}
+	}
+	set_global_variable = {	
 		name = eocfm_rome_liturgical_rite_var
 		value = 2 # Roman
 	}
