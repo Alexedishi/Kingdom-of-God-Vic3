@@ -64,9 +64,10 @@
  eocfm_gui_unify_orthodox_realms: "Given our prominent position within the Orthodox Church, senior bishops have floated the idea of a singular unified Orthodox nation bound by the faith under our rule.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Roman Curia Actions
+ eocfm_gui_catholic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
  
  # Ecumenical Patriarchate Actions
- eocfm_gui_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
+ eocfm_gui_orthodox_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
  
  eocfm_gui_declare_autocephaly_button: "Once the symbol of unity in the Eastern Church, the Ecumenical Patriarch in Constantinople has increasingly come under the influence of the Ottoman Sultan. Unless we sever our connections with Constantinople, the Ottomans are sure to continue to interfere in our politics and may even try to further their attempts to suppress our culture.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_convoke_council_button: "Our influence within the Eastern Orthodox community is obvious. We could use this power to summon an Ecumenical Council to settle long-standing issues within the Orthodox Church.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -79,6 +80,12 @@
  eocfm_gui_demand_deposition_button: "While the Ecumenical Patriarch claims seniority over Eastern Christianity, he remains an agent of the Sultan in his capacity as the #italic milletbashi#! of the #bold millet-i Rûm#!. As such, we can demand his replacement in exchange for increased cooperation with his replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_assert_supremacy_button: "Through the righteous efforts of [GetPlayer.GetNameNoFlag], $eocfm_constantinople$ has come under [GetReligion('orthodox').GetName] control. We should secure our new role as the defender of the faith by asserting state supremacy over the Ecumenical Patriarchate.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_seize_constantinople_button: "Through the righteous efforts of [GetPlayer.GetNameNoFlag], $eocfm_constantinople$ has come under [GetReligion('orthodox').GetName] control. We should secure our new role as the defender of the faith by seizing control of the Ecumenical Patriarchate.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ # Synodal Actions
+ eocfm_gui_coptic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
+ 
+ # Elysian See Actions
+ eocfm_gui_elysian_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
  
  # Rome Seat Widget
  eocfm_gui_rome_patriarch_header: "Patriarchate of Rome"

@@ -1,0 +1,25 @@
+types eocfm_ecumenical_council_panels {
+	
+	type eocfm_ecumenical_council = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = preferred
+		using = default_fade_in_out
+
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				raw_text = "Ecumenical Council"
+			}
+		}
+		
+		textbox = {
+			autoresize = yes
+			raw_text = "#italic #lore There is no Ecumenical Council in session#!"
+			elide = right
+			using = fontsize_xl
+		}
+
+		expand = {}
+	}
+}
