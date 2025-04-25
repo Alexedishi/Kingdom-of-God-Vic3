@@ -22,15 +22,6 @@ eocfm_catholic_sgui = {
 	is_shown = {
 		eocfm_is_roman_catholic_trigger = yes
 	}
-	is_valid = {
-		var:eocfm_patriarchs_tab_var ?= 1
-	}
-	effect = {
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 1 # Catholic Seats
-		}
-	}
 }
 
 eocfm_orthodox_sgui = {
@@ -38,15 +29,6 @@ eocfm_orthodox_sgui = {
 	
 	is_shown = {
 		eocfm_is_eastern_orthodox_trigger = yes
-	}
-	is_valid = {
-		var:eocfm_patriarchs_tab_var ?= 2
-	}
-	effect = {
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 2 # Orthodox Seats
-		}
 	}
 }
 
@@ -56,14 +38,13 @@ eocfm_oriental_sgui = {
 	is_shown = {
 		eocfm_is_oriental_orthodox_trigger = yes
 	}
-	is_valid = {
-		var:eocfm_patriarchs_tab_var ?= 3
-	}
-	effect = {
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 3 # Oriental Orthodox Seats
-		}
+}
+
+eocfm_basileia_sgui = {
+	scope = country
+	
+	is_shown = {
+		basileia_is_active = yes
 	}
 }
 
@@ -72,15 +53,6 @@ eocfm_elysian_sgui = {
 	
 	is_shown = {
 		eocfm_is_elysian_orthodox_trigger = yes
-	}
-	is_valid = {
-		var:eocfm_patriarchs_tab_var ?= 4
-	}
-	effect = {
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 4 # Elysian Orthodox Seats
-		}
 	}
 }
 

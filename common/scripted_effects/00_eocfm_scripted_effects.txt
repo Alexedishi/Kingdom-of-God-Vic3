@@ -8,42 +8,6 @@ eocfm_gui_toogle_effect = {
 	eocfm_update_patriarch_variables_effect = yes
 	eocfm_update_patriarch_opinions_effect = yes
 	eocfm_update_seat_controllers_effect = yes
-	if = {
-		limit = {
-			eocfm_is_elysian_orthodox_trigger = yes
-		}
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 4 # Elysian Orthodox Seats
-		}
-	}
-	else_if = {
-		limit = {
-			eocfm_is_oriental_orthodox_trigger = yes
-		}
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 3 # Oriental Orthodox Seats
-		}
-	}
-	else_if = {
-		limit = {
-			eocfm_is_eastern_orthodox_trigger = yes
-		}
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 2 # Orthodox Seats
-		}
-	}
-	else_if = {
-		limit = {
-			eocfm_is_eastern_orthodox_trigger = yes
-		}
-		set_variable = {
-			name = eocfm_patriarchs_tab_var
-			value = 1 # Catholic Seats
-		}
-	}
 }
 
 #### Metropolis Initialization Effect

@@ -11,6 +11,16 @@ widget = {
 		visible = "[GetVariableSystem.HasValue('com_open_window', 'eocfm_sidebar_button_sgui')]"
 		datacontext = "[GetPlayer]"
 		
+		# This initializes the GUI variable on a fresh load
+		widget = {
+			visible = "[Not(GetVariableSystem.Exists('eocfm_tabs_var')]"
+			enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+			state = {
+				name = _show
+				on_finish = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
+			}
+		}
+		
 		state = {
 			name = _show
 			alpha = 1
@@ -388,7 +398,6 @@ widget = {
 			margin_left = 60
 			margin_right = 60
 			
-			using = clickthrough_blocker
 			using = default_fade_in_out
 			
 			### Orthodox Widget Content
@@ -1895,181 +1904,7 @@ widget = {
 											}
 										}
 										
-										# Patriarchate of Coptic Alexandria
-										vbox = {
-											layoutpolicy_vertical = shrinking
-											spacing = 10
-											margin = { 10 10 }
-											
-											background = {
-												using = entry_bg
-											}
-											
-											hbox = {
-												default_header_clean_faded = {
-													blockoverride "text" {
-													}
-													textbox = {
-														text = "eocfm_gui_coptic_alexandria_patriarch_header"
-														parentanchor = left|vcenter
-														autoresize = yes
-														max_width = 300
-														elide = right
-														using = fontsize_large
-													}
-													textbox = {
-														text = "eocfm_gui_coptic_alexandria_patriarch_controller"
-														parentanchor = right|vcenter
-														autoresize = yes
-														max_width = 300
-														elide = right
-														using = fontsize_medium
-													}
-												}
-											}
-											
-											## Character Portrait
-											hbox = {
-												layoutpolicy_horizontal = expanding
-												layoutpolicy_vertical = shrinking
-												
-												character_portrait_medium_torso = {
-													datacontext = "[GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_patriarch_var').GetCharacter]"
-													blockoverride "show_hat" {}
-													blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-													blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-													blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-													
-													default_header_clean_faded = {
-														size = { 150 35 }
-														position = { 0 80 }
-														parentanchor = center
-														blockoverride "text" {
-														}
-														textbox = {
-															text = "eocfm_gui_coptic_alexandria_patriarch_name"
-															parentanchor = center
-															position = { 0 -2 }
-															autoresize = yes
-															max_width = 190
-															elide = right
-															using = fontsize_large
-														}
-													}
-												}
-												vbox = {
-													background = {
-														using = entry_bg_simple
-													}
-													margin = { 10 10 }
-													spacing = 5
-													textbox = {
-														raw_text = "eocfm_gui_coptic_alexandria_liturgical_rite"
-														size = { 150 40 }
-														elide = right
-														using = fontsize_medium
-													}
-													textbox = {
-														text = "eocfm_gui_coptic_alexandria_location"
-														size = { 150 40 }
-														elide = right
-														using = fontsize_medium
-													}
-													textbox = {
-														text = "eocfm_gui_coptic_alexandria_patriarch_relations"
-														size = { 150 40 }
-														elide = right
-														using = fontsize_medium
-													}
-												}
-												
-												vbox = {
-													layoutpolicy_vertical = expanding
-													
-													background = {
-														using = entry_bg_unit_dark
-													}
-													
-													# Integrate Seat Button
-													widget = {
-														size = { 200 50 }
-														
-														button = {
-															parentanchor = center
-															position = { 0 0 }
-															using = default_button_action
-															size = { 180 40 }
-															raw_text = "#bold Integrate Seat#!"
-															using = fontsize_medium
-															
-															datacontext = "[GetScriptedGui('eocfm_integrate_antioch_sgui')]"
-															onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															tooltip = "eocfm_gui_integrate_antioch_button"
-														}
-														green_progressbar_horizontal = {
-															parentanchor = center
-															position = { 0 0 }
-															size = { 180 20 }
-															visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-															
-															blockoverride "values" {
-																min = 0
-																max = 120
-																value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
-															}
-														}
-														textbox = {
-															parentanchor = center
-															position = { 0 -3 }
-															autoresize = yes
-															visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-															
-															raw_text = "#bold #greece Integration Progress#!#!"
-															elide = right
-															using = fontsize_medium
-														}
-													}
-													
-													# Sway Seat Button
-													widget = {
-														size = { 200 50 }
-														
-														button = {
-															parentanchor = bottom|hcenter
-															position = { 0 -5 }
-															using = default_button_action
-															size = { 180 40 }
-															raw_text = "#bold Improve Relations#!"
-															using = fontsize_medium
-															
-															datacontext = "[GetScriptedGui('eocfm_start_sway_antioch_sgui')]"
-															onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															tooltip = "eocfm_gui_start_sway_antioch_button"
-														}
-														button = {
-															parentanchor = bottom|hcenter
-															position = { 0 -5 }
-															using = default_button_action
-															size = { 180 40 }
-															raw_text = "#bold Cease Diplomacy#!"
-															using = fontsize_medium
-															
-															datacontext = "[GetScriptedGui('eocfm_stop_sway_antioch_sgui')]"
-															onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-															tooltip = "eocfm_gui_stop_sway_antioch_button"
-														}
-													}
-													
-													expand = {}
-												}
-											}
-										}
+										
 										
 										expand = {}
 									}
@@ -2152,7 +1987,7 @@ widget = {
 								raw_text = "Catholicism"
 								using = fontsize_medium
 								
-								onclick = "[GetScriptedGui('eocfm_catholic_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
 							}
 							button = {
 								using = default_button
@@ -2160,7 +1995,7 @@ widget = {
 								raw_text = "Eastern Orthodoxy"
 								using = fontsize_medium
 								
-								onclick = "[GetScriptedGui('eocfm_orthodox_seats_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_orthodox')]"
 							}
 							button = {
 								using = default_button
@@ -2168,7 +2003,7 @@ widget = {
 								raw_text = "Oriental Orthodoxy"
 								using = fontsize_medium
 								
-								onclick = "[GetScriptedGui('eocfm_oriental_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_oriental')]"
 							}
 							button = {
 								using = default_button
@@ -2176,8 +2011,8 @@ widget = {
 								raw_text = "Elysian Orthodoxy"
 								using = fontsize_medium
 								
-								visible = "[GetScriptedGui('eocfm_elysian_sgui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-								onclick = "[GetScriptedGui('eocfm_elysian_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[GetScriptedGui('eocfm_basileia_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_elysian')]"
 							}
 						}
 					}
@@ -2190,7 +2025,7 @@ widget = {
 						layoutpolicy_vertical = expanding
 						spacing = 10
 						
-						visible = "[GetScriptedGui('eocfm_catholic_sgui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_catholic' )]"
 						
 						# Archdiocese of Santiago
 						vbox = {
@@ -2906,7 +2741,7 @@ widget = {
 						layoutpolicy_vertical = expanding
 						spacing = 10
 						
-						visible = "[GetScriptedGui('eocfm_orthodox_seats_sgui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_orthodox' )]"
 						
 						# Patriarchate of Anitoch
 						vbox = {
@@ -3625,7 +3460,7 @@ widget = {
 						layoutpolicy_vertical = expanding
 						spacing = 10
 						
-						visible = "[GetScriptedGui('eocfm_oriental_sgui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_oriental' )]"
 						
 						# Patriarchate of Syriac Anitoch
 						vbox = {
@@ -4333,6 +4168,722 @@ widget = {
 						
 						expand = {}
 					}
+					
+					# Elysian Orthodox Patriarchal Seats
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						spacing = 10
+						
+						visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_elysian' )]"
+						
+						# Patriarchate of Elysium
+						vbox = {
+							layoutpolicy_vertical = shrinking
+							spacing = 10
+							margin = { 10 10 }
+							
+							background = {
+								using = entry_bg
+							}
+							
+							hbox = {
+								default_header_clean_faded = {
+									blockoverride "text" {
+									}
+									textbox = {
+										text = "eocfm_gui_elysium_patriarch_header"
+										parentanchor = left|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_large
+									}
+									textbox = {
+										text = "eocfm_gui_elysium_patriarch_controller"
+										parentanchor = right|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_medium
+									}
+								}
+							}
+							
+							## Character Portrait
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = shrinking
+								
+								character_portrait_medium_torso = {
+									datacontext = "[GetPlayer.MakeScope.Var('eocfm_elysium_patriarch_var').GetCharacter]"
+									blockoverride "show_hat" {}
+									blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+									
+									default_header_clean_faded = {
+										size = { 150 35 }
+										position = { 0 80 }
+										parentanchor = center
+										blockoverride "text" {
+										}
+										textbox = {
+											text = "eocfm_gui_elysium_patriarch_name"
+											parentanchor = center
+											position = { 0 -2 }
+											autoresize = yes
+											max_width = 190
+											elide = right
+											using = fontsize_large
+										}
+									}
+								}
+								vbox = {
+									background = {
+										using = entry_bg_simple
+									}
+									margin = { 10 10 }
+									spacing = 5
+									textbox = {
+										raw_text = "eocfm_gui_elysium_liturgical_rite"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_elysium_location"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_elysium_patriarch_relations"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+								}
+								
+								vbox = {
+									layoutpolicy_vertical = expanding
+									
+									background = {
+										using = entry_bg_unit_dark
+									}
+									
+									# Integrate Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = center
+											position = { 0 0 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Integrate Seat#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_integrate_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_integrate_antioch_button"
+										}
+										green_progressbar_horizontal = {
+											parentanchor = center
+											position = { 0 0 }
+											size = { 180 20 }
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											blockoverride "values" {
+												min = 0
+												max = 120
+												value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+											}
+										}
+										textbox = {
+											parentanchor = center
+											position = { 0 -3 }
+											autoresize = yes
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											raw_text = "#bold #greece Integration Progress#!#!"
+											elide = right
+											using = fontsize_medium
+										}
+									}
+									
+									# Sway Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Improve Relations#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_start_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_start_sway_antioch_button"
+										}
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Cease Diplomacy#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_stop_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_stop_sway_antioch_button"
+										}
+									}
+									
+									expand = {}
+								}
+							}
+						}
+						
+						# Patriarchate of Elysium
+						vbox = {
+							layoutpolicy_vertical = shrinking
+							spacing = 10
+							margin = { 10 10 }
+							
+							background = {
+								using = entry_bg
+							}
+							
+							hbox = {
+								default_header_clean_faded = {
+									blockoverride "text" {
+									}
+									textbox = {
+										text = "eocfm_gui_tututepec_patriarch_header"
+										parentanchor = left|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_large
+									}
+									textbox = {
+										text = "eocfm_gui_tututepec_patriarch_controller"
+										parentanchor = right|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_medium
+									}
+								}
+							}
+							
+							## Character Portrait
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = shrinking
+								
+								character_portrait_medium_torso = {
+									datacontext = "[GetPlayer.MakeScope.Var('eocfm_tututepec_patriarch_var').GetCharacter]"
+									blockoverride "show_hat" {}
+									blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+									
+									default_header_clean_faded = {
+										size = { 150 35 }
+										position = { 0 80 }
+										parentanchor = center
+										blockoverride "text" {
+										}
+										textbox = {
+											text = "eocfm_gui_tututepec_patriarch_name"
+											parentanchor = center
+											position = { 0 -2 }
+											autoresize = yes
+											max_width = 190
+											elide = right
+											using = fontsize_large
+										}
+									}
+								}
+								vbox = {
+									background = {
+										using = entry_bg_simple
+									}
+									margin = { 10 10 }
+									spacing = 5
+									textbox = {
+										raw_text = "eocfm_gui_tututepec_liturgical_rite"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_tututepec_location"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_tututepec_patriarch_relations"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+								}
+								
+								vbox = {
+									layoutpolicy_vertical = expanding
+									
+									background = {
+										using = entry_bg_unit_dark
+									}
+									
+									# Integrate Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = center
+											position = { 0 0 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Integrate Seat#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_integrate_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_integrate_antioch_button"
+										}
+										green_progressbar_horizontal = {
+											parentanchor = center
+											position = { 0 0 }
+											size = { 180 20 }
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											blockoverride "values" {
+												min = 0
+												max = 120
+												value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+											}
+										}
+										textbox = {
+											parentanchor = center
+											position = { 0 -3 }
+											autoresize = yes
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											raw_text = "#bold #greece Integration Progress#!#!"
+											elide = right
+											using = fontsize_medium
+										}
+									}
+									
+									# Sway Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Improve Relations#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_start_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_start_sway_antioch_button"
+										}
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Cease Diplomacy#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_stop_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_stop_sway_antioch_button"
+										}
+									}
+									
+									expand = {}
+								}
+							}
+						}
+						
+						# Patriarchate of Cahokia
+						vbox = {
+							layoutpolicy_vertical = shrinking
+							spacing = 10
+							margin = { 10 10 }
+							
+							background = {
+								using = entry_bg
+							}
+							
+							hbox = {
+								default_header_clean_faded = {
+									blockoverride "text" {
+									}
+									textbox = {
+										text = "eocfm_gui_cahokia_patriarch_header"
+										parentanchor = left|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_large
+									}
+									textbox = {
+										text = "eocfm_gui_cahokia_patriarch_controller"
+										parentanchor = right|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_medium
+									}
+								}
+							}
+							
+							## Character Portrait
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = shrinking
+								
+								character_portrait_medium_torso = {
+									datacontext = "[GetPlayer.MakeScope.Var('eocfm_cahokia_patriarch_var').GetCharacter]"
+									blockoverride "show_hat" {}
+									blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+									
+									default_header_clean_faded = {
+										size = { 150 35 }
+										position = { 0 80 }
+										parentanchor = center
+										blockoverride "text" {
+										}
+										textbox = {
+											text = "eocfm_gui_cahokia_patriarch_name"
+											parentanchor = center
+											position = { 0 -2 }
+											autoresize = yes
+											max_width = 190
+											elide = right
+											using = fontsize_large
+										}
+									}
+								}
+								vbox = {
+									background = {
+										using = entry_bg_simple
+									}
+									margin = { 10 10 }
+									spacing = 5
+									textbox = {
+										raw_text = "eocfm_gui_cahokia_liturgical_rite"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_cahokia_location"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_cahokia_patriarch_relations"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+								}
+								
+								vbox = {
+									layoutpolicy_vertical = expanding
+									
+									background = {
+										using = entry_bg_unit_dark
+									}
+									
+									# Integrate Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = center
+											position = { 0 0 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Integrate Seat#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_integrate_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_integrate_antioch_button"
+										}
+										green_progressbar_horizontal = {
+											parentanchor = center
+											position = { 0 0 }
+											size = { 180 20 }
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											blockoverride "values" {
+												min = 0
+												max = 120
+												value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+											}
+										}
+										textbox = {
+											parentanchor = center
+											position = { 0 -3 }
+											autoresize = yes
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											raw_text = "#bold #greece Integration Progress#!#!"
+											elide = right
+											using = fontsize_medium
+										}
+									}
+									
+									# Sway Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Improve Relations#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_start_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_start_sway_antioch_button"
+										}
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Cease Diplomacy#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_stop_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_stop_sway_antioch_button"
+										}
+									}
+									
+									expand = {}
+								}
+							}
+						}
+						
+						# Patriarchate of Qudshanis
+						vbox = {
+							layoutpolicy_vertical = shrinking
+							spacing = 10
+							margin = { 10 10 }
+							
+							background = {
+								using = entry_bg
+							}
+							
+							hbox = {
+								default_header_clean_faded = {
+									blockoverride "text" {
+									}
+									textbox = {
+										text = "eocfm_gui_konak_patriarch_header"
+										parentanchor = left|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_large
+									}
+									textbox = {
+										text = "eocfm_gui_konak_patriarch_controller"
+										parentanchor = right|vcenter
+										autoresize = yes
+										max_width = 300
+										elide = right
+										using = fontsize_medium
+									}
+								}
+							}
+							
+							## Character Portrait
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = shrinking
+								
+								character_portrait_medium_torso = {
+									datacontext = "[GetPlayer.MakeScope.Var('eocfm_konak_patriarch_var').GetCharacter]"
+									blockoverride "show_hat" {}
+									blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+									blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+									
+									default_header_clean_faded = {
+										size = { 150 35 }
+										position = { 0 80 }
+										parentanchor = center
+										blockoverride "text" {
+										}
+										textbox = {
+											text = "eocfm_gui_konak_patriarch_name"
+											parentanchor = center
+											position = { 0 -2 }
+											autoresize = yes
+											max_width = 190
+											elide = right
+											using = fontsize_large
+										}
+									}
+								}
+								vbox = {
+									background = {
+										using = entry_bg_simple
+									}
+									margin = { 10 10 }
+									spacing = 5
+									textbox = {
+										raw_text = "eocfm_gui_konak_liturgical_rite"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_konak_location"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+									textbox = {
+										text = "eocfm_gui_konak_patriarch_relations"
+										size = { 150 40 }
+										elide = right
+										using = fontsize_medium
+									}
+								}
+								
+								vbox = {
+									layoutpolicy_vertical = expanding
+									
+									background = {
+										using = entry_bg_unit_dark
+									}
+									
+									# Integrate Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = center
+											position = { 0 0 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Integrate Seat#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_integrate_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_integrate_antioch_button"
+										}
+										green_progressbar_horizontal = {
+											parentanchor = center
+											position = { 0 0 }
+											size = { 180 20 }
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											blockoverride "values" {
+												min = 0
+												max = 120
+												value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+											}
+										}
+										textbox = {
+											parentanchor = center
+											position = { 0 -3 }
+											autoresize = yes
+											visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+											
+											raw_text = "#bold #greece Integration Progress#!#!"
+											elide = right
+											using = fontsize_medium
+										}
+									}
+									
+									# Sway Seat Button
+									widget = {
+										size = { 200 50 }
+										
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Improve Relations#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_start_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_start_sway_antioch_button"
+										}
+										button = {
+											parentanchor = bottom|hcenter
+											position = { 0 -5 }
+											using = default_button_action
+											size = { 180 40 }
+											raw_text = "#bold Cease Diplomacy#!"
+											using = fontsize_medium
+											
+											datacontext = "[GetScriptedGui('eocfm_stop_sway_antioch_sgui')]"
+											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											tooltip = "eocfm_gui_stop_sway_antioch_button"
+										}
+									}
+									
+									expand = {}
+								}
+							}
+						}
+						
+						expand = {}
+					}
+					
 				}
 			}
 		}
