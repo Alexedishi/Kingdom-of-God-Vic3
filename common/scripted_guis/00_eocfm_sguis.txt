@@ -6,17 +6,82 @@ eocfm_sidebar_button_sgui = {
 	scope = country
 	
 	is_shown = {
-		eocfm_is_eastern_christian_trigger = yes
+		eocfm_is_christian_trigger = yes
 	}
-	
 	is_valid = {
-		eocfm_is_eastern_christian_trigger = yes
+		eocfm_is_christian_trigger = yes
 	}
-	
 	effect = {
 		eocfm_gui_toogle_effect = yes
 	}
+}
+
+eocfm_catholic_sgui = {
+	scope = country
 	
+	is_shown = {
+		eocfm_is_roman_catholic_trigger = yes
+	}
+	is_valid = {
+		var:eocfm_patriarchs_tab_var ?= 1
+	}
+	effect = {
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 1 # Catholic Seats
+		}
+	}
+}
+
+eocfm_orthodox_sgui = {
+	scope = country
+	
+	is_shown = {
+		eocfm_is_eastern_orthodox_trigger = yes
+	}
+	is_valid = {
+		var:eocfm_patriarchs_tab_var ?= 2
+	}
+	effect = {
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 2 # Orthodox Seats
+		}
+	}
+}
+
+eocfm_oriental_sgui = {
+	scope = country
+	
+	is_shown = {
+		eocfm_is_oriental_orthodox_trigger = yes
+	}
+	is_valid = {
+		var:eocfm_patriarchs_tab_var ?= 3
+	}
+	effect = {
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 3 # Oriental Orthodox Seats
+		}
+	}
+}
+
+eocfm_elysian_sgui = {
+	scope = country
+	
+	is_shown = {
+		eocfm_is_elysian_orthodox_trigger = yes
+	}
+	is_valid = {
+		var:eocfm_patriarchs_tab_var ?= 4
+	}
+	effect = {
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 4 # Elysian Orthodox Seats
+		}
+	}
 }
 
 ######################

@@ -1,4 +1,8 @@
 ﻿l_english:
+ # dlc info
+ dlc_eocfm: "The Kingdom of God"
+ dlc_eocfm_desc: "Take up the cross and lead the followers of Christ into the Victorian Era! From the centralized and dogmatic Catholic Church in Rome to the disunified Churches of the East under Muslim rule, take charge of the flock as the faith struggles to find its place in this rapidly changing world."
+ 
  # alert groups
  ag_eocfm_alerts_name: "Orthodoxy Interaction Available"
  ag_eocfm_alerts_desc: "There are Eastern Orthodox Church actions available. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget to select one."
@@ -161,6 +165,7 @@
  
  custom_eocfm_elysium_owner: "[GetPlayer.MakeScope.Var('eocfm_elysium_controller_var').GetCountry.GetName]"
  custom_eocfm_mixtec_owner: "[GetPlayer.MakeScope.Var('eocfm_mixtec_controller_var').GetCountry.GetName]"
+ custom_eocfm_cahokia_owner: "[GetPlayer.MakeScope.Var('eocfm_cahokia_controller_var').GetCountry.GetName]"
  
  
  # decisions
@@ -176,10 +181,6 @@
  dp_crusade: "Crusade"
  dp_crusade_tooltip: "#header Start a $dp_make_dominion$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_make_dominion_desc$"
  dp_crusade_desc: "Sets the initiating [concept_war_goal] to force the targeted [concept_country] to become your [concept_dominion]. If enforced, this is convert the targeted [concept_country] to convert its state religion to your state religion."
- 
- # dlc info
- dlc_eocfm: "The Church of the East"
- dlc_eocfm_desc: "Embrace and take charge of the eastern churches of Christendom as the Eastern Orthodoxy struggles to find its placed in this rapidly changing world. Unite the Orthodox world under one flag or strike out on an autocepalous path free from Constantinople."
  
  
  # game concepts
@@ -416,9 +417,19 @@
  country_monthly_patriarch_relations_progress_mult_desc: "Monthly [Concept('concept_patriarchal_seat','$concept_patriarch$')] [concept_relations] Progress"
  
  # names
+ De_Quelen: "de Quélen"
+ Droste_zu_Vischering: "Droste zu Vischering"
+ Vinzenz: "Vinzenz"
+ 
  Fourtouniadis: "Fourtouniadis"
  Methodius: "Methodius"
  Hierotheus: "Hierotheus"
+ 
+ Abba: "Abba"
+ El_Gawly: "El-Gawly"
+ Karbesti: "Karbesti"
+ Abuna: "Abuna"
+ Mar: "Mar"
  
  Neophytus: "Neophytus"
  Dabbas: "Dabbas"
@@ -463,9 +474,18 @@
  notification_notification_eocfm_moscow_usurped_desc: "[SCOPE.sCountry('eocfm_usurper_scope').GetName] has seized control of the Holy Seat of #bold Moscow#! and installed bishops in alignment with them."
  
  notification_notification_eocfm_rome_replaced_name: "New Patriarch in $eocfm_rome$"
- notification_notification_eocfm_rome_replaced_desc: "A new Patriarch has taken up residence on the throne of St. Peter. This has reduced our relations with Rome by #red #bold -25#!#!."
+ notification_notification_eocfm_rome_replaced_desc: "A new Bishop has taken up residence on the throne of St. Peter. This has reduced our relations with Rome by #red #bold -25#!#!."
+ notification_notification_eocfm_santiago_replaced_name: "New Patriarch in $eocfm_santiago$"
+ notification_notification_eocfm_santiago_replaced_desc: "A new Bishop has been appointed to Santiago de Compostela. This has reduced our relations with Santiago by #red #bold -25#!#!."
+ notification_notification_eocfm_paris_replaced_name: "New Patriarch in $eocfm_paris$"
+ notification_notification_eocfm_paris_replaced_desc: "A new Bishop has been appointed to the Archdiocese at Notre-Dame This has reduced our relations with Paris by #red #bold -25#!#!."
+ notification_notification_eocfm_koln_replaced_name: "New Patriarch in $eocfm_koln$"
+ notification_notification_eocfm_koln_replaced_desc: "A new Bishop has risen to the storied seat of Cologne. This has reduced our relations with Cologne by #red #bold -25#!#!."
+ notification_notification_eocfm_vienna_replaced_name: "New Patriarch in $eocfm_vienna$"
+ notification_notification_eocfm_vienna_replaced_desc: "A new Bishop has been appointed to administrate the Archdiocese of Vienna. This has reduced our relations with Vienna by #red #bold -25#!#!."
+ 
  notification_notification_eocfm_constantinople_replaced_name: "New Patriarch in $eocfm_constantinople$"
- notification_notification_eocfm_constantinople_replaced_desc: "A new Patriarch has taken up residence on the throne of St. Peter. This has reduced our relations with Constantinople by #red #bold -25#!#!."
+ notification_notification_eocfm_constantinople_replaced_desc: "A new Patriarch has been name as the Ecumenical Patriarch in Constantinople. This has reduced our relations with Constantinople by #red #bold -25#!#!."
  notification_notification_eocfm_antioch_replaced_name: "New Patriarch in $eocfm_antioch$"
  notification_notification_eocfm_antioch_replaced_desc: "A new bishop has been named Patriarch of Antioch and All The East. This has reduced our relations with Antioch by #red #bold -25#!#!."
  notification_notification_eocfm_jerusalem_replaced_name: "New Patriarch in $eocfm_jerusalem$"
@@ -475,10 +495,23 @@
  notification_notification_eocfm_moscow_replaced_name: "New Patriarch in $eocfm_moscow$"
  notification_notification_eocfm_moscow_replaced_desc: "A new bishop has taken up leadership of the Most Holy Synod in Moscow. This has reduced our relations with Moscow by #red #bold -25#!#!."
  
+ notification_notification_eocfm_coptic_alexandria_replaced_name: "New Patriarch in $eocfm_coptic_alexandria$"
+ notification_notification_eocfm_coptic_alexandria_replaced_desc: "A new Patriarch has been elected to lead the Coptic Church. This has reduced our relations with Coptic Alexandria by #red #bold -25#!#!."
+ notification_notification_eocfm_syriac_antioch_replaced_name: "New Patriarch in $eocfm_syriac_antioch$"
+ notification_notification_eocfm_syriac_antioch_replaced_desc: "A new Patriarch has been elected to lead the Syriac Orthodox Church. This has reduced our relations with Syriac Antioch by #red #bold -25#!#!."
+ notification_notification_eocfm_etchmiadzin_replaced_name: "New Patriarch in $eocfm_etchmiadzin$"
+ notification_notification_eocfm_etchmiadzin_replaced_desc: "A new Patriarch has been elected to Mother See of Holy Etchmiadzin. This has reduced our relations with Etchmiadzin by #red #bold -25#!#!."
+ notification_notification_eocfm_addis_ababa_replaced_name: "New Patriarch in $eocfm_addis_ababa$"
+ notification_notification_eocfm_addis_ababa_replaced_desc: "A new Patriarch has been elected to the seat at Addis Ababa. This has reduced our relations with Addis Ababa by #red #bold -25#!#!."
+ notification_notification_eocfm_konak_replaced_name: "New Patriarch in $eocfm_konak$"
+ notification_notification_eocfm_konak_replaced_desc: "A new Patriarch has been elected to oversee the Ancient Church of the East. This has reduced our relations with Qudshanis by #red #bold -25#!#!."
+ 
  notification_notification_eocfm_elysium_replaced_name: "New Patriarch in $eocfm_elysium$"
  notification_notification_eocfm_elysium_replaced_desc: "A new bishop has been annointed to lead Elysium. This has reduced our relations with Elysium by #red #bold -25#!#!."
  notification_notification_eocfm_mixtec_replaced_name: "New Patriarch in $eocfm_mixtec$"
  notification_notification_eocfm_mixtec_replaced_desc: "A new bishop has ascended to the throne at the Hill of Birds. This has reduced our relations with Yucu Dzaa by #red #bold -25#!#!."
+ notification_notification_eocfm_cahokia_replaced_name: "New Patriarch in $eocfm_cahokia$"
+ notification_notification_eocfm_cahokia_replaced_desc: "A new Patriarch has been ordinated at the sacred mound at Cahokia. This has reduced our relations with Cahokia by #red #bold -25#!#!."
  
  notification_notification_eocfm_divine_mandate_lost_name: "Divine Mandate Lost"
  notification_notification_eocfm_divine_mandate_lost_desc: "Our recent legal reforms have stir controversey amongst the clergy. As a result, the Ecumenical Patriarch has rescinded his blessing of our administration, causing us to lose the [concept_timed_modifier] #bold Divine Mandate#!."
@@ -726,22 +759,22 @@
  eocfm_rome_modifier: "#bold Holding and $eocfm_controlling$ Rome will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_rome').GetDesc]"
  
  eocfm_santiago: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_santiago_details')] Santiago#!#!#!"
- eocfm_santiago_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_santiago').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_santiago_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_santiago_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_santiago_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_santiago_opinion_var').GetValue|+=]#!"
+ eocfm_santiago_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_santiago').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_GALICIA').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_santiago_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_santiago_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_santiago_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_santiago_opinion_var').GetValue|+=]#!"
  eocfm_santiago_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_santiago_opinion_value')]"
  eocfm_santiago_modifier: "#bold Holding and $eocfm_controlling$ Santiago will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_santiago').GetDesc]"
  
  eocfm_paris: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_paris_details')] Paris#!#!#!"
- eocfm_paris_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_paris').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_paris_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_paris_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_paris_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_paris_opinion_var').GetValue|+=]#!"
+ eocfm_paris_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_paris').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_ILE_DE_FRANCE').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_paris_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_paris_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_paris_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_paris_opinion_var').GetValue|+=]#!"
  eocfm_paris_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_paris_opinion_value')]"
  eocfm_paris_modifier: "#bold Holding and $eocfm_controlling$ Paris will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_paris').GetDesc]"
  
  eocfm_koln: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_koln_details')] Cologne#!#!#!"
- eocfm_koln_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_koln').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_koln_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_koln_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_koln_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_koln_opinion_var').GetValue|+=]#!"
+ eocfm_koln_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_koln').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_NORTH_RHINE').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_koln_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_koln_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_koln_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_koln_opinion_var').GetValue|+=]#!"
  eocfm_koln_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_koln_opinion_value')]"
  eocfm_koln_modifier: "#bold Holding and $eocfm_controlling$ Cologne will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_koln').GetDesc]"
  
  eocfm_vienna: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_vienna_details')] Vienna#!#!#!"
- eocfm_vienna_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_vienna').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_vienna_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_vienna_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_vienna_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_vienna_opinion_var').GetValue|+=]#!"
+ eocfm_vienna_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_vienna').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_AUSTRIA').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_vienna_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_vienna_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_vienna_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_vienna_opinion_var').GetValue|+=]#!"
  eocfm_vienna_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_vienna_opinion_value')]"
  eocfm_vienna_modifier: "#bold Holding and $eocfm_controlling$ Vienna will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_vienna').GetDesc]"
  

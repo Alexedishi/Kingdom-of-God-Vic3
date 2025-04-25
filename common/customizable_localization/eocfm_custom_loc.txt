@@ -119,7 +119,7 @@ eocfm_autocephaly_status_type = {
 }
 
 #### Seat Controller Types
-
+# Catholic Seats
 eocfm_rome_controller_type = {
 	type = country
 	
@@ -140,7 +140,88 @@ eocfm_rome_controller_type = {
 		localization_key = custom_eocfm_no_owner
 	}
 }
+eocfm_santiago_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_santiago_controller_var
+			exists = var:eocfm_santiago_controller_var
+		}
+		localization_key = custom_eocfm_santiago_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_santiago_controller_var
+				exists = var:eocfm_santiago_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_paris_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_paris_controller_var
+			exists = var:eocfm_paris_controller_var
+		}
+		localization_key = custom_eocfm_paris_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_paris_controller_var
+				exists = var:eocfm_paris_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_koln_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_koln_controller_var
+			exists = var:eocfm_koln_controller_var
+		}
+		localization_key = custom_eocfm_koln_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_koln_controller_var
+				exists = var:eocfm_koln_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_vienna_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_vienna_controller_var
+			exists = var:eocfm_vienna_controller_var
+		}
+		localization_key = custom_eocfm_vienna_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_vienna_controller_var
+				exists = var:eocfm_vienna_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
 
+# Orthodox Seats
 eocfm_constantinople_controller_type = {
 	type = country
 	
@@ -161,7 +242,6 @@ eocfm_constantinople_controller_type = {
 		localization_key = custom_eocfm_no_owner
 	}
 }
-
 eocfm_antioch_controller_type = {
 	type = country
 	
@@ -182,7 +262,6 @@ eocfm_antioch_controller_type = {
 		localization_key = custom_eocfm_no_owner
 	}
 }
-
 eocfm_jerusalem_controller_type = {
 	type = country
 	
@@ -203,7 +282,6 @@ eocfm_jerusalem_controller_type = {
 		localization_key = custom_eocfm_no_owner
 	}
 }
-
 eocfm_alexandria_controller_type = {
 	type = country
 	
@@ -224,7 +302,6 @@ eocfm_alexandria_controller_type = {
 		localization_key = custom_eocfm_no_owner
 	}
 }
-
 eocfm_moscow_controller_type = {
 	type = country
 	
@@ -246,6 +323,109 @@ eocfm_moscow_controller_type = {
 	}
 }
 
+# Oriental Orthodox Seats
+eocfm_coptic_alexandria_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_coptic_alexandria_controller_var
+			exists = var:eocfm_coptic_alexandria_controller_var
+		}
+		localization_key = custom_eocfm_coptic_alexandria_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_coptic_alexandria_controller_var
+				exists = var:eocfm_coptic_alexandria_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_syriac_antioch_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_syriac_antioch_controller_var
+			exists = var:eocfm_syriac_antioch_controller_var
+		}
+		localization_key = custom_eocfm_syriac_antioch_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_syriac_antioch_controller_var
+				exists = var:eocfm_syriac_antioch_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_etchmiadzin_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_etchmiadzin_controller_var
+			exists = var:eocfm_etchmiadzin_controller_var
+		}
+		localization_key = custom_eocfm_etchmiadzin_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_etchmiadzin_controller_var
+				exists = var:eocfm_etchmiadzin_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_addis_ababa_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_addis_ababa_controller_var
+			exists = var:eocfm_addis_ababa_controller_var
+		}
+		localization_key = custom_eocfm_addis_ababa_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_addis_ababa_controller_var
+				exists = var:eocfm_addis_ababa_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_konak_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_konak_controller_var
+			exists = var:eocfm_konak_controller_var
+		}
+		localization_key = custom_eocfm_konak_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_konak_controller_var
+				exists = var:eocfm_konak_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+
+# Elysian Orthodox Seats
 eocfm_elysium_controller_type = {
 	type = country
 	
@@ -266,7 +446,6 @@ eocfm_elysium_controller_type = {
 		localization_key = custom_eocfm_no_owner
 	}
 }
-
 eocfm_mixtec_controller_type = {
 	type = country
 	
@@ -282,6 +461,26 @@ eocfm_mixtec_controller_type = {
 			NOR = {
 				has_variable = eocfm_mixtec_controller_var
 				exists = var:eocfm_mixtec_controller_var
+			}
+		}
+		localization_key = custom_eocfm_no_owner
+	}
+}
+eocfm_cahokia_controller_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_cahokia_controller_var
+			exists = var:eocfm_cahokia_controller_var
+		}
+		localization_key = custom_eocfm_cahokia_owner
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_cahokia_controller_var
+				exists = var:eocfm_cahokia_controller_var
 			}
 		}
 		localization_key = custom_eocfm_no_owner

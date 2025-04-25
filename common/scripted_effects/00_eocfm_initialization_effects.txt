@@ -90,20 +90,18 @@ eocfm_initialize_patriarchs_effect = {
 	c:PAP ?= { # Overwriting Vanilla character for the template
 		create_character = {
 			template = template_eocfm_rome_patriarch
+			# Gregory XVI, captured from the vanilla file to ensure usage of template_eocfm_rome_patriarch
 			first_name = "Gregorius"
 			last_name = "Cappellari"
 			historical = yes
-			culture = cu:south_italian
-			religion = rel:catholic
+			culture = primary_culture
+			ruler = yes
 			birth_date = 1765.9.18
 			dna = dna_pope_gregory_16
 			interest_group = ig_devout
 			ideology = ideology_theocrat
 			traits = {
 				imperious
-			}
-			on_created = {
-				place_character_in_void = { 160 220 }
 			}
 		}
 	}
@@ -118,7 +116,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:catholic
 		age = { 50 70 } # birth date unknown, position vacated in 1850
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 190
 		}
 	}
 	
@@ -132,7 +130,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:catholic
 		birth_date = 1778.10.8
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 170
 		}
 	}
 	
@@ -146,7 +144,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:catholic
 		birth_date = 1773.1.21
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 150
 		}
 	}
 	
@@ -160,7 +158,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:catholic
 		birth_date = 1777.5.11
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 210
 		}
 	}
 	
@@ -174,7 +172,7 @@ eocfm_initialize_patriarchs_effect = {
 		culture = cu:greek
 		religion = rel:orthodox
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 140
 		}
 	}
 	# Antioch
@@ -186,7 +184,7 @@ eocfm_initialize_patriarchs_effect = {
 		culture = cu:greek
 		religion = rel:orthodox
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 110
 		}
 	}
 	
@@ -199,7 +197,7 @@ eocfm_initialize_patriarchs_effect = {
 		culture = cu:greek
 		religion = rel:orthodox
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 200
 		}
 	}
 	
@@ -212,7 +210,7 @@ eocfm_initialize_patriarchs_effect = {
 		culture = cu:greek
 		religion = rel:orthodox
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 205
 		}
 	}
 	
@@ -225,7 +223,7 @@ eocfm_initialize_patriarchs_effect = {
 		culture = cu:russian
 		religion = rel:orthodox
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 250
 		}
 	}
 	
@@ -240,7 +238,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:oriental_orthodox
 		age = { 50 70 } # birth date unknown, died in 1852
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 280
 		}
 	}
 	
@@ -254,7 +252,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:oriental_orthodox
 		age = { 70 80 } # birth date unknown, died in 1836
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 24
 		}
 	}
 	
@@ -264,11 +262,11 @@ eocfm_initialize_patriarchs_effect = {
 		first_name = "Johannes"
 		last_name = "Karbesti"
 		historical = yes
-		culture = cu:aremenian
+		culture = cu:armenian
 		religion = rel:oriental_orthodox
 		age = { 50 70 } # birth date unknown, position vacated in 1842
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 120
 		}
 	}
 	
@@ -278,11 +276,11 @@ eocfm_initialize_patriarchs_effect = {
 		first_name = "Abuna"
 		last_name = "Salama"
 		historical = yes
-		culture = cu:oromi
+		culture = cu:oromo
 		religion = rel:oriental_orthodox
 		age = { 50 70 } # birth date unknown, position vacated in 1867
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 260
 		}
 	}
 	
@@ -296,7 +294,7 @@ eocfm_initialize_patriarchs_effect = {
 		religion = rel:oriental_orthodox # Not accurate, I know
 		age = 36 # This guy was appointed as the Catholicos-Patriarch at the age of 20, what a chad
 		on_created = {
-			place_character_in_void = { 160 220 }
+			place_character_in_void = 300
 		}
 	}
 }
@@ -323,7 +321,7 @@ eocfm_initialize_seat_controllers_effect = {
 			set_variable = eocfm_controls_koln
 		}
 	}
-	p:xx316141 = { # Vienna
+	p:x316141 = { # Vienna
 		owner = {
 			set_variable = eocfm_controls_vienna
 		}
@@ -369,7 +367,7 @@ eocfm_initialize_seat_controllers_effect = {
 	}
 	
 	# Oriental Orthodox Church Seats
-	p:xB040A0 = { # Coptic Alexandria
+	p:xA0D020 = { # Coptic Alexandria
 		owner = {
 			set_variable = eocfm_controls_coptic_alexandria
 		}

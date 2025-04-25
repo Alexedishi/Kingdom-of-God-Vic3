@@ -2466,39 +2466,12 @@ eocfm.123 = { # Epistle to the Easterners
 				}
 			}
 		}
-		if = { ##TODO This is copied in from eocfm_update_patriarch_variables_effect, I need a universal scripted effect for this functionality in the future
+		eocfm_update_rome_effect = yes
+		random_character_in_void = {
 			limit = {
-				c:PAP ?= {
-					has_law = law_type:law_theocracy
-				}
+				has_template = template_eocfm_rome_patriarch
 			}
-			c:PAP ?= {
-				ruler = {
-					save_scope_as = eocfm_rome_patriarch_scope
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_character_in_void = {
-					has_template = template_eocfm_rome_patriarch
-				}
-			}
-			random_character_in_void = {
-				limit = {
-					has_template = template_eocfm_rome_patriarch
-				}
-				save_scope_as = eocfm_rome_patriarch_scope
-			}
-		}
-		else = {
-			eocfm_replace_rome_patriarch_effect = yes
-			random_character_in_void = {
-				limit = {
-					has_template = template_eocfm_rome_patriarch
-				}
-				save_scope_as = eocfm_rome_patriarch_scope
-			}
+			save_scope_as = eocfm_rome_patriarch_scope
 		}
 	}
 	
@@ -5737,6 +5710,50 @@ eocfm.900 = { # The Partiarch's Variable Dumpster Fire
 		remove_variable = eocfm_crusade_counter
 		remove_variable = eocfm_deposition_counter
 		remove_variable = eocfm_patriarch_deposed_var
+		
+		remove_variable = eocfm_rome_opinion_var
+		remove_variable = eocfm_santiago_opinion_var
+		remove_variable = eocfm_paris_opinion_var
+		remove_variable = eocfm_koln_opinion_var
+		remove_variable = eocfm_vienna_opinion_var
+		remove_variable = eocfm_constantinople_opinion_var
+		remove_variable = eocfm_antioch_opinion_var
+		remove_variable = eocfm_jerusalem_opinion_var
+		remove_variable = eocfm_alexandria_opinion_var
+		remove_variable = eocfm_moscow_opinion_var
+		remove_variable = eocfm_coptic_alexandria_opinion_var
+		remove_variable = eocfm_syriac_antioch_opinion_var
+		remove_variable = eocfm_etchmiadzin_opinion_var
+		remove_variable = eocfm_addis_ababa_opinion_var
+		remove_variable = eocfm_konak_opinion_var
+		
+		
+		set_variable = eocfm_elysium_opinion_var
+		set_variable = eocfm_elysium_liturgical_rite_var
+		set_variable = eocfm_elysium_patriarch_var
+		set_variable = eocfm_elysium_relations_var
+		remove_variable = eocfm_elysium_opinion_var
+		remove_variable = eocfm_elysium_liturgical_rite_var
+		remove_variable = eocfm_elysium_patriarch_var
+		remove_variable = eocfm_elysium_relations_var
+		
+		set_variable = eocfm_mixtec_opinion_var
+		set_variable = eocfm_mixtec_liturgical_rite_var
+		set_variable = eocfm_mixtec_patriarch_var
+		set_variable = eocfm_mixtec_relations_var
+		remove_variable = eocfm_mixtec_opinion_var
+		remove_variable = eocfm_mixtec_liturgical_rite_var
+		remove_variable = eocfm_mixtec_patriarch_var
+		remove_variable = eocfm_mixtec_relations_var
+		
+		set_variable = eocfm_cahokia_opinion_var
+		set_variable = eocfm_cahokia_liturgical_rite_var
+		set_variable = eocfm_cahokia_patriarch_var
+		set_variable = eocfm_cahokia_relations_var
+		remove_variable = eocfm_cahokia_opinion_var
+		remove_variable = eocfm_cahokia_liturgical_rite_var
+		remove_variable = eocfm_cahokia_patriarch_var
+		remove_variable = eocfm_cahokia_relations_var
 	}
 	
 	orphan = yes

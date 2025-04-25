@@ -7,8 +7,43 @@
 eocfm_gui_toogle_effect = {
 	eocfm_update_patriarch_variables_effect = yes
 	eocfm_update_patriarch_opinions_effect = yes
-	eocfm_update_rite_modifiers_effect = yes
 	eocfm_update_seat_controllers_effect = yes
+	if = {
+		limit = {
+			eocfm_is_elysian_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 4 # Elysian Orthodox Seats
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 3 # Oriental Orthodox Seats
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 2 # Orthodox Seats
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_patriarchs_tab_var
+			value = 1 # Catholic Seats
+		}
+	}
 }
 
 #### Metropolis Initialization Effect
@@ -138,23 +173,23 @@ eocfm_initialize_metropolis_effect = {
 	
 	## Oriental Orthodox Seats
 	set_variable = {
-		name = eocfm_coptic_alexandria_opinion_value
+		name = eocfm_coptic_alexandria_opinion_var
 		value = 0
 	}
 	set_variable = {
-		name = eocfm_syriac_antioch_opinion_value
+		name = eocfm_syriac_antioch_opinion_var
 		value = 0
 	}
 	set_variable = {
-		name = eocfm_addis_ababa_opinion_value
+		name = eocfm_addis_ababa_opinion_var
 		value = 0
 	}
 	set_variable = {
-		name = eocfm_etchmiadzin_opinion_value
+		name = eocfm_etchmiadzin_opinion_var
 		value = 0
 	}
 	set_variable = {
-		name = eocfm_konak_opinion_value
+		name = eocfm_konak_opinion_var
 		value = 0
 	}
 	
@@ -172,7 +207,7 @@ eocfm_initialize_metropolis_effect = {
 			value = 0
 		}
 		set_variable = {
-			name = eocfm_cahokia_opinion_value
+			name = eocfm_cahokia_opinion_var
 			value = 0
 		}
 	}
@@ -1489,32 +1524,32 @@ eocfm_update_addis_ababa_effect = {
 	if = {
 		limit = {
 			any_character_in_void = {
-				has_template = template_eocfm_key_patriarch
+				has_template = template_eocfm_addis_ababa_patriarch
 			}
 		}
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_key_patriarch
+				has_template = template_eocfm_addis_ababa_patriarch
 			}
-			save_scope_as = eocfm_key_patriarch_scope
+			save_scope_as = eocfm_addis_ababa_patriarch_scope
 		}
 	}
 	# Failing that, generate a new character
 	else = {
-		# Attempt to generate using the key controller
+		# Attempt to generate using the addis_ababa controller
 		if = {
 			limit = {
 				any_country = {
-					has_variable = eocfm_controls_key
+					has_variable = eocfm_controls_addis_ababa
 					eocfm_is_christian_trigger = yes
 				}
 			}
 			random_country = {
 				limit = {
-					has_variable = eocfm_controls_key
+					has_variable = eocfm_controls_addis_ababa
 				}
 				create_character = {
-					template = template_eocfm_key_patriarch
+					template = template_eocfm_addis_ababa_patriarch
 					on_created = {
 						place_character_in_void = 180 # 15 year shelf life
 					}
@@ -1524,7 +1559,7 @@ eocfm_update_addis_ababa_effect = {
 		# Fallback to Oromo Oriental Orthodox
 		else = {
 			create_character = {
-				template = template_eocfm_key_patriarch
+				template = template_eocfm_addis_ababa_patriarch
 				culture = cu:oromo
 				religion = rel:oriental_orthodox
 				on_created = {
@@ -1540,37 +1575,37 @@ eocfm_update_addis_ababa_effect = {
 			if = {
 				limit = {
 					NOT = {
-						has_variable = eocfm_key_relations_var
+						has_variable = eocfm_addis_ababa_relations_var
 					}
 				}
 				set_variable = {
-					name = eocfm_key_relations_var
+					name = eocfm_addis_ababa_relations_var
 					value = 0
 				}
 			}
 			change_variable = {
-				name = eocfm_key_relations_var
+				name = eocfm_addis_ababa_relations_var
 				add = -25
 			}
 			clamp_variable = {
-				name = eocfm_key_relations_var
+				name = eocfm_addis_ababa_relations_var
 				min = 0
 				max = 50
 			}
-			post_notification = notification_eocfm_key_replaced
+			post_notification = notification_eocfm_addis_ababa_replaced
 		}
 		# Save the new character
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_key_patriarch
+				has_template = template_eocfm_addis_ababa_patriarch
 			}
-			save_scope_as = eocfm_key_patriarch_scope
+			save_scope_as = eocfm_addis_ababa_patriarch_scope
 		}
 	}
 	# Finally, set the new variable
 	set_variable = {
-		name = eocfm_key_patriarch_var
-		value = scope:eocfm_key_patriarch_scope
+		name = eocfm_addis_ababa_patriarch_var
+		value = scope:eocfm_addis_ababa_patriarch_scope
 	}
 }
 
