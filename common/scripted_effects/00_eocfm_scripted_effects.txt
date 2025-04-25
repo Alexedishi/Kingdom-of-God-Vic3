@@ -5,6 +5,7 @@
 #### Scripted Widget Effect
 
 eocfm_gui_toogle_effect = {
+	eocfm_update_holy_site_count_effect = yes
 	eocfm_update_patriarch_variables_effect = yes
 	eocfm_update_patriarch_opinions_effect = yes
 	eocfm_update_seat_controllers_effect = yes
@@ -261,6 +262,14 @@ eocfm_initialize_metropolis_effect = {
 
 #### Variable Upkeep Effects
 # This huge stack of scripted effects to is allow Patriarchs to get pulled for events
+
+## Holy Site Variables
+eocfm_update_holy_site_count_effect = {
+	set_variable = {
+		name = eocfm_holy_sites_var
+		value = eocfm_holy_sites_value
+	}
+}
 
 ## Patriarch Upkeep Effects
 eocfm_update_patriarch_variables_effect = {

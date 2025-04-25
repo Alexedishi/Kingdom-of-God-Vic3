@@ -13,8 +13,7 @@ widget = {
 		
 		# This initializes the GUI variable on a fresh load
 		widget = {
-			visible = "[Not(GetVariableSystem.Exists('eocfm_tabs_var')]"
-			enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+			visible = "[Not(GetVariableSystem.IsSet('eocfm_tabs_var')]"
 			state = {
 				name = _show
 				on_finish = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
@@ -2011,7 +2010,7 @@ widget = {
 								raw_text = "Elysian Orthodoxy"
 								using = fontsize_medium
 								
-								visible = "[GetScriptedGui('eocfm_basileia_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	#							visible = "[GetScriptedGui('eocfm_basileia_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_elysian')]"
 							}
 						}
