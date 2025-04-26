@@ -4,7 +4,10 @@
 
 on_monthly_pulse_country = {
 	on_actions = {
+		eocfm_catholic_monthly_pulse
 		eocfm_orthodox_monthly_pulse
+		eocfm_oriental_monthly_pulse
+		eocfm_elysian_monthly_pulse
 		eocfm_global_pulse
 	}
 }
@@ -18,9 +21,36 @@ on_wargoal_enforced = {
 
 ############
 
+eocfm_catholic_monthly_pulse = {
+	trigger = {
+		eocfm_is_roman_catholic_trigger = yes
+	}
+	on_actions = {
+		eocfm_schism_monthly_pulse
+		eocfm_integration_monthly_pulse
+		eocfm_mending_monthly_pulse
+	}
+	events = {
+	}
+	random_events = {
+	}
+	effect = {
+		eocfm_update_holy_site_count_effect = yes
+		eocfm_update_patriarch_variables_effect = yes
+		eocfm_update_patriarch_opinions_effect = yes
+		eocfm_update_rite_modifiers_effect = yes
+		eocfm_update_seat_controllers_effect = yes
+		eocfm_update_approval_bonus_effect = yes
+		eocfm_check_patriarch_modifiers_effect = yes
+	}
+}
+
 eocfm_orthodox_monthly_pulse = {
 	trigger = {
-		country_has_state_religion = rel:orthodox
+		OR = {
+			eocfm_is_eastern_orthodox_trigger = yes
+			eocfm_is_russian_orthodox_trigger = yes
+		}
 	}
 	on_actions = {
 		eocfm_schism_monthly_pulse
@@ -54,7 +84,6 @@ eocfm_orthodox_monthly_pulse = {
 		5 = eocfm.171 # Theological Dispute with Patriarch
 	}
 	effect = {
-		# Upkeep Effects
 		eocfm_update_holy_site_count_effect = yes
 		eocfm_update_patriarch_variables_effect = yes
 		eocfm_update_patriarch_opinions_effect = yes
@@ -76,6 +105,54 @@ eocfm_orthodox_monthly_pulse = {
 				target = flag:eocfm_sidebar_button_sgui
 			}
 		}
+	}
+}
+
+eocfm_oriental_monthly_pulse = {
+	trigger = {
+		eocfm_is_oriental_orthodox_trigger = yes
+	}
+	on_actions = {
+		eocfm_schism_monthly_pulse
+		eocfm_integration_monthly_pulse
+		eocfm_mending_monthly_pulse
+	}
+	events = {
+	}
+	random_events = {
+	}
+	effect = {
+		eocfm_update_holy_site_count_effect = yes
+		eocfm_update_patriarch_variables_effect = yes
+		eocfm_update_patriarch_opinions_effect = yes
+		eocfm_update_rite_modifiers_effect = yes
+		eocfm_update_seat_controllers_effect = yes
+		eocfm_update_approval_bonus_effect = yes
+		eocfm_check_patriarch_modifiers_effect = yes
+	}
+}
+
+eocfm_elysian_monthly_pulse = {
+	trigger = {
+		eocfm_is_elysian_orthodox_trigger = yes
+	}
+	on_actions = {
+		eocfm_schism_monthly_pulse
+		eocfm_integration_monthly_pulse
+		eocfm_mending_monthly_pulse
+	}
+	events = {
+	}
+	random_events = {
+	}
+	effect = {
+		eocfm_update_holy_site_count_effect = yes
+		eocfm_update_patriarch_variables_effect = yes
+		eocfm_update_patriarch_opinions_effect = yes
+		eocfm_update_rite_modifiers_effect = yes
+		eocfm_update_seat_controllers_effect = yes
+		eocfm_update_approval_bonus_effect = yes
+		eocfm_check_patriarch_modifiers_effect = yes
 	}
 }
 
