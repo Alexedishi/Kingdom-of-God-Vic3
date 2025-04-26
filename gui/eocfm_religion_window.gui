@@ -59,9 +59,14 @@ widget = {
 			visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
 			texture = "gfx/illustrations/eocfm/eocfm_catholic_background.dds"
-			alpha = 0.8
+			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
 				translate_uv = { 0 0 }
 				blend_mode = alphamultiply
 			}
@@ -78,11 +83,17 @@ widget = {
 			visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
 			texture = "gfx/illustrations/eocfm/eocfm_orthodox_background.dds"
-			alpha = 0.8
+			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
 				translate_uv = { 0 0 }
 				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+				alpha = 0.5
 			}
 			modify_texture = {
 				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
@@ -97,9 +108,14 @@ widget = {
 			visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
 			texture = "gfx/illustrations/eocfm/eocfm_oriental_background.dds"
-			alpha = 0.8
+			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
 				translate_uv = { 0 0 }
 				blend_mode = alphamultiply
 			}
@@ -116,9 +132,14 @@ widget = {
 			visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
 			texture = "gfx/illustrations/eocfm/eocfm_elysian_background.dds"
-			alpha = 0.8
+			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
 				translate_uv = { 0 0 }
 				blend_mode = alphamultiply
 			}
@@ -1397,41 +1418,137 @@ widget = {
 						layoutpolicy_vertical = preferred
 						
 						hbox = {
-							layoutpolicy_horizontal = preferred
-							layoutpolicy_vertical = preferred
+							margin = { 3 0 }
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = fixed
 							
-							button = {
-								using = default_button
-								size = { 140 45 }
-								raw_text = "Catholicism"
-								using = fontsize_medium
+							### START DIVIDER
+							icon = {
+								texture = "gfx/interface/tabs/tab_divider.dds"
+								layoutpolicy_horizontal = fixed
+								layoutpolicy_vertical = expanding
+								size = { 5 -1 }
+								spriteType = Corneredstretched
+								spriteborder = { 0 20 }
+							}
+							
+							# Catholicism Tab
+							tab_button = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred	
 								
+								textbox = {
+									raw_text = "Roman Catholicism"
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								
+								visible = "[Not(GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_catholic' ))]"
 								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
 							}
-							button = {
-								using = default_button
-								size = { 140 45 }
-								raw_text = "Eastern Orthodoxy"
-								using = fontsize_medium
+							icon = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred
+								using = selected_tabs
 								
-								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_orthodox')]"
+								textbox = {
+									raw_text = "#bold #white Roman Catholicism#!#!"
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								
+								visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_catholic' )]"
 							}
-							button = {
-								using = default_button
-								size = { 140 45 }
-								raw_text = "Oriental Orthodoxy"
-								using = fontsize_medium
+							
+							# Eastern Orthodoxy Tab
+							tab_button = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred	
 								
+								textbox = {
+									block "first_button" {
+										raw_text = "Eastern Orthodoxy"
+									}
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								visible = "[Not(GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_orthodox' ))]"
+								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_orthodox')]"
+								
+							}
+							icon = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred
+								using = selected_tabs
+								
+								textbox = {
+									raw_text = "#bold #white Eastern Orthodoxy#!#!"
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								
+								visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_orthodox' )]"
+							}
+							
+							# Oriental Orthodoxy Tab
+							tab_button = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred	
+								
+								textbox = {
+									block "first_button" {
+										raw_text = "Oriental Orthodoxy"
+									}
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								visible = "[Not(GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_oriental' ))]"
 								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_oriental')]"
 							}
-							button = {
-								using = default_button
-								size = { 140 45 }
-								raw_text = "Elysian Orthodoxy"
-								using = fontsize_medium
+							icon = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred
+								using = selected_tabs
 								
-	#							visible = "[GetScriptedGui('eocfm_basileia_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								textbox = {
+									raw_text = "#bold #white Oriental Orthodoxy#!#!"
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								
+								visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_oriental' )]"
+							}
+							
+							# Elysian Orthodoxy
+							tab_button = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred	
+								
+								
+								visible = "[GetScriptedGui('eocfm_basileia_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 								onclick = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_elysian')]"
+								
+								textbox = {
+									block "first_button" {
+										raw_text = "Elysian Orthodoxy"
+									}
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								
+							}
+							icon = {
+								layoutstretchfactor_horizontal = 1
+								layoutpolicy_horizontal = preferred
+								using = selected_tabs
+								
+								textbox = {
+									raw_text = "#bold #white Elysian Orthodoxy#!#!"
+									default_format = "#title"
+									using = tab_text_properties
+								}
+								
+								visible = "[GetVariableSystem.HasValue( 'eocfm_tabs_var', 'eocfm_tab_elysian' )]"
 							}
 						}
 					}

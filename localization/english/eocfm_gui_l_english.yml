@@ -9,7 +9,7 @@
  
  # Papal Influence & Communion Status
  eocfm_gui_catholic_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_catholic_communion_type')]"
- eocfm_gui_catholic_capacity_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_caesaropapism! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value')]#!#! [concept_papal_influence]."
+ eocfm_gui_catholic_capacity_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_papal_influence! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value')]#!#! [concept_papal_influence]."
  eocfm_gui_catholic_capacity_breakdown: "@eocfm_papal_influence! [concept_papal_influence]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('eocfm_papacy_capacity_value')]"
  
  # Orthodox Caesaropapism & Autocephaly Status
@@ -225,7 +225,7 @@
  # Coptic Alexandria Widget
  eocfm_gui_coptic_alexandria_patriarch_header: "Coptic Patriarchate of Alexandria"
  eocfm_gui_coptic_alexandria_patriarch_controller: "#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_coptic_alexandria_controller_type')]"
- eocfm_gui_coptic_alexandria_patriarch_name: "Patriarch [GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_patriarch_var').GetCharacter.GetLastName]"
+ eocfm_gui_coptic_alexandria_patriarch_name: "Pope [GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_patriarch_var').GetCharacter.GetLastName]"
  eocfm_gui_coptic_alexandria_liturgical_rite: "#bold [concept_liturgical_rite]:#!\n@eocfm_rite! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_coptic_alexandria_liturgical_rite_type')]"
  eocfm_gui_coptic_alexandria_location: "#bold Seated in:#!\n[GetStateRegion('STATE_LOWER_EGYPT').GetName]"
  eocfm_gui_coptic_alexandria_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_coptic_alexandria_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_opinion_var').GetValue|0+=]#!#!"
