@@ -1,7 +1,8 @@
-﻿#################
-# GENERAL SETUP #
-#################
+﻿####################
+# EOCFM CORE SGUIS #
+####################
 
+# Sidebar SGUI
 eocfm_sidebar_button_sgui = {
 	scope = country
 	
@@ -16,6 +17,7 @@ eocfm_sidebar_button_sgui = {
 	}
 }
 
+# Religion Trigger SGUIs
 eocfm_catholic_sgui = {
 	scope = country
 	
@@ -23,7 +25,6 @@ eocfm_catholic_sgui = {
 		eocfm_is_roman_catholic_trigger = yes
 	}
 }
-
 eocfm_orthodox_sgui = {
 	scope = country
 	
@@ -31,7 +32,6 @@ eocfm_orthodox_sgui = {
 		eocfm_is_eastern_orthodox_trigger = yes
 	}
 }
-
 eocfm_oriental_sgui = {
 	scope = country
 	
@@ -39,7 +39,6 @@ eocfm_oriental_sgui = {
 		eocfm_is_oriental_orthodox_trigger = yes
 	}
 }
-
 eocfm_basileia_sgui = {
 	scope = country
 	
@@ -47,7 +46,6 @@ eocfm_basileia_sgui = {
 		basileia_is_active = yes
 	}
 }
-
 eocfm_elysian_sgui = {
 	scope = country
 	
@@ -56,10 +54,16 @@ eocfm_elysian_sgui = {
 	}
 }
 
-######################
-# METROPOLIS ACTIONS #
-######################
+############################
+# METROPOLIAN INTERACTIONS #
+############################
 
+
+## CATHOLIC METROPOLIAN INTERACTIONS
+
+
+## ORTHODOX METROPOLIAN INTERACTIONS
+# Focus Actions
 eocfm_emphasize_unity_sgui = {
 	scope = country
 	
@@ -78,7 +82,6 @@ eocfm_emphasize_unity_sgui = {
 		add_modifier = modifier_eocfm_emphasize_unity
 	}
 }
-
 
 eocfm_enforce_attendance_sgui = {
 	scope = country
@@ -138,10 +141,7 @@ eocfm_promote_ecumenism_sgui = {
 	}
 }
 
-#####################
-# AUTHORITY ACTIONS #
-#####################
-
+# Capacity Actions
 eocfm_commission_icon_sgui = {
 	scope = country
 	
@@ -391,42 +391,16 @@ eocfm_disband_schools_sgui = {
 	}
 }
 
-eocfm_unify_orthodox_realms_sgui = {
-	scope = country
-	
-	is_shown = {
-		NOT = {
-			has_variable = eocfm_texas_left
-		}
-	}
-	
-	is_valid = {
-		custom_tooltip = {
-			text = eocfm_is_autocephalous
-			hidden_trigger = {
-				has_variable = eocfm_is_autocephalous
-			}
-		}
-		custom_tooltip = {
-			text = eocfm_controls_eastern_seat
-			hidden_trigger = {
-				eocfm_controls_eastern_seat_trigger = yes
-			}
-		}
-	}
-	
-	effect = {
-		trigger_event = {
-			id = eocfm.300 # The Partiarchate Rises
-		}
-		set_variable = eocfm_texas_left
-	}
-}
+## ORIENTAL METROPOLIAN INTERACTIONS
 
-######################
-# ECUMENICAL ACTIONS #
-######################
 
+## ELYSIAN METROPOLIAN INTERACTIONS
+
+################################
+# PATRIARCHAL SEE INTERACTIONS #
+################################
+
+## GENERAL SEE INTERACTIONS
 eocfm_declare_autocephaly_sgui = {
 	scope = country
 	
@@ -483,63 +457,6 @@ eocfm_schism_progressbar_sgui = {
 		has_variable = eocfm_schism_var
 	}
 	
-}
-
-eocfm_convoke_council_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_variable = eocfm_is_autocephalous
-	}
-	
-	is_valid = {
-		is_subject = no
-		is_at_war = no
-		eocfm_controls_any_seat_trigger = yes
-		eocfm_has_1000_caesaropapism_trigger = yes
-		eocfm_is_autocephalous_trigger = yes
-		custom_tooltip = {
-			text = eocfm_council_counter_below_4
-			hidden_trigger = {
-				global_var:eocfm_council_var < 4
-			}
-		}
-		custom_tooltip = {
-			text = eocfm_theological_matter
-			hidden_trigger = {
-				eocfm_can_host_council_trigger = yes
-			}
-		}
-		custom_tooltip = {
-			text = eocfm_council_active_NOT
-			hidden_trigger = {
-				NOT = {
-					any_country = {
-						has_modifier = modifier_eocfm_hosting_council
-					}
-				}
-			}
-		}
-		NOT = {
-			has_modifier = modifier_eocfm_hosting_council
-		}
-	}
-	
-	effect = {
-		show_as_tooltip = {
-			add_modifier = modifier_eocfm_hosting_council
-		}
-		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
-			add_modifier = {
-				name = modifier_eocfm_hosting_council
-				months = 12
-			}
-		}
-		trigger_event = {
-			id = eocfm.121 # Council of X
-			popup = yes
-		}	
-	}
 }
 
 eocfm_secure_tetrarchy_sgui = {
@@ -652,6 +569,10 @@ eocfm_mending_progressbar_sgui = {
 	
 }
 
+## CATHOLIC SEE INTERACTIONS
+
+
+## ORTHODOX SEE INTERACTIONS
 eocfm_seek_mandate_sgui = {
 	scope = country
 	
@@ -706,11 +627,556 @@ eocfm_seek_mandate_sgui = {
 	}
 }
 
-#####################
-# SEAT INTERACTIONS #
-#####################
+eocfm_convoke_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_is_autocephalous
+	}
+	
+	is_valid = {
+		is_subject = no
+		is_at_war = no
+		eocfm_controls_any_seat_trigger = yes
+		eocfm_has_1000_caesaropapism_trigger = yes
+		eocfm_is_autocephalous_trigger = yes
+		custom_tooltip = {
+			text = eocfm_council_counter_below_4
+			hidden_trigger = {
+				global_var:eocfm_council_var < 4
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_theological_matter
+			hidden_trigger = {
+				eocfm_can_host_council_trigger = yes
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_council_active_NOT
+			hidden_trigger = {
+				NOT = {
+					any_country = {
+						has_modifier = modifier_eocfm_hosting_council
+					}
+				}
+			}
+		}
+		NOT = {
+			has_modifier = modifier_eocfm_hosting_council
+		}
+	}
+	
+	effect = {
+		show_as_tooltip = {
+			add_modifier = modifier_eocfm_hosting_council
+		}
+		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
+			add_modifier = {
+				name = modifier_eocfm_hosting_council
+				months = 12
+			}
+		}
+		trigger_event = {
+			id = eocfm.121 # Council of X
+			popup = yes
+		}	
+	}
+}
 
-## Constantinople Special Interactions
+eocfm_unify_orthodox_realms_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_texas_left
+		}
+	}
+	
+	is_valid = {
+		custom_tooltip = {
+			text = eocfm_is_autocephalous
+			hidden_trigger = {
+				has_variable = eocfm_is_autocephalous
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_controls_eastern_seat
+			hidden_trigger = {
+				eocfm_controls_eastern_seat_trigger = yes
+			}
+		}
+	}
+	
+	effect = {
+		trigger_event = {
+			id = eocfm.300 # The Partiarchate Rises
+		}
+		set_variable = eocfm_texas_left
+	}
+}
+
+## ORIENTAL SEE INTERACTIONS
+
+
+## ELYSIAN SEE INTERACTIONS
+
+
+#################################
+# PATRIARCHAL SEAT INTERACTIONS #
+#################################
+
+## CATHOLIC SEAT INTERACTIONS
+# Rome
+eocfm_assert_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		eocfm_is_NOT_autocephalous_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_rome_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_rome
+				}
+			}
+		}
+		eocfm_is_roman_catholic_trigger = yes
+	}
+	
+	effect = {
+		trigger_event = {
+			id = eocfm.148 # Supremacy Asserted Over Rome
+			popup = yes
+		}
+	}
+}
+
+eocfm_integrate_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_rome
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_rome_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_rome
+				}
+			}
+		}
+		owns_entire_state_region = STATE_LAZIO
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_rome
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_rome_claimed
+		}
+	}
+}
+
+eocfm_rome_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_rome
+	}
+	
+}
+
+eocfm_start_sway_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_rome
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_rome
+	}
+}
+
+eocfm_stop_sway_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_rome
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_rome
+	}
+}
+
+# Santiago
+eocfm_integrate_santiago_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_santiago
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_santiago_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_santiago
+				}
+			}
+		}
+		owns_entire_state_region = STATE_GALICIA
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_santiago
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_santiago_claimed
+		}
+	}
+}
+
+eocfm_santiago_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_santiago
+	}
+	
+}
+
+eocfm_start_sway_santiago_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_santiago
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_santiago
+	}
+}
+
+eocfm_stop_sway_santiago_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_santiago
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_santiago
+	}
+}
+
+# Paris
+eocfm_integrate_paris_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_paris
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_paris_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_paris
+				}
+			}
+		}
+		owns_entire_state_region = STATE_ILE_DE_FRANCE
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_paris
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_paris_claimed
+		}
+	}
+}
+
+eocfm_paris_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_paris
+	}
+	
+}
+
+eocfm_start_sway_paris_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_paris
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_paris
+	}
+}
+
+eocfm_stop_sway_paris_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_paris
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_paris
+	}
+}
+
+# Koln
+eocfm_integrate_koln_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_koln
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_koln_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_koln
+				}
+			}
+		}
+		owns_entire_state_region = STATE_NORTH_RHINE
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_koln
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_koln_claimed
+		}
+	}
+}
+
+eocfm_koln_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_koln
+	}
+	
+}
+
+eocfm_start_sway_koln_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_koln
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_koln
+	}
+}
+
+eocfm_stop_sway_koln_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_koln
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_koln
+	}
+}
+
+# Vienna
+eocfm_integrate_vienna_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_vienna
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_vienna_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_vienna
+				}
+			}
+		}
+		owns_entire_state_region = STATE_AUSTRIA
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_vienna
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_vienna_claimed
+		}
+	}
+}
+
+eocfm_vienna_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_vienna
+	}
+	
+}
+
+eocfm_start_sway_vienna_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_vienna
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_vienna
+	}
+}
+
+eocfm_stop_sway_vienna_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_vienna
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_vienna
+	}
+}
+
+## ORTHODOX SEAT INTERACTIONS
+# Constantinople
 eocfm_assert_constantinople_sgui = {
 	scope = country
 	
@@ -739,34 +1205,6 @@ eocfm_assert_constantinople_sgui = {
 	}
 }
 
-eocfm_seize_constantinople_sgui = {
-	scope = country
-	
-	is_shown = {
-		always = no
-	}
-	
-	is_valid = {
-		custom_tooltip = {
-			text = eocfm_controls_constantinople_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_constantinople
-				}
-			}
-		}
-		owns_entire_state_region = STATE_EASTERN_THRACE
-	}
-	
-	effect = {
-		trigger_event = {
-			id = eocfm.149 # Country Seizes Constantinopole
-			popup = yes
-		}
-	}
-}
-
-## Constantinople
 eocfm_integrate_constantinople_sgui = {
 	scope = country
 	
@@ -797,16 +1235,11 @@ eocfm_integrate_constantinople_sgui = {
 			name = eocfm_integration_var
 			value = 0
 		}
-		trigger_event = {
-			id = eocfm.110 # Constantinopole Claimed by Country
-		}
-		random_country = {
+		every_country = {
 			limit = {
-				has_variable = eocfm_controls_constantinople
+				eocfm_is_christian_trigger = yes
 			}
-			trigger_event = {
-				id = eocfm.110 # Constantinopole Claimed by Country
-			}
+			post_notification = notification_eocfm_constantinople_claimed
 		}
 	}
 }
@@ -855,7 +1288,7 @@ eocfm_stop_sway_constantinople_sgui = {
 	}
 }
 
-## Antioch
+# Antioch
 eocfm_integrate_antioch_sgui = {
 	scope = country
 	
@@ -881,14 +1314,17 @@ eocfm_integrate_antioch_sgui = {
 	}
 	
 	effect = {
-		trigger_event = {
-			id = eocfm.112 # Antioch Claimed by Country
-		}
+		set_variable = eocfm_integrating_antioch
 		set_variable = {
 			name = eocfm_integration_var
 			value = 0
 		}
-		set_variable = eocfm_integrating_antioch
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_antioch_claimed
+		}
 	}
 }
 
@@ -936,7 +1372,7 @@ eocfm_stop_sway_antioch_sgui = {
 	}
 }
 
-## Jerusalem
+# Jerusalem
 eocfm_integrate_jerusalem_sgui = {
 	scope = country
 	
@@ -962,14 +1398,17 @@ eocfm_integrate_jerusalem_sgui = {
 	}
 	
 	effect = {
-		trigger_event = {
-			id = eocfm.114 # Jerusalem Claimed by Country
-		}
+		set_variable = eocfm_integrating_jerusalem
 		set_variable = {
 			name = eocfm_integration_var
 			value = 0
 		}
-		set_variable = eocfm_integrating_jerusalem
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_jerusalem_claimed
+		}
 	}
 }
 
@@ -992,7 +1431,7 @@ eocfm_start_sway_jerusalem_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_has_200_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1031,26 +1470,21 @@ eocfm_integrate_alexandria_sgui = {
 		eocfm_is_autocephalous_trigger = yes
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
-		custom_tooltip = {
-			text = eocfm_controls_alexandria_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_alexandria
-				}
-			}
-		}
 		owns_entire_state_region = STATE_LOWER_EGYPT
 	}
 	
 	effect = {
-		trigger_event = {
-			id = eocfm.116 # Alexandria Claimed by Country
-		}
+		set_variable = eocfm_integrating_alexandria
 		set_variable = {
 			name = eocfm_integration_var
 			value = 0
 		}
-		set_variable = eocfm_integrating_alexandria
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_alexandria_claimed
+		}
 	}
 }
 
@@ -1124,14 +1558,17 @@ eocfm_integrate_moscow_sgui = {
 	}
 	
 	effect = {
-		trigger_event = {
-			id = eocfm.118 # Moscow Claimed by Country
-		}
+		set_variable = eocfm_integrating_moscow
 		set_variable = {
 			name = eocfm_integration_var
 			value = 0
 		}
-		set_variable = eocfm_integrating_moscow
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_moscow_claimed
+		}
 	}
 }
 
@@ -1179,13 +1616,43 @@ eocfm_stop_sway_moscow_sgui = {
 	}
 }
 
-## Rome; at the bottom in this case to match alignment in the gui file
-eocfm_integrate_rome_sgui = {
+## ORIENTAL SEAT INTERACTIONS
+# Coptic Alexandria
+eocfm_assert_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		eocfm_is_oriental_orthodox_trigger = yes
+		eocfm_is_NOT_autocephalous_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_coptic_alexandria_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_coptic_alexandria
+				}
+			}
+		}
+		owns_entire_state_region = STATE_LOWER_EGYPT
+	}
+	
+	effect = {
+		trigger_event = {
+			id = eocfm.148 # Supremacy Asserted Over Constantinopole
+			popup = yes
+		}
+	}
+}
+
+eocfm_integrate_coptic_alexandria_sgui = {
 	scope = country
 	
 	is_shown = {
 		NOT = {
-			has_variable = eocfm_integrating_rome
+			has_variable = eocfm_integrating_coptic_alexandria
 		}		
 	}
 	
@@ -1194,85 +1661,64 @@ eocfm_integrate_rome_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_rome_NOT
+			text = eocfm_controls_coptic_alexandria_NOT
 			hidden_trigger = {
 				NOT = {
-					has_variable = eocfm_controls_rome
+					has_variable = eocfm_controls_coptic_alexandria
 				}
 			}
 		}
-		owns_entire_state_region = STATE_LAZIO
+		owns_entire_state_region = STATE_LOWER_EGYPT
 	}
 	
 	effect = {
-		set_variable = eocfm_integrating_rome
+		set_variable = eocfm_integrating_coptic_alexandria
 		set_variable = {
 			name = eocfm_integration_var
 			value = 0
 		}
-		show_as_tooltip = {
-			trigger_event = {
-				id = eocfm.306 # Challenging the Patriarch of the West
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
 			}
-		}
-		hidden_effect = {
-			every_country = {
-				limit = {
-					OR = {
-						country_has_state_religion = rel:catholic
-						country_has_state_religion = rel:orthodox
-					}
-				}
-				trigger_event = {
-					id = eocfm.306 # Challenging the Patriarch of the West
-				}
-			}
+			post_notification = notification_eocfm_coptic_alexandria_claimed
 		}
 	}
 }
 
-eocfm_rome_progressbar_sgui = {
+eocfm_coptic_alexandria_progressbar_sgui = {
 	scope = country
 	
 	is_shown = {
-		has_variable = eocfm_integrating_rome
+		has_variable = eocfm_integrating_coptic_alexandria
 	}
 	
 }
 
-eocfm_start_sway_rome_sgui = {
+eocfm_start_sway_coptic_alexandria_sgui = {
 	scope = country
 	
 	is_shown = {
 		NOT = {
-			has_modifier = modifier_eocfm_swaying_rome
+			has_modifier = modifier_eocfm_swaying_coptic_alexandria
 		}
 	}
 	
 	is_valid = {
 		eocfm_has_200_caesaropapism_trigger = yes
-		custom_tooltip = {
-			text = eocfm_rome_reclaimed
-			hidden_trigger = {
-				any_country = {
-					country_has_state_religion = rel:orthodox
-					has_variable = eocfm_controls_rome
-				}
-			}
-		}
 		influence > 100
 	}
 	
 	effect = {
-		add_modifier = modifier_eocfm_swaying_rome
+		add_modifier = modifier_eocfm_swaying_coptic_alexandria
 	}
 }
 
-eocfm_stop_sway_rome_sgui = {
+eocfm_stop_sway_coptic_alexandria_sgui = {
 	scope = country
 	
 	is_shown = {
-		has_modifier = modifier_eocfm_swaying_rome
+		has_modifier = modifier_eocfm_swaying_coptic_alexandria
 	}
 	
 	is_valid = {
@@ -1280,6 +1726,624 @@ eocfm_stop_sway_rome_sgui = {
 	}
 	
 	effect = {
-		remove_modifier = modifier_eocfm_swaying_rome
+		remove_modifier = modifier_eocfm_swaying_coptic_alexandria
+	}
+}
+
+# Syriac Antioch
+eocfm_integrate_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_syriac_antioch
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_syriac_antioch_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_syriac_antioch
+				}
+			}
+		}
+		owns_entire_state_region = STATE_SYRIA
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_syriac_antioch
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_syriac_antioch_claimed
+		}
+	}
+}
+
+eocfm_syriac_antioch_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_syriac_antioch
+	}
+	
+}
+
+eocfm_start_sway_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_syriac_antioch
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_syriac_antioch
+	}
+}
+
+eocfm_stop_sway_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_syriac_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_syriac_antioch
+	}
+}
+
+# Etchmiadzin
+eocfm_integrate_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_etchmiadzin
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_etchmiadzin_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_etchmiadzin
+				}
+			}
+		}
+		owns_entire_state_region = STATE_ARMENIA
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_etchmiadzin
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_etchmiadzin_claimed
+		}
+	}
+}
+
+eocfm_etchmiadzin_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_etchmiadzin
+	}
+	
+}
+
+eocfm_start_sway_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_etchmiadzin
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_etchmiadzin
+	}
+}
+
+eocfm_stop_sway_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_etchmiadzin
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_etchmiadzin
+	}
+}
+
+# Addis Ababa
+eocfm_integrate_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_addis_ababa
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_addis_ababa_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_addis_ababa
+				}
+			}
+		}
+		owns_entire_state_region = STATE_GONDAR
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_addis_ababa
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_addis_ababa_claimed
+		}
+	}
+}
+
+eocfm_addis_ababa_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_addis_ababa
+	}
+	
+}
+
+eocfm_start_sway_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_addis_ababa
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_addis_ababa
+	}
+}
+
+eocfm_stop_sway_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_addis_ababa
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_addis_ababa
+	}
+}
+
+# Qudshanis
+eocfm_integrate_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_konak
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_konak_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_konak
+				}
+			}
+		}
+		owns_entire_state_region = STATE_DIYARBAKIR
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_konak
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_konak_claimed
+		}
+	}
+}
+
+eocfm_konak_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_konak
+	}
+	
+}
+
+eocfm_start_sway_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_konak
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_konak
+	}
+}
+
+eocfm_stop_sway_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_konak
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_konak
+	}
+}
+
+
+## ELYSIAN SEAT INTERACTIONS ##
+# Elysium
+eocfm_assert_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		eocfm_is_NOT_autocephalous_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_elysium_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_elysium
+				}
+			}
+		}
+		eocfm_is_roman_catholic_trigger = yes
+	}
+	
+	effect = {
+		trigger_event = {
+			id = eocfm.148 # Supremacy Asserted Over Rome
+			popup = yes
+		}
+	}
+}
+
+eocfm_integrate_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_elysium
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_elysium_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_elysium
+				}
+			}
+		}
+		owns_entire_state_region = STATE_DISTRICT_OF_COLUMBIA
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_elysium
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_elysium_claimed
+		}
+	}
+}
+
+eocfm_elysium_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_elysium
+	}
+	
+}
+
+eocfm_start_sway_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_elysium
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_elysium
+	}
+}
+
+eocfm_stop_sway_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_elysium
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_elysium
+	}
+}
+
+# Tututepec
+eocfm_integrate_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_mixtec
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_mixtec_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_mixtec
+				}
+			}
+		}
+		owns_entire_state_region = STATE_OAXACA
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_mixtec
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_mixtec_claimed
+		}
+	}
+}
+
+eocfm_mixtec_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_mixtec
+	}
+	
+}
+
+eocfm_start_sway_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_mixtec
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_mixtec
+	}
+}
+
+eocfm_stop_sway_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_mixtec
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_mixtec
+	}
+}
+
+# Cahokia
+eocfm_integrate_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_variable = eocfm_integrating_cahokia
+		}		
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_500_caesaropapism_trigger	= yes
+		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_controls_cahokia_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_controls_cahokia
+				}
+			}
+		}
+		owns_entire_state_region = STATE_ILLINOIS
+	}
+	
+	effect = {
+		set_variable = eocfm_integrating_cahokia
+		set_variable = {
+			name = eocfm_integration_var
+			value = 0
+		}
+		every_country = {
+			limit = {
+				eocfm_is_christian_trigger = yes
+			}
+			post_notification = notification_eocfm_cahokia_claimed
+		}
+	}
+}
+
+eocfm_cahokia_progressbar_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_integrating_cahokia
+	}
+	
+}
+
+eocfm_start_sway_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_swaying_cahokia
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_200_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_swaying_cahokia
+	}
+}
+
+eocfm_stop_sway_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_swaying_cahokia
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_swaying_cahokia
 	}
 }
