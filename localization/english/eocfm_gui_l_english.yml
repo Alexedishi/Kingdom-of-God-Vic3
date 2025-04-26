@@ -3,14 +3,29 @@
  eocfm_sidebar_button_sgui: "eocfm_sidebar_button_sgui"
  eocfm_sidebar_button_sgui_desc: "Orthodox Church"
  
- # Widget Header
+ # Widget Headers
  eocfm_gui_main_title: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_denomination_type')]"
+ eocfm_gui_national_church_name: "The [GetPlayer.GetStateReligion.GetNameNoFormatting] Church of [GetPlayer.GetNameNoFlag]"
  
- # Caesaropapism & Autocephaly Status
- eocfm_gui_national_church_name: "The Orthodox Church of [GetPlayer.GetNameNoFlag]"
- eocfm_gui_autocephaly_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_autocephaly_status_type')]"
- eocfm_gui_caesaropapism_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_caesaropapism! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value')]#!#! [concept_caesaropapism]."
- eocfm_gui_casaropapism_breakdown: "@eocfm_caesaropapism! [concept_caesaropapism]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('eocfm_caesaropapism_capacity_value')]"
+ # Papal Influence & Communion Status
+ eocfm_gui_catholic_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_catholic_communion_type')]"
+ eocfm_gui_catholic_capacity_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_caesaropapism! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value')]#!#! [concept_papal_influence]."
+ eocfm_gui_catholic_capacity_breakdown: "@eocfm_papal_influence! [concept_papal_influence]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('eocfm_papacy_capacity_value')]"
+ 
+ # Orthodox Caesaropapism & Autocephaly Status
+ eocfm_gui_orthodox_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_orthodox_communion_type')]"
+ eocfm_gui_orthodox_capacity_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_caesaropapism! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value')]#!#! [concept_caesaropapism]."
+ eocfm_gui_orthodox_capacity_breakdown: "@eocfm_caesaropapism! [concept_caesaropapism]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('eocfm_caesaropapism_capacity_value')]"
+ 
+ # Oriental Caesaropapism & Autocephaly Status
+ eocfm_gui_oriental_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_oriental_communion_type')]"
+ eocfm_gui_oriental_capacity_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_caesaropapism! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_synodal_capacity_value')]#!#! [concept_synodal_influence]."
+ eocfm_gui_oriental_capacity_breakdown: "@eocfm_caesaropapism! [concept_synodal_influence]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_synodal_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('eocfm_synodal_capacity_value')]"
+ 
+ # Elysian Caesaropapism & Autocephaly Status
+ eocfm_gui_elysian_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_elysian_communion_type')]"
+ eocfm_gui_elysian_capacity_amount: "[GetPlayer.GetNameNoFormatting] has @eocfm_caesaropapism! #greece #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_casaropapism_breakdown [GetPlayer.MakeScope.ScriptValue('eocfm_elysian_capacity_value')]#!#! [concept_caesaropapism]."
+ eocfm_gui_elysian_capacity_breakdown: "@eocfm_caesaropapism! [concept_caesaropapism]\nBalance: [GetPlayer.MakeScope.ScriptValue('eocfm_elysian_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('eocfm_elysian_capacity_value')]"
  
  # Metropolitan Portrait & Details
  eocfm_gui_liturgical_rite_type: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_liturgical_rite_type')]"

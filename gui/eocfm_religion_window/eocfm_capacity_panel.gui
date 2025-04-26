@@ -1,0 +1,203 @@
+types eocfm_capacity_panels {
+	
+	# Catholic Panel
+	type eocfm_catholic_communion_panel = vbox {
+		layoutpolicy_horizontal = preferred
+		layoutpolicy_vertical = preferred
+		spacing = 5
+		
+		visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		margin_bottom = 10
+		
+		default_header_clean = {
+			blockoverride "header_mask" {
+				using = frame_small_mask_top
+			}
+			blockoverride "size" {
+				layoutpolicy_horizontal = expanding
+				size = { 0 44 }
+			}
+			blockoverride "text" {
+				text = "eocfm_gui_national_church_name"
+			}
+		}
+		
+		textbox = {
+			autoresize = yes
+			raw_text = "eocfm_gui_catholic_communion_status"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		green_progressbar_horizontal = {
+			size = { 400 30 }
+			blockoverride "values" {
+				min = 0
+				max = 1000
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value'))]"
+			}
+			textbox = {
+				parentanchor = center
+				autoresize = yes
+				text = "eocfm_gui_catholic_capacity_amount"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_medium
+			}
+			tooltip = "eocfm_gui_catholic_capacity_breakdown"
+		}
+	}
+	
+	# Orthodox Panel
+	type eocfm_orthodox_communion_panel = vbox {
+		layoutpolicy_horizontal = preferred
+		layoutpolicy_vertical = preferred
+		spacing = 5
+		
+		visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		margin_bottom = 10
+		
+		default_header_clean = {
+			blockoverride "header_mask" {
+				using = frame_small_mask_top
+			}
+			blockoverride "size" {
+				layoutpolicy_horizontal = expanding
+				size = { 0 44 }
+			}
+			blockoverride "text" {
+				text = "eocfm_gui_national_church_name"
+			}
+		}
+		
+		textbox = {
+			autoresize = yes
+			raw_text = "eocfm_gui_orthodox_communion_status"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		green_progressbar_horizontal = {
+			size = { 400 30 }
+			blockoverride "values" {
+				min = 0
+				max = 1000
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value'))]"
+			}
+			textbox = {
+				parentanchor = center
+				autoresize = yes
+				text = "eocfm_gui_orthodox_capacity_amount"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_medium
+			}
+			tooltip = "eocfm_gui_orthodox_capacity_breakdown"
+		}
+	}
+	
+	# Oriental Orthodox Panel
+	type eocfm_oriental_communion_panel = vbox {
+		layoutpolicy_horizontal = preferred
+		layoutpolicy_vertical = preferred
+		spacing = 5
+		
+		visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		margin_bottom = 10
+		
+		default_header_clean = {
+			blockoverride "header_mask" {
+				using = frame_small_mask_top
+			}
+			blockoverride "size" {
+				layoutpolicy_horizontal = expanding
+				size = { 0 44 }
+			}
+			blockoverride "text" {
+				text = "eocfm_gui_national_church_name"
+			}
+		}
+		
+		textbox = {
+			autoresize = yes
+			raw_text = "eocfm_gui_oriental_communion_status"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		green_progressbar_horizontal = {
+			size = { 400 30 }
+			blockoverride "values" {
+				min = 0
+				max = 1000
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_synodal_capacity_value'))]"
+			}
+			textbox = {
+				parentanchor = center
+				autoresize = yes
+				text = "eocfm_gui_oriental_capacity_amount"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_medium
+			}
+			tooltip = "eocfm_gui_oriental_capacity_breakdown"
+		}
+	}
+	
+	# Elysian Orthodox Panel
+	type eocfm_elysian_communion_panel = vbox {
+		layoutpolicy_horizontal = preferred
+		layoutpolicy_vertical = preferred
+		spacing = 5
+		
+		visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		margin_bottom = 10
+		
+		default_header_clean = {
+			blockoverride "header_mask" {
+				using = frame_small_mask_top
+			}
+			blockoverride "size" {
+				layoutpolicy_horizontal = expanding
+				size = { 0 44 }
+			}
+			blockoverride "text" {
+				text = "eocfm_gui_national_church_name"
+			}
+		}
+		
+		textbox = {
+			autoresize = yes
+			raw_text = "eocfm_gui_elysian_communion_status"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		green_progressbar_horizontal = {
+			size = { 400 30 }
+			blockoverride "values" {
+				min = 0
+				max = 1000
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_synodal_capacity_value'))]"
+			}
+			textbox = {
+				parentanchor = center
+				autoresize = yes
+				text = "eocfm_gui_elysian_capacity_amount"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_medium
+			}
+			tooltip = "eocfm_gui_elysian_capacity_breakdown"
+		}
+	}
+	
+}

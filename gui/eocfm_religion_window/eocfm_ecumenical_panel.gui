@@ -440,7 +440,7 @@ types eocfm_ecumenical_seat_panels {
 				}
 				divider_clean = {}
 				textbox = {
-					text = "eocfm_gui_event_counter"
+					text = "eocfm_gui_orthodox_event_counter"
 					size = { 240 80 }
 					elide = right
 					using = fontsize_medium
@@ -1048,7 +1048,7 @@ types eocfm_ecumenical_seat_panels {
 		margin_top = 5
 		margin_bottom = 5
 		
-		visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		background = {
 			using = entry_bg
@@ -1060,7 +1060,7 @@ types eocfm_ecumenical_seat_panels {
 				blockoverride "text" {
 				}
 				textbox = {
-					text = "eocfm_gui_rome_patriarch_header"
+					text = "eocfm_gui_elysium_patriarch_header"
 					parentanchor = left|vcenter
 					autoresize = yes
 					max_width = 300
@@ -1068,7 +1068,7 @@ types eocfm_ecumenical_seat_panels {
 					using = fontsize_large
 				}
 				textbox = {
-					text = "eocfm_gui_rome_patriarch_controller"
+					text = "eocfm_gui_elysium_patriarch_controller"
 					parentanchor = right|vcenter
 					autoresize = yes
 					max_width = 300
@@ -1084,7 +1084,7 @@ types eocfm_ecumenical_seat_panels {
 			layoutpolicy_vertical = shrinking
 			
 			character_portrait_large_torso = {
-				datacontext = "[GetPlayer.MakeScope.Var('eocfm_rome_patriarch_var').GetCharacter]"
+				datacontext = "[GetPlayer.MakeScope.Var('eocfm_elysium_patriarch_var').GetCharacter]"
 				blockoverride "show_hat" {}
 				blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
 				blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
@@ -1097,7 +1097,7 @@ types eocfm_ecumenical_seat_panels {
 					blockoverride "text" {
 					}
 					textbox = {
-						text = "eocfm_gui_rome_patriarch_name"
+						text = "eocfm_gui_elysium_patriarch_name"
 						parentanchor = center
 						position = { 0 -2 }
 						autoresize = yes
@@ -1114,26 +1114,26 @@ types eocfm_ecumenical_seat_panels {
 				margin = { 10 10 }
 				spacing = 5
 				textbox = {
-					raw_text = "eocfm_gui_rome_liturgical_rite"
+					raw_text = "eocfm_gui_elysium_liturgical_rite"
 					size = { 240 40 }
 					elide = right
 					using = fontsize_medium
 				}
 				textbox = {
-					text = "eocfm_gui_rome_location"
+					text = "eocfm_gui_elysium_location"
 					size = { 240 40 }
 					elide = right
 					using = fontsize_medium
 				}
 				textbox = {
-					text = "eocfm_gui_rome_patriarch_relations"
+					text = "eocfm_gui_elysium_patriarch_relations"
 					size = { 240 40 }
 					elide = right
 					using = fontsize_medium
 				}
 				divider_clean = {}
 				textbox = {
-					text = "eocfm_gui_catholic_event_counter"
+					text = "eocfm_gui_elysian_event_counter"
 					size = { 240 80 }
 					elide = right
 					using = fontsize_medium

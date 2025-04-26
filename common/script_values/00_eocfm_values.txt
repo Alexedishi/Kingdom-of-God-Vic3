@@ -1,4 +1,18 @@
-﻿eocfm_caesaropapism_capacity_value = {
+﻿#### CAPACITY VALUES ####
+
+## Papal Influence Value = {
+eocfm_papacy_capacity_value = {
+	value = 0
+	
+	# SOURCES
+	add = {
+		value = 100
+		desc = eocfm_value_from_base
+	}
+	
+}
+
+eocfm_caesaropapism_capacity_value = {
 	value = 0
 	
 	## BASE
@@ -383,9 +397,54 @@
 	
 }
 
-eocfm_caesaropapism_multiplier_value = {
+eocfm_synodal_capacity_value = {
 	value = 0
-	add = eocfm_caesaropapism_capacity_value
+	
+	# SOURCES
+	add = {
+		value = 100
+		desc = eocfm_value_from_base
+	}
+	
+}
+
+eocfm_elysian_capacity_value = {
+	value = 0
+	
+	# SOURCES
+	add = {
+		value = 100
+		desc = eocfm_value_from_base
+	}
+	
+}
+
+eocfm_capacity_multiplier_value = {
+	value = 0
+	if = {
+		limit = {
+			eocfm_is_catholic_trigger = yes
+		}
+		add = eocfm_papacy_capacity_value
+	}
+	else_if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		add = eocfm_caesaropapism_capacity_value
+	}
+	else_if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		add = eocfm_synodal_capacity_value
+	}
+	else_if = {
+		limit = {
+			eocfm_is_elysian_orthodox_trigger = yes
+		}
+		add = eocfm_elysian_capacity_value
+	}
 	divide = 100
 	round_to = 1
 }

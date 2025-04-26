@@ -82,7 +82,7 @@ eocfm_metropolitan_focus_type = {
 	
 }
 
-eocfm_autocephaly_status_type = {
+eocfm_catholic_communion_type = {
 	type = country
 	
 	text = {
@@ -92,13 +92,49 @@ eocfm_autocephaly_status_type = {
 				has_variable = eocfm_schism_var
 			}
 		}
-		localization_key = custom_eocfm_no_autocephaly
+		localization_key = custom_eocfm_no_autocephaly_catholic
 	}
 	text = {
 		trigger = {
 			has_variable = eocfm_schism_var
 		}
-		localization_key = custom_eocfm_schismatic
+		localization_key = custom_eocfm_schismatic_catholic
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_rome
+			}
+		}
+		localization_key = custom_eocfm_autocephalous_catholic
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_is_autocephalous
+			has_variable = eocfm_controls_constantinople
+		}
+		localization_key = custom_eocfm_supremacy_catholic
+	}
+}
+
+eocfm_orthodox_communion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_is_autocephalous
+				has_variable = eocfm_schism_var
+			}
+		}
+		localization_key = custom_eocfm_no_autocephaly_orthodox
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_schism_var
+		}
+		localization_key = custom_eocfm_schismatic_orthodox
 	}
 	text = {
 		trigger = {
@@ -107,14 +143,86 @@ eocfm_autocephaly_status_type = {
 				has_variable = eocfm_controls_constantinople
 			}
 		}
-		localization_key = custom_eocfm_autocephalous
+		localization_key = custom_eocfm_autocephalous_orthodox
 	}
 	text = {
 		trigger = {
 			has_variable = eocfm_is_autocephalous
 			has_variable = eocfm_controls_constantinople
 		}
-		localization_key = custom_eocfm_supremacy
+		localization_key = custom_eocfm_supremacy_orthodox
+	}
+}
+
+eocfm_oriental_communion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_is_autocephalous
+				has_variable = eocfm_schism_var
+			}
+		}
+		localization_key = custom_eocfm_no_autocephaly_oriental
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_schism_var
+		}
+		localization_key = custom_eocfm_schismatic_oriental
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_constantinople
+			}
+		}
+		localization_key = custom_eocfm_autocephalous_oriental
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_is_autocephalous
+			has_variable = eocfm_controls_constantinople
+		}
+		localization_key = custom_eocfm_supremacy_oriental
+	}
+}
+
+eocfm_elysian_communion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_is_autocephalous
+				has_variable = eocfm_schism_var
+			}
+		}
+		localization_key = custom_eocfm_no_autocephaly_elysian
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_schism_var
+		}
+		localization_key = custom_eocfm_schismatic_elysian
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_is_autocephalous
+			NOT = {
+				has_variable = eocfm_controls_constantinople
+			}
+		}
+		localization_key = custom_eocfm_autocephalous_elysian
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_is_autocephalous
+			has_variable = eocfm_controls_constantinople
+		}
+		localization_key = custom_eocfm_supremacy_elysian
 	}
 }
 
