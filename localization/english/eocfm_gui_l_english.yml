@@ -266,7 +266,7 @@
  eocfm_gui_addis_ababa_patriarch_controller: "#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_addis_ababa_controller_type')]"
  eocfm_gui_addis_ababa_patriarch_name: "Patriarch [GetPlayer.MakeScope.Var('eocfm_addis_ababa_patriarch_var').GetCharacter.GetLastName]"
  eocfm_gui_addis_ababa_liturgical_rite: "#bold [concept_liturgical_rite]:#!\n@eocfm_rite! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_addis_ababa_liturgical_rite_type')]"
- eocfm_gui_addis_ababa_location: "#bold Seated in:#!\n[GetStateRegion('STATE_GONDAR').GetName]"
+ eocfm_gui_addis_ababa_location: "#bold Seated in:#!\n[GetStateRegion('STATE_OROMIA').GetName]"
  eocfm_gui_addis_ababa_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_addis_ababa_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_addis_ababa_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_addis_ababa_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_addis_ababa_opinion_value')]"
  eocfm_gui_integrate_addis_ababa_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
