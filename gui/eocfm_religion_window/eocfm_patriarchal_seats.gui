@@ -346,7 +346,7 @@ types eocfm_patriarchal_seat_panels {
 									raw_text = "#bold Improve Relations#!"
 									using = fontsize_medium
 									
-									datacontext = "[GetScriptedGui(eocfm_start_sway_santiago_sgui)]"
+									datacontext = "[GetScriptedGui('eocfm_start_sway_santiago_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"

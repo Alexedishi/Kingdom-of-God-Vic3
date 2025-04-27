@@ -2851,6 +2851,359 @@ eocfm_add_condemnation_effect = {
 	}
 }
 
+#### Seat Integration Effects
+
+eocfm_save_seat_loser_effect = {
+	if = {
+		limit = {
+			has_variable = eocfm_integrating_rome
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_rome
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_santiago
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_santiago
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_paris
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_paris
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_koln
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_koln
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_vienna
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_vienna
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_constantinople
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_constantinople
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_antioch
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_antioch
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_jerusalem
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_jerusalem
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_alexandria
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_alexandria
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_moscow
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_moscow
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_coptic_alexandria
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_coptic_alexandria
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_syriac_antioch
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_syriac_antioch
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_etchmiadzin
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_etchmiadzin
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_addis_ababa
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_addis_ababa
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_konak
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_konak
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_elysium
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_elysium
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_mixtec
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_mixtec
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_cahokia
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_cahokia
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+}
+
+eocfm_complete_integration_effect = {
+	if = {
+		limit = {
+			has_variable = eocfm_integrating_rome
+		}
+		custom_tooltip = eocfm_usurped_rome
+		remove_variable = eocfm_integrating_rome
+		set_variable = eocfm_controls_rome
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_santiago
+		}
+		custom_tooltip = eocfm_usurped_santiago
+		remove_variable = eocfm_integrating_santiago
+		set_variable = eocfm_controls_santiago
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_paris
+		}
+		custom_tooltip = eocfm_usurped_paris
+		remove_variable = eocfm_integrating_paris
+		set_variable = eocfm_controls_paris
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_koln
+		}
+		custom_tooltip = eocfm_usurped_koln
+		remove_variable = eocfm_integrating_koln
+		set_variable = eocfm_controls_koln
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_vienna
+		}
+		custom_tooltip = eocfm_usurped_vienna
+		remove_variable = eocfm_integrating_vienna
+		set_variable = eocfm_controls_vienna
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_constantinople
+		}
+		custom_tooltip = eocfm_usurped_constantinople
+		remove_variable = eocfm_integrating_constantinople
+		set_variable = eocfm_controls_constantinople
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_antioch
+		}
+		custom_tooltip = eocfm_usurped_antioch
+		remove_variable = eocfm_integrating_antioch
+		set_variable = eocfm_controls_antioch
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_jerusalem
+		}
+		custom_tooltip = eocfm_usurped_jerusalem
+		remove_variable = eocfm_integrating_jerusalem
+		set_variable = eocfm_controls_jerusalem
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_alexandria
+		}
+		custom_tooltip = 
+		remove_variable = eocfm_integrating_alexandria
+		set_variable = eocfm_controls_alexandria
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_moscow
+		}
+		custom_tooltip = eocfm_usurped_moscow
+		remove_variable = eocfm_integrating_moscow
+		set_variable = eocfm_controls_moscow
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_coptic_alexandria
+		}
+		custom_tooltip = eocfm_usurped_coptic_alexandria
+		remove_variable = eocfm_integrating_coptic_alexandria
+		set_variable = eocfm_controls_coptic_alexandria
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_syriac_antioch
+		}
+		custom_tooltip = eocfm_usurped_syriac_antioch
+		remove_variable = eocfm_integrating_syriac_antioch
+		set_variable = eocfm_controls_syriac_antioch
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_etchmiadzin
+		}
+		custom_tooltip = eocfm_usurped_etchmiadzin
+		remove_variable = eocfm_integrating_etchmiadzin
+		set_variable = eocfm_controls_etchmiadzin
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_addis_ababa
+		}
+		custom_tooltip = eocfm_usurped_addis_ababa
+		remove_variable = eocfm_integrating_addis_ababa
+		set_variable = eocfm_controls_addis_ababa
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_konak
+		}
+		custom_tooltip = eocfm_usurped_konak
+		remove_variable = eocfm_integrating_konak
+		set_variable = eocfm_controls_konak
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_elysium
+		}
+		custom_tooltip = eocfm_usurped_elysium
+		remove_variable = eocfm_integrating_elysium
+		set_variable = eocfm_controls_elysium
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_mixtec
+		}
+		custom_tooltip = eocfm_usurped_mixtec
+		remove_variable = eocfm_integrating_mixtec
+		set_variable = eocfm_controls_mixtec
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_cahokia
+		}
+		custom_tooltip = eocfm_usurped_cahokia
+		remove_variable = eocfm_integrating_cahokia
+		set_variable = eocfm_controls_cahokia
+	}
+	remove_variable = eocfm_integration_var
+	remove_variable = eocfm_seat_opposed
+}
+
+
 #### Event Scripted Effects
 
 eocfm_save_seat_controller_scopes_effect = {
@@ -3415,17 +3768,6 @@ eocfm_schism_cleanup_effect = {
 	remove_modifier = modifier_eocfm_monk_smackdown_stopped
 	remove_modifier = modifier_eocfm_agitator_delay
 	remove_modifier = modifier_eocfm_protecting_bishops
-}
-
-eocfm_remove_intregration_variables_effect = {
-	remove_variable = eocfm_integration_var
-	remove_variable = eocfm_integrating_rome
-	remove_variable = eocfm_integrating_constantinople
-	remove_variable = eocfm_integrating_antioch
-	remove_variable = eocfm_integrating_alexandria
-	remove_variable = eocfm_integrating_jerusalem
-	remove_variable = eocfm_integrating_moscow
-	remove_variable = eocfm_seat_opposed
 }
 
 eocfm_council_cleanup_effect = {
