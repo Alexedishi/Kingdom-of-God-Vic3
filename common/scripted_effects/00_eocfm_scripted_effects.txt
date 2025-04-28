@@ -3330,7 +3330,7 @@ eocfm_post_usurpation_notification_effect = {
 				has_variable = eocfm_integrating_elysium
 			}
 		}
-		post_notification = 
+		post_notification = notification_eocfm_elysium_usurped
 	}
 	else_if = {
 		limit = {
@@ -3338,20 +3338,12 @@ eocfm_post_usurpation_notification_effect = {
 				has_variable = eocfm_integrating_mixtec
 			}
 		}
-		post_notification = notification_eocfm_elysium_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_cahokia
-			}
-		}
 		post_notification = notification_eocfm_mixtec_usurped
 	}
 	else_if = {
 		limit = {
 			ROOT = {
-				has_variable = eocfm_integrating_
+				has_variable = eocfm_integrating_cahokia
 			}
 		}
 		post_notification = notification_eocfm_cahokia_usurped

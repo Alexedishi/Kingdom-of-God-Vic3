@@ -758,7 +758,7 @@ eocfm.0015 = { # Constantinople Holy Site Event
 						owner = root
 						is_production_method_active = {
 							building_type = eocfm_building_patriarchate_constantinople
-							production_method = pm_eocfm_patriarchate_constaintinople
+							production_method = pm_eocfm_patriarchate_constantinople
 						}
 					}
 				}
@@ -778,7 +778,7 @@ eocfm.0015 = { # Constantinople Holy Site Event
 					}
 					activate_production_method = {
 						building_type = eocfm_building_patriarchate_constantinople
-						production_method = pm_eocfm_patriarchate_constaintinople
+						production_method = pm_eocfm_patriarchate_constantinople
 					}
 				}
 			}
@@ -908,7 +908,7 @@ eocfm.0017 = { # Jersualem Holy Site Event
 						owner = root
 						is_production_method_active = {
 							building_type = eocfm_building_patriarchate_jerusalem
-							production_method = pm_eocfm_patriarchate_jersualem
+							production_method = pm_eocfm_patriarchate_jerusalem
 						}
 					}
 				}
@@ -928,7 +928,7 @@ eocfm.0017 = { # Jersualem Holy Site Event
 					}
 					activate_production_method = {
 						building_type = eocfm_building_patriarchate_jerusalem
-						production_method = pm_eocfm_patriarchate_jersualem
+						production_method = pm_eocfm_patriarchate_jerusalem
 					}
 				}
 			}
@@ -1584,7 +1584,7 @@ eocfm.0026 = { # Mixtec Holy Site Event
 						owner = root
 						is_production_method_active = {
 							building_type = eocfm_building_patriarchate_tututepec
-							production_method = pm_eocfm_patriarchate_mixtec
+							production_method = pm_eocfm_patriarchate_tututepec
 						}
 					}
 				}
@@ -1604,7 +1604,7 @@ eocfm.0026 = { # Mixtec Holy Site Event
 					}
 					activate_production_method = {
 						building_type = eocfm_building_patriarchate_tututepec
-						production_method = pm_eocfm_patriarchate_mixtec
+						production_method = pm_eocfm_patriarchate_tututepec
 					}
 				}
 			}
@@ -3806,6 +3806,8 @@ eocfm.0410 = { # The Hagia Sohpia Liberated
 		name = eocfm.0410.a
 		default_option = yes
 	}
+	
+	orphan = yes
 	
 }
 
@@ -6168,12 +6170,12 @@ eocfm.2311 = { # The Patriarch's Blessings
 	dlc = dlc_eocfm
 	
 	trigger = {
-		var:eocfm_constantinople_relations_var >= 80
+		var:eocfm_constantinople_opinion_var >= 80
 		NOT = {
 			has_modifier = modifier_eocfm_divine_mandate
 		}
 		calc_true_if = {
-			amount >= 4
+			amount >= 3
 			has_law = law_type:law_theocracy
 			has_law = law_type:law_state_religion
 			has_law = law_type:law_charitable_health_system
@@ -6182,6 +6184,10 @@ eocfm.2311 = { # The Patriarch's Blessings
 				has_law = law_type:law_no_social_security
 			}
 		}
+	}
+	
+	cooldown = {
+		years = 2
 	}
 	
 	immediate = {
@@ -6980,6 +6986,8 @@ eocfm.2329 = { # The Byzantine Commonwealth
 		default_option = yes
 		custom_tooltip = eocfm_orthodox_realms_info
 	}
+	
+	orphan = yes
 
 }
 
