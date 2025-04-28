@@ -3539,7 +3539,7 @@ eocfm.0309 = { # The Supreme Pontiff of the Universal Church
 ## BLOCK 04 - CRUSADE EVENTS
 
 # Crusade Events
-eocfm.0400 = { # Crusade Warmup
+eocfm.0400 = { # Crusade Launched
 	type = country_event
 	placement = root
 	
@@ -3580,7 +3580,12 @@ eocfm.0400 = { # Crusade Warmup
 	option = {
 		name = eocfm.0400.a
 		default_option = yes
-		custom_tooltip = eocfm.0400.tt
+		show_as_tooltip = {
+			add_modifier = {
+				name = modifier_eocfm_crusade_launched
+				months = normal_modifier_time
+			}
+		}
 	}
 
 }
@@ -3936,6 +3941,167 @@ eocfm.1000 = { # Catholic Opener Monitor
 
 	immediate = {
 		set_variable = eocfm_starter_var
+		if = {
+			limit = {
+				c:PAP ?= this
+			}
+			trigger_event = {
+				id = eocfm.1002 # The Throne of St. Peter (PAP)
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					c:PAP ?= this
+				}
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+			}
+			trigger_event = {
+				id = eocfm.1003 # The Homelands of the Church
+			}
+		}
+		else_if = {
+			limit = {
+				c:SPA ?= this 
+			}
+			trigger_event = {
+				id = eocfm.1004 # St. James and Strike for Spain! (SPA)
+			}
+		}
+		else_if = {
+			limit = {
+				c:FRA ?= this
+			}
+			trigger_event = {
+				id = eocfm.1005 # The Eldest Daughter of the Church (FRA)
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					c:AUS ?= this
+				}
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+			}
+			trigger_event = {
+				id = eocfm.1006 # Cuius Regio, Eius Religio (German)
+			}
+		}
+		else_if = {
+			limit = {
+				c:AUS ?= this
+			}
+			trigger_event = {
+				id = eocfm.1007 # The Guardians of the Church (AUS)
+			}
+		}
+		else_if = {
+			limit = {
+				c:POR ?= this
+			}
+			trigger_event = {
+				id = eocfm.1008 # POR
+			}
+		}
+		else_if = {
+			limit = {
+				c:BEL ?= this
+			}
+			trigger_event = {
+				id = eocfm.1009 # BEL
+			}
+		}
+		else_if = {
+			limit = {
+				c:MEX ?= this
+			}
+			trigger_event = {
+				id = eocfm.1010 # MEX
+			}
+		}
+		else_if = {
+			limit = {
+				c:UCA ?= this
+			}
+			trigger_event = {
+				id = eocfm.1011 # UCA
+			}
+		}
+		else_if = {
+			limit = {
+				c:CLM ?= this
+			}
+			trigger_event = {
+				id = eocfm.1012 # CLM
+			}
+		}
+		else_if = {
+			limit = {
+				c:BRZ ?= this
+			}
+			trigger_event = {
+				id = eocfm.1013 # BRZ
+			}
+		}
+		else_if = {
+			limit = {
+				c:ARG ?= this
+			}
+			trigger_event = {
+				id = eocfm.1014 # ARG
+			}
+		}
+		else_if = {
+			limit = {
+				c:CHL ?= this
+			}
+			trigger_event = {
+				id = eocfm.1015 # CHL
+			}
+		}
+		else_if = {
+			limit = {
+				c:PHI ?= this
+			}
+			trigger_event = {
+				id = eocfm.1016 # PHI
+			}
+		}
+		else_if = {
+			limit = {
+				c:VNZ ?= this
+			}
+			trigger_event = {
+				id = eocfm.1017 # VNZ
+			}
+		}
+		else_if = {
+			limit = {
+				c:BOL ?= this
+			}
+			trigger_event = {
+				id = eocfm.1018 # BOL
+			}
+		}
+		else_if = {
+			limit = {
+				c:KRA ?= this
+			}
+			trigger_event = {
+				id = eocfm.1019 # KRA
+			}
+		}
+		else = {
+			trigger_event = {
+				id = eocfm.1001 # The Bishops of Rome (Catholic Generic)
+			}
+		}
 	}
 	
 }
@@ -4010,7 +4176,7 @@ eocfm.1002 = { # The Throne of St. Peter (PAP)
 
 }
 
-eocfm.1003 = { # ITA
+eocfm.1003 = { # The Homelands of the Church
 	type = country_event
 	placement = root
 	
@@ -4639,6 +4805,8 @@ eocfm.1020 = { # HRE
 		default_option = yes
 		custom_tooltip = eocfm_no_effects
 	}
+	
+	orphan = yes
 
 }
 
@@ -4667,6 +4835,110 @@ eocfm.2000 = { # Eastern Orthodox Opener Monitor
 
 	immediate = {
 		set_variable = eocfm_starter_var
+		if = {
+			limit = {
+				c:RUS ?= this
+			}
+			trigger_event = {
+				id = eocfm.2002 # The Most Holy Synod (RUS)
+			}
+		}
+		else_if = {
+			limit = {
+				c:GRE ?= this
+			}
+			trigger_event = {
+				id = eocfm.2003 # The Holy Synod of Greece (GRE)
+			}
+		}
+		else_if = {
+			limit = {
+				c:MON ?= this
+			}
+			trigger_event = {
+				id = eocfm.2004 # The Union of State and Church (MON)
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:serb
+				NOT = {
+					c:MON ?= this
+				}
+			}
+			trigger_event = {
+				id = eocfm.2005 # Church of Saint Sava (SER)
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:bulgarian
+			}
+			trigger_event = {
+				id = eocfm.2006 # BUL
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture= cu:romanian
+			}
+			trigger_event = {
+				id = eocfm.2007 # ROM
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture= cu:albanian
+			}
+			trigger_event = {
+				id = eocfm.2008 # ALB
+			}
+		}
+		else_if = {
+			limit = {
+				c:ALK ?= this
+			}
+			trigger_event = {
+				id = eocfm.2009 # ALK
+			}
+		}
+		else_if = {
+			limit = {
+				has_variable = eocfm_controls_elysium
+			}
+			trigger_event = {
+				id = eocfm.2011 # The Bishops of the Blessed Land (BR_ELY)
+			}
+		}
+		else_if = {
+			limit = {
+				has_variable = eocfm_controls_mixtec
+			}
+			trigger_event = {
+				id = eocfm.2012 # The Bishops of the Bird's Hill (MIX)
+			}
+		}
+		else_if = {
+			limit = {
+				has_variable = eocfm_controls_cahokia
+			}
+			trigger_event = {
+				id = eocfm.2013 # The Patriarchate of the Holy Mound (CAH)
+			}
+		}
+		else_if = {
+			limit = {
+				eocfm_is_elysian_orthodox_trigger = yes
+			}
+			trigger_event = {
+				id = eocfm.2010 # The Ecumene Amongst the Barbarians (Elysian Generic)
+			}
+		}
+		else = {
+			trigger_event = {
+				id = eocfm.2001 # The Bishops of the East (Orthodox Generic)
+			}
+		}
 	}
 	
 }
@@ -7290,6 +7562,35 @@ eocfm.3000 = { # Oriental Orthodox Opener Monitor
 
 	immediate = {
 		set_variable = eocfm_starter_var
+		if = {
+			limit = {
+				c:EGY ?= this
+			}
+			trigger_event = {
+				id = eocfm.3002 # The Heirs to St. Mark (EGY)
+			}
+		}
+		else_if = {
+			limit = {
+				c:ARM ?= this
+			}
+			trigger_event = {
+				id = eocfm.3003 # ARM
+			}
+		}
+		else_if = {
+			limit = {
+				c:ETH ?= this
+			}
+			trigger_event = {
+				id = eocfm.3004 # The Church in Isolation (ETH)
+			}
+		}
+		else = {
+			trigger_event = {
+				id = eocfm.3001 # The Church in the Orient (Oriental Generic)
+			}
+		}
 	}
 	
 }
