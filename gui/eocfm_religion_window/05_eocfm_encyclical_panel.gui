@@ -1,0 +1,19 @@
+types eocfm_encyclical_panels {
+	
+	# Dummy Panel
+	type eocfm_encyclical_panel_dummy = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = preferred
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "Circulating Encyclicals"
+			}
+		}
+		
+		expand = {}
+	}
+	
+}
