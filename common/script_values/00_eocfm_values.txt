@@ -582,6 +582,56 @@ eocfm_decree_expense_value = {
 	}
 }
 
+eocfm_cardinal_college_value = {
+	value = 0
+	every_scope_state = {
+		limit = {
+			region = sr:region_italy
+		}
+		add = {
+			value = 4
+			desc = eocfm_value_from_italian_states
+		}
+	}
+	every_scope_state = {
+		limit = {
+			OR = {
+				region = sr:region_england
+				region = sr:region_iberia
+				region = sr:region_france
+				region = sr:region_occitania
+				region = sr:region_rhine
+				region = sr:region_north_germany
+				region = sr:region_south_germany
+				region = sr:region_poland
+			}
+		}
+		add = {
+			value = 2
+			desc = eocfm_value_from_european_states
+		}
+	}
+	every_scope_state = {
+		limit = {
+			NOR = {
+				region = sr:region_italy
+				region = sr:region_england
+				region = sr:region_iberia
+				region = sr:region_france
+				region = sr:region_occitania
+				region = sr:region_rhine
+				region = sr:region_north_germany
+				region = sr:region_south_germany
+				region = sr:region_poland
+			}
+		}
+		add = {
+			value = 1
+			desc = ecofm_value_from_other_states
+		}
+	}
+}
+
 eocfm_schism_progress_value = {
 # This value is overwritten by GotB to provide support for Bulgarian content
 	value = 0
