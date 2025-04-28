@@ -2988,7 +2988,6 @@ eocfm.0209 = { # Control Secured Over Seat
 	}
 	
 	immediate = {
-		set_variable = eocfm_seat_usurper_var
 		eocfm_save_seat_loser_effect = yes
 		every_country = {
 			limit = {
@@ -2997,15 +2996,8 @@ eocfm.0209 = { # Control Secured Over Seat
 					scope:eocfm_controller_scope ?= this
 				}
 			}
-			random_country = {
-				limit = {
-					has_variable = eocfm_seat_usurper_var
-				}
-				save_scope_as = eocfm_usurper_scope
-			}
 			eocfm_post_usurpation_notification_effect = yes
 		}
-		remove_variable = eocfm_seat_usurper_var
 	}
 	
 	option = {

@@ -3203,6 +3203,160 @@ eocfm_complete_integration_effect = {
 	remove_variable = eocfm_seat_opposed
 }
 
+eocfm_post_usurpation_notification_effect = {
+	if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_rome
+			}
+		}
+		post_notification = notification_eocfm_rome_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_santiago
+			}
+		}
+		post_notification = notification_eocfm_santiago_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_paris
+			}
+		}
+		post_notification = notification_eocfm_paris_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_koln
+			}
+		}
+		post_notification = notification_eocfm_koln_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_vienna
+			}
+		}
+		post_notification = notification_eocfm_vienna_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_constantinople
+			}
+		}
+		post_notification = notification_eocfm_constantinople_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_antioch
+			}
+		}
+		post_notification = notification_eocfm_antioch_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_jerusalem
+			}
+		}
+		post_notification = notification_eocfm_jerusalem_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_alexandria
+			}
+		}
+		post_notification = notification_eocfm_alexandria_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_moscow
+			}
+		}
+		post_notification = notification_eocfm_moscow_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_coptic_alexandria
+			}
+		}
+		post_notification = notification_eocfm_coptic_alexandria_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_syriac_antioch
+			}
+		}
+		post_notification = notification_eocfm_syriac_antioch_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_etchmiadzin
+			}
+		}
+		post_notification = notification_eocfm_etchmiadzin_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_addis_ababa
+			}
+		}
+		post_notification = notification_eocfm_addis_ababa_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_konak
+			}
+		}
+		post_notification = notification_eocfm_konak_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_elysium
+			}
+		}
+		post_notification = 
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_mixtec
+			}
+		}
+		post_notification = notification_eocfm_elysium_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_cahokia
+			}
+		}
+		post_notification = notification_eocfm_mixtec_usurped
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				has_variable = eocfm_integrating_
+			}
+		}
+		post_notification = notification_eocfm_cahokia_usurped
+	}
+}
 
 #### Event Scripted Effects
 
@@ -3616,6 +3770,41 @@ eocfm_save_event_patriarch_effect = {
 				has_template = template_eocfm_mixtec_patriarch
 			}
 			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+}
+
+eocfm_save_head_of_faith_scope = {
+	if = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+		}
+		var:eocfm_rome_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		var:eocfm_constantinople_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		var:eocfm_coptic_alexandria_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_elysian_orthodox_trigger = yes
+		}
+		var:eocfm_elysium_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
 		}
 	}
 }
