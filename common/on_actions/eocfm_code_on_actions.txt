@@ -63,18 +63,18 @@ eocfm_orthodox_monthly_pulse = {
 	}
 	random_events = {
 		chance_of_no_event = 95
-		5 = eocfm.010 # Ecumenical Reforms
-		5 = eocfm.011 # Bible Translation Published
-		5 = eocfm.012 # A Heretical Ruler
-		5 = eocfm.030 # Dissolution of the Monasteries
-		5 = eocfm.031 # Church-State Relations
-		5 = eocfm.040 # Priestly Excesses	
-		5 = eocfm.041 # The Widow's Mite
-		5 = eocfm.150 # Ecumenical Financing
-		5 = eocfm.151 # Delegation Arrives from Seat
-		5 = eocfm.162 # Ecumenical Partiarch Denounces Secularism
-		5 = eocfm.170 # Patriarch Condemns Immorality
-		5 = eocfm.171 # Theological Dispute with Patriarch
+		5 = eocfm.2100 # Bible Translation Published
+		5 = eocfm.2102 # A Heretical Ruler
+		5 = eocfm.2110 # Priestly Excesses	
+		5 = eocfm.2111 # The Widow's Mite
+		5 = eocfm.2210 # Theological Dispute with Patriarch
+		5 = eocfm.2220 # Ecumenical Reforms
+		5 = eocfm.2221 # Monastic Reparations
+		5 = eocfm.2222 # Church-State Relations
+		5 = eocfm.2312 # Ecumenical Partiarch Denounces Secularism
+		5 = eocfm.2410 # Ecumenical Financing
+		5 = eocfm.2411 # Delegation Arrives from Seat
+		5 = eocfm.2412 # Patriarch Condemns Immorality
 	}
 	effect = {
 		eocfm_update_holy_site_count_effect = yes
@@ -111,6 +111,7 @@ eocfm_oriental_monthly_pulse = {
 		eocfm_mending_monthly_pulse
 	}
 	events = {
+		eocfm.3000 # Oriental Orthodox Opener Monitor
 	}
 	random_events = {
 	}
@@ -135,6 +136,7 @@ eocfm_elysian_monthly_pulse = {
 		eocfm_mending_monthly_pulse
 	}
 	events = {
+		eocfm.2000 # Orthodox Opener Monitor
 	}
 	random_events = {
 	}
@@ -154,20 +156,20 @@ eocfm_schism_monthly_pulse = {
 		has_variable = eocfm_schism_var
 	}
 	events = {
-		eocfm.107 # Autocephaly Completion Technical Event # Yes Doodlez, I'm disappointed in myself too
+		eocfm.0109 # Autocephaly of the National Church
 	}
 	random_events = {
 		chance_of_no_event = 90
-		10 = eocfm.180 # Traditionalists March in Capital (Stall Event)
-		10 = eocfm.181 # A Church for the Nation (Progress Event)
-		10 = eocfm.182 # Minority Adherents Seek Protections (Debate Event)
-		10 = eocfm.183 # Patriarch Denounces Schism (Stall Event)
-		10 = eocfm.184 # Liturgical Language (Debate Event)
-		10 = eocfm.185 # Ecclesiatic Purges (Advance Event)
-		10 = eocfm.186 # Promoting Local Bishops (Advance Event)
-		10 = eocfm.187 # Monastic Brawls (Stall Event)
-		10 = eocfm.188 # Agitator Condemns Schism (Stall Event)
-		10 = eocfm.189 # Prominent Priest Assassinated (Stall Event)
+		10 = eocfm.0120 # Traditionalists March in Capital (Stall Event)
+		10 = eocfm.0121 # A Church for the Nation (Progress Event)
+		10 = eocfm.0122 # Minority Adherents Seek Protections (Debate Event)
+		10 = eocfm.0123 # Patriarch Denounces Schism (Stall Event)
+		10 = eocfm.0124 # Liturgical Language (Debate Event)
+		10 = eocfm.0125 # Ecclesiatic Purges (Advance Event)
+		10 = eocfm.0126 # Promoting Local Bishops (Advance Event)
+		10 = eocfm.0127 # Monastic Brawls (Stall Event)
+		10 = eocfm.0128 # Agitator Condemns Schism (Stall Event)
+		10 = eocfm.0129 # Prominent Priest Assassinated (Stall Event)
 	}
 	effect = {
 		change_variable = {
@@ -182,28 +184,11 @@ eocfm_integration_monthly_pulse = {
 		has_variable = eocfm_integration_var
 	}
 	events = {
-		eocfm.120 # Rome Usurped by Country
-		eocfm.121 # Santiago Usurped by Country
-		eocfm.122 # Paris Usurped by Country
-		eocfm.123 # Koln Usurped by Country
-		eocfm.124 # Vienna Usurped by Country
-		eocfm.125 # Constantinopole Usurped by Country
-		eocfm.126 # Antioch Usurped by Country
-		eocfm.127 # Jerusalem Usurped by Country
-		eocfm.128 # Alexandria Usurped by Country
-		eocfm.129 # Moscow Usurped by Country
-		eocfm.130 # Coptic Alexandria Usurped by Country
-		eocfm.131 # Syriac Alexandria Usurped by Country
-		eocfm.132 # Etchmiadzin Usurped by Country
-		eocfm.133 # Addis Ababa Usurped by Country
-		eocfm.134 # Qudshanis Usurped by Country
-		eocfm.135 # Elysium Usurped by Country
-		eocfm.136 # Tututepec Usurped by Country
-		eocfm.137 # Cahokia Usurped by Country
+		eocfm.0209 # Control Secured Over Seat
 	}
 	random_events = {
 		chance_of_no_event = 95
-		5 = eocfm.140 # Seat Integration Disputed
+		5 = eocfm.0210 # Seat Integration Disputed
 	}
 	effect = {
 		if = {
@@ -223,7 +208,7 @@ eocfm_mending_monthly_pulse = {
 		has_variable = eocfm_mending_var
 	}
 	events = {
-		eocfm.309 # The Supreme Pontiff of the Universal Church
+		eocfm.0309 # The Supreme Pontiff of the Universal Church
 	}
 	effect = {
 		change_variable = {
@@ -235,24 +220,24 @@ eocfm_mending_monthly_pulse = {
 
 eocfm_global_pulse = { # Monitored from all scopes; used to deactivate holy sites
 	events = {
-		eocfm.010 # Rome PM Switch
-		eocfm.011 # Santiago PM Switch
-		eocfm.012 # Paris PM Switch
-		eocfm.013 # Koln PM Switch
-		eocfm.014 # Vienna PM Switch
-		eocfm.015 # Constantinopole PM Switch
-		eocfm.016 # Antioch PM Switch
-		eocfm.017 # Jerusalem PM Switch
-		eocfm.018 # Alexandria PM Switch
-		eocfm.019 # Moscow PM Switch
-		eocfm.020 # Coptic Alexandria PM Switch
-		eocfm.021 # Syriac Alexandria PM Switch
-		eocfm.022 # Etchmiadzin PM Switch
-		eocfm.023 # Addis Ababa PM Switch
-		eocfm.024 # Qudshanis PM Switch
-		eocfm.025 # Elysium PM Switch
-		eocfm.026 # Tututepec PM Switch
-		eocfm.027 # Cahokia PM Switch
+		eocfm.0010 # Rome PM Switch
+		eocfm.0011 # Santiago PM Switch
+		eocfm.0012 # Paris PM Switch
+		eocfm.0013 # Koln PM Switch
+		eocfm.0014 # Vienna PM Switch
+		eocfm.0015 # Constantinopole PM Switch
+		eocfm.0016 # Antioch PM Switch
+		eocfm.0017 # Jerusalem PM Switch
+		eocfm.0018 # Alexandria PM Switch
+		eocfm.0019 # Moscow PM Switch
+		eocfm.0020 # Coptic Alexandria PM Switch
+		eocfm.0021 # Syriac Alexandria PM Switch
+		eocfm.0022 # Etchmiadzin PM Switch
+		eocfm.0023 # Addis Ababa PM Switch
+		eocfm.0024 # Qudshanis PM Switch
+		eocfm.0025 # Elysium PM Switch
+		eocfm.0026 # Tututepec PM Switch
+		eocfm.0027 # Cahokia PM Switch
 	}
 }
 
@@ -272,7 +257,7 @@ eocfm_wargoal_enforced_1 = { # From the initiator, in the case of crusade succes
 				eocfm_crusade_participant_trigger = yes
 			}
 			trigger_event = {
-				id = eocfm.131 # Victorious Crusade
+				id = eocfm.0401 # Victorious Crusade
 			}
 			eocfm_crusade_cleanup_effect = yes
 		}
@@ -293,7 +278,7 @@ eocfm_wargoal_enforced_2 = { # From the target, in the case of crusade failure
 				eocfm_crusade_participant_trigger = yes
 			}
 			trigger_event = {
-				id = eocfm.132 # Failed Crusade
+				id = eocfm.0402 # Failed Crusade
 			}
 			eocfm_crusade_cleanup_effect = yes
 		}
