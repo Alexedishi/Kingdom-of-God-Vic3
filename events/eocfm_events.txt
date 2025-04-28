@@ -59,7 +59,10 @@ namespace = eocfm
 
 ## BLOCK 01: Schism Events ##
 #0100-0109 - General Schism Events
-#	0100 - Country Declaration of Schism
+#	0100 - Declaration of Schism with Rome
+#	0101 - Declaration of Schism with Constantinople
+#	0102 - Declaration of Schism with Coptic Alexandria
+#	0103 - Declaration of Schism with Elysium
 #	0109 - Autocephaly of the National Church
 
 #0110-0119 - Catholic Schism Events
@@ -203,7 +206,7 @@ namespace = eocfm
 #	2200 - 
 
 #2210-2219 - Metropolitan Focus Events
-#	2210 - Theological Dispute with Patriarch
+#	2210 - ##Theological Dispute with Patriarch
 
 #2220-2229 - Metropolitan Decisions Events
 #	2220 - Ecumenical Reforms
@@ -727,7 +730,7 @@ eocfm.0014 = { # Vienna Holy Site Event
 	
 }
 
-eocfm.0015 = { # Constaintinople Holy Site Event
+eocfm.0015 = { # Constantinople Holy Site Event
 	type = country_event
 	hidden = yes
 	
@@ -1706,13 +1709,78 @@ eocfm.0027 = { # Cahokia Holy Site Event
 ## BLOCK 01 - SCHISM EVENTS ##
 
 # General Schism Events
-eocfm.0100 = { # Country Declaration of Schism
+eocfm.0100 = { # Declaration of Schism with Rome
 	type = country_event
 	placement = root
 	
 	title = eocfm.0100.t
 	desc = eocfm.0100.d
 	flavor = eocfm.0100.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		# triggered by eocfm_declare_autocephaly_sgui
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_variable = eocfm_schism_var
+		}
+	}
+	
+	immediate = {
+		set_variable = {
+			name = eocfm_schism_var
+			value = 0
+		}
+		eocfm_update_patriarch_variables_effect = yes
+	}
+	
+	option = {
+		name = eocfm.0100.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = modifier_eocfm_schismatic
+		}
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						eocfm_is_roman_catholic_trigger = yes
+						NOT = {
+							this = ROOT
+						}
+					}
+					c:TUR ?= this
+				}
+			}
+			ROOT = {
+				save_scope_as = eocfm_schism_scope
+			}
+			post_notification = notification_eocfm_autocephaly_declared
+		}	
+	}
+
+}
+
+eocfm.0101 = { # Declaration of Schism with Constantinople
+	type = country_event
+	placement = root
+	
+	title = eocfm.0101.t
+	desc = eocfm.0101.d
+	flavor = eocfm.0101.f
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -1755,6 +1823,136 @@ eocfm.0100 = { # Country Declaration of Schism
 				OR = {
 					AND = {
 						eocfm_is_eastern_christian_trigger = yes
+						NOT = {
+							this = ROOT
+						}
+					}
+					c:TUR ?= this
+				}
+			}
+			ROOT = {
+				save_scope_as = eocfm_schism_scope
+			}
+			post_notification = notification_eocfm_autocephaly_declared
+		}	
+	}
+
+}
+
+eocfm.0102 = { # Declaration of Schism with Coptic Alexandria
+	type = country_event
+	placement = root
+	
+	title = eocfm.0102.t
+	desc = eocfm.0102.d
+	flavor = eocfm.0102.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_oriental_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		# triggered by eocfm_declare_autocephaly_sgui
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_variable = eocfm_schism_var
+		}
+	}
+	
+	immediate = {
+		set_variable = {
+			name = eocfm_schism_var
+			value = 0
+		}
+		eocfm_update_patriarch_variables_effect = yes
+	}
+	
+	option = {
+		name = eocfm.0101.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = modifier_eocfm_schismatic
+		}
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						eocfm_is_oriental_orthodox_trigger = yes
+						NOT = {
+							this = ROOT
+						}
+					}
+					c:TUR ?= this
+				}
+			}
+			ROOT = {
+				save_scope_as = eocfm_schism_scope
+			}
+			post_notification = notification_eocfm_autocephaly_declared
+		}	
+	}
+
+}
+
+eocfm.0103 = { # Declaration of Schism with Elysium
+	type = country_event
+	placement = root
+	
+	title = eocfm.0103.t
+	desc = eocfm.0103.d
+	flavor = eocfm.0103.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		# triggered by eocfm_declare_autocephaly_sgui
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_variable = eocfm_schism_var
+		}
+	}
+	
+	immediate = {
+		set_variable = {
+			name = eocfm_schism_var
+			value = 0
+		}
+		eocfm_update_patriarch_variables_effect = yes
+	}
+	
+	option = {
+		name = eocfm.0101.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = modifier_eocfm_schismatic
+		}
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						eocfm_is_elysian_orthodox_trigger = yes
 						NOT = {
 							this = ROOT
 						}
@@ -4919,13 +5117,13 @@ eocfm.2013 = { # The Patriarchate of the Holy Mound (CAH)
 ## BLOCK 21: EASTERN ORTHODOX FLAVOR EVENTS ##
 
 # Generic Flavor Events
-eocfm.2110 = { # Bible Translation Published
+eocfm.2100 = { # Bible Translation Published
 	type = country_event
 	placement = root
 	
-	title = eocfm.2110.t
-	desc = eocfm.2110.d
-	flavor = eocfm.2110.f
+	title = eocfm.2100.t
+	desc = eocfm.2100.d
+	flavor = eocfm.2100.f
 	
 	event_image = {
 		video = "unspecific_politicians_arguing"
@@ -4962,7 +5160,7 @@ eocfm.2110 = { # Bible Translation Published
 	}
 	
 	option = { # Allow the Common Tongue
-		name = eocfm.2110.a
+		name = eocfm.2100.a
 		default_option = yes
 		add_modifier = {
 			name = modifier_eocfm_published_vulgar_bible
@@ -4975,7 +5173,7 @@ eocfm.2110 = { # Bible Translation Published
 	}
 	
 	option = { # Keep it Classy
-		name = eocfm.2110.b
+		name = eocfm.2100.b
 		add_modifier = {
 			name =  modifier_eocfm_banned_vulgar_bible
 			months = long_modifier_time
@@ -4988,13 +5186,13 @@ eocfm.2110 = { # Bible Translation Published
 
 }
 
-eocfm.2111 = { # A Heretical Ruler
+eocfm.2101 = { # A Heretical Ruler
 	type = country_event
 	placement = root
 	
-	title = eocfm.2111.t
-	desc = eocfm.2111.d
-	flavor = eocfm.2111.f
+	title = eocfm.2101.t
+	desc = eocfm.2101.d
+	flavor = eocfm.2101.f
 	
 	event_image = {
 		video = "votp_monarch_holding_court"
@@ -5039,7 +5237,7 @@ eocfm.2111 = { # A Heretical Ruler
 	}	
 	
 	option = { # Both will convert
-		name = eocfm.2111.a
+		name = eocfm.2101.a
 		default_option = yes
 		scope:eocfm_ruler_scope = {
 			change_character_religion = rel:orthodox
@@ -5060,7 +5258,7 @@ eocfm.2111 = { # A Heretical Ruler
 	}
 	
 	option = { # Heir will convert
-		name = eocfm.2111.b
+		name = eocfm.2101.b
 		scope:eocfm_ruler_scope = {
 			add_modifier = {
 				name = modifier_eocfm_refused_conversion
@@ -5078,7 +5276,7 @@ eocfm.2111 = { # A Heretical Ruler
 	}
 	
 	option = { # 99 THESES GO BRRRRRRRRR
-		name = eocfm.2111.c
+		name = eocfm.2101.c
 		scope:eocfm_ruler_scope = {
 			add_modifier = {
 				name = modifier_eocfm_refused_conversion
@@ -5104,13 +5302,13 @@ eocfm.2111 = { # A Heretical Ruler
 }
 
 # Decree Events
-eocfm.2211 = { # Priestly Excesses
+eocfm.2110 = { # Priestly Excesses
 	type = country_event
 	placement = root
 	
-	title = eocfm.2211.t
-	desc = eocfm.2211.d
-	flavor = eocfm.2211.f
+	title = eocfm.2110.t
+	desc = eocfm.2110.d
+	flavor = eocfm.2110.f
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -5153,7 +5351,7 @@ eocfm.2211 = { # Priestly Excesses
 	}
 	
 	option = { # Allow Construction
-		name = eocfm.2211.a
+		name = eocfm.2110.a
 		default_option = yes
 		scope:eocfm_decree_state_scope = {
 			add_modifier = {
@@ -5176,7 +5374,7 @@ eocfm.2211 = { # Priestly Excesses
 	}
 	
 	option = { # Curtail Construction
-		name = eocfm.2211.b
+		name = eocfm.2110.b
 		scope:eocfm_decree_state_scope = {
 			add_radicals_in_state = {
 				pop_type = clergymen
@@ -5194,7 +5392,7 @@ eocfm.2211 = { # Priestly Excesses
 	}
 	
 	option = { # Give More Moni
-		name = eocfm.2211.c
+		name = eocfm.2110.c
 		add_treasury = -50000
 		scope:eocfm_decree_state_scope = {
 			add_modifier = {
@@ -5222,13 +5420,13 @@ eocfm.2211 = { # Priestly Excesses
 
 }
 
-eocfm.2212 = { # The Widow's Mite
+eocfm.2111 = { # The Widow's Mite
 	type = country_event
 	placement = scope:eocfm_decree_state_scope
 	
-	title = eocfm.2212.t
-	desc = eocfm.2212.d
-	flavor = eocfm.2212.f
+	title = eocfm.2111.t
+	desc = eocfm.2111.d
+	flavor = eocfm.2111.f
 	
 	event_image = {
 		video = "europenorthamerica_rich_and_poor"
@@ -5265,7 +5463,7 @@ eocfm.2212 = { # The Widow's Mite
 	}
 	
 	option = { # Praise the family
-		name = eocfm.2212.a
+		name = eocfm.2111.a
 		default_option = yes
 		scope:eocfm_decree_state_scope = {
 			add_modifier = {
@@ -5288,7 +5486,7 @@ eocfm.2212 = { # The Widow's Mite
 	}
 	
 	option = { # Encourage Restraint
-		name = eocfm.2212.b
+		name = eocfm.2111.b
 		scope:eocfm_decree_state_scope = {
 			add_modifier = {
 				name = modifier_eocfm_discouraged_pious_donations
@@ -5310,8 +5508,14 @@ eocfm.2212 = { # The Widow's Mite
 ## BLOCK 22: METROPOLITAN EVENTS ##
 
 # Metropolitan Mechanical Events
+eocfm.2200 = {
+	orphan = yes
+}
 
 # Metropolitan Focus Events
+eocfm.2210 = { # Theological Dispute with Patriarch
+	orphan = yes
+}
 
 # Metropolitan Decisions Events
 eocfm.2220 = { # Ecumenical Reforms

@@ -439,13 +439,47 @@ eocfm_declare_autocephaly_sgui = {
 			name = eocfm_schism_var
 			value = 0
 		}
-		trigger_event = {
-			id = eocfm.0100 # Country Declaration of Schism
-			popup = yes
-		}
 		add_modifier = {
 			name = modifier_eocfm_schismatic
 			months = 120
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					eocfm_is_roman_catholic_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.0100 # Declaration of Schism with Rome
+					popup = yes
+				}
+			}
+			else_if = {
+				limit = {
+					eocfm_is_eastern_christian_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.0101 # Declaration of Schism with Constaintinople
+					popup = yes
+				}
+			}
+			else_if = {
+				limit = {
+					eocfm_is_oriental_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.0102 # Declaration of Schism with Coptic Alexandria
+					popup = yes
+				}
+			}
+			else_if = {
+				limit = {
+					eocfm_is_elysian_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.0103 # Declaration of Schism with Elysium
+					popup = yes
+				}
+			}
 		}
 	}
 }
