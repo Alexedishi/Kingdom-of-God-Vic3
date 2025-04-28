@@ -206,7 +206,7 @@ namespace = eocfm
 #	2210 - Theological Dispute with Patriarch
 
 #2220-2229 - Metropolitan Decisions Events
-#	2220 - Ecumenical Reform
+#	2220 - Ecumenical Reforms
 #	2221 - Monastic Reparations
 #	2222 - Church-State Relations
 
@@ -3282,7 +3282,9 @@ eocfm.0300 = { # The Council of Unification
 	option = {
 		name = eocfm.0300.a
 		default_option = yes
-		custom_tooltip = eocfm.0300.tt
+		show_as_tooltip = {
+			add_modifier = modifier_eocfm_mending_schism
+		}
 	}
 
 }
@@ -4917,13 +4919,13 @@ eocfm.2013 = { # The Patriarchate of the Holy Mound (CAH)
 ## BLOCK 21: EASTERN ORTHODOX FLAVOR EVENTS ##
 
 # Generic Flavor Events
-eocfm.2201 = { # Bible Translation Published
+eocfm.2110 = { # Bible Translation Published
 	type = country_event
 	placement = root
 	
-	title = eocfm.2201.t
-	desc = eocfm.2201.d
-	flavor = eocfm.2201.f
+	title = eocfm.2110.t
+	desc = eocfm.2110.d
+	flavor = eocfm.2110.f
 	
 	event_image = {
 		video = "unspecific_politicians_arguing"
@@ -4960,7 +4962,7 @@ eocfm.2201 = { # Bible Translation Published
 	}
 	
 	option = { # Allow the Common Tongue
-		name = eocfm.2201.a
+		name = eocfm.2110.a
 		default_option = yes
 		add_modifier = {
 			name = modifier_eocfm_published_vulgar_bible
@@ -4973,7 +4975,7 @@ eocfm.2201 = { # Bible Translation Published
 	}
 	
 	option = { # Keep it Classy
-		name = eocfm.2201.b
+		name = eocfm.2110.b
 		add_modifier = {
 			name =  modifier_eocfm_banned_vulgar_bible
 			months = long_modifier_time
@@ -4986,13 +4988,13 @@ eocfm.2201 = { # Bible Translation Published
 
 }
 
-eocfm.2202 = { # A Heretical Ruler
+eocfm.2111 = { # A Heretical Ruler
 	type = country_event
 	placement = root
 	
-	title = eocfm.2202.t
-	desc = eocfm.2202.d
-	flavor = eocfm.2202.f
+	title = eocfm.2111.t
+	desc = eocfm.2111.d
+	flavor = eocfm.2111.f
 	
 	event_image = {
 		video = "votp_monarch_holding_court"
@@ -5037,7 +5039,7 @@ eocfm.2202 = { # A Heretical Ruler
 	}	
 	
 	option = { # Both will convert
-		name = eocfm.2202.a
+		name = eocfm.2111.a
 		default_option = yes
 		scope:eocfm_ruler_scope = {
 			change_character_religion = rel:orthodox
@@ -5058,7 +5060,7 @@ eocfm.2202 = { # A Heretical Ruler
 	}
 	
 	option = { # Heir will convert
-		name = eocfm.2202.b
+		name = eocfm.2111.b
 		scope:eocfm_ruler_scope = {
 			add_modifier = {
 				name = modifier_eocfm_refused_conversion
@@ -5076,7 +5078,7 @@ eocfm.2202 = { # A Heretical Ruler
 	}
 	
 	option = { # 99 THESES GO BRRRRRRRRR
-		name = eocfm.2202.c
+		name = eocfm.2111.c
 		scope:eocfm_ruler_scope = {
 			add_modifier = {
 				name = modifier_eocfm_refused_conversion
