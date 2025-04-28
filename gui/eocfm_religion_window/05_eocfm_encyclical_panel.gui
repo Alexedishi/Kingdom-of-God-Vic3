@@ -9,8 +9,15 @@ types eocfm_encyclical_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "Circulating Encyclicals"
+				raw_text = "Circulating Encyclicals"
 			}
+		}
+		
+		textbox = {
+			autoresize = yes
+			raw_text = "#italic #lore There are no Encyclicals being Circulated#!"
+			elide = right
+			using = fontsize_xl
 		}
 		
 		expand = {}
