@@ -175,7 +175,7 @@ eocfm_commission_icon_sgui = {
 	effect = {
 		set_variable = eocfm_icon_var
 		trigger_event = {
-			id = eocfm.020 # Commissioning an Icon
+			id = eocfm.2230 # Commissioning an Icon
 			popup = yes
 		}
 	}
@@ -207,9 +207,9 @@ eocfm_dissolve_monasteries_sgui = {
 					has_variable = eocfm_dissolved_monasteries
 				}
 			}
-			trigger_event = {
-				id = eocfm.030 # Dissolution of the Monasteries
-			}
+#			trigger_event = {
+#				id = eocfm.030 # Dissolution of the Monasteries
+#			}
 		}
 		add_modifier = modifier_eocfm_dissolved_monasteries
 		set_variable = eocfm_dissolved_monasteries
@@ -440,7 +440,7 @@ eocfm_declare_autocephaly_sgui = {
 			value = 0
 		}
 		trigger_event = {
-			id = eocfm.100 # Country Declaration of Schism
+			id = eocfm.0100 # Country Declaration of Schism
 			popup = yes
 		}
 		add_modifier = {
@@ -476,7 +476,7 @@ eocfm_secure_tetrarchy_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.304 # The Ancient Partiarchates
+			id = eocfm.2393 # The Ancient Partiarchates
 			popup = yes
 		}
 	}
@@ -501,7 +501,7 @@ eocfm_secure_pentarchy_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.305 # The Restoration of the Pentarchy
+			id = eocfm.2394 # The Restoration of the Pentarchy
 			popup = yes
 		}
 	}
@@ -541,7 +541,7 @@ eocfm_mend_schism_sgui = {
 			value = 0
 		}
 		trigger_event = {
-			id = eocfm.308 # The Council of Unification
+			id = eocfm.0300 # The Council of Unification
 		}
 		add_modifier = modifier_eocfm_mending_schism
 		hidden_effect = {
@@ -553,7 +553,7 @@ eocfm_mend_schism_sgui = {
 					}
 				}
 				trigger_event = {
-					id = eocfm.308 # The Council of Unification
+					id = eocfm.0300 # The Council of Unification
 				}
 			}
 		}
@@ -621,7 +621,7 @@ eocfm_seek_mandate_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.160 # An Audience with the Patriarch
+			id = eocfm.2310 # An Audience with the Patriarch
 		}
 		set_variable = eocfm_considering_mandate
 	}
@@ -678,7 +678,7 @@ eocfm_convoke_council_sgui = {
 			}
 		}
 		trigger_event = {
-			id = eocfm.121 # Council of X
+			id = eocfm.2321 # Council of X
 			popup = yes
 		}	
 	}
@@ -710,7 +710,7 @@ eocfm_unify_orthodox_realms_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.300 # The Partiarchate Rises
+			id = eocfm.2390 # The Partiarchate Rises
 		}
 		set_variable = eocfm_texas_left
 	}
@@ -750,7 +750,7 @@ eocfm_assert_rome_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.148 # Supremacy Asserted Over Rome
+			id = eocfm.0200 # Supremacy Asserted Over Rome
 			popup = yes
 		}
 	}
@@ -1199,7 +1199,7 @@ eocfm_assert_constantinople_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.148 # Supremacy Asserted Over Constantinopole
+			id = eocfm.0201 # Supremacy Asserted Over Constantinopole
 			popup = yes
 		}
 	}
@@ -1641,7 +1641,7 @@ eocfm_assert_coptic_alexandria_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.148 # Supremacy Asserted Over Constantinopole
+			id = eocfm.0202 # Supremacy Asserted Over Coptic Alexandria
 			popup = yes
 		}
 	}
@@ -2091,7 +2091,7 @@ eocfm_assert_elysium_sgui = {
 	
 	effect = {
 		trigger_event = {
-			id = eocfm.148 # Supremacy Asserted Over Rome
+			id = eocfm.0203 # Supremacy Asserted Over Elysium
 			popup = yes
 		}
 	}
