@@ -632,6 +632,132 @@ eocfm_cardinal_college_value = {
 	}
 }
 
+eocfm_catholic_support_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+			has_variable = eocfm_council_support_var
+		}
+		add = eocfm_cardinal_college_value
+	}
+}
+
+eocfm_catholic_opposition_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+			has_variable = eocfm_council_support_var
+		}
+		subtract = eocfm_cardinal_college_value
+	}
+}
+
+eocfm_catholic_council_value = {
+	value = 0
+	add = {
+		value = eocfm_catholic_support_value
+		desc = eocfm_value_from_catholic_support
+	}
+	subtract = {
+		value = eocfm_catholic_opposition_value
+		desc = eocfm_value_from_catholic_opposition
+	}
+}
+
+eocfm_ecumenical_weight_value = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_having_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_constantinople
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_constantinople
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_antioch
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_antioch
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_jerusalem
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_jerusalem
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_alexandria
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_alexandria
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_moscow
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_moscow
+		}
+	}
+}
+
+eocfm_orthodox_support_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+			has_variable = eocfm_council_support_var
+		}
+		add = eocfm_ecumenical_weight_value
+	}
+}
+
+eocfm_orthdox_opposition_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+			has_variable = eocfm_council_support_var
+		}
+		subtract = eocfm_ecumenical_weight_value
+	}
+}
+
+eocfm_catholic_council_value = {
+	value = 0
+	add = {
+		value = eocfm_orthodox_support_value
+		desc = eocfm_value_from_orthodox_support
+	}
+	subtract = {
+		value = eocfm_orthdox_opposition_value
+		desc = eocfm_value_from_orthodox_opposition
+	}
+}
+
 eocfm_schism_progress_value = {
 # This value is overwritten by GotB to provide support for Bulgarian content
 	value = 0
