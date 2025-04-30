@@ -26,7 +26,7 @@ widget = {
 			duration = 0.1
 			using = Animation_Curve_Default
 			start_sound = {
-				soundeffect = "event:/BELLRNG"
+				soundeffect = "event:/eocfm_bell_ring"
 			}
 			start_sound = {
 				soundeffect = "snapshot:/Dynamic/mute_world_80"
@@ -42,7 +42,7 @@ widget = {
 			alpha = 0
 			duration = 0.2
 			using = Animation_Curve_Default
-			start_sound = {
+			end_sound = {
 				soundeffect = "event:/SFX/UI/SideBar/society_stop"
 			}
 			on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
