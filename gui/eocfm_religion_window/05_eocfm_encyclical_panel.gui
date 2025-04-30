@@ -14,13 +14,57 @@ types eocfm_encyclical_panels {
 		}
 		
 		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			
 			textbox = {
 				autoresize = yes
-				raw_text = "#italic #lore There are no Encyclicals being Circulated#!"
+				raw_text = "#italic #lore There is no [concept_encyclical] in circulation#!"
+				elide = right
+				using = fontsize_xl
+			}
+		}
+
+	}
+	
+	type = eocfm_orthodox_encyclical_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = preferred
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				raw_text = "Circulating Encyclicals"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			
+			visible = "[GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			textbox = {
+				autoresize = yes
+				raw_text = "#italic #lore There is no [concept_encyclical] in circulation#!"
+				elide = right
+				using = fontsize_xl
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			
+			visible = "[GetScriptedGui('eocfm_orthodox_easterners_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			textbox = {
+				autoresize = yes
+				raw_text = "#italic #lore There is no [concept_encyclical] in circulation#!"
 				elide = right
 				using = fontsize_xl
 			}
 		}
 	}
-	
 }

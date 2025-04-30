@@ -9,8 +9,6 @@ types eocfm_ecumenical_seat_panels {
 		margin_top = 5
 		margin_bottom = 5
 		
-		visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		
 		background = {
 			using = entry_bg
 			margin = { -3 -3 }
@@ -341,8 +339,6 @@ types eocfm_ecumenical_seat_panels {
 		margin_top = 5
 		margin_bottom = 5
 		
-		visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		
 		background = {
 			using = entry_bg
 			margin = { -3 -3 }
@@ -548,7 +544,7 @@ types eocfm_ecumenical_seat_panels {
 						raw_text = "Convoke Ecumenical Council"
 						using = fontsize_large
 						
-						datacontext = "[GetScriptedGui('eocfm_convoke_council_sgui')]"
+						datacontext = "[GetScriptedGui('eocfm_orthodox_convoke_sgui')]"
 						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -673,8 +669,6 @@ types eocfm_ecumenical_seat_panels {
 		margin_right = 10
 		margin_top = 5
 		margin_bottom = 5
-		
-		visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		background = {
 			using = entry_bg
@@ -1005,8 +999,6 @@ types eocfm_ecumenical_seat_panels {
 		margin_right = 10
 		margin_top = 5
 		margin_bottom = 5
-		
-		visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		background = {
 			using = entry_bg
