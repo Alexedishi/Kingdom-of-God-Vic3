@@ -6274,7 +6274,7 @@ eocfm.2312 = { # Ecumenical Partiarch Denounces Secularism
 }
 
 # Orthodox Ecumenical Council Events
-eocfm.2320 = { # Ecumenical Council Convoked
+eocfm.2320 = { # Convoking the Ecumenical Council
 	type = country_event
 	placement = root
 	
@@ -6295,117 +6295,109 @@ eocfm.2320 = { # Ecumenical Council Convoked
 	dlc = dlc_eocfm
 	
 	trigger = {
-		# triggered by eocfm.2321
+		# triggered by eocfm_orthodox_convoke_sgui
 	}
 	
 	immediate = {
-		random_country = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
-			}
-			save_scope_as = eocfm_council_host_scope
+		save_scope_as = eocfm_orthodox_host_scope
+		set_global_variable = {
+			name = eocfm_orthodox_host_var
+			value = scope:eocfm_orthodox_host_scope
 		}
-	}
-	
-	option = {
-		name = eocfm.2320.a
-		default_option = yes
-		custom_tooltip = eocfm.2320.tt
-	}
-	
-}
-
-eocfm.2321 = { # Council of X
-	type = country_event
-	placement = root
-	
-	title = eocfm.2321.t
-	desc = eocfm.2321.d
-	flavor = eocfm.2321.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
-	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_eocfm
-	
-	trigger = {
-		# triggered by eocfm_convoke_council_sgui
-	}
-	
-	immediate = {
-		set_global_variable = { # This variable should be reset to zero before every council event chain
-			name = eocfm_council_votes
+		set_global_variable = {
+			name = eocfm_orthodox_support_var
 			value = 0
 		}
-		change_global_variable = {
-			name = eocfm_council_var
-			add = 1
+		set_global_variable = {
+			name = eocfm_orthodox_opposition_var
+			value = 0
 		}
-		every_country = {
-			limit = {
-				eocfm_is_eastern_christian_trigger = yes
-				NOT = { has_modifier = modifier_eocfm_hosting_council }
-			}
-			trigger_event = {
-				id = eocfm.2320 # Ecumenical Council Convoked
-			}
-		}
+		eocfm_set_orthodox_host_variable = yes
 	}
 	
 	option = { # It's Crusadin' time!
-		name = eocfm.2321.1
+		name = eocfm.2320.1
 		default_option = yes
 		trigger = {
 			NOT = { has_global_variable = eocfm_crusades_unlocked }
 			c:BYZ ?= this
 			has_law = law_type:law_state_religion
 		}
-		trigger_event = {
-			id = eocfm.2322 # Birth of the New Crusades
-			days = 90
+		hidden_effect = {
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2322 # The New Crusade
+				}
+			}
 		}
 	}
 	
 	option = { # Tell the Pope he sucks
-		name = eocfm.2321.2
+		name = eocfm.2320.2
 		trigger = {
 			NOT = { has_global_variable = eocfm_epistle_considered }
 			has_technology_researched = mass_communication
 		}
-		trigger_event = {
-			id = eocfm.2323 # Epistle to the Easterners
-			days = 90
+		set_global_variable = {
+			name = eocfm_orthodox_matter_var
+			value = 1
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2321 # Ecumenical Council Convoked
+				}
+			}
 		}
 	}
 	
 	option = { # Deal with Phyletism
-		name = eocfm.2321.3
+		name = eocfm.2320.3
 		trigger = {
 			NOT = { has_global_variable = eocfm_phyletism_considered }
 			has_technology_researched = nationalism
 		}
-		trigger_event = {
-			id = eocfm.2325 # Problems with Phyletism
-			days = 90
+		set_global_variable = {
+			name = eocfm_orthodox_matter_var
+			value = 2
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2321 # Ecumenical Council Convoked
+				}
+			}
 		}
 	}
 	
 	option = { # New Calendar
-		name = eocfm.2321.4
+		name = eocfm.2320.4
 		trigger = {
 			NOT = { has_global_variable = eocfm_calendar_considered }
 			has_technology_researched = pan-nationalism
 		}
-		trigger_event = {
-			id = eocfm.2327 # An Outdated Calendar
-			days = 90
+		set_global_variable = {
+			name = eocfm_orthodox_matter_var
+			value = 3
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2321 # Ecumenical Council Convoked
+				}
+			}
 		}
 	}
 	
@@ -6422,7 +6414,7 @@ eocfm.2321 = { # Council of X
 #	}
 	
 	option = { # Unify the Orthodox Realms
-		name = eocfm.2321.6
+		name = eocfm.2320.6
 		trigger = {
 			NOT = { has_global_variable = eocfm_orthodox_realms_started }
 			has_variable = eocfm_is_autocephalous
@@ -6438,75 +6430,51 @@ eocfm.2321 = { # Council of X
 	
 }
 
-eocfm.2322 = { # Birth of the New Crusades
+eocfm.2321 = { # Council of X
 	type = country_event
 	placement = root
 	
-	title = eocfm.2322.t
-	desc = eocfm.2322.d
-	flavor = eocfm.2322.f
-	
-	event_image = {
-		video = "europenorthamerica_before_the_battle"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
-	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_eocfm
-	
-	trigger = {
-	}
-	
-	immediate = {
-		if = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
+	title = eocfm.2321.t
+	desc = {
+		triggered_desc = {
+			desc = eocfm.2321.d1
+			trigger = {
+				global_var:eocfm_orthodox_matter_var ?= 1
 			}
-			every_country = {
-				limit = {
-					eocfm_is_eastern_christian_trigger = yes
-					NOT = { has_modifier = modifier_eocfm_hosting_council }
-				}
-				trigger_event = {
-					id = eocfm.2322
-				}
+		}
+		triggered_desc = {
+			desc = eocfm.2321.d2
+			trigger = {
+				global_var:eocfm_orthodox_matter_var ?= 2
 			}
-			set_global_variable = eocfm_crusades_unlocked
+		}
+		triggered_desc = {
+			desc = eocfm.2321.d3
+			trigger = {
+				global_var:eocfm_orthodox_matter_var ?= 3
+			}
 		}
 	}
-	
-	option = {
-		name = eocfm.2322.a
-		default_option = yes
-		trigger = {
-			has_modifier = modifier_eocfm_hosting_council
+	flavor = {
+		triggered_desc = {
+			desc = eocfm.2321.f1
+			trigger = {
+				global_var:eocfm_orthodox_matter_var ?= 1
+			}
 		}
-		custom_tooltip = eocfm_crusades_enabled
-		eocfm_council_cleanup_effect = yes
-	}
-	
-	option = {
-		name = eocfm.2322.b
-		trigger = {
-			NOT = { has_modifier = modifier_eocfm_hosting_council }
+		triggered_desc = {
+			desc = eocfm.2321.f2
+			trigger = {
+				global_var:eocfm_orthodox_matter_var ?= 2
+			}
 		}
-		custom_tooltip = eocfm_crusades_enabled
-		eocfm_council_cleanup_effect = yes
+		triggered_desc = {
+			desc = eocfm.2321.f3
+			trigger = {
+				global_var:eocfm_orthodox_matter_var ?= 3
+			}
+		}
 	}
-
-}
-
-eocfm.2323 = { # Epistle to the Easterners
-	type = country_event
-	placement = root
-	
-	title = eocfm.2323.t
-	desc = eocfm.2323.d
-	flavor = eocfm.2323.f
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -6521,65 +6489,191 @@ eocfm.2323 = { # Epistle to the Easterners
 	dlc = dlc_eocfm
 	
 	trigger = {
+		# triggered by eocfm.2320
 	}
 	
 	immediate = {
-		if = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
-			}
-			every_country = {
-				limit = {
-					eocfm_is_eastern_christian_trigger = yes
-					NOT = { has_modifier = modifier_eocfm_hosting_council }
-				}
-				trigger_event = {
-					id = eocfm.2323
-				}
-			}
-		}
-		eocfm_update_rome_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = template_eocfm_rome_patriarch
-			}
-			save_scope_as = eocfm_rome_patriarch_scope
-		}
 	}
 	
-	option = { # F the Po-Pope
-		name = eocfm.2323.a
+	option = { # Allow Priests to Attend
+		name = eocfm.2321.a
 		default_option = yes
-		change_global_variable = {
-			name = eocfm_council_votes
-			subtract = 1
-		}
-		ai_chance = {
-			base = 95
-		}
-	}
-	
-	option = { # Why would you play nice with the Pope
-		name = eocfm.2323.b
-		change_global_variable = {
-			name = eocfm_council_votes
-			add = 1
-		}
-		ai_chance = {
-			base = 5
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_eocfm_attended_council
+				months = normal_modifier_time
+			}
 		}
 	}
 	
-	after = {
-		trigger_event = {
-			id = eocfm.2324  # Encyclical of the Eastern Patriarchs
-			days = 120
+	option = { # Ban Your Priests From Attending
+		name = eocfm.2321.b
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_eocfm_denied_council
+				months = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+		custom_tooltip = {
+			text = eocfm_council_skipped
+			set_variable = eocfm_council_skipped
 		}
 	}
 	
 }
 
-eocfm.2324 = { # Encyclical of the Eastern Patriarchs
+eocfm.2321 = { # Orthodox Council Monitor
+	type = country_event
+	hidden = yes
+	
+	trigger = {
+		has_global_variable = eocfm_orthodox_matter_var
+		NOT = {
+			has_global_variable = eocfm_orthodox_convocation_var
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				global_var:eocfm_orthodox_matter_var = 1
+			}
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2323 # Encyclical of the Eastern Patriarchs
+				}
+			}
+			set_global_variable = eocfm_epistle_considered
+		}
+		else_if = {
+			limit = {
+				global_var:eocfm_orthodox_matter_var = 2
+			}
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2324 # Phyletism Addressed
+				}
+			}
+			set_global_variable = eocfm_phyletism_considered
+		}
+		else_if = {
+			limit = {
+				global_var:eocfm_orthodox_matter_var = 3
+			}
+			every_country = {
+				limit = {
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = eocfm.2325 # The Julian Calendar
+				}
+				set_global_variable = eocfm_calendar_considered
+			}
+		}
+		remove_global_variable = eocfm_orthodox_matter_var
+	}
+}
+
+eocfm.2323 = { # Encyclical of the Eastern Patriarchs
+	type = country_event
+	placement = root
+	
+	title = eocfm.2323.t
+	desc = {
+		triggered_desc = {
+			desc = eocfm.2323.d1
+			trigger = {
+				global_var:eocfm_council_votes <= 0
+			}
+		}
+		triggered_desc = {
+			desc = eocfm.2323.d2
+			trigger = {
+				global_var:eocfm_council_votes > 0
+			}
+		}
+	}
+	flavor = eocfm.2323.f
+	
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		# Triggered by eocfm.2323 # Epistle to the Easterners
+	}
+	
+	immediate = {
+		eocfm_save_pope_scope_effect = yes
+		eocfm_council_cleanup_effect = yes
+	}
+	
+	option = { # Epistle Rejected
+		name = eocfm.2323.a
+		default_option = yes
+		trigger = {
+			global_var:eocfm_council_votes <= 0
+		}
+		if = {
+			limit = {
+				exists = scope:eocfm_pope_scope
+			}
+			change_relations = {
+				country = scope:eocfm_pope_scope
+				value = -50
+			}
+		}
+		add_modifier = {
+			name = modifier_eocfm_rejected_epistle
+			months = long_modifier_time
+		}
+	}
+	
+	option = { # Epistle Accepted
+		name = eocfm.2323.b
+		trigger = {
+			global_var:eocfm_council_votes > 0
+		}
+		if = {
+			limit = {
+				exists = scope:eocfm_pope_scope
+			}
+			change_relations = {
+				country = scope:eocfm_pope_scope
+				value = 50
+			}
+		}
+		add_modifier = {
+			name = modifier_eocfm_accepted_epistle
+			months = long_modifier_time
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+	}
+
+}
+
+eocfm.2324 = { # Phyletism Addressed
 	type = country_event
 	placement = root
 	
@@ -6601,7 +6695,7 @@ eocfm.2324 = { # Encyclical of the Eastern Patriarchs
 	flavor = eocfm.2324.f
 	
 	event_image = {
-		video = "unspecific_signed_contract"
+		video = "southamerica_aristocrats"
 	}
 	
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
@@ -6613,76 +6707,56 @@ eocfm.2324 = { # Encyclical of the Eastern Patriarchs
 	dlc = dlc_eocfm
 	
 	trigger = {
-		# Triggered by eocfm.2323 # Epistle to the Easterners
 	}
 	
 	immediate = {
-		c:PAP ?= {
-			save_scope_as = eocfm_pope_scope
-		}
-		if = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
-			}
-			set_global_variable = eocfm_epistle_considered
-		}
+		eocfm_council_cleanup_effect = yes
 	}
 	
-	option = { # Epistle Rejected
+	option = { # Phyletism Condemned
 		name = eocfm.2324.a
 		default_option = yes
 		trigger = {
 			global_var:eocfm_council_votes <= 0
 		}
-		if = {
-			limit = {
-				exists = scope:eocfm_pope_scope
-			}
-			change_relations = {
-				country = scope:eocfm_pope_scope
-				value = -50
-			}
-		}
 		add_modifier = {
-			name = modifier_eocfm_rejected_epistle
+			name = modifier_eocfm_condemned_phyletism
 			months = long_modifier_time
 		}
-		eocfm_council_cleanup_effect = yes
 	}
 	
-	option = { # Epistle Accepted
+	option = { # Phyletism Accepted
 		name = eocfm.2324.b
 		trigger = {
 			global_var:eocfm_council_votes > 0
 		}
-		if = {
-			limit = {
-				exists = scope:eocfm_pope_scope
-			}
-			change_relations = {
-				country = scope:eocfm_pope_scope
-				value = 50
-			}
-		}
 		add_modifier = {
-			name = modifier_eocfm_accepted_epistle
+			name = modifier_eocfm_endorsed_phyletism
 			months = long_modifier_time
 		}
-		add_radicals = {
-			pop_type = clergymen
-			value = large_radicals
-		}
-		eocfm_council_cleanup_effect = yes
 	}
 
 }
-	
-eocfm.2325 = { # Problems with Phyletism
+
+eocfm.2325 = { # The Julian Calendar
 	type = country_event
 	placement = root
 	
 	title = eocfm.2325.t
-	desc = eocfm.2325.d
+	desc = {
+		triggered_desc = {
+			desc = eocfm.2325.d1
+			trigger = {
+				global_var:eocfm_council_votes >= 0
+			}
+		}
+		triggered_desc = {
+			desc = eocfm.2325.d2
+			trigger = {
+				global_var:eocfm_council_votes < 0
+			}
+		}
+	}
 	flavor = eocfm.2325.f
 	
 	event_image = {
@@ -6701,231 +6775,11 @@ eocfm.2325 = { # Problems with Phyletism
 	}
 	
 	immediate = {
-		if = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
-			}
-			every_country = {
-				limit = {
-					eocfm_is_eastern_christian_trigger = yes
-					NOT = { has_modifier = modifier_eocfm_hosting_council }
-				}
-				trigger_event = {
-					id = eocfm.2325
-				}
-			}
-		}
-	}
-	
-	option = { # Phyletism Condemned
-		name = eocfm.2325.a
-		default_option = yes
-		change_global_variable = {
-			name = eocfm_council_votes
-			subtract = 1
-		}
-		ai_chance = {
-			base = 95
-		}
-	}
-	
-	option = { # Phyletism Accepted
-		name = eocfm.2325.b
-		change_global_variable = {
-			name = eocfm_council_votes
-			add = 1
-		}
-		ai_chance = {
-			base = 5
-		}
-	}
-	
-	after = {
-		trigger_event = {
-			id = eocfm.2326 # Phyletism Addressed
-			days = 120
-		}
-	}
-
-}
-
-eocfm.2326 = { # Phyletism Addressed
-	type = country_event
-	placement = root
-	
-	title = eocfm.2326.t
-	desc = {
-		triggered_desc = {
-			desc = eocfm.2326.d1
-			trigger = {
-				global_var:eocfm_council_votes <= 0
-			}
-		}
-		triggered_desc = {
-			desc = eocfm.2326.d2
-			trigger = {
-				global_var:eocfm_council_votes > 0
-			}
-		}
-	}
-	flavor = eocfm.2326.f
-	
-	event_image = {
-		video = "southamerica_aristocrats"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
-	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_eocfm
-	
-	trigger = {
-	}
-	
-	immediate = {
-		if = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
-			}
-			set_global_variable = eocfm_phyletism_considered
-		}
-	}
-	
-	option = { # Phyletism Condemned
-		name = eocfm.2326.a
-		default_option = yes
-		trigger = {
-			global_var:eocfm_council_votes <= 0
-		}
-		add_modifier = {
-			name = modifier_eocfm_condemned_phyletism
-			months = long_modifier_time
-		}
 		eocfm_council_cleanup_effect = yes
-	}
-	
-	option = { # Phyletism Accepted
-		name = eocfm.2326.b
-		trigger = {
-			global_var:eocfm_council_votes > 0
-		}
-		add_modifier = {
-			name = modifier_eocfm_endorsed_phyletism
-			months = long_modifier_time
-		}
-		eocfm_council_cleanup_effect = yes
-	}
-
-}
-
-eocfm.2327 = { # An Outdated Calendar
-	type = country_event
-	placement = root
-	
-	title = eocfm.2327.t
-	desc = eocfm.2327.d
-	flavor = eocfm.2327.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
-	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_eocfm
-	
-	trigger = {
-	}
-	
-	immediate = {
-	}
-	
-	option = { # Time For some Changes
-		name = eocfm.2327.a
-		default_option = yes
-		change_global_variable = {
-			name = eocfm_council_votes
-			add = 1
-		}
-		ai_chance = {
-			base = 95
-		}
-	}
-
-	option = { # Julian calendar or death
-		name = eocfm.2327.b
-		change_global_variable = {
-			name = eocfm_council_votes
-			subtract = 1
-		}
-		ai_chance = {
-			base = 5
-		}
-	}
-
-	after = {
-		trigger_event = {
-			id = eocfm.2328 # The Julian Calendar
-			days = 120
-		}
-	}
-	
-}
-
-eocfm.2328 = { # The Julian Calendar
-	type = country_event
-	placement = root
-	
-	title = eocfm.2328.t
-	desc = {
-		triggered_desc = {
-			desc = eocfm.2328.d1
-			trigger = {
-				global_var:eocfm_council_votes >= 0
-			}
-		}
-		triggered_desc = {
-			desc = eocfm.2328.d2
-			trigger = {
-				global_var:eocfm_council_votes < 0
-			}
-		}
-	}
-	flavor = eocfm.2328.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
-	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_eocfm
-	
-	trigger = {
-	}
-	
-	immediate = {
-		if = {
-			limit = {
-				has_modifier = modifier_eocfm_hosting_council
-			}
-			set_global_variable = eocfm_calendar_considered
-		}
 	}
 	
 	option = { # Revised Julian Calendar
-		name = eocfm.2328.a
+		name = eocfm.2325.a
 		default_option = yes
 		trigger = {
 			global_var:eocfm_council_votes >= 0
@@ -6938,11 +6792,10 @@ eocfm.2328 = { # The Julian Calendar
 			pop_type = clergymen
 			value = medium_radicals
 		}
-		eocfm_council_cleanup_effect = yes
 	}
 	
 	option = { # Chrysostomos would be proud
-		name = eocfm.2328.b
+		name = eocfm.2325.b
 		trigger = {
 			global_var:eocfm_council_votes < 0
 		}
@@ -6954,6 +6807,41 @@ eocfm.2328 = { # The Julian Calendar
 			pop_type = clergymen
 			value = large_radicals
 		}
+	}
+
+}
+
+eocfm.2328 = { # Birth of the New Crusades
+	type = country_event
+	placement = root
+	
+	title = eocfm.2328.t
+	desc = eocfm.2328.d
+	flavor = eocfm.2328.f
+	
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+	}
+	
+	immediate = {
+		set_global_variable = eocfm_crusades_unlocked
+	}
+	
+	option = {
+		name = eocfm.2328.a
+		default_option = yes
+		custom_tooltip = eocfm_crusades_enabled
 		eocfm_council_cleanup_effect = yes
 	}
 
@@ -7001,6 +6889,7 @@ eocfm.2329 = { # The Byzantine Commonwealth
 	orphan = yes
 
 }
+
 
 # The Orthodox Domain Events
 eocfm.2390 = { # The Partiarchate Rises
