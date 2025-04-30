@@ -44,6 +44,7 @@ eocfm_catholic_monthly_pulse = {
 		eocfm_update_seat_controllers_effect = yes
 		eocfm_update_approval_bonus_effect = yes
 		eocfm_check_patriarch_modifiers_effect = yes
+		eocfm_update_votes_effect = yes
 	}
 }
 
@@ -89,20 +90,7 @@ eocfm_orthodox_monthly_pulse = {
 		eocfm_update_seat_controllers_effect = yes
 		eocfm_update_approval_bonus_effect = yes
 		eocfm_check_patriarch_modifiers_effect = yes
-		if = { # Adds the Orthodox button to the community sidebar
-			limit = {
-				NOT = {
-					is_target_in_global_variable_list = {
-						name = custom_button_list_flag
-						target = flag:eocfm_sidebar_button_sgui
-					}
-				}
-			}
-			add_to_global_variable_list = {
-				name = custom_button_list_flag
-				target = flag:eocfm_sidebar_button_sgui
-			}
-		}
+		eocfm_update_votes_effect = yes
 	}
 }
 
@@ -129,6 +117,7 @@ eocfm_oriental_monthly_pulse = {
 		eocfm_update_seat_controllers_effect = yes
 		eocfm_update_approval_bonus_effect = yes
 		eocfm_check_patriarch_modifiers_effect = yes
+		eocfm_update_votes_effect = yes
 	}
 }
 
@@ -155,6 +144,7 @@ eocfm_elysian_monthly_pulse = {
 		eocfm_update_seat_controllers_effect = yes
 		eocfm_update_approval_bonus_effect = yes
 		eocfm_check_patriarch_modifiers_effect = yes
+		eocfm_update_votes_effect = yes
 	}
 }
 
@@ -245,6 +235,22 @@ eocfm_global_pulse = { # Monitored from all scopes; used to deactivate holy site
 		eocfm.0025 # Elysium PM Switch
 		eocfm.0026 # Tututepec PM Switch
 		eocfm.0027 # Cahokia PM Switch
+	}
+	effect = {
+		if = { # Adds the Orthodox button to the community sidebar
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:eocfm_sidebar_button_sgui
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:eocfm_sidebar_button_sgui
+			}
+		}
 	}
 }
 

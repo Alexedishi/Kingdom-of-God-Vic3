@@ -3906,6 +3906,42 @@ eocfm_set_orthodox_location_effect = {
 	}
 }
 
+eocfm_update_votes_effect = {
+	if = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_votes_var
+			value = eocfm_cardinal_college_value
+		}
+	}
+	if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_votes_var
+			value = eocfm_ecumenical_weight_value
+		}
+	}
+	if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_votes_var
+			value = eocfm_synodal_influence_value
+		}
+	}
+	else = {
+		set_variable = {
+			name = eocfm_votes_var
+			value = eocfm_elysian_synkletos_value
+		}
+	}
+}
+
 eocfm_add_reformist_loyalists_effect = {
 	if = {
 		limit = {
