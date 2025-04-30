@@ -12,12 +12,9 @@ widget = {
 		datacontext = "[GetPlayer]"
 		
 		# This initializes the GUI variable on a fresh load
-		widget = {
-			visible = "[Not(GetVariableSystem.Exists('eocfm_tabs_var'))]"
-			state = {
-				name = _show
-				on_finish = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
-			}
+		state = {
+		  trigger_when = "[Not(GetVariableSystem.Exists('eocfm_tabs_var'))]"
+		  on_finish = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
 		}
 		
 		state = {
