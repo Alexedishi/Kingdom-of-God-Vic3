@@ -396,6 +396,105 @@ eocfm_disband_schools_sgui = {
 
 ## ELYSIAN METROPOLIAN INTERACTIONS
 
+
+###################################
+# ECUMENICAL COUNCIL INTERACTIONS #
+###################################
+
+eocfm_catholic_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_catholic_council_var
+	}
+	
+}
+
+eocfm_orthodox_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_orthodox_council_var
+	}
+	
+}
+
+eocfm_oriental_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_oriental_council_var
+	}
+	
+}
+
+eocfm_elysian_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_elysian_council_var
+	}
+	
+}
+
+eocfm_support_council_sgui = {
+	scope = country
+	
+	is_valid = {
+		NOR = {
+			has_variable = eocfm_council_support_var
+			has_variable = eocfm_council_timeout_var
+		}
+	}
+	effect = {
+		set_variable = eocfm_council_support_var
+		set_variable = {
+			name = eocfm_council_timeout_var
+			days = 30
+		}
+	}
+	
+}
+
+eocfm_abstain_council_sgui = {
+	scope = country
+	
+	is_valid = {
+		OR = {
+			has_variable = eocfm_council_support_var
+			has_variable = eocfm_council_oppose_var
+			has_variable = eocfm_council_timeout_var
+		}
+	}
+	effect = = {
+		remove_variable = eocfm_council_support_var
+		remove_variable = eocfm_council_oppose_var
+		set_variable = {
+			name = eocfm_council_timeout_var
+			days = 30
+		}
+	}
+	
+}
+
+eocfm_oppose_council_sgui = {
+	scope = country
+	
+	is_valid = {
+		NOR = {
+			has_variable = eocfm_council_oppose_var
+			has_variable = eocfm_council_timeout_var
+		}
+	}
+	effect = {
+		set_variable = eocfm_council_oppose_var
+		set_variable = {
+			name = eocfm_council_timeout_var
+			days = 30
+		}
+	}
+}
+
 ################################
 # PATRIARCHAL SEE INTERACTIONS #
 ################################
@@ -603,64 +702,6 @@ eocfm_mending_progressbar_sgui = {
 	
 }
 
-## CATHOLIC SEE INTERACTIONS
-
-
-## ORTHODOX SEE INTERACTIONS
-eocfm_seek_mandate_sgui = {
-	scope = country
-	
-	is_shown = {
-		always = yes
-	}
-	
-	is_valid = {
-		custom_tooltip = {
-			text = eocfm_considering_mandate_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_considering_mandate
-				}
-			}
-		}
-		custom_tooltip = {
-			text = eocfm_has_mandate_NOT
-			hidden_trigger = {
-				eocfm_has_mandate_trigger = no
-			}
-		}
-		eocfm_has_500_caesaropapism_trigger = yes
-		custom_tooltip = {
-			text = eocfm_has_ecumenical_patriarch_approval
-			hidden_trigger = {
-				var:eocfm_constantinople_relations_var >= 80
-			}
-		}
-		trigger_if = {
-			limit = {
-				c:TUR ?= {
-					has_variable = eocfm_controls_constantinople
-				}
-			}
-			custom_tooltip = {
-				text = eocfm_turk_relations_cordial
-				hidden_trigger = {
-					c:TUR = {
-						relations:root >= relations_threshold:cordial
-					}
-				}
-			}
-		}
-	}
-	
-	effect = {
-		trigger_event = {
-			id = eocfm.2310 # An Audience with the Patriarch
-		}
-		set_variable = eocfm_considering_mandate
-	}
-}
-
 eocfm_convoke_council_sgui = {
 	scope = country
 	
@@ -747,6 +788,116 @@ eocfm_unify_orthodox_realms_sgui = {
 			id = eocfm.2390 # The Partiarchate Rises
 		}
 		set_variable = eocfm_texas_left
+	}
+}
+
+## CATHOLIC SEE INTERACTIONS
+
+
+## ORTHODOX SEE INTERACTIONS
+eocfm_seek_mandate_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		custom_tooltip = {
+			text = eocfm_considering_mandate_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_considering_mandate
+				}
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_has_mandate_NOT
+			hidden_trigger = {
+				eocfm_has_mandate_trigger = no
+			}
+		}
+		eocfm_has_500_caesaropapism_trigger = yes
+		custom_tooltip = {
+			text = eocfm_has_ecumenical_patriarch_approval
+			hidden_trigger = {
+				var:eocfm_constantinople_relations_var >= 80
+			}
+		}
+		trigger_if = {
+			limit = {
+				c:TUR ?= {
+					has_variable = eocfm_controls_constantinople
+				}
+			}
+			custom_tooltip = {
+				text = eocfm_turk_relations_cordial
+				hidden_trigger = {
+					c:TUR = {
+						relations:root >= relations_threshold:cordial
+					}
+				}
+			}
+		}
+	}
+	
+	effect = {
+		trigger_event = {
+			id = eocfm.2310 # An Audience with the Patriarch
+		}
+		set_variable = eocfm_considering_mandate
+	}
+}
+
+eocfm_orthodox_convoke_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_is_autocephalous
+	}
+	
+	is_valid = {
+		is_subject = no
+		is_at_war = no
+		eocfm_controls_any_seat_trigger = yes
+		eocfm_has_1000_caesaropapism_trigger = yes
+		eocfm_is_autocephalous_trigger = yes
+		custom_tooltip = {
+			text = eocfm_theological_matter
+			hidden_trigger = {
+				eocfm_can_host_council_trigger = yes
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_council_active_NOT
+			hidden_trigger = {
+				NOT = {
+					has_global_variable = eocfm_orthodox_matter_var
+				}
+			}
+		}
+		hidden_trigger = {
+			NOT = {
+				has_global_variable = eocfm_orthodox_matter_var
+			}
+		}
+	}
+	
+	effect = {
+		trigger_event = {
+			id = eocfm.2320 # Convoking the Ecumenical Council
+			popup = yes
+		}
+		show_as_tooltip = {
+			add_modifier = modifier_eocfm_hosting_council
+		}
+		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
+			add_modifier = {
+				name = modifier_eocfm_hosting_council
+				months = 12
+			}
+		}
+		set_global_variable = eocfm_orthodox_matter_var
 	}
 }
 

@@ -226,6 +226,164 @@ eocfm_elysian_communion_type = {
 	}
 }
 
+#### Ecumenical Council Types
+
+eocfm_council_stance_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			has_variable = eocfm_council_oppose_var
+		}
+		localization_key = custom_eocfm_council_oppose
+	}
+	text = {
+		trigger = {
+			has_variable = eocfm_council_support_var
+		}
+		localization_key = custom_eocfm_council_support
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_variable = eocfm_council_oppose_var
+				has_variable = eocfm_council_support_var
+			}
+		}
+		localization_key = custom_eocfm_council_abstain
+	}
+}
+
+
+# Catholic Council Types
+eocfm_catholic_matter_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = eocfm_no_effects
+	}
+}
+
+eocfm_catholic_council_outcome_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_catholic_support_var > global_var:eocfm_catholic_opposition_var
+		}
+		localization_key = eocfm_gui_support_winning
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_catholic_support_var < global_var:eocfm_catholic_opposition_var
+		}
+		localization_key = eocfm_gui_oppose_winning
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_catholic_support_var = global_var:eocfm_catholic_opposition_var
+		}
+		localization_key = eocfm_gui_noone_winning
+	}
+}
+
+# Orthodox Council Types
+eocfm_orthodox_host_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_host_var ?= 1 # Constantinople
+		}
+		localization_key = eocfm_constantinople
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_host_var ?= 2 # Antioch
+		}
+		localization_key = eocfm_antioch
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_host_var ?= 3 # Jerusalem
+		}
+		localization_key = eocfm_jerusalem
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_host_var ?= 4 # Alexandria
+		}
+		localization_key = eocfm_alexandria
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_host_var ?= 5 # Moscow
+		}
+		localization_key = eocfm_moscow
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_host_var ?= 6 # Rome
+		}
+		localization_key = eocfm_rome
+	}
+}
+
+eocfm_orthodox_matter_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_matter_var ?= 1 # Epistle to the Easterners
+		}
+		localization_key = eocfm_epistle_to_the_easterners
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_matter_var ?= 2 # Problems with Phyletism
+		}
+		localization_key = eocfm_problems_with_phyletism
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_matter_var ?= 3 # An Outdated Calendar
+		}
+		localization_key = eocfm_an_outdated_calendar
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_matter_var ?= 4 # The New Crusade
+		}
+		localization_key = eocfm_the_new_crusade
+	}
+}
+
+eocfm_orthodox_council_outcome_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_support_var > global_var:eocfm_orthodox_opposition_var
+		}
+		localization_key = eocfm_gui_support_winning
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_support_var < global_var:eocfm_orthodox_opposition_var
+		}
+		localization_key = eocfm_gui_oppose_winning
+	}
+	text = {
+		trigger = {
+			global_var:eocfm_orthodox_support_var = global_var:eocfm_orthodox_opposition_var
+		}
+		localization_key = eocfm_gui_noone_winning
+	}
+}
+
 #### Seat Controller Types
 # Catholic Seats
 eocfm_rome_controller_type = {
