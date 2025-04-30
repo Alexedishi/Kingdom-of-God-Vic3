@@ -202,6 +202,9 @@
  concept_autocephaly: "Autocephaly"
  concept_autocephaly_desc: "While nominally a single ecumenical church, the Eastern Orthodox Church structure is much more decentralized than its Western counterpart in Rome. Every nation plays host to prominent bishops that exert influence over the worship in their domain, sometimes in deviation from the Ecumenical Patriarch in Constantinople #bold Autocephalous#! churches have heads who do not report to any higher Bishop such as the Patriarch of Constantinople or the Bishop of Rome."
  concept_autocephalous: "Autocephalous"
+ concept_cardinal: "Cardinal"
+ concept_cardinal_desc: "A #bold Cardinal#! is a senior member of the Catholic clergy. Created by the Pope, these members hold the title for life and are called upon to elect a new Pope upon the position becoming vacant. They are also frequently found filling senior positions in the Catholic administrative apparatus."
+ concept_cardinals: "Cardinals"
  concept_caesaropapism: "Caesaropapism"
  concept_caesaropapism_desc: "#bold Caesaropapism#! is the extent to which the [GetReligion('orthodox').GetName] Church has been overtaken by and integrated into the state apparatus. This value represents the state's ability to sway its local bishops towards the will of the state.
  concept_crusades: "Crusades"
@@ -212,6 +215,8 @@
  concept_councils: "Ecumenical Councils"
  concept_ecumenism: "Ecumenism"
  concept_ecumenism_desc: "Ecumenism is the belief and goal that all Christian communities, regardless of differences in creeds and doctrine should cooperate to bring together the various Christian denominations and reunite into a Great Church. While unthinkable in previous eras, this idea has begun to take hold as Traditionalist thought slowly gives way to more moderate thinking."
+ concept_encyclical: "Encyclical"
+ concept_encyclical_desc: "An #bold Encyclical#! is a circular letter sent out from either the Pope or other senior Bishops typically concerning matters of doctrine or dispute, meant to provide both clarification and direction to both the clergy and laity."
  concept_great_schism: "The Great Schism"
  concept_great_schism_desc: "The #bold Great Schism#!, or East-West Schism, is a term used to describe the complex chain of events that led to the disintegration of communion between $eocfm_rome$ and the $eocfm_eastern_seats$. This divison between the churches administered from Rome and those guided by Constantinople has led to deviations in liturigcal and dogmatic traditions."
  concept_holy_site: "Holy Site"
@@ -787,7 +792,7 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  
  eocfm_value_from_italian_states: "From [Concept('concept_state','$concept_states$')] in the [GetStrategicRegion('region_italy').GetName] [concept_strategic_region]"
  eocfm_value_from_european_states: ""From [Concept('concept_state','$concept_states$')] in the [GetStrategicRegion('region_england').GetName], [GetStrategicRegion('region_iberia').GetName], [GetStrategicRegion('region_france').GetName], [GetStrategicRegion('region_occitania').GetName], [GetStrategicRegion('region_rhine').GetName], [GetStrategicRegion('region_north_germany').GetName], [GetStrategicRegion('region_south_germany').GetName], or [GetStrategicRegion('region_poland').GetName], [concept_strategic_region]"
- eocfm_value_from_italian_states: "From non-European [Concept('concept_state','$concept_states$')]"
+ eocfm_value_from_other_states: "From non-European [Concept('concept_state','$concept_states$')]"
  eocfm_value_from_catholic_support: "From the number of [Concept('concept_cardinal','$concept_cardinals$')] supporting this proposal"
  eocfm_value_from_catholic_opposition: "From the number of [Concept('concept_cardinal','$concept_cardinals$')] opposing this proposal"
  eocfm_value_from_orthodox_support: "From the influence of [Concept('concept_country','$concept_countries$'] supporting this proposal"
@@ -852,6 +857,12 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  
  eocfm_patriarch_deposed: "The #bold Ecumenical Patriarch#! has been deposed"
  eocfm_patriarch_deposed_cooldown: "The #bold Ecumenical Patriarch#! has not been deposed within the last five years."
+ 
+ 
+ 
+ 
+ 
+ 
  eocfm_council_active: "An [concept_ecumenical_council] is currently being held."
  eocfm_council_active_NOT: "An [concept_ecumenical_council] is #bold not#! currently being held."
  eocfm_council_counter_below_4: "There have been less than #variable 4#! councils."
