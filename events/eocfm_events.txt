@@ -6454,46 +6454,8 @@ eocfm.2321 = { # Ecumenical Council Convoked
 	placement = root
 	
 	title = eocfm.2321.t
-	desc = {
-		triggered_desc = {
-			desc = eocfm.2321.d1
-			trigger = {
-				global_var:eocfm_orthodox_matter_var ?= 1
-			}
-		}
-		triggered_desc = {
-			desc = eocfm.2321.d2
-			trigger = {
-				global_var:eocfm_orthodox_matter_var ?= 2
-			}
-		}
-		triggered_desc = {
-			desc = eocfm.2321.d3
-			trigger = {
-				global_var:eocfm_orthodox_matter_var ?= 3
-			}
-		}
-	}
-	flavor = {
-		triggered_desc = {
-			desc = eocfm.2321.f1
-			trigger = {
-				global_var:eocfm_orthodox_matter_var ?= 1
-			}
-		}
-		triggered_desc = {
-			desc = eocfm.2321.f2
-			trigger = {
-				global_var:eocfm_orthodox_matter_var ?= 2
-			}
-		}
-		triggered_desc = {
-			desc = eocfm.2321.f3
-			trigger = {
-				global_var:eocfm_orthodox_matter_var ?= 3
-			}
-		}
-	}
+	desc = eocfm.2321.d
+	flavor = eocfm.2321.f
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -6567,7 +6529,7 @@ eocfm.2322 = { # Orthodox Council Monitor
 			}
 			if = {
 				limit = {
-					global_var:eocfm_orthodox_support_var <= eocfm_orthodox_opposition_var
+					global_var:eocfm_orthodox_support_var <= global_var:eocfm_orthodox_opposition_var
 				}
 				set_global_variable = {
 					name = eocfm_epistle_considered
@@ -6595,7 +6557,7 @@ eocfm.2322 = { # Orthodox Council Monitor
 			}
 			if = {
 				limit = {
-					global_var:eocfm_orthodox_support_var <= eocfm_orthodox_opposition_var
+					global_var:eocfm_orthodox_support_var <= global_var:eocfm_orthodox_opposition_var
 				}
 				set_global_variable = {
 					name = eocfm_phyletism_considered
@@ -6623,7 +6585,7 @@ eocfm.2322 = { # Orthodox Council Monitor
 			}
 			if = {
 				limit = {
-					global_var:eocfm_orthodox_support_var <= eocfm_orthodox_opposition_var
+					global_var:eocfm_orthodox_support_var <= global_var:eocfm_orthodox_opposition_var
 				}
 				set_global_variable = {
 					name = eocfm_calendar_considered
@@ -6692,7 +6654,7 @@ eocfm.2323 = { # Encyclical of the Eastern Patriarchs
 	
 	immediate = {
 		eocfm_save_pope_scope_effect = yes
-		eocfm_council_cleanup_effect = yes
+		eocfm_cleanup_council_effect = yes
 	}
 	
 	option = { # Epistle Rejected
@@ -6755,7 +6717,7 @@ eocfm.2324 = { # Problems with Phyletism
 	}
 	
 	immediate = {
-		eocfm_council_cleanup_effect = yes
+		eocfm_cleanup_council_effect = yes
 	}
 	
 	option = { # Phyletism Condemned
@@ -6833,7 +6795,7 @@ eocfm.2325 = { # The Julian Calendar
 	}
 	
 	immediate = {
-		eocfm_council_cleanup_effect = yes
+		eocfm_cleanup_council_effect = yes
 	}
 	
 	option = { # Revised Julian Calendar
@@ -6900,7 +6862,7 @@ eocfm.2328 = { # Birth of the New Crusades
 		name = eocfm.2328.a
 		default_option = yes
 		custom_tooltip = eocfm_crusades_enabled
-		eocfm_council_cleanup_effect = yes
+		eocfm_cleanup_council_effect = yes
 	}
 
 }

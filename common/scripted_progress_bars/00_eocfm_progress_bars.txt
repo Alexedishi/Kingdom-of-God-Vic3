@@ -6,7 +6,7 @@
  	weekly_progress = {
 		if = {
 			limit = {
-				eocfm_epistle_considered = 1 # Conservative Outcome
+				global_var:eocfm_epistle_considered = 1 # Conservative Outcome
 			}
 			subtract = {
 				desc = "eocfm_value_from_rome_opinion"
@@ -18,7 +18,7 @@
 		}
 		if = {
 			limit = {
-				eocfm_epistle_considered = 2 # Reformist Outcome
+				global_var:eocfm_epistle_considered = 2 # Reformist Outcome
 			}
 			add = {
 				desc = "eocfm_value_from_rome_opinion"

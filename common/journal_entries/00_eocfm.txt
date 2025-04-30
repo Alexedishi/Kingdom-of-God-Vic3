@@ -58,12 +58,12 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	}
 	
 	on_complete = {
-		add_modifer = {
+		add_modifier = {
 			name = modifier_eocfm_rejected_epistle
 			months = long_modifier_time
 		}
-		eocfm_add_conversative_loyalists = yes
-		eocfm_add_reformist_radicals = yes
+		eocfm_add_conservative_loyalists_effect = yes
+		eocfm_add_reformist_radicals_effect = yes
 	}
 	
 	fail = {
@@ -71,12 +71,12 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	}
 	
 	on_fail = {
-		add_modifer = {
+		add_modifier = {
 			name = modifier_eocfm_failed_encyclical
 			months = long_modifier_time
 		}
-		eocfm_add_reformist_loyalists = yes
-		eocfm_add_conservative_radicals = yes
+		eocfm_add_reformist_loyalists_effect = yes
+		eocfm_add_conservative_radicals_effect = yes
 	}
 	
 	timeout = 365
@@ -91,20 +91,20 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 					}
 				}
 			}
-			add_modifer = {
+			add_modifier = {
 				name = modifier_eocfm_rejected_epistle
 				months = long_modifier_time
 			}
-			eocfm_add_conversative_loyalists = yes
-			eocfm_add_reformist_radicals = yes
+			eocfm_add_conservative_loyalists_effect = yes
+			eocfm_add_reformist_radicals_effect = yes
 		}
 		else = {
-			add_modifer = {
+			add_modifier = {
 				name = modifier_eocfm_failed_encyclical
 				months = long_modifier_time
 			}
-			eocfm_add_reformist_loyalists = yes
-			eocfm_add_conservative_radicals = yes
+			eocfm_add_reformist_loyalists_effect = yes
+			eocfm_add_conservative_radicals_effect = yes
 		}
 	}
 	
@@ -129,12 +129,12 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	}
 	
 	on_complete = {
-		add_modifer = {
+		add_modifier = {
 			name = modifier_eocfm_accepted_epistle
 			months = long_modifier_time
 		}
-		eocfm_add_reformist_loyalists = yes
-		eocfm_add_conservative_radicals = yes
+		eocfm_add_reformist_loyalists_effect = yes
+		eocfm_add_conservative_radicals_effect = yes
 	}
 	
 	fail = {
@@ -142,12 +142,12 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	}
 	
 	on_fail = {
-		add_modifer = {
+		add_modifier = {
 			name = modifier_eocfm_failed_encyclical
 			months = long_modifier_time
 		}
-		eocfm_add_conversative_loyalists = yes
-		eocfm_add_reformist_radicals = yes
+		eocfm_add_conservative_loyalists_effect = yes
+		eocfm_add_reformist_radicals_effect = yes
 	}
 	
 	timeout = 365
@@ -162,33 +162,21 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 					}
 				}
 			}
-			add_modifer = {
+			add_modifier = {
 				name = modifier_eocfm_rejected_epistle
 				months = long_modifier_time
 			}
-			eocfm_add_conversative_loyalists = yes
-			eocfm_add_reformist_radicals = yes
+			eocfm_add_conservative_loyalists_effect = yes
+			eocfm_add_reformist_radicals_effect = yes
 		}
 		else = {
-			add_modifer = {
+			add_modifier = {
 				name = modifier_eocfm_failed_encyclical
 				months = long_modifier_time
 			}
-			eocfm_add_reformist_loyalists = yes
-			eocfm_add_conservative_radicals = yes
+			eocfm_add_reformist_loyalists_effect = yes
+			eocfm_add_conservative_radicals_effect = yes
 		}
-	}
-	
-	timeout = 365
-	
-	on_timeout = {
-		trigger_if = {
-			limit = {
-				global_var:eocfm_epistle_considered = 1
-			}
-		}
-		
-		
 	}
 	
 	weight = 500

@@ -3860,7 +3860,7 @@ eocfm_set_orthodox_location_effect = {
 	}
 }
 
-eocfm_add_reformist_loyalists = {
+eocfm_add_reformist_loyalists_effect = {
 	if = {
 		limit = {
 			ig:ig_landowners = {
@@ -3878,7 +3878,7 @@ eocfm_add_reformist_loyalists = {
 	}
 	if = {
 		limit = {
-			ig:devout = {
+			ig:ig_devout = {
 				OR = {
 					interest_group_has_liberal_ideology = yes
 					interest_group_has_progressive_ideology = yes
@@ -3983,7 +3983,7 @@ eocfm_add_reformist_loyalists = {
 	}
 }
 
-eocfm_add_reformist_radicals = {
+eocfm_add_reformist_radicals_effect = {
 	if = {
 		limit = {
 			ig:ig_landowners = {
@@ -4001,7 +4001,7 @@ eocfm_add_reformist_radicals = {
 	}
 	if = {
 		limit = {
-			ig:devout = {
+			ig:ig_devout = {
 				OR = {
 					interest_group_has_liberal_ideology = yes
 					interest_group_has_progressive_ideology = yes
@@ -4106,7 +4106,7 @@ eocfm_add_reformist_radicals = {
 	}
 }
 
-eocfm_add_conservative_loyalists = {
+eocfm_add_conservative_loyalists_effect = {
 	if = {
 		limit = {
 			ig:ig_landowners = {
@@ -4124,7 +4124,7 @@ eocfm_add_conservative_loyalists = {
 	}
 	if = {
 		limit = {
-			ig:devout = {
+			ig:ig_devout = {
 				OR = {
 					interest_group_has_reactionary_ideology = yes
 					interest_group_has_conservative_ideology = yes
@@ -4229,7 +4229,7 @@ eocfm_add_conservative_loyalists = {
 	}
 }
 
-eocfm_add_conservative_radicals = {
+eocfm_add_conservative_radicals_effect = {
 	if = {
 		limit = {
 			ig:ig_landowners = {
@@ -4247,7 +4247,7 @@ eocfm_add_conservative_radicals = {
 	}
 	if = {
 		limit = {
-			ig:devout = {
+			ig:ig_devout = {
 				OR = {
 					interest_group_has_reactionary_ideology = yes
 					interest_group_has_conservative_ideology = yes

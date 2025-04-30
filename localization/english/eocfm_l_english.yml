@@ -158,6 +158,10 @@
  custom_eocfm_theologize_dogma_focus: "#bold #greece Theologizing Novel Dogma#!#!"
  custom_eocfm_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
  
+ custom_eocfm_council_oppose: "#red Opposed#!"
+ custom_eocfm_council_support: "#green Supporting#!"
+ custom_eocfm_council_abstain: "#yellow Abstention#!"
+ 
  custom_eocfm_no_owner: "#bold #yellow No One#!#!"
  
  custom_eocfm_rome_owner: "[GetPlayer.MakeScope.Var('eocfm_rome_controller_var').GetCountry.GetName]"
@@ -618,6 +622,8 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  # scripted buttons
  # //
  
+ # scripted progress bars
+ eocfm_easterners_progress_bar_name: "Epistle of the Easterners"
  
  # scripted triggers
  eocfm_is_orthodox: "[concept_state_religion] is [GetReligion('orthodox').GetName]"
@@ -875,17 +881,19 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  eocfm_patriarch_deposed: "The #bold Ecumenical Patriarch#! has been deposed"
  eocfm_patriarch_deposed_cooldown: "The #bold Ecumenical Patriarch#! has not been deposed within the last five years."
  
- 
- 
- 
- 
- 
  eocfm_council_active: "An [concept_ecumenical_council] is currently being held"
  eocfm_council_active_NOT: "An [concept_ecumenical_council] is #bold not#! currently being held"
  eocfm_council_counter_below_4: "There have been less than #variable 4#! councils"
  eocfm_council_skipped: "[ROOT.GetCountry.GetName] will be #bold unable#! to vote in the upcoming [concept_ecumenical_council]"
  eocfm_theological_matter: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_theological_matter_list')] Theologial Matter#!#! calling the Church's attention."
  eocfm_theological_matter_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_declare_commonwealth_possible')] Orthodox Commonwealth#!#!."
+ 
+ eocfm_orthodox_matters: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_orthodox_matters_list')] Theologial Matter#!#! calling the Church's attention."
+ eocfm_orthodox_matters_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_declare_commonwealth_possible')] Orthodox Commonwealth#!#!."
+ eocfm_epistle_to_the_easterners: "The Epistle to the Easterners"
+ eocfm_problems_with_phyletism: "Problems with Phyletism"
+ eocfm_an_outdated_calendar: "An Outdated Calendar"
+ eocfm_the_new_crusade: "The New Crusade"
  
  eocfm_crusades_enabled: "Enables [Concept('concept_crusades','$concept_crusades$')] against Muslim nations. #italic Theoú thélontos!#!"
  eocfm_ongoing_crusade_NOT: "There is not an ongoing [concept_crusade]"
