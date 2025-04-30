@@ -735,7 +735,7 @@ eocfm_orthodox_support_value = {
 	}
 }
 
-eocfm_orthdox_opposition_value = {
+eocfm_orthodox_opposition_value = {
 	value = 0
 	every_country = {
 		limit = {
@@ -746,15 +746,209 @@ eocfm_orthdox_opposition_value = {
 	}
 }
 
-eocfm_catholic_council_value = {
+eocfm_orthodox_council_value = {
 	value = 0
 	add = {
 		value = eocfm_orthodox_support_value
 		desc = eocfm_value_from_orthodox_support
 	}
 	subtract = {
-		value = eocfm_orthdox_opposition_value
+		value = eocfm_orthodox_opposition_value
 		desc = eocfm_value_from_orthodox_opposition
+	}
+}
+
+eocfm_synodal_influence_value = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_having_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_coptic_alexandria
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_coptic_alexandria
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_syriac_antioch
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_syriac_antioch
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_etchmiadzin
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_etchmiadzin
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_addis_ababa
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_addis_ababa
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_konak
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_konak
+		}
+	}
+}
+
+eocfm_oriental_support_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_eastern_oriental_trigger = yes
+			has_variable = eocfm_council_support_var
+		}
+		add = eocfm_synodal_influence_value
+	}
+}
+
+eocfm_oriental_opposition_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_eastern_oriental_trigger = yes
+			has_variable = eocfm_council_oppose_var
+		}
+		subtract = eocfm_synodal_influence_value
+	}
+}
+
+eocfm_oriental_council_value = {
+	value = 0
+	add = {
+		value = eocfm_oriental_support_value
+		desc = eocfm_value_from_oriental_support
+	}
+	subtract = {
+		value = eocfm_oriental_opposition_value
+		desc = eocfm_value_from_oriental_opposition
+	}
+}
+
+eocfm_elysian_synkletos_value = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = eocfm_is_autocephalous
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_having_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_elysium
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_elysium
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_mixtec
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_mixtec
+		}
+	}
+	if = {
+		limit = {
+			has_variable = eocfm_controls_cahokia
+		}
+		add = {
+			value = 1
+			desc = eocfm_value_from_controls_cahokia
+		}
+	}
+}
+
+eocfm_elysian_support_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+			has_variable = eocfm_council_support_var
+		}
+		add = eocfm_elysian_synkletos_value
+	}
+}
+
+eocfm_elysian_opposition_value = {
+	value = 0
+	every_country = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+			has_variable = eocfm_council_oppose_var
+		}
+		subtract = eocfm_elysian_synkletos_value
+	}
+}
+
+eocfm_elysian_council_value = {
+	value = 0
+	add = {
+		value = eocfm_elysian_support_value
+		desc = eocfm_value_from_elysian_support
+	}
+	subtract = {
+		value = eocfm_elysian_opposition_value
+		desc = eocfm_value_from_elysian_opposition
+	}
+}
+
+eocfm_votes_value = {
+	value = 0
+	if = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+		}
+		add = eocfm_cardinal_college_value
+	}
+	else_if = {
+		limit = {
+			eocfm_is_eastern_oriental_trigger = yes
+		}
+		add = eocfm_ecumenical_weight_value
+	}
+	else_if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		add = eocfm_synodal_influence_value
+	}
+	else_if = {
+		limit = {
+			eocfm_is_elysian_orthodox_trigger = yes
+		}
+		add = eocfm_elysian_synkletos_value
 	}
 }
 

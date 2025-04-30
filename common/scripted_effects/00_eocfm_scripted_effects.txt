@@ -258,6 +258,41 @@ eocfm_initialize_metropolis_effect = {
 			value = 0
 		}
 	}
+	
+	# Lastly, set other variables
+	if = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_votes_var
+			value = eocfm_cardinal_college_value
+		}
+	}
+	if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_votes_var
+			value = eocfm_ecumenical_weight_value
+		}
+	}
+	if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = eocfm_votes_var
+			value = 0
+		}
+	}
+	else = {
+		set_variable = {
+			name = eocfm_votes_var
+			value = 0
+		}
+	}
 }
 
 #### Variable Upkeep Effects
@@ -3766,11 +3801,19 @@ eocfm_save_event_patriarch_effect = {
 	}
 }
 
+eocfm_save_pope_scope_effect = {
+	eocfm_update_rome_effect = yes
+	var:eocfm_rome_patriarch_var = {
+		save_scope_as = eocfm_pope_scope
+	}
+}
+
 eocfm_save_head_of_faith_scope = {
 	if = {
 		limit = {
 			eocfm_is_roman_catholic_trigger = yes
 		}
+		eocfm_update_rome_effect = yes
 		var:eocfm_rome_patriarch_var = {
 			save_scope_as = eocfm_head_of_faith_scope
 		}
@@ -3779,6 +3822,7 @@ eocfm_save_head_of_faith_scope = {
 		limit = {
 			eocfm_is_eastern_orthodox_trigger = yes
 		}
+		eocfm_update_constantinople_effect = yes
 		var:eocfm_constantinople_patriarch_var = {
 			save_scope_as = eocfm_head_of_faith_scope
 		}
@@ -3787,6 +3831,7 @@ eocfm_save_head_of_faith_scope = {
 		limit = {
 			eocfm_is_oriental_orthodox_trigger = yes
 		}
+		eocfm_update_coptic_alexandria_effect = yes
 		var:eocfm_coptic_alexandria_patriarch_var = {
 			save_scope_as = eocfm_head_of_faith_scope
 		}
@@ -3795,6 +3840,7 @@ eocfm_save_head_of_faith_scope = {
 		limit = {
 			eocfm_is_elysian_orthodox_trigger = yes
 		}
+		eocfm_update_elysium_effect = yes
 		var:eocfm_elysium_patriarch_var = {
 			save_scope_as = eocfm_head_of_faith_scope
 		}
