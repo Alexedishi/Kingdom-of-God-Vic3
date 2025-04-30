@@ -6319,7 +6319,7 @@ eocfm.2320 = { # Convoking the Ecumenical Council
 			name = eocfm_orthodox_opposition_var
 			value = 0
 		}
-		eocfm_set_orthodox_host_variable = yes
+		eocfm_set_orthodox_location_effect = yes
 	}
 	
 	option = { # It's Crusadin' time!
@@ -6336,7 +6336,7 @@ eocfm.2320 = { # Convoking the Ecumenical Council
 					eocfm_is_eastern_orthodox_trigger = yes
 				}
 				trigger_event = {
-					id = eocfm.2322 # The New Crusade
+					id = eocfm.2328 # The New Crusade
 				}
 			}
 		}
@@ -6351,6 +6351,10 @@ eocfm.2320 = { # Convoking the Ecumenical Council
 		set_global_variable = {
 			name = eocfm_orthodox_matter_var
 			value = 1
+		}
+		set_global_variable = {
+			name = eocfm_orthodox_convocation_var
+			years = 1
 		}
 		hidden_effect = {
 			every_country = {
@@ -6374,6 +6378,10 @@ eocfm.2320 = { # Convoking the Ecumenical Council
 			name = eocfm_orthodox_matter_var
 			value = 2
 		}
+		set_global_variable = {
+			name = eocfm_orthodox_convocation_var
+			years = 1
+		}
 		hidden_effect = {
 			every_country = {
 				limit = {
@@ -6395,6 +6403,10 @@ eocfm.2320 = { # Convoking the Ecumenical Council
 		set_global_variable = {
 			name = eocfm_orthodox_matter_var
 			value = 3
+		}
+		set_global_variable = {
+			name = eocfm_orthodox_convocation_var
+			years = 1
 		}
 		hidden_effect = {
 			every_country = {
@@ -6515,6 +6527,10 @@ eocfm.2321 = { # Ecumenical Council Convoked
 	
 	option = { # Ban Your Priests From Attending
 		name = eocfm.2321.b
+		custom_tooltip = {
+			text = eocfm_council_skipped
+			set_variable = eocfm_council_skipped
+		}
 		ig:ig_devout = {
 			add_modifier = {
 				name = modifier_eocfm_denied_council
@@ -6522,18 +6538,18 @@ eocfm.2321 = { # Ecumenical Council Convoked
 			}
 		}
 		add_radicals = {
-			pop_type = clergymen
-			value = large_radicals
+			religion = rel:orthodox
+			value = medium_radicals
 		}
-		custom_tooltip = {
-			text = eocfm_council_skipped
-			set_variable = eocfm_council_skipped
+		create_incident = {
+			country = global_var:eocfm_orthodox_host_var
+			value = 5
 		}
 	}
 	
 }
 
-eocfm.2321 = { # Orthodox Council Monitor
+eocfm.2322 = { # Orthodox Council Monitor
 	type = country_event
 	hidden = yes
 	
@@ -6549,6 +6565,21 @@ eocfm.2321 = { # Orthodox Council Monitor
 			limit = {
 				global_var:eocfm_orthodox_matter_var = 1
 			}
+			if = {
+				limit = {
+					global_var:eocfm_orthodox_support_var <= eocfm_orthodox_opposition_var
+				}
+				set_global_variable = {
+					name = eocfm_epistle_considered
+					value = 1 # Conservative Outcome
+				}
+			}
+			else = {
+				set_global_variable = {
+					name = eocfm_epistle_considered
+					value = 2 # Reformist Outcome
+				}
+			}
 			every_country = {
 				limit = {
 					eocfm_is_eastern_orthodox_trigger = yes
@@ -6557,11 +6588,25 @@ eocfm.2321 = { # Orthodox Council Monitor
 					id = eocfm.2323 # Encyclical of the Eastern Patriarchs
 				}
 			}
-			set_global_variable = eocfm_epistle_considered
 		}
 		else_if = {
 			limit = {
 				global_var:eocfm_orthodox_matter_var = 2
+			}
+			if = {
+				limit = {
+					global_var:eocfm_orthodox_support_var <= eocfm_orthodox_opposition_var
+				}
+				set_global_variable = {
+					name = eocfm_phyletism_considered
+					value = 1 # Conservative Outcome
+				}
+			}
+			else = {
+				set_global_variable = {
+					name = eocfm_phyletism_considered
+					value = 2 # Reformist Outcome
+				}
 			}
 			every_country = {
 				limit = {
@@ -6571,11 +6616,25 @@ eocfm.2321 = { # Orthodox Council Monitor
 					id = eocfm.2324 # Phyletism Addressed
 				}
 			}
-			set_global_variable = eocfm_phyletism_considered
 		}
 		else_if = {
 			limit = {
 				global_var:eocfm_orthodox_matter_var = 3
+			}
+			if = {
+				limit = {
+					global_var:eocfm_orthodox_support_var <= eocfm_orthodox_opposition_var
+				}
+				set_global_variable = {
+					name = eocfm_calendar_considered
+					value = 1 # Conservative Outcome
+				}
+			}
+			else = {
+				set_global_variable = {
+					name = eocfm_calendar_considered
+					value = 2 # Reformist Outcome
+				}
 			}
 			every_country = {
 				limit = {
@@ -6584,10 +6643,13 @@ eocfm.2321 = { # Orthodox Council Monitor
 				trigger_event = {
 					id = eocfm.2325 # The Julian Calendar
 				}
-				set_global_variable = eocfm_calendar_considered
 			}
 		}
 		remove_global_variable = eocfm_orthodox_matter_var
+		remove_global_variable = eocfm_orthodox_host_var
+		remove_global_variable = eocfm_orthodox_location_var
+		remove_global_variable = eocfm_orthodox_opposition_var
+		remove_global_variable = eocfm_council_votes_var
 	}
 }
 
@@ -6600,13 +6662,13 @@ eocfm.2323 = { # Encyclical of the Eastern Patriarchs
 		triggered_desc = {
 			desc = eocfm.2323.d1
 			trigger = {
-				global_var:eocfm_council_votes <= 0
+				global_var:eocfm_epistle_considered = 1
 			}
 		}
 		triggered_desc = {
 			desc = eocfm.2323.d2
 			trigger = {
-				global_var:eocfm_council_votes > 0
+				global_var:eocfm_epistle_considered = 2
 			}
 		}
 	}
@@ -6637,44 +6699,20 @@ eocfm.2323 = { # Encyclical of the Eastern Patriarchs
 		name = eocfm.2323.a
 		default_option = yes
 		trigger = {
-			global_var:eocfm_council_votes <= 0
+			global_var:eocfm_epistle_considered = 1
 		}
-		if = {
-			limit = {
-				exists = scope:eocfm_pope_scope
-			}
-			change_relations = {
-				country = scope:eocfm_pope_scope
-				value = -50
-			}
-		}
-		add_modifier = {
-			name = modifier_eocfm_rejected_epistle
-			months = long_modifier_time
+		add_journal_entry = {
+			type = je_eocfm_encyclical_orthodox_easterners_1
 		}
 	}
 	
 	option = { # Epistle Accepted
 		name = eocfm.2323.b
 		trigger = {
-			global_var:eocfm_council_votes > 0
+			global_var:eocfm_epistle_considered = 2
 		}
-		if = {
-			limit = {
-				exists = scope:eocfm_pope_scope
-			}
-			change_relations = {
-				country = scope:eocfm_pope_scope
-				value = 50
-			}
-		}
-		add_modifier = {
-			name = modifier_eocfm_accepted_epistle
-			months = long_modifier_time
-		}
-		add_radicals = {
-			pop_type = clergymen
-			value = large_radicals
+		add_journal_entry = {
+			type = je_eocfm_encyclical_orthodox_easterners_2
 		}
 	}
 
@@ -6689,13 +6727,13 @@ eocfm.2324 = { # Problems with Phyletism
 		triggered_desc = {
 			desc = eocfm.2324.d1
 			trigger = {
-				global_var:eocfm_council_votes <= 0
+				global_var:eocfm_phyletism_considered = 1
 			}
 		}
 		triggered_desc = {
 			desc = eocfm.2324.d2
 			trigger = {
-				global_var:eocfm_council_votes > 0
+				global_var:eocfm_phyletism_considered = 2
 			}
 		}
 	}
@@ -6724,7 +6762,7 @@ eocfm.2324 = { # Problems with Phyletism
 		name = eocfm.2324.a
 		default_option = yes
 		trigger = {
-			global_var:eocfm_council_votes <= 0
+			global_var:eocfm_phyletism_considered = 1
 		}
 		add_modifier = {
 			name = modifier_eocfm_condemned_phyletism
@@ -6735,7 +6773,7 @@ eocfm.2324 = { # Problems with Phyletism
 	option = { # Phyletism Accepted
 		name = eocfm.2324.b
 		trigger = {
-			global_var:eocfm_council_votes > 0
+			global_var:eocfm_phyletism_considered = 2
 		}
 		add_modifier = {
 			name = modifier_eocfm_endorsed_phyletism
@@ -6749,18 +6787,31 @@ eocfm.2325 = { # The Julian Calendar
 	type = country_event
 	placement = root
 	
-	title = eocfm.2325.t
+	title = {
+		triggered_desc = {
+			desc = eocfm.2325.t1
+			trigger = {
+				global_var:eocfm_calendar_considered = 1
+			}
+		}
+		triggered_desc = {
+			desc = eocfm.2325.t2
+			trigger = {
+				global_var:eocfm_calendar_considered = 2
+			}
+		}
+	}
 	desc = {
 		triggered_desc = {
 			desc = eocfm.2325.d1
 			trigger = {
-				global_var:eocfm_council_votes >= 0
+				global_var:eocfm_calendar_considered = 1
 			}
 		}
 		triggered_desc = {
 			desc = eocfm.2325.d2
 			trigger = {
-				global_var:eocfm_council_votes < 0
+				global_var:eocfm_calendar_considered = 2
 			}
 		}
 	}
@@ -6789,7 +6840,7 @@ eocfm.2325 = { # The Julian Calendar
 		name = eocfm.2325.a
 		default_option = yes
 		trigger = {
-			global_var:eocfm_council_votes >= 0
+			global_var:eocfm_calendar_considered = 1
 		}
 		add_modifier = {
 			name = modifier_eocfm_revised_julian_calendar
@@ -6804,7 +6855,7 @@ eocfm.2325 = { # The Julian Calendar
 	option = { # Chrysostomos would be proud
 		name = eocfm.2325.b
 		trigger = {
-			global_var:eocfm_council_votes < 0
+			global_var:eocfm_calendar_considered = 2
 		}
 		add_modifier = {
 			name = modifier_eocfm_retained_old_calendar

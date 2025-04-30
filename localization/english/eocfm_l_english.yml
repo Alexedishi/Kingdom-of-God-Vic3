@@ -241,6 +241,23 @@
  
  
  # journal entries
+ 
+ ## Catholic Entries
+ 
+ ## Eastern Orthodox Entries
+ je_eocfm_encyclical_orthodox_easterners_1: "The Encyclical of the Eastern Patriarchs"
+ je_eocfm_encyclical_orthodox_easterners_1_reason: "#italic “Filled with the desire to see you return to the fold of the Catholic Church, and to bless you as Our brothers and sons, and awaiting the day when this joy will be given us, We yet again attest Our affection and Our tenderness towards all the Catholics spread through all the lands of the East, to all Patriarchs, Primates, Archbishops, bishops, clergy and laity, and We confer on them Our apostolic blessing.”#! -Pope Pius IX, #italic Epistle to the Easterners,#! 1848\n\nThe [concept_ecumenical_council] has rejected the bank-handed olive branch extended by $eocfm_rome$. The Ecumenical Patriarch, [GetGlobalVariable('eocfm_constantinople_patriarch_var').GetFirstName], has issued an [concept_encyclical] calling for the cessation of any positive relations with the Pope."
+ je_eocfm_encyclical_orthodox_easterners_2: "The Encyclical of the Eastern Patriarchs"
+ je_eocfm_encyclical_orthodox_easterners_2_reason: "#italic “Filled with the desire to see you return to the fold of the Catholic Church, and to bless you as Our brothers and sons, and awaiting the day when this joy will be given us, We yet again attest Our affection and Our tenderness towards all the Catholics spread through all the lands of the East, to all Patriarchs, Primates, Archbishops, bishops, clergy and laity, and We confer on them Our apostolic blessing.”#! -Pope Pius IX, #italic Epistle to the Easterners,#! 1848\n\nThe [concept_ecumenical_council] has shocked the world by accepting the olive branch extended by $eocfm_rome$. The Ecumenical Patriarch, [GetGlobalVariable('eocfm_constantinople_patriarch_var').GetFirstName], has issued an [concept_encyclical] calling for the thawing of relations between the Pope and the Eastern Churches."
+ je_eocfm_encyclical_orthodox_easterners_complete: "The #bold Progress Bar#! is greater than or equal to #bold #greece 90#!#!"
+ je_eocfm_encyclical_orthodox_easterners_fail: "The #bold Progress Bar#! is less than #bold #greece 90#!#!"
+ 
+ ## Oriental Orthodox Entries
+ 
+ 
+ ## Elysian Orthodox Entries
+ 
+ 
  je_eocfm_the_orthodox_realms: "The Orthodox Realms"
  je_eocfm_the_orthodox_realms_reason: "In the times of the Empire, it was the Patriarchate of Constantinople that saw the spread of Christianity across the steppes. Since the fall of the Queen of Cities, the Rus' barbarians have styled themselves as pretenders to the Patriarchal seat. Now that we control the cradles of Christianity, we should extend our oversight to the Greater Orthodox community."
  je_eocfm_the_orthodox_realms_constantinople: "Own #yellow Eastern Thrace#! and control the #bold Seat of Constantinople#!."
@@ -260,7 +277,7 @@
  je_eocfm_texas_left_reason: "The Black Sea was once entirely within the Greek sphere. We will bring relief to our people that still call its shores home."
  
  # journal entry groups
- je_group_eocfm_content: "Eastern Orthodox Content" 
+ je_group_eocfm_content: "Matters of Faith" 
  je_group_eocfm_empire: "The Orthodox Realms"
  
  # modifiers
@@ -863,9 +880,10 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  
  
  
- eocfm_council_active: "An [concept_ecumenical_council] is currently being held."
- eocfm_council_active_NOT: "An [concept_ecumenical_council] is #bold not#! currently being held."
- eocfm_council_counter_below_4: "There have been less than #variable 4#! councils."
+ eocfm_council_active: "An [concept_ecumenical_council] is currently being held"
+ eocfm_council_active_NOT: "An [concept_ecumenical_council] is #bold not#! currently being held"
+ eocfm_council_counter_below_4: "There have been less than #variable 4#! councils"
+ eocfm_council_skipped: "[ROOT.GetCountry.GetName] will be #bold unable#! to vote in the upcoming [concept_ecumenical_council]"
  eocfm_theological_matter: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_theological_matter_list')] Theologial Matter#!#! calling the Church's attention."
  eocfm_theological_matter_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_declare_commonwealth_possible')] Orthodox Commonwealth#!#!."
  

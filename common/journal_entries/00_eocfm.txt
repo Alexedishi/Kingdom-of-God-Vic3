@@ -33,6 +33,7 @@
 ##  EOC1  ROMAN CATHOLIC FLAVOR JOURNAL ENTRIES  ##
 ###################################################
 
+## CATHOLIC ENCYCLICAL ENTRIES ##
 
 
 #####################################################
@@ -40,27 +41,155 @@
 #####################################################
 
 ## ORTHODOX ENCYCLICAL ENTRIES
-je_eocfm_encyclical_orthodox_easterners = {
+je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 	
-	group = je_group_eocfm_encyclicals
+	group = je_group_eocfm_content
 	
 	should_be_pinned_by_default = yes
 	
+	scripted_progress_bar = eocfm_easterners_progress_bar
 	
+	immediate = {
+	}
+	
+	complete = {
+		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_complete
+	}
+	
+	on_complete = {
+		add_modifer = {
+			name = modifier_eocfm_rejected_epistle
+			months = long_modifier_time
+		}
+		eocfm_add_conversative_loyalists = yes
+		eocfm_add_reformist_radicals = yes
+	}
+	
+	fail = {
+		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_fail
+	}
+	
+	on_fail = {
+		add_modifer = {
+			name = modifier_eocfm_failed_encyclical
+			months = long_modifier_time
+		}
+		eocfm_add_reformist_loyalists = yes
+		eocfm_add_conservative_radicals = yes
+	}
+	
+	timeout = 365
+	
+	on_timeout = {
+		if = {
+			limit = {
+				scope:journal_entry = {
+					scripted_bar_progress = {
+						name = eocfm_easterners_progress_bar
+						value >= 90
+					}
+				}
+			}
+			add_modifer = {
+				name = modifier_eocfm_rejected_epistle
+				months = long_modifier_time
+			}
+			eocfm_add_conversative_loyalists = yes
+			eocfm_add_reformist_radicals = yes
+		}
+		else = {
+			add_modifer = {
+				name = modifier_eocfm_failed_encyclical
+				months = long_modifier_time
+			}
+			eocfm_add_reformist_loyalists = yes
+			eocfm_add_conservative_radicals = yes
+		}
+	}
 	
 	weight = 500
 	
 }
 
-je_eocfm_encyclical_orthodox_fraternity = {
+je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 	
-	group = je_group_eocfm_encyclicals
+	group = je_group_eocfm_content
 	
 	should_be_pinned_by_default = yes
 	
+	scripted_progress_bar = eocfm_easterners_progress_bar
 	
+	immediate = {
+	}
+	
+	complete = {
+		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_complete
+	}
+	
+	on_complete = {
+		add_modifer = {
+			name = modifier_eocfm_accepted_epistle
+			months = long_modifier_time
+		}
+		eocfm_add_reformist_loyalists = yes
+		eocfm_add_conservative_radicals = yes
+	}
+	
+	fail = {
+		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_fail
+	}
+	
+	on_fail = {
+		add_modifer = {
+			name = modifier_eocfm_failed_encyclical
+			months = long_modifier_time
+		}
+		eocfm_add_conversative_loyalists = yes
+		eocfm_add_reformist_radicals = yes
+	}
+	
+	timeout = 365
+	
+	on_timeout = {
+		if = {
+			limit = {
+				scope:journal_entry = {
+					scripted_bar_progress = {
+						name = eocfm_easterners_progress_bar
+						value >= 90
+					}
+				}
+			}
+			add_modifer = {
+				name = modifier_eocfm_rejected_epistle
+				months = long_modifier_time
+			}
+			eocfm_add_conversative_loyalists = yes
+			eocfm_add_reformist_radicals = yes
+		}
+		else = {
+			add_modifer = {
+				name = modifier_eocfm_failed_encyclical
+				months = long_modifier_time
+			}
+			eocfm_add_reformist_loyalists = yes
+			eocfm_add_conservative_radicals = yes
+		}
+	}
+	
+	timeout = 365
+	
+	on_timeout = {
+		trigger_if = {
+			limit = {
+				global_var:eocfm_epistle_considered = 1
+			}
+		}
+		
+		
+	}
 	
 	weight = 500
 	

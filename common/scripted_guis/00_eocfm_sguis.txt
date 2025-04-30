@@ -397,15 +397,44 @@ eocfm_disband_schools_sgui = {
 ## ELYSIAN METROPOLIAN INTERACTIONS
 
 
-###################################
-# ECUMENICAL COUNCIL INTERACTIONS #
-###################################
+
+####################
+# ENCYCLICAL SGUIs #
+####################
+
+eocfm_orthodox_encyclicals_sgui = {
+	scope = country
+	
+	is_shown = {
+		OR = {
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_1
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_2
+		}
+	}
+	
+}
+
+eocfm_orthodox_easterners_sgui = {
+	scope = country
+	
+	is_shown = {
+		OR = {
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_1
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_2
+		}
+	}
+	
+}
+
+############################
+# ECUMENICAL COUNCIL SGUIs #
+############################
 
 eocfm_catholic_council_sgui = {
 	scope = country
 	
 	is_shown = {
-		has_global_variable = eocfm_catholic_council_var
+		has_global_variable = eocfm_catholic_convocation_var
 	}
 	
 }
@@ -414,7 +443,7 @@ eocfm_orthodox_council_sgui = {
 	scope = country
 	
 	is_shown = {
-		has_global_variable = eocfm_orthodox_council_var
+		has_global_variable = eocfm_orthodox_convocation_var
 	}
 	
 }
@@ -423,7 +452,7 @@ eocfm_oriental_council_sgui = {
 	scope = country
 	
 	is_shown = {
-		has_global_variable = eocfm_oriental_council_var
+		has_global_variable = eocfm_oriental_convocation_var
 	}
 	
 }
@@ -432,7 +461,7 @@ eocfm_elysian_council_sgui = {
 	scope = country
 	
 	is_shown = {
-		has_global_variable = eocfm_elysian_council_var
+		has_global_variable = eocfm_elysian_convocation_var
 	}
 	
 }
@@ -444,6 +473,7 @@ eocfm_support_council_sgui = {
 		NOR = {
 			has_variable = eocfm_council_support_var
 			has_variable = eocfm_council_timeout_var
+			has_variable = eocfm_council_skipped
 		}
 	}
 	effect = {
@@ -463,7 +493,10 @@ eocfm_abstain_council_sgui = {
 		OR = {
 			has_variable = eocfm_council_support_var
 			has_variable = eocfm_council_oppose_var
+		}
+		NOR = {
 			has_variable = eocfm_council_timeout_var
+			has_variable = eocfm_council_skipped
 		}
 	}
 	effect = = {
@@ -484,6 +517,7 @@ eocfm_oppose_council_sgui = {
 		NOR = {
 			has_variable = eocfm_council_oppose_var
 			has_variable = eocfm_council_timeout_var
+			has_variable = eocfm_council_skipped
 		}
 	}
 	effect = {

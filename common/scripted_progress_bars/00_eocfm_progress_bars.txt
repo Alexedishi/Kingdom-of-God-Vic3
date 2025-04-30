@@ -1,0 +1,36 @@
+﻿eocfm_easterners_progress_bar = {
+ 	name = "eocfm_easterners_progress_bar_name"
+
+ 	default = yes
+
+ 	weekly_progress = {
+		if = {
+			limit = {
+				eocfm_epistle_considered = 1 # Conservative Outcome
+			}
+			subtract = {
+				desc = "eocfm_value_from_rome_opinion"
+				value = {
+					add = var:eocfm_rome_opinion_var
+					multiply = 0.1
+				}
+			}
+		}
+		if = {
+			limit = {
+				eocfm_epistle_considered = 2 # Reformist Outcome
+			}
+			add = {
+				desc = "eocfm_value_from_rome_opinion"
+				value = {
+					add = var:eocfm_rome_opinion_var
+					multiply = 0.1
+				}
+			}
+		}
+	}
+
+ 	start_value = 100
+ 	min_value = 0
+ 	max_value = 200
+}
