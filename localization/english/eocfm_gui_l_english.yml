@@ -117,7 +117,7 @@
  
  # Catholic Ecumenical Council Panel
  eocfm_gui_catholic_council_host: "The #o Council#! of the #yellow Vatican#!"
- eocfm_gui_catholic_council_caller: "#italic Convoked by #yellow [GetGlobalVariable('eocfm_catholic_host_var').GetNameNoFlag]#!#!
+ eocfm_gui_catholic_council_caller: "#italic Convoked by #yellow [GetGlobalVariable('eocfm_catholic_host_var').GetCountry.GetNameNoFlag]#!#!
  eocfm_gui_catholic_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_catholic_matter_type')]#!"
  eocfm_gui_catholic_council_votes: "#italic #greece [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('eocfm_votes_var').GetValue] vote(s)#!#!"
  eocfm_gui_catholic_council_supporters: "Votes in Favor: #greece [GetGlobalVariable('eocfm_catholic_support_var').GetValue]#!"
@@ -127,7 +127,7 @@
  
  # Orthodox Ecumenical Council Panel
  eocfm_gui_orthodox_council_location: "The #o Council#! of [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_orthodox_host_type')]"
- eocfm_gui_orthodox_council_host: "#italic Convoked by #yellow [GetGlobalVariable('eocfm_orthodox_host_var').GetNameNoFlag]#!#!
+ eocfm_gui_orthodox_council_host: "#italic Convoked by #yellow [GetGlobalVariable('eocfm_orthodox_host_var').GetCountry.GetNameNoFlag]#!#!
  eocfm_gui_orthodox_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_orthodox_matter_type')]#!"
  eocfm_gui_orthodox_council_votes: "#italic #greece [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('eocfm_votes_var').GetValue] vote(s)#!#!"
  eocfm_gui_orthodox_council_supporters: "Votes in Favor: #greece [GetGlobalVariable('eocfm_orthodox_support_var').GetValue]#!"
