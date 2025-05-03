@@ -15,12 +15,12 @@
  eocfm_no_focus_alert_setting_name: "No Metropolitan Focus Active"
  
  alert_eocfm_icon_possible_alert_name: "Can Select an Icon"
- alert_eocfm_icon_possible_alert_hint: "We have at least 200 @eocfm_capacity! [concept_caesaropapism] and do not have an icon selected. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget to select one."
+ alert_eocfm_icon_possible_alert_hint: "We have at least 200 $eocfm_faith_capacity$ and do not have an icon selected. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget to select one."
  alert_eocfm_icon_possible_alert_action: "non-existent panel. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget."
  eocfm_icon_possible_alert_setting_name: "@grefm! Icon Selection Possible"
  
  alert_eocfm_integration_possible_alert_name: "Can Integrate Patriarchal Seat"
- alert_eocfm_integration_possible_alert_hint: "We have at least 500 @eocfm_capacity! [concept_caesaropapism] and own a state that hosts a Patriarchal Seat that is not under our control. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget to begin the integration process."
+ alert_eocfm_integration_possible_alert_hint: "We have at least 500 $eocfm_faith_capacity$ and own a state that hosts a Patriarchal Seat that is not under our control. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget to begin the integration process."
  alert_eocfm_integration_possible_alert_action: "non-existent panel. Access the @eocfm_orthodoxy! Eastern Orthodox Church widget."
  eocfm_integration_possible_alert_setting_name: "@grefm! Patriarchal Seat Integration Possible"
  
@@ -192,9 +192,9 @@
  
  # decrees
  decree_eocfm_consecrate_metropolitan: "Consecrate Metropolitan Bishop"
- decree_eocfm_consecrate_metropolitan_desc: "Empower a prominent local Bishop with the authority to exert direct control over his episcopal see. #yellow This will cost 100 [concept_caesaropapism]#!."
+ decree_eocfm_consecrate_metropolitan_desc: "Empower a prominent local Bishop with the authority to exert direct control over his episcopal see. #yellow This will cost 100 $eocfm_faith_capacity$#!."
  decree_eocfm_encourage_almsgiving: "Encourage Almsgiving"
- decree_eocfm_encourage_almsgiving_desc: "Promote the giving of donations to the Orthodox Church (and skim a little off the top). #yellow This will cost 100 [concept_caesaropapism]#!."
+ decree_eocfm_encourage_almsgiving_desc: "Promote the giving of donations to the Orthodox Church (and skim a little off the top). #yellow This will cost 100 $eocfm_faith_capacity$#!."
  
  # diplomatic plays
  dp_crusade: "Crusade"
@@ -206,21 +206,22 @@
  concept_autocephaly: "Autocephaly"
  concept_autocephaly_desc: "While nominally a single ecumenical church, the Eastern Orthodox Church structure is much more decentralized than its Western counterpart in Rome. Every nation plays host to prominent bishops that exert influence over the worship in their domain, sometimes in deviation from the Ecumenical Patriarch in Constantinople #bold Autocephalous#! churches have heads who do not report to any higher Bishop such as the Patriarch of Constantinople or the Bishop of Rome."
  concept_autocephalous: "Autocephalous"
- concept_cardinal: "Cardinal"
- concept_cardinal_desc: "A #bold Cardinal#! is a senior member of the Catholic clergy. Created by the Pope, these members hold the title for life and are called upon to elect a new Pope upon the position becoming vacant. They are also frequently found filling senior positions in the Catholic administrative apparatus."
- concept_cardinals: "Cardinals"
- concept_caesaropapism: "Caesaropapism"
- concept_caesaropapism_desc: "#bold Caesaropapism#! is the extent to which the [GetReligion('orthodox').GetName] Church has been overtaken by and integrated into the state apparatus. This value represents the state's ability to sway its local bishops towards the will of the state.
  concept_crusades: "Crusades"
  concept_crusades_desc: "The Crusades were a series of religiously-motivated wars initiated by Western European countries against non-Christians. While popularly conceptualized as centered on reclaiming the Holy Land from Muslim rulers, similar religious conflicts saw Chrstian expansion into Scandanavia, Eastern Europe, and Iberia. These wars were generally motivated by a desire for fame from nobles and a desire for indulgences by the commonfolk."
  concept_crusade: "Crusade"
  concept_ecumenical_council: "Ecumenical Council"
  concept_ecumenical_council_desc: "#bold Ecumenical Councils#! are large gatherings of prominent bishops for the purpose of settling religious questions or disputes. First called by the Roman Emperors, these councils have become a cornerstone of making critical interpretations of or changes to church dogma. In the Eastern Orthodoxy, these are held to be the supreme legal authority in the church... provided their contents are accepted by the Orthodox community at large.
  concept_councils: "Ecumenical Councils"
- concept_ecumenism: "Ecumenism"
- concept_ecumenism_desc: "Ecumenism is the belief and goal that all Christian communities, regardless of differences in creeds and doctrine should cooperate to bring together the various Christian denominations and reunite into a Great Church. While unthinkable in previous eras, this idea has begun to take hold as Traditionalist thought slowly gives way to more moderate thinking."
  concept_encyclical: "Encyclical"
  concept_encyclical_desc: "An #bold Encyclical#! is a circular letter sent out from either the Pope or other senior Bishops typically concerning matters of doctrine or dispute, meant to provide both clarification and direction to both the clergy and laity."
+ concept_faith_capacity: "Faith Capacity"
+ concept_faith_capacity: "#bold Religious Eminence#! represents the extent to which the [concept_government] exterts influence, and sometimes direct control, over the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant]. Generally, this value indicates a country's ability to sway its local bishops, and our religious community at large, towards the will of the state."
+ concept_faith_capacity_catholic: "Papal Eminence"
+ concept_faith_capacity_orthodox: "Patriarchal Eminence"
+ concept_faith_capacity_oriental: "Synodal Eminence"
+ concept_faith_capacity_elysian: "Synkletos Eminence"
+ concept_faith_capacity_anglican: ""
+ concept_faith_capacity_lutheran: ""
  concept_great_schism: "The Great Schism"
  concept_great_schism_desc: "The #bold Great Schism#!, or East-West Schism, is a term used to describe the complex chain of events that led to the disintegration of communion between $eocfm_rome$ and the $eocfm_eastern_seats$. This divison between the churches administered from Rome and those guided by Constantinople has led to deviations in liturigcal and dogmatic traditions."
  concept_holy_site: "Holy Site"
@@ -232,16 +233,12 @@
  concept_rites: "Rites"
  concept_metropolitan_bishop: "Metropolitan Bishop"
  concept_metropolitan_bishop_desc: "Metropolitan Bishop"
- concept_papal_influence: "Papal Influence"
- concept_papal_influence_desc: "Papal Influence"
  concept_patriarchal_seat: "Patriarchal Seat
  concept_patriarchal_seat_desc: "In late antiquity, the early Christian church was organized into five major regions, each centered on the ancient holy cites of #yellow Rome#!, #yellow Constantinople#!, #yellow Antioch#!, #yellow Jerusalem#!, and #yellow Alexandria#!. Following the Great Schism, the latter four would go on to form the #bold Eastern Orthodoxy.\n\nWith the spread of Christianity to the lands of the Slavs in the middle ages, #yellow Moscow#! has come to be recognized as one of the most important cities in the East, alongside the ancient Patriarchates.
  concept_patriarch: "Patriarch"
  concept_patriarchs: "Patriarchs"
  concept_patriarchate: "Patriarchate"
  concept_patriarchal_seats: "Patriarchal Seats"
- concept_synodal_influence: "Synodal Influence"
- concept_synodal_influence_desc: "Synodal Influence"
  
  
  # journal entries
@@ -481,10 +478,10 @@
  modifier_eocfm_great_mosque_destroyed: "Great Mosque Destroyed"
  
  # modifier types
- country_caesaropapism_add: "@eocfm_capacity! [concept_caesaropapism]"
- country_caesaropapism_add_desc: "@eocfm_capacity! [concept_caesaropapism]"
- country_caesaropapism_mult: "@eocfm_capacity! [concept_caesaropapism]"
- country_caesaropapism_mult_desc: "@eocfm_capacity! [concept_caesaropapism]"
+ country_caesaropapism_add: "$eocfm_faith_capacity$"
+ country_caesaropapism_add_desc: "$eocfm_faith_capacity$"
+ country_caesaropapism_mult: "$eocfm_faith_capacity$"
+ country_caesaropapism_mult_desc: "$eocfm_faith_capacity$"
  country_monthly_schism_progress_add: "Monthly [concept_autocephaly] Progress"
  country_monthly_schism_progress_add_desc: "Monthly [concept_autocephaly] Progress"
  country_monthly_patriarch_relations_progress_add: "Monthly [Concept('concept_patriarchal_seat','$concept_patriarch$')] [concept_relations] Progress"
@@ -531,7 +528,7 @@
  notification_notification_eocfm_paris_claim_desc: "The owner of the [state_region] of $eocfm_paris$ has claimed theological jurisdiction over this [concept_patriarchal_seat]."
  notification_notification_eocfm_paris_usurped_name: "Seat of $eocfm_paris$ Usurped"
  notification_notification_eocfm_paris_usurped_desc: "The owner of the [state_region] of $eocfm_paris$ has claimed theological jurisdiction over this [concept_patriarchal_seat] and installed bishops in alignment with them."
-notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed"
+ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed"
  notification_notification_eocfm_koln_claim_desc: "The owner of the [state_region] of $eocfm_koln$ has claimed theological jurisdiction over this [concept_patriarchal_seat]."
  notification_notification_eocfm_koln_usurped_name: "Seat of $eocfm_koln$ Usurped"
  notification_notification_eocfm_koln_usurped_desc: "The owner of the [state_region] of $eocfm_koln$ has claimed theological jurisdiction over this [concept_patriarchal_seat] and installed bishops in alignment with them."
@@ -668,12 +665,12 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  eocfm_has_mixtec_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_mixtec_rite$"
  eocfm_has_same_rite: "[GetPlayer.GetNameNoFlag] practices the same [concept_liturgical_rite] as this [concept_country]"
  
- eocfm_need_100_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 100#! @eocfm_capacity! [concept_caesaropapism]"
- eocfm_need_200_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 200#! @eocfm_capacity! [concept_caesaropapism]"
- eocfm_need_500_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 500#! @eocfm_capacity! [concept_caesaropapism]"
- eocfm_need_800_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 800#! @eocfm_capacity! [concept_caesaropapism]"
- eocfm_need_1000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 1000#! @eocfm_capacity! [concept_caesaropapism]"
- eocfm_need_2000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 2000#! @eocfm_capacity! [concept_caesaropapism]"
+ eocfm_need_100_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 100#! $eocfm_faith_capacity$"
+ eocfm_need_200_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 200#! $eocfm_faith_capacity$"
+ eocfm_need_500_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 500#! $eocfm_faith_capacity$"
+ eocfm_need_800_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 800#! $eocfm_faith_capacity$"
+ eocfm_need_1000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 1000#! $eocfm_faith_capacity$"
+ eocfm_need_2000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 2000#! $eocfm_faith_capacity$"
  
  eocfm_is_autocephalous: "[GetPlayer.GetNameNoFlag] has gained [concept_autocephaly]"
  eocfm_is_autocephalous_NOT: "[GetPlayer.GetNameNoFlag] has not gained [concept_autocephaly]"
@@ -859,10 +856,16 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  eocfm_no_effects: "No immedate effects..."
  eocfm_nothing_happens: "Nothing happens..."
  
+ eocfm_faith_capacity: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_faith_capacity_type')]"
+ eocfm_catholic_power: "@eocfm_catholic_power! [Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
+ eocfm_orthodox_power: "@eocfm_orthodox_power! [Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
+ eocfm_oriental_power: "@eocfm_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
+ eocfm_elysian_power: "@eocfm_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
+ 
  eocfm_focus_timeout_NOT: "[GetPlayer.GetNameNoFlag] has not changed focus within the last 5 years"
  eocfm_focus_timeout_GET: "#red #italic [GetPlayer.GetNameNoFlag] will be unable to change focus for the next 5 years!#!#!"
  
- eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Control#!#!"
+ eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('0')] Control#!#!"
  eocfm_controls: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controls#!#!"
  eocfm_controlling: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controlling#!#!"
  eocfm_controller:  "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controller#!#!"
@@ -968,7 +971,7 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  eocfm_vienna_modifier: "#bold Holding and $eocfm_controlling$ Vienna will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_vienna').GetDesc]"
  
  ## Eastern Orthodox Church
- eocfm_constantinople: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetRawTextTooltipTag('eocfm_constantinople_details')] Constantinople#!#!#!"
+ eocfm_constantinople: "@eocfm_patriarchate! #bold #yellow #tooltip:[Country.GetTooltipTag],eocfm_constantinople_details Constantinople#!#!#!"
  eocfm_constantinople_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_constantinople').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_LAZIO').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_constantinople_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_constantinople_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_constantinople_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_constantinople_opinion_var').GetValue|+=]#!"
  eocfm_constantinople_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_constantinople_opinion_value')]"
  eocfm_constantinople_modifier: "#bold Holding and $eocfm_controlling$ Constantinople will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_constantinople').GetDesc]"
@@ -1039,36 +1042,36 @@ notification_notification_eocfm_koln_claimed_name: "Seat of $eocfm_koln$ Claimed
  # Liturgical Rites Loc
  eocfm_byzantine_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_byzantine_rite_details')] Byzantine Rite#!#!"
  eocfm_byzantine_rite_details: "The #bold Byzantine Rite#!, also called the Greek Rite, encompasses the range of rituals and traditions that exemplify the [GetReligion('orthodox').GetName] church. Developed from centuries of syncretism between the traditions of Constantinople and the communities of the Levant, this rite is know for its elaborate and mystical traits.\n$TOOLTIP_DELIMITER$\n$eocfm_byzantine_rite_modifier$"
- eocfm_byzantine_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_byzantine_rite_placeholder').GetDesc]#!"
+ eocfm_byzantine_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_byzantine_rite_placeholder').GetDesc]#!"
  
  eocfm_roman_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_roman_rite_details')] Roman Rite#!#!"
  eocfm_roman_rite_details: "The #bold Roman Rite#!, #italic Rītus Rōmānus in Latin#!, is the primary [concept_liturgical_rite] of the [GetReligion('catholic').GetName] church. Recognized for its practical and dignified expression, its rituals harken back to an era when Christendom lived in the shadows of the caesars of Rome.\n$TOOLTIP_DELIMITER$\n$eocfm_roman_rite_modifier$"
- eocfm_roman_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_roman_rite_placeholder').GetDesc]#!"
+ eocfm_roman_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_roman_rite_placeholder').GetDesc]#!"
  
  eocfm_alexandrian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_alexandrian_rite_details')] Alexandrian Rite#!#!"
  eocfm_alexandrian_rite_details: "The #bold Alexandrian Rite#! traces its split from the remainder of Christianity to the rejection of the Council of Chalcedon by the [GetReligion('oriental_orthodox').GetName]. This rite is characterized by the use of a variety of liturgies, both historically and in the present.\n$TOOLTIP_DELIMITER$\n$eocfm_alexandrian_rite_modifier$"
- eocfm_alexandrian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_alexandrian_rite_placeholder').GetDesc]#!"
+ eocfm_alexandrian_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_alexandrian_rite_placeholder').GetDesc]#!"
  
  eocfm_armenian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_armenian_rite_details')] Armenian Rite#!"
  eocfm_armenian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_armenian_rite_modifier$"
- eocfm_armenian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_armenian_rite_placeholder').GetDesc]#!"
+ eocfm_armenian_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_armenian_rite_placeholder').GetDesc]#!"
  
  eocfm_syro_antiochian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_syro_antiochian_rite_details')] Syro-Antiochian Rite#!"
  eocfm_syro_antiochian_rite_details: "The #bold Syro-Antiochian Rite#! .\n$TOOLTIP_DELIMITER$\n$eocfm_syro_antiochian_rite_modifier$"
- eocfm_syro_antiochian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_syro_antiochian_rite_placeholder').GetDesc]#!"
+ eocfm_syro_antiochian_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_syro_antiochian_rite_placeholder').GetDesc]#!"
  
  eocfm_russian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Russian Rite#!"
  eocfm_russian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_russian_rite_modifier$"
- eocfm_russian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_russian_rite_placeholder').GetDesc]#!"
+ eocfm_russian_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_russian_rite_placeholder').GetDesc]#!"
  
  eocfm_nestorian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Nestorian Rite#!"
  eocfm_nestorian_rite_details: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_russian_rite_details')] Nestorian Rite#! \n$TOOLTIP_DELIMITER$\n$eocfm_nestorian_rite_modifier$"
- eocfm_nestorian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_nestorian_rite_placeholder').GetDesc]#!"
+ eocfm_nestorian_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_nestorian_rite_placeholder').GetDesc]#!"
  
  eocfm_elysian_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_elysian_rite_details')] Elysian Rite#!#!"
  eocfm_elysian_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_elysian_rite_modifier$"
- eocfm_elysian_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_elysian_rite_placeholder').GetDesc]#!"
+ eocfm_elysian_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_elysian_rite_placeholder').GetDesc]#!"
  
  eocfm_mixtec_rite: "#yellow #tooltip:[GetRawTextTooltipTag('eocfm_mixtec_rite_details')] Mixtec Rite#!#!"
  eocfm_mixtec_rite_details: "\n$TOOLTIP_DELIMITER$\n$eocfm_mixtec_rite_modifier$"
- eocfm_mixtec_rite_modifier: "#bold This rite gives the following effects at maximum [concept_caesaropapism]:\n[GetStaticModifier('modifier_eocfm_mixtec_rite_placeholder').GetDesc]#!"
+ eocfm_mixtec_rite_modifier: "#bold This rite gives the following effects at maximum $eocfm_faith_capacity$:\n[GetStaticModifier('modifier_eocfm_mixtec_rite_placeholder').GetDesc]#!"
