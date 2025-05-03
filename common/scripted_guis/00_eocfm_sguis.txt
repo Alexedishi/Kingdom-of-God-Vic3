@@ -72,14 +72,25 @@ eocfm_emphasize_unity_sgui = {
 	}
 	
 	is_valid = {
-		NOT = {
+		NOR = {
 			has_modifier = modifier_eocfm_emphasize_unity
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
 		}
 	}
 	
 	effect = {
 		eocfm_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_eocfm_emphasize_unity
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 }
 
@@ -91,15 +102,25 @@ eocfm_enforce_attendance_sgui = {
 	}
 	
 	is_valid = {
-		NOT = {
+		NOR	= {
 			has_modifier = modifier_eocfm_enforce_attendance
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
 		}
 	}
 	
 	effect = {
 		eocfm_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_eocfm_enforce_attendance
-	
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 }
 
@@ -111,14 +132,25 @@ eocfm_theologize_dogma_sgui = {
 	}
 	
 	is_valid = {
-		NOT = {
+		NOR = {
 			has_modifier = modifier_eocfm_theologize_dogma
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
 		}
 	}
 	
 	effect = {
 		eocfm_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_eocfm_theologize_dogma
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 }
 
@@ -130,14 +162,25 @@ eocfm_promote_ecumenism_sgui = {
 	}
 	
 	is_valid = {
-		NOT = {
+		NOR = {
 			has_modifier = modifier_eocfm_promote_ecumenism
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
 		}
 	}
 	
 	effect = {
 		eocfm_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_eocfm_promote_ecumenism
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 }
 
