@@ -104,199 +104,203 @@ eocfm_initialize_patriarchs_effect = {
 				imperious
 			}
 		}
-	}
-	
-	# Santiago
-	create_character = {
-		template = template_eocfm_santiago_patriarch
-		first_name = "Rafael"
-		last_name = "Velez"
-		historical = yes
-		culture = cu:spanish
-		religion = rel:catholic
-		age = { 50 70 } # birth date unknown, position vacated in 1850
-		on_created = {
-			place_character_in_void = 190
+		# Santiago
+		create_character = {
+			template = template_eocfm_santiago_patriarch
+			first_name = "Rafael"
+			last_name = "Velez"
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			age = { 50 70 } # birth date unknown, position vacated in 1850
+			on_created = {
+				place_character_in_void = 190
+			}
 		}
-	}
-	
-	# Paris
-	create_character = {
-		template = template_eocfm_paris_patriarch
-		first_name = "Hyacinthe"
-		last_name = "De_Quelen"
-		historical = yes
-		culture = cu:french
-		religion = rel:catholic
-		birth_date = 1778.10.8
-		on_created = {
-			place_character_in_void = 170
+		
+		# Paris
+		create_character = {
+			template = template_eocfm_paris_patriarch
+			first_name = "Hyacinthe"
+			last_name = "De_Quelen"
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			birth_date = 1778.10.8
+			on_created = {
+				place_character_in_void = 170
+			}
 		}
-	}
-	
-	# Koln
-	create_character = {
-		template = template_eocfm_koln_patriarch
-		first_name = "Clemens"
-		last_name = "Droste_zu_Vischering"
-		historical = yes
-		culture = cu:north_german
-		religion = rel:catholic
-		birth_date = 1773.1.21
-		on_created = {
-			place_character_in_void = 150
+		
+		# Koln
+		create_character = {
+			template = template_eocfm_koln_patriarch
+			first_name = "Clemens"
+			last_name = "Droste_zu_Vischering"
+			historical = yes
+			culture = cu:north_german
+			religion = rel:catholic
+			birth_date = 1773.1.21
+			on_created = {
+				place_character_in_void = 150
+			}
 		}
-	}
-	
-	# Vienna
-	create_character = {
-		template = template_eocfm_vienna_patriarch
-		first_name = "Vinzenz"
-		last_name = "Milde"
-		historical = yes
-		culture = cu:south_german
-		religion = rel:catholic
-		birth_date = 1777.5.11
-		on_created = {
-			place_character_in_void = 210
+		
+		# Vienna
+		create_character = {
+			template = template_eocfm_vienna_patriarch
+			first_name = "Vinzenz"
+			last_name = "Milde"
+			historical = yes
+			culture = cu:south_german
+			religion = rel:catholic
+			birth_date = 1777.5.11
+			on_created = {
+				place_character_in_void = 210
+			}
 		}
 	}
 	
 	## Orthodox Churches
-	# Constantinople
-	create_character = {
-		template = template_eocfm_constantinople_patriarch
-		first_name = "Georgios"
-		last_name = "Fourtouniadis"
-		historical = yes
-		culture = cu:greek
-		religion = rel:orthodox
-		on_created = {
-			place_character_in_void = 140
+	c:TUR ?= {
+		# Constantinople
+		create_character = {
+			template = template_eocfm_constantinople_patriarch
+			first_name = "Georgios"
+			last_name = "Fourtouniadis"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			on_created = {
+				place_character_in_void = 140
+			}
 		}
-	}
-	# Antioch
-	create_character = {
-		template = template_eocfm_antioch_patriarch
-		first_name = "Methodius"
-		last_name = "Methodius"
-		historical = yes
-		culture = cu:greek
-		religion = rel:orthodox
-		on_created = {
-			place_character_in_void = 110
+		# Antioch
+		create_character = {
+			template = template_eocfm_antioch_patriarch
+			first_name = "Methodius"
+			last_name = "Methodius"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			on_created = {
+				place_character_in_void = 110
+			}
 		}
-	}
-	
-	# Jerusalem
-	create_character = {
-		template = template_eocfm_jerusalem_patriarch
-		first_name = "Methodius"
-		last_name = "Methodius"
-		historical = yes
-		culture = cu:greek
-		religion = rel:orthodox
-		on_created = {
-			place_character_in_void = 200
+		
+		# Jerusalem
+		create_character = {
+			template = template_eocfm_jerusalem_patriarch
+			first_name = "Methodius"
+			last_name = "Methodius"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			on_created = {
+				place_character_in_void = 200
+			}
 		}
-	}
-	
-	# Alexandria
-	create_character = {
-		template = template_eocfm_alexandria_patriarch
-		first_name = "Hierotheus"
-		last_name = "Hierotheus"
-		historical = yes
-		culture = cu:greek
-		religion = rel:orthodox
-		on_created = {
-			place_character_in_void = 205
+		
+		# Alexandria
+		create_character = {
+			template = template_eocfm_alexandria_patriarch
+			first_name = "Hierotheus"
+			last_name = "Hierotheus"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			on_created = {
+				place_character_in_void = 205
+			}
 		}
-	}
-	
-	# Moscow
-	create_character = {
-		template = template_eocfm_moscow_patriarch
-		first_name = "Vasily"
-		last_name = "Drozdov"
-		historical = yes
-		culture = cu:russian
-		religion = rel:orthodox
-		on_created = {
-			place_character_in_void = 250
-		}
-	}
-	
-	## Oriental Orthodox Churches
-	# Coptic Alexandria
-	create_character = {
-		template = template_eocfm_coptic_alexandria_patriarch
-		first_name = "Abba"
-		last_name = "El_Gawly"
-		historical = yes
-		culture = cu:misri
-		religion = rel:oriental_orthodox
-		age = { 50 70 } # birth date unknown, died in 1852
-		on_created = {
-			place_character_in_void = 280
+		
+		# Moscow
+		create_character = {
+			template = template_eocfm_moscow_patriarch
+			first_name = "Vasily"
+			last_name = "Drozdov"
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			on_created = {
+				place_character_in_void = 250
+			}
 		}
 	}
 	
-	# Syriac Antioch
-	create_character = {
-		template = template_eocfm_syriac_antioch_patriarch
-		first_name = "Ignatius"
-		last_name = "Georgios"
-		historical = yes
-		culture = cu:mashriqi
-		religion = rel:oriental_orthodox
-		age = { 70 80 } # birth date unknown, died in 1836
-		on_created = {
-			place_character_in_void = 24
+	c:EGY ?= {
+		## Oriental Orthodox Churches
+		# Coptic Alexandria
+		create_character = {
+			template = template_eocfm_coptic_alexandria_patriarch
+			first_name = "Abba"
+			last_name = "El_Gawly"
+			historical = yes
+			culture = cu:misri
+			religion = rel:oriental_orthodox
+			age = { 50 70 } # birth date unknown, died in 1852
+			on_created = {
+				place_character_in_void = 280
+			}
+		}
+		
+		# Syriac Antioch
+		create_character = {
+			template = template_eocfm_syriac_antioch_patriarch
+			first_name = "Ignatius"
+			last_name = "Georgios"
+			historical = yes
+			culture = cu:mashriqi
+			religion = rel:oriental_orthodox
+			age = { 70 80 } # birth date unknown, died in 1836
+			on_created = {
+				place_character_in_void = 24
+			}
+		}
+		
+		# Armenia
+		create_character = {
+			template = template_eocfm_etchmiadzin_patriarch
+			first_name = "Johannes"
+			last_name = "Karbesti"
+			historical = yes
+			culture = cu:armenian
+			religion = rel:oriental_orthodox
+			age = { 50 70 } # birth date unknown, position vacated in 1842
+			on_created = {
+				place_character_in_void = 120
+			}
+		}
+		
+		# Addis Ababa
+		create_character = { # Seat vacant 1829–1841, Salama III advanced to 1836 for mechanical reasons
+			template = template_eocfm_addis_ababa_patriarch
+			first_name = "Abuna"
+			last_name = "Salama"
+			historical = yes
+			culture = cu:oromo
+			religion = rel:oriental_orthodox
+			age = { 50 70 } # birth date unknown, position vacated in 1867
+			on_created = {
+				place_character_in_void = 260
+			}
+		}
+		
+		# Konak
+		create_character = {
+			template = template_eocfm_konak_patriarch
+			first_name = "Mar"
+			last_name = "Shimun" # idk, there are a few Anglicizations of his last name
+			historical = yes
+			culture = cu:assyrian
+			religion = rel:oriental_orthodox # Not accurate, I know
+			age = 36 # This guy was appointed as the Catholicos-Patriarch at the age of 20, what a chad
+			on_created = {
+				place_character_in_void = 300
+			}
 		}
 	}
 	
-	# Armenia
-	create_character = {
-		template = template_eocfm_etchmiadzin_patriarch
-		first_name = "Johannes"
-		last_name = "Karbesti"
-		historical = yes
-		culture = cu:armenian
-		religion = rel:oriental_orthodox
-		age = { 50 70 } # birth date unknown, position vacated in 1842
-		on_created = {
-			place_character_in_void = 120
-		}
-	}
-	
-	# Addis Ababa
-	create_character = { # Seat vacant 1829–1841, Salama III advanced to 1836 for mechanical reasons
-		template = template_eocfm_addis_ababa_patriarch
-		first_name = "Abuna"
-		last_name = "Salama"
-		historical = yes
-		culture = cu:oromo
-		religion = rel:oriental_orthodox
-		age = { 50 70 } # birth date unknown, position vacated in 1867
-		on_created = {
-			place_character_in_void = 260
-		}
-	}
-	
-	# Konak
-	create_character = {
-		template = template_eocfm_konak_patriarch
-		first_name = "Mar"
-		last_name = "Shimun" # idk, there are a few Anglicizations of his last name
-		historical = yes
-		culture = cu:assyrian
-		religion = rel:oriental_orthodox # Not accurate, I know
-		age = 36 # This guy was appointed as the Catholicos-Patriarch at the age of 20, what a chad
-		on_created = {
-			place_character_in_void = 300
-		}
-	}
 }
 
 eocfm_initialize_seat_controllers_effect = {
