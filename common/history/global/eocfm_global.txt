@@ -32,7 +32,11 @@
 		eocfm_initialize_metropolis_effect = yes # Initialize Variables and First Opener Events	
 	}
 	
-	eocfm_initialize_ranking_lists = yes # Needs to fire after all countries are initialized
+	p:xB040A0 = { # A Country MUST own the Rome province for this effect to succeed
+		owner = {
+			eocfm_initialize_ranking_lists = yes # Needs to fire after all countries are initialized
+		}
+	}
 	
 	add_to_global_variable_list = { # Final Setup
 		name = custom_button_list_flag
