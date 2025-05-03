@@ -7094,17 +7094,16 @@ eocfm.2392 = { # The Orthodox Realms
 	desc = eocfm.2392.d
 	flavor = eocfm.2392.f
 	
+	gui_window = event_window_widescreen_classic
+	
 	event_image = {
-		video = "unspecific_military_parade"
+		texture = "gfx/event_pictures/eocfm_backgrounds/southamerica_christianity.dds"
 	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-
-	duration = 3
 	
-	dlc = dlc_eocfm
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/eocfm_monk_chant"
 	
 	trigger = {
 		# triggered by je_eocfm_the_orthodox_realms
