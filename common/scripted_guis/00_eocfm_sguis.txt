@@ -1033,7 +1033,7 @@ eocfm_start_sway_rome_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1055,6 +1055,41 @@ eocfm_stop_sway_rome_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_rome
+	}
+}
+
+eocfm_start_harm_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_rome
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_rome
+	}
+}
+
+eocfm_stop_harm_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_rome
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_rome
 	}
 }
 
@@ -1117,7 +1152,7 @@ eocfm_start_sway_santiago_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1139,6 +1174,41 @@ eocfm_stop_sway_santiago_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_santiago
+	}
+}
+
+eocfm_start_harm_santiago_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_santiago
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_santiago
+	}
+}
+
+eocfm_stop_harm_santiago_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_santiago
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_santiago
 	}
 }
 
@@ -1201,7 +1271,7 @@ eocfm_start_sway_paris_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1223,6 +1293,41 @@ eocfm_stop_sway_paris_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_paris
+	}
+}
+
+eocfm_start_harm_paris_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_paris
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_paris
+	}
+}
+
+eocfm_stop_harm_paris_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_paris
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_paris
 	}
 }
 
@@ -1285,7 +1390,7 @@ eocfm_start_sway_koln_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1307,6 +1412,41 @@ eocfm_stop_sway_koln_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_koln
+	}
+}
+
+eocfm_start_harm_koln_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_koln
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_koln
+	}
+}
+
+eocfm_stop_harm_koln_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_koln
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_koln
 	}
 }
 
@@ -1369,7 +1509,7 @@ eocfm_start_sway_vienna_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1391,6 +1531,41 @@ eocfm_stop_sway_vienna_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_vienna
+	}
+}
+
+eocfm_start_harm_vienna_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_vienna
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_vienna
+	}
+}
+
+eocfm_stop_harm_vienna_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_vienna
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_vienna
 	}
 }
 
@@ -1482,7 +1657,7 @@ eocfm_start_sway_constantinople_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1504,6 +1679,41 @@ eocfm_stop_sway_constantinople_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_constantinople
+	}
+}
+
+eocfm_start_harm_constantinople_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_constantinople
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_constantinople
+	}
+}
+
+eocfm_stop_harm_constantinople_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_constantinople
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_constantinople
 	}
 }
 
@@ -1566,7 +1776,7 @@ eocfm_start_sway_antioch_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1588,6 +1798,41 @@ eocfm_stop_sway_antioch_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_antioch
+	}
+}
+
+eocfm_start_harm_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_antioch
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_antioch
+	}
+}
+
+eocfm_stop_harm_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_antioch
 	}
 }
 
@@ -1650,7 +1895,7 @@ eocfm_start_sway_jerusalem_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1672,6 +1917,41 @@ eocfm_stop_sway_jerusalem_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_jerusalem
+	}
+}
+
+eocfm_start_harm_jerusalem_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_jerusalem
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_jerusalem
+	}
+}
+
+eocfm_stop_harm_jerusalem_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_jerusalem
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_jerusalem
 	}
 }
 
@@ -1726,7 +2006,7 @@ eocfm_start_sway_alexandria_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1748,6 +2028,41 @@ eocfm_stop_sway_alexandria_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_alexandria
+	}
+}
+
+eocfm_start_harm_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_alexandria
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_alexandria
+	}
+}
+
+eocfm_stop_harm_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_alexandria
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_alexandria
 	}
 }
 
@@ -1810,7 +2125,7 @@ eocfm_start_sway_moscow_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1832,6 +2147,41 @@ eocfm_stop_sway_moscow_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_moscow
+	}
+}
+
+eocfm_start_harm_moscow_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_moscow
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_moscow
+	}
+}
+
+eocfm_stop_harm_moscow_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_moscow
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_moscow
 	}
 }
 
@@ -1924,7 +2274,7 @@ eocfm_start_sway_coptic_alexandria_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -1946,6 +2296,41 @@ eocfm_stop_sway_coptic_alexandria_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_coptic_alexandria
+	}
+}
+
+eocfm_start_harm_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_coptic_alexandria
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_coptic_alexandria
+	}
+}
+
+eocfm_stop_harm_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_coptic_alexandria
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_coptic_alexandria
 	}
 }
 
@@ -2008,7 +2393,7 @@ eocfm_start_sway_syriac_antioch_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2030,6 +2415,41 @@ eocfm_stop_sway_syriac_antioch_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_syriac_antioch
+	}
+}
+
+eocfm_start_harm_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_syriac_antioch
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_syriac_antioch
+	}
+}
+
+eocfm_stop_harm_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_syriac_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_syriac_antioch
 	}
 }
 
@@ -2092,7 +2512,7 @@ eocfm_start_sway_etchmiadzin_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2114,6 +2534,41 @@ eocfm_stop_sway_etchmiadzin_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_etchmiadzin
+	}
+}
+
+eocfm_start_harm_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_etchmiadzin
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_etchmiadzin
+	}
+}
+
+eocfm_stop_harm_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_etchmiadzin
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_etchmiadzin
 	}
 }
 
@@ -2176,7 +2631,7 @@ eocfm_start_sway_addis_ababa_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2198,6 +2653,41 @@ eocfm_stop_sway_addis_ababa_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_addis_ababa
+	}
+}
+
+eocfm_start_harm_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_addis_ababa
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_addis_ababa
+	}
+}
+
+eocfm_stop_harm_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_addis_ababa
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_addis_ababa
 	}
 }
 
@@ -2260,7 +2750,7 @@ eocfm_start_sway_konak_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2282,6 +2772,41 @@ eocfm_stop_sway_konak_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_konak
+	}
+}
+
+eocfm_start_harm_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_konak
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_konak
+	}
+}
+
+eocfm_stop_harm_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_konak
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_konak
 	}
 }
 
@@ -2374,7 +2899,7 @@ eocfm_start_sway_elysium_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2396,6 +2921,41 @@ eocfm_stop_sway_elysium_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_elysium
+	}
+}
+
+eocfm_start_harm_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_elysium
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_elysium
+	}
+}
+
+eocfm_stop_harm_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_elysium
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_elysium
 	}
 }
 
@@ -2458,7 +3018,7 @@ eocfm_start_sway_mixtec_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2480,6 +3040,41 @@ eocfm_stop_sway_mixtec_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_mixtec
+	}
+}
+
+eocfm_start_harm_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_mixtec
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_mixtec
+	}
+}
+
+eocfm_stop_harm_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_mixtec
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_mixtec
 	}
 }
 
@@ -2542,7 +3137,7 @@ eocfm_start_sway_cahokia_sgui = {
 	}
 	
 	is_valid = {
-		eocfm_has_200_caesaropapism_trigger = yes
+		eocfm_has_100_caesaropapism_trigger = yes
 		influence > 100
 	}
 	
@@ -2564,5 +3159,40 @@ eocfm_stop_sway_cahokia_sgui = {
 	
 	effect = {
 		remove_modifier = modifier_eocfm_swaying_cahokia
+	}
+}
+
+eocfm_start_harm_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_antagonizing_cahokia
+		}
+	}
+	
+	is_valid = {
+		eocfm_has_100_caesaropapism_trigger = yes
+		influence > 100
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_antagonizing_cahokia
+	}
+}
+
+eocfm_stop_harm_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_antagonizing_cahokia
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_antagonizing_cahokia
 	}
 }
