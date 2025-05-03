@@ -1,6 +1,6 @@
 ﻿#### CAPACITY VALUES ####
 
-## Papal Influence Value = {
+## Papal Influence Value
 eocfm_papacy_capacity_value = {
 	value = 0
 	
@@ -10,8 +10,16 @@ eocfm_papacy_capacity_value = {
 		desc = eocfm_value_from_base
 	}
 	
+	## EXPENSES
+	# Seat Diplomacy Check
+	subtract = {
+		value = eocfm_seat_diplomacy_value
+		desc = eocfm_value_from_diplomacy
+	}
+	
 }
 
+## Caesaropapism Value
 eocfm_caesaropapism_capacity_value = {
 	value = 0
 	
@@ -304,227 +312,7 @@ eocfm_caesaropapism_capacity_value = {
 	
 	# Seat Diplomacy Check
 	subtract = {
-		value = {
-			# Relations Improvement Modifiers
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_rome
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_santiago
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_paris
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_koln
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_vienna
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_constantinople
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_antioch
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_jerusalem
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_alexandria
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_moscow
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_coptic_alexandria
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_syriac_antioch
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_etchmiadzin
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_addis_ababa
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_konak
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_elysium
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_mixtec
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_swaying_cahokia
-				}
-				add = 100
-			}
-			
-			# Relations Reduction Modifiers
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_rome
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_santiago
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_paris
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_koln
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_vienna
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_constantinople
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_antioch
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_jerusalem
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_alexandria
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_moscow
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_coptic_alexandria
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_syriac_antioch
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_etchmiadzin
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_addis_ababa
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_konak
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_elysium
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_mixtec
-				}
-				add = 100
-			}
-			if = {
-				limit = {
-					has_modifier = modifier_eocfm_antagonzing_cahokia
-				}
-				add = 100
-			}
-		}
+		value = eocfm_seat_diplomacy_value
 		desc = eocfm_value_from_diplomacy
 	}
 	
@@ -576,6 +364,13 @@ eocfm_synodal_capacity_value = {
 		desc = eocfm_value_from_base
 	}
 	
+	## EXPENSES
+	# Seat Diplomacy Check
+	subtract = {
+		value = eocfm_seat_diplomacy_value
+		desc = eocfm_value_from_diplomacy
+	}
+	
 }
 
 eocfm_elysian_capacity_value = {
@@ -585,6 +380,13 @@ eocfm_elysian_capacity_value = {
 	add = {
 		value = 100
 		desc = eocfm_value_from_base
+	}
+	
+	## EXPENSES
+	# Seat Diplomacy Check
+	subtract = {
+		value = eocfm_seat_diplomacy_value
+		desc = eocfm_value_from_diplomacy
 	}
 	
 }
@@ -727,6 +529,230 @@ eocfm_holy_sites_value = {
 			has_variable = eocfm_controls_cahokia
 		}
 		add = 1
+	}
+}
+
+eocfm_seat_diplomacy_value = {
+	value = 0
+	
+	# Relations Improvement Modifiers
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_rome
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_santiago
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_paris
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_koln
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_vienna
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_constantinople
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_jerusalem
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_moscow
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_coptic_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_syriac_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_etchmiadzin
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_addis_ababa
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_konak
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_elysium
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_mixtec
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_cahokia
+		}
+		add = 100
+	}
+	
+	# Relations Reduction Modifiers
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_rome
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_santiago
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_paris
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_koln
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_vienna
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_constantinople
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_jerusalem
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_moscow
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_coptic_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_syriac_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_etchmiadzin
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_addis_ababa
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_konak
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_elysium
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_mixtec
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonzing_cahokia
+		}
+		add = 100
 	}
 }
 
@@ -1133,7 +1159,7 @@ eocfm_schism_progress_value = {
 		}
 		add = {
 			value = 2
-			desc = eocfm_value_from_base
+			desc = eocfm_value_from_base_progress
 		}
 	}
 	if = {
