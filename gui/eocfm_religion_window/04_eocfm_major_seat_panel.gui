@@ -747,218 +747,164 @@ types eocfm_ecumenical_seat_panels {
 				using = vertical_scrollbar
 			}
 
-			scrollwidget = {
-				flowcontainer = {
-					using = default_list_position
-					margin_top = 10
-					direction = vertical
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 5
+				
+				datamodel = "[GetGlobalList('eocfm_orthodox_ranking')]"
+				
+				item = {
+					vbox = {
+						datacontext = "[Scope.GetCountry]"
+						
+						widget = {
+							size = { @panel_width_minus_10 140 }
 
-					default_header = {
-						blockoverride "text" {
-							raw_text = "DUMMY"
-						}
-					}
+							icon = {
+								using = dark_area
+								using = frame_small_mask
+								parentanchor = right
+								size = { 240 140 }
+								alpha = 0.2
+								position = { 0 0 }
 
-					flowcontainer = {
-						parentanchor = hcenter
-						direction = vertical
-						spacing = 10
-						margin = { 0 10 }
+								modify_texture = {
+									texture = "gfx/interface/masks/fade_horizontal_left.dds"
+									spriteType = Corneredstretched
+									spriteborder = { 0 0 }
+									blend_mode = alphamultiply
+								}
+							}
 
-						datamodel = "[GetGlobalList('eocfm_orthodox_ranking')]"
+							background = {
+								texture = "gfx/interface/backgrounds/subject_liberty_desire_frame.dds"
+							}
 
-						item = {
+							fancy_flag_ui = {
+								size = { 80 60 }
+								position = { 10 10 }
+
+								blockoverride "overlay_button_and_bg_glow_position" {
+									position = { -9 -4 }
+								}
+
+								blockoverride "rank_badge_block" {}
+							}
+
+							container = {
+								parentanchor = bottom
+
+								flowcontainer = {
+									parentanchor = hcenter
+									position = { 0 7 }
+									spacing = 5
+									tooltip = "COUNTRY_RELATIONS_TOOLTIP"
+									using = tooltip_se
+
+									flowcontainer = {
+										visible = "[Not(ObjectsEqual(Scope.GetCountry.MakeScope, GetPlayer.MakeScope))]"
+										textbox = {
+											parentanchor = vcenter
+											autoresize = yes
+											align = nobaseline
+											max_width = 190
+											fontsize_min = 12
+											elide = right
+											raw_text = "DUMMY"
+										}
+									}
+
+									flowcontainer = {
+										visible = "[ObjectsEqual(Scope.GetCountry.MakeScope, GetPlayer.MakeScope)]"
+										textbox = {
+											parentanchor = vcenter
+											autoresize = yes
+											align = nobaseline
+											max_width = 100
+											fontsize_min = 12
+											elide = right
+											raw_text = "DUMMY"
+										}
+									}
+								}
+							}
+
 							flowcontainer = {
-								datacontext = "[Scope.GetCountry]"
-								direction = vertical
-								parentanchor = hcenter
+								position = { 100 10 }
+								spacing = 15
 
-								widget = {
-									size = { @panel_width_minus_10 140 }
+								flowcontainer = {
+									parentanchor = vcenter
+									direction = vertical
 
-									icon = {
-										using = dark_area
-										using = frame_small_mask
-										parentanchor = right
-										size = { 240 140 }
-										alpha = 0.2
-										position = { 0 0 }
-
-										modify_texture = {
-											texture = "gfx/interface/masks/fade_horizontal_left.dds"
-											spriteType = Corneredstretched
-											spriteborder = { 0 0 }
-											blend_mode = alphamultiply
-										}
+									textbox = {
+										minimumsize = { 225 -1 }
+										maximumsize = { 225 -1 }
+										autoresize = yes
+										align = nobaseline
+										elide = right
+										fontsize_min = 12
+										using = fontsize_large
+										raw_text = "[Country.GetNameNoFlag]"
 									}
 
-									background = {
-										texture = "gfx/interface/backgrounds/subject_liberty_desire_frame.dds"
+									textbox = {
+										autoresize = yes
+										align = nobaseline
+										raw_text = "[Country.GetDefinition.GetTier]"
 									}
+								}
+							}
 
-									fancy_flag_ui = {
-										size = { 80 60 }
-										position = { 10 10 }
+							### OTHER ACTIVE PACTS WITH THIS SUBJECT
+							flowcontainer = {
+								parentanchor = right|vcenter
 
-										blockoverride "overlay_button_and_bg_glow_position" {
-											position = { -9 -4 }
-										}
+								dynamicgridbox = {
+									parentanchor = vcenter
+									datamodel_wrap = 3
+									datamodel = "[AccessPlayer.AccessActiveDiplomaticPacts(Country.Self)]"
 
-										blockoverride "rank_badge_block" {}
-									}
+									item = {
+										widget = {
+											size = { 40 40 }
 
-									container = {
-										parentanchor = bottom
+											icon = {
+												parentanchor = center
+												size = { 80% 80% }
+												datacontext = "[DiplomaticPact.GetDiplomaticActionType]"
+												texture = "[DiplomaticActionType.GetTexture]"
 
-										flowcontainer = {
-											parentanchor = hcenter
-											position = { 0 7 }
-											spacing = 5
-											tooltip = "COUNTRY_RELATIONS_TOOLTIP"
-											using = tooltip_se
-
-											flowcontainer = {
-												visible = "[Not(ObjectsEqual(Scope.GetCountry.MakeScope, GetPlayer.MakeScope))]"
-												textbox = {
-													parentanchor = vcenter
-													autoresize = yes
-													align = nobaseline
-													max_width = 190
-													fontsize_min = 12
-													elide = right
-													raw_text = "DUMMY"
-												}
-											}
-
-											flowcontainer = {
-												visible = "[ObjectsEqual(Scope.GetCountry.MakeScope, GetPlayer.MakeScope)]"
-												textbox = {
-													parentanchor = vcenter
-													autoresize = yes
-													align = nobaseline
-													max_width = 100
-													fontsize_min = 12
-													elide = right
-													raw_text = "DUMMY"
-												}
-											}
-										}
-									}
-
-									flowcontainer = {
-										position = { 100 10 }
-										spacing = 15
-
-										flowcontainer = {
-											parentanchor = vcenter
-											direction = vertical
-
-											textbox = {
-												minimumsize = { 225 -1 }
-												maximumsize = { 225 -1 }
-												autoresize = yes
-												align = nobaseline
-												elide = right
-												fontsize_min = 12
-												using = fontsize_large
-												raw_text = "[Country.GetNameNoFlag]"
-											}
-
-											textbox = {
-												autoresize = yes
-												align = nobaseline
-												raw_text = "[Country.GetDefinition.GetTier]"
-											}
-										}
-									}
-
-									### OTHER ACTIVE PACTS WITH THIS SUBJECT
-									flowcontainer = {
-										parentanchor = right|vcenter
-
-										dynamicgridbox = {
-											parentanchor = vcenter
-											datamodel_wrap = 3
-											datamodel = "[AccessPlayer.AccessActiveDiplomaticPacts(Country.Self)]"
-
-											item = {
-												widget = {
-													size = { 40 40 }
-
-													icon = {
-														parentanchor = center
-														size = { 80% 80% }
-														datacontext = "[DiplomaticPact.GetDiplomaticActionType]"
-														texture = "[DiplomaticActionType.GetTexture]"
-
-														tooltipwidget = {
-															FancyTooltip_DiplomaticActionType = {
-																blockoverride "text_before_before" {
-																	visible = "[GreaterThan_CFixedPoint(DiplomaticActionType.GetMaintenanceCost(GetPlayer.Self, Country.Self), '(CFixedPoint)0')]"
-																	text = "DIPLOMATIC_ACTION_TYPE_COST"
-																	margin_bottom = 15
-																}
-															}
+												tooltipwidget = {
+													FancyTooltip_DiplomaticActionType = {
+														blockoverride "text_before_before" {
+															visible = "[GreaterThan_CFixedPoint(DiplomaticActionType.GetMaintenanceCost(GetPlayer.Self, Country.Self), '(CFixedPoint)0')]"
+															text = "DIPLOMATIC_ACTION_TYPE_COST"
+															margin_bottom = 15
 														}
 													}
 												}
 											}
 										}
-
-										widget = {
-											size = { 3 3 }
-										}
-
-										vertical_divider = {
-											size = { 2 150 }
-										}
-
-										widget = {
-											size = { 10 10 }
-										}
-
-										flowcontainer = {
-											parentanchor = vcenter
-											direction = vertical
-											margin_right = 10
-
-											flowcontainer = {
-												direction = vertical
-												spacing = 5
-
-												### Magic Diplomatic Actions
-												# TODO: Add magic diplomatic actions here
-												# gate_diplo_button = {
-												#	 blockoverride "datacontext" {
-												#		 datacontext = "[GetPlayer.GetDiplomaticAction('damage_relations', Country.Self)]"
-												#	 }
-												# }
-											}
-										}
-									}
-
-									rank_badge = {
-										size = { 45 45 }
-										position = { -15 -15 }
-
-										blockoverride "datacontext " {}
-
-										blockoverride "font_size_under_100_rank" {
-											using = fontsize_medium
-										}
 									}
 								}
+							}
 
-								widget = {
-									size = { 5 5 }
+							rank_badge = {
+								size = { 45 45 }
+								position = { -15 -15 }
+
+								blockoverride "datacontext " {}
+
+								blockoverride "font_size_under_100_rank" {
+									using = fontsize_medium
 								}
 							}
 						}
 					}
 				}
 			}
-			
-			expand = {}
 			
 		}
 	}
