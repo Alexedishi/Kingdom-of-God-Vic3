@@ -37,10 +37,11 @@ types eocfm_metropolitan_panels {
 					button_icon_round = {
 						# Practical Academia
 						size = { 55 55 }
-
+						
 						datacontext = "[GetScriptedGui('eocfm_emphasize_unity_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
 						tooltip = "eocfm_gui_emphasize_unity"
 						blockoverride "icon" {
 							texture = "gfx/interface/icons/gui_icons/eocfm_emphasize_unity_button.dds"
@@ -54,10 +55,11 @@ types eocfm_metropolitan_panels {
 					button_icon_round = {
 						# Practical Academia
 						size = { 55 55 }
-
+						
 						datacontext = "[GetScriptedGui('eocfm_enforce_attendance_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
 						tooltip = "eocfm_gui_enforce_attendance"
 						blockoverride "icon" {
 							texture = "gfx/interface/icons/gui_icons/eocfm_enforce_attendance_button.dds"
@@ -71,10 +73,11 @@ types eocfm_metropolitan_panels {
 					button_icon_round = {
 						# Practical Academia
 						size = { 55 55 }
-
+						
 						datacontext = "[GetScriptedGui('eocfm_theologize_dogma_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
 						tooltip = "eocfm_gui_theologize_dogma"
 						blockoverride "icon" {
 							texture = "gfx/interface/icons/gui_icons/eocfm_theologize_dogma_button.dds"
@@ -88,10 +91,11 @@ types eocfm_metropolitan_panels {
 					button_icon_round = {
 						# Practical Academia
 						size = { 55 55 }
-
+						
 						datacontext = "[GetScriptedGui('eocfm_promote_ecumenism_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
 						tooltip = "eocfm_gui_promote_ecumenism"
 						blockoverride "icon" {
 							texture = "gfx/interface/icons/gui_icons/eocfm_promote_ecumenism_button.dds"
