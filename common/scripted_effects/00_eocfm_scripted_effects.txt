@@ -2108,6 +2108,423 @@ eocfm_update_seat_controllers_effect = {
 	}
 }
 
+eocfm_push_patriarch_relations_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_rome
+		}
+		change_variable = {
+			name = eocfm_rome_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_rome
+		}
+		change_variable = {
+			name = eocfm_rome_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_rome_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_santiago
+		}
+		change_variable = {
+			name = eocfm_santiago_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_santiago
+		}
+		change_variable = {
+			name = eocfm_santiago_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_santiago_relations_var
+		min = -50
+		max = 50
+	}	
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_paris
+		}
+		change_variable = {
+			name = eocfm_paris_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_paris
+		}
+		change_variable = {
+			name = eocfm_paris_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_paris_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_koln
+		}
+		change_variable = {
+			name = eocfm_koln_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_koln
+		}
+		change_variable = {
+			name = eocfm_koln_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_koln_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_vienna
+		}
+		change_variable = {
+			name = eocfm_vienna_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_vienna
+		}
+		change_variable = {
+			name = eocfm_vienna_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_vienna_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_constantinople
+		}
+		change_variable = {
+			name = eocfm_constantinople_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_constantinople
+		}
+		change_variable = {
+			name = eocfm_constantinople_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_constantinople_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_antioch
+		}
+		change_variable = {
+			name = eocfm_antioch_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_antioch
+		}
+		change_variable = {
+			name = eocfm_antioch_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_antioch_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_jerusalem
+		}
+		change_variable = {
+			name = eocfm_jerusalem_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_jerusalem
+		}
+		change_variable = {
+			name = eocfm_jerusalem_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_jerusalem_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_alexandria
+		}
+		change_variable = {
+			name = eocfm_alexandria_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_alexandria
+		}
+		change_variable = {
+			name = eocfm_alexandria_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_alexandria_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_moscow
+		}
+		change_variable = {
+			name = eocfm_moscow_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_moscow
+		}
+		change_variable = {
+			name = eocfm_moscow_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_moscow_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_coptic_alexandria
+		}
+		change_variable = {
+			name = eocfm_coptic_alexandria_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_coptic_alexandria
+		}
+		change_variable = {
+			name = eocfm_coptic_alexandria_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_coptic_alexandria_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_syriac_antioch
+		}
+		change_variable = {
+			name = eocfm_syriac_antioch_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_syriac_antioch
+		}
+		change_variable = {
+			name = eocfm_syriac_antioch_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_syriac_antioch_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_etchmiadzin
+		}
+		change_variable = {
+			name = eocfm_etchmiadzin_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_etchmiadzin
+		}
+		change_variable = {
+			name = eocfm_etchmiadzin_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_etchmiadzin_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_addis_ababa
+		}
+		change_variable = {
+			name = eocfm_addis_ababa_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_addis_ababa
+		}
+		change_variable = {
+			name = eocfm_addis_ababa_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_addis_ababa_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_konak
+		}
+		change_variable = {
+			name = eocfm_konak_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_konak
+		}
+		change_variable = {
+			name = eocfm_konak_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_konak_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_elysium
+		}
+		change_variable = {
+			name = eocfm_elysium_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_elysium
+		}
+		change_variable = {
+			name = eocfm_elysium_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_elysium_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_mixtec
+		}
+		change_variable = {
+			name = eocfm_mixtec_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_mixtec
+		}
+		change_variable = {
+			name = eocfm_mixtec_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_mixtec_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_swaying_cahokia
+		}
+		change_variable = {
+			name = eocfm_cahokia_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_antagonizing_cahokia
+		}
+		change_variable = {
+			name = eocfm_cahokia_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = eocfm_cahokia_relations_var
+		min = -50
+		max = 50
+	}
+}
+
 eocfm_update_patriarch_opinions_effect = {
 	# Catholic Seats
 	set_variable = {
@@ -2666,8 +3083,8 @@ eocfm_increase_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_rome_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_boost_rome_relations
 	}
@@ -2681,8 +3098,8 @@ eocfm_increase_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_constantinople_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_boost_constantinople_relations
 	}
@@ -2696,8 +3113,8 @@ eocfm_increase_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_antioch_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_boost_antioch_relations
 	}
@@ -2711,8 +3128,8 @@ eocfm_increase_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_jerusalem_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_boost_jerusalem_relations
 	}
@@ -2726,8 +3143,8 @@ eocfm_increase_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_alexandria_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_boost_alexandria_relations
 	}
@@ -2741,8 +3158,8 @@ eocfm_increase_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_moscow_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_boost_moscow_relations
 	}
@@ -2759,8 +3176,8 @@ eocfm_decrease_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_rome_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_reduce_rome_relations
 	}
@@ -2774,8 +3191,8 @@ eocfm_decrease_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_constantinople_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_reduce_constantinople_relations
 	}
@@ -2789,8 +3206,8 @@ eocfm_decrease_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_antioch_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_reduce_antioch_relations
 	}
@@ -2804,8 +3221,8 @@ eocfm_decrease_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_jerusalem_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_reduce_jerusalem_relations
 	}
@@ -2819,8 +3236,8 @@ eocfm_decrease_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_alexandria_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_reduce_alexandria_relations
 	}
@@ -2834,8 +3251,8 @@ eocfm_decrease_patriarch_opinion_effect = {
 		}
 		clamp_variable = {
 			name = eocfm_moscow_relations_var
-			min = 0
-			max = 100
+			min = -50
+			max = 50
 		}
 		custom_tooltip = eocfm_reduce_moscow_relations
 	}
