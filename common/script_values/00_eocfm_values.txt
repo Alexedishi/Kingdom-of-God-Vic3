@@ -1016,7 +1016,7 @@ eocfm_oriental_support_value = {
 	value = 0
 	every_country = {
 		limit = {
-			eocfm_is_eastern_oriental_trigger = yes
+			eocfm_is_oriental_orthodox_trigger = yes
 			has_variable = eocfm_council_support_var
 		}
 		add = eocfm_synodal_influence_value
@@ -1027,7 +1027,7 @@ eocfm_oriental_opposition_value = {
 	value = 0
 	every_country = {
 		limit = {
-			eocfm_is_eastern_oriental_trigger = yes
+			eocfm_is_oriental_orthodox_trigger = yes
 			has_variable = eocfm_council_oppose_var
 		}
 		subtract = eocfm_synodal_influence_value
@@ -1130,7 +1130,7 @@ eocfm_votes_value = {
 	}
 	else_if = {
 		limit = {
-			eocfm_is_eastern_oriental_trigger = yes
+			eocfm_is_oriental_orthodox_trigger = yes
 		}
 		add = eocfm_ecumenical_weight_value
 	}
