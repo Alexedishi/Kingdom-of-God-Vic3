@@ -415,18 +415,12 @@ eocfm_initialize_seat_controllers_effect = {
 	}
 }
 
-eocfm_update_ranking_lists = {
+eocfm_initialize_ranking_lists = {
 	# Set Timeout Variable
 	set_global_variable = {
 		name = eocfm_ranking_timeout_var
 		days = 20 # Should be enough to get past all monthly pulses
 	}
-		
-	# Clear All Lists
-	clear_global_variable_list = eocfm_catholic_ranking
-	clear_global_variable_list = eocfm_orthodox_ranking
-	clear_global_variable_list = eocfm_oriental_ranking
-	clear_global_variable_list = eocfm_elysian_ranking
 	
 	# Build & Sort Catholic List
 	every_country = {
