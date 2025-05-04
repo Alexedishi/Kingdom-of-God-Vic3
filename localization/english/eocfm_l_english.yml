@@ -983,7 +983,7 @@
  eocfm_antioch_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_antioch_opinion_value')]"
  eocfm_antioch_modifier: "#bold Holding and $eocfm_controlling$ Antioch will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_antioch').GetDesc]"
  
- eocfm_jerusalem: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetPlayer.GetTooltipTag,eocfm_jerusalem_details Jerusalem#!#!#!"
+ eocfm_jerusalem: "@eocfm_patriarchate! #bold #yellow #tooltip:[GetPlayer.GetTooltipTag],eocfm_jerusalem_details Jerusalem#!#!#!"
  eocfm_jerusalem_details: "#bold The [GetBuildingType('eocfm_building_patriarchate_jerusalem').GetName]#!\n$TOOLTIP_DELIMITER$\n•#italic Seated in [GetStateRegion('STATE_PALESTINE').GetName]#!\n•#white Led By:#! Patriarch [GetPlayer.MakeScope.Var('eocfm_jerusalem_patriarch_var').GetCharacter.GetLastName]\n•#bold $eocfm_controller$:#! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_jerusalem_controller_type')]\n•#bold Opinion of [GetPlayer.GetNameNoFlag]:#! #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_jerusalem_opinion_breakdown [GetPlayer.MakeScope.Var('eocfm_jerusalem_opinion_var').GetValue|+=]#!"
  eocfm_jerusalem_opinion_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_jerusalem_opinion_value')]"
  eocfm_jerusalem_modifier: "#bold Holding and $eocfm_controlling$ Jerusalem will grant the following modifier:#!\n [GetStaticModifier('modifier_eocfm_controls_jerusalem').GetDesc]"
