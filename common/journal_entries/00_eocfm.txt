@@ -78,7 +78,15 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	}
 	
 	complete = {
-		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_complete
+		custom_tooltip = {
+			text = je_eocfm_encyclical_orthodox_easterners_complete
+			scope:journal_entry = {
+				scripted_bar_progress = {
+					name = eocfm_easterners_progress_bar
+					value <= 10
+				}
+			}
+		}
 	}
 	
 	on_complete = {
@@ -91,7 +99,15 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	}
 	
 	fail = {
-		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_fail
+		custom_tooltip = {
+			text = je_eocfm_encyclical_orthodox_easterners_fail
+			scope:journal_entry = {
+				scripted_bar_progress = {
+					name = eocfm_easterners_progress_bar
+					value > 10
+				}
+			}
+		}
 	}
 	
 	on_fail = {
@@ -103,7 +119,7 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 		eocfm_add_conservative_radicals_effect = yes
 	}
 	
-	timeout = 365
+	timeout = 3650
 	
 	on_timeout = {
 		if = {
@@ -111,7 +127,7 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 				scope:journal_entry = {
 					scripted_bar_progress = {
 						name = eocfm_easterners_progress_bar
-						value >= 90
+						value <= 10
 					}
 				}
 			}
@@ -149,7 +165,15 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	}
 	
 	complete = {
-		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_complete
+		custom_tooltip = {
+			text = je_eocfm_encyclical_orthodox_easterners_complete
+			scope:journal_entry = {
+				scripted_bar_progress = {
+					name = eocfm_easterners_progress_bar
+					value >= 90
+				}
+			}
+		}
 	}
 	
 	on_complete = {
@@ -162,7 +186,15 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	}
 	
 	fail = {
-		custom_tooltip = je_eocfm_encyclical_orthodox_easterners_fail
+		custom_tooltip = {
+			text = je_eocfm_encyclical_orthodox_easterners_fail
+			scope:journal_entry = {
+				scripted_bar_progress = {
+					name = eocfm_easterners_progress_bar
+					value < 90
+				}
+			}
+		}
 	}
 	
 	on_fail = {
@@ -174,7 +206,7 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 		eocfm_add_reformist_radicals_effect = yes
 	}
 	
-	timeout = 365
+	timeout = 3650
 	
 	on_timeout = {
 		if = {
@@ -184,6 +216,94 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 						name = eocfm_easterners_progress_bar
 						value >= 90
 					}
+				}
+			}
+			add_modifier = {
+				name = modifier_eocfm_rejected_epistle
+				months = long_modifier_time
+			}
+			eocfm_add_conservative_loyalists_effect = yes
+			eocfm_add_reformist_radicals_effect = yes
+		}
+		else = {
+			add_modifier = {
+				name = modifier_eocfm_failed_encyclical
+				months = long_modifier_time
+			}
+			eocfm_add_reformist_loyalists_effect = yes
+			eocfm_add_conservative_radicals_effect = yes
+		}
+	}
+	
+	weight = 500
+	
+}
+
+je_eocfm_encyclical_orthodox_fraternity = { #
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	group = je_group_eocfm_content
+	
+	should_be_pinned_by_default = yes
+	
+	immediate = {
+	}
+	
+	complete = {
+		custom_tooltip = {
+			text = je_eocfm_encyclical_orthodox_fraternity_complete
+			OR = {
+				var:eocfm_constantinople_opinion_var >= 75
+				var:eocfm_antioch_opinion_var >= 75
+				var:eocfm_jerusalem_opinion_var >= 75
+				var:eocfm_alexandria_opinion_var >= 75
+				var:eocfm_moscow_opinion_var >= 75
+			}
+		}
+	}
+	
+	on_complete = {
+		add_modifier = {
+			name = modifier_eocfm_accepted_epistle
+			months = long_modifier_time
+		}
+		eocfm_add_conservative_loyalists_effect = yes
+		eocfm_add_reformist_radicals_effect = yes
+	}
+	
+	fail = {
+		custom_tooltip = {
+			text = je_eocfm_encyclical_orthodox_fraternity_fail
+			NOR = {
+				var:eocfm_constantinople_opinion_var >= 75
+				var:eocfm_antioch_opinion_var >= 75
+				var:eocfm_jerusalem_opinion_var >= 75
+				var:eocfm_alexandria_opinion_var >= 75
+				var:eocfm_moscow_opinion_var >= 75
+			}
+		}
+	}
+	
+	on_fail = {
+		add_modifier = {
+			name = modifier_eocfm_failed_encyclical
+			months = long_modifier_time
+		}
+		eocfm_add_reformist_loyalists_effect = yes
+		eocfm_add_conservative_radicals_effect = yes
+	}
+	
+	timeout = 3650
+	
+	on_timeout = {
+		if = {
+			limit = {
+				OR = {
+					var:eocfm_constantinople_opinion_var >= 75
+					var:eocfm_antioch_opinion_var >= 75
+					var:eocfm_jerusalem_opinion_var >= 75
+					var:eocfm_alexandria_opinion_var >= 75
+					var:eocfm_moscow_opinion_var >= 75
 				}
 			}
 			add_modifier = {
