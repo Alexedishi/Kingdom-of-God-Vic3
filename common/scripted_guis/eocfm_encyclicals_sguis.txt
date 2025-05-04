@@ -1,0 +1,45 @@
+﻿####################
+# ENCYCLICAL SGUIs #
+####################
+
+eocfm_orthodox_encyclicals_sgui = {
+	scope = country
+	
+	is_shown = {
+		OR = {
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_1
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_2
+			has_journal_entry = je_eocfm_encyclical_orthodox_fraternity
+		}
+	}
+	
+}
+
+eocfm_orthodox_easterners_sgui = {
+	scope = country
+	
+	is_shown = {
+		OR = {
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_1
+			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_2
+		}
+	}
+	
+	is_valid = {
+		var:eocfm_orthodox_easterners_var ?= 1
+	}
+	
+}
+
+eocfm_orthodox_fraternity_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_journal_entry = je_eocfm_encyclical_orthodox_fraternity
+	}
+	
+	is_valid = {
+		var:eocfm_orthodox_fraternity_var ?= 1
+	}
+	
+}
