@@ -54,46 +54,87 @@ types eocfm_encyclical_panels {
 #			}
 			
 			vbox = {
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = preferred
-					spacing = 10
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = preferred
+				spacing = 15
+				margin_top = 10
+				
+				widget = {
+					size = { 350 60 }
 					
 					background = {
 						using = entry_bg
-						margin = { 10 10 }
+						margin = { 5 5 }
 					}
-		
-					widget = {
-						size = { 100 100 }
-						icon = {
-							parentanchor = center
-							texture = "gfx/interface/backgrounds/round_frame_dec.dds"
-							size = { 80 80 }
-						}
+					icon = {
+						parentanchor = left|top
+						texture = "gfx/interface/backgrounds/round_frame_dec.dds"
+						size = { 60 60 }
+						
 						icon = {
 							parentanchor = center
 							texture = "gfx/interface/icons/invention_icons/nationalism.dds"
-							size = { 60 60 }
+							size = { 45 45 }
 						}
-						
 					}
-					
-					vbox = {
-						textbox = {
-							autoresize = yes
-							raw_text = "#bold #italic Encyclical of the Eastern Patriarchs#!#!"
-							elide = right
-							using = fontsize_xl
-						}
-						textbox = {
-							autoresize = yes
-							raw_text = "@warning! #red #italic Greece is NOT compliant!#!#!"
-							elide = right
-							using = fontsize_xl
-						}
+					textbox = {
+						parentanchor = left|top
+						margin_left = 65
+						margin_top = 10
+						autoresize = yes
+						raw_text = "#bold #italic Encyclical of the Eastern Patriarchs#!#!"
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						parentanchor = left|top
+						margin_left = 65
+						margin_top = 30
+						autoresize = yes
+						raw_text = "@warning! #red #italic Greece is NOT compliant!#!#!"
+						elide = right
+						using = fontsize_medium
+						using = look_at_me_animation
 					}
 				}
+				widget = {
+					size = { 350 60 }
+					
+					background = {
+						using = entry_bg
+						margin = { 5 5 }
+					}
+					icon = {
+						parentanchor = left|top
+						texture = "gfx/interface/backgrounds/round_frame_dec.dds"
+						size = { 60 60 }
+						
+						icon = {
+							parentanchor = center
+							texture = "gfx/interface/icons/invention_icons/civilizing_mission.dds"
+							size = { 45 45 }
+						}
+					}
+					textbox = {
+						parentanchor = left|top
+						margin_left = 65
+						margin_top = 10
+						autoresize = yes
+						raw_text = "#bold #italic Encyclical of the Fraternity of Churches#!#!"
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						parentanchor = left|top
+						margin_left = 65
+						margin_top = 30
+						autoresize = yes
+						raw_text = "@green_checkmark! #green #italic Greece is in compliance#!#!"
+						elide = right
+						using = fontsize_medium
+					}
+				}
+				expand = {}
 			}
 			
 		}
