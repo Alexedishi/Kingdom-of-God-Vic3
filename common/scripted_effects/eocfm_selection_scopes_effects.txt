@@ -1,0 +1,1468 @@
+#############################################
+# EOCFM SEAT SELECTION & SCOPE SAVE EFFECTS #
+#############################################
+
+#### SEAT SELECTION EFFECTS ####
+
+eocfm_save_seat_controller_scopes_effect = {
+	random_country = {
+		limit = {
+			has_variable = eocfm_controls_rome
+		}
+		save_scope_as = eocfm_rome_controller
+	}
+	random_country = {
+		limit = {
+			has_variable = eocfm_controls_constantinople
+		}
+		save_scope_as = eocfm_constantinople_controller
+	}
+	random_country = {
+		limit = {
+			has_variable = eocfm_controls_antioch
+		}
+		save_scope_as = eocfm_antioch_controller
+	}
+	random_country = {
+		limit = {
+			has_variable = eocfm_controls_alexandria
+		}
+		save_scope_as = eocfm_alexandria_controller
+	}
+	random_country = {
+		limit = {
+			has_variable = eocfm_controls_jerusalem
+		}
+		save_scope_as = eocfm_jerusalem_controller
+	}
+	random_country = {
+		limit = {
+			has_variable = eocfm_controls_moscow
+		}
+		save_scope_as = eocfm_moscow_controller
+	}
+}
+
+eocfm_select_random_seat_effect = {
+	random_list = {
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+		5 = {
+			trigger = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			trigger = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			trigger = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
+eocfm_select_random_catholic_seat_effect = {
+	random_list = {
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+	}
+}
+
+eocfm_select_random_orthodox_seat_effect = {
+	random_list = {
+		5 = {
+			trigger = { # Rome only participates if part of the Orthodox sphere
+				any_country = {
+					has_variable = eocfm_controls_rome
+					eocfm_is_eastern_orthodox_trigger = yes
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+	}
+}
+
+eocfm_select_random_oriental_seat_effect = {
+	random_list = {
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+	}
+}
+
+eocfm_select_random_elysian_seat_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	random_list = {
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
+eocfm_select_random_controlled_seat_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	random_list = {
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_rome
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_santiago
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_paris
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_koln
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_vienna
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_constantinople
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_antioch
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_jerusalem
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_alexandria
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_moscow
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_coptic_alexandria
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_syriac_antioch
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_etchmiadzin
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_addis_ababa
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_konak
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_elysium
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_mixtec
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			trigger = {
+				has_variable = eocfm_controls_cahokia
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
+eocfm_select_random_swayed_seat_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	random_list = {
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_rome
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_santiago
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_paris
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_koln
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_vienna
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_constantinople
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_antioch
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_jerusalem
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_alexandria
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_moscow
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_coptic_alexandria
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_syriac_antioch
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_etchmiadzin
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_addis_ababa
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_konak
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_elysium
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_mixtec
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_swaying_cahokia
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
+eocfm_select_random_antagonized_seat_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	random_list = {
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_rome
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_santiago
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_paris
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_koln
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_vienna
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_constantinople
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_antioch
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_jerusalem
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_alexandria
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_moscow
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_coptic_alexandria
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_syriac_antioch
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_etchmiadzin
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_addis_ababa
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_konak
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_elysium
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_mixtec
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			trigger = {
+				has_modifier = modifier_eocfm_antagonizing_cahokia
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
+eocfm_select_random_condemnation_seat_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	# Players should only be condemned by Patriarchs of the same faith
+	random_list = {
+		5 = {
+			trigger = {
+				var:eocfm_rome_patriarch_var.religion = root.religion
+				var:eocfm_rome_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_rome
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_santiago_patriarch_var.religion = root.religion
+				var:eocfm_santiago_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_santiago
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_paris_patriarch_var.religion = root.religion
+				var:eocfm_paris_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_paris
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_koln_patriarch_var.religion = root.religion
+				var:eocfm_koln_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_koln
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_vienna_patriarch_var.religion = root.religion
+				var:eocfm_vienna_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_vienna
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_constantinople_patriarch_var.religion = root.religion
+				var:eocfm_constantinople_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_constantinople
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_antioch_patriarch_var.religion = root.religion
+				var:eocfm_antioch_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_antioch
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_jerusalem_patriarch_var.religion = root.religion
+				var:eocfm_jerusalem_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_jerusalem
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_alexandria_patriarch_var.religion = root.religion
+				var:eocfm_alexandria_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_alexandria
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_moscow_patriarch_var.religion = root.religion
+				var:eocfm_moscow_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_moscow
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_coptic_alexandria_patriarch_var.religion = root.religion
+				var:eocfm_coptic_alexandria_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_coptic_alexandria
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_syriac_antioch_patriarch_var.religion = root.religion
+				var:eocfm_syriac_antioch_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_syriac_antioch
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_etchmiadzin_patriarch_var.religion = root.religion
+				var:eocfm_etchmiadzin_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_etchmiadzin
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_addis_ababa_patriarch_var.religion = root.religion
+				var:eocfm_addis_ababa_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_addis_ababa
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_konak_patriarch_var.religion = root.religion
+				var:eocfm_konak_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_konak
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_elysium_patriarch_var.religion = root.religion
+				var:eocfm_elysium_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_elysium
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_mixtec_patriarch_var.religion = root.religion
+				var:eocfm_mixtec_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_mixtec
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_cahokia_patriarch_var.religion = root.religion
+				var:eocfm_cahokia_opinion_var < 50
+				NOT = {
+					has_modifier = modifier_eocfm_condemned_by_cahokia
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
+## SCOPE SAVING EFFECTS ##
+
+eocfm_save_event_patriarch_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	if = {
+		limit = {
+			var:eocfm_seat_event_var = 1 # Rome
+		}
+		eocfm_update_rome_effect = yes
+		var:eocfm_rome_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 2 # Santiago
+		}
+		eocfm_update_santiago_effect = yes
+		var:eocfm_santiago_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 3 # Paris
+		}
+		eocfm_update_paris_effect = yes
+		var:eocfm_paris_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 4 # Koln
+		}
+		eocfm_update_koln_effect = yes
+		var:eocfm_koln_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 5 # Vienna
+		}
+		eocfm_update_vienna_effect = yes
+		var:eocfm_vienna_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 6 # Constantinople
+		}
+		eocfm_update_constantinople_effect = yes
+		var:eocfm_constantinople_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 7 # Antioch
+		}
+		eocfm_update_antioch_effect = yes
+		var:eocfm_antioch_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 8 # Jerusalem
+		}
+		eocfm_update_jerusalem_effect = yes
+		var:eocfm_jerusalem_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 9 # Alexandria
+		}
+		eocfm_update_alexandria_effect = yes
+		var:eocfm_alexandria_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 10 # Moscow
+		}
+		eocfm_update_moscow_effect = yes
+		var:eocfm_moscow_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 11 # Coptic Alexandria
+		}
+		eocfm_update_coptic_alexandria_effect = yes
+		var:eocfm_coptic_alexandria_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 12 # Syriac Antioch
+		}
+		eocfm_update_syriac_antioch_effect = yes
+		var:eocfm_syriac_antioch_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 13 # Etchmiadzin
+		}
+		eocfm_update_etchmaidzin_effect = yes
+		var:eocfm_etchmaidzin_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 14 # Addis Ababa
+		}
+		eocfm_update_addis_ababa_effect = yes
+		var:eocfm_addis_ababa_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 15 # Qudshanis
+		}
+		eocfm_update_konak_effect = yes
+		var:eocfm_konak_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 16 # Elysium
+		}
+		eocfm_update_elysium_effect = yes
+		var:eocfm_elysium_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 17 # Mixtec
+		}
+		eocfm_update_mixtec_effect = yes
+		var:eocfm_mixtec_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+	else_if = {
+		limit = {
+			var:eocfm_seat_event_var = 18 # Cahokia
+		}
+		eocfm_update_cahokia_effect = yes
+		var:eocfm_cahokia_patriarch_var = {
+			save_scope_as = eocfm_patriarch_event_scope
+		}
+	}
+}
+
+eocfm_save_pope_scope_effect = {
+	eocfm_update_rome_effect = yes
+	var:eocfm_rome_patriarch_var = {
+		save_scope_as = eocfm_pope_scope
+	}
+}
+
+eocfm_save_head_of_faith_scope = {
+	if = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+		}
+		eocfm_update_rome_effect = yes
+		var:eocfm_rome_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		eocfm_update_constantinople_effect = yes
+		var:eocfm_constantinople_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		eocfm_update_coptic_alexandria_effect = yes
+		var:eocfm_coptic_alexandria_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+	else_if = {
+		limit = {
+			eocfm_is_elysian_orthodox_trigger = yes
+		}
+		eocfm_update_elysium_effect = yes
+		var:eocfm_elysium_patriarch_var = {
+			save_scope_as = eocfm_head_of_faith_scope
+		}
+	}
+}
+
+eocfm_save_seat_loser_effect = {
+	if = {
+		limit = {
+			has_variable = eocfm_integrating_rome
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_rome
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_santiago
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_santiago
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_paris
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_paris
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_koln
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_koln
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_vienna
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_vienna
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_constantinople
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_constantinople
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_antioch
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_antioch
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_jerusalem
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_jerusalem
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_alexandria
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_alexandria
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_moscow
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_moscow
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_coptic_alexandria
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_coptic_alexandria
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_syriac_antioch
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_syriac_antioch
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_etchmiadzin
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_etchmiadzin
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_addis_ababa
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_addis_ababa
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_konak
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_konak
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_elysium
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_elysium
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_mixtec
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_mixtec
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+	else_if = {
+		limit = {
+			has_variable = eocfm_integrating_cahokia
+		}
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_cahokia
+			}
+			save_scope_as = eocfm_controller_scope
+		}
+	}
+}
+
