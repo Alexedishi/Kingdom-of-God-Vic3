@@ -30,8 +30,8 @@ namespace = eocfm
 #	0005 - 
 #	0006 - 
 #	0007 - 
-#	0008 - 
-#	0009 - 
+#	0008 - Test Event Pls Ignore
+#	0009 - Test Event Pls Ignore
 
 #0010-0019 - Holy Site PM Events I
 #	0010 - Rome PM Switch
@@ -369,6 +369,91 @@ eocfm.0001 = { # The Partiarch's Variable Dumpster Fire
 	}
 	
 	orphan = yes
+
+}
+
+eocfm.0008 = { # Test Event Pls Ignore
+	type = country_event
+	placement = root
+	
+	title = eocfm.0008.t
+	desc = eocfm.0008.d
+	flavor = eocfm.0008.f
+	
+	gui_window = event_window_2char_duel
+
+	event_image = {
+		texture = "gfx/event_pictures/eocfm_backgrounds/southamerica_christianity.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		# Test Event
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = eocfm.0008.a
+		default_option = yes
+	}
+	
+	option = {
+		name = eocfm.0008.b
+	}
+	
+	after = {
+	}
+
+}
+
+eocfm.0009 = { # Test Event Pls Ignore
+	type = country_event
+	placement = root
+	
+	title = eocfm.0009.t
+	desc = eocfm.0009.d
+	flavor = eocfm.0009.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		# Test Event
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = eocfm.0009.a
+		default_option = yes
+	}
+	
+	option = {
+		name = eocfm.0009.b
+	}
+	
+	after = {
+	}
 
 }
 
