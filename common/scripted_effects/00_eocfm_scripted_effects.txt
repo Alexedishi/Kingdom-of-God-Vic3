@@ -781,15 +781,15 @@ eocfm_decrease_patriarch_opinion_effect = {
 			var:eocfm_seat_event_var = 14 # Addis Ababa
 		}
 		change_variable = {
-			name = eocfm_subtractis_ababa_relations_var
+			name = eocfm_addis_ababa_relations_var
 			subtract = 20
 		}
 		clamp_variable = {
-			name = eocfm_subtractis_ababa_relations_var
+			name = eocfm_addis_ababa_relations_var
 			min = -50
 			max = 50
 		}
-		custom_tooltip = eocfm_reduce_subtractis_ababa_relations
+		custom_tooltip = eocfm_reduce_addis_ababa_relations
 	}
 	else_if = {
 		limit = {
@@ -2050,3 +2050,22 @@ eocfm_remove_seat_event_variables_effect = {
 	remove_variable = eocfm_seat_event_var
 }
 
+eocfm_cleanup_seat_condemnation_effect = {
+	remove_variable = eocfm_condemned_by_rome
+	remove_variable = eocfm_condemned_by_santiago
+	remove_variable = eocfm_condemned_by_paris
+	remove_variable = eocfm_condemned_by_koln
+	remove_variable = eocfm_condemned_by_vienna
+	remove_variable = eocfm_condemned_by_constantinople
+	remove_variable = eocfm_condemned_by_antioch
+	remove_variable = eocfm_condemned_by_jerusalem
+	remove_variable = eocfm_condemned_by_alexandria
+	remove_variable = eocfm_condemned_by_moscow
+	remove_variable = eocfm_condemned_by_coptic_alexandria
+	remove_variable = eocfm_condemned_by_syriac_antioch
+	remove_variable = eocfm_condemned_by_etchmiadzin
+	remove_variable = eocfm_condemned_by_addis_ababa
+	remove_variable = eocfm_condemned_by_konak
+	remove_variable = eocfm_condemned_by_elysium
+	remove_variable = eocfm_condemned_by_mixtec
+	remove_variable = eocfm_condemned_by_cahokia
