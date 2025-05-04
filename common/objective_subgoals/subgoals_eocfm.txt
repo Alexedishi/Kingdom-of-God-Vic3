@@ -1,0 +1,15 @@
+﻿sg_eocfm = {
+	category = sg_eocfm
+	is_repeatable = no
+
+	trigger = {
+	}
+	
+	on_start = {
+		add_journal_entry = {
+			type = je_eocfm_intro
+			objective_subgoal = sg_eocfm
+		}
+	}
+}
+
