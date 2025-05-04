@@ -1,0 +1,198 @@
+# = From Base Game
+# Panel Constants
+@panel_width_minus_10 = 530
+@panel_width_minus_30 = 510
+@panel_width = 540
+@panel_width_half = 270
+@panel_width_plus_10 = 550
+@panel_width_plus_14 = 554
+@panel_width_plus_14_half = 277
+@panel_width_plus_20 = 560
+@panel_width_plus_30 = 570
+@panel_width_plus_70 = 610
+
+types eocfm_global_community_panels {
+	
+	type eocfm_orthodox_global_panel = vbox {
+		margin = { 10 10 }
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		scrollarea = {
+			visible = "[GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			scrollbarpolicy_horizontal = always_off
+			scrollbarpolicy_vertical = as_needed
+
+			scrollbar_horizontal = {
+				using = horizontal_scrollbar
+			}
+
+			scrollbar_vertical = {
+				using = vertical_scrollbar
+			}
+
+			scrollwidget = {
+				vbox = {
+					visible = "[GetVariableSystem.Exists('eocfm_global_list_var')]"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					spacing = 10
+					margin = { 0 10 }
+
+					datamodel = "[GetGlobalList('eocfm_orthodox_ranking')]"
+
+					item = {
+						widget = {
+							datacontext = "[Scope.GetCountry]"
+							size = { @panel_width_minus_10 140 }
+
+							icon = {
+								using = dark_area
+								using = frame_small_mask
+								parentanchor = right
+								size = { 240 140 }
+								alpha = 0.2
+								position = { 0 0 }
+
+								modify_texture = {
+									texture = "gfx/interface/masks/fade_horizontal_left.dds"
+									spriteType = Corneredstretched
+									spriteborder = { 0 0 }
+									blend_mode = alphamultiply
+								}
+							}
+
+							background = {
+								texture = "gfx/interface/backgrounds/subject_liberty_desire_frame.dds"
+							}
+
+							fancy_flag_ui = {
+								size = { 80 60 }
+								position = { 10 10 }
+
+								blockoverride "overlay_button_and_bg_glow_position" {
+									position = { -9 -4 }
+								}
+
+								blockoverride "rank_badge_block" {}
+							}
+
+							container = {
+								parentanchor = bottom
+
+								flowcontainer = {
+									parentanchor = hcenter
+									position = { 0 7 }
+									spacing = 5
+									tooltip = "COUNTRY_RELATIONS_TOOLTIP"
+									using = tooltip_se
+
+									flowcontainer = {
+										visible = "[Not(ObjectsEqual(Scope.GetCountry.MakeScope, GetPlayer.MakeScope))]"
+										textbox = {
+											parentanchor = vcenter
+											autoresize = yes
+											align = nobaseline
+											max_width = 190
+											fontsize_min = 12
+											elide = right
+											raw_text = "DUMMY"
+										}
+									}
+
+									flowcontainer = {
+										visible = "[ObjectsEqual(Scope.GetCountry.MakeScope, GetPlayer.MakeScope)]"
+										textbox = {
+											parentanchor = vcenter
+											autoresize = yes
+											align = nobaseline
+											max_width = 100
+											fontsize_min = 12
+											elide = right
+											raw_text = "DUMMY"
+										}
+									}
+								}
+							}
+
+							flowcontainer = {
+								position = { 100 10 }
+								spacing = 15
+
+								flowcontainer = {
+									parentanchor = vcenter
+									direction = vertical
+
+									textbox = {
+										minimumsize = { 225 -1 }
+										maximumsize = { 225 -1 }
+										autoresize = yes
+										align = nobaseline
+										elide = right
+										fontsize_min = 12
+										using = fontsize_large
+										raw_text = "[Country.GetNameNoFlag]"
+									}
+
+									textbox = {
+										autoresize = yes
+										align = nobaseline
+										raw_text = "[Country.GetDefinition.GetTier]"
+									}
+								}
+							}
+
+							### OTHER ACTIVE PACTS WITH THIS SUBJECT
+							flowcontainer = {
+								parentanchor = right|vcenter
+
+								dynamicgridbox = {
+									parentanchor = vcenter
+									datamodel_wrap = 3
+									datamodel = "[AccessPlayer.AccessActiveDiplomaticPacts(Country.Self)]"
+
+									item = {
+										widget = {
+											size = { 40 40 }
+
+											icon = {
+												parentanchor = center
+												size = { 80% 80% }
+												datacontext = "[DiplomaticPact.GetDiplomaticActionType]"
+												texture = "[DiplomaticActionType.GetTexture]"
+
+												tooltipwidget = {
+													FancyTooltip_DiplomaticActionType = {
+														blockoverride "text_before_before" {
+															visible = "[GreaterThan_CFixedPoint(DiplomaticActionType.GetMaintenanceCost(GetPlayer.Self, Country.Self), '(CFixedPoint)0')]"
+															text = "DIPLOMATIC_ACTION_TYPE_COST"
+															margin_bottom = 15
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+
+							rank_badge = {
+								size = { 45 45 }
+								position = { -15 -15 }
+
+								blockoverride "datacontext " {}
+
+								blockoverride "font_size_under_100_rank" {
+									using = fontsize_medium
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}

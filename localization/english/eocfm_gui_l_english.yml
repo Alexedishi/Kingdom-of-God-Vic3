@@ -57,8 +57,15 @@
  eocfm_gui_mixtec_control_status: "$eocfm_mixtec_details$\n$TOOLTIP_DELIMITER$\n$eocfm_mixtec_modifier$"
  eocfm_gui_cahokia_control_status: "$eocfm_cahokia_details$\n$TOOLTIP_DELIMITER$\n$eocfm_cahokia_modifier$"
  
- # Metropolitan Focus
+ # Metropolis Window
  eocfm_gui_metropolitan_header: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
+ eocfm_gui_ecclesiastic_header: "Ecclesiastic Affairs"
+ eocfm_gui_global_header: "Global [GetPlayer.GetStateReligion.GetNameNoFormatting] Community"
+ 
+ # Catholic Metropolis Panel
+ 
+ 
+ # Orthodox Metropolis Panel
  eocfm_gui_emphasize_unity: "The Orthodoxy has tied our people together since the Fall of Constantinople. Our bishops could emphasize this common bond that supercedes nationaist thought.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_enforce_attendance: "Many in our communities attend masses only for the holiest of days. We could empower social activists to "persuade" these people to participate more regularly in church services.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_theologize_dogma: "The theology of the Orthodoxy has remained stagnant since the Ottoman conquest. In its isolation from the West, the philosophy and dogma of the Church lags far behind the innovations of Europe, leaving it unsuited to guide the faithful into this new era.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -66,7 +73,6 @@
  eocfm_gui_metropolitan_focus_header: "Current Focus:"
  eocfm_gui_eocfm_focus_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_metropolitan_focus_type')]"
  
- # Metropolitan Buttons
  eocfm_gui_commission_icon_button: "We can use some of our influence over the Church to commission icons to inspire the faithful. These icons will endure for 10 years before needing replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_dissolve_monasteries_button: "Throughout our hinterland, there are several ancient monasteries that cling on by momentum alone. Administrators have advised that the functions of both the church and the state could be dramatically improved by shuttering several minor monasteries.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  eocfm_gui_restore_monasteries_button: "As a result of the seizure of monastic estates, many clergy have found themselves destitute. Many would welcome some form of relief.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -134,6 +140,17 @@
  eocfm_gui_orthodox_council_detractors: "Votes Against: #greece [GetGlobalVariable('eocfm_orthodox_opposition_var').GetValue]#!"
  eocfm_gui_orthodox_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_council_stance_type')]#!"
  eocfm_gui_orthodox_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_orthodox_council_outcome_type')]"
+ 
+ # Christian Community Tabs
+ eocfm_gui_christian_community: "Greater Christian Community"
+ eocfm_gui_catholic_tab: "Roman Catholicism"
+ eocfm_gui_catholic_tab_selected: "#bold #white Roman Catholicism#!#!"
+ eocgm_gui_orthodox_tab: "Eastern Orthodoxy"
+ eocgm_gui_orthodox_tab_selected: "#bold #white Eastern Orthodoxy#!#!"
+ eocfm_gui_oriental_tab: "Oriental Orthodoxy"
+ eocfm_gui_oriental_tab_selected: "#bold #white Oriental Orthodoxy#!#!"
+ eocfm_gui_elysian_tab: "Elysian Orthodoxy"
+ eocfm_gui_elysian_tab_selected: "#bold #white Elysian Orthodoxy#!#!"
  
  # Rome Seat Widget
  eocfm_gui_rome_patriarch_header: "Patriarchate of Rome"

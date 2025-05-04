@@ -1,3 +1,16 @@
+# = From Base Game
+# Panel Constants
+@panel_width_minus_10 = 530
+@panel_width_minus_30 = 510
+@panel_width = 540
+@panel_width_half = 270
+@panel_width_plus_10 = 550
+@panel_width_plus_14 = 554
+@panel_width_plus_14_half = 277
+@panel_width_plus_20 = 560
+@panel_width_plus_30 = 570
+@panel_width_plus_70 = 610
+
 widget = {
 	name = "eocfm_main_window"
 	size { 100% 100% }
@@ -224,7 +237,7 @@ widget = {
 						blockoverride "scrollarea_content" {
 							vbox = {
 								layoutpolicy_vertical = expanding
-
+								
 								hbox = {
 									layoutpolicy_horizontal = expanding
 									layoutpolicy_vertical = preferred
@@ -235,7 +248,28 @@ widget = {
 										layoutpolicy_vertical = preferred
 
 										### METROPOLITAN PANEL
-										eocfm_metropolitan_panel = {}
+										vbox = {
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = preferred
+											
+											using = entry_bg_fancy
+											
+											default_header_clean_faded = {
+												layoutpolicy_horizontal = expanding
+												size = { 0 44 }
+												blockoverride "text" {
+													text = "eocfm_gui_metropolitan_header"
+												}
+											}
+											
+											eocfm_metropolitan_tabs = {}
+											
+											divider_clean = {}
+											
+											eocfm_orthodox_metropolitan_panel = {}
+											eocfm_orthodox_global_panel = {}
+											expand = {}
+										}
 
 										### ENCYCLICALS PANEL
 										eocfm_encyclical_panel_dummy = {}
@@ -243,28 +277,6 @@ widget = {
 									vertical_divider_full = {
 										size = { 2 0 }
 										layoutpolicy_vertical = expanding
-									}
-
-									### SENIOR PATRIARCHAL SEATS
-									vbox = {
-										layoutpolicy_horizontal = preferred
-										layoutpolicy_vertical = preferred
-										minimumsize = { 400 -1 }
-										spacing = 10
-										margin_left = 10
-										margin_right = 10
-
-										default_header_clean_faded = {
-											layoutpolicy_horizontal = expanding
-											size = { 0 44 }
-											blockoverride "text" {
-												raw_text = "Senior Episcopal Seats"
-											}
-										}
-
-										eocfm_catholic_ecumenical_actions = {}
-
-										expand = {}
 									}
 								}
 
@@ -302,7 +314,7 @@ widget = {
 							size = { 0 44 }
 						}
 						blockoverride "text" {
-							raw_text = "Junior Episcopal Seats"
+							text = "eocfm_gui_christian_community"
 						}
 					}
 
@@ -383,7 +395,7 @@ widget = {
 						blockoverride "scrollarea_content" {
 							vbox = {
 								layoutpolicy_vertical = expanding
-
+								
 								hbox = {
 									layoutpolicy_horizontal = expanding
 									layoutpolicy_vertical = preferred
@@ -394,7 +406,28 @@ widget = {
 										layoutpolicy_vertical = preferred
 
 										### METROPOLITAN PANEL
-										eocfm_metropolitan_panel = {}
+										vbox = {
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = preferred
+											
+											using = entry_bg_fancy
+											
+											default_header_clean_faded = {
+												layoutpolicy_horizontal = expanding
+												size = { 0 44 }
+												blockoverride "text" {
+													text = "eocfm_gui_metropolitan_header"
+												}
+											}
+											
+											eocfm_metropolitan_tabs = {}
+											
+											divider_clean = {}
+											
+											eocfm_orthodox_metropolitan_panel = {}
+											eocfm_orthodox_global_panel = {}
+											expand = {}
+										}
 
 										### ENCYCLICALS PANEL
 										eocfm_encyclical_panel_dummy = {}
@@ -403,29 +436,8 @@ widget = {
 										size = { 2 0 }
 										layoutpolicy_vertical = expanding
 									}
-
-									### SENIOR PATRIARCHAL SEATS
-									vbox = {
-										layoutpolicy_horizontal = preferred
-										layoutpolicy_vertical = preferred
-										minimumsize = { 400 -1 }
-										spacing = 10
-										margin_left = 10
-										margin_right = 10
-
-										default_header_clean_faded = {
-											layoutpolicy_horizontal = expanding
-											size = { 0 44 }
-											blockoverride "text" {
-												raw_text = "Senior Episcopal Seats"
-											}
-										}
-										eocfm_orthodox_ecumenical_actions = {}
-
-										expand = {}
-									}
 								}
-
+								
 								### Ecumenical Council Panel
 								eocfm_orthodox_council_inactive = {}
 								eocfm_orthodox_council_active = {}
@@ -433,7 +445,7 @@ widget = {
 						}
 					}
 				}
-
+				
 				### PATRIARCHAL SEATS
 				vbox = {
 					layoutstretchfactor_horizontal = 1
@@ -461,7 +473,7 @@ widget = {
 							size = { 0 44 }
 						}
 						blockoverride "text" {
-							raw_text = "Junior Episcopal Seats"
+							text = "eocfm_gui_christian_community"
 						}
 					}
 
@@ -553,7 +565,28 @@ widget = {
 										layoutpolicy_vertical = preferred
 
 										### METROPOLITAN PANEL
-										eocfm_metropolitan_panel = {}
+										vbox = {
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = preferred
+											
+											using = entry_bg_fancy
+											
+											default_header_clean_faded = {
+												layoutpolicy_horizontal = expanding
+												size = { 0 44 }
+												blockoverride "text" {
+													text = "eocfm_gui_metropolitan_header"
+												}
+											}
+											
+											eocfm_metropolitan_tabs = {}
+											
+											divider_clean = {}
+											
+											eocfm_orthodox_metropolitan_panel = {}
+											eocfm_orthodox_global_panel = {}
+											expand = {}
+										}
 
 										### ENCYCLICALS PANEL
 										eocfm_encyclical_panel_dummy = {}
@@ -561,27 +594,6 @@ widget = {
 									vertical_divider_full = {
 										size = { 2 0 }
 										layoutpolicy_vertical = expanding
-									}
-
-									### SENIOR PATRIARCHAL SEATS
-									vbox = {
-										layoutpolicy_horizontal = preferred
-										layoutpolicy_vertical = preferred
-										minimumsize = { 400 -1 }
-										spacing = 10
-										margin_left = 10
-										margin_right = 10
-
-										default_header_clean_faded = {
-											layoutpolicy_horizontal = expanding
-											size = { 0 44 }
-											blockoverride "text" {
-												raw_text = "Senior Episcopal Seats"
-											}
-										}
-										eocfm_oriental_ecumenical_actions = {}
-
-										expand = {}
 									}
 								}
 
@@ -620,7 +632,7 @@ widget = {
 							size = { 0 44 }
 						}
 						blockoverride "text" {
-							raw_text = "Junior Episcopal Seats"
+							text = "eocfm_gui_christian_community"
 						}
 					}
 
@@ -712,7 +724,28 @@ widget = {
 										layoutpolicy_vertical = preferred
 
 										### METROPOLITAN PANEL
-										eocfm_metropolitan_panel = {}
+										vbox = {
+											layoutpolicy_horizontal = expanding
+											layoutpolicy_vertical = preferred
+											
+											using = entry_bg_fancy
+											
+											default_header_clean_faded = {
+												layoutpolicy_horizontal = expanding
+												size = { 0 44 }
+												blockoverride "text" {
+													text = "eocfm_gui_metropolitan_header"
+												}
+											}
+											
+											eocfm_metropolitan_tabs = {}
+											
+											divider_clean = {}
+											
+											eocfm_orthodox_metropolitan_panel = {}
+											eocfm_orthodox_global_panel = {}
+											expand = {}
+										}
 
 										### ENCYCLICALS PANEL
 										eocfm_encyclical_panel_dummy = {}
@@ -720,28 +753,6 @@ widget = {
 									vertical_divider_full = {
 										size = { 2 0 }
 										layoutpolicy_vertical = expanding
-									}
-
-									### SENIOR PATRIARCHAL SEATS
-									vbox = {
-										layoutpolicy_horizontal = preferred
-										layoutpolicy_vertical = preferred
-										minimumsize = { 400 -1 }
-										spacing = 10
-										margin_left = 10
-										margin_right = 10
-
-										default_header_clean_faded = {
-											layoutpolicy_horizontal = expanding
-											size = { 0 44 }
-											blockoverride "text" {
-												raw_text = "Senior Episcopal Seats"
-											}
-										}
-
-										eocfm_elysian_ecumenical_actions = {}
-
-										expand = {}
 									}
 								}
 
@@ -779,7 +790,7 @@ widget = {
 							size = { 0 44 }
 						}
 						blockoverride "text" {
-							raw_text = "Junior Episcopal Seats"
+							text = "eocfm_gui_christian_community"
 						}
 					}
 
