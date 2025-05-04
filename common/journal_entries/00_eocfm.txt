@@ -148,6 +148,22 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 		}
 	}
 	
+	on_weekly_pulse = {
+		if = {
+			limit = {
+				scripted_bar_progress = {
+					name = eocfm_easterners_progress_bar
+					value <= 10
+				}
+			}
+			set_variable = eocfm_orthodox_easterners_var
+		}
+		else = {
+			remove_variable = eocfm_orthodox_easterners_var
+		}
+	
+	}
+	
 	weight = 500
 	
 }
@@ -233,6 +249,22 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 			eocfm_add_reformist_loyalists_effect = yes
 			eocfm_add_conservative_radicals_effect = yes
 		}
+	}
+	
+	on_weekly_pulse = {
+		if = {
+			limit = {
+				scripted_bar_progress = {
+					name = eocfm_easterners_progress_bar
+					value >= 90
+				}
+			}
+			set_variable = eocfm_orthodox_easterners_var
+		}
+		else = {
+			remove_variable = eocfm_orthodox_easterners_var
+		}
+	
 	}
 	
 	weight = 500
@@ -321,6 +353,25 @@ je_eocfm_encyclical_orthodox_fraternity = { #
 			eocfm_add_reformist_loyalists_effect = yes
 			eocfm_add_conservative_radicals_effect = yes
 		}
+	}
+	
+	on_weekly_pulse = {
+		if = {
+			limit = {
+				OR = {
+					var:eocfm_constantinople_opinion_var >= 75
+					var:eocfm_antioch_opinion_var >= 75
+					var:eocfm_jerusalem_opinion_var >= 75
+					var:eocfm_alexandria_opinion_var >= 75
+					var:eocfm_moscow_opinion_var >= 75
+				}
+			}
+			set_variable = eocfm_orthodox_fraternity_var
+		}
+		else = {
+			remove_variable = eocfm_orthodox_fraternity_var
+		}
+	
 	}
 	
 	weight = 500
