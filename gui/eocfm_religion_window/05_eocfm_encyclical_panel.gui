@@ -41,15 +41,61 @@ types eocfm_encyclical_panels {
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = preferred
+			margin_left = 15
 			
-			visible = "[GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
-			textbox = {
-				autoresize = yes
-				text = "eocfm_gui_no_encyclical"
-				elide = right
-				using = fontsize_xl
+			visible = "[Not(GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			
+#			textbox = {
+#				autoresize = yes
+#				text = "eocfm_gui_no_encyclical"
+#				elide = right
+#				using = fontsize_xl
+#			}
+			
+			vbox = {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = preferred
+					spacing = 10
+					
+					background = {
+						using = entry_bg
+						margin = { 10 10 }
+					}
+		
+					widget = {
+						size = { 100 100 }
+						icon = {
+							parentanchor = center
+							texture = "gfx/interface/backgrounds/round_frame_dec.dds"
+							size = { 80 80 }
+						}
+						icon = {
+							parentanchor = center
+							texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+							size = { 60 60 }
+						}
+						
+					}
+					
+					vbox = {
+						textbox = {
+							autoresize = yes
+							raw_text = "#bold #italic Encyclical of the Eastern Patriarchs#!#!"
+							elide = right
+							using = fontsize_xl
+						}
+						textbox = {
+							autoresize = yes
+							raw_text = "@warning! #red #italic Greece is NOT compliant!#!#!"
+							elide = right
+							using = fontsize_xl
+						}
+					}
+				}
 			}
+			
 		}
 		
 		hbox = {
