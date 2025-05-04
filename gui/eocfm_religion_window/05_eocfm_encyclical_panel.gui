@@ -9,7 +9,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				raw_text = "Circulating Encyclicals"
+				text = "eocfm_gui_encyclical_header"
 			}
 		}
 		
@@ -34,7 +34,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				raw_text = "Circulating Encyclicals"
+				text = "eocfm_gui_encyclical_header"
 			}
 		}
 		
@@ -46,12 +46,20 @@ types eocfm_encyclical_panels {
 			
 			visible = "[Not(GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			
-#			textbox = {
-#				autoresize = yes
-#				text = "eocfm_gui_no_encyclical"
-#				elide = right
-#				using = fontsize_xl
-#			}
+			textbox = {
+				autoresize = yes
+				text = "eocfm_gui_no_encyclical"
+				elide = right
+				using = fontsize_xl
+			}	
+		}
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			margin_left = 15
+			
+			visible = "[GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
 			vbox = {
 				layoutpolicy_horizontal = expanding
@@ -59,98 +67,115 @@ types eocfm_encyclical_panels {
 				spacing = 15
 				margin_top = 10
 				
-				widget = {
-					size = { 350 60 }
-					
-					background = {
-						using = entry_bg
-						margin = { 5 5 }
-					}
-					icon = {
-						parentanchor = left|top
-						texture = "gfx/interface/backgrounds/round_frame_dec.dds"
-						size = { 60 60 }
-						
-						icon = {
-							parentanchor = center
-							texture = "gfx/interface/icons/invention_icons/nationalism.dds"
-							size = { 45 45 }
-						}
-					}
-					textbox = {
-						parentanchor = left|top
-						margin_left = 65
-						margin_top = 10
-						autoresize = yes
-						raw_text = "#bold #italic Encyclical of the Eastern Patriarchs#!#!"
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						parentanchor = left|top
-						margin_left = 65
-						margin_top = 30
-						autoresize = yes
-						raw_text = "@warning! #red #italic Greece is NOT compliant!#!#!"
-						elide = right
-						using = fontsize_medium
-						using = look_at_me_animation
-					}
-				}
-				widget = {
-					size = { 350 60 }
-					
-					background = {
-						using = entry_bg
-						margin = { 5 5 }
-					}
-					icon = {
-						parentanchor = left|top
-						texture = "gfx/interface/backgrounds/round_frame_dec.dds"
-						size = { 60 60 }
-						
-						icon = {
-							parentanchor = center
-							texture = "gfx/interface/icons/invention_icons/civilizing_mission.dds"
-							size = { 45 45 }
-						}
-					}
-					textbox = {
-						parentanchor = left|top
-						margin_left = 65
-						margin_top = 10
-						autoresize = yes
-						raw_text = "#bold #italic Encyclical of the Fraternity of Churches#!#!"
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						parentanchor = left|top
-						margin_left = 65
-						margin_top = 30
-						autoresize = yes
-						raw_text = "@green_checkmark! #green #italic Greece is in compliance#!#!"
-						elide = right
-						using = fontsize_medium
-					}
-				}
+				eocfm_encyclical_orthodox_easterners = {}
+				eocfm_encyclical_orthodox_fraternity = {}
 				expand = {}
-			}
-			
-		}
-		
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = preferred
-			
-			visible = "[GetScriptedGui('eocfm_orthodox_easterners_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			
-			textbox = {
-				autoresize = yes
-				raw_text = "delete me!"
-				elide = right
-				using = fontsize_xl
 			}
 		}
 	}
+	
+	type eocfm_encyclical_orthodox_easterners = widget {
+		size = { 350 60 }
+		datacontext = "[GetScriptedGui('eocfm_orthodox_easterners_sgui')]"
+		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		
+		background = {
+			using = entry_bg
+			margin = { 5 5 }
+		}
+		icon = {
+			parentanchor = left|top
+			texture = "gfx/interface/backgrounds/round_frame_dec.dds"
+			size = { 60 60 }
+			
+			icon = {
+				parentanchor = center
+				texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+				size = { 45 45 }
+			}
+		}
+		textbox = {
+			parentanchor = left|top
+			margin_left = 65
+			margin_top = 10
+			autoresize = yes
+			text = "eocfm_gui_encyclical_orthodox_easterners"
+			elide = right
+			using = fontsize_medium
+		}
+		textbox = {
+			visible = "[Not(ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+			parentanchor = left|top
+			margin_left = 65
+			margin_top = 30
+			autoresize = yes
+			text = "ecofm_gui_encyclical_bad"
+			elide = right
+			using = fontsize_medium
+			using = look_at_me_animation
+		}
+		textbox = {
+			visible = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			parentanchor = left|top
+			margin_left = 65
+			margin_top = 30
+			autoresize = yes
+			text = "ecofm_gui_encyclical_good"
+			elide = right
+			using = fontsize_medium
+		}
+	}
+	
+	type eocfm_encyclical_orthodox_fraternity = widget {
+		size = { 350 60 }
+		datacontext = "[GetScriptedGui('eocfm_orthodox_fraternity_sgui')]"
+		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		
+		background = {
+			using = entry_bg
+			margin = { 5 5 }
+		}
+		icon = {
+			parentanchor = left|top
+			texture = "gfx/interface/backgrounds/round_frame_dec.dds"
+			size = { 60 60 }
+			
+			icon = {
+				parentanchor = center
+				texture = "gfx/interface/icons/invention_icons/civilizing_mission.dds"
+				size = { 45 45 }
+			}
+		}
+		textbox = {
+			parentanchor = left|top
+			margin_left = 65
+			margin_top = 10
+			autoresize = yes
+			text = "eocfm_gui_encyclical_orthodox_easterners"
+			elide = right
+			using = fontsize_medium
+		}
+		textbox = {
+			visible = "[Not(ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
+			parentanchor = left|top
+			margin_left = 65
+			margin_top = 30
+			autoresize = yes
+			text = "ecofm_gui_encyclical_bad"
+			elide = right
+			using = fontsize_medium
+			using = look_at_me_animation
+		}
+		textbox = {
+			visible = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			parentanchor = left|top
+			margin_left = 65
+			margin_top = 30
+			autoresize = yes
+			text = "ecofm_gui_encyclical_good"
+			elide = right
+			using = fontsize_medium
+		}
+	}
+	
 }
