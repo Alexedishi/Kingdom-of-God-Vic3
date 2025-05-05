@@ -1035,6 +1035,42 @@ eocfm_rome_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_rome_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_rome
+		var:eocfm_liturgical_rite_var != global_var:eocfm_rome_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_rome
+			var:eocfm_rome_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_rome
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_rome_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_rome
+	}
+	
+}
+
 eocfm_start_sway_rome_sgui = {
 	scope = country
 	
@@ -1147,6 +1183,42 @@ eocfm_santiago_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_santiago
+	}
+	
+}
+
+eocfm_enforce_santiago_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_santiago
+		var:eocfm_liturgical_rite_var != global_var:eocfm_santiago_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_santiago
+			var:eocfm_santiago_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_santiago
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_santiago_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_santiago
 	}
 	
 }
@@ -1267,6 +1339,42 @@ eocfm_paris_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_paris_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_paris
+		var:eocfm_liturgical_rite_var != global_var:eocfm_paris_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_paris
+			var:eocfm_paris_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_paris
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_paris_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_paris
+	}
+	
+}
+
 eocfm_start_sway_paris_sgui = {
 	scope = country
 	
@@ -1383,6 +1491,42 @@ eocfm_koln_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_koln_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_koln
+		var:eocfm_liturgical_rite_var != global_var:eocfm_koln_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_koln
+			var:eocfm_koln_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_koln
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_koln_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_koln
+	}
+	
+}
+
 eocfm_start_sway_koln_sgui = {
 	scope = country
 	
@@ -1495,6 +1639,42 @@ eocfm_vienna_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_vienna
+	}
+	
+}
+
+eocfm_enforce_vienna_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_vienna
+		var:eocfm_liturgical_rite_var != global_var:eocfm_vienna_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_vienna
+			var:eocfm_vienna_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_vienna
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_vienna_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_vienna
 	}
 	
 }
@@ -1643,6 +1823,41 @@ eocfm_constantinople_progressbar_sgui = {
 	}
 	
 }
+eocfm_enforce_constantinople_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_constantinople
+		var:eocfm_liturgical_rite_var != global_var:eocfm_constantinople_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_constantinople
+			var:eocfm_constantinople_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_constantinople
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_constantinople_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_constantinople
+	}
+	
+}
 
 eocfm_start_sway_constantinople_sgui = {
 	scope = country
@@ -1756,6 +1971,42 @@ eocfm_antioch_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_antioch
+	}
+	
+}
+
+eocfm_enforce_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_antioch
+		var:eocfm_liturgical_rite_var != global_var:eocfm_antioch_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_antioch
+			var:eocfm_antioch_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_antioch
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_antioch_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_antioch
 	}
 	
 }
@@ -1876,6 +2127,42 @@ eocfm_jerusalem_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_jerusalem_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_jerusalem
+		var:eocfm_liturgical_rite_var != global_var:eocfm_jerusalem_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_jerusalem
+			var:eocfm_jerusalem_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_jerusalem
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_jerusalem_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_jerusalem
+	}
+	
+}
+
 eocfm_start_sway_jerusalem_sgui = {
 	scope = country
 	
@@ -1992,6 +2279,42 @@ eocfm_alexandria_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_alexandria
+		var:eocfm_liturgical_rite_var != global_var:eocfm_alexandria_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_alexandria
+			var:eocfm_alexandria_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_alexandria
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_alexandria_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_alexandria
+	}
+	
+}
+
 eocfm_start_sway_alexandria_sgui = {
 	scope = country
 	
@@ -2104,6 +2427,42 @@ eocfm_moscow_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_moscow
+	}
+	
+}
+
+eocfm_enforce_moscow_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_moscow
+		var:eocfm_liturgical_rite_var != global_var:eocfm_moscow_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_moscow
+			var:eocfm_moscow_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_moscow
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_moscow_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_moscow
 	}
 	
 }
@@ -2254,6 +2613,42 @@ eocfm_coptic_alexandria_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_coptic_alexandria
+		var:eocfm_liturgical_rite_var != global_var:eocfm_coptic_alexandria_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_coptic_alexandria
+			var:eocfm_coptic_alexandria_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_coptic_alexandria
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_coptic_alexandria_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_coptic_alexandria
+	}
+	
+}
+
 eocfm_start_sway_coptic_alexandria_sgui = {
 	scope = country
 	
@@ -2366,6 +2761,42 @@ eocfm_syriac_antioch_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_syriac_antioch
+	}
+	
+}
+
+eocfm_enforce_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_syriac_antioch
+		var:eocfm_liturgical_rite_var != global_var:eocfm_syriac_antioch_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_syriac_antioch
+			var:eocfm_syriac_antioch_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_syriac_antioch
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_syriac_antioch_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_syriac_antioch
 	}
 	
 }
@@ -2486,6 +2917,42 @@ eocfm_etchmiadzin_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_etchmiadzin
+		var:eocfm_liturgical_rite_var != global_var:eocfm_etchmiadzin_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_etchmiadzin
+			var:eocfm_etchmiadzin_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_etchmiadzin
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_etchmiadzin_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_etchmiadzin
+	}
+	
+}
+
 eocfm_start_sway_etchmiadzin_sgui = {
 	scope = country
 	
@@ -2602,6 +3069,42 @@ eocfm_addis_ababa_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_addis_ababa
+		var:eocfm_liturgical_rite_var != global_var:eocfm_addis_ababa_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_addis_ababa
+			var:eocfm_addis_ababa_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_addis_ababa
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_addis_ababa_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_addis_ababa
+	}
+	
+}
+
 eocfm_start_sway_addis_ababa_sgui = {
 	scope = country
 	
@@ -2714,6 +3217,42 @@ eocfm_konak_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_konak
+	}
+	
+}
+
+eocfm_enforce_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_konak
+		var:eocfm_liturgical_rite_var != global_var:eocfm_konak_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_konak
+			var:eocfm_konak_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_konak
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_konak_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_konak
 	}
 	
 }
@@ -2864,6 +3403,42 @@ eocfm_elysium_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_elysium
+		var:eocfm_liturgical_rite_var != global_var:eocfm_elysium_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_elysium
+			var:eocfm_elysium_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_elysium
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_elysium_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_elysium
+	}
+	
+}
+
 eocfm_start_sway_elysium_sgui = {
 	scope = country
 	
@@ -2980,6 +3555,42 @@ eocfm_mixtec_progressbar_sgui = {
 	
 }
 
+eocfm_enforce_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_mixtec
+		var:eocfm_liturgical_rite_var != global_var:eocfm_mixtec_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_mixtec
+			var:eocfm_mixtec_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_mixtec
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_mixtec_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_mixtec
+	}
+	
+}
+
 eocfm_start_sway_mixtec_sgui = {
 	scope = country
 	
@@ -3092,6 +3703,42 @@ eocfm_cahokia_progressbar_sgui = {
 	
 	is_shown = {
 		has_variable = eocfm_integrating_cahokia
+	}
+	
+}
+
+eocfm_enforce_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_controls_cahokia
+		var:eocfm_liturgical_rite_var != global_var:eocfm_cahokia_liturgical_rite_var
+	}
+	
+	is_valid = {
+		eocfm_is_autocephalous_trigger = yes
+		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_enforce_cahokia
+			var:eocfm_cahokia_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_asserting_cahokia
+		set_variable = {
+			name = eocfm_assertion_var
+			value = 0
+		}
+	}
+}
+
+eocfm_cahokia_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = eocfm_asserting_cahokia
 	}
 	
 }
