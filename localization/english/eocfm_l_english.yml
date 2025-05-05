@@ -812,6 +812,8 @@
  eocfm_value_from_total_separation: "From having [GetLawType('law_total_separation').GetName] enacted"
  eocfm_value_from_state_atheism: "From having [GetLawType('law_state_atheism').GetName] enacted"
  eocfm_value_from_freedom_of_conscience: "From having [GetLawType('law_freedom_of_conscience').GetName] enacted"
+ eocfm_value_from_religious_schools: "From having [GetLawType('law_religious_schools').GetName] enacted"
+ eocfm_value_from_non_religious_schools: "From having a non-[GetLawType('law_religious_schools').GetName] system enacted"
  
  eocfm_value_from_autocephaly: "From #bold Having Declared [concept_autocephaly]#!"
  eocfm_value_from_seat_control: "From controlling this [concept_patriarchal_seat]"
@@ -909,6 +911,7 @@
  eocfm_relations: "[Concept('concept_ecumenism','$concept_ecumenical_relations$')]"
  eocfm_relations_approval: "A [concept_country] will earn the #bold #green approval#!#! of a $eocfm_patriarch$ by having $eocfm_relations$ of #bold #red -50#! or less#! with them"
  eocfm_relations_dispproval: "A [concept_country] will earn the #bold #red disapproval#!#! of a $eocfm_patriarch$ by having $eocfm_relations$ of #bold #green 75#! or greater#! with them"
+ eocfm_relations_need_plus_50: "[GetPlayer.GetNameNoFlag] has #bold #green 50#! or greater#! $eocfm_relations$ with this [concept_patriarchal_seat]"
  
  eocfm_boost_rome_relations: "This will increase $eocfm_relations$ with $eocfm_rome$ by #bold #green +20#!#!"
  eocfm_boost_santiago_relations: "This will increase $eocfm_relations$ with $eocfm_santiago$ by #bold #green +20#!#!"

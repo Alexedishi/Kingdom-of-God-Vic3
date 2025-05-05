@@ -33,6 +33,15 @@ eocfm_rome_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_rome
 		}
 		add = {
@@ -62,7 +71,7 @@ eocfm_rome_opinion_value = {
 			var:eocfm_rome_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -82,6 +91,18 @@ eocfm_rome_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -140,6 +161,15 @@ eocfm_santiago_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_santiago
 		}
 		add = {
@@ -169,7 +199,7 @@ eocfm_santiago_opinion_value = {
 			var:eocfm_santiago_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -189,6 +219,18 @@ eocfm_santiago_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -247,6 +289,15 @@ eocfm_paris_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_paris
 		}
 		add = {
@@ -276,7 +327,7 @@ eocfm_paris_opinion_value = {
 			var:eocfm_paris_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -296,6 +347,18 @@ eocfm_paris_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -354,6 +417,15 @@ eocfm_koln_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_koln
 		}
 		add = {
@@ -383,7 +455,7 @@ eocfm_koln_opinion_value = {
 			var:eocfm_koln_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -403,6 +475,18 @@ eocfm_koln_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -461,6 +545,15 @@ eocfm_vienna_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_vienna
 		}
 		add = {
@@ -490,7 +583,7 @@ eocfm_vienna_opinion_value = {
 			var:eocfm_vienna_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -510,6 +603,18 @@ eocfm_vienna_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -568,6 +673,15 @@ eocfm_constantinople_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_constantinople
 		}
 		add = {
@@ -597,7 +711,7 @@ eocfm_constantinople_opinion_value = {
 			var:eocfm_constantinople_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -617,6 +731,18 @@ eocfm_constantinople_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -675,6 +801,15 @@ eocfm_antioch_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_antioch
 		}
 		add = {
@@ -704,7 +839,7 @@ eocfm_antioch_opinion_value = {
 			var:eocfm_antioch_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -724,6 +859,18 @@ eocfm_antioch_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -782,6 +929,15 @@ eocfm_jerusalem_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_jerusalem
 		}
 		add = {
@@ -811,7 +967,7 @@ eocfm_jerusalem_opinion_value = {
 			var:eocfm_jerusalem_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -831,6 +987,18 @@ eocfm_jerusalem_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -889,6 +1057,15 @@ eocfm_alexandria_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_alexandria
 		}
 		add = {
@@ -918,7 +1095,7 @@ eocfm_alexandria_opinion_value = {
 			var:eocfm_alexandria_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -938,6 +1115,18 @@ eocfm_alexandria_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -996,6 +1185,15 @@ eocfm_moscow_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_moscow
 		}
 		add = {
@@ -1025,7 +1223,7 @@ eocfm_moscow_opinion_value = {
 			var:eocfm_moscow_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1045,6 +1243,18 @@ eocfm_moscow_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1103,6 +1313,15 @@ eocfm_coptic_alexandria_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_coptic_alexandria
 		}
 		add = {
@@ -1132,7 +1351,7 @@ eocfm_coptic_alexandria_opinion_value = {
 			var:eocfm_coptic_alexandria_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1152,6 +1371,18 @@ eocfm_coptic_alexandria_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1210,6 +1441,15 @@ eocfm_syriac_antioch_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_syriac_antioch
 		}
 		add = {
@@ -1239,7 +1479,7 @@ eocfm_syriac_antioch_opinion_value = {
 			var:eocfm_syriac_antioch_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1259,6 +1499,18 @@ eocfm_syriac_antioch_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1317,6 +1569,15 @@ eocfm_etchmiadzin_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_etchmiadzin
 		}
 		add = {
@@ -1346,7 +1607,7 @@ eocfm_etchmiadzin_opinion_value = {
 			var:eocfm_etchmiadzin_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1366,6 +1627,18 @@ eocfm_etchmiadzin_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1424,6 +1697,15 @@ eocfm_addis_ababa_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_addis_ababa
 		}
 		add = {
@@ -1453,7 +1735,7 @@ eocfm_addis_ababa_opinion_value = {
 			var:eocfm_addis_ababa_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1473,6 +1755,18 @@ eocfm_addis_ababa_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1531,6 +1825,15 @@ eocfm_konak_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_konak
 		}
 		add = {
@@ -1560,7 +1863,7 @@ eocfm_konak_opinion_value = {
 			var:eocfm_konak_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1580,6 +1883,18 @@ eocfm_konak_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1638,6 +1953,15 @@ eocfm_elysium_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_elysium
 		}
 		add = {
@@ -1667,7 +1991,7 @@ eocfm_elysium_opinion_value = {
 			var:eocfm_elysium_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1687,6 +2011,18 @@ eocfm_elysium_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1745,6 +2081,15 @@ eocfm_mixtec_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_mixtec
 		}
 		add = {
@@ -1774,7 +2119,7 @@ eocfm_mixtec_opinion_value = {
 			var:eocfm_mixtec_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1794,6 +2139,18 @@ eocfm_mixtec_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
@@ -1852,6 +2209,15 @@ eocfm_cahokia_opinion_value = {
 	}
 	if = {
 		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
 			has_variable = eocfm_controls_cahokia
 		}
 		add = {
@@ -1881,7 +2247,7 @@ eocfm_cahokia_opinion_value = {
 			var:eocfm_cahokia_patriarch_var.religion != root.religion
 		}
 		add = {
-			value = -20
+			value = -25
 			desc = eocfm_value_from_different_religion
 		}
 	}
@@ -1901,6 +2267,18 @@ eocfm_cahokia_opinion_value = {
 		add = {
 			value = -50
 			desc = eocfm_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = eocfm_value_from_non_religious_schools
 		}
 	}
 	if = {
