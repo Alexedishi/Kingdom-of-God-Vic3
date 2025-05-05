@@ -404,6 +404,22 @@ eocfm_has_different_rite_trigger = {
 	}
 }
 
+eocfm_enforcing_seat_trigger = {
+	custom_tooltip = {
+		text = eocfm_enforcing_seat
+		has_variable = eocfm_enforcement_var
+	}
+}
+
+eocfm_NOT_enforcing_seat_trigger = {
+	custom_tooltip = {
+		text = eocfm_enforcing_seat_NOT
+		NOT = {
+			has_variable = eocfm_enforcement_var
+		}
+	}
+}
+
 #### PATRIARCH RELATIONS TRIGGERS ####
 
 eocfm_is_swaying_seat_trigger = {
