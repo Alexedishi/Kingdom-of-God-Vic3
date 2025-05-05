@@ -31,7 +31,6 @@ eocfm_rome_opinion_value = {
 			desc = eocfm_value_from_freedom_of_conscience
 		}
 	}
-	
 	if = {
 		limit = {
 			has_law = law_type:law_charitable_health_system
@@ -39,6 +38,15 @@ eocfm_rome_opinion_value = {
 		add = {
 			value = 10
 			desc = eocfm_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = eocfm_value_from_religious_schools
 		}
 	}
 	if = {
