@@ -236,7 +236,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_rome_liturgical_rite"
+								text = "eocfm_gui_rome_liturgical_rite"
 								size = { 240 40 }
 								elide = right
 								using = fontsize_medium
@@ -262,6 +262,7 @@ types eocfm_patriarchal_seat_panels {
 							}
 						}
 					}
+					
 					vbox = {
 						hbox = {
 							layoutpolicy_horizontal = expanding
@@ -274,41 +275,41 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Tetrarchy"
+									text = "eocfm_gui_secure_tetrarchy"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_secure_tetrarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_tetrarchy_desc"
 									
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Pentarchy"
+									text = "eocfm_gui_secure_pentarchy"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_secure_pentarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_pentarchy_desc"
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Mend the Great Schism"
+									text = "eocfm_gui_mend_schism"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_mend_schism_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_mend_schism_button"
+									tooltip = "eocfm_gui_mend_schism_desc"
 								}
 								green_progressbar_horizontal = {
 									parentanchor = center
@@ -324,7 +325,7 @@ types eocfm_patriarchal_seat_panels {
 										parentanchor = center
 										autoresize = yes
 										visible = "[GetScriptedGui('eocfm_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-										raw_text = "#bold #greece Mending Progress#!#!"
+										text = "eocfm_gui_mending_header"
 										elide = right
 										using = fontsize_medium
 									}
@@ -339,14 +340,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Declare Autocephaly"
+									text = "eocfm_gui_declare_autocephaly"
 									using = fontsize_large
 									
 									datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_declare_autocephaly_button"
+									tooltip = "eocfm_gui_declare_autocephaly_desc"
 								}
 				
 								green_progressbar_horizontal = {
@@ -361,7 +362,7 @@ types eocfm_patriarchal_seat_panels {
 									}
 									textbox = {
 										parentanchor = center
-										raw_text = "#bold #greece Autocephaly Progress#!#!"
+										text = "eocfm_gui_autocephaly_header"
 										autoresize = yes
 										max_width = 300
 										elide = right
@@ -373,14 +374,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Convoke Ecumenical Council"
+									text = "eocfm_gui_convoke_council"
 									using = fontsize_large
 									
 									datacontext = "[GetScriptedGui('eocfm_convoke_council_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_convoke_council_button"
+									tooltip = "eocfm_gui_convoke_council_desc"
 								}
 							}
 						}
@@ -1664,7 +1665,7 @@ types eocfm_patriarchal_seat_panels {
 						hbox = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-
+							
 							## Tetrarchy/Pentarchy/Mending Buttons
 							widget = {
 								size = { 250 60 }
@@ -1672,47 +1673,47 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Tetrarchy"
+									text = "eocfm_gui_secure_tetrarchy"
 									using = fontsize_medium
-
+									
 									datacontext = "[GetScriptedGui('eocfm_secure_tetrarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
-
+									tooltip = "eocfm_gui_secure_tetrarchy_desc"
+									
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Pentarchy"
+									text = "eocfm_gui_secure_pentarchy"
 									using = fontsize_medium
-
+									
 									datacontext = "[GetScriptedGui('eocfm_secure_pentarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_pentarchy_desc"
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Mend the Great Schism"
+									text = "eocfm_gui_mend_schism"
 									using = fontsize_medium
-
+									
 									datacontext = "[GetScriptedGui('eocfm_mend_schism_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_mend_schism_button"
+									tooltip = "eocfm_gui_mend_schism_desc"
 								}
 								green_progressbar_horizontal = {
 									parentanchor = center
 									size = { 194 30 }
 									visible = "[GetScriptedGui('eocfm_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-
+									
 									blockoverride "values" {
 										min = 0
 										max = 240
@@ -1722,36 +1723,36 @@ types eocfm_patriarchal_seat_panels {
 										parentanchor = center
 										autoresize = yes
 										visible = "[GetScriptedGui('eocfm_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-										raw_text = "#bold #greece Mending Progress#!#!"
+										text = "eocfm_gui_mending_header"
 										elide = right
 										using = fontsize_medium
 									}
 								}
 							}
-
+							
 							## Autocephaly/Council Buttons
 							widget = {
 								size = { 250 60 }
-
+								
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Declare Autocephaly"
+									text = "eocfm_gui_declare_autocephaly"
 									using = fontsize_large
-
+									
 									datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_declare_autocephaly_button"
+									tooltip = "eocfm_gui_declare_autocephaly_desc"
 								}
-
+				
 								green_progressbar_horizontal = {
 									parentanchor = center
 									size = { 200 20 }
 									visible = "[GetScriptedGui('eocfm_schism_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-
+									
 									blockoverride "values" {
 										min = 0
 										max = 120
@@ -1759,7 +1760,7 @@ types eocfm_patriarchal_seat_panels {
 									}
 									textbox = {
 										parentanchor = center
-										raw_text = "#bold #greece Autocephaly Progress#!#!"
+										text = "eocfm_gui_autocephaly_header"
 										autoresize = yes
 										max_width = 300
 										elide = right
@@ -1771,14 +1772,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Convoke Ecumenical Council"
+									text = "eocfm_gui_convoke_council"
 									using = fontsize_large
-
+									
 									datacontext = "[GetScriptedGui('eocfm_orthodox_convoke_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_convoke_council_button"
+									tooltip = "eocfm_gui_convoke_council_desc"
 								}
 							}
 						}
@@ -3061,6 +3062,7 @@ types eocfm_patriarchal_seat_panels {
 							}
 						}
 					}
+					
 					vbox = {
 						hbox = {
 							layoutpolicy_horizontal = expanding
@@ -3073,41 +3075,41 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Tetrarchy"
+									text = "eocfm_gui_secure_tetrarchy"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_secure_tetrarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_tetrarchy_desc"
 									
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Pentarchy"
+									text = "eocfm_gui_secure_pentarchy"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_secure_pentarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_pentarchy_desc"
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Mend the Great Schism"
+									text = "eocfm_gui_mend_schism"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_mend_schism_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_mend_schism_button"
+									tooltip = "eocfm_gui_mend_schism_desc"
 								}
 								green_progressbar_horizontal = {
 									parentanchor = center
@@ -3123,7 +3125,7 @@ types eocfm_patriarchal_seat_panels {
 										parentanchor = center
 										autoresize = yes
 										visible = "[GetScriptedGui('eocfm_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-										raw_text = "#bold #greece Mending Progress#!#!"
+										text = "eocfm_gui_mending_header"
 										elide = right
 										using = fontsize_medium
 									}
@@ -3138,14 +3140,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Declare Autocephaly"
+									text = "eocfm_gui_declare_autocephaly"
 									using = fontsize_large
 									
 									datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_declare_autocephaly_button"
+									tooltip = "eocfm_gui_declare_autocephaly_desc"
 								}
 				
 								green_progressbar_horizontal = {
@@ -3160,7 +3162,7 @@ types eocfm_patriarchal_seat_panels {
 									}
 									textbox = {
 										parentanchor = center
-										raw_text = "#bold #greece Autocephaly Progress#!#!"
+										text = "eocfm_gui_autocephaly_header"
 										autoresize = yes
 										max_width = 300
 										elide = right
@@ -3172,14 +3174,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Convoke Ecumenical Council"
+									text = "eocfm_gui_convoke_council"
 									using = fontsize_large
 									
 									datacontext = "[GetScriptedGui('eocfm_convoke_council_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_convoke_council_button"
+									tooltip = "eocfm_gui_convoke_council_desc"
 								}
 							}
 						}
@@ -4462,6 +4464,7 @@ types eocfm_patriarchal_seat_panels {
 							}
 						}
 					}
+					
 					vbox = {
 						hbox = {
 							layoutpolicy_horizontal = expanding
@@ -4474,41 +4477,41 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Tetrarchy"
+									text = "eocfm_gui_secure_tetrarchy"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_secure_tetrarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_tetrarchy_desc"
 									
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Secure the Pentarchy"
+									text = "eocfm_gui_secure_pentarchy"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_secure_pentarchy_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_secure_tetrarchy_button"
+									tooltip = "eocfm_gui_secure_pentarchy_desc"
 								}
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 200 40 }
-									raw_text = "Mend the Great Schism"
+									text = "eocfm_gui_mend_schism"
 									using = fontsize_medium
 									
 									datacontext = "[GetScriptedGui('eocfm_mend_schism_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_mend_schism_button"
+									tooltip = "eocfm_gui_mend_schism_desc"
 								}
 								green_progressbar_horizontal = {
 									parentanchor = center
@@ -4524,7 +4527,7 @@ types eocfm_patriarchal_seat_panels {
 										parentanchor = center
 										autoresize = yes
 										visible = "[GetScriptedGui('eocfm_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-										raw_text = "#bold #greece Mending Progress#!#!"
+										text = "eocfm_gui_mending_header"
 										elide = right
 										using = fontsize_medium
 									}
@@ -4539,14 +4542,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Declare Autocephaly"
+									text = "eocfm_gui_declare_autocephaly"
 									using = fontsize_large
 									
 									datacontext = "[GetScriptedGui('eocfm_declare_autocephaly_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_declare_autocephaly_button"
+									tooltip = "eocfm_gui_declare_autocephaly_desc"
 								}
 				
 								green_progressbar_horizontal = {
@@ -4561,7 +4564,7 @@ types eocfm_patriarchal_seat_panels {
 									}
 									textbox = {
 										parentanchor = center
-										raw_text = "#bold #greece Autocephaly Progress#!#!"
+										text = "eocfm_gui_autocephaly_header"
 										autoresize = yes
 										max_width = 300
 										elide = right
@@ -4573,14 +4576,14 @@ types eocfm_patriarchal_seat_panels {
 									parentanchor = center
 									using = default_button_primary_big_action
 									size = { 260 44 }
-									raw_text = "Convoke Ecumenical Council"
+									text = "eocfm_gui_convoke_council"
 									using = fontsize_large
 									
 									datacontext = "[GetScriptedGui('eocfm_convoke_council_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_convoke_council_button"
+									tooltip = "eocfm_gui_convoke_council_desc"
 								}
 							}
 						}
