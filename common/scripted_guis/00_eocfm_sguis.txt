@@ -994,9 +994,10 @@ eocfm_integrate_rome_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_rome
-		}		
+			has_variable = eocfm_controls_rome
+		}
 	}
 	
 	is_valid = {
@@ -1004,12 +1005,8 @@ eocfm_integrate_rome_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_rome_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_rome
-				}
-			}
+			text = eocfm_can_integrate_rome
+			var:eocfm_rome_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_LAZIO
 	}
@@ -1113,9 +1110,10 @@ eocfm_integrate_santiago_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_santiago
-		}		
+			has_variable = eocfm_controls_santiago
+		}
 	}
 	
 	is_valid = {
@@ -1123,12 +1121,8 @@ eocfm_integrate_santiago_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_santiago_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_santiago
-				}
-			}
+			text = eocfm_can_integrate_santiago
+			var:eocfm_santiago_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_GALICIA
 	}
@@ -1232,9 +1226,10 @@ eocfm_integrate_paris_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_paris
-		}		
+			has_variable = eocfm_controls_paris
+		}
 	}
 	
 	is_valid = {
@@ -1242,12 +1237,8 @@ eocfm_integrate_paris_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_paris_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_paris
-				}
-			}
+			text = eocfm_can_integrate_paris
+			var:eocfm_paris_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_ILE_DE_FRANCE
 	}
@@ -1351,9 +1342,10 @@ eocfm_integrate_koln_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_koln
-		}		
+			has_variable = eocfm_controls_koln
+		}
 	}
 	
 	is_valid = {
@@ -1361,12 +1353,8 @@ eocfm_integrate_koln_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_koln_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_koln
-				}
-			}
+			text = eocfm_can_integrate_koln
+			var:eocfm_koln_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_NORTH_RHINE
 	}
@@ -1470,9 +1458,10 @@ eocfm_integrate_vienna_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_vienna
-		}		
+			has_variable = eocfm_controls_vienna
+		}
 	}
 	
 	is_valid = {
@@ -1480,12 +1469,8 @@ eocfm_integrate_vienna_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_vienna_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_vienna
-				}
-			}
+			text = eocfm_can_integrate_vienna
+			var:eocfm_vienna_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_AUSTRIA
 	}
@@ -1618,9 +1603,10 @@ eocfm_integrate_constantinople_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_constantinople
-		}		
+			has_variable = eocfm_controls_constantinople
+		}
 	}
 	
 	is_valid = {
@@ -1628,12 +1614,8 @@ eocfm_integrate_constantinople_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_constantinople_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_constantinople
-				}
-			}
+			text = eocfm_can_integrate_constantinople
+			var:eocfm_constantinople_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_EASTERN_THRACE
 	}
@@ -1737,9 +1719,10 @@ eocfm_integrate_antioch_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_antioch
-		}		
+			has_variable = eocfm_controls_antioch
+		}
 	}
 	
 	is_valid = {
@@ -1747,12 +1730,8 @@ eocfm_integrate_antioch_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_antioch_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_antioch
-				}
-			}
+			text = eocfm_can_integrate_antioch
+			var:eocfm_antioch_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_SYRIA
 	}
@@ -1856,9 +1835,10 @@ eocfm_integrate_jerusalem_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_jerusalem
-		}		
+			has_variable = eocfm_controls_jerusalem
+		}
 	}
 	
 	is_valid = {
@@ -1866,12 +1846,8 @@ eocfm_integrate_jerusalem_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_jerusalem_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_jerusalem
-				}
-			}
+			text = eocfm_can_integrate_jerusalem
+			var:eocfm_jerusalem_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_PALESTINE
 	}
@@ -1975,15 +1951,20 @@ eocfm_integrate_alexandria_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_alexandria
-		}		
+			has_variable = eocfm_controls_alexandria
+		}
 	}
 	
 	is_valid = {
 		eocfm_is_autocephalous_trigger = yes
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
+		custom_tooltip = {
+			text = eocfm_can_integrate_alexandria
+			var:eocfm_alexandria_opinion_var >= 25
+		}
 		owns_entire_state_region = STATE_LOWER_EGYPT
 	}
 	
@@ -2086,9 +2067,10 @@ eocfm_integrate_moscow_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_moscow
-		}		
+			has_variable = eocfm_controls_moscow
+		}
 	}
 	
 	is_valid = {
@@ -2096,12 +2078,8 @@ eocfm_integrate_moscow_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_moscow_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_moscow
-				}
-			}
+			text = eocfm_can_integrate_moscow
+			var:eocfm_moscow_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_MOSCOW
 	}
@@ -2213,12 +2191,8 @@ eocfm_assert_coptic_alexandria_sgui = {
 		eocfm_is_oriental_orthodox_trigger = yes
 		eocfm_is_NOT_autocephalous_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_coptic_alexandria_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_coptic_alexandria
-				}
-			}
+			text = eocfm_can_integrate_coptic_alexandria
+			var:eocfm_coptic_alexandria_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_LOWER_EGYPT
 	}
@@ -2235,9 +2209,10 @@ eocfm_integrate_coptic_alexandria_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_coptic_alexandria
-		}		
+			has_variable = eocfm_controls_coptic_alexandria
+		}
 	}
 	
 	is_valid = {
@@ -2354,9 +2329,10 @@ eocfm_integrate_syriac_antioch_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_syriac_antioch
-		}		
+			has_variable = eocfm_controls_syriac_antioch
+		}
 	}
 	
 	is_valid = {
@@ -2364,12 +2340,8 @@ eocfm_integrate_syriac_antioch_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_syriac_antioch_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_syriac_antioch
-				}
-			}
+			text = eocfm_can_integrate_syriac_antioch
+			var:eocfm_syriac_antioch_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_SYRIA
 	}
@@ -2473,9 +2445,10 @@ eocfm_integrate_etchmiadzin_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_etchmiadzin
-		}		
+			has_variable = eocfm_controls_etchmiadzin
+		}
 	}
 	
 	is_valid = {
@@ -2483,12 +2456,8 @@ eocfm_integrate_etchmiadzin_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_etchmiadzin_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_etchmiadzin
-				}
-			}
+			text = eocfm_can_integrate_etchmiadzin
+			var:eocfm_etchmiadzin_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_ARMENIA
 	}
@@ -2592,9 +2561,10 @@ eocfm_integrate_addis_ababa_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_addis_ababa
-		}		
+			has_variable = eocfm_controls_addis_ababa
+		}
 	}
 	
 	is_valid = {
@@ -2602,12 +2572,8 @@ eocfm_integrate_addis_ababa_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_addis_ababa_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_addis_ababa
-				}
-			}
+			text = eocfm_can_integrate_addis_ababa
+			var:eocfm_addis_ababa_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_OROMIA
 	}
@@ -2711,9 +2677,10 @@ eocfm_integrate_konak_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_konak
-		}		
+			has_variable = eocfm_controls_konak
+		}
 	}
 	
 	is_valid = {
@@ -2721,12 +2688,8 @@ eocfm_integrate_konak_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_konak_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_konak
-				}
-			}
+			text = eocfm_can_integrate_konak
+			var:eocfm_konak_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_DIYARBAKIR
 	}
@@ -2845,7 +2808,7 @@ eocfm_assert_elysium_sgui = {
 				}
 			}
 		}
-		eocfm_is_roman_catholic_trigger = yes
+		eocfm_is_elysian_orthodox_trigger = yes
 	}
 	
 	effect = {
@@ -2860,9 +2823,10 @@ eocfm_integrate_elysium_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_elysium
-		}		
+			has_variable = eocfm_controls_elysium
+		}
 	}
 	
 	is_valid = {
@@ -2870,12 +2834,8 @@ eocfm_integrate_elysium_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_elysium_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_elysium
-				}
-			}
+			text = eocfm_can_integrate_elysium
+			var:eocfm_elysium_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_DISTRICT_OF_COLUMBIA
 	}
@@ -2979,9 +2939,10 @@ eocfm_integrate_mixtec_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_mixtec
-		}		
+			has_variable = eocfm_controls_mixtec
+		}
 	}
 	
 	is_valid = {
@@ -2989,12 +2950,8 @@ eocfm_integrate_mixtec_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_mixtec_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_mixtec
-				}
-			}
+			text = eocfm_can_integrate_mixtec
+			var:eocfm_mixtec_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_OAXACA
 	}
@@ -3098,9 +3055,10 @@ eocfm_integrate_cahokia_sgui = {
 	scope = country
 	
 	is_shown = {
-		NOT = {
+		NOR = {
 			has_variable = eocfm_integrating_cahokia
-		}		
+			has_variable = eocfm_controls_cahokia
+		}
 	}
 	
 	is_valid = {
@@ -3108,12 +3066,8 @@ eocfm_integrate_cahokia_sgui = {
 		eocfm_has_500_caesaropapism_trigger	= yes
 		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
-			text = eocfm_controls_cahokia_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = eocfm_controls_cahokia
-				}
-			}
+			text = eocfm_can_integrate_cahokia
+			var:eocfm_cahokia_opinion_var >= 25
 		}
 		owns_entire_state_region = STATE_ILLINOIS
 	}
