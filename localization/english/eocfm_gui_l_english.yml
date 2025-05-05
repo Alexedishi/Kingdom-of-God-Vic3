@@ -263,7 +263,7 @@
  eocfm_gui_alexandria_liturgical_rite: "#bold [concept_liturgical_rite]:#!\n@eocfm_rite! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_alexandria_liturgical_rite_type')]"
  eocfm_gui_alexandria_location: "#bold Seated in:#!\n[GetStateRegion('STATE_LOWER_EGYPT').GetName]"
  eocfm_gui_alexandria_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_alexandria_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_alexandria_opinion_var').GetValue|0+=]#!#!"
- eocfm_gui_alexandria_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_alexandria_opinion_value')]"ources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_alexandria_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_alexandria_opinion_value')]"
  
  # Moscow Widget
  eocfm_gui_moscow_patriarch_header: "Patriarchate of Moscow"
