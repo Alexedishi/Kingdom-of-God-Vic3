@@ -811,7 +811,6 @@ eocfm_select_random_antagonized_seat_effect = {
 }
 
 eocfm_select_random_condemnation_seat_effect = {
-	# This effect does NOT check for BR to be active; be aware when calling this effect
 	# Players should only be condemned by Patriarchs of the same faith
 	random_list = {
 		5 = {
@@ -1011,6 +1010,7 @@ eocfm_select_random_condemnation_seat_effect = {
 		}
 		5 = {
 			trigger = {
+				basileia_is_active = yes
 				var:eocfm_elysium_patriarch_var.religion = root.religion
 				var:eocfm_elysium_opinion_var < 50
 				NOT = {
@@ -1024,6 +1024,7 @@ eocfm_select_random_condemnation_seat_effect = {
 		}
 		5 = {
 			trigger = {
+				basileia_is_active = yes
 				var:eocfm_mixtec_patriarch_var.religion = root.religion
 				var:eocfm_mixtec_opinion_var < 50
 				NOT = {
@@ -1037,6 +1038,7 @@ eocfm_select_random_condemnation_seat_effect = {
 		}
 		5 = {
 			trigger = {
+				basileia_is_active = yes
 				var:eocfm_cahokia_patriarch_var.religion = root.religion
 				var:eocfm_cahokia_opinion_var < 50
 				NOT = {
