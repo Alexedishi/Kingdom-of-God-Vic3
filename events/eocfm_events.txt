@@ -2382,7 +2382,7 @@ eocfm.0123 = { # Patriarch Denounces Schism (Stall Event)
 			has_modifier = modifier_eocfm_schism_denounced
 		}
 		OR = {
-			eocfm_has_low_relations_with_any_patriarch_trigger = yes
+			eocfm_has_low_opinion_with_any_patriarch_trigger = yes
 			has_variable = eocfm_schism_var
 		}
 		var:eocfm_schism_var > 30
@@ -7522,7 +7522,7 @@ eocfm.2413 = { # Theological Dispute with Patriarch
 		NOT = {
 			has_modifier = modifier_eocfm_conceded_doctrine
 		}
-		eocfm_has_low_relations_with_any_patriarch_trigger = yes
+		eocfm_has_low_opinion_with_any_patriarch_trigger = yes
 		eocfm_has_ongoing_patriarch_event_trigger = no
 	}
 	
