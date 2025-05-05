@@ -652,31 +652,6 @@
  # scripted progress bars
  eocfm_easterners_progress_bar_name: "Epistle of the Easterners"
  
- # scripted triggers
- eocfm_controls_any_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] any#!#! [concept_patriarchal_seat]"
- eocfm_controls_ancient_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_ancient_seats')] Ancient#!#! [concept_patriarchal_seat]"
- eocfm_controls_eastern_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern#!#! [concept_patriarchal_seat]"
- eocfm_controls_tetrarchy: "[GetPlayer.GetNameNoFlag]  $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_tetrarchy_seats')] Tetrarchy#!#!"
- eocfm_controls_and_owns_tetrarchy: "[GetPlayer.GetNameNoFlag]  $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_tetrarchy_seats')] Tetrarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
- eocfm_controls_pentarchy: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_pentarchy_seats')] Pentarchy#!#!"
- eocfm_controls_and_owns_pentarchy: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_pentarchy_seats')] Pentarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
- eocfm_controls_all_seats: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] all#!#!#! [concept_patriarchal_seat]"
- eocfm_controls_and_owns_all_seats: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] all#!#!#! [concept_patriarchal_seat] and owns their entire associated [concept_state_region]#o s#!"
- 
- eocfm_all_patriarchal_seats: "The following are the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_rome$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$\n•$eocfm_moscow$"
- eocfm_ancient_seats: "The following are the #bold Ancient#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$"
- eocfm_eastern_seats: "The following are the #bold Eastern#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$\n•$eocfm_moscow$"
- eocfm_tetrarchy_seats: "The following are the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$"
- eocfm_pentarchy_seats: "The following are the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$eocfm_rome$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$"
- eocfm_senior_seats: "The following are the #bold senior#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_rome$\n•$eocfm_constantinople$"
- eocfm_junior_seats: "The following are the #bold junior#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$\n•$eocfm_moscow$"
- eocfm_oriental_seats: "The following are the Oriental [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n•$eocfm_coptic_alexandria$\n•$eocfm_syriac_antioch$\n•$eocfm_konak$\n•$eocfm_etchmiadzin$"
- 
- eocfm_needs_controller: "A [concept_country] must have $eocfm_control$ of $eocfm_constantinople$"
- eocfm_rome_reclaimed: "$eocfm_rome$ is controlled by an [GetReligion('orthodox').GetName] [concept_country]"
- eocfm_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
- eocfm_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $eocfm_constantinople$"
- 
  # script value breakdowns
  eocfm_value_from_reformed_synod: "From #bold Reforming the National Synod#!"
  eocfm_value_from_dissolved_monasteries: "From #bold Dissolving the Monasteries#!"
@@ -832,13 +807,6 @@
  eocfm_schism_lose_12: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 12#!"
  eocfm_schism_gain_24: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 24#!"
  eocfm_schism_lose_24: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 24#!"
- 
- 
- 
- 
- 
- 
- 
  
  eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('0')] Control#!#!"
  eocfm_controls: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controls#!#!"
@@ -1019,11 +987,10 @@
  eocfm_can_integrate_elysium: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_elysium$ of #bold #green 25#! or greater#!"
  eocfm_can_integrate_mixtec: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_mixtec$ of #bold #green 25#! or greater#!"
  eocfm_can_integrate_cahokia: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_cahokia$ of #bold #green 25#! or greater#!"
-
+ 
  eocfm_mending_started_NOT: "No one is attemtping to mend the [concept_great_schism] has not been started"
  eocfm_mending_completed_NOT: "The [concept_great_schism] has not been mended"
  eocfm_mending_possible: "It is now possible to attempt to mend the [concept_great_schism]."
- 
  
  eocfm_patriarch_deposed: "The #bold Ecumenical Patriarch#! has been deposed"
  eocfm_patriarch_deposed_cooldown: "The #bold Ecumenical Patriarch#! has not been deposed within the last five years."
@@ -1044,6 +1011,30 @@
  
  eocfm_crusades_enabled: "Enables [Concept('concept_crusades','$concept_crusades$')] against Muslim nations. #italic Theoú thélontos!#!"
  eocfm_ongoing_crusade_NOT: "There is not an ongoing [concept_crusade]"
+ 
+ eocfm_controls_any_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] any#!#! [concept_patriarchal_seat]"
+ eocfm_controls_ancient_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_ancient_seats')] Ancient#!#! [concept_patriarchal_seat]"
+ eocfm_controls_eastern_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern#!#! [concept_patriarchal_seat]"
+ eocfm_controls_tetrarchy: "[GetPlayer.GetNameNoFlag]  $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_tetrarchy_seats')] Tetrarchy#!#!"
+ eocfm_controls_and_owns_tetrarchy: "[GetPlayer.GetNameNoFlag]  $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_tetrarchy_seats')] Tetrarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
+ eocfm_controls_pentarchy: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_pentarchy_seats')] Pentarchy#!#!"
+ eocfm_controls_and_owns_pentarchy: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_pentarchy_seats')] Pentarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
+ eocfm_controls_all_seats: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] all#!#!#! [concept_patriarchal_seat]"
+ eocfm_controls_and_owns_all_seats: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] all#!#!#! [concept_patriarchal_seat] and owns their entire associated [concept_state_region]#o s#!"
+ 
+ eocfm_all_patriarchal_seats: "The following are the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_rome$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$\n•$eocfm_moscow$"
+ eocfm_ancient_seats: "The following are the #bold Ancient#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$"
+ eocfm_eastern_seats: "The following are the #bold Eastern#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$\n•$eocfm_moscow$"
+ eocfm_tetrarchy_seats: "The following are the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$"
+ eocfm_pentarchy_seats: "The following are the [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$eocfm_rome$\n•$eocfm_constantinople$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$"
+ eocfm_senior_seats: "The following are the #bold senior#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_rome$\n•$eocfm_constantinople$"
+ eocfm_junior_seats: "The following are the #bold junior#! [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$eocfm_antioch$\n•$eocfm_jerusalem$\n•$eocfm_alexandria$\n•$eocfm_moscow$"
+ eocfm_oriental_seats: "The following are the Oriental [Concept('concept_patriarchal_seat','$concept_patriarchal_seats$')]:\n•$eocfm_coptic_alexandria$\n•$eocfm_syriac_antioch$\n•$eocfm_konak$\n•$eocfm_etchmiadzin$"
+ 
+ eocfm_needs_controller: "A [concept_country] must have $eocfm_control$ of $eocfm_constantinople$"
+ eocfm_rome_reclaimed: "$eocfm_rome$ is controlled by an [GetReligion('orthodox').GetName] [concept_country]"
+ eocfm_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
+ eocfm_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $eocfm_constantinople$"
  
  eocfm_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
  eocfm_romania_united: "We have #bold United the Principalities#!"
