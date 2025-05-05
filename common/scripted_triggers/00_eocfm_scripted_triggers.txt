@@ -429,6 +429,29 @@ eocfm_is_swaying_seat_trigger = {
 	}
 }
 
+eocfm_is_antagonizing_seat_trigger = {
+	OR = {
+		has_modifier = modifier_eocfm_antagonizing_rome
+		has_modifier = modifier_eocfm_antagonizing_santiago
+		has_modifier = modifier_eocfm_antagonizing_paris
+		has_modifier = modifier_eocfm_antagonizing_koln
+		has_modifier = modifier_eocfm_antagonizing_vienna
+		has_modifier = modifier_eocfm_antagonizing_constantinople
+		has_modifier = modifier_eocfm_antagonizing_antioch
+		has_modifier = modifier_eocfm_antagonizing_jerusalem
+		has_modifier = modifier_eocfm_antagonizing_alexandria
+		has_modifier = modifier_eocfm_antagonizing_moscow
+		has_modifier = modifier_eocfm_antagonizing_coptic_alexandria
+		has_modifier = modifier_eocfm_antagonizing_syriac_antioch
+		has_modifier = modifier_eocfm_antagonizing_etchmiadzin
+		has_modifier = modifier_eocfm_antagonizing_addis_ababa
+		has_modifier = modifier_eocfm_antagonizing_konak
+		has_modifier = modifier_eocfm_antagonizing_elysium
+		has_modifier = modifier_eocfm_antagonizing_mixtec
+		has_modifier = modifier_eocfm_antagonizing_cahokia
+	}
+}
+
 eocfm_has_any_patriarch_approval_trigger = {
 	OR = {
 		var:eocfm_rome_opinion_var >= 75
