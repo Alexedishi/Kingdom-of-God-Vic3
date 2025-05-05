@@ -6271,20 +6271,7 @@ eocfm.2311 = { # The Patriarch's Blessings
 	dlc = dlc_eocfm
 	
 	trigger = {
-		var:eocfm_constantinople_opinion_var >= 80
-		NOT = {
-			has_modifier = modifier_eocfm_divine_mandate
-		}
-		calc_true_if = {
-			amount >= 3
-			has_law = law_type:law_theocracy
-			has_law = law_type:law_state_religion
-			has_law = law_type:law_charitable_health_system
-			has_law = law_type:law_no_womens_rights
-			NOT = {
-				has_law = law_type:law_no_social_security
-			}
-		}
+		always = no
 	}
 	
 	cooldown = {
@@ -6307,7 +6294,6 @@ eocfm.2311 = { # The Patriarch's Blessings
 			name = modifier_eocfm_divine_mandate
 			months = normal_modifier_time
 		}
-		custom_tooltip = eocfm_relations_maintain_80
 	}
 
 }
@@ -6333,14 +6319,7 @@ eocfm.2312 = { # Ecumenical Partiarch Denounces Secularism
 	dlc = dlc_eocfm
 	
 	trigger = {
-		var:eocfm_constantinople_relations_var < 20
-		OR = {
-			has_law = law_type:law_total_separation
-			has_law = law_type:law_state_atheism
-		}
-		NOT = {
-			has_modifier = modifier_eocfm_secularism_denounced
-		}
+		always = no
 	}
 	
 	immediate = {
@@ -6358,7 +6337,6 @@ eocfm.2312 = { # Ecumenical Partiarch Denounces Secularism
 		add_modifier = {
 			name = modifier_eocfm_secularism_denounced
 		}
-		custom_tooltip = eocfm_relations_constantinople_need_80
 	}
 
 }
