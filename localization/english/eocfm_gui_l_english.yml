@@ -154,7 +154,21 @@
  eocfm_gui_autocephaly_header: "#bold #greece Autocephaly Progress#!#!"
  eocfm_gui_autocephaly_progress: "TODO"
  eocfm_gui_convoke_council: "Convoke Ecumenical Council"
- eocfm_gui_convoke_council_button: "Our influence within the Eastern Orthodox community is obvious. We could use this power to summon an Ecumenical Council to settle long-standing issues within the Orthodox Church.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_convoke_council_button: "Our influence within the [GetPlayer.GetStateReligion.GetName] community is obvious. We could use this power to summon an [concept_ecumenical_council] to settle long-standing issues within the [GetPlayer.GetStateReligion.GetName] Church.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ eocfm_gui_integrate_seat: "#bold Integrate Seat#!"
+ eocfm_gui_integrate_seat_desc: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_enforce_seat: "#bold Enforce Rites#!"
+ eocfm_gui_enforce_seat_desc: "In the centuries since the collapse of the Roman Empire, the many churches have deviated from each other in their chosen [concept_liturgical_rite]. Should the location of this seat come under our control, we could enforce their compliance with our [concept_liturgical_rite].\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ eocfm_gui_improve_relations: "#bold Improve Relations#!"
+ eocfm_gui_improve_relations_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_cease_diplomacy: "#bold Cease Diplomacy#!"
+ eocfm_gui_cease_diplomacy_desc: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_damage_relations: "#bold Damage Relations#!"
+ eocfm_gui_damage_relations_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ensuring hostilities between ourselves and certain seats, we can earn the respect of those of our faith community.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]
+ eocfm_gui_cease_hostilities: "#bold Cease Hostilities#!"
+ eocfm_gui_cease_hostilities_desc: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Rome Seat Widget
  eocfm_gui_rome_patriarch_header: "Patriarchate of Rome"
@@ -164,9 +178,7 @@
  eocfm_gui_rome_location: "#bold Seated in:#!\n[GetStateRegion('STATE_LAZIO').GetName]"
  eocfm_gui_rome_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_rome_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_rome_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_rome_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_rome_opinion_value')]"
- eocfm_gui_integrate_rome_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_rome_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_rome_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
  
  # Roman Curia Actions
  eocfm_gui_catholic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
@@ -180,9 +192,6 @@
  eocfm_gui_santiago_location: "#bold Seated in:#!\n[GetStateRegion('STATE_GALICIA').GetName]"
  eocfm_gui_santiago_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_santiago_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_santiago_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_santiago_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_santiago_opinion_value')]"
- eocfm_gui_integrate_santiago_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_santiago_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_santiago_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Paris Widget
  eocfm_gui_paris_patriarch_header: "Archdiocese of Paris"
@@ -192,9 +201,6 @@
  eocfm_gui_paris_location: "#bold Seated in:#!\n[GetStateRegion('STATE_ILE_DE_FRANCE').GetName]"
  eocfm_gui_paris_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_paris_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_paris_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_paris_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_paris_opinion_value')]"
- eocfm_gui_integrate_paris_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_paris_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_paris_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Koln Widget
  eocfm_gui_koln_patriarch_header: "Archdiocese of Cologne"
@@ -204,9 +210,6 @@
  eocfm_gui_koln_location: "#bold Seated in:#!\n[GetStateRegion('STATE_NORTH_RHINE').GetName]"
  eocfm_gui_koln_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_koln_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_koln_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_koln_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_koln_opinion_value')]"
- eocfm_gui_integrate_koln_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_koln_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_koln_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Vienna Widget
  eocfm_gui_vienna_patriarch_header: "Archdiocese of Vienna"
@@ -216,9 +219,6 @@
  eocfm_gui_vienna_location: "#bold Seated in:#!\n[GetStateRegion('STATE_AUSTRIA').GetName]"
  eocfm_gui_vienna_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_vienna_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_vienna_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_vienna_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_vienna_opinion_value')]"
- eocfm_gui_integrate_vienna_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_vienna_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_vienna_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Constantinople Widget
  eocfm_gui_ecumenical_patriarch_header: "Ecumenical Patriarchate"
@@ -228,9 +228,6 @@
  eocfm_gui_constantinople_location: "#bold Seated in:#!\n[GetStateRegion('STATE_EASTERN_THRACE').GetName]"
  eocfm_gui_constantinople_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_constantinople_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_constantinople_opinion_var').GetValue|0+=]#!"
  eocfm_gui_constantinople_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_constantinople_opinion_value')]"
- eocfm_gui_integrate_constantinople_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_constantinople_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_constantinople_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Ecumenical Patriarchate Actions
  eocfm_gui_orthodox_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
@@ -246,9 +243,6 @@
  eocfm_gui_antioch_location: "#bold Seated in:#!\n[GetStateRegion('STATE_SYRIA').GetName]"
  eocfm_gui_antioch_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_antioch_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_antioch_opinion_var').GetValue|0+=]#!"
  eocfm_gui_antioch_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_antioch_opinion_value')]"
- eocfm_gui_integrate_antioch_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_antioch_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_antioch_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Jerusalem Widget
  eocfm_gui_jerusalem_patriarch_header: "Patriarchate of Jerusalem"
@@ -258,9 +252,6 @@
  eocfm_gui_jerusalem_location: "#bold Seated in:#!\n[GetStateRegion('STATE_PALESTINE').GetName]"
  eocfm_gui_jerusalem_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n #tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_jerusalem_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_jerusalem_opinion_var').GetValue|0+=]#!"
  eocfm_gui_jerusalem_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_jerusalem_opinion_value')]"
- eocfm_gui_integrate_jerusalem_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_jerusalem_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_jerusalem_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Alexandria Widget
  eocfm_gui_alexandria_patriarch_header: "Patriarchate of Alexandria"
@@ -269,10 +260,7 @@
  eocfm_gui_alexandria_liturgical_rite: "#bold [concept_liturgical_rite]:#!\n@eocfm_rite! [GetPlayer.MakeScope.GetCountry.GetCustom('eocfm_alexandria_liturgical_rite_type')]"
  eocfm_gui_alexandria_location: "#bold Seated in:#!\n[GetStateRegion('STATE_LOWER_EGYPT').GetName]"
  eocfm_gui_alexandria_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_alexandria_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_alexandria_opinion_var').GetValue|0+=]#!#!"
- eocfm_gui_alexandria_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_alexandria_opinion_value')]"
- eocfm_gui_integrate_alexandria_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_alexandria_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_alexandria_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ eocfm_gui_alexandria_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_alexandria_opinion_value')]"ources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Moscow Widget
  eocfm_gui_moscow_patriarch_header: "Patriarchate of Moscow"
@@ -282,9 +270,6 @@
  eocfm_gui_moscow_location: "#bold Seated in:#!\n[GetStateRegion('STATE_MOSCOW').GetName]"
  eocfm_gui_moscow_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_moscow_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_moscow_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_moscow_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_moscow_opinion_value')]"
- eocfm_gui_integrate_moscow_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_moscow_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_moscow_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Coptic Alexandria Widget
  eocfm_gui_coptic_alexandria_patriarch_header: "Coptic Patriarchate of Alexandria"
@@ -294,9 +279,6 @@
  eocfm_gui_coptic_alexandria_location: "#bold Seated in:#!\n[GetStateRegion('STATE_LOWER_EGYPT').GetName]"
  eocfm_gui_coptic_alexandria_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_coptic_alexandria_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_coptic_alexandria_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_coptic_alexandria_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_coptic_alexandria_opinion_value')]"
- eocfm_gui_integrate_coptic_alexandria_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_coptic_alexandria_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_coptic_alexandria_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Synodal Actions
  eocfm_gui_coptic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
@@ -310,9 +292,6 @@
  eocfm_gui_syriac_antioch_location: "#bold Seated in:#!\n[GetStateRegion('STATE_SYRIA').GetName]"
  eocfm_gui_syriac_antioch_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_syriac_antioch_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_syriac_antioch_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_syriac_antioch_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_syriac_antioch_opinion_value')]"
- eocfm_gui_integrate_syriac_antioch_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_syriac_antioch_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_syriac_antioch_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Etchmiadzin Widget
  eocfm_gui_etchmiadzin_patriarch_header: "Mother See of Etchmiadzin"
@@ -322,9 +301,6 @@
  eocfm_gui_etchmiadzin_location: "#bold Seated in:#!\n[GetStateRegion('STATE_ARMENIA').GetName]"
  eocfm_gui_etchmiadzin_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_etchmiadzin_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_etchmiadzin_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_etchmiadzin_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_etchmiadzin_opinion_value')]"
- eocfm_gui_integrate_etchmiadzin_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_etchmiadzin_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_etchmiadzin_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Addis Ababa Widget
  eocfm_gui_addis_ababa_patriarch_header: "Patriarchate of Addis Ababa"
@@ -334,9 +310,6 @@
  eocfm_gui_addis_ababa_location: "#bold Seated in:#!\n[GetStateRegion('STATE_OROMIA').GetName]"
  eocfm_gui_addis_ababa_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_addis_ababa_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_addis_ababa_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_addis_ababa_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_addis_ababa_opinion_value')]"
- eocfm_gui_integrate_addis_ababa_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_addis_ababa_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_addis_ababa_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Qudshanis Widget
  eocfm_gui_konak_patriarch_header: "Patriarchate of Qudshanis"
@@ -346,9 +319,6 @@
  eocfm_gui_konak_location: "#bold Seated in:#!\n[GetStateRegion('STATE_DIYARBAKIR').GetName]"
  eocfm_gui_konak_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_konak_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_konak_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_konak_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_konak_opinion_value')]"
- eocfm_gui_integrate_konak_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_konak_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_konak_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Elysium Widget
  eocfm_gui_elysium_patriarch_header: "Patriarchal See of Elysium"
@@ -358,9 +328,6 @@
  eocfm_gui_elysium_location: "#bold Seated in:#!\n[GetStateRegion('STATE_DISTRICT_OF_COLUMBIA').GetName]"
  eocfm_gui_elysium_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_elysium_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_elysium_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_elysium_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_elysium_opinion_value')]"
- eocfm_gui_integrate_elysium_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_elysium_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_elysium_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Elysian See Actions
  eocfm_gui_elysian_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('eocfm_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('eocfm_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('eocfm_deposition_counter').GetValue]#!"
@@ -374,9 +341,6 @@
  eocfm_gui_tututepec_location: "#bold Seated in:#!\n[GetStateRegion('STATE_OAXACA').GetName]"
  eocfm_gui_tututepec_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_tututepec_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_tututepec_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_tututepec_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_tututepec_opinion_value')]"
- eocfm_gui_integrate_tututepec_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_tututepec_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_tututepec_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
  
  # Cahokia Widget
  eocfm_gui_cahokia_patriarch_header: "Apostolic See of Cahokia"
@@ -386,6 +350,3 @@
  eocfm_gui_cahokia_location: "#bold Seated in:#!\n[GetStateRegion('STATE_ILLINOIS').GetName]"
  eocfm_gui_cahokia_patriarch_relations: "#bold Opinion of [GetPlayer.GetNameNoFlag]:#!\n#tooltippable;tooltip:[Country.GetTooltipTag],eocfm_gui_cahokia_patriarch_relations_breakdown [GetPlayer.MakeScope.Var('eocfm_cahokia_opinion_var').GetValue|0+=]#!#!"
  eocfm_gui_cahokia_patriarch_relations_breakdown: "[Country.MakeScope.GetScriptValueDesc('eocfm_cahokia_opinion_value')]"
- eocfm_gui_integrate_cahokia_button: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_start_sway_cahokia_button: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
- eocfm_gui_stop_sway_cahokia_button: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
