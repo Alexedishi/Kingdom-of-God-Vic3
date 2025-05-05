@@ -409,7 +409,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_start_sway_rome_button"
+								tooltip = "eocfm_gui_improve_relations_desc"
 							}
 							button = {
 								using = default_button_primary_big_action
@@ -421,7 +421,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_stop_sway_rome_button"
+								tooltip = "eocfm_gui_cease_diplomacy_desc"
 							}
 							
 							## Seat Integration Buttons
@@ -451,7 +451,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_rome_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									max_width = 300
 									elide = right
 									using = fontsize_medium
@@ -625,7 +625,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_rome_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -647,7 +647,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_rome_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -661,7 +661,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_rome_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -681,7 +681,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_rome_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -695,7 +695,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_rome_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -835,7 +835,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_santiago_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -857,7 +857,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -871,7 +871,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -891,7 +891,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -905,7 +905,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -1044,7 +1044,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_paris_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -1066,7 +1066,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -1080,7 +1080,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -1100,7 +1100,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -1114,7 +1114,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -1253,7 +1253,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_koln_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -1275,7 +1275,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -1289,7 +1289,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -1309,7 +1309,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -1323,7 +1323,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -1462,7 +1462,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_vienna_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -1484,7 +1484,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -1498,7 +1498,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -1518,7 +1518,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -1532,7 +1532,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -1804,7 +1804,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_start_sway_constantinople_button"
+								tooltip = "eocfm_gui_improve_relations_desc"
 							}
 							button = {
 								using = default_button_primary_big_action
@@ -1816,7 +1816,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_stop_sway_constantinople_button"
+								tooltip = "eocfm_gui_cease_diplomacy_desc"
 							}
 
 							## Seat Integration Buttons
@@ -1846,7 +1846,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_constantinople_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									max_width = 300
 									elide = right
 									using = fontsize_medium
@@ -2020,7 +2020,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_constantinople_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -2042,7 +2042,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_constantinople_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2056,7 +2056,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_constantinople_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -2076,7 +2076,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_constantinople_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2090,7 +2090,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_constantinople_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -2229,7 +2229,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -2251,7 +2251,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2265,7 +2265,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -2285,7 +2285,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2299,7 +2299,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -2438,7 +2438,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_jerusalem_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -2460,7 +2460,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2474,7 +2474,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -2494,7 +2494,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2508,7 +2508,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -2647,7 +2647,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_alexandria_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -2669,7 +2669,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2683,7 +2683,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -2703,7 +2703,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2717,7 +2717,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -2857,7 +2857,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_moscow_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -2879,7 +2879,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2893,7 +2893,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -2913,7 +2913,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -2927,7 +2927,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -3210,7 +3210,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_start_sway_rome_button"
+								tooltip = "eocfm_gui_improve_relations_desc"
 							}
 							button = {
 								using = default_button_primary_big_action
@@ -3222,7 +3222,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_stop_sway_rome_button"
+								tooltip = "eocfm_gui_cease_diplomacy_desc"
 							}
 							
 							## Seat Integration Buttons
@@ -3252,7 +3252,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_coptic_alexandria_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									max_width = 300
 									elide = right
 									using = fontsize_medium
@@ -3426,7 +3426,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_coptic_alexandria_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -3448,7 +3448,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -3462,7 +3462,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -3482,7 +3482,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -3496,7 +3496,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -3635,7 +3635,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_syriac_antioch_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -3657,7 +3657,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -3671,7 +3671,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -3691,7 +3691,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -3705,7 +3705,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -3844,7 +3844,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_etchmiadzin_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -3866,7 +3866,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -3880,7 +3880,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -3900,7 +3900,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -3914,7 +3914,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -4053,7 +4053,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_addis_ababa_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -4075,7 +4075,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -4089,7 +4089,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -4109,7 +4109,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -4123,7 +4123,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -4262,7 +4262,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_konak_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -4284,7 +4284,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -4298,7 +4298,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -4318,7 +4318,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -4332,7 +4332,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -4612,7 +4612,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_start_sway_rome_button"
+								tooltip = "eocfm_gui_improve_relations_desc"
 							}
 							button = {
 								using = default_button_primary_big_action
@@ -4624,7 +4624,7 @@ types eocfm_patriarchal_seat_panels {
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_stop_sway_rome_button"
+								tooltip = "eocfm_gui_cease_diplomacy_desc"
 							}
 							
 							## Seat Integration Buttons
@@ -4654,7 +4654,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_elysium_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									max_width = 300
 									elide = right
 									using = fontsize_medium
@@ -4827,7 +4827,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_elysium_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -4849,7 +4849,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -4863,7 +4863,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -4883,7 +4883,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -4897,7 +4897,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -5036,7 +5036,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_mixtec_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -5058,7 +5058,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -5072,7 +5072,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -5092,7 +5092,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -5106,7 +5106,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
@@ -5245,7 +5245,7 @@ types eocfm_patriarchal_seat_panels {
 									autoresize = yes
 									visible = "[GetScriptedGui('eocfm_cahokia_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									
-									raw_text = "#bold #greece Integration Progress#!#!"
+									text = "eocfm_enforcement_progress"
 									elide = right
 									using = fontsize_medium
 								}
@@ -5267,7 +5267,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_improve_relations_desc"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -5281,7 +5281,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_diplomacy_desc"
 								}
 							}
 							
@@ -5301,7 +5301,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_start_sway_antioch_button"
+									tooltip = "eocfm_gui_damage_relations"
 								}
 								button = {
 									parentanchor = bottom|hcenter
@@ -5315,7 +5315,7 @@ types eocfm_patriarchal_seat_panels {
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_stop_sway_antioch_button"
+									tooltip = "eocfm_gui_cease_hostilities_desc"
 								}
 							}
 							
