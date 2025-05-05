@@ -653,56 +653,6 @@
  eocfm_easterners_progress_bar_name: "Epistle of the Easterners"
  
  # scripted triggers
- eocfm_is_orthodox: "[concept_state_religion] is [GetReligion('orthodox').GetName]"
- eocfm_is_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('orthodox').GetName]"
- eocfm_has_icon: "[GetPlayer.GetNameNoFlag] is actively venerating an #bold Orthodox Icon#!"
- eocfm_has_icon_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! actively venerating an #bold Orthodox Icon#!"
- eocfm_is_selecting_icon_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
- eocfm_considering_mandate_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! already considering a mandate from the Patriarch."
- eocfm_has_mandate_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! already have a mandate from the Patriarch"
- 
- eocfm_is_oriental_orthodox: "[concept_state_religion] is [GetReligion('oriental_othorodx').GetName]"
- eocfm_is_oriental_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('oriental_othorodx').GetName]"
- eocfm_has_veneration: "[GetPlayer.GetNameNoFlag] is actively venerating an #bold Orthodox Icon#!"
- eocfm_has_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! actively venerating an #bold Orthodox Icon#!"
- eocfm_is_selecting_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
- 
- eocfm_has_byzantine_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_byzantine_rite$"
- eocfm_has_roman_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_roman_rite$"
- eocfm_has_coptic_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_alexandrian_rite$"
- eocfm_has_armenian_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_armenian_rite$"
- eocfm_has_syriac_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_syriac_rites$"
- eocfm_has_elysian_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_elysian_rite$"
- eocfm_has_mixtec_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_mixtec_rite$"
- eocfm_has_same_rite: "[GetPlayer.GetNameNoFlag] practices the same [concept_liturgical_rite] as this [concept_country]"
- 
- eocfm_need_100_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 100#! $eocfm_faith_capacity$"
- eocfm_need_200_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 200#! $eocfm_faith_capacity$"
- eocfm_need_500_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 500#! $eocfm_faith_capacity$"
- eocfm_need_800_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 800#! $eocfm_faith_capacity$"
- eocfm_need_1000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 1000#! $eocfm_faith_capacity$"
- eocfm_need_2000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 2000#! $eocfm_faith_capacity$"
- 
- eocfm_is_autocephalous: "[GetPlayer.GetNameNoFlag] has gained [concept_autocephaly]"
- eocfm_is_autocephalous_NOT: "[GetPlayer.GetNameNoFlag] has not gained [concept_autocephaly]"
- eocfm_is_schismatic: "[GetPlayer.GetNameNoFlag] has schismed from the Ecumenical Patriarchate"
- eocfm_schism_gain_6: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 6#!"
- eocfm_schism_lose_6: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 6#!"
- eocfm_schism_gain_12: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 12#!"
- eocfm_schism_lose_12: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 12#!"
- eocfm_schism_gain_24: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 24#!"
- eocfm_schism_lose_24: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 24#!"
- 
- eocfm_integrating_seat: "[GetPlayer.GetNameNoFlag] is currently integrating a Patriarchal Seat."
- eocfm_integrating_seat_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! currently integrating a Patriarchal Seat."
- eocfm_integration_lose_6: "[GetPlayer.GetNameNoFlag] will lose #variable 6#! months of progress."
- eocfm_integration_gain_2: "[GetPlayer.GetNameNoFlag] will gain #variable 2#! months of progress."
- eocfm_integration_gain_4: "[GetPlayer.GetNameNoFlag] will gain #variable 4#! months of progress."
- 
- eocfm_mending_started_NOT: "No one is attemtping to mend the [concept_great_schism] has not been started"
- eocfm_mending_completed_NOT: "The [concept_great_schism] has not been mended"
- eocfm_mending_possible: "It is now possible to attempt to mend the [concept_great_schism]."
- 
  eocfm_controls_any_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] any#!#! [concept_patriarchal_seat]"
  eocfm_controls_ancient_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_ancient_seats')] Ancient#!#! [concept_patriarchal_seat]"
  eocfm_controls_eastern_seat: "[GetPlayer.GetNameNoFlag] $eocfm_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern#!#! [concept_patriarchal_seat]"
@@ -838,8 +788,57 @@
  eocfm_oriental_power: "@eocfm_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
  eocfm_elysian_power: "@eocfm_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
  
+ eocfm_is_catholic: "[concept_state_religion] is [GetReligion('catholic').GetName]"
+ eocfm_is_catholic_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('catholic').GetName]"
+ 
+ eocfm_is_orthodox: "[concept_state_religion] is [GetReligion('orthodox').GetName]"
+ eocfm_is_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('orthodox').GetName]"
+ eocfm_has_icon: "[GetPlayer.GetNameNoFlag] is actively venerating an #bold Orthodox Icon#!"
+ eocfm_has_icon_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! actively venerating an #bold Orthodox Icon#!"
+ eocfm_is_selecting_icon_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
+ eocfm_considering_mandate_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! already considering a mandate from the Patriarch."
+ eocfm_has_mandate_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! already have a mandate from the Patriarch"
  eocfm_focus_timeout_NOT: "[GetPlayer.GetNameNoFlag] has not changed focus within the last 5 years"
  eocfm_focus_timeout_GET: "#red #italic [GetPlayer.GetNameNoFlag] will be unable to change focus for the next 5 years!#!#!"
+ 
+ eocfm_is_oriental_orthodox: "[concept_state_religion] is [GetReligion('oriental_othorodx').GetName]"
+ eocfm_is_oriental_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('oriental_othorodx').GetName]"
+ eocfm_has_veneration: "[GetPlayer.GetNameNoFlag] is actively venerating an #bold Orthodox Icon#!"
+ eocfm_has_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! actively venerating an #bold Orthodox Icon#!"
+ eocfm_is_selecting_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
+ 
+ eocfm_has_byzantine_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_byzantine_rite$"
+ eocfm_has_roman_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_roman_rite$"
+ eocfm_has_coptic_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_alexandrian_rite$"
+ eocfm_has_armenian_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_armenian_rite$"
+ eocfm_has_syriac_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_syriac_rites$"
+ eocfm_has_elysian_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_elysian_rite$"
+ eocfm_has_mixtec_rite: "[GetPlayer.GetNameNoFlag] practices the $eocfm_mixtec_rite$"
+ eocfm_has_same_rite: "[GetPlayer.GetNameNoFlag] practices the same [concept_liturgical_rite] as this [concept_country]"
+ 
+ eocfm_need_100_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 100#! $eocfm_faith_capacity$"
+ eocfm_need_200_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 200#! $eocfm_faith_capacity$"
+ eocfm_need_500_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 500#! $eocfm_faith_capacity$"
+ eocfm_need_800_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 800#! $eocfm_faith_capacity$"
+ eocfm_need_1000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 1000#! $eocfm_faith_capacity$"
+ eocfm_need_2000_caesaropapism: "[GetPlayer.GetNameNoFlag] has #blue 2000#! $eocfm_faith_capacity$"
+ 
+ eocfm_is_autocephalous: "[GetPlayer.GetNameNoFlag] has gained [concept_autocephaly]"
+ eocfm_is_autocephalous_NOT: "[GetPlayer.GetNameNoFlag] has not gained [concept_autocephaly]"
+ eocfm_is_schismatic: "[GetPlayer.GetNameNoFlag] has schismed from the Ecumenical Patriarchate"
+ eocfm_schism_gain_6: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 6#!"
+ eocfm_schism_lose_6: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 6#!"
+ eocfm_schism_gain_12: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 12#!"
+ eocfm_schism_lose_12: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 12#!"
+ eocfm_schism_gain_24: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 24#!"
+ eocfm_schism_lose_24: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 24#!"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  eocfm_control: "#o #tooltip:[GetRawTextTooltipTag('0')] Control#!#!"
  eocfm_controls: "#o #tooltip:[GetRawTextTooltipTag('eocfm_control_concept')] Controls#!#!"
@@ -990,6 +989,18 @@
  eocfm_has_mixtec_disaproval: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_mixtec$ of #bold #red -50#! or less#!"
  eocfm_has_cahokia_disaproval: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_cahokia$ of #bold #red -50#! or less#!"
  
+ eocfm_has_any_patriarch_approval: "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] any#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
+ eocfm_has_ecumenical_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with $eocfm_constantinople$"
+ eocfm_has_east_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
+ eocfm_has_junior_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_junior_seats')] Junior#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
+ eocfm_has_senior_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_senior_seats')] Senior#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
+ 
+ eocfm_integrating_seat: "[GetPlayer.GetNameNoFlag] is currently integrating a Patriarchal Seat."
+ eocfm_integrating_seat_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! currently integrating a Patriarchal Seat."
+ eocfm_integration_lose_6: "[GetPlayer.GetNameNoFlag] will lose #variable 6#! months of progress."
+ eocfm_integration_gain_2: "[GetPlayer.GetNameNoFlag] will gain #variable 2#! months of progress."
+ eocfm_integration_gain_4: "[GetPlayer.GetNameNoFlag] will gain #variable 4#! months of progress."
+ 
  eocfm_can_integrate_rome: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_rome$ of #bold #green 25#! or greater#!"
  eocfm_can_integrate_santiago: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_santiago$ of #bold #green 25#! or greater#!"
  eocfm_can_integrate_paris: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_paris$ of #bold #green 25#! or greater#!"
@@ -1008,12 +1019,11 @@
  eocfm_can_integrate_elysium: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_elysium$ of #bold #green 25#! or greater#!"
  eocfm_can_integrate_mixtec: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_mixtec$ of #bold #green 25#! or greater#!"
  eocfm_can_integrate_cahokia: "[GetPlayer.GetNameNoFlag] has $eocfm_relations$ with $eocfm_cahokia$ of #bold #green 25#! or greater#!"
+
+ eocfm_mending_started_NOT: "No one is attemtping to mend the [concept_great_schism] has not been started"
+ eocfm_mending_completed_NOT: "The [concept_great_schism] has not been mended"
+ eocfm_mending_possible: "It is now possible to attempt to mend the [concept_great_schism]."
  
- eocfm_has_any_patriarch_approval: "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_all_patriarchal_seats')] any#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
- eocfm_has_ecumenical_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with $eocfm_constantinople$"
- eocfm_has_east_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_eastern_seats')] Eastern#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
- eocfm_has_junior_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_junior_seats')] Junior#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
- eocfm_has_senior_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $eocfm_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_senior_seats')] Senior#!#! [Concept('concept_patriarchal_seat','$concept_patriarchate$')]"
  
  eocfm_patriarch_deposed: "The #bold Ecumenical Patriarch#! has been deposed"
  eocfm_patriarch_deposed_cooldown: "The #bold Ecumenical Patriarch#! has not been deposed within the last five years."
