@@ -1053,6 +1053,250 @@ eocfm_select_random_condemnation_seat_effect = {
 	}
 }
 
+eocfm_select_random_schism_condemnation_seat_effect = {
+	# Players should only be condemned by Patriarchs of the same faith
+	# This is the same as above, but checks for 0 relations instead of -0
+	random_list = {
+		5 = {
+			trigger = {
+				var:eocfm_rome_patriarch_var.religion = root.religion
+				var:eocfm_rome_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_rome
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 1 # Rome
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_santiago_patriarch_var.religion = root.religion
+				var:eocfm_santiago_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_santiago
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 2 # Santiago
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_paris_patriarch_var.religion = root.religion
+				var:eocfm_paris_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_paris
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 3 # Paris
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_koln_patriarch_var.religion = root.religion
+				var:eocfm_koln_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_koln
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 4 # Koln
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_vienna_patriarch_var.religion = root.religion
+				var:eocfm_vienna_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_vienna
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 5 # Vienna
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_constantinople_patriarch_var.religion = root.religion
+				var:eocfm_constantinople_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_constantinople
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 6 # Constantinople
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_antioch_patriarch_var.religion = root.religion
+				var:eocfm_antioch_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_antioch
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 7 # Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_jerusalem_patriarch_var.religion = root.religion
+				var:eocfm_jerusalem_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_jerusalem
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 8 # Jerusalem
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_alexandria_patriarch_var.religion = root.religion
+				var:eocfm_alexandria_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_alexandria
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 9 # Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_moscow_patriarch_var.religion = root.religion
+				var:eocfm_moscow_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_moscow
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 10 # Moscow
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_coptic_alexandria_patriarch_var.religion = root.religion
+				var:eocfm_coptic_alexandria_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_coptic_alexandria
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 11 # Coptic Alexandria
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_syriac_antioch_patriarch_var.religion = root.religion
+				var:eocfm_syriac_antioch_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_syriac_antioch
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 12 # Syriac Antioch
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_etchmiadzin_patriarch_var.religion = root.religion
+				var:eocfm_etchmiadzin_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_etchmiadzin
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 13 # Etchmiadzin
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_addis_ababa_patriarch_var.religion = root.religion
+				var:eocfm_addis_ababa_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_addis_ababa
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 14 # Addis Ababa
+			}
+		}
+		5 = {
+			trigger = {
+				var:eocfm_konak_patriarch_var.religion = root.religion
+				var:eocfm_konak_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_konak
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 15 # Konak
+			}
+		}
+		5 = {
+			trigger = {
+				basileia_is_active = yes
+				var:eocfm_elysium_patriarch_var.religion = root.religion
+				var:eocfm_elysium_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_elysium
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 16 # Elysium
+			}
+		}
+		5 = {
+			trigger = {
+				basileia_is_active = yes
+				var:eocfm_mixtec_patriarch_var.religion = root.religion
+				var:eocfm_mixtec_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_mixtec
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 17 # Mixtec
+			}
+		}
+		5 = {
+			trigger = {
+				basileia_is_active = yes
+				var:eocfm_cahokia_patriarch_var.religion = root.religion
+				var:eocfm_cahokia_opinion_var < 0
+				NOT = {
+					has_variable = eocfm_condemned_by_cahokia
+				}
+			}
+			set_variable = {
+				name = eocfm_seat_event_var
+				value = 18 # Cahokia
+			}
+		}
+	}
+}
+
 ## SCOPE SAVING EFFECTS ##
 
 eocfm_save_event_patriarch_effect = {
