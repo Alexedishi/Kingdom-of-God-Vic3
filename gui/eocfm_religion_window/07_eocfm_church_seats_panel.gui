@@ -402,7 +402,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Sway Ecumenical Patriarch"
+								text = "eocfm_gui_improve_relations"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_start_sway_rome_sgui')]"
@@ -414,7 +414,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Cease Diplomatic Efforts"
+								text = "eocfm_gui_cease_diplomacy"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_stop_sway_rome_sgui')]"
@@ -428,7 +428,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Integrate Patriarchal Seat"
+								text = "eocfm_gui_integrate_seat"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_integrate_rome_sgui')]"
@@ -466,21 +466,21 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Seek Political Mandate"
+								text = "eocfm_seek_mandate"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_seek_mandate_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_seek_mandate_button"
+								tooltip = "eocfm_gui_seek_mandate_desc"
 							}
 							
 							## Assert Supremacy Button
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Assert State Supremacy"
+								text = "eocfm_assert_seat"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_assert_rome_sgui')]"
@@ -564,7 +564,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_rome_liturgical_rite"
+								text = "eocfm_gui_rome_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -773,7 +773,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_santiago_liturgical_rite"
+								text = "eocfm_gui_santiago_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -983,7 +983,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_paris_liturgical_rite"
+								text = "eocfm_gui_paris_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -1192,7 +1192,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_koln_liturgical_rite"
+								text = "eocfm_gui_koln_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -1401,7 +1401,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_vienna_liturgical_rite"
+								text = "eocfm_gui_vienna_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -1635,7 +1635,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_constantinople_liturgical_rite"
+								text = "eocfm_gui_constantinople_liturgical_rite"
 								size = { 240 40 }
 								elide = right
 								using = fontsize_medium
@@ -1797,7 +1797,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Sway Ecumenical Patriarch"
+								text = "eocfm_gui_improve_relations"
 								using = fontsize_medium
 
 								datacontext = "[GetScriptedGui('eocfm_start_sway_constantinople_sgui')]"
@@ -1809,7 +1809,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Cease Diplomatic Efforts"
+								text = "eocfm_gui_cease_diplomacy"
 								using = fontsize_medium
 
 								datacontext = "[GetScriptedGui('eocfm_stop_sway_constantinople_sgui')]"
@@ -1823,7 +1823,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Integrate Patriarchal Seat"
+								text = "eocfm_gui_integrate_seat"
 								using = fontsize_medium
 
 								datacontext = "[GetScriptedGui('eocfm_integrate_constantinople_sgui')]"
@@ -1861,21 +1861,21 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Seek Political Mandate"
+								text = "eocfm_seek_mandate"
 								using = fontsize_medium
 
 								datacontext = "[GetScriptedGui('eocfm_seek_mandate_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_seek_mandate_button"
+								tooltip = "eocfm_gui_seek_mandate_desc"
 							}
 
 							## Assert Supremacy Button
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Assert State Supremacy"
+								text = "eocfm_assert_seat"
 								using = fontsize_medium
 
 								datacontext = "[GetScriptedGui('eocfm_assert_constantinople_sgui')]"
@@ -1959,7 +1959,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_constantinople_liturgical_rite"
+								text = "eocfm_gui_constantinople_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -2168,7 +2168,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_antioch_liturgical_rite"
+								text = "eocfm_gui_antioch_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -2377,7 +2377,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_jerusalem_liturgical_rite"
+								text = "eocfm_gui_jerusalem_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -2586,7 +2586,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_alexandria_liturgical_rite"
+								text = "eocfm_gui_alexandria_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -2796,7 +2796,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_moscow_liturgical_rite"
+								text = "eocfm_gui_moscow_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -3037,7 +3037,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_coptic_alexandria_liturgical_rite"
+								text = "eocfm_gui_coptic_alexandria_liturgical_rite"
 								size = { 240 40 }
 								elide = right
 								using = fontsize_medium
@@ -3203,7 +3203,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Sway Ecumenical Patriarch"
+								text = "eocfm_gui_improve_relations"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_start_sway_coptic_alexandria_sgui')]"
@@ -3215,7 +3215,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Cease Diplomatic Efforts"
+								text = "eocfm_gui_cease_diplomacy"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_stop_sway_coptic_alexandria_sgui')]"
@@ -3229,7 +3229,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Integrate Patriarchal Seat"
+								text = "eocfm_gui_integrate_seat"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_integrate_coptic_alexandria_sgui')]"
@@ -3267,21 +3267,21 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Seek Political Mandate"
+								text = "eocfm_seek_mandate"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_seek_mandate_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_seek_mandate_button"
+								tooltip = "eocfm_gui_seek_mandate_desc"
 							}
 							
 							## Assert Supremacy Button
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Assert State Supremacy"
+								text = "eocfm_assert_seat"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_assert_coptic_alexandria_sgui')]"
@@ -3365,7 +3365,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_coptic_alexandria_liturgical_rite"
+								text = "eocfm_gui_coptic_alexandria_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -3574,7 +3574,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_syriac_antioch_liturgical_rite"
+								text = "eocfm_gui_syriac_antioch_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -3783,7 +3783,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_etchmiadzin_liturgical_rite"
+								text = "eocfm_gui_etchmiadzin_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -3992,7 +3992,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_addis_ababa_liturgical_rite"
+								text = "eocfm_gui_addis_ababa_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -4201,7 +4201,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_konak_liturgical_rite"
+								text = "eocfm_gui_konak_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -4439,7 +4439,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_elysium_liturgical_rite"
+								text = "eocfm_gui_elysium_liturgical_rite"
 								size = { 240 40 }
 								elide = right
 								using = fontsize_medium
@@ -4605,7 +4605,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Sway Ecumenical Patriarch"
+								text = "eocfm_gui_improve_relations"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_start_sway_elysium_sgui')]"
@@ -4617,7 +4617,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Cease Diplomatic Efforts"
+								text = "eocfm_gui_cease_diplomacy"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_stop_sway_elysium_sgui')]"
@@ -4631,7 +4631,7 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Integrate Patriarchal Seat"
+								text = "eocfm_gui_integrate_seat"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_integrate_elysium_sgui')]"
@@ -4669,21 +4669,21 @@ types eocfm_patriarchal_seat_panels {
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Seek Political Mandate"
+								text = "eocfm_seek_mandate"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_seek_mandate_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_seek_mandate_button"
+								tooltip = "eocfm_gui_seek_mandate_desc"
 							}
 							
 							## Assert Supremacy Button
 							button = {
 								using = default_button_primary_big_action
 								size = { 200 40 }
-								raw_text = "Assert State Supremacy"
+								text = "eocfm_assert_seat"
 								using = fontsize_medium
 								
 								datacontext = "[GetScriptedGui('eocfm_assert_elysium_sgui')]"
@@ -4766,7 +4766,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_elysium_liturgical_rite"
+								text = "eocfm_gui_elysium_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -4975,7 +4975,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_tututepec_liturgical_rite"
+								text = "eocfm_gui_tututepec_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
@@ -5184,7 +5184,7 @@ types eocfm_patriarchal_seat_panels {
 							margin = { 10 10 }
 							spacing = 5
 							textbox = {
-								raw_text = "eocfm_gui_cahokia_liturgical_rite"
+								text = "eocfm_gui_cahokia_liturgical_rite"
 								size = { 150 40 }
 								elide = right
 								using = fontsize_medium
