@@ -19,20 +19,36 @@ types eocfm_metropolitan_panels {
 		blockoverride "first_button_selected" {
 			text = "eocfm_gui_ecclesiastic_header"
 		}
-
+		
 		blockoverride "second_button" {
-			text = "eocfm_gui_global_header"
+			text = "eocfm_gui_collegium_head"
 		}
 		blockoverride "second_button_click" {
-			onclick = "[GetVariableSystem.Set('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+			onclick = "[GetVariableSystem.Set('eocfm_orthodox_ecumenical_actions_tab', 'curia')]"
 		}
 		blockoverride "second_button_visibility" {
-			visible = "[GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'curia')), GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 		}
 		blockoverride "second_button_visibility_checked" {
-			visible = "[Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list'))]"
+			visible = "[Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'curia'))]"
 		}
 		blockoverride "second_button_selected" {
+			text = "eocfm_gui_collegium_head"
+		}
+		
+		blockoverride "third_button" {
+			text = "eocfm_gui_global_header"
+		}
+		blockoverride "third_button_click" {
+			onclick = "[GetVariableSystem.Set('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+		}
+		blockoverride "third_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+		}
+		blockoverride "third_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list'))]"
+		}
+		blockoverride "third_button_selected" {
 			text = "eocfm_gui_global_header"
 		}
 	}
