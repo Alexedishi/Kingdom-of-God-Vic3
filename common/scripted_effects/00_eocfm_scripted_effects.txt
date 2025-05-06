@@ -1308,299 +1308,168 @@ eocfm_change_rite_effect = {
 }
 
 # Seat Integration Effects
-eocfm_complete_integration_effect = {
+eocfm_advance_integration_effect = {
 	if = {
 		limit = {
 			has_variable = eocfm_integrating_rome
 		}
-		custom_tooltip = eocfm_usurped_rome
-		remove_variable = eocfm_integrating_rome
-		set_variable = eocfm_controls_rome
+		change_variable = {
+			name = eocfm_integrating_rome
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_santiago
 		}
-		custom_tooltip = eocfm_usurped_santiago
-		remove_variable = eocfm_integrating_santiago
-		set_variable = eocfm_controls_santiago
+		change_variable = {
+			name = eocfm_integrating_santiago
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_paris
 		}
-		custom_tooltip = eocfm_usurped_paris
-		remove_variable = eocfm_integrating_paris
-		set_variable = eocfm_controls_paris
+		change_variable = {
+			name = eocfm_integrating_paris
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_koln
 		}
-		custom_tooltip = eocfm_usurped_koln
-		remove_variable = eocfm_integrating_koln
-		set_variable = eocfm_controls_koln
+		change_variable = {
+			name = eocfm_integrating_koln
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_vienna
 		}
-		custom_tooltip = eocfm_usurped_vienna
-		remove_variable = eocfm_integrating_vienna
-		set_variable = eocfm_controls_vienna
+		change_variable = {
+			name = eocfm_integrating_vienna
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_constantinople
 		}
-		custom_tooltip = eocfm_usurped_constantinople
-		remove_variable = eocfm_integrating_constantinople
-		set_variable = eocfm_controls_constantinople
+		change_variable = {
+			name = eocfm_integrating_constantinople
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_antioch
 		}
-		custom_tooltip = eocfm_usurped_antioch
-		remove_variable = eocfm_integrating_antioch
-		set_variable = eocfm_controls_antioch
+		change_variable = {
+			name = eocfm_integrating_antioch
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_jerusalem
 		}
-		custom_tooltip = eocfm_usurped_jerusalem
-		remove_variable = eocfm_integrating_jerusalem
-		set_variable = eocfm_controls_jerusalem
+		change_variable = {
+			name = eocfm_integrating_jerusalem
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_alexandria
 		}
-		custom_tooltip = eocfm_usurped_alexandria
-		remove_variable = eocfm_integrating_alexandria
-		set_variable = eocfm_controls_alexandria
+		change_variable = {
+			name = eocfm_integrating_alexandria
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_moscow
 		}
-		custom_tooltip = eocfm_usurped_moscow
-		remove_variable = eocfm_integrating_moscow
-		set_variable = eocfm_controls_moscow
+		change_variable = {
+			name = eocfm_integrating_moscow
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_coptic_alexandria
 		}
-		custom_tooltip = eocfm_usurped_coptic_alexandria
-		remove_variable = eocfm_integrating_coptic_alexandria
-		set_variable = eocfm_controls_coptic_alexandria
+		change_variable = {
+			name = eocfm_integrating_coptic_alexandria
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_syriac_antioch
 		}
-		custom_tooltip = eocfm_usurped_syriac_antioch
-		remove_variable = eocfm_integrating_syriac_antioch
-		set_variable = eocfm_controls_syriac_antioch
+		change_variable = {
+			name = eocfm_integrating_syriac_antioch
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_etchmiadzin
 		}
-		custom_tooltip = eocfm_usurped_etchmiadzin
-		remove_variable = eocfm_integrating_etchmiadzin
-		set_variable = eocfm_controls_etchmiadzin
+		change_variable = {
+			name = eocfm_integrating_etchmiadzin
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_addis_ababa
 		}
-		custom_tooltip = eocfm_usurped_addis_ababa
-		remove_variable = eocfm_integrating_addis_ababa
-		set_variable = eocfm_controls_addis_ababa
+		change_variable = {
+			name = eocfm_integrating_addis_ababa
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_konak
 		}
-		custom_tooltip = eocfm_usurped_konak
-		remove_variable = eocfm_integrating_konak
-		set_variable = eocfm_controls_konak
+		change_variable = {
+			name = eocfm_integrating_konak
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_elysium
 		}
-		custom_tooltip = eocfm_usurped_elysium
-		remove_variable = eocfm_integrating_elysium
-		set_variable = eocfm_controls_elysium
+		change_variable = {
+			name = eocfm_integrating_elysium
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_mixtec
 		}
-		custom_tooltip = eocfm_usurped_mixtec
-		remove_variable = eocfm_integrating_mixtec
-		set_variable = eocfm_controls_mixtec
+		change_variable = {
+			name = eocfm_integrating_mixtec
+			add = 1
+		}
 	}
-	else_if = {
+	if = {
 		limit = {
 			has_variable = eocfm_integrating_cahokia
 		}
-		custom_tooltip = eocfm_usurped_cahokia
-		remove_variable = eocfm_integrating_cahokia
-		set_variable = eocfm_controls_cahokia
-	}
-	remove_variable = eocfm_integration_var
-	remove_variable = eocfm_seat_opposed
-}
-
-eocfm_post_usurpation_notification_effect = {
-	if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_rome
-			}
+		change_variable = {
+			name = eocfm_integrating_cahokia
+			add = 1
 		}
-		post_notification = notification_eocfm_rome_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_santiago
-			}
-		}
-		post_notification = notification_eocfm_santiago_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_paris
-			}
-		}
-		post_notification = notification_eocfm_paris_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_koln
-			}
-		}
-		post_notification = notification_eocfm_koln_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_vienna
-			}
-		}
-		post_notification = notification_eocfm_vienna_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_constantinople
-			}
-		}
-		post_notification = notification_eocfm_constantinople_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_antioch
-			}
-		}
-		post_notification = notification_eocfm_antioch_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_jerusalem
-			}
-		}
-		post_notification = notification_eocfm_jerusalem_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_alexandria
-			}
-		}
-		post_notification = notification_eocfm_alexandria_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_moscow
-			}
-		}
-		post_notification = notification_eocfm_moscow_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_coptic_alexandria
-			}
-		}
-		post_notification = notification_eocfm_coptic_alexandria_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_syriac_antioch
-			}
-		}
-		post_notification = notification_eocfm_syriac_antioch_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_etchmiadzin
-			}
-		}
-		post_notification = notification_eocfm_etchmiadzin_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_addis_ababa
-			}
-		}
-		post_notification = notification_eocfm_addis_ababa_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_konak
-			}
-		}
-		post_notification = notification_eocfm_konak_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_elysium
-			}
-		}
-		post_notification = notification_eocfm_elysium_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_mixtec
-			}
-		}
-		post_notification = notification_eocfm_mixtec_usurped
-	}
-	else_if = {
-		limit = {
-			ROOT = {
-				has_variable = eocfm_integrating_cahokia
-			}
-		}
-		post_notification = notification_eocfm_cahokia_usurped
 	}
 }
 
