@@ -3338,9 +3338,9 @@ eocfm.0210 = { # Seat Integration Disputed (Part 1)
 				NOT = {
 					this = root
 				}
-				has_variable = eocfm_integration_var
-				var:eocfm_integration_var < 100
-				var:eocfm_integration_var > 24
+#				has_variable = eocfm_integration_var
+#				var:eocfm_integration_var < 100
+#				var:eocfm_integration_var > 24
 				NOR = {
 					has_modifier = modifier_eocfm_asserted_integration
 					has_modifier = modifier_eocfm_folded_integration
@@ -3437,12 +3437,12 @@ eocfm.0211 = { # Seat Integration Disputed (Part 2)
 		}
 		custom_tooltip = {
 			text = eocfm_integration_gain_2
-			hidden_effect = {
-				change_variable = {
-					name = eocfm_integration_var
-					add = 8
-				}
-			}
+#			hidden_effect = {
+#				change_variable = {
+#					name = eocfm_integration_var
+#					add = 8
+#				}
+#			}
 		}
 		add_modifier = {
 			name = modifier_eocfm_asserted_integration
@@ -3469,12 +3469,12 @@ eocfm.0211 = { # Seat Integration Disputed (Part 2)
 		}
 		custom_tooltip = {
 			text = eocfm_integration_lose_6
-			hidden_effect = {
-				change_variable = {
-					name = eocfm_integration_var
-					subtract = 24
-				}
-			}
+#			hidden_effect = {
+#				change_variable = {
+#					name = eocfm_integration_var
+#					subtract = 24
+#				}
+#			}
 		}
 		scope:eocfm_disputer_scope = {
 			change_relations = {
@@ -3500,11 +3500,11 @@ eocfm.0211 = { # Seat Integration Disputed (Part 2)
 		custom_tooltip = {
 			text = eocfm_integration_gain_4
 			hidden_effect = {
-				change_variable = {
-					name = eocfm_integration_var
-					add = 16
-				}
-			}
+#				change_variable = {
+#					name = eocfm_integration_var
+#					add = 16
+#				}
+#			}
 		}
 		scope:eocfm_disputer_scope = {
 			change_relations = {
