@@ -2023,3 +2023,72 @@ eocfm_cahokia_liturgical_rite_type = {
 		localization_key = eocfm_mixtec_rite
 	}
 }
+
+# eocfm_key_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var >= 80
+			var:eocfm_key_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var >= 80
+			var:eocfm_key_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var < 80
+			var:eocfm_key_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var < 50
+			var:eocfm_key_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var < 20
+			var:eocfm_key_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var <= -20
+			var:eocfm_key_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var <= -50
+			var:eocfm_key_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var <= -80
+			var:eocfm_key_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_key_opinion_var <= -80
+			var:eocfm_key_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+	
