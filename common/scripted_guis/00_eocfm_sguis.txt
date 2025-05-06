@@ -2553,7 +2553,6 @@ eocfm_integrate_coptic_alexandria_sgui = {
 	is_valid = {
 		eocfm_is_autocephalous_trigger = yes
 		eocfm_has_500_caesaropapism_trigger	= yes
-		eocfm_NOT_integrating_seat_trigger = yes
 		custom_tooltip = {
 			text = eocfm_controls_coptic_alexandria_NOT
 			hidden_trigger = {
@@ -2566,9 +2565,8 @@ eocfm_integrate_coptic_alexandria_sgui = {
 	}
 	
 	effect = {
-		set_variable = eocfm_integrating_coptic_alexandria
 		set_variable = {
-			name = eocfm_integration_var
+			name = eocfm_integrating_coptic_alexandria
 			value = 0
 		}
 		every_country = {
@@ -2600,6 +2598,7 @@ eocfm_enforce_coptic_alexandria_sgui = {
 	is_valid = {
 		eocfm_is_autocephalous_trigger = yes
 		eocfm_has_200_caesaropapism_trigger	= yes
+		eocfm_NOT_enforcing_seat_trigger = yes
 		custom_tooltip = {
 			text = eocfm_can_enforce_coptic_alexandria
 			var:eocfm_coptic_alexandria_opinion_var >= 50
@@ -2607,8 +2606,9 @@ eocfm_enforce_coptic_alexandria_sgui = {
 	}
 	
 	effect = {
+		set_variable = eocfm_enforcing_coptic_alexandria
 		set_variable = {
-			name = eocfm_enforcing_coptic_alexandria
+			name = eocfm_enforcement_var
 			value = 0
 		}
 	}
