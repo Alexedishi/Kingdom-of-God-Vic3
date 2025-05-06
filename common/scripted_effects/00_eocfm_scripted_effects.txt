@@ -862,132 +862,132 @@ eocfm_add_condemnation_effect = {
 			limit = {
 				var:eocfm_seat_event_var = 1 # Rome
 			}
-			set_variable = eocfm_condemned_by_rome
+			add_modifier = modifier_eocfm_condemned_by_rome
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 2 # Santiago
 			}
-			set_variable = eocfm_condemned_by_santiago
+			add_modifier = modifier_eocfm_condemned_by_santiago
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 3 # Paris
 			}
-			set_variable = eocfm_condemned_by_paris
+			add_modifier = modifier_eocfm_condemned_by_paris
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 4 # Koln
 			}
-			set_variable = eocfm_condemned_by_koln
+			add_modifier = modifier_eocfm_condemned_by_koln
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 5 # Vienna
 			}
-			set_variable = eocfm_condemned_by_vienna
+			add_modifier = modifier_eocfm_condemned_by_vienna
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 6 # Constantinople
 			}
-			set_variable = eocfm_condemned_by_constantinople
+			add_modifier = modifier_eocfm_condemned_by_constantinople
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 7 # Antioch
 			}
-			set_variable = eocfm_condemned_by_antioch
+			add_modifier = modifier_eocfm_condemned_by_antioch
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 8 # Jerusalem
 			}
-			set_variable = eocfm_condemned_by_jerusalem
+			add_modifier = modifier_eocfm_condemned_by_jerusalem
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 9 # Alexandria
 			}
-			set_variable = eocfm_condemned_by_alexandria
+			add_modifier = modifier_eocfm_condemned_by_alexandria
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 10 # Moscow
 			}
-			set_variable = eocfm_condemned_by_moscow
+			add_modifier = modifier_eocfm_condemned_by_moscow
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 11 # Coptic Alexandria
 			}
-			set_variable = eocfm_condemned_by_coptic_alexandria
+			add_modifier = modifier_eocfm_condemned_by_coptic_alexandria
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 12 # Syriac Antioch
 			}
-			set_variable = eocfm_condemned_by_syriac_antioch
+			add_modifier = modifier_eocfm_condemned_by_syriac_antioch
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 13 # Etchmiadzin
 			}
-			set_variable = eocfm_condemned_by_etchmiadzin
+			add_modifier = modifier_eocfm_condemned_by_etchmiadzin
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 14 # Addis Ababa
 			}
-			set_variable = eocfm_condemned_by_addis_ababa
+			add_modifier = modifier_eocfm_condemned_by_addis_ababa
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 15 # Qudshanis
 			}
-			set_variable = eocfm_condemned_by_konak
+			add_modifier = modifier_eocfm_condemned_by_konak
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 16 # Elysium
 			}
-			set_variable = eocfm_condemned_by_elysium
+			add_modifier = modifier_eocfm_condemned_by_elysium
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 17 # Mixtec
 			}
-			set_variable = eocfm_condemned_by_mixtec
+			add_modifier = modifier_eocfm_condemned_by_mixtec
 		}
 		else_if = {
 			limit = {
 				var:eocfm_seat_event_var = 18 # Cahokia
 			}
-			set_variable = eocfm_condemned_by_cahokia
+			add_modifier = modifier_eocfm_condemned_by_cahokia
 		}
 	}
 }
 
 eocfm_cleanup_seat_condemnation_effect = {
-	remove_variable = eocfm_condemned_by_rome
-	remove_variable = eocfm_condemned_by_santiago
-	remove_variable = eocfm_condemned_by_paris
-	remove_variable = eocfm_condemned_by_koln
-	remove_variable = eocfm_condemned_by_vienna
-	remove_variable = eocfm_condemned_by_constantinople
-	remove_variable = eocfm_condemned_by_antioch
-	remove_variable = eocfm_condemned_by_jerusalem
-	remove_variable = eocfm_condemned_by_alexandria
-	remove_variable = eocfm_condemned_by_moscow
-	remove_variable = eocfm_condemned_by_coptic_alexandria
-	remove_variable = eocfm_condemned_by_syriac_antioch
-	remove_variable = eocfm_condemned_by_etchmiadzin
-	remove_variable = eocfm_condemned_by_addis_ababa
-	remove_variable = eocfm_condemned_by_konak
-	remove_variable = eocfm_condemned_by_elysium
-	remove_variable = eocfm_condemned_by_mixtec
-	remove_variable = eocfm_condemned_by_cahokia
+	remove_modifier = modifier_eocfm_condemned_by_rome
+	remove_modifier = modifier_eocfm_condemned_by_santiago
+	remove_modifier = modifier_eocfm_condemned_by_paris
+	remove_modifier = modifier_eocfm_condemned_by_koln
+	remove_modifier = modifier_eocfm_condemned_by_vienna
+	remove_modifier = modifier_eocfm_condemned_by_constantinople
+	remove_modifier = modifier_eocfm_condemned_by_antioch
+	remove_modifier = modifier_eocfm_condemned_by_jerusalem
+	remove_modifier = modifier_eocfm_condemned_by_alexandria
+	remove_modifier = modifier_eocfm_condemned_by_moscow
+	remove_modifier = modifier_eocfm_condemned_by_coptic_alexandria
+	remove_modifier = modifier_eocfm_condemned_by_syriac_antioch
+	remove_modifier = modifier_eocfm_condemned_by_etchmiadzin
+	remove_modifier = modifier_eocfm_condemned_by_addis_ababa
+	remove_modifier = modifier_eocfm_condemned_by_konak
+	remove_modifier = modifier_eocfm_condemned_by_elysium
+	remove_modifier = modifier_eocfm_condemned_by_mixtec
+	remove_modifier = modifier_eocfm_condemned_by_cahokia
 }
 
 # Rite Changing Effect
