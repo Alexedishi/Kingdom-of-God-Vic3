@@ -1,0 +1,376 @@
+﻿############################
+# EOCFM METROPOLITAN PANEL #
+############################
+
+## CATHOLIC DECISIONS
+
+## ORTHODOX DECISIONS
+# Focus Actions
+eocfm_emphasize_unity_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		NOR = {
+			has_modifier = modifier_eocfm_emphasize_unity
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
+		}
+	}
+	
+	effect = {
+		eocfm_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_eocfm_emphasize_unity
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
+	}
+}
+
+eocfm_enforce_attendance_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		NOR	= {
+			has_modifier = modifier_eocfm_enforce_attendance
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
+		}
+	}
+	
+	effect = {
+		eocfm_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_eocfm_enforce_attendance
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
+	}
+}
+
+eocfm_theologize_dogma_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		NOR = {
+			has_modifier = modifier_eocfm_theologize_dogma
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
+		}
+	}
+	
+	effect = {
+		eocfm_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_eocfm_theologize_dogma
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
+	}
+}
+
+eocfm_promote_ecumenism_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		NOR = {
+			has_modifier = modifier_eocfm_promote_ecumenism
+			custom_tooltip = {
+				text = eocfm_focus_timeout_NOT
+				has_variable = eocfm_focus_timeout_var
+			}
+		}
+	}
+	
+	effect = {
+		eocfm_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_eocfm_promote_ecumenism
+		custom_tooltip = {
+			text = eocfm_focus_timeout_GET
+			set_variable = {
+				name = eocfm_focus_timeout_var
+				years = 5
+			}
+		}
+	}
+}
+
+eocfm_commission_icon_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		custom_tooltip = {
+			text = eocfm_is_selecting_icon_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = eocfm_icon_var
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				eocfm_has_icon_trigger = no
+			}
+			has_technology_researched = romanticism
+			custom_tooltip = {
+				text = eocfm_need_200_caesaropapism
+				hidden_trigger = {
+					eocfm_caesaropapism_capacity_value >= 200
+				}
+			}
+		}
+	}
+	
+	effect = {
+		set_variable = eocfm_icon_var
+		trigger_event = {
+			id = eocfm.2230 # Commissioning an Icon
+			popup = yes
+		}
+	}
+}
+
+eocfm_dissolve_monasteries_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_dissolved_monasteries
+		}
+	}
+	
+	is_valid = {
+		ig:ig_devout = {
+			is_powerful = no
+			is_in_government = no
+		}
+		NOT = {
+			has_modifier = modifier_eocfm_restored_monasteries
+		}
+	}
+	
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_variable = eocfm_dissolved_monasteries
+				}
+			}
+#			trigger_event = {
+#				id = eocfm.030 # Dissolution of the Monasteries
+#			}
+		}
+		add_modifier = modifier_eocfm_dissolved_monasteries
+		set_variable = eocfm_dissolved_monasteries
+	}
+}
+
+eocfm_restore_monasteries_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_dissolved_monasteries
+	}
+	
+	is_valid = {
+		always = yes # TODO restore monasteries triggers
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_dissolved_monasteries
+		add_modifier = {
+			name = modifier_eocfm_restored_monasteries
+			months = normal_modifier_time
+		}
+	}
+}
+
+eocfm_reform_synod_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_reformed_synod
+		}
+	}
+	
+	is_valid = {
+		has_technology_researched = tech_bureaucracy
+		ig:ig_devout = {
+			is_in_government = no
+			ig_approval > 0
+		}
+		NOR = {
+			has_modifier = modifier_eocfm_reformed_synod
+			has_modifier = modifier_eocfm_restored_synod
+			has_modifier = modifier_eocfm_clung_to_tradition
+		}
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_reformed_synod
+		add_radicals = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+	}
+}
+
+eocfm_restore_synod_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_reformed_synod
+	}
+	
+	is_valid = {
+		has_modifier = modifier_eocfm_reformed_synod
+		custom_tooltip = {
+			text = eocfm_need_100_caesaropapism
+			hidden_trigger = {
+				eocfm_caesaropapism_capacity_value >= 100
+			}
+		}
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_reformed_synod
+		add_modifier = {
+			name = modifier_eocfm_restored_synod
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+		remove_variable = eocfm_caesaropapism_questioned
+	}
+}
+
+eocfm_grant_subsidies_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_subsidizing_church
+		}
+	}
+	
+	is_valid = {
+		NOT = {
+			has_modifier = modifier_eocfm_subsidizing_church
+		}
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_subsidizing_church
+	}
+}
+
+eocfm_end_subsidies_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_subsidizing_church
+	}
+	
+	is_valid = {
+		ig:ig_devout = {
+			NOR = {
+				is_powerful = yes
+				is_in_government = yes
+			}
+		}
+		custom_tooltip = {
+			text = eocfm_need_100_caesaropapism
+			hidden_trigger = {
+				eocfm_caesaropapism_capacity_value >= 100
+			}
+		}
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_subsidizing_church
+	}
+}
+
+eocfm_establish_schools_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_eocfm_sunday_schools
+		}
+	}
+	
+	is_valid = {
+		NOT = { has_law = law_type:law_no_schools }
+		NOT = { has_law = law_type:law_total_separation }
+		NOT = { has_modifier = modifier_eocfm_disbanded_sunday_schools }
+	}
+	
+	effect = {
+		add_modifier = modifier_eocfm_sunday_schools
+	}
+}
+
+eocfm_disband_schools_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_eocfm_sunday_schools
+	}
+	
+	is_valid = {
+		ig:ig_devout = {
+			NOR = {
+				is_powerful = yes
+				is_in_government = yes
+			}
+		}
+	}
+	
+	effect = {
+		remove_modifier = modifier_eocfm_sunday_schools
+		add_modifier = {
+			name = modifier_eocfm_disbanded_sunday_schools
+			months = long_modifier_time
+		}
+	}
+}

@@ -1,0 +1,102 @@
+﻿################################
+# EOCFM ENCYCLICAL PANEL SGUIS #
+################################
+
+eocfm_catholic_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_catholic_convocation_var
+	}
+	
+}
+
+eocfm_orthodox_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_orthodox_convocation_var
+	}
+	
+}
+
+eocfm_oriental_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_oriental_convocation_var
+	}
+	
+}
+
+eocfm_elysian_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_global_variable = eocfm_elysian_convocation_var
+	}
+	
+}
+
+eocfm_support_council_sgui = {
+	scope = country
+	
+	is_valid = {
+		NOR = {
+			has_variable = eocfm_council_support_var
+			has_variable = eocfm_council_timeout_var
+			has_variable = eocfm_council_skipped
+		}
+	}
+	effect = {
+		set_variable = eocfm_council_support_var
+		set_variable = {
+			name = eocfm_council_timeout_var
+			days = 30
+		}
+	}
+	
+}
+
+eocfm_abstain_council_sgui = {
+	scope = country
+	
+	is_valid = {
+		OR = {
+			has_variable = eocfm_council_support_var
+			has_variable = eocfm_council_oppose_var
+		}
+		NOR = {
+			has_variable = eocfm_council_timeout_var
+			has_variable = eocfm_council_skipped
+		}
+	}
+	effect = {
+		remove_variable = eocfm_council_support_var
+		remove_variable = eocfm_council_oppose_var
+		set_variable = {
+			name = eocfm_council_timeout_var
+			days = 30
+		}
+	}
+	
+}
+
+eocfm_oppose_council_sgui = {
+	scope = country
+	
+	is_valid = {
+		NOR = {
+			has_variable = eocfm_council_oppose_var
+			has_variable = eocfm_council_timeout_var
+			has_variable = eocfm_council_skipped
+		}
+	}
+	effect = {
+		set_variable = eocfm_council_oppose_var
+		set_variable = {
+			name = eocfm_council_timeout_var
+			days = 30
+		}
+	}
+}
