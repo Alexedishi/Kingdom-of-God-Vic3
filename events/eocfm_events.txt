@@ -91,7 +91,7 @@ namespace = eocfm
 #0140-0149 - Elysian Schism Events
 
 ## BLOCK 02: Seat Integration Events ##
-#0200-0209 - Seat Integration Narrative Events
+#0200-0209 - State Authority Assertion Events
 #	0200 - State Authority Asserted Over Rome
 #	0201 - State Authority Asserted Over Constantinopole
 #	0202 - State Authority Asserted Over Coptic Alexandria
@@ -105,6 +105,30 @@ namespace = eocfm
 #0210-0219 - Seat Integration Random Events
 #	0210 - Seat Integration Disputed (Part 1)
 #	0211 - Seat Integration Disputed (Part 2)
+
+#0220-0229 - Seat Control Events I
+#	0220 - Control Secured Over Rome
+#	0221 - Control Secured Over Santiago
+#	0222 - Control Secured Over Paris
+#	0223 - Control Secured Over Cologne
+#	0224 - Control Secured Over Vienna
+#	0225 - Control Secured Over Constantinople
+#	0226 - Control Secured Over Antioch
+#	0227 - Control Secured Over Jerusalem
+#	0228 - Control Secured Over Alexandria
+#	0229 - Control Secured Over Moscow
+
+#0230-0239 - Seat Control Events II
+#	0230 - Control Secured Over Coptic Alexandria
+#	0231 - Control Secured Over Syriac Antioch
+#	0232 - Control Secured Over Etchmiadzin
+#	0233 - Control Secured Over Addis Ababa
+#	0234 - Control Secured Over Qudshanis
+#	0235 - Control Secured Over Elysium
+#	0236 - Control Secured Over Tututepec
+#	0237 - Control Secured Over Cahokia
+#	0238 - 
+#	0239 - 
 
 ## BLOCK 03: Great Mending Events ##
 #0300-0309 - Mending Events
@@ -3263,58 +3287,6 @@ eocfm.0203 = { # State Authority Asserted Over Elysium
 	
 }
 
-eocfm.0209 = { # Control Secured Over Seat
-	type = country_event
-	placement = root
-	
-	title = eocfm.0209.t
-	desc = eocfm.0209.d
-	flavor = eocfm.0209.f
-	
-	event_image = {
-		video = "ep1_transfer_of_authority"
-	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
-	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_eocfm
-	
-	trigger = {
-		has_variable = eocfm_integration_var
-		var:eocfm_integration_var >= 60
-	}
-	
-	immediate = {
-		eocfm_save_seat_loser_effect = yes
-		every_country = {
-			limit = {
-				OR = {
-					eocfm_is_christian_trigger = yes
-					scope:eocfm_controller_scope ?= this
-				}
-			}
-			eocfm_post_usurpation_notification_effect = yes
-		}
-	}
-	
-	option = {
-		name = eocfm.0209.a
-		default_option = yes
-		eocfm_complete_integration_effect = yes
-		scope:eocfm_controller_scope ?= {
-			change_relations = {
-				country = root
-				value = -30
-			}
-		}
-	}
-
-}
-
 # Seat Integration Random Events
 eocfm.0210 = { # Seat Integration Disputed (Part 1)
 	type = country_event
@@ -3337,13 +3309,14 @@ eocfm.0210 = { # Seat Integration Disputed (Part 1)
 	dlc = dlc_eocfm
 	
 	trigger = {
+		always = no # TODO rework this event
 		eocfm_controls_any_seat_trigger = yes
 		any_country = {
 			NOT = {
 				this = root
 			}
-			has_variable = eocfm_integration_var
-			var:eocfm_integration_var < 80
+#			has_variable = eocfm_integration_var
+#			var:eocfm_integration_var < 80
 			NOR = {
 				has_modifier = modifier_eocfm_asserted_integration
 				has_modifier = modifier_eocfm_folded_integration
@@ -3543,6 +3516,1144 @@ eocfm.0211 = { # Seat Integration Disputed (Part 2)
 	}
 }
 
+
+# Seat Control Events I
+eocfm.0220 = { # Control Secured Over Rome
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0220.t
+	desc = eocfm.0220.d
+	flavor = eocfm.0220.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_rome
+		var:eocfm_integrating_rome >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_rome
+			}
+			save_scope_as = eocfm_rome_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_rome_usurped
+		}
+		remove_variable = eocfm_integrating_rome
+	}
+	
+	option = {
+		name = eocfm.0220.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_rome
+			set_variable = eocfm_controls_rome
+		}
+		scope:eocfm_rome_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_rome
+		}
+		remove_modifier =  modifier_eocfm_integrating_rome
+	}
+	
+}
+
+eocfm.0221 = { # Control Secured Over Santiago
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0221.t
+	desc = eocfm.0221.d
+	flavor = eocfm.0221.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_santiago
+		var:eocfm_integrating_santiago >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_santiago
+			}
+			save_scope_as = eocfm_santiago_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_santiago_usurped
+		}
+		remove_variable = eocfm_integrating_santiago
+	}
+	
+	option = {
+		name = eocfm.0221.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_santiago
+			set_variable = eocfm_controls_santiago
+		}
+		scope:eocfm_santiago_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_santiago
+		}
+		remove_modifier =  modifier_eocfm_integrating_santiago
+	}
+
+}
+
+eocfm.0222 = { # Control Secured Over Paris
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0222.t
+	desc = eocfm.0222.d
+	flavor = eocfm.0222.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_paris
+		var:eocfm_integrating_paris >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_paris
+			}
+			save_scope_as = eocfm_paris_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_paris_usurped
+		}
+		remove_variable = eocfm_integrating_paris
+	}
+	
+	option = {
+		name = eocfm.0222.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_paris
+			set_variable = eocfm_controls_paris
+		}
+		scope:eocfm_paris_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_paris
+		}
+		remove_modifier =  modifier_eocfm_integrating_paris
+	}
+
+}
+
+eocfm.0223 = { # Control Secured Over Cologne
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0223.t
+	desc = eocfm.0223.d
+	flavor = eocfm.0223.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_koln
+		var:eocfm_integrating_koln >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_koln
+			}
+			save_scope_as = eocfm_koln_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_koln_usurped
+		}
+		remove_variable = eocfm_integrating_koln
+	}
+	
+	option = {
+		name = eocfm.0223.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_koln
+			set_variable = eocfm_controls_koln
+		}
+		scope:eocfm_koln_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_koln
+		}
+		remove_modifier =  modifier_eocfm_integrating_koln
+	}
+
+}
+
+eocfm.0224 = { # Control Secured Over Vienna
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0224.t
+	desc = eocfm.0224.d
+	flavor = eocfm.0224.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_vienna
+		var:eocfm_integrating_vienna >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_vienna
+			}
+			save_scope_as = eocfm_vienna_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_vienna_usurped
+		}
+		remove_variable = eocfm_integrating_vienna
+	}
+	
+	option = {
+		name = eocfm.0224.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_vienna
+			set_variable = eocfm_controls_vienna
+		}
+		scope:eocfm_vienna_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_vienna
+		}
+		remove_modifier =  modifier_eocfm_integrating_vienna
+	}
+
+}
+
+eocfm.0225 = { # Control Secured Over Constantinople
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0225.t
+	desc = eocfm.0225.d
+	flavor = eocfm.0225.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_constantinople
+		var:eocfm_integrating_constantinople >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_constantinople
+			}
+			save_scope_as = eocfm_constantinople_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_constantinople_usurped
+		}
+		remove_variable = eocfm_integrating_constantinople
+	}
+	
+	option = {
+		name = eocfm.0225.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_constantinople
+			set_variable = eocfm_controls_constantinople
+		}
+		scope:eocfm_constantinople_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_constantinople
+		}
+		remove_modifier =  modifier_eocfm_integrating_constantinople
+	}
+
+}
+
+eocfm.0226 = { # Control Secured Over Antioch
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0226.t
+	desc = eocfm.0226.d
+	flavor = eocfm.0226.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_antioch
+		var:eocfm_integrating_antioch >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_antioch
+			}
+			save_scope_as = eocfm_antioch_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_antioch_usurped
+		}
+		remove_variable = eocfm_integrating_antioch
+	}
+	
+	option = {
+		name = eocfm.0226.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_antioch
+			set_variable = eocfm_controls_antioch
+		}
+		scope:eocfm_antioch_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_antioch
+		}
+		remove_modifier =  modifier_eocfm_integrating_antioch
+	}
+
+}
+
+eocfm.0227 = { # Control Secured Over Jersualem
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0227.t
+	desc = eocfm.0227.d
+	flavor = eocfm.0227.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_jerusalem
+		var:eocfm_integrating_jerusalem >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_jerusalem
+			}
+			save_scope_as = eocfm_jerusalem_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_jerusalem_usurped
+		}
+		remove_variable = eocfm_integrating_jerusalem
+	}
+	
+	option = {
+		name = eocfm.0227.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_jerusalem
+			set_variable = eocfm_controls_jerusalem
+		}
+		scope:eocfm_jerusalem_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_jerusalem
+		}
+		remove_modifier =  modifier_eocfm_integrating_jerusalem
+	}
+
+}
+
+eocfm.0228 = { # Control Secured Over Alexandria
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0228.t
+	desc = eocfm.0228.d
+	flavor = eocfm.0228.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_alexandria
+		var:eocfm_integrating_alexandria >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_alexandria
+			}
+			save_scope_as = eocfm_alexandria_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_alexandria_usurped
+		}
+		remove_variable = eocfm_integrating_alexandria
+	}
+	
+	option = {
+		name = eocfm.0228.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_alexandria
+			set_variable = eocfm_controls_alexandria
+		}
+		scope:eocfm_alexandria_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_alexandria
+		}
+		remove_modifier =  modifier_eocfm_integrating_alexandria
+	}
+
+}
+
+eocfm.0229 = { # Control Secured Over Moscow
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0229.t
+	desc = eocfm.0229.d
+	flavor = eocfm.0229.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_moscow
+		var:eocfm_integrating_moscow >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_moscow
+			}
+			save_scope_as = eocfm_moscow_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_moscow_usurped
+		}
+		remove_variable = eocfm_integrating_moscow
+	}
+	
+	option = {
+		name = eocfm.0229.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_moscow
+			set_variable = eocfm_controls_moscow
+		}
+		scope:eocfm_moscow_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_moscow
+		}
+		remove_modifier =  modifier_eocfm_integrating_moscow
+	}
+
+}
+
+# Seat Control Events II
+eocfm.0230 = { # Control Secured Over Coptic Alexandria
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0230.t
+	desc = eocfm.0230.d
+	flavor = eocfm.0230.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_coptic_alexandria
+		var:eocfm_integrating_coptic_alexandria >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_coptic_alexandria
+			}
+			save_scope_as = eocfm_coptic_alexandria_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_coptic_alexandria_usurped
+		}
+		remove_variable = eocfm_integrating_coptic_alexandria
+	}
+	
+	option = {
+		name = eocfm.0230.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_coptic_alexandria
+			set_variable = eocfm_controls_coptic_alexandria
+		}
+		scope:eocfm_coptic_alexandria_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_coptic_alexandria
+		}
+		remove_modifier = 
+		remove_modifier =  modifier_eocfm_integrating_coptic_alexandria
+	}
+
+}
+
+eocfm.0231 = { # Control Secured Over Syriac Antioch
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0231.t
+	desc = eocfm.0231.d
+	flavor = eocfm.0231.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_syriac_antioch
+		var:eocfm_integrating_syriac_antioch >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_syriac_antioch
+			}
+			save_scope_as = eocfm_syriac_antioch_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_syriac_antioch_usurped
+		}
+		remove_variable = eocfm_integrating_syriac_antioch
+	}
+	
+	option = {
+		name = eocfm.0231.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_syriac_antioch
+			set_variable = eocfm_controls_syriac_antioch
+		}
+		scope:eocfm_syriac_antioch_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_syriac_antioch
+		}
+		remove_modifier =  modifier_eocfm_integrating_syriac_antioch
+	}
+
+}
+
+eocfm.0232 = { # Control Secured Over Etchmiadzin
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0232.t
+	desc = eocfm.0232.d
+	flavor = eocfm.0232.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_etchmiadzin
+		var:eocfm_integrating_etchmiadzin >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_etchmiadzin
+			}
+			save_scope_as = eocfm_etchmiadzin_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_etchmiadzin_usurped
+		}
+		remove_variable = eocfm_integrating_etchmiadzin
+	}
+	
+	option = {
+		name = eocfm.0232.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_etchmiadzin
+			set_variable = eocfm_controls_etchmiadzin
+		}
+		scope:eocfm_etchmiadzin_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_etchmiadzin
+		}
+		remove_modifier =  modifier_eocfm_integrating_etchmiadzin
+	}
+
+}
+
+eocfm.0233 = { # Control Secured Over Addis Ababa
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0233.t
+	desc = eocfm.0233.d
+	flavor = eocfm.0233.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_addis_ababa
+		var:eocfm_integrating_addis_ababa >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_addis_ababa
+			}
+			save_scope_as = eocfm_addis_ababa_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_addis_ababa_usurped
+		}
+		remove_variable = eocfm_integrating_addis_ababa
+	}
+	
+	option = {
+		name = eocfm.0233.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_addis_ababa
+			set_variable = eocfm_controls_addis_ababa
+		}
+		scope:eocfm_addis_ababa_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_addis_ababa
+		}
+		remove_modifier =  modifier_eocfm_integrating_addis_ababa
+	}
+
+}
+
+eocfm.0234 = { # Control Secured Over Qudshanis
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0234.t
+	desc = eocfm.0234.d
+	flavor = eocfm.0234.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_konak
+		var:eocfm_integrating_konak >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_konak
+			}
+			save_scope_as = eocfm_konak_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_konak_usurped
+		}
+		remove_variable = eocfm_integrating_konak
+	}
+	
+	option = {
+		name = eocfm.0234.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_konak
+			set_variable = eocfm_controls_konak
+		}
+		scope:eocfm_konak_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_konak
+		}
+		remove_modifier =  modifier_eocfm_integrating_konak
+	}
+
+}
+
+eocfm.0235 = { # Control Secured Over Elysium
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0235.t
+	desc = eocfm.0235.d
+	flavor = eocfm.0235.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_elysium
+		var:eocfm_integrating_elysium >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_elysium
+			}
+			save_scope_as = eocfm_elysium_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_elysium_usurped
+		}
+		remove_variable = eocfm_integrating_elysium
+	}
+	
+	option = {
+		name = eocfm.0235.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_elysium
+			set_variable = eocfm_controls_elysium
+		}
+		scope:eocfm_elysium_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_elysium
+		}
+		remove_modifier =  modifier_eocfm_integrating_elysium
+	}
+
+}
+
+eocfm.0236 = { # Control Secured Over Tututepec
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0236.t
+	desc = eocfm.0236.d
+	flavor = eocfm.0236.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_mixtec
+		var:eocfm_integrating_mixtec >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_mixtec
+			}
+			save_scope_as = eocfm_mixtec_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_mixtec_usurped
+		}
+		remove_variable = eocfm_integrating_mixtec
+	}
+	
+	option = {
+		name = eocfm.0236.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_mixtec
+			set_variable = eocfm_controls_mixtec
+		}
+		scope:eocfm_mixtec_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_mixtec
+		}
+		remove_modifier =  modifier_eocfm_integrating_mixtec
+	}
+
+}
+
+eocfm.0237 = { # Control Secured Over Cahokia
+	type = country_event
+	placement = p:xB040A0
+	
+	title = eocfm.0237.t
+	desc = eocfm.0237.d
+	flavor = eocfm.0237.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_eocfm
+	
+	trigger = {
+		has_variable = eocfm_integrating_cahokia
+		var:eocfm_integrating_cahokia >= 60
+	}
+	
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = eocfm_controls_cahokia
+			}
+			save_scope_as = eocfm_cahokia_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					eocfm_is_christian_trigger = yes
+					scope:eocfm_controller_scope ?= this
+				}
+			}
+			post_notification = notification_eocfm_cahokia_usurped
+		}
+		remove_variable = eocfm_integrating_cahokia
+	}
+	
+	option = {
+		name = eocfm.0237.a
+		default_option = yes
+		custom_tooltip = {
+			text = eocfm_usurped_cahokia
+			set_variable = eocfm_controls_cahokia
+		}
+		scope:eocfm_cahokia_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = eocfm_controls_cahokia
+		}
+		remove_modifier =  modifier_eocfm_integrating_cahokia
+	}
+
+}
+
 ## BLOCK 03 - GREAT MENDING EVENTS ##
 
 # Mending Events
@@ -3616,7 +4727,7 @@ eocfm.0309 = { # The Supreme Pontiff of the Universal Church
 	immediate = {
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_constantinople_patriarch
+				has_0220late = 0220late_eocfm_constantinople_patriarch
 			}
 			save_scope_as = eocfm_patriarch_event_scope
 		}
@@ -6196,7 +7307,7 @@ eocfm.2310 = { # An Audience with the Patriarch
 	immediate = {
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_constantinople_patriarch
+				has_0220late = 0220late_eocfm_constantinople_patriarch
 			}
 			save_scope_as = eocfm_patriarch_event_scope
 		}
@@ -6281,7 +7392,7 @@ eocfm.2311 = { # The Patriarch's Blessings
 	immediate = {
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_constantinople_patriarch
+				has_0220late = 0220late_eocfm_constantinople_patriarch
 			}
 			save_scope_as = eocfm_patriarch_event_scope
 		}
@@ -6325,7 +7436,7 @@ eocfm.2312 = { # Ecumenical Partiarch Denounces Secularism
 	immediate = {
 		random_character_in_void = {
 			limit = {
-				has_template = template_eocfm_constantinople_patriarch
+				has_0220late = 0220late_eocfm_constantinople_patriarch
 			}
 			save_scope_as = eocfm_patriarch_event_scope
 		}
