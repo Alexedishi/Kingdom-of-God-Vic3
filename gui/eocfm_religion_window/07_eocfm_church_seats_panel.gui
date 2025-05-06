@@ -166,21 +166,16 @@ types eocfm_patriarchal_seat_panels {
 					visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					
 					layoutpolicy_vertical = shrinking
-					spacing = 15
-					margin_left = 10
-					margin_right = 10
-					margin_top = 5
-					margin_bottom = 5
+					spacing = 10
+					margin = { 10 10 }
 					
 					background = {
 						using = entry_bg
-						margin = { -3 -3 }
 					}
 					
 					hbox = {
 						default_header_clean_faded = {
-							blockoverride "text" {
-							}
+							blockoverride "text" {}
 							textbox = {
 								text = "eocfm_gui_rome_patriarch_header"
 								parentanchor = left|vcenter
@@ -332,10 +327,11 @@ types eocfm_patriarchal_seat_panels {
 								}
 							}
 							
-							## Autocephaly/Council Buttons
+							## Autocephaly & Council Buttons 
 							widget = {
 								size = { 250 60 }
 								
+								# Autocephaly Button
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
@@ -349,7 +345,8 @@ types eocfm_patriarchal_seat_panels {
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									tooltip = "eocfm_gui_declare_autocephaly_desc"
 								}
-				
+								
+								# Autocephaly Progressbar
 								green_progressbar_horizontal = {
 									parentanchor = center
 									size = { 200 20 }
@@ -370,6 +367,8 @@ types eocfm_patriarchal_seat_panels {
 										visible = "[GetScriptedGui('eocfm_schism_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									}
 								}
+								
+								# Convoke Council Button
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
@@ -377,7 +376,7 @@ types eocfm_patriarchal_seat_panels {
 									text = "eocfm_gui_convoke_council"
 									using = fontsize_large
 									
-									datacontext = "[GetScriptedGui('eocfm_convoke_council_sgui')]"
+									datacontext = "[GetScriptedGui('eocfm_orthodox_convoke_sgui')]"
 									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -387,20 +386,118 @@ types eocfm_patriarchal_seat_panels {
 						}
 					}
 					
-					## Ecumenical Actions Buttons
+					## Seat Interaction Buttons
 					vbox = {
-						background = {
-							using = entry_bg_simple
-							margin = { 10 10 }
-						}
-						
 						spacing = 10
+						
+						## Top Row
 						hbox = {
-							spacing = 10
+							spacing = 5
 							
-							##Seat Sway Buttons
+							# Seek Mandate Button
 							button = {
 								using = default_button_primary_big_action
+								size = { 220 40 }
+								text = "eocfm_seek_mandate"
+								using = fontsize_medium
+
+								datacontext = "[GetScriptedGui('eocfm_seek_mandate_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_seek_mandate_desc"
+							}
+							
+							# Integrate Seat Button
+							button = {
+								using = default_button_primary_big_action
+								size = { 180 40 }
+								text = "eocfm_gui_integrate_seat"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_integrate_rome_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_integrate_seat_desc"
+							}
+							
+							# Integration Progressbar
+							green_progressbar_horizontal = {
+								size = { 180 20 }
+								visible = "[GetScriptedGui('eocfm_rome_integration_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								
+								blockoverride "values" {
+									min = 0
+									max = 120
+									value = "[Country.MakeScope.Var('eocfm_integrating_rome').GetValue]"
+								}
+								textbox = {
+									parentanchor = center
+									autoresize = yes
+									
+									text = "eocfm_gui_integration_progress"
+									elide = right
+									using = fontsize_medium
+								}
+							}
+							
+							# Enforce Rite Button
+							button = {
+								using = default_button_primary_big_action
+								size = { 180 40 }
+								text = "eocfm_gui_enforce_seat"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_enforce_rome_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_enforce_seat_desc"
+							}
+							
+							# Enforcement Progressbar
+							green_progressbar_horizontal = {
+								size = { 180 20 }
+								visible = "[GetScriptedGui('eocfm_rome_enforcement_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								
+								blockoverride "values" {
+									min = 0
+									max = 120
+									value = "[Country.MakeScope.Var('eocfm_enforcement_var').GetValue]"
+								}
+								textbox = {
+									parentanchor = center
+									autoresize = yes
+									
+									text = "eocfm_gui_enforcement_progress"
+									elide = right
+									using = fontsize_medium
+								}
+							}
+							
+							# Assert Supremacy Button
+							button = {
+								using = default_button_primary_big_action
+								size = { 220 40 }
+								text = "eocfm_assert_seat"
+								using = fontsize_medium
+
+								datacontext = "[GetScriptedGui('eocfm_assert_rome_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_assert_rome_button"
+							}
+						}
+
+						hbox = {
+							spacing = 10
+							margin_bottom = 10
+							
+							# Improve Relations Button
+							button = {
+								using = default_button_action
 								size = { 200 40 }
 								text = "eocfm_gui_improve_relations"
 								using = fontsize_medium
@@ -411,8 +508,10 @@ types eocfm_patriarchal_seat_panels {
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								tooltip = "eocfm_gui_improve_relations_desc"
 							}
+							
+							# Cease Diplomacy Button
 							button = {
-								using = default_button_primary_big_action
+								using = default_button_action
 								size = { 200 40 }
 								text = "eocfm_gui_cease_diplomacy"
 								using = fontsize_medium
@@ -424,116 +523,32 @@ types eocfm_patriarchal_seat_panels {
 								tooltip = "eocfm_gui_cease_diplomacy_desc"
 							}
 							
-							# Integrate Seat Button
-							widget = {
-								size = { 200 40 }
-								
-								button = {
-									parentanchor = center
-									position = { 0 0 }
-									using = default_button_action
-									size = { 200 40 }
-									text = "eocfm_gui_integrate_seat"
-									using = fontsize_medium
-									
-									datacontext = "[GetScriptedGui('eocfm_integrate_rome_sgui')]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_integrate_seat_desc"
-								}
-								green_progressbar_horizontal = {
-									parentanchor = center
-									position = { 0 0 }
-									size = { 200 20 }
-									visible = "[GetScriptedGui('eocfm_rome_integration_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-									
-									blockoverride "values" {
-										min = 0
-										max = 120
-										value = "[Country.MakeScope.Var('eocfm_integrating_rome').GetValue]"
-									}
-									textbox = {
-										parentanchor = center
-										autoresize = yes
-										
-										text = "eocfm_gui_integration_progress"
-										elide = right
-										using = fontsize_medium
-									}
-								}
-							}
-							
-							# Enforce Seat Button
-							widget = {
-								size = { 200 40 }
-								
-								button = {
-									parentanchor = center
-									position = { 0 0 }
-									using = default_button_action
-									size = { 200 40 }
-									text = "eocfm_gui_enforce_seat"
-									using = fontsize_medium
-									
-									datacontext = "[GetScriptedGui('eocfm_enforce_rome_sgui')]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_enforce_seat_desc"
-								}
-								green_progressbar_horizontal = {
-									parentanchor = center
-									position = { 0 0 }
-									size = { 200 20 }
-									visible = "[GetScriptedGui('eocfm_rome_enforcement_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-									
-									blockoverride "values" {
-										min = 0
-										max = 120
-										value = "[Country.MakeScope.Var('eocfm_enforcement_var').GetValue]"
-									}
-									textbox = {
-										parentanchor = center
-										autoresize = yes
-										
-										text = "eocfm_gui_enforcement_progress"
-										elide = right
-										using = fontsize_medium
-									}
-								}
-							}
-						}
-						
-						hbox = {
-							spacing = 10
-							margin_bottom = 10
-							## Seek Mandate Button
+							# Damage Relations Button
 							button = {
-								using = default_button_primary_big_action
+								using = default_button_action
 								size = { 200 40 }
-								text = "eocfm_seek_mandate"
+								text = "eocfm_gui_damage_relations"
 								using = fontsize_medium
 								
-								datacontext = "[GetScriptedGui('eocfm_seek_mandate_sgui')]"
+								datacontext = "[GetScriptedGui('eocfm_start_harm_rome_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_seek_mandate_desc"
+								tooltip = "eocfm_gui_damage_relations_desc"
 							}
-							
-							## Assert Supremacy Button
+								
+							# Cease Hostilities Button
 							button = {
-								using = default_button_primary_big_action
+								using = default_button_action
 								size = { 200 40 }
-								text = "eocfm_assert_seat"
+								text = "eocfm_gui_cease_hostilities"
 								using = fontsize_medium
 								
-								datacontext = "[GetScriptedGui('eocfm_assert_rome_sgui')]"
+								datacontext = "[GetScriptedGui('eocfm_stop_harm_rome_sgui')]"
 								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_assert_rome_button"
+								tooltip = "eocfm_gui_cease_hostilities_desc"
 							}
 						}
 					}
