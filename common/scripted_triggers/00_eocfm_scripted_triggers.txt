@@ -130,40 +130,170 @@ eocfm_has_1000_caesaropapism_trigger = {
 eocfm_can_integrate_seat_trigger = {
 	OR = {
 		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_rome
+				var:eocfm_rome_opinion_var >= 25
+			}
 			owns_entire_state_region = STATE_LAZIO
-			NOT = {
-				has_variable = eocfm_controls_rome
-			}
 		}
 		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_santiago
+				var:eocfm_santiago_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_GALICIA
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_paris
+				var:eocfm_paris_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_ILE_DE_FRANCE
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_koln
+				var:eocfm_koln_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_NORTH_RHINE
+		}	
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_vienna
+				var:eocfm_vienna_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_AUSTRIA
+		}	
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_constantinople
+				var:eocfm_constantinople_opinion_var >= 25
+			}
 			owns_entire_state_region = STATE_EASTERN_THRACE
-			NOT = {
-				has_variable = eocfm_controls_constantinople
-			}
 		}
 		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_antioch
+				var:eocfm_antioch_opinion_var >= 25
+			}
 			owns_entire_state_region = STATE_SYRIA
-			NOT = {
-				has_variable = eocfm_controls_antioch
-			}
-		}	
+		}
 		AND = {
-			owns_entire_state_region = STATE_LOWER_EGYPT
-			NOT = {
-				has_variable = eocfm_controls_alexandria
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_jerusalem
+				var:eocfm_jerusalem_opinion_var >= 25
 			}
-		}	
-		AND = {
 			owns_entire_state_region = STATE_PALESTINE
-			NOT = {
-				has_variable = eocfm_controls_jerusalem
-			}
-		}	
+		}
 		AND = {
-			owns_entire_state_region = STATE_MOSCOW
-			NOT = {
-				has_variable = eocfm_controls_moscow
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_alexandria
+				var:eocfm_alexandria_opinion_var >= 25
 			}
+			owns_entire_state_region = STATE_LOWER_EGYPT
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_moscow
+				var:eocfm_moscow_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_MOSCOW
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_controls_coptic_alexandria_NOT
+				hidden_trigger = {
+					NOT = {
+						has_variable = eocfm_controls_coptic_alexandria
+					}
+				}
+			}
+			owns_entire_state_region = STATE_LOWER_EGYPT
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_syriac_antioch
+				var:eocfm_syriac_antioch_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_SYRIA
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_etchmiadzin
+				var:eocfm_etchmiadzin_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_ARMENIA
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_addis_ababa
+				var:eocfm_addis_ababa_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_OROMIA
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_konak
+				var:eocfm_konak_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_DIYARBAKIR
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_elysium
+				var:eocfm_elysium_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_DISTRICT_OF_COLUMBIA
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_mixtec
+				var:eocfm_mixtec_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_OAXACA
+		}
+		AND = {
+			eocfm_is_autocephalous_trigger = yes
+			eocfm_has_200_caesaropapism_trigger	= yes
+			custom_tooltip = {
+				text = eocfm_can_integrate_cahokia
+				var:eocfm_cahokia_opinion_var >= 25
+			}
+			owns_entire_state_region = STATE_ILLINOIS
 		}
 	}
 }
