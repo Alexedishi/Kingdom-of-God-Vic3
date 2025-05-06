@@ -257,6 +257,7 @@ types eocfm_technical_types {
 		enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 		state = {
 			name = _show
+			on_finish = "[GetScriptedGui('eocfm_sidebar_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 			on_finish = "[GetVariableSystem.Set('com_open_window', 'eocfm_sidebar_button_sgui')]"
 			on_finish = "[GetVariableSystem.Clear('com_alert_action')]"
 		}
