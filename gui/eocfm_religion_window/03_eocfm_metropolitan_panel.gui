@@ -156,14 +156,14 @@ types eocfm_metropolitan_panels {
 			button = { # Commission Icon Button
 				using = default_button_primary_big_action
 				size = { 240 44 }
-				raw_text = "Venerate an Icon"
+				text = "eocfm_gui_commission_icon"
 				using = fontsize_large
 				
 				datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_commission_icon_button"
+				tooltip = "eocfm_gui_commission_icon_desc"
 			}
 		}
 		
@@ -180,7 +180,7 @@ types eocfm_metropolitan_panels {
 			button = { # Dissolve Monasteries Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Dissolve the Monasteries"
+				text = "eocfm_gui_dissolve_monasteries"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_dissolve_monasteries_sgui')]"
@@ -193,7 +193,7 @@ types eocfm_metropolitan_panels {
 			button = { # Restore Monasteries Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Restore the Monasteries"
+				text = "eocfm_gui_restore_monasteries"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_restore_monasteries_sgui')]"
@@ -206,7 +206,7 @@ types eocfm_metropolitan_panels {
 			button = { # Reform Synod Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Reform National Synod"
+				text = "eocfm_gui_reform_synod"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_reform_synod_sgui')]"
@@ -219,7 +219,7 @@ types eocfm_metropolitan_panels {
 			button = { # Restore Synod Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Restore National Synod"
+				text = "eocfm_gui_restore_synod"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_restore_synod_sgui')]"
@@ -232,7 +232,7 @@ types eocfm_metropolitan_panels {
 			button = { # Grant Subsidies Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Grant Church Subsidies"
+				text = "eocfm_gui_grant_subsidies"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_grant_subsidies_sgui')]"
@@ -245,7 +245,7 @@ types eocfm_metropolitan_panels {
 			button = { # End Subsidies Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "End Church Subsidies"
+				text = "eocfm_gui_end_subsidies"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_end_subsidies_sgui')]"
@@ -258,7 +258,7 @@ types eocfm_metropolitan_panels {
 			button = { # Establish Schools Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Establish Sunday Schools"
+				text = "eocfm_gui_establish_schools"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_establish_schools_sgui')]"
@@ -271,7 +271,7 @@ types eocfm_metropolitan_panels {
 			button = { # Disband Schools Button
 				using = default_button_primary_big_action
 				size = { 200 40 }
-				raw_text = "Disband Sunday Schools"
+				text = "eocfm_gui_disband_schools"
 				using = fontsize_medium
 				
 				datacontext = "[GetScriptedGui('eocfm_disband_schools_sgui')]"
