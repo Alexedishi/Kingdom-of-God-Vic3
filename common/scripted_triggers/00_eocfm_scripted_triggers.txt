@@ -470,29 +470,29 @@ eocfm_is_antagonizing_seat_trigger = {
 
 eocfm_has_any_patriarch_approval_trigger = {
 	OR = {
-		var:eocfm_rome_opinion_var >= 75
-		var:eocfm_santiago_opinion_var >= 75
-		var:eocfm_paris_opinion_var >= 75
-		var:eocfm_koln_opinion_var >= 75
-		var:eocfm_vienna_opinion_var >= 75
-		var:eocfm_constantinople_opinion_var >= 75
-		var:eocfm_antioch_opinion_var >= 75
-		var:eocfm_jerusalem_opinion_var >= 75
-		var:eocfm_alexandria_opinion_var >= 75
-		var:eocfm_moscow_opinion_var >= 75
-		var:eocfm_coptic_alexandria_opinion_var >= 75
-		var:eocfm_syriac_antioch_opinion_var >= 75
-		var:eocfm_etchmiadzin_opinion_var >= 75
-		var:eocfm_addis_ababa_opinion_var >= 75
-		var:eocfm_konak_opinion_var >= 75
+		var:eocfm_rome_opinion_var >= 80
+		var:eocfm_santiago_opinion_var >= 80
+		var:eocfm_paris_opinion_var >= 80
+		var:eocfm_koln_opinion_var >= 80
+		var:eocfm_vienna_opinion_var >= 80
+		var:eocfm_constantinople_opinion_var >= 80
+		var:eocfm_antioch_opinion_var >= 80
+		var:eocfm_jerusalem_opinion_var >= 80
+		var:eocfm_alexandria_opinion_var >= 80
+		var:eocfm_moscow_opinion_var >= 80
+		var:eocfm_coptic_alexandria_opinion_var >= 80
+		var:eocfm_syriac_antioch_opinion_var >= 80
+		var:eocfm_etchmiadzin_opinion_var >= 80
+		var:eocfm_addis_ababa_opinion_var >= 80
+		var:eocfm_konak_opinion_var >= 80
 		trigger_if = {
 			limit = {
 				basileia_is_active = yes
 			}
 			OR = {
-				var:eocfm_elysium_opinion_var >= 75
-				var:eocfm_mixtec_opinion_var >= 75
-				var:eocfm_cahokia_opinion_var >= 75
+				var:eocfm_elysium_opinion_var >= 80
+				var:eocfm_mixtec_opinion_var >= 80
+				var:eocfm_cahokia_opinion_var >= 80
 			}
 		}
 	}
@@ -500,11 +500,11 @@ eocfm_has_any_patriarch_approval_trigger = {
 
 eocfm_has_catholic_approval_trigger = {
 	OR = {
-		var:eocfm_rome_opinion_var >= 75
-		var:eocfm_santiago_opinion_var >= 75
-		var:eocfm_paris_opinion_var >= 75
-		var:eocfm_koln_opinion_var >= 75
-		var:eocfm_vienna_opinion_var >= 75
+		var:eocfm_rome_opinion_var >= 80
+		var:eocfm_santiago_opinion_var >= 80
+		var:eocfm_paris_opinion_var >= 80
+		var:eocfm_koln_opinion_var >= 80
+		var:eocfm_vienna_opinion_var >= 80
 	}
 }
 
@@ -515,83 +515,83 @@ eocfm_has_orthodox_approval_trigger = {
 				has_variable = eocfm_controls_rome
 				country_has_state_religion = rel:orthodox
 			}
-			var:eocfm_rome_opinion_var >= 75
+			var:eocfm_rome_opinion_var >= 80
 		}
-		var:eocfm_constantinople_opinion_var >= 75
-		var:eocfm_antioch_opinion_var >= 75
-		var:eocfm_jerusalem_opinion_var >= 75
-		var:eocfm_alexandria_opinion_var >= 75
-		var:eocfm_moscow_opinion_var >= 75
+		var:eocfm_constantinople_opinion_var >= 80
+		var:eocfm_antioch_opinion_var >= 80
+		var:eocfm_jerusalem_opinion_var >= 80
+		var:eocfm_alexandria_opinion_var >= 80
+		var:eocfm_moscow_opinion_var >= 80
 	}
 }
 
 eocfm_has_oriental_approval_trigger = {
 	OR = {
-		var:eocfm_coptic_alexandria_opinion_var >= 75
-		var:eocfm_syriac_antioch_opinion_var >= 75
-		var:eocfm_etchmiadzin_opinion_var >= 75
-		var:eocfm_addis_ababa_opinion_var >= 75
-		var:eocfm_konak_opinion_var >= 75
+		var:eocfm_coptic_alexandria_opinion_var >= 80
+		var:eocfm_syriac_antioch_opinion_var >= 80
+		var:eocfm_etchmiadzin_opinion_var >= 80
+		var:eocfm_addis_ababa_opinion_var >= 80
+		var:eocfm_konak_opinion_var >= 80
 	}
 }
 
 eocfm_has_elysian_approval_trigger = {
 	# This trigger does NOT check for BR to be active; be aware when calling this trigger
 	OR = {
-		var:eocfm_elysium_opinion_var >= 75
-		var:eocfm_mixtec_opinion_var >= 75
-		var:eocfm_cahokia_opinion_var >= 75
+		var:eocfm_elysium_opinion_var >= 80
+		var:eocfm_mixtec_opinion_var >= 80
+		var:eocfm_cahokia_opinion_var >= 80
 	}
 }
 
 eocfm_has_junior_patriarch_approval_trigger = {
 	OR = {
-		var:eocfm_antioch_opinion_var >= 75
-		var:eocfm_jerusalem_opinion_var >= 75
-		var:eocfm_alexandria_opinion_var >= 75
-		var:eocfm_moscow_opinion_var >= 75
+		var:eocfm_antioch_opinion_var >= 80
+		var:eocfm_jerusalem_opinion_var >= 80
+		var:eocfm_alexandria_opinion_var >= 80
+		var:eocfm_moscow_opinion_var >= 80
 	}
 }
 
 eocfm_has_senior_patriarch_approval_trigger = {
 	OR = {
-		var:eocfm_rome_opinion_var >= 75
-		var:eocfm_constantinople_opinion_var >= 75
-		var:eocfm_etchmiadzin_opinion_var >= 75
+		var:eocfm_rome_opinion_var >= 80
+		var:eocfm_constantinople_opinion_var >= 80
+		var:eocfm_etchmiadzin_opinion_var >= 80
 		trigger_if = {
 			limit = {
 				basileia_is_active = yes
 			}
-			var:eocfm_elysium_opinion_var >= 75
+			var:eocfm_elysium_opinion_var >= 80
 		}
 	}
 }
 
 eocfm_has_low_opinion_with_any_patriarch_trigger = {
 	OR = {
-		var:eocfm_rome_opinion_var < 50
-		var:eocfm_santiago_opinion_var < 50
-		var:eocfm_paris_opinion_var < 50
-		var:eocfm_koln_opinion_var < 50
-		var:eocfm_vienna_opinion_var < 50
-		var:eocfm_constantinople_opinion_var < 50
-		var:eocfm_antioch_opinion_var < 50
-		var:eocfm_jerusalem_opinion_var < 50
-		var:eocfm_alexandria_opinion_var < 50
-		var:eocfm_moscow_opinion_var < 50
-		var:eocfm_coptic_alexandria_opinion_var < 50
-		var:eocfm_syriac_antioch_opinion_var < 50
-		var:eocfm_etchmiadzin_opinion_var < 50
-		var:eocfm_addis_ababa_opinion_var < 50
-		var:eocfm_konak_opinion_var < 50
+		var:eocfm_rome_opinion_var <= -50
+		var:eocfm_santiago_opinion_var <= -50
+		var:eocfm_paris_opinion_var <= -50
+		var:eocfm_koln_opinion_var <= -50
+		var:eocfm_vienna_opinion_var <= -50
+		var:eocfm_constantinople_opinion_var <= -50
+		var:eocfm_antioch_opinion_var <= -50
+		var:eocfm_jerusalem_opinion_var <= -50
+		var:eocfm_alexandria_opinion_var <= -50
+		var:eocfm_moscow_opinion_var <= -50
+		var:eocfm_coptic_alexandria_opinion_var <= -50
+		var:eocfm_syriac_antioch_opinion_var <= -50
+		var:eocfm_etchmiadzin_opinion_var <= -50
+		var:eocfm_addis_ababa_opinion_var <= -50
+		var:eocfm_konak_opinion_var <= -50
 		trigger_if = {
 			limit = {
 				basileia_is_active = yes
 			}
 			OR = {
-				var:eocfm_elysium_opinion_var < 50
-				var:eocfm_mixtec_opinion_var < 50
-				var:eocfm_cahokia_opinion_var < 50
+				var:eocfm_elysium_opinion_var <= -50
+				var:eocfm_mixtec_opinion_var <= -50
+				var:eocfm_cahokia_opinion_var <= -50
 			}
 		}
 	}
@@ -621,105 +621,105 @@ eocfm_is_endorsement_target_trigger = {
 	OR = {
 		AND = {
 			var:eocfm_rome_patriarch_var.religion = root.religion
-				var:eocfm_rome_opinion_var >= 75
+				var:eocfm_rome_opinion_var >= 80
 				NOT = {
 					has_modifier = modifier_eocfm_endorsed_by_rome
 				}
 		}
 		AND = {
 			var:eocfm_santiago_patriarch_var.religion = root.religion
-			var:eocfm_santiago_opinion_var >= 75
+			var:eocfm_santiago_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_santiago
 			}
 		}
 		AND = {
 			var:eocfm_paris_patriarch_var.religion = root.religion
-			var:eocfm_paris_opinion_var >= 75
+			var:eocfm_paris_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_paris
 			}
 		}
 		AND = {
 			var:eocfm_koln_patriarch_var.religion = root.religion
-			var:eocfm_koln_opinion_var >= 75
+			var:eocfm_koln_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_koln
 			}
 		}
 		AND = {
 			var:eocfm_vienna_patriarch_var.religion = root.religion
-			var:eocfm_vienna_opinion_var >= 75
+			var:eocfm_vienna_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_vienna
 			}
 		}
 		AND = {
 			var:eocfm_constantinople_patriarch_var.religion = root.religion
-			var:eocfm_constantinople_opinion_var >= 75
+			var:eocfm_constantinople_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_constantinople
 			}
 		}
 		AND = {
 			var:eocfm_antioch_patriarch_var.religion = root.religion
-			var:eocfm_antioch_opinion_var >= 75
+			var:eocfm_antioch_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_antioch
 			}
 		}
 		AND = {
 			var:eocfm_jerusalem_patriarch_var.religion = root.religion
-			var:eocfm_jerusalem_opinion_var >= 75
+			var:eocfm_jerusalem_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_jerusalem
 			}
 		}
 		AND = {
 			var:eocfm_alexandria_patriarch_var.religion = root.religion
-			var:eocfm_alexandria_opinion_var >= 75
+			var:eocfm_alexandria_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_alexandria
 			}
 		}
 		AND = {
 			var:eocfm_moscow_patriarch_var.religion = root.religion
-			var:eocfm_moscow_opinion_var >= 75
+			var:eocfm_moscow_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_moscow
 			}
 		}
 		AND = {
 			var:eocfm_coptic_alexandria_patriarch_var.religion = root.religion
-			var:eocfm_coptic_alexandria_opinion_var >= 75
+			var:eocfm_coptic_alexandria_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_coptic_alexandria
 			}
 		}
 		AND = {
 			var:eocfm_syriac_antioch_patriarch_var.religion = root.religion
-			var:eocfm_syriac_antioch_opinion_var >= 75
+			var:eocfm_syriac_antioch_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_syriac_antioch
 			}
 		}
 		AND = {
 			var:eocfm_etchmiadzin_patriarch_var.religion = root.religion
-			var:eocfm_etchmiadzin_opinion_var >= 75
+			var:eocfm_etchmiadzin_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_etchmiadzin
 			}
 		}
 		AND = {
 			var:eocfm_addis_ababa_patriarch_var.religion = root.religion
-			var:eocfm_addis_ababa_opinion_var >= 75
+			var:eocfm_addis_ababa_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_addis_ababa
 			}
 		}
 		AND = {
 			var:eocfm_konak_patriarch_var.religion = root.religion
-			var:eocfm_konak_opinion_var >= 75
+			var:eocfm_konak_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_konak
 			}
@@ -727,7 +727,7 @@ eocfm_is_endorsement_target_trigger = {
 		AND = {
 			basileia_is_active = yes
 			var:eocfm_elysium_patriarch_var.religion = root.religion
-			var:eocfm_elysium_opinion_var >= 75
+			var:eocfm_elysium_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_elysium
 			}
@@ -735,7 +735,7 @@ eocfm_is_endorsement_target_trigger = {
 		AND = {
 			basileia_is_active = yes
 			var:eocfm_mixtec_patriarch_var.religion = root.religion
-			var:eocfm_mixtec_opinion_var >= 75
+			var:eocfm_mixtec_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_mixtec
 			}
@@ -743,7 +743,7 @@ eocfm_is_endorsement_target_trigger = {
 		AND = {
 			basileia_is_active = yes
 			var:eocfm_cahokia_patriarch_var.religion = root.religion
-			var:eocfm_cahokia_opinion_var >= 75
+			var:eocfm_cahokia_opinion_var >= 80
 			NOT = {
 				has_modifier = modifier_eocfm_endorsed_by_cahokia
 			}
@@ -780,105 +780,105 @@ eocfm_is_condemnation_target_trigger = {
 	OR = {
 		AND = {
 			var:eocfm_rome_patriarch_var.religion = root.religion
-				var:eocfm_rome_opinion_var < 50
+				var:eocfm_rome_opinion_var <= -50
 				NOT = {
 					has_modifier = modifier_eocfm_condemned_by_rome
 				}
 		}
 		AND = {
 			var:eocfm_santiago_patriarch_var.religion = root.religion
-			var:eocfm_santiago_opinion_var < 50
+			var:eocfm_santiago_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_santiago
 			}
 		}
 		AND = {
 			var:eocfm_paris_patriarch_var.religion = root.religion
-			var:eocfm_paris_opinion_var < 50
+			var:eocfm_paris_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_paris
 			}
 		}
 		AND = {
 			var:eocfm_koln_patriarch_var.religion = root.religion
-			var:eocfm_koln_opinion_var < 50
+			var:eocfm_koln_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_koln
 			}
 		}
 		AND = {
 			var:eocfm_vienna_patriarch_var.religion = root.religion
-			var:eocfm_vienna_opinion_var < 50
+			var:eocfm_vienna_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_vienna
 			}
 		}
 		AND = {
 			var:eocfm_constantinople_patriarch_var.religion = root.religion
-			var:eocfm_constantinople_opinion_var < 50
+			var:eocfm_constantinople_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_constantinople
 			}
 		}
 		AND = {
 			var:eocfm_antioch_patriarch_var.religion = root.religion
-			var:eocfm_antioch_opinion_var < 50
+			var:eocfm_antioch_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_antioch
 			}
 		}
 		AND = {
 			var:eocfm_jerusalem_patriarch_var.religion = root.religion
-			var:eocfm_jerusalem_opinion_var < 50
+			var:eocfm_jerusalem_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_jerusalem
 			}
 		}
 		AND = {
 			var:eocfm_alexandria_patriarch_var.religion = root.religion
-			var:eocfm_alexandria_opinion_var < 50
+			var:eocfm_alexandria_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_alexandria
 			}
 		}
 		AND = {
 			var:eocfm_moscow_patriarch_var.religion = root.religion
-			var:eocfm_moscow_opinion_var < 50
+			var:eocfm_moscow_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_moscow
 			}
 		}
 		AND = {
 			var:eocfm_coptic_alexandria_patriarch_var.religion = root.religion
-			var:eocfm_coptic_alexandria_opinion_var < 50
+			var:eocfm_coptic_alexandria_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_coptic_alexandria
 			}
 		}
 		AND = {
 			var:eocfm_syriac_antioch_patriarch_var.religion = root.religion
-			var:eocfm_syriac_antioch_opinion_var < 50
+			var:eocfm_syriac_antioch_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_syriac_antioch
 			}
 		}
 		AND = {
 			var:eocfm_etchmiadzin_patriarch_var.religion = root.religion
-			var:eocfm_etchmiadzin_opinion_var < 50
+			var:eocfm_etchmiadzin_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_etchmiadzin
 			}
 		}
 		AND = {
 			var:eocfm_addis_ababa_patriarch_var.religion = root.religion
-			var:eocfm_addis_ababa_opinion_var < 50
+			var:eocfm_addis_ababa_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_addis_ababa
 			}
 		}
 		AND = {
 			var:eocfm_konak_patriarch_var.religion = root.religion
-			var:eocfm_konak_opinion_var < 50
+			var:eocfm_konak_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_konak
 			}
@@ -886,7 +886,7 @@ eocfm_is_condemnation_target_trigger = {
 		AND = {
 			basileia_is_active = yes
 			var:eocfm_elysium_patriarch_var.religion = root.religion
-			var:eocfm_elysium_opinion_var < 50
+			var:eocfm_elysium_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_elysium
 			}
@@ -894,7 +894,7 @@ eocfm_is_condemnation_target_trigger = {
 		AND = {
 			basileia_is_active = yes
 			var:eocfm_mixtec_patriarch_var.religion = root.religion
-			var:eocfm_mixtec_opinion_var < 50
+			var:eocfm_mixtec_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_mixtec
 			}
@@ -902,7 +902,7 @@ eocfm_is_condemnation_target_trigger = {
 		AND = {
 			basileia_is_active = yes
 			var:eocfm_cahokia_patriarch_var.religion = root.religion
-			var:eocfm_cahokia_opinion_var < 50
+			var:eocfm_cahokia_opinion_var <= -50
 			NOT = {
 				has_modifier = modifier_eocfm_condemned_by_cahokia
 			}
