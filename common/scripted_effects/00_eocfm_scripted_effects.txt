@@ -854,6 +854,144 @@ eocfm_decrease_patriarch_opinion_effect = {
 }
 
 # Add Condemnation Effect
+eocfm_add_endorsement_effect = {
+	# This effect does NOT check for BR to be active; be aware when calling this effect
+	custom_tooltip = {
+		text = eocfm_relations_comdemnation
+		if = {
+			limit = {
+				var:eocfm_seat_event_var = 1 # Rome
+			}
+			add_modifier = modifier_eocfm_endorsed_by_rome
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 2 # Santiago
+			}
+			add_modifier = modifier_eocfm_endorsed_by_santiago
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 3 # Paris
+			}
+			add_modifier = modifier_eocfm_endorsed_by_paris
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 4 # Koln
+			}
+			add_modifier = modifier_eocfm_endorsed_by_koln
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 5 # Vienna
+			}
+			add_modifier = modifier_eocfm_endorsed_by_vienna
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 6 # Constantinople
+			}
+			add_modifier = modifier_eocfm_endorsed_by_constantinople
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 7 # Antioch
+			}
+			add_modifier = modifier_eocfm_endorsed_by_antioch
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 8 # Jerusalem
+			}
+			add_modifier = modifier_eocfm_endorsed_by_jerusalem
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 9 # Alexandria
+			}
+			add_modifier = modifier_eocfm_endorsed_by_alexandria
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 10 # Moscow
+			}
+			add_modifier = modifier_eocfm_endorsed_by_moscow
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 11 # Coptic Alexandria
+			}
+			add_modifier = modifier_eocfm_endorsed_by_coptic_alexandria
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 12 # Syriac Antioch
+			}
+			add_modifier = modifier_eocfm_endorsed_by_syriac_antioch
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 13 # Etchmiadzin
+			}
+			add_modifier = modifier_eocfm_endorsed_by_etchmiadzin
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 14 # Addis Ababa
+			}
+			add_modifier = modifier_eocfm_endorsed_by_addis_ababa
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 15 # Qudshanis
+			}
+			add_modifier = modifier_eocfm_endorsed_by_konak
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 16 # Elysium
+			}
+			add_modifier = modifier_eocfm_endorsed_by_elysium
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 17 # Mixtec
+			}
+			add_modifier = modifier_eocfm_endorsed_by_mixtec
+		}
+		else_if = {
+			limit = {
+				var:eocfm_seat_event_var = 18 # Cahokia
+			}
+			add_modifier = modifier_eocfm_endorsed_by_cahokia
+		}
+	}
+}
+
+# Cleanup Endorsement Effect
+eocfm_cleanup_seat_endorsement_effect = {
+	remove_modifier = modifier_eocfm_endorsed_by_rome
+	remove_modifier = modifier_eocfm_endorsed_by_santiago
+	remove_modifier = modifier_eocfm_endorsed_by_paris
+	remove_modifier = modifier_eocfm_endorsed_by_koln
+	remove_modifier = modifier_eocfm_endorsed_by_vienna
+	remove_modifier = modifier_eocfm_endorsed_by_constantinople
+	remove_modifier = modifier_eocfm_endorsed_by_antioch
+	remove_modifier = modifier_eocfm_endorsed_by_jerusalem
+	remove_modifier = modifier_eocfm_endorsed_by_alexandria
+	remove_modifier = modifier_eocfm_endorsed_by_moscow
+	remove_modifier = modifier_eocfm_endorsed_by_coptic_alexandria
+	remove_modifier = modifier_eocfm_endorsed_by_syriac_antioch
+	remove_modifier = modifier_eocfm_endorsed_by_etchmiadzin
+	remove_modifier = modifier_eocfm_endorsed_by_addis_ababa
+	remove_modifier = modifier_eocfm_endorsed_by_konak
+	remove_modifier = modifier_eocfm_endorsed_by_elysium
+	remove_modifier = modifier_eocfm_endorsed_by_mixtec
+	remove_modifier = modifier_eocfm_endorsed_by_cahokia
+}
+
+# Add Condemnation Effect
 eocfm_add_condemnation_effect = {
 	# This effect does NOT check for BR to be active; be aware when calling this effect
 	custom_tooltip = {
