@@ -1,4 +1,4 @@
-types eocfm_window_header_types {
+types eocfm_technical_types {
 	
 	type eocfm_window_header = widget {
 		size = { 100% 92 }
@@ -248,5 +248,18 @@ types eocfm_window_header_types {
 			parentanchor = bottom
 			alpha = 0.06
 		
-		
+		}
 	}
+	
+	type eocfm_alert_widget = widget {
+		widget = {
+		visible = "[GetVariableSystem.HasValue('com_alert_action', Localize('gg_eocfm_faith_action'))]"
+		enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+		state = {
+			name = _show
+			on_finish = "[GetVariableSystem.Set('com_open_window', 'eocfm_sidebar_button_sgui')]"
+			on_finish = "[GetVariableSystem.Clear('com_alert_action')]"
+		}
+	}
+	
+}
