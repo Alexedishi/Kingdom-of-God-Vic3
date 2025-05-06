@@ -2024,71 +2024,1228 @@ eocfm_cahokia_liturgical_rite_type = {
 	}
 }
 
-# eocfm_key_opinion_type = {
+# Seat Opinion Custom Loc
+eocfm_rome_opinion_type = {
 	type = country
 	
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var >= 80
-			var:eocfm_key_patriarch_var.religion = root.religion
+			var:eocfm_rome_opinion_var >= 80
+			var:eocfm_rome_patriarch_var.religion = root.religion
 		}
 		localization_key = custom_eocfm_endorsing
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var >= 80
-			var:eocfm_key_patriarch_var.religion != root.religion
+			var:eocfm_rome_opinion_var >= 80
+			var:eocfm_rome_patriarch_var.religion != root.religion
 		}
 		localization_key = custom_eocfm_friendly
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var < 80
-			var:eocfm_key_opinion_var >= 50
+			var:eocfm_rome_opinion_var < 80
+			var:eocfm_rome_opinion_var >= 50
 		}
 		localization_key = custom_eocfm_amicable
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var < 50
-			var:eocfm_key_opinion_var >= 20
+			var:eocfm_rome_opinion_var < 50
+			var:eocfm_rome_opinion_var >= 20
 		}
 		localization_key = custom_eocfm_cordial
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var < 20
-			var:eocfm_key_opinion_var > -20
+			var:eocfm_rome_opinion_var < 20
+			var:eocfm_rome_opinion_var > -20
 		}
 		localization_key = custom_eocfm_neutral
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var <= -20
-			var:eocfm_key_opinion_var > -50
+			var:eocfm_rome_opinion_var <= -20
+			var:eocfm_rome_opinion_var > -50
 		}
 		localization_key = custom_eocfm_poor
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var <= -50
-			var:eocfm_key_opinion_var > -80
+			var:eocfm_rome_opinion_var <= -50
+			var:eocfm_rome_opinion_var > -80
 		}
 		localization_key = custom_eocfm_cold
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var <= -80
-			var:eocfm_key_patriarch_var.religion != root.religion
+			var:eocfm_rome_opinion_var <= -80
+			var:eocfm_rome_patriarch_var.religion != root.religion
 		}
 		localization_key = custom_eocfm_hostile
 	}
 	text = {
 		trigger = {
-			var:eocfm_key_opinion_var <= -80
-			var:eocfm_key_patriarch_var.religion = root.religion
+			var:eocfm_rome_opinion_var <= -80
+			var:eocfm_rome_patriarch_var.religion = root.religion
 		}
 		localization_key = custom_eocfm_condemning
 	}
 }
+
+eocfm_santiago_opinion_type = {
+	type = country
 	
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var >= 80
+			var:eocfm_santiago_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var >= 80
+			var:eocfm_santiago_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var < 80
+			var:eocfm_santiago_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var < 50
+			var:eocfm_santiago_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var < 20
+			var:eocfm_santiago_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var <= -20
+			var:eocfm_santiago_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var <= -50
+			var:eocfm_santiago_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var <= -80
+			var:eocfm_santiago_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_santiago_opinion_var <= -80
+			var:eocfm_santiago_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_paris_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var >= 80
+			var:eocfm_paris_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var >= 80
+			var:eocfm_paris_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var < 80
+			var:eocfm_paris_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var < 50
+			var:eocfm_paris_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var < 20
+			var:eocfm_paris_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var <= -20
+			var:eocfm_paris_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var <= -50
+			var:eocfm_paris_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var <= -80
+			var:eocfm_paris_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_paris_opinion_var <= -80
+			var:eocfm_paris_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_koln_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var >= 80
+			var:eocfm_koln_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var >= 80
+			var:eocfm_koln_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var < 80
+			var:eocfm_koln_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var < 50
+			var:eocfm_koln_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var < 20
+			var:eocfm_koln_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var <= -20
+			var:eocfm_koln_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var <= -50
+			var:eocfm_koln_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var <= -80
+			var:eocfm_koln_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_koln_opinion_var <= -80
+			var:eocfm_koln_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_vienna_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var >= 80
+			var:eocfm_vienna_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var >= 80
+			var:eocfm_vienna_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var < 80
+			var:eocfm_vienna_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var < 50
+			var:eocfm_vienna_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var < 20
+			var:eocfm_vienna_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var <= -20
+			var:eocfm_vienna_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var <= -50
+			var:eocfm_vienna_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var <= -80
+			var:eocfm_vienna_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_vienna_opinion_var <= -80
+			var:eocfm_vienna_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_constantinople_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var >= 80
+			var:eocfm_constantinople_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var >= 80
+			var:eocfm_constantinople_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var < 80
+			var:eocfm_constantinople_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var < 50
+			var:eocfm_constantinople_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var < 20
+			var:eocfm_constantinople_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var <= -20
+			var:eocfm_constantinople_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var <= -50
+			var:eocfm_constantinople_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var <= -80
+			var:eocfm_constantinople_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_constantinople_opinion_var <= -80
+			var:eocfm_constantinople_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_antioch_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var >= 80
+			var:eocfm_antioch_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var >= 80
+			var:eocfm_antioch_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var < 80
+			var:eocfm_antioch_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var < 50
+			var:eocfm_antioch_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var < 20
+			var:eocfm_antioch_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var <= -20
+			var:eocfm_antioch_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var <= -50
+			var:eocfm_antioch_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var <= -80
+			var:eocfm_antioch_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_antioch_opinion_var <= -80
+			var:eocfm_antioch_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_jerusalem_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var >= 80
+			var:eocfm_jerusalem_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var >= 80
+			var:eocfm_jerusalem_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var < 80
+			var:eocfm_jerusalem_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var < 50
+			var:eocfm_jerusalem_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var < 20
+			var:eocfm_jerusalem_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var <= -20
+			var:eocfm_jerusalem_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var <= -50
+			var:eocfm_jerusalem_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var <= -80
+			var:eocfm_jerusalem_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_jerusalem_opinion_var <= -80
+			var:eocfm_jerusalem_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_alexandria_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var >= 80
+			var:eocfm_alexandria_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var >= 80
+			var:eocfm_alexandria_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var < 80
+			var:eocfm_alexandria_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var < 50
+			var:eocfm_alexandria_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var < 20
+			var:eocfm_alexandria_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var <= -20
+			var:eocfm_alexandria_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var <= -50
+			var:eocfm_alexandria_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var <= -80
+			var:eocfm_alexandria_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_alexandria_opinion_var <= -80
+			var:eocfm_alexandria_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_moscow_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var >= 80
+			var:eocfm_moscow_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var >= 80
+			var:eocfm_moscow_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var < 80
+			var:eocfm_moscow_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var < 50
+			var:eocfm_moscow_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var < 20
+			var:eocfm_moscow_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var <= -20
+			var:eocfm_moscow_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var <= -50
+			var:eocfm_moscow_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var <= -80
+			var:eocfm_moscow_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_moscow_opinion_var <= -80
+			var:eocfm_moscow_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_coptic_alexandria_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var >= 80
+			var:eocfm_coptic_alexandria_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var >= 80
+			var:eocfm_coptic_alexandria_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var < 80
+			var:eocfm_coptic_alexandria_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var < 50
+			var:eocfm_coptic_alexandria_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var < 20
+			var:eocfm_coptic_alexandria_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var <= -20
+			var:eocfm_coptic_alexandria_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var <= -50
+			var:eocfm_coptic_alexandria_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var <= -80
+			var:eocfm_coptic_alexandria_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_coptic_alexandria_opinion_var <= -80
+			var:eocfm_coptic_alexandria_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_syriac_antioch_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var >= 80
+			var:eocfm_syriac_antioch_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var >= 80
+			var:eocfm_syriac_antioch_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var < 80
+			var:eocfm_syriac_antioch_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var < 50
+			var:eocfm_syriac_antioch_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var < 20
+			var:eocfm_syriac_antioch_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var <= -20
+			var:eocfm_syriac_antioch_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var <= -50
+			var:eocfm_syriac_antioch_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var <= -80
+			var:eocfm_syriac_antioch_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_syriac_antioch_opinion_var <= -80
+			var:eocfm_syriac_antioch_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_etchmiadzin_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var >= 80
+			var:eocfm_etchmiadzin_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var >= 80
+			var:eocfm_etchmiadzin_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var < 80
+			var:eocfm_etchmiadzin_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var < 50
+			var:eocfm_etchmiadzin_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var < 20
+			var:eocfm_etchmiadzin_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var <= -20
+			var:eocfm_etchmiadzin_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var <= -50
+			var:eocfm_etchmiadzin_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var <= -80
+			var:eocfm_etchmiadzin_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_etchmiadzin_opinion_var <= -80
+			var:eocfm_etchmiadzin_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_addis_ababa_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var >= 80
+			var:eocfm_addis_ababa_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var >= 80
+			var:eocfm_addis_ababa_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var < 80
+			var:eocfm_addis_ababa_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var < 50
+			var:eocfm_addis_ababa_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var < 20
+			var:eocfm_addis_ababa_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var <= -20
+			var:eocfm_addis_ababa_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var <= -50
+			var:eocfm_addis_ababa_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var <= -80
+			var:eocfm_addis_ababa_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_addis_ababa_opinion_var <= -80
+			var:eocfm_addis_ababa_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_konak_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var >= 80
+			var:eocfm_konak_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var >= 80
+			var:eocfm_konak_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var < 80
+			var:eocfm_konak_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var < 50
+			var:eocfm_konak_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var < 20
+			var:eocfm_konak_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var <= -20
+			var:eocfm_konak_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var <= -50
+			var:eocfm_konak_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var <= -80
+			var:eocfm_konak_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_konak_opinion_var <= -80
+			var:eocfm_konak_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_elysium_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var >= 80
+			var:eocfm_elysium_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var >= 80
+			var:eocfm_elysium_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var < 80
+			var:eocfm_elysium_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var < 50
+			var:eocfm_elysium_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var < 20
+			var:eocfm_elysium_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var <= -20
+			var:eocfm_elysium_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var <= -50
+			var:eocfm_elysium_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var <= -80
+			var:eocfm_elysium_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_elysium_opinion_var <= -80
+			var:eocfm_elysium_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_mixtec_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var >= 80
+			var:eocfm_mixtec_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var >= 80
+			var:eocfm_mixtec_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var < 80
+			var:eocfm_mixtec_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var < 50
+			var:eocfm_mixtec_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var < 20
+			var:eocfm_mixtec_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var <= -20
+			var:eocfm_mixtec_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var <= -50
+			var:eocfm_mixtec_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var <= -80
+			var:eocfm_mixtec_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_mixtec_opinion_var <= -80
+			var:eocfm_mixtec_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
+eocfm_cahokia_opinion_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var >= 80
+			var:eocfm_cahokia_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_endorsing
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var >= 80
+			var:eocfm_cahokia_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_friendly
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var < 80
+			var:eocfm_cahokia_opinion_var >= 50
+		}
+		localization_key = custom_eocfm_amicable
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var < 50
+			var:eocfm_cahokia_opinion_var >= 20
+		}
+		localization_key = custom_eocfm_cordial
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var < 20
+			var:eocfm_cahokia_opinion_var > -20
+		}
+		localization_key = custom_eocfm_neutral
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var <= -20
+			var:eocfm_cahokia_opinion_var > -50
+		}
+		localization_key = custom_eocfm_poor
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var <= -50
+			var:eocfm_cahokia_opinion_var > -80
+		}
+		localization_key = custom_eocfm_cold
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var <= -80
+			var:eocfm_cahokia_patriarch_var.religion != root.religion
+		}
+		localization_key = custom_eocfm_hostile
+	}
+	text = {
+		trigger = {
+			var:eocfm_cahokia_opinion_var <= -80
+			var:eocfm_cahokia_patriarch_var.religion = root.religion
+		}
+		localization_key = custom_eocfm_condemning
+	}
+}
+
