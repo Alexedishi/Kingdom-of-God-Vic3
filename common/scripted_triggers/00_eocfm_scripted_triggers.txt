@@ -171,8 +171,25 @@ eocfm_can_integrate_seat_trigger = {
 eocfm_integrating_seat_trigger = {
 	custom_tooltip = {
 		text = eocfm_integrating_seat
-		hidden_trigger = {
-			has_variable = eocfm_integration_var
+		OR = {
+			has_variable = eocfm_integrating_rome
+			has_variable = eocfm_integrating_santiago
+			has_variable = eocfm_integrating_paris
+			has_variable = eocfm_integrating_koln
+			has_variable = eocfm_integrating_vienna
+			has_variable = eocfm_integrating_constantinople
+			has_variable = eocfm_integrating_antioch
+			has_variable = eocfm_integrating_alexandria
+			has_variable = eocfm_integrating_jerusalem
+			has_variable = eocfm_integrating_moscow
+			has_variable = eocfm_integrating_coptic_alexandria
+			has_variable = eocfm_integrating_syriac_antioch
+			has_variable = eocfm_integrating_etchmiadzin
+			has_variable = eocfm_integrating_addis_ababa
+			has_variable = eocfm_integrating_konak
+			has_variable = eocfm_integrating_elysium
+			has_variable = eocfm_integrating_mixtec
+			has_variable = eocfm_integrating_cahokia
 		}
 	}
 }
@@ -180,10 +197,25 @@ eocfm_integrating_seat_trigger = {
 eocfm_NOT_integrating_seat_trigger = {
 	custom_tooltip = {
 		text = eocfm_integrating_seat_NOT
-		hidden_trigger = {
-			NOT = {
-				has_variable = eocfm_integration_var
-			}
+		NOR = {
+			has_variable = eocfm_integrating_rome
+			has_variable = eocfm_integrating_santiago
+			has_variable = eocfm_integrating_paris
+			has_variable = eocfm_integrating_koln
+			has_variable = eocfm_integrating_vienna
+			has_variable = eocfm_integrating_constantinople
+			has_variable = eocfm_integrating_antioch
+			has_variable = eocfm_integrating_alexandria
+			has_variable = eocfm_integrating_jerusalem
+			has_variable = eocfm_integrating_moscow
+			has_variable = eocfm_integrating_coptic_alexandria
+			has_variable = eocfm_integrating_syriac_antioch
+			has_variable = eocfm_integrating_etchmiadzin
+			has_variable = eocfm_integrating_addis_ababa
+			has_variable = eocfm_integrating_konak
+			has_variable = eocfm_integrating_elysium
+			has_variable = eocfm_integrating_mixtec
+			has_variable = eocfm_integrating_cahokia
 		}
 	}
 }
@@ -212,23 +244,24 @@ eocfm_controls_any_seat_trigger = {
 		text = eocfm_controls_any_seat
 		OR = {
 			has_variable = eocfm_controls_rome
+			has_variable = eocfm_controls_santiago
+			has_variable = eocfm_controls_paris
+			has_variable = eocfm_controls_koln
+			has_variable = eocfm_controls_vienna
 			has_variable = eocfm_controls_constantinople
 			has_variable = eocfm_controls_antioch
 			has_variable = eocfm_controls_alexandria
 			has_variable = eocfm_controls_jerusalem
 			has_variable = eocfm_controls_moscow
+			has_variable = eocfm_controls_coptic_alexandria
+			has_variable = eocfm_controls_syriac_antioch
+			has_variable = eocfm_controls_etchmiadzin
+			has_variable = eocfm_controls_addis_ababa
+			has_variable = eocfm_controls_konak
+			has_variable = eocfm_controls_elysium
+			has_variable = eocfm_controls_mixtec
+			has_variable = eocfm_controls_cahokia
 		}
-	}
-}
-
-eocfm_is_integrating_seat_trigger = {
-	OR = {
-		has_variable = eocfm_integrating_rome
-		has_variable = eocfm_integrating_constantinople
-		has_variable = eocfm_integrating_antioch
-		has_variable = eocfm_integrating_alexandria
-		has_variable = eocfm_integrating_jerusalem
-		has_variable = eocfm_integrating_moscow
 	}
 }
 
@@ -291,11 +324,24 @@ eocfm_controls_and_owns_pentarchy_trigger = {
 eocfm_controls_all_seats_trigger = {
 	AND = {
 		has_variable = eocfm_controls_rome
-		has_variable = eocfm_controls_constantinople
-		has_variable = eocfm_controls_antioch
-		has_variable = eocfm_controls_alexandria
-		has_variable = eocfm_controls_jerusalem
-		has_variable = eocfm_controls_moscow
+			has_variable = eocfm_controls_santiago
+			has_variable = eocfm_controls_paris
+			has_variable = eocfm_controls_koln
+			has_variable = eocfm_controls_vienna
+			has_variable = eocfm_controls_constantinople
+			has_variable = eocfm_controls_antioch
+			has_variable = eocfm_controls_alexandria
+			has_variable = eocfm_controls_jerusalem
+			has_variable = eocfm_controls_moscow
+			has_variable = eocfm_controls_coptic_alexandria
+			has_variable = eocfm_controls_syriac_antioch
+			has_variable = eocfm_controls_etchmiadzin
+			has_variable = eocfm_controls_addis_ababa
+			has_variable = eocfm_controls_konak
+			has_variable = eocfm_controls_elysium
+			has_variable = eocfm_controls_mixtec
+			has_variable = eocfm_controls_cahokia
+		}
 	}
 }
 
