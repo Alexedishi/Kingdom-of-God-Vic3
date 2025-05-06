@@ -451,7 +451,7 @@ types eocfm_patriarchal_seat_panels {
 									blockoverride "values" {
 										min = 0
 										max = 120
-										value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+										value = "[Country.MakeScope.Var('eocfm_integrating_rome').GetValue]"
 									}
 									textbox = {
 										parentanchor = center
@@ -665,7 +665,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_rome').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -896,7 +896,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_santiago').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -1127,7 +1127,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_paris').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -1358,7 +1358,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_koln').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -1589,7 +1589,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_vienna').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -1886,10 +1886,11 @@ types eocfm_patriarchal_seat_panels {
 								}
 							}
 							
-							## Autocephaly/Council Buttons
+							## Autocephaly & Council Buttons 
 							widget = {
 								size = { 250 60 }
 								
+								# Autocephaly Button
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
@@ -1903,7 +1904,8 @@ types eocfm_patriarchal_seat_panels {
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 									tooltip = "eocfm_gui_declare_autocephaly_desc"
 								}
-				
+								
+								# Autocephaly Progressbar
 								green_progressbar_horizontal = {
 									parentanchor = center
 									size = { 200 20 }
@@ -1924,6 +1926,8 @@ types eocfm_patriarchal_seat_panels {
 										visible = "[GetScriptedGui('eocfm_schism_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 									}
 								}
+								
+								# Convoke Council Button
 								button = {
 									parentanchor = center
 									using = default_button_primary_big_action
@@ -1941,127 +1945,18 @@ types eocfm_patriarchal_seat_panels {
 						}
 					}
 					
-					## Ecumenical Actions Buttons
+					## Seat Interaction Buttons
 					vbox = {
 						spacing = 10
 						
+						## Top Row
 						hbox = {
-							spacing = 10
-
-							##Seat Sway Buttons
-							button = {
-								using = default_button_primary_big_action
-								size = { 200 40 }
-								text = "eocfm_gui_improve_relations"
-								using = fontsize_medium
-
-								datacontext = "[GetScriptedGui('eocfm_start_sway_constantinople_sgui')]"
-								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_improve_relations_desc"
-							}
-							button = {
-								using = default_button_primary_big_action
-								size = { 200 40 }
-								text = "eocfm_gui_cease_diplomacy"
-								using = fontsize_medium
-
-								datacontext = "[GetScriptedGui('eocfm_stop_sway_constantinople_sgui')]"
-								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "eocfm_gui_cease_diplomacy_desc"
-							}
-
-							# Integrate Seat Button
-							widget = {
-								size = { 200 40 }
-								
-								button = {
-									parentanchor = center
-									position = { 0 0 }
-									using = default_button_action
-									size = { 200 40 }
-									text = "eocfm_gui_integrate_seat"
-									using = fontsize_medium
-									
-									datacontext = "[GetScriptedGui('eocfm_integrate_constantinople_sgui')]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_integrate_seat_desc"
-								}
-								green_progressbar_horizontal = {
-									parentanchor = center
-									position = { 0 0 }
-									size = { 200 20 }
-									visible = "[GetScriptedGui('eocfm_constantinople_integration_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-									
-									blockoverride "values" {
-										min = 0
-										max = 120
-										value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
-									}
-									textbox = {
-										parentanchor = center
-										autoresize = yes
-										
-										text = "eocfm_gui_integration_progress"
-										elide = right
-										using = fontsize_medium
-									}
-								}
-							}
+							spacing = 5
 							
-							# Enforce Seat Button
-							widget = {
-								size = { 200 40 }
-								
-								button = {
-									parentanchor = center
-									position = { 0 0 }
-									using = default_button_action
-									size = { 200 40 }
-									text = "eocfm_gui_enforce_seat"
-									using = fontsize_medium
-									
-									datacontext = "[GetScriptedGui('eocfm_enforce_constantinople_sgui')]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "eocfm_gui_enforce_seat_desc"
-								}
-								green_progressbar_horizontal = {
-									parentanchor = center
-									position = { 0 0 }
-									size = { 200 20 }
-									visible = "[GetScriptedGui('eocfm_constantinople_enforcement_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-									
-									blockoverride "values" {
-										min = 0
-										max = 120
-										value = "[Country.MakeScope.Var('eocfm_enforcement_var').GetValue]"
-									}
-									textbox = {
-										parentanchor = center
-										autoresize = yes
-										
-										text = "eocfm_gui_enforcement_progress"
-										elide = right
-										using = fontsize_medium
-									}
-								}
-							}
-						}
-
-						hbox = {
-							spacing = 10
-							margin_bottom = 10
-							## Seek Mandate Button
+							# Seek Mandate Button
 							button = {
 								using = default_button_primary_big_action
-								size = { 200 40 }
+								size = { 220 40 }
 								text = "eocfm_seek_mandate"
 								using = fontsize_medium
 
@@ -2071,11 +1966,79 @@ types eocfm_patriarchal_seat_panels {
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								tooltip = "eocfm_gui_seek_mandate_desc"
 							}
-
-							## Assert Supremacy Button
+							
+							# Integrate Seat Button
 							button = {
 								using = default_button_primary_big_action
-								size = { 200 40 }
+								size = { 180 40 }
+								text = "eocfm_gui_integrate_seat"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_integrate_constantinople_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_integrate_seat_desc"
+							}
+							
+							# Integration Progressbar
+							green_progressbar_horizontal = {
+								size = { 180 20 }
+								visible = "[GetScriptedGui('eocfm_constantinople_integration_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								
+								blockoverride "values" {
+									min = 0
+									max = 120
+									value = "[Country.MakeScope.Var('eocfm_integrating_constantinople').GetValue]"
+								}
+								textbox = {
+									parentanchor = center
+									autoresize = yes
+									
+									text = "eocfm_gui_integration_progress"
+									elide = right
+									using = fontsize_medium
+								}
+							}
+							
+							# Enforce Rite Button
+							button = {
+								using = default_button_primary_big_action
+								size = { 180 40 }
+								text = "eocfm_gui_enforce_seat"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_enforce_constantinople_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_enforce_seat_desc"
+							}
+							
+							# Enforcement Progressbar
+							green_progressbar_horizontal = {
+								size = { 180 20 }
+								visible = "[GetScriptedGui('eocfm_constantinople_enforcement_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+								
+								blockoverride "values" {
+									min = 0
+									max = 120
+									value = "[Country.MakeScope.Var('eocfm_enforcement_var').GetValue]"
+								}
+								textbox = {
+									parentanchor = center
+									autoresize = yes
+									
+									text = "eocfm_gui_enforcement_progress"
+									elide = right
+									using = fontsize_medium
+								}
+							}
+							
+							# Assert Supremacy Button
+							button = {
+								using = default_button_primary_big_action
+								size = { 220 40 }
 								text = "eocfm_assert_seat"
 								using = fontsize_medium
 
@@ -2084,6 +2047,67 @@ types eocfm_patriarchal_seat_panels {
 								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 								tooltip = "eocfm_gui_assert_constantinople_button"
+							}
+						}
+
+						hbox = {
+							spacing = 10
+							margin_bottom = 10
+							
+							# Improve Relations Button
+							button = {
+								using = default_button_action
+								size = { 200 40 }
+								text = "eocfm_gui_improve_relations"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_start_sway_constantinople_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_improve_relations_desc"
+							}
+							
+							# Cease Diplomacy Button
+							button = {
+								using = default_button_action
+								size = { 200 40 }
+								text = "eocfm_gui_cease_diplomacy"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_stop_sway_constantinople_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_cease_diplomacy_desc"
+							}
+							
+							# Damage Relations Button
+							button = {
+								using = default_button_action
+								size = { 200 40 }
+								text = "eocfm_gui_damage_relations"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_start_harm_constantinople_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_damage_relations_desc"
+							}
+								
+							# Cease Hostilities Button
+							button = {
+								using = default_button_action
+								size = { 200 40 }
+								text = "eocfm_gui_cease_hostilities"
+								using = fontsize_medium
+								
+								datacontext = "[GetScriptedGui('eocfm_stop_harm_constantinople_sgui')]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "eocfm_gui_cease_hostilities_desc"
 							}
 						}
 					}
@@ -2215,7 +2239,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_constantinople').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -2446,7 +2470,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_antioch').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -2677,7 +2701,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_jerusalem').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -2908,7 +2932,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_alexandria').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -3139,7 +3163,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_moscow').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -3561,7 +3585,7 @@ types eocfm_patriarchal_seat_panels {
 									blockoverride "values" {
 										min = 0
 										max = 120
-										value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+										value = "[Country.MakeScope.Var('eocfm_integrating_coptic_alexandria').GetValue]"
 									}
 									textbox = {
 										parentanchor = center
@@ -3775,7 +3799,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_coptic_alexandria').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -4006,7 +4030,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_syriac_antioch').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -4237,7 +4261,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_etchmiadzin').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -4468,7 +4492,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_addis_ababa').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -4699,7 +4723,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_konak').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -5119,7 +5143,7 @@ types eocfm_patriarchal_seat_panels {
 									blockoverride "values" {
 										min = 0
 										max = 120
-										value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+										value = "[Country.MakeScope.Var('eocfm_integrating_elysium').GetValue]"
 									}
 									textbox = {
 										parentanchor = center
@@ -5332,7 +5356,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_mixtec').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
@@ -5794,7 +5818,7 @@ types eocfm_patriarchal_seat_panels {
 								blockoverride "values" {
 									min = 0
 									max = 120
-									value = "[Country.MakeScope.Var('eocfm_integration_var').GetValue]"
+									value = "[Country.MakeScope.Var('eocfm_integrating_cahokia').GetValue]"
 								}
 								textbox = {
 									parentanchor = center
