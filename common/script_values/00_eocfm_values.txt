@@ -89,69 +89,13 @@ eocfm_caesaropapism_capacity_value = {
 		}
 	}
 	
-	# Patriarchal Seats Check
-	if = {
-		limit = {
-			has_variable = eocfm_controls_rome
+	# Patriarchal Seat Control Check
+	add = {
+		value = {
+			add = 100
+			multiply = eocfm_holy_sites_value
 		}
-		add = {
-			value = 200
-			desc = eocfm_value_from_controls_rome
-		}
-	}
-	if = {
-		limit = {
-			has_variable = eocfm_controls_constantinople
-		}
-		add = {
-			value = 200
-			desc = eocfm_value_from_controls_constantinople
-		}
-	}
-	if = {
-		limit = {
-			has_variable = eocfm_controls_antioch
-		}
-		add = {
-			value = 200
-			desc = eocfm_value_from_controls_antioch
-		}
-	}
-	if = {
-		limit = {
-			has_variable = eocfm_controls_alexandria
-		}
-		add = {
-			value = 200
-			desc = eocfm_value_from_controls_alexandria
-		}
-	}
-	if = {
-		limit = {
-			has_variable = eocfm_controls_jerusalem
-		}
-		add = {
-			value = 200
-			desc = eocfm_value_from_controls_jerusalem
-		}
-	}
-	if = {
-		limit = {
-			has_variable = eocfm_controls_moscow
-		}
-		add = {
-			value = 200
-			desc = eocfm_value_from_controls_moscow
-		}
-	}
-	if = {
-		limit = {
-			eocfm_controls_all_seats_trigger = yes
-		}
-		add = {
-			value = 400
-			desc = eocfm_value_from_controls_all_seats
-		}
+		desc = eocfm_value_from_holy_sites
 	}
 	
 	# Other Sources Check
@@ -291,14 +235,9 @@ eocfm_caesaropapism_capacity_value = {
 			desc = eocfm_value_from_schismatic
 		}
 	}
-	if = {
-		limit = {
-			has_variable = eocfm_integration_var
-		}
-		subtract = {
-			value = 500
-			desc = eocfm_value_from_seat_integration
-		}
+	subtract = {
+		value = eocfm_seat_integration_value
+		desc = eocfm_value_from_seat_integration
 	}
 	if = {
 		limit = {
@@ -753,6 +692,117 @@ eocfm_seat_diplomacy_value = {
 			has_modifier = modifier_eocfm_antagonizing_cahokia
 		}
 		add = 100
+	}
+}
+
+eocfm_seat_integration_value = {
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_rome
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_santiago
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_paris
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_koln
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_vienna
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_constantinople
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_antioch
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_jerusalem
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_alexandria
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_moscow
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_coptic_alexandria
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_syriac_antioch
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_etchmiadzin
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_addis_ababa
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_konak
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_elysium
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_mixtec
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_eocfm_integrating_cahokia
+		}
+		add = 200
 	}
 }
 
