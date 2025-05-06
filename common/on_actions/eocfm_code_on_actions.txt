@@ -176,25 +176,34 @@ eocfm_schism_monthly_pulse = {
 
 eocfm_integration_monthly_pulse = {
 	trigger = {
-		has_variable = eocfm_integration_var
+		eocfm_integrating_seat_trigger = yes
 	}
 	events = {
-		eocfm.0209 # Control Secured Over Seat
+		eocfm.0220 # Control Secured Over Rome
+		eocfm.0221 # Control Secured Over Santiago
+		eocfm.0222 # Control Secured Over Paris
+		eocfm.0223 # Control Secured Over Cologne
+		eocfm.0224 # Control Secured Over Vienna
+		eocfm.0225 # Control Secured Over Constantinople
+		eocfm.0226 # Control Secured Over Antioch
+		eocfm.0227 # Control Secured Over Jerusalem
+		eocfm.0228 # Control Secured Over Alexandria
+		eocfm.0229 # Control Secured Over Moscow
+		eocfm.0230 # Control Secured Over Coptic Alexandria
+		eocfm.0231 # Control Secured Over Syriac Antioch
+		eocfm.0232 # Control Secured Over Etchmiadzin
+		eocfm.0233 # Control Secured Over Addis Ababa
+		eocfm.0234 # Control Secured Over Qudshanis
+		eocfm.0235 # Control Secured Over Elysium
+		eocfm.0236 # Control Secured Over Tututepec
+		eocfm.0237 # Control Secured Over Cahokia
 	}
 	random_events = {
 		chance_of_no_event = 95
 		5 = eocfm.0210 # Seat Integration Disputed
 	}
 	effect = {
-		if = {
-			limit = {
-				has_variable = eocfm_integration_var
-			}
-			change_variable = {
-				name = eocfm_integration_var
-				add = 1
-			}
-		}
+		eocfm_advance_integration_effect = yes
 	}
 }
 
