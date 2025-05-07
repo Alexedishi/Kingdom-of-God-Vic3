@@ -8,13 +8,13 @@ types eocfm_metropolitan_panels {
 			text = "eocfm_gui_ecclesiastic_header"
 		}
 		blockoverride "first_button_click" {
-			onclick = "[GetVariableSystem.Set('eocfm_orthodox_ecumenical_actions_tab', 'head')]"
+			onclick = "[GetVariableSystem.Set('eocfm_metropolitan_tab', 'head')]"
 		}
 		blockoverride "first_button_visibility" {
-			visible = "[Or(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_orthodox_ecumenical_actions_tab')))]"
+			visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
 		}
 		blockoverride "first_button_visibility_checked" {
-			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'head')), GetVariableSystem.Exists('eocfm_orthodox_ecumenical_actions_tab'))]"
+			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head')), GetVariableSystem.Exists('eocfm_metropolitan_tab'))]"
 		}
 		blockoverride "first_button_selected" {
 			text = "eocfm_gui_ecclesiastic_header"
@@ -24,13 +24,13 @@ types eocfm_metropolitan_panels {
 			text = "eocfm_gui_collegium_head"
 		}
 		blockoverride "second_button_click" {
-			onclick = "[GetVariableSystem.Set('eocfm_orthodox_ecumenical_actions_tab', 'curia')]"
+			onclick = "[GetVariableSystem.Set('eocfm_metropolitan_tab', 'curia')]"
 		}
 		blockoverride "second_button_visibility" {
-			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'curia')), GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')), Not(GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 		}
 		blockoverride "second_button_visibility_checked" {
-			visible = "[Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'curia'))]"
+			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')]"
 		}
 		blockoverride "second_button_selected" {
 			text = "eocfm_gui_collegium_head"
@@ -40,13 +40,13 @@ types eocfm_metropolitan_panels {
 			text = "eocfm_gui_global_header"
 		}
 		blockoverride "third_button_click" {
-			onclick = "[GetVariableSystem.Set('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+			onclick = "[GetVariableSystem.Set('eocfm_metropolitan_tab', 'list')]"
 		}
 		blockoverride "third_button_visibility" {
-			visible = "[GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list')]"
 		}
 		blockoverride "third_button_visibility_checked" {
-			visible = "[Not(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'list'))]"
+			visible = "[Not(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list'))]"
 		}
 		blockoverride "third_button_selected" {
 			text = "eocfm_gui_global_header"
@@ -58,7 +58,7 @@ types eocfm_metropolitan_panels {
 		margin_top = 10
 		spacing = 5
 		
-		visible = "[Or(GetVariableSystem.HasValue('eocfm_orthodox_ecumenical_actions_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_orthodox_ecumenical_actions_tab')))]"
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
 		
 		expand = {}
 		
@@ -203,7 +203,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_dissolve_monasteries_button"
+				tooltip = "eocfm_gui_dissolve_monasteries_desc"
 			}
 			
 			button = { # Restore Monasteries Button
@@ -216,7 +216,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_restore_monasteries_button"
+				tooltip = "eocfm_gui_restore_monasteries_desc"
 			}
 			
 			button = { # Reform Synod Button
@@ -229,7 +229,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_reform_synod_button"
+				tooltip = "eocfm_gui_reform_synod_desc"
 			}
 			
 			button = { # Restore Synod Button
@@ -242,7 +242,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_restore_synod_button"
+				tooltip = "eocfm_gui_restore_synod_desc"
 			}
 			
 			button = { # Grant Subsidies Button
@@ -255,7 +255,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_grant_subsidies_button"
+				tooltip = "eocfm_gui_grant_subsidies_desc"
 			}
 			
 			button = { # End Subsidies Button
@@ -268,7 +268,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_end_subsidies_button"
+				tooltip = "eocfm_gui_end_subsidies_desc"
 			}							
 			
 			button = { # Establish Schools Button
@@ -281,7 +281,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_establish_schools_button"
+				tooltip = "eocfm_gui_establish_schools_desc"
 			}
 			
 			button = { # Disband Schools Button
@@ -294,7 +294,7 @@ types eocfm_metropolitan_panels {
 				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "eocfm_gui_disband_schools_button"
+				tooltip = "eocfm_gui_disband_schools_desc"
 			}
 		}
 		
