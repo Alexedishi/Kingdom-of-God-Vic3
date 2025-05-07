@@ -1,0 +1,150 @@
+﻿#################################################
+# EOCFM ORNITHOLOGICAL SOCIETY SCRIPTED EFFECTS #
+#################################################
+
+eocfm_update_collegium_lists = {
+	# Clear list
+	clear_global_variable_list = eocfm_cardinals_list
+	
+	# Place extant Catholic Devout leaders into the Cardinal list
+	every_country = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+			NOT = {
+				has_law = law_type:law_state_atheism
+			}
+		}
+		ig:ig_devout = {
+			leader = {
+				add_to_global_variable_list = {
+					name = eocfm_cardinals_list
+					target = this
+				}
+			}
+		}
+	}
+	
+	# Capture Void Characters and generate any that are missing
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_cardinal_dynamic
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_cardinal_dynamic
+			}
+			save_scope_as = eocfm_void_cardinal_1
+		}
+		else = {
+			eocfm_generate_curia_cardinal_effect = yes
+			random_character_in_void = {
+				limit = {
+					has_template = template_eocfm_cardinal_dynamic
+				}
+				save_scope_as = eocfm_void_cardinal_1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_cardinal_dynamic
+				NOT = {
+					scope:eocfm_void_cardinal_1 = this
+				}
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_cardinal_dynamic
+				NOT = {
+					scope:eocfm_void_cardinal_1 = this
+				}
+			}
+			save_scope_as = eocfm_void_cardinal_2
+		}
+		else = {
+			eocfm_generate_curia_cardinal_effect = yes
+			random_character_in_void = {
+				limit = {
+					has_template = template_eocfm_cardinal_dynamic
+					NOT = {
+						scope:eocfm_void_cardinal_1 = this
+					}
+				}
+				save_scope_as = eocfm_void_cardinal_2
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_eocfm_cardinal_dynamic
+				NOR = {
+					scope:eocfm_void_cardinal_1 = this
+					scope:eocfm_void_cardinal_2 = this
+				}
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_cardinal_dynamic
+				NOR = {
+					scope:eocfm_void_cardinal_1 = this
+					scope:eocfm_void_cardinal_2 = this
+				}
+			}
+			save_scope_as = eocfm_void_cardinal_3
+		}
+		else = {
+			eocfm_generate_curia_cardinal_effect = yes
+			random_character_in_void = {
+				limit = {
+					has_template = template_eocfm_cardinal_dynamic
+					NOR = {
+						scope:eocfm_void_cardinal_1 = this
+						scope:eocfm_void_cardinal_2 = this
+					}
+				}
+				save_scope_as = eocfm_void_cardinal_3
+			}
+		}
+	}
+	
+	# Purge Excess Cardinals
+	every_character_in_void = {
+		limit = {
+			has_template = template_eocfm_cardinal_dynamic
+			NOR = {
+				scope:eocfm_void_cardinal_1 = this
+				scope:eocfm_void_cardinal_2 = this
+				scope:eocfm_void_cardinal_3 = this
+			}
+		}
+		free_character_from_void = yes
+	}
+	
+	# Add Cardinals to the list
+	add_to_global_variable_list = {
+		name = eocfm_cardinals_list
+		target = scope:eocfm_void_cardinal_1
+	}
+	add_to_global_variable_list = {
+		name = eocfm_cardinals_list
+		target = scope:eocfm_void_cardinal_2
+	}
+	add_to_global_variable_list = {
+		name = eocfm_cardinals_list
+		target = scope:eocfm_void_cardinal_3
+	}
+	
+	# Sort the list
+	sort_variable_list = {
+		name = eocfm_cardinals_list
+		order = eocfm_preferatus_value
+	}
+	
+}
+	
