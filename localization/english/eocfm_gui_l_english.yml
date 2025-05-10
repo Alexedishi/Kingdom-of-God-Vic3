@@ -60,17 +60,19 @@
  # Metropolis Panel General Localization
  eocfm_gui_metropolitan_header: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
  eocfm_gui_ecclesiastic_header: "Ecclesiastic Affairs"
- eocfm_gui_collegium_head: "College of Cardinals" 
+ eocfm_gui_collegium_header: "College of Cardinals" 
  eocfm_gui_global_header: "Global [GetPlayer.GetStateReligion.GetNameNoFormatting] Community"
  
  # Catholic Metropolis Panel
  
  # Catholic College of Cardinals Panel
+ eocfm_gui_college_header: "Leading Papal Cadidates"
+ 
  eocfm_preferatus: "Preferatus"
  eocfm_papabili: "Papabili"
- eocfm_cardinal_name: "Cardinalis"
+ eocfm_cardinal_name: "Cardinal [Character.GetLastName]"
  eocfm_cardinal_rating: "@eocfm_gravitas! Gravitas"
- eocfm_cardinal_opinion: "Opinion of [GetPlayer.GetNameNoFlag]:"
+ eocfm_cardinal_gravitas: "@eocfm_gravitas! #bold #greece [Character.MakeScope.ScriptValue('eocfm_gravitas_value')]#!#!"
  
  # Orthodox Metropolis Panel
  eocfm_gui_emphasize_unity: "The Orthodoxy has tied our people together since the Fall of Constantinople. Our bishops could emphasize this common bond that supercedes nationaist thought.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"

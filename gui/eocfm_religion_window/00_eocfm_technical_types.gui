@@ -1,5 +1,16 @@
 types eocfm_technical_types {
 	
+	type eocfm_alert_widget = widget {
+		visible = "[GetVariableSystem.HasValue('com_alert_action', Localize('gg_eocfm_faith_action'))]"
+		enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+		state = {
+			name = _show
+			on_finish = "[GetScriptedGui('eocfm_sidebar_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			on_finish = "[GetVariableSystem.Set('com_open_window', 'eocfm_sidebar_button_sgui')]"
+			on_finish = "[GetVariableSystem.Clear('com_alert_action')]"
+		}
+	}
+	
 	type eocfm_window_header = widget {
 		size = { 100% 92 }
 		position = { 0 76 }
@@ -248,18 +259,6 @@ types eocfm_technical_types {
 			parentanchor = bottom
 			alpha = 0.06
 		
-		}
-	}
-	
-	type eocfm_alert_widget = widget {
-		widget = {
-		visible = "[GetVariableSystem.HasValue('com_alert_action', Localize('gg_eocfm_faith_action'))]"
-		enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
-		state = {
-			name = _show
-			on_finish = "[GetScriptedGui('eocfm_sidebar_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			on_finish = "[GetVariableSystem.Set('com_open_window', 'eocfm_sidebar_button_sgui')]"
-			on_finish = "[GetVariableSystem.Clear('com_alert_action')]"
 		}
 	}
 	

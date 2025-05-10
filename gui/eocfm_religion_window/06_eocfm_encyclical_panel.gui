@@ -1,9 +1,12 @@
 types eocfm_encyclical_panels {
 	
 	# Dummy Panel
-	type eocfm_encyclical_panel_dummy = vbox {
+	type eocfm_encyclical_dummy_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
+		using = default_fade_in_out
+		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
 		
 		default_header_clean_faded = {
 			layoutpolicy_horizontal = expanding
@@ -15,7 +18,7 @@ types eocfm_encyclical_panels {
 		
 		hbox = {
 			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = preferred
+			layoutpolicy_vertical = expanding
 			
 			textbox = {
 				autoresize = yes

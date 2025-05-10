@@ -1,0 +1,168 @@
+types eocfm_collegium_cardinalium_panels {
+
+	type eocfm_collegium_cardinalium_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_college_header"
+			}
+		}
+		
+		# Preferatus
+		widget = {
+			size = { 220 200 }
+			using = entry_bg_fancy
+			datacontext = "[AccessPlayer.AccessRuler]"
+			
+			default_header_clean_faded = {
+				size = { 220 35 }
+				parentanchor = top|hcenter
+				blockoverride "text" {
+					text = "eocfm_preferatus"
+					autoresize = yes
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			character_portrait_medium_torso = {
+				parentanchor = center
+				
+				datacontext = "[AccessPlayer.AccessRuler]"
+				blockoverride "show_hat" {}
+				blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+			}
+			
+			default_header_clean_faded = {
+				size = { 100 25 }
+				parentanchor = bottom|hcenter
+				blockoverride "text" {}
+			}
+			
+			textbox = {
+				text = "eocfm_cardinal_name"
+				parentanchor = bottom|hcenter
+				position = { 0 -2 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+		}
+		
+		# Candidates
+		vbox = {
+			layoutpolicy_horizontal = shrinking
+			layoutpolicy_vertical = shrinking
+			
+			background = {
+				using = entry_bg
+			}
+			
+			# First Row
+			hbox = {
+				margin = { 5 5 }
+				spacing = 5
+				
+				eocfm_cardinal_widget = {}
+				eocfm_cardinal_widget = {}
+				eocfm_cardinal_widget = {}
+				eocfm_cardinal_widget = {}
+			}
+			
+			# Second Row
+			hbox = {
+				margin = { 5 5 }
+				spacing = 5
+				
+				eocfm_cardinal_widget = {}
+				eocfm_cardinal_widget = {}
+				eocfm_cardinal_widget = {}
+			}
+		}
+	}
+	
+	type eocfm_cardinal_widget = widget {
+		size = { 140 100 }
+		
+		block "datacontext" {
+			datacontext = "[AccessPlayer.AccessRuler]"
+		}
+	
+		character_portrait_medium = {
+			parentanchor = center
+			position = { 0 -10 }
+			blockoverride "show_hat" {}
+			blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+			blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+			blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+		}
+		
+		default_header_clean_faded = {
+			size = { 110 25 }
+			parentanchor = bottom|hcenter
+			blockoverride "text" {}
+		}
+		
+		textbox = {
+			text = "eocfm_cardinal_name"
+			parentanchor = bottom|hcenter
+			position = { 0 -2 }
+			autoresize = yes
+			max_width = 250
+			elide = right
+			using = fontsize_medium
+		}
+		
+		textbox = {
+			text = "eocfm_cardinal_gravitas"
+			parentanchor = right|vcenter
+			position = { -5 18 }
+			autoresize = yes
+			elide = right
+			using = fontsize_medium
+			
+			background = {
+				using = dark_area
+				alpha = 0.5
+			}
+		}
+		
+		icon = {
+			size = { 27 18 }
+			position = { 15 18 }
+			parentanchor = left|vcenter
+			
+			texture = "[Country.GetFlag.GetSmallFlagTexture]"
+			alwaystransparent = yes
+
+			frame = "[Country.GetFlag.GetSmallFlagFrame]"
+			framesize = "[GetSmallFlagFrameSize]"
+
+			using = flag_overlay
+
+			icon = {
+				name = frame
+				texture = "gfx/interface/flag/flag_power_tiny.dds"
+				size = { 33 24 }
+				framesize = { 66 48 }
+				frame = "[Country.GetRankIconIndex]"
+				alwaystransparent = yes
+				parentanchor = center
+				block "visibility" {}
+			}
+		}
+		
+	}
+	
+}

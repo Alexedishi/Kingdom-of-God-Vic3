@@ -69,8 +69,7 @@ widget = {
 			margin = { 40 40 }
 		}
 		
-		## BACKGROUNDS ##
-		# Catholic Background
+		## BACKGROUNDS
 		background = {
 			visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
@@ -94,10 +93,10 @@ widget = {
 				alpha = 0.8
 			}
 		}
-		# Orthodox Background
+	
 		background = {
 			visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			
+				
 			texture = "gfx/illustrations/eocfm/eocfm_orthodox_background.dds"
 			alpha = 1
 			modify_texture = {
@@ -119,7 +118,7 @@ widget = {
 				alpha = 0.8
 			}
 		}
-		# Oriental Orthodox Background
+	
 		background = {
 			visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
@@ -143,7 +142,7 @@ widget = {
 				alpha = 0.8
 			}
 		}
-		# Elysian Orthodox Background
+	
 		background = {
 			visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
@@ -168,644 +167,158 @@ widget = {
 			}
 		}
 		
-		## HEADER ##
+		## HEADER
 		eocfm_window_header = {}
 		eocfm_header_left_fade = {}
 		eocfm_header_right_fade = {}
 		eocfm_header_top_filler = {}
 
-		### Roman Catholic Window
-		vbox = {
-			datacontext = "[AccessPlayer]"
+		## WIDGET CONTENT
+		eocfm_catholic_window = {}
+	}
+	
+}
 
-			visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+types eocfm_kingdom_of_god_window_types {
 
-			layoutpolicy_vertical = expanding
+	type eocfm_catholic_window = vbox {
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		datacontext = "[AccessPlayer]"
+		
+		spacing = 10
+		margin_top = 180
+		margin_bottom = 10
+		margin_left = 60
+		margin_right = 60
+
+		using = default_fade_in_out
+		
+		hbox = {
 			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 5
 
-			spacing = 10
-			margin_top = 180
-			margin_bottom = 10
-			margin_left = 60
-			margin_right = 60
-
-			using = default_fade_in_out
-
-			### Widget Content
-			hbox = {
+			### Religious Capacity & Autocephaly Status
+			vbox = {
+				layoutstretchfactor_horizontal = 1
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				spacing = 5
+				margin_bottom = 10
 
-				### Religious Capacity & Autocephaly Status
+				using = entry_bg_fancy
+
+				eocfm_catholic_communion_panel = {}
+#				eocfm_orthodox_communion_panel = {}
+#				eocfm_oriental_communion_panel = {}
+#				eocfm_elysian_communion_panel = {}
+
+				### Metropolitan Character Panel and Stats
 				vbox = {
-					layoutstretchfactor_horizontal = 1
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					margin_bottom = 10
+					margin = { 5 5 }
 
-					using = entry_bg_fancy
+					# Metropolitan Portrait & Church Details
+					eocfm_metropolitan_stats_panel = {}
 
-					eocfm_catholic_communion_panel = {}
-
-					### Metropolitan Character Panel and Stats
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						margin = { 5 5 }
-
-						# Metropolitan Portrait & Church Details
-						eocfm_metropolitan_stats_panel = {}
-
-						### Holy Sites Panel
-						eocfm_holy_sites_panel = {}
-					}
-				}
-
-				## METROPOLITAN & ECUMENICAL PANELS
-				vbox = {
-					layoutstretchfactor_horizontal = 2
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					background = {
-						using = dark_area
-					}
-
-					### SCROLLABLE INFO RIGHT
-					fullscreen_scrollarea = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-
-						blockoverride "scrollarea_content" {
-							vbox = {
-								layoutpolicy_vertical = expanding
-								
-								hbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = preferred
-									using = default_fade_in_out
-
-									vbox = {
-										layoutpolicy_horizontal = expanding
-										layoutpolicy_vertical = preferred
-
-										### METROPOLITAN PANEL
-										vbox = {
-											layoutpolicy_horizontal = expanding
-											layoutpolicy_vertical = preferred
-											
-											using = entry_bg_fancy
-											
-											default_header_clean_faded = {
-												layoutpolicy_horizontal = expanding
-												size = { 0 44 }
-												blockoverride "text" {
-													text = "eocfm_gui_metropolitan_header"
-												}
-											}
-											
-											eocfm_metropolitan_tabs = {}
-											
-											divider_clean = {}
-											
-											eocfm_orthodox_metropolitan_panel = {}
-											eocfm_orthodox_global_panel = {}
-											expand = {}
-										}
-
-										### ENCYCLICALS PANEL
-										eocfm_encyclical_panel_dummy = {}
-									}
-									vertical_divider_full = {
-										size = { 2 0 }
-										layoutpolicy_vertical = expanding
-									}
-								}
-
-								### Ecumenical Council Panel
-								eocfm_ecumenical_council = {}
-							}
-						}
-					}
-				}
-
-				### PATRIARCHAL SEATS
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					using = entry_bg_fancy
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					default_header_clean = {
-						blockoverride "header_mask" {
-							using = frame_small_mask_top
-						}
-						blockoverride "size" {
-							layoutpolicy_horizontal = expanding
-							size = { 0 44 }
-						}
-						blockoverride "text" {
-							text = "eocfm_gui_christian_community"
-						}
-					}
-
-					### SEAT GROUP BUTTONS
-					eocfm_seat_tab_buttons = {}
-					divider_clean = {}
-					eocfm_catholic_seats = {}
-					eocfm_orthodox_seats = {}
-					eocfm_oriental_seats = {}
-					eocfm_elysian_seats = {}
+					### Holy Sites Panel
+					eocfm_holy_sites_panel = {}
 				}
 			}
-		}
 
-		### Eastern Orthodox Window
-		vbox = {
-			datacontext = "[AccessPlayer]"
-
-			visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-
-			layoutpolicy_vertical = expanding
-			layoutpolicy_horizontal = expanding
-
-			spacing = 10
-			margin_top = 180
-			margin_bottom = 10
-			margin_left = 60
-			margin_right = 60
-
-			using = default_fade_in_out
-
-			### Orthodox Widget Content
-			hbox = {
+			## RELIGIOUS COMMUNITY PANEL
+			vbox = {
+				layoutstretchfactor_horizontal = 2
 				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				spacing = 5
+				layoutpolicy_vertical = preferred
 
-				### Caesaropapism & Autocephaly Status
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin_bottom = 10
-
-					using = entry_bg_fancy
-
-					eocfm_orthodox_communion_panel = {}
-
-					### Metropolitan Character Panel and Stats
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						margin = { 5 5 }
-
-						# Metropolitan Portrait & Church Details
-						eocfm_metropolitan_stats_panel = {}
-
-						### Holy Sites Panel
-						eocfm_holy_sites_panel = {}
-					}
+				background = {
+					using = dark_area
 				}
-
-				## METROPOLITAN & ECUMENICAL PANELS
-				vbox = {
-					layoutstretchfactor_horizontal = 2
+				
+				using = entry_bg_fancy
+				
+				default_header_clean_faded = {
 					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					background = {
-						using = dark_area
-					}
-
-					### SCROLLABLE INFO RIGHT
-					fullscreen_scrollarea = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-
-						blockoverride "scrollarea_content" {
-							vbox = {
-								layoutpolicy_vertical = expanding
-								
-								hbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = preferred
-									using = default_fade_in_out
-
-									vbox = {
-										layoutpolicy_horizontal = expanding
-										layoutpolicy_vertical = preferred
-
-										### METROPOLITAN PANEL
-										vbox = {
-											layoutpolicy_horizontal = expanding
-											layoutpolicy_vertical = preferred
-											
-											using = entry_bg_fancy
-											
-											default_header_clean_faded = {
-												layoutpolicy_horizontal = expanding
-												size = { 0 44 }
-												blockoverride "text" {
-													text = "eocfm_gui_metropolitan_header"
-												}
-											}
-											
-											eocfm_metropolitan_tabs = {}
-											
-											divider_clean = {}
-											
-											eocfm_orthodox_metropolitan_panel = {}
-											eocfm_orthodox_global_panel = {}
-											expand = {}
-										}
-
-										### ENCYCLICALS PANEL
-										eocfm_orthodox_encyclical_panel = {}
-									}
-									vertical_divider_full = {
-										size = { 2 0 }
-										layoutpolicy_vertical = expanding
-									}
-								}
-								
-								### Ecumenical Council Panel
-								eocfm_orthodox_council_inactive = {}
-								eocfm_orthodox_council_active = {}
-							}
-						}
+					size = { 0 44 }
+					blockoverride "text" {
+						text = "eocfm_gui_metropolitan_header"
 					}
 				}
 				
-				### PATRIARCHAL SEATS
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					using = entry_bg_fancy
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					default_header_clean = {
-						blockoverride "header_mask" {
-							using = frame_small_mask_top
-						}
-						blockoverride "size" {
-							layoutpolicy_horizontal = expanding
-							size = { 0 44 }
-						}
-						blockoverride "text" {
-							text = "eocfm_gui_christian_community"
-						}
-					}
-
-					### SEAT GROUP BUTTONS
-					eocfm_seat_tab_buttons = {}
-					divider_clean = {}
-					eocfm_catholic_seats = {}
-					eocfm_orthodox_seats = {}
-					eocfm_oriental_seats = {}
-					eocfm_elysian_seats = {}
-				}
+				eocfm_metropolitan_tabs = {}
+				
+				# Metropolitan Panels
+#				eocfm_catholic_metropolitan_panel = {}
+				eocfm_orthodox_metropolitan_panel = {}
+#				eocfm_oriental_metropolitan_panel = {}
+#				eocfm_elysian_metropolitan_panel = {}
+				
+				# College of Cardinals Panel
+				eocfm_collegium_cardinalium_panel = {}
+				
+				# Global Community Panels
+#				eocfm_catholic_global_panel = {}
+				eocfm_orthodox_global_panel = {}
+#				eocfm_oriental_global_panel = {}
+#				eocfm_elysian_global_panel = {}
+				
+				# Encyclical Panel
+				eocfm_encyclical_dummy_panel = {}
+#				eocfm_catholic_encyclical_panel = {}
+#				eocfm_orthodox_encyclical_panel = {}
+#				eocfm_elysian_encyclical_panel = {}
+				
+				# Ecumenical Council Panels
+				eocfm_ecumenical_council_dummy_panel = {}
+#				eocfm_catholic_council_panel = {}
+#				eocfm_orthodox_council_panel = {}
+#				eocfm_oriental_council_panel = {}
+#				eocfm_elysian_council_panel = {}
+				
 			}
-		}
 
-		### Oriental Orthodox Window
-		vbox = {
-			datacontext = "[AccessPlayer]"
-
-			visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-
-			layoutpolicy_vertical = expanding
-			layoutpolicy_horizontal = expanding
-
-			spacing = 10
-			margin_top = 180
-			margin_bottom = 10
-			margin_left = 60
-			margin_right = 60
-
-			using = default_fade_in_out
-
-			### Orthodox Widget Content
-			hbox = {
+			### PATRIARCHAL SEATS
+			vbox = {
+				layoutstretchfactor_horizontal = 1
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				spacing = 5
 
-				### Caesaropapism & Autocephaly Status
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin_bottom = 10
+				using = entry_bg_fancy
 
-					using = entry_bg_fancy
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
 
-					eocfm_oriental_communion_panel = {}
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
 
-					### Metropolitan Character Panel and Stats
-					vbox = {
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
 						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						margin = { 5 5 }
-
-						# Metropolitan Portrait & Church Details
-						eocfm_metropolitan_stats_panel = {}
-
-						### Holy Sites Panel
-						eocfm_holy_sites_panel = {}
+						size = { 0 44 }
+					}
+					blockoverride "text" {
+						text = "eocfm_gui_christian_community"
 					}
 				}
 
-				## METROPOLITAN & ECUMENICAL PANELS
-				vbox = {
-					layoutstretchfactor_horizontal = 2
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					background = {
-						using = dark_area
-					}
-
-					### SCROLLABLE INFO RIGHT
-					fullscreen_scrollarea = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-
-						blockoverride "scrollarea_content" {
-							vbox = {
-								layoutpolicy_vertical = expanding
-
-								hbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = preferred
-									using = default_fade_in_out
-
-									vbox = {
-										layoutpolicy_horizontal = expanding
-										layoutpolicy_vertical = preferred
-
-										### METROPOLITAN PANEL
-										vbox = {
-											layoutpolicy_horizontal = expanding
-											layoutpolicy_vertical = preferred
-											
-											using = entry_bg_fancy
-											
-											default_header_clean_faded = {
-												layoutpolicy_horizontal = expanding
-												size = { 0 44 }
-												blockoverride "text" {
-													text = "eocfm_gui_metropolitan_header"
-												}
-											}
-											
-											eocfm_metropolitan_tabs = {}
-											
-											divider_clean = {}
-											
-											eocfm_orthodox_metropolitan_panel = {}
-											eocfm_orthodox_global_panel = {}
-											expand = {}
-										}
-
-										### ENCYCLICALS PANEL
-										eocfm_encyclical_panel_dummy = {}
-									}
-									vertical_divider_full = {
-										size = { 2 0 }
-										layoutpolicy_vertical = expanding
-									}
-								}
-
-								### Ecumenical Council Panel
-								eocfm_orthodox_council_inactive = {}
-								eocfm_orthodox_council_active = {}
-							}
-						}
-					}
-				}
-
-				### PATRIARCHAL SEATS
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					using = entry_bg_fancy
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					default_header_clean = {
-						blockoverride "header_mask" {
-							using = frame_small_mask_top
-						}
-						blockoverride "size" {
-							layoutpolicy_horizontal = expanding
-							size = { 0 44 }
-						}
-						blockoverride "text" {
-							text = "eocfm_gui_christian_community"
-						}
-					}
-
-					### SEAT GROUP BUTTONS
-					eocfm_seat_tab_buttons = {}
-					divider_clean = {}
-					eocfm_catholic_seats = {}
-					eocfm_orthodox_seats = {}
-					eocfm_oriental_seats = {}
-					eocfm_elysian_seats = {}
-				}
-			}
-		}
-
-		### Elysian Orthodox Window
-		vbox = {
-			datacontext = "[AccessPlayer]"
-
-			visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-
-			layoutpolicy_vertical = expanding
-			layoutpolicy_horizontal = expanding
-
-			spacing = 10
-			margin_top = 180
-			margin_bottom = 10
-			margin_left = 60
-			margin_right = 60
-
-			using = default_fade_in_out
-
-			### Orthodox Widget Content
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				spacing = 5
-
-				### Caesaropapism & Autocephaly Status
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin_bottom = 10
-
-					using = entry_bg_fancy
-
-					eocfm_elysian_communion_panel = {}
-
-					### Metropolitan Character Panel and Stats
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						margin = { 5 5 }
-
-						# Metropolitan Portrait & Church Details
-						eocfm_metropolitan_stats_panel = {}
-
-						### Holy Sites Panel
-						eocfm_holy_sites_panel = {}
-					}
-				}
-
-				## METROPOLITAN & ECUMENICAL PANELS
-				vbox = {
-					layoutstretchfactor_horizontal = 2
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					background = {
-						using = dark_area
-					}
-
-					### SCROLLABLE INFO RIGHT
-					fullscreen_scrollarea = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-
-						blockoverride "scrollarea_content" {
-							vbox = {
-								layoutpolicy_vertical = expanding
-
-								hbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = preferred
-									using = default_fade_in_out
-
-									vbox = {
-										layoutpolicy_horizontal = expanding
-										layoutpolicy_vertical = preferred
-
-										### METROPOLITAN PANEL
-										vbox = {
-											layoutpolicy_horizontal = expanding
-											layoutpolicy_vertical = preferred
-											
-											using = entry_bg_fancy
-											
-											default_header_clean_faded = {
-												layoutpolicy_horizontal = expanding
-												size = { 0 44 }
-												blockoverride "text" {
-													text = "eocfm_gui_metropolitan_header"
-												}
-											}
-											
-											eocfm_metropolitan_tabs = {}
-											
-											divider_clean = {}
-											
-											eocfm_orthodox_metropolitan_panel = {}
-											eocfm_orthodox_global_panel = {}
-											expand = {}
-										}
-
-										### ENCYCLICALS PANEL
-										eocfm_encyclical_panel_dummy = {}
-									}
-									vertical_divider_full = {
-										size = { 2 0 }
-										layoutpolicy_vertical = expanding
-									}
-								}
-
-								### Ecumenical Council Panel
-								eocfm_ecumenical_council = {}
-							}
-						}
-					}
-				}
-
-				### PATRIARCHAL SEATS
-				vbox = {
-					layoutstretchfactor_horizontal = 1
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					using = entry_bg_fancy
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					background = {
-						using = entry_bg_simple
-						margin = { -3 -3 }
-					}
-
-					default_header_clean = {
-						blockoverride "header_mask" {
-							using = frame_small_mask_top
-						}
-						blockoverride "size" {
-							layoutpolicy_horizontal = expanding
-							size = { 0 44 }
-						}
-						blockoverride "text" {
-							text = "eocfm_gui_christian_community"
-						}
-					}
-
-					### SEAT GROUP BUTTONS
-					eocfm_seat_tab_buttons = {}
-					divider_clean = {}
-					eocfm_catholic_seats = {}
-					eocfm_orthodox_seats = {}
-					eocfm_oriental_seats = {}
-					eocfm_elysian_seats = {}
-				}
+				### SEAT GROUP BUTTONS
+				eocfm_seat_tab_buttons = {}
+				divider_clean = {}
+				eocfm_catholic_seats = {}
+				eocfm_orthodox_seats = {}
+				eocfm_oriental_seats = {}
+				eocfm_elysian_seats = {}
 			}
 		}
 	}
+	
 }
