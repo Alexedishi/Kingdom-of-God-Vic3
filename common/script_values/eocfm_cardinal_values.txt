@@ -1,7 +1,48 @@
 ﻿eocfm_gravitas_value = {
 	value = 0
+	if = {
+		limit = {
+			is_in_void = no
+		}
+		add = {
+			value = owner.prestige
+			multiply = 0.1
+			round = 0.1
+			desc = eocfm_value_from_home_prestige
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_culture = cu:north_italian
+				has_culture = cu:south_italian
+			}
+		}
+		add = {
+			value = 200
+			desc = eocfm_value_from_italian_culture
+		}
+	}
+	add = {
+		value = eocfm_piety_value
+		desc = eocfm_value_from_piety
+	}
+	add = {
+		value = age
+		multiply = 2
+		desc = eocfm_value_from_age
+	}
 }
 
 eocfm_piety_value = {
 	value = 0
+	if = {
+		limit = {
+			has_trait = key
+		}
+		add = {
+			value = 
+			desc = eocfm_value_from_key_trait
+		}
+	}
 }
