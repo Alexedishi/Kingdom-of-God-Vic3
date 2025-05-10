@@ -3,6 +3,12 @@
 #################################################
 
 eocfm_update_collegium_lists = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = eocfm_cardinal_timeout
+		days = 20
+	}
+	
 	# Clear list
 	clear_global_variable_list = eocfm_cardinals_list
 	
@@ -143,7 +149,7 @@ eocfm_update_collegium_lists = {
 	# Sort the list
 	sort_variable_list = {
 		name = eocfm_cardinals_list
-		order = eocfm_preferatus_value
+		order = eocfm_gravitas_value
 	}
 	
 }

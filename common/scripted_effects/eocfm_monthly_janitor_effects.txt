@@ -14,88 +14,80 @@ eocfm_update_holy_site_count_effect = {
 
 # Global List Upkeep
 eocfm_update_ranking_lists = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = eocfm_ranking_timeout_var
+		days = 20 # Should be enough to get past all monthly pulses
+	}
+	
+	# Clear All Lists
+	clear_global_variable_list = eocfm_catholic_ranking
+	clear_global_variable_list = eocfm_orthodox_ranking
+	clear_global_variable_list = eocfm_oriental_ranking
+	clear_global_variable_list = eocfm_elysian_ranking
+	
+	# Build & Sort Catholic List
+	every_country = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = eocfm_catholic_ranking
+			target = this
+		}
+	}
+	sort_variable_list = {
+		name = eocfm_catholic_ranking
+		order = eocfm_votes_value
+	}
+	
+	# Build & Sort Orthodox List
+	every_country = {
+		limit = {
+			eocfm_is_eastern_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = eocfm_orthodox_ranking
+			target = this
+		}
+	}
+	sort_variable_list = {
+		name = eocfm_orthodox_ranking
+		order = eocfm_votes_value
+	}
+	
+	# Build & Sort Oriental List
+	every_country = {
+		limit = {
+			eocfm_is_oriental_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = eocfm_oriental_ranking
+			target = this
+		}
+	}
+	sort_variable_list = {
+		name = eocfm_oriental_ranking
+		order = eocfm_votes_value
+	}
+	
+	# Build & Sort Elysian List
 	if = {
 		limit = {
-			NOT = {
-				has_global_variable = eocfm_ranking_timeout_var
-			}
+			basileia_is_active = yes
 		}
-		
-		# Set Timeout Variable
-		set_global_variable = {
-			name = eocfm_ranking_timeout_var
-			days = 20 # Should be enough to get past all monthly pulses
-		}
-		
-		# Clear All Lists
-		clear_global_variable_list = eocfm_catholic_ranking
-		clear_global_variable_list = eocfm_orthodox_ranking
-		clear_global_variable_list = eocfm_oriental_ranking
-		clear_global_variable_list = eocfm_elysian_ranking
-		
-		# Build & Sort Catholic List
 		every_country = {
 			limit = {
-				eocfm_is_roman_catholic_trigger = yes
+				eocfm_is_elysian_orthodox_trigger = yes
 			}
 			add_to_global_variable_list = {
-				name = eocfm_catholic_ranking
-				target = this
-			}
-		}
-		sort_variable_list = {
-			name = eocfm_catholic_ranking
-			order = eocfm_votes_value
-		}
-		
-		# Build & Sort Orthodox List
-		every_country = {
-			limit = {
-				eocfm_is_eastern_orthodox_trigger = yes
-			}
-			add_to_global_variable_list = {
-				name = eocfm_orthodox_ranking
-				target = this
-			}
-		}
-		sort_variable_list = {
-			name = eocfm_orthodox_ranking
-			order = eocfm_votes_value
-		}
-		
-		# Build & Sort Oriental List
-		every_country = {
-			limit = {
-				eocfm_is_oriental_orthodox_trigger = yes
-			}
-			add_to_global_variable_list = {
-				name = eocfm_oriental_ranking
-				target = this
-			}
-		}
-		sort_variable_list = {
-			name = eocfm_oriental_ranking
-			order = eocfm_votes_value
-		}
-		
-		# Build & Sort Elysian List
-		if = {
-			limit = {
-				basileia_is_active = yes
-			}
-			every_country = {
-				limit = {
-					eocfm_is_elysian_orthodox_trigger = yes
-				}
-				add_to_global_variable_list = {
-					name = eocfm_elysian_ranking
-					target = this
-				}
-			}
-			sort_variable_list = {
 				name = eocfm_elysian_ranking
-				order = eocfm_votes_value
+				target = this
 			}
+		}
+		sort_variable_list = {
+			name = eocfm_elysian_ranking
+			order = eocfm_votes_value
 		}
 	}
 }

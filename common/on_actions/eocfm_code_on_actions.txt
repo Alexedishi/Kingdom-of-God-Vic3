@@ -4,6 +4,7 @@
 
 on_monthly_pulse_country = {
 	on_actions = {
+		eocfm_janitor_monthly_pulse
 		eocfm_catholic_monthly_pulse
 		eocfm_orthodox_monthly_pulse
 		eocfm_oriental_monthly_pulse
@@ -23,9 +24,9 @@ on_wargoal_enforced = {
 
 ############
 
-eocfm_catholic_monthly_pulse = {
+eocfm_janitor_monthly_pulse = {
 	trigger = {
-		eocfm_is_roman_catholic_trigger = yes
+		eocfm_is_christian_trigger = yes
 	}
 	on_actions = {
 		eocfm_schism_monthly_pulse
@@ -34,10 +35,8 @@ eocfm_catholic_monthly_pulse = {
 	}
 	events = {
 		eocfm.0411 # The Capture of the Great Mosque
-		eocfm.1000 # Catholic Opener Monitor
 	}
-	random_events = {
-	}
+	random_events = {}
 	effect = {
 		eocfm_update_holy_site_count_effect = yes
 		eocfm_update_patriarch_variables_effect = yes
@@ -46,6 +45,48 @@ eocfm_catholic_monthly_pulse = {
 		eocfm_update_rite_modifiers_effect = yes
 		eocfm_update_seat_controllers_effect = yes
 		eocfm_update_votes_effect = yes
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = eocfm_ranking_timeout_var
+				}
+			}
+			eocfm_update_ranking_lists = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:eocfm_sidebar_button_sgui
+					}
+				}
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:eocfm_sidebar_button_sgui
+			}
+		}
+	}
+}
+
+eocfm_catholic_monthly_pulse = {
+	trigger = {
+		eocfm_is_roman_catholic_trigger = yes
+	}
+	events = {
+		eocfm.1000 # Catholic Opener Monitor
+	}
+	random_events = {}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = eocfm_cardinal_timeout
+				}
+			}
+			eocfm_update_collegium_lists = yes
+		}
 	}
 }
 
@@ -56,13 +97,7 @@ eocfm_orthodox_monthly_pulse = {
 			eocfm_is_rus_orthodox_trigger = yes
 		}
 	}
-	on_actions = {
-		eocfm_schism_monthly_pulse
-		eocfm_integration_monthly_pulse
-		eocfm_mending_monthly_pulse
-	}
 	events = {
-		eocfm.0411 # The Capture of the Great Mosque
 		eocfm.2000 # Orthodox Opener Monitor
 		eocfm.2311 # The Patriarch's Blessings
 		eocfm.2322 # Orthodox Council Monitor
@@ -83,67 +118,30 @@ eocfm_orthodox_monthly_pulse = {
 		5 = eocfm.2412 # Patriarch Condemns Immorality
 		5 = eocfm.2413 # Theological Dispute with Patriarch
 	}
-	effect = {
-		eocfm_update_holy_site_count_effect = yes
-		eocfm_update_patriarch_variables_effect = yes
-		eocfm_push_patriarch_relations_effect = yes
-		eocfm_update_patriarch_opinions_effect = yes
-		eocfm_update_rite_modifiers_effect = yes
-		eocfm_update_seat_controllers_effect = yes
-		eocfm_update_votes_effect = yes
-	}
+	effect = {}
 }
 
 eocfm_oriental_monthly_pulse = {
 	trigger = {
 		eocfm_is_oriental_orthodox_trigger = yes
 	}
-	on_actions = {
-		eocfm_schism_monthly_pulse
-		eocfm_integration_monthly_pulse
-		eocfm_mending_monthly_pulse
-	}
 	events = {
 		eocfm.0411 # The Capture of the Great Mosque
 		eocfm.3000 # Oriental Orthodox Opener Monitor
 	}
-	random_events = {
-	}
-	effect = {
-		eocfm_update_holy_site_count_effect = yes
-		eocfm_update_patriarch_variables_effect = yes
-		eocfm_push_patriarch_relations_effect = yes
-		eocfm_update_patriarch_opinions_effect = yes
-		eocfm_update_rite_modifiers_effect = yes
-		eocfm_update_seat_controllers_effect = yes
-		eocfm_update_votes_effect = yes
-	}
+	random_events = {}
+	effect = {}
 }
 
 eocfm_elysian_monthly_pulse = {
 	trigger = {
 		eocfm_is_elysian_orthodox_trigger = yes
 	}
-	on_actions = {
-		eocfm_schism_monthly_pulse
-		eocfm_integration_monthly_pulse
-		eocfm_mending_monthly_pulse
-	}
 	events = {
-		eocfm.0411 # The Capture of the Great Mosque
 		eocfm.2000 # Orthodox Opener Monitor
 	}
-	random_events = {
-	}
-	effect = {
-		eocfm_update_holy_site_count_effect = yes
-		eocfm_update_patriarch_variables_effect = yes
-		eocfm_push_patriarch_relations_effect = yes
-		eocfm_update_patriarch_opinions_effect = yes
-		eocfm_update_rite_modifiers_effect = yes
-		eocfm_update_seat_controllers_effect = yes
-		eocfm_update_votes_effect = yes
-	}
+	random_events = {}
+	effect = {}
 }
 
 eocfm_schism_monthly_pulse = {
@@ -242,23 +240,6 @@ eocfm_global_pulse = { # Monitored from all scopes; used to deactivate holy site
 		eocfm.0025 # Elysium PM Switch
 		eocfm.0026 # Tututepec PM Switch
 		eocfm.0027 # Cahokia PM Switch
-	}
-	effect = {
-		if = { # Adds the Orthodox button to the community sidebar
-			limit = {
-				NOT = {
-					is_target_in_global_variable_list = {
-						name = custom_button_list_flag
-						target = flag:eocfm_sidebar_button_sgui
-					}
-				}
-			}
-			add_to_global_variable_list = {
-				name = custom_button_list_flag
-				target = flag:eocfm_sidebar_button_sgui
-			}
-		}
-		eocfm_update_ranking_lists = yes
 	}
 }
 
