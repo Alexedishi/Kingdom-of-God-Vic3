@@ -43,14 +43,14 @@ eocfm_update_collegium_lists = {
 			}
 			save_scope_as = eocfm_void_cardinal_1
 		}
-		else = {
-			eocfm_generate_curia_cardinal_effect = yes
-			random_character_in_void = {
-				limit = {
-					has_template = template_eocfm_cardinal_dynamic
-				}
-				save_scope_as = eocfm_void_cardinal_1
+	}
+	else = {
+		eocfm_generate_curia_cardinal_effect = yes
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_cardinal_dynamic
 			}
+			save_scope_as = eocfm_void_cardinal_1
 		}
 	}
 	if = {
@@ -71,17 +71,17 @@ eocfm_update_collegium_lists = {
 			}
 			save_scope_as = eocfm_void_cardinal_2
 		}
-		else = {
-			eocfm_generate_curia_cardinal_effect = yes
-			random_character_in_void = {
-				limit = {
-					has_template = template_eocfm_cardinal_dynamic
-					NOT = {
-						scope:eocfm_void_cardinal_1 = this
-					}
+	}
+	else = {
+		eocfm_generate_curia_cardinal_effect = yes
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_cardinal_dynamic
+				NOT = {
+					scope:eocfm_void_cardinal_1 = this
 				}
-				save_scope_as = eocfm_void_cardinal_2
 			}
+			save_scope_as = eocfm_void_cardinal_2
 		}
 	}
 	if = {
@@ -104,18 +104,18 @@ eocfm_update_collegium_lists = {
 			}
 			save_scope_as = eocfm_void_cardinal_3
 		}
-		else = {
-			eocfm_generate_curia_cardinal_effect = yes
-			random_character_in_void = {
-				limit = {
-					has_template = template_eocfm_cardinal_dynamic
-					NOR = {
-						scope:eocfm_void_cardinal_1 = this
-						scope:eocfm_void_cardinal_2 = this
-					}
+	}
+	else = {
+		eocfm_generate_curia_cardinal_effect = yes
+		random_character_in_void = {
+			limit = {
+				has_template = template_eocfm_cardinal_dynamic
+				NOR = {
+					scope:eocfm_void_cardinal_1 = this
+					scope:eocfm_void_cardinal_2 = this
 				}
-				save_scope_as = eocfm_void_cardinal_3
 			}
+			save_scope_as = eocfm_void_cardinal_3
 		}
 	}
 	
@@ -147,10 +147,20 @@ eocfm_update_collegium_lists = {
 	}
 	
 	# Sort the list
-	sort_variable_list = {
+	sort_global_variable_list = {
 		name = eocfm_cardinals_list
 		order = eocfm_gravitas_value
 	}
 	
+}
+
+eocfm_generate_curia_cardinal_effect = {
+	create_character = {
+		template = template_eocfm_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
 }
 	

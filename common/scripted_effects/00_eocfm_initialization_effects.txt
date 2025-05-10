@@ -415,6 +415,72 @@ eocfm_initialize_seat_controllers_effect = {
 	}
 }
 
+eocfm_initialize_cardinals_effect = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = eocfm_cardinal_timeout
+		days = 20
+	}
+	
+	# Place extant Catholic Devout leaders into the Cardinal list
+	every_country = {
+		limit = {
+			eocfm_is_roman_catholic_trigger = yes
+			NOT = {
+				has_law = law_type:law_state_atheism
+			}
+		}
+		ig:ig_devout = {
+			leader = {
+				add_to_global_variable_list = {
+					name = eocfm_cardinals_list
+					target = this
+				}
+			}
+		}
+	}
+	
+	# Generate Italian Cardinals
+	create_character = {
+		template = template_eocfm_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+	create_character = {
+		template = template_eocfm_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+	create_character = {
+		template = template_eocfm_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+	
+	# Purge Excess Cardinals
+	every_character_in_void = {
+		limit = {
+			has_template = template_eocfm_cardinal_dynamic
+		}
+		add_to_global_variable_list = {
+			name = eocfm_cardinals_list
+			target = this
+		}
+	}
+	
+	# Sort the list
+	sort_global_variable_list = {
+		name = eocfm_cardinals_list
+		order = eocfm_gravitas_value
+	}
+}
+
 eocfm_initialize_ranking_lists = {
 	# Set Timeout Variable
 	set_global_variable = {
@@ -432,7 +498,7 @@ eocfm_initialize_ranking_lists = {
 			target = this
 		}
 	}
-	sort_variable_list = {
+	sort_global_variable_list = {
 		name = eocfm_catholic_ranking
 		order = eocfm_votes_value
 	}
@@ -447,7 +513,7 @@ eocfm_initialize_ranking_lists = {
 			target = this
 		}
 	}
-	sort_variable_list = {
+	sort_global_variable_list = {
 		name = eocfm_orthodox_ranking
 		order = eocfm_votes_value
 	}
@@ -462,7 +528,7 @@ eocfm_initialize_ranking_lists = {
 			target = this
 		}
 	}
-	sort_variable_list = {
+	sort_global_variable_list = {
 		name = eocfm_oriental_ranking
 		order = eocfm_votes_value
 	}
@@ -481,7 +547,7 @@ eocfm_initialize_ranking_lists = {
 				target = this
 			}
 		}
-		sort_variable_list = {
+		sort_global_variable_list = {
 			name = eocfm_elysian_ranking
 			order = eocfm_votes_value
 		}
