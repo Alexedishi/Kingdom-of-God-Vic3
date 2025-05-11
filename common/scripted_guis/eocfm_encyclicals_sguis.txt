@@ -2,6 +2,29 @@
 # ENCYCLICAL SGUIs #
 ####################
 
+## CATHOLIC ENCYCLICALS
+eocfm_catholic_encyclicals_sgui
+	scope = country
+	
+	is_shown = {
+		OR = {
+			has_journal_entry = je_eocfm_ecyclical_mirari_vos
+		}
+	}
+}
+
+eocfm_orthodox_mirari_vos_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_journal_entry = je_eocfm_ecyclical_mirari_vos
+	}
+	is_valid = {
+		has_variable = eocfm_catholic_mirari_vos_var
+	}
+}
+
+## ORTHODOX ENCYCLICALS
 eocfm_orthodox_encyclicals_sgui = {
 	scope = country
 	
@@ -11,8 +34,7 @@ eocfm_orthodox_encyclicals_sgui = {
 			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_2
 			has_journal_entry = je_eocfm_encyclical_orthodox_fraternity
 		}
-	}
-	
+	}	
 }
 
 eocfm_orthodox_easterners_sgui = {
@@ -24,11 +46,9 @@ eocfm_orthodox_easterners_sgui = {
 			has_journal_entry = je_eocfm_encyclical_orthodox_easterners_2
 		}
 	}
-	
 	is_valid = {
 		has_variable = eocfm_orthodox_easterners_var
 	}
-	
 }
 
 eocfm_orthodox_fraternity_sgui = {
@@ -37,9 +57,9 @@ eocfm_orthodox_fraternity_sgui = {
 	is_shown = {
 		has_journal_entry = je_eocfm_encyclical_orthodox_fraternity
 	}
-	
 	is_valid = {
 		has_variable = eocfm_orthodox_fraternity_var
-	}
-	
+	}	
 }
+
+## ELYSIAN ENCYCLICALS

@@ -58,6 +58,101 @@ je_eocfm_intro = {
 ###################################################
 
 ## CATHOLIC ENCYCLICAL ENTRIES ##
+je_eocfm_ecyclical_mirari_vos = {
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	
+	group = je_group_eocfm_content
+	
+	should_be_pinned_by_default = yes
+	
+	immediate = {}
+	
+	complete = {
+		calc_true_if = {
+			amount >= 3
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_religious_schools
+			has_law = law_type:law_charitable_health_system
+			OR = {
+				has_law = law_type:law_censorship
+				has_law = law_type:law_outlawed_dissent
+			}
+		}
+	}
+	
+	on_complete = {
+		add_modifier = {
+			name = modifier_eocfm_rebuked_lamennais
+			months = long_modifier_time
+		}
+		eocfm_add_conservative_loyalists_effect = yes
+		eocfm_add_reformist_radicals_effect = yes
+	}
+	
+	fail = {
+		calc_true_if = {
+			amount < 3
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_religious_schools
+			has_law = law_type:law_charitable_health_system
+			OR = {
+				has_law = law_type:law_censorship
+				has_law = law_type:law_outlawed_dissent
+			}
+		}
+	}
+	
+	on_fail = {
+		add_modifier = {
+			name = modifier_eocfm_rebuked_lamennais
+			months = long_modifier_time
+		}
+		eocfm_add_reformist_loyalists_effect = yes
+		eocfm_add_conservative_radicals_effect = yes
+	}
+	
+	timeout = 2404
+	
+	on_timeout = {
+		hidden
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					calc_true_if = {
+						amount >= 3
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_religious_schools
+						has_law = law_type:law_charitable_health_system
+						OR = {
+							has_law = law_type:law_censorship
+							has_law = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				add_modifier = {
+					name = modifier_eocfm_rebuked_lamennais
+					months = long_modifier_time
+				}
+				eocfm_add_conservative_loyalists_effect = yes
+				eocfm_add_reformist_radicals_effect = yes
+			}
+			else = {
+				add_modifier = {
+					name = modifier_eocfm_rebuked_lamennais
+					months = long_modifier_time
+				}
+				eocfm_add_reformist_loyalists_effect = yes
+				eocfm_add_conservative_radicals_effect = yes
+			}
+		}
+	}
+	
+	weight = 500
+	
+}
 
 
 #####################################################
@@ -122,29 +217,31 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	timeout = 3650
 	
 	on_timeout = {
-		if = {
-			limit = {
-				scope:journal_entry = {
-					scripted_bar_progress = {
-						name = eocfm_easterners_progress_bar
-						value <= 10
+		hidden_effect = {
+			if = {
+				limit = {
+					scope:journal_entry = {
+						scripted_bar_progress = {
+							name = eocfm_easterners_progress_bar
+							value <= 10
+						}
 					}
 				}
+				add_modifier = {
+					name = modifier_eocfm_rejected_epistle
+					months = long_modifier_time
+				}
+				eocfm_add_conservative_loyalists_effect = yes
+				eocfm_add_reformist_radicals_effect = yes
 			}
-			add_modifier = {
-				name = modifier_eocfm_rejected_epistle
-				months = long_modifier_time
+			else = {
+				add_modifier = {
+					name = modifier_eocfm_failed_encyclical
+					months = long_modifier_time
+				}
+				eocfm_add_reformist_loyalists_effect = yes
+				eocfm_add_conservative_radicals_effect = yes
 			}
-			eocfm_add_conservative_loyalists_effect = yes
-			eocfm_add_reformist_radicals_effect = yes
-		}
-		else = {
-			add_modifier = {
-				name = modifier_eocfm_failed_encyclical
-				months = long_modifier_time
-			}
-			eocfm_add_reformist_loyalists_effect = yes
-			eocfm_add_conservative_radicals_effect = yes
 		}
 	}
 	
@@ -226,29 +323,31 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	timeout = 3650
 	
 	on_timeout = {
-		if = {
-			limit = {
-				scope:journal_entry = {
-					scripted_bar_progress = {
-						name = eocfm_easterners_progress_bar
-						value >= 90
+		hidden_effect = {
+			if = {
+				limit = {
+					scope:journal_entry = {
+						scripted_bar_progress = {
+							name = eocfm_easterners_progress_bar
+							value >= 90
+						}
 					}
 				}
+				add_modifier = {
+					name = modifier_eocfm_rejected_epistle
+					months = long_modifier_time
+				}
+				eocfm_add_conservative_loyalists_effect = yes
+				eocfm_add_reformist_radicals_effect = yes
 			}
-			add_modifier = {
-				name = modifier_eocfm_rejected_epistle
-				months = long_modifier_time
+			else = {
+				add_modifier = {
+					name = modifier_eocfm_failed_encyclical
+					months = long_modifier_time
+				}
+				eocfm_add_reformist_loyalists_effect = yes
+				eocfm_add_conservative_radicals_effect = yes
 			}
-			eocfm_add_conservative_loyalists_effect = yes
-			eocfm_add_reformist_radicals_effect = yes
-		}
-		else = {
-			add_modifier = {
-				name = modifier_eocfm_failed_encyclical
-				months = long_modifier_time
-			}
-			eocfm_add_reformist_loyalists_effect = yes
-			eocfm_add_conservative_radicals_effect = yes
 		}
 	}
 	

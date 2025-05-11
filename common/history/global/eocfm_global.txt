@@ -13,28 +13,34 @@
 		value = 0
 	}
 	
-	eocfm_initialize_liturgical_rites_effect = yes # Liturgical Rite Setup
+	# Liturgical Rite Setup
+	eocfm_initialize_liturgical_rites_effect = yes
 	
+	# Patriarch Characters Setup
 	p:xB040A0 = { # A Country MUST own the Rome province for this effect to succeed
 		owner = {
-			eocfm_initialize_patriarchs_effect = yes # Patriarch Characters Setup
+			eocfm_initialize_patriarchs_effect = yes 
 		}
 	}
 	
-	eocfm_initialize_seat_controllers_effect = yes # Seat Control Initialization
+	# Seat Control Initialization
+	eocfm_initialize_seat_controllers_effect = yes 
 	
-	eocfm_specific_country_setups_effect = yes # Specific Country Setups
+	# Specific Country Setups
+	eocfm_specific_country_setups_effect = yes 
 	
+	# Initialize Variables and First Opener Events	
 	every_country = {
 		limit = {
 			eocfm_is_christian_trigger = yes
 		}
-		eocfm_initialize_metropolis_effect = yes # Initialize Variables and First Opener Events	
+		eocfm_initialize_metropolis_effect = yes 
 	}
 	
+	# Initialize Ranking Lists
 	p:xB040A0 = { # A Country MUST own the Rome province for this effect to succeed
 		owner = {
-			eocfm_initialize_ranking_lists = yes # Needs to fire after all countries are initialized
+			eocfm_initialize_ranking_lists = yes
 		}
 	}
 	
