@@ -175,6 +175,9 @@ widget = {
 
 		## WIDGET CONTENT
 		eocfm_catholic_window = {}
+#		eocfm_orthodox_window = {}
+#		eocfm_oriental_window = {}
+#		eocfm_elysian_window = {}
 	}
 	
 }
@@ -184,7 +187,6 @@ types eocfm_kingdom_of_god_window_types {
 	type eocfm_catholic_window = vbox {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
-		datacontext = "[AccessPlayer]"
 		
 		spacing = 10
 		margin_top = 180
@@ -209,9 +211,6 @@ types eocfm_kingdom_of_god_window_types {
 				using = entry_bg_fancy
 
 				eocfm_catholic_communion_panel = {}
-#				eocfm_orthodox_communion_panel = {}
-#				eocfm_oriental_communion_panel = {}
-#				eocfm_elysian_communion_panel = {}
 
 				### Metropolitan Character Panel and Stats
 				vbox = {
@@ -243,39 +242,26 @@ types eocfm_kingdom_of_god_window_types {
 					layoutpolicy_horizontal = expanding
 					size = { 0 44 }
 					blockoverride "text" {
-						text = "eocfm_gui_metropolitan_header"
+						text = "eocfm_gui_metropolis_header"
 					}
 				}
 				
 				eocfm_metropolitan_tabs = {}
 				
 				# Metropolitan Panels
-#				eocfm_catholic_metropolitan_panel = {}
-				eocfm_orthodox_metropolitan_panel = {}
-#				eocfm_oriental_metropolitan_panel = {}
-#				eocfm_elysian_metropolitan_panel = {}
+				eocfm_catholic_metropolis_panel = {}
 				
 				# College of Cardinals Panel
 				eocfm_collegium_cardinalium_panel = {}
 				
 				# Global Community Panels
-#				eocfm_catholic_global_panel = {}
-				eocfm_orthodox_global_panel = {}
-#				eocfm_oriental_global_panel = {}
-#				eocfm_elysian_global_panel = {}
+				eocfm_catholic_global_panel = {}
 				
 				# Encyclical Panel
-				eocfm_encyclical_dummy_panel = {}
-#				eocfm_catholic_encyclical_panel = {}
-#				eocfm_orthodox_encyclical_panel = {}
-#				eocfm_elysian_encyclical_panel = {}
+				eocfm_catholic_encyclical_panel = {}
 				
 				# Ecumenical Council Panels
-				eocfm_ecumenical_council_dummy_panel = {}
-#				eocfm_catholic_council_panel = {}
-#				eocfm_orthodox_council_panel = {}
-#				eocfm_oriental_council_panel = {}
-#				eocfm_elysian_council_panel = {}
+				eocfm_catholic_council_panel = {}
 				
 			}
 

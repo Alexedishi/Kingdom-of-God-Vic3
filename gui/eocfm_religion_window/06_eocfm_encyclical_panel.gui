@@ -29,9 +29,12 @@ types eocfm_encyclical_panels {
 		}
 	}
 	
-	type = eocfm_orthodox_encyclical_panel = vbox {
+	type = eocfm_catholic_encyclical_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
+		using = default_fade_in_out
+		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
 		
 		default_header_clean_faded = {
 			layoutpolicy_horizontal = expanding
@@ -46,6 +49,36 @@ types eocfm_encyclical_panels {
 			layoutpolicy_vertical = preferred
 			margin_left = 15
 			
+#			visible = "[Not(GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			
+			textbox = {
+				autoresize = yes
+				text = "eocfm_gui_no_encyclical"
+				elide = right
+				using = fontsize_xl
+			}	
+		}
+	}
+	
+	type = eocfm_orthodox_encyclical_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = preferred
+		using = default_fade_in_out
+		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_encyclical_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			margin_left = 15
 			
 			visible = "[Not(GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			

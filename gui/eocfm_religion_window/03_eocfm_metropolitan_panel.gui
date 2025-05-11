@@ -53,7 +53,7 @@ types eocfm_metropolitan_panels {
 		}
 	}
 	
-	type eocfm_orthodox_metropolitan_panel = vbox {
+	type eocfm_catholic_metropolis_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = shrinking
 		using = default_fade_in_out
@@ -65,7 +65,79 @@ types eocfm_metropolitan_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_college_header"
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			
+			vbox = {
+				margin = { 10 10 }
+				spacing = 10
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				textbox = {
+					autoresize = yes
+					text = "eocfm_gui_national_piety"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+				
+				default_progressbar_horizontal = {
+					size = { 250 24 }
+					blockoverride "values" {
+						min = 0
+						max = 1000
+						value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value'))]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+						text = "eocfm_gui_national_piety_amount"
+						align = center|nobaseline
+						elide = right
+						using = fontsize_medium
+					}
+					tooltip = "eocfm_gui_national_piety_breakdown"
+				}
+				
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_venerate_apparition"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_venerate_apparation_desc"
+				}
+			}
+		}
+	}
+	
+	type eocfm_orthodox_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
 			}
 		}
 		
@@ -75,8 +147,6 @@ types eocfm_metropolitan_panels {
 			margin_top = 10
 			spacing = 5
 			using = default_fade_in_out
-			
-			
 			
 			expand = {}
 			

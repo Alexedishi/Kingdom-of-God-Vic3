@@ -30,10 +30,44 @@ types eocfm_ecumenical_council_panels {
 		}
 	}
 	
+	## Catholic Inactive Panel
+	type eocfm_catholic_council_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = preferred
+		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
+		using = default_fade_in_out
+		
+#		visible = "[Not(GetScriptedGui('eocfm_catholic_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecumenical_council_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			
+			textbox = {
+				autoresize = yes
+				text = "eocfm_gui_ecumenical_council_none"
+				elide = right
+				using = fontsize_xl
+			}
+		}
+	}
+		
+	
 	## Orthodox Inactive Panel
 	type eocfm_orthodox_council_inactive = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
+		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
 		using = default_fade_in_out
 		
 		visible = "[Not(GetScriptedGui('eocfm_orthodox_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
@@ -63,6 +97,8 @@ types eocfm_ecumenical_council_panels {
 	type eocfm_orthodox_council_active = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
+		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
 		using = default_fade_in_out
 		
 		visible = "[GetScriptedGui('eocfm_orthodox_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
