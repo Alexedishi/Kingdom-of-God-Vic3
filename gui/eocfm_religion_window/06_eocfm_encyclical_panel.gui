@@ -44,20 +44,53 @@ types eocfm_encyclical_panels {
 			}
 		}
 		
+		# Inactive Panel
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = preferred
 			margin_left = 15
 			
-#			visible = "[Not(GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			visible = "[Not(GetScriptedGui('eocfm_catholic_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			
 			textbox = {
 				autoresize = yes
 				text = "eocfm_gui_no_encyclical"
 				elide = right
 				using = fontsize_xl
-			}	
+			}
 		}
+		
+		# Active Panel
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = preferred
+			margin_left = 15
+			
+			visible = "[Not(GetScriptedGui('eocfm_catholic_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = preferred
+				spacing = 15
+				margin_top = 10
+				
+				# Mirari Vos
+				eocfm_encyclical_widget = {
+					blockoverride "datacontext" {
+						datacontext = "[GetScriptedGui('eocfm_orthodox_mirari_vos_sgui')]"
+					}
+					blockoverride "encyclical_icon" {
+						texture = "gfx/interface/icons/invention_icons/egalitarianism.dds"
+					}
+					blockoverride "encyclical_name" {
+						text = "eocfm_gui_encyclical_catholic_mirari_vos"
+					}
+				}
+				expand = {}
+			}
+		}
+		
+		
 	}
 	
 	type = eocfm_orthodox_encyclical_panel = vbox {
@@ -75,6 +108,7 @@ types eocfm_encyclical_panels {
 			}
 		}
 		
+		# Inactive Panel
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = preferred
@@ -87,9 +121,10 @@ types eocfm_encyclical_panels {
 				text = "eocfm_gui_no_encyclical"
 				elide = right
 				using = fontsize_xl
-			}	
+			}
 		}
 		
+		# Active Panel
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = preferred
@@ -103,16 +138,38 @@ types eocfm_encyclical_panels {
 				spacing = 15
 				margin_top = 10
 				
-				eocfm_encyclical_orthodox_easterners = {}
-				eocfm_encyclical_orthodox_fraternity = {}
+				# Encyclical of the Eastern Patriarchs
+				eocfm_encyclical_widget = {
+					blockoverride "datacontext" {
+						datacontext = "[GetScriptedGui('eocfm_orthodox_easterners_sgui')]"
+					}
+					blockoverride "encyclical_icon" {
+						texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+					}
+					blockoverride "encyclical_name" {
+						text = "eocfm_gui_encyclical_orthodox_easterners"
+					}
+				}
+				# Encyclical of the Fraternity of Churches
+				eocfm_encyclical_widget = {
+					blockoverride "datacontext" {
+						datacontext = "[GetScriptedGui('eocfm_orthodox_fraternity_sgui')]"
+					}
+					blockoverride "encyclical_icon" {
+						texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+					}
+					blockoverride "encyclical_name" {
+						text = "eocfm_gui_encyclical_orthodox_fraternity"
+					}
+				}
 				expand = {}
-			}
+			}	
 		}
 	}
 	
-	type eocfm_encyclical_orthodox_easterners = widget {
+	type eocfm_encyclical_widget = widget {
 		size = { 350 60 }
-		datacontext = "[GetScriptedGui('eocfm_orthodox_easterners_sgui')]"
+		block "datacontext" {}
 		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 		
 		background = {
@@ -126,7 +183,9 @@ types eocfm_encyclical_panels {
 			
 			icon = {
 				parentanchor = center
-				texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+				block "encyclical_icon" {
+					texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+				}
 				size = { 45 45 }
 			}
 		}
@@ -135,59 +194,9 @@ types eocfm_encyclical_panels {
 			margin_left = 65
 			margin_top = 10
 			autoresize = yes
-			text = "eocfm_gui_encyclical_orthodox_easterners"
-			elide = right
-			using = fontsize_medium
-		}
-		textbox = {
-			visible = "[Not(ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))]"
-			parentanchor = left|top
-			margin_left = 65
-			margin_top = 30
-			autoresize = yes
-			text = "ecofm_gui_encyclical_bad"
-			elide = right
-			using = fontsize_medium
-			using = look_at_me_animation
-		}
-		textbox = {
-			visible = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			parentanchor = left|top
-			margin_left = 65
-			margin_top = 30
-			autoresize = yes
-			text = "ecofm_gui_encyclical_good"
-			elide = right
-			using = fontsize_medium
-		}
-	}
-	
-	type eocfm_encyclical_orthodox_fraternity = widget {
-		size = { 350 60 }
-		datacontext = "[GetScriptedGui('eocfm_orthodox_fraternity_sgui')]"
-		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-		
-		background = {
-			using = entry_bg
-			margin = { 5 5 }
-		}
-		icon = {
-			parentanchor = left|top
-			texture = "gfx/interface/backgrounds/round_frame_dec.dds"
-			size = { 60 60 }
-			
-			icon = {
-				parentanchor = center
-				texture = "gfx/interface/icons/invention_icons/civilizing_mission.dds"
-				size = { 45 45 }
+			block "encyclical_name" {
+				raw_text = "dummy"
 			}
-		}
-		textbox = {
-			parentanchor = left|top
-			margin_left = 65
-			margin_top = 10
-			autoresize = yes
-			text = "eocfm_gui_encyclical_orthodox_easterners"
 			elide = right
 			using = fontsize_medium
 		}
