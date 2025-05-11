@@ -463,17 +463,6 @@ eocfm_initialize_cardinals_effect = {
 		}
 	}
 	
-	# Purge Excess Cardinals
-	every_character_in_void = {
-		limit = {
-			has_template = template_eocfm_cardinal_dynamic
-		}
-		add_to_global_variable_list = {
-			name = eocfm_cardinals_list
-			target = this
-		}
-	}
-	
 	# Sort the list
 	sort_global_variable_list = {
 		name = eocfm_cardinals_list
