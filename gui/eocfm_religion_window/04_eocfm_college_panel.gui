@@ -1,10 +1,10 @@
 types eocfm_collegium_cardinalium_panels {
 
 	type eocfm_collegium_cardinalium_panel = vbox {
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = shrinking
+		layoutpolicy_horizontal = preferred
+		layoutpolicy_vertical = expanding
 		using = default_fade_in_out
-		maximumsize = { -1 400 }
+		spacing = 5
 		
 		visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')]"
 		
@@ -17,215 +17,302 @@ types eocfm_collegium_cardinalium_panels {
 		}
 		
 		# Preferatus
-		hbox = {
-			margin = { 5 5 }
-			spacing = 5
-			datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
-			
-			item = {
-				widget = {
-					size = { 220 200 }
-					using = entry_bg_fancy
-					datacontext = "[Scope.GetCharacter]"
-					visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
-					
-					default_header_clean_faded = {
-						size = { 220 35 }
-						parentanchor = top|hcenter
-						blockoverride "text" {
-							text = "eocfm_preferatus_header"
-							autoresize = yes
-							elide = right
-							using = fontsize_large
-						}
-					}
-					
-					character_portrait_medium_torso = {
-						parentanchor = center
-						
-						datacontext = "[AccessPlayer.AccessRuler]"
-						blockoverride "show_hat" {}
-						blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-						blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-						blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-					}
-					
-					default_header_clean_faded = {
-						size = { 100 25 }
-						parentanchor = bottom|hcenter
-						blockoverride "text" {}
-					}
-					
-					textbox = {
-						text = "eocfm_cardinal_name"
-						parentanchor = bottom|hcenter
-						position = { 0 -2 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_medium
-					}
-				}
+		scrollarea = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			minimumsize = { -1 220 }
+
+			scrollbarpolicy_horizontal = always_off
+			scrollbarpolicy_vertical = as_needed
+
+			scrollbar_horizontal = {
+				using = horizontal_scrollbar
 			}
-		}
+
+			scrollbar_vertical = {
+				using = vertical_scrollbar
+			}
 			
-		# First Row of Candidates
-		hbox = {
-			margin = { 5 5 }
-			spacing = 5
-			datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
-			
-			item = {
-				widget = {
-					size = { 140 100 }
-					datacontext = "[Scope.GetCharacter]"
-					visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1')]"
+			scrollwidget = {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					spacing = 5
+					margin = { 0 10 }
 					
-					character_portrait_medium = {
-						parentanchor = center
-						position = { 0 -10 }
-						blockoverride "show_hat" {}
-						blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-						blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-						blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-					}
+					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
 					
-					default_header_clean_faded = {
-						size = { 110 25 }
-						parentanchor = bottom|hcenter
-						blockoverride "text" {}
-					}
-					
-					textbox = {
-						text = "eocfm_cardinal_name"
-						parentanchor = bottom|hcenter
-						position = { 0 -2 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_medium
-					}
-					
-					textbox = {
-						text = "eocfm_cardinal_gravitas"
-						parentanchor = right|vcenter
-						position = { -5 18 }
-						autoresize = yes
-						elide = right
-						using = fontsize_medium
-						
-						background = {
-							using = dark_area
-							alpha = 0.5
-						}
-					}
-					
-					icon = {
-						size = { 27 18 }
-						position = { 15 18 }
-						parentanchor = left|vcenter
-						
-						texture = "[Country.GetFlag.GetSmallFlagTexture]"
-						alwaystransparent = yes
-						
-						frame = "[Country.GetFlag.GetSmallFlagFrame]"
-						framesize = "[GetSmallFlagFrameSize]"
-						
-						using = flag_overlay
-						
-						icon = {
-							name = frame
-							texture = "gfx/interface/flag/flag_power_tiny.dds"
-							size = { 33 24 }
-							framesize = { 66 48 }
-							frame = "[Country.GetRankIconIndex]"
-							alwaystransparent = yes
-							parentanchor = center
-							block "visibility" {}
+					item = {
+						widget = {
+							size = { 220 200 }
+							using = entry_bg_fancy
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+							
+							default_header_clean_faded = {
+								size = { 220 35 }
+								parentanchor = top|hcenter
+								blockoverride "text" {
+									text = "eocfm_preferatus_header"
+									autoresize = yes
+									elide = right
+									using = fontsize_large
+								}
+							}
+							
+							character_portrait_medium_torso = {
+								parentanchor = center
+								
+								datacontext = "[AccessPlayer.AccessRuler]"
+								blockoverride "show_hat" {}
+								blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+								blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+								blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+							}
+							
+							default_header_clean_faded = {
+								size = { 100 25 }
+								parentanchor = bottom|hcenter
+								blockoverride "text" {}
+							}
+							
+							textbox = {
+								text = "eocfm_cardinal_name"
+								parentanchor = bottom|hcenter
+								position = { 0 -2 }
+								autoresize = yes
+								max_width = 250
+								elide = right
+								using = fontsize_medium
+							}
 						}
 					}
 				}
 			}
 		}
 		
-		# Second Row
-		hbox = {
-			margin = { 5 5 }
-			spacing = 5
-			datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
+		# First Row of Candidates
+		scrollarea = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			minimumsize = { -1 110 }
+			maximumsize = { 600 -1 }
+
+			scrollbarpolicy_horizontal = always_off
+			scrollbarpolicy_vertical = as_needed
+
+			scrollbar_horizontal = {
+				using = horizontal_scrollbar
+			}
+
+			scrollbar_vertical = {
+				using = vertical_scrollbar
+			}
 			
-			item = {
-				widget = {
-					size = { 140 100 }
-					datacontext = "[Scope.GetCharacter]"
-					visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2')]"
+			scrollwidget = {
 				
-					character_portrait_medium = {
-						parentanchor = center
-						position = { 0 -10 }
-						blockoverride "show_hat" {}
-						blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-						blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-						blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-					}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					spacing = 5
+					margin = { 0 10 }
 					
-					default_header_clean_faded = {
-						size = { 110 25 }
-						parentanchor = bottom|hcenter
-						blockoverride "text" {}
-					}
+					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
 					
-					textbox = {
-						text = "eocfm_cardinal_name"
-						parentanchor = bottom|hcenter
-						position = { 0 -2 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_medium
-					}
-					
-					textbox = {
-						text = "eocfm_cardinal_gravitas"
-						parentanchor = right|vcenter
-						position = { -5 18 }
-						autoresize = yes
-						elide = right
-						using = fontsize_medium
-						
-						background = {
-							using = dark_area
-							alpha = 0.5
-						}
-					}
-					
-					icon = {
-						size = { 27 18 }
-						position = { 15 18 }
-						parentanchor = left|vcenter
-						
-						texture = "[Country.GetFlag.GetSmallFlagTexture]"
-						alwaystransparent = yes
-						
-						frame = "[Country.GetFlag.GetSmallFlagFrame]"
-						framesize = "[GetSmallFlagFrameSize]"
-						
-						using = flag_overlay
-						
-						icon = {
-							name = frame
-							texture = "gfx/interface/flag/flag_power_tiny.dds"
-							size = { 33 24 }
-							framesize = { 66 48 }
-							frame = "[Country.GetRankIconIndex]"
-							alwaystransparent = yes
-							parentanchor = center
-							block "visibility" {}
+					item = {
+						widget = {
+							size = { 140 100 }
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[Or(
+								EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1'),
+								Or(
+									EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2'),
+									Or(
+										EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)3'),
+										EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)4')
+									)
+								)
+							)]"
+							
+							character_portrait_medium = {
+								parentanchor = center
+								position = { 0 -10 }
+								blockoverride "show_hat" {}
+								blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+								blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+								blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+							}
+							
+							default_header_clean_faded = {
+								size = { 110 25 }
+								parentanchor = bottom|hcenter
+								blockoverride "text" {}
+							}
+							
+							textbox = {
+								text = "eocfm_cardinal_name"
+								parentanchor = bottom|hcenter
+								position = { 0 -2 }
+								autoresize = yes
+								max_width = 250
+								elide = right
+								using = fontsize_medium
+							}
+							
+							textbox = {
+								text = "eocfm_cardinal_gravitas"
+								parentanchor = right|vcenter
+								position = { -5 18 }
+								autoresize = yes
+								elide = right
+								using = fontsize_medium
+								
+								background = {
+									using = dark_area
+									alpha = 0.5
+								}
+							}
+							
+							icon = {
+								size = { 27 18 }
+								position = { 15 18 }
+								parentanchor = left|vcenter
+								
+								texture = "[Country.GetFlag.GetSmallFlagTexture]"
+								alwaystransparent = yes
+								
+								frame = "[Country.GetFlag.GetSmallFlagFrame]"
+								framesize = "[GetSmallFlagFrameSize]"
+								
+								using = flag_overlay
+								
+								icon = {
+									name = frame
+									texture = "gfx/interface/flag/flag_power_tiny.dds"
+									size = { 33 24 }
+									framesize = { 66 48 }
+									frame = "[Country.GetRankIconIndex]"
+									alwaystransparent = yes
+									parentanchor = center
+									block "visibility" {}
+								}
+							}
 						}
 					}
 				}
 			}
 		}
+		
+		# Second Row of Candidates
+		scrollarea = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			minimumsize = { -1 110 }
+			maximumsize = { 500 -1 }
+
+			scrollbarpolicy_horizontal = always_off
+			scrollbarpolicy_vertical = as_needed
+
+			scrollbar_horizontal = {
+				using = horizontal_scrollbar
+			}
+
+			scrollbar_vertical = {
+				using = vertical_scrollbar
+			}
+			
+			scrollwidget = {
+				
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					spacing = 5
+					margin = { 0 10 }
+					
+					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
+					
+					item = {
+						widget = {
+							size = { 140 100 }
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[Or(
+								EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)5'),
+								Or(
+									EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)6'),
+									EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)7')
+								)
+							)]"
+							
+							character_portrait_medium = {
+								parentanchor = center
+								position = { 0 -10 }
+								blockoverride "show_hat" {}
+								blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+								blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+								blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+							}
+							
+							default_header_clean_faded = {
+								size = { 110 25 }
+								parentanchor = bottom|hcenter
+								blockoverride "text" {}
+							}
+							
+							textbox = {
+								text = "eocfm_cardinal_name"
+								parentanchor = bottom|hcenter
+								position = { 0 -2 }
+								autoresize = yes
+								max_width = 250
+								elide = right
+								using = fontsize_medium
+							}
+							
+							textbox = {
+								text = "eocfm_cardinal_gravitas"
+								parentanchor = right|vcenter
+								position = { -5 18 }
+								autoresize = yes
+								elide = right
+								using = fontsize_medium
+								
+								background = {
+									using = dark_area
+									alpha = 0.5
+								}
+							}
+							
+							icon = {
+								size = { 27 18 }
+								position = { 15 18 }
+								parentanchor = left|vcenter
+								
+								texture = "[Country.GetFlag.GetSmallFlagTexture]"
+								alwaystransparent = yes
+								
+								frame = "[Country.GetFlag.GetSmallFlagFrame]"
+								framesize = "[GetSmallFlagFrameSize]"
+								
+								using = flag_overlay
+								
+								icon = {
+									name = frame
+									texture = "gfx/interface/flag/flag_power_tiny.dds"
+									size = { 33 24 }
+									framesize = { 66 48 }
+									frame = "[Country.GetRankIconIndex]"
+									alwaystransparent = yes
+									parentanchor = center
+									block "visibility" {}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		expand = {}
 	}
 	
 }
