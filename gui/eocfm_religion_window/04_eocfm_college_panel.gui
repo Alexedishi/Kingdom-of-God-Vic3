@@ -2,7 +2,7 @@ types eocfm_collegium_cardinalium_panels {
 
 	type eocfm_collegium_cardinalium_panel = vbox {
 		layoutpolicy_horizontal = preferred
-		layoutpolicy_vertical = expanding
+		layoutpolicy_vertical = shrinking
 		using = default_fade_in_out
 		spacing = 5
 		
@@ -20,7 +20,8 @@ types eocfm_collegium_cardinalium_panels {
 		scrollarea = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			minimumsize = { -1 220 }
+			minimumsize = { -1 240 }
+			maximumsize = { -1 240 }
 
 			scrollbarpolicy_horizontal = always_off
 			scrollbarpolicy_vertical = as_needed
@@ -43,86 +44,7 @@ types eocfm_collegium_cardinalium_panels {
 					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
 					
 					item = {
-						widget = {
-							size = { 220 200 }
-							using = entry_bg_fancy
-							datacontext = "[Scope.GetCharacter]"
-							visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
-							
-							default_header_clean_faded = {
-								size = { 220 35 }
-								parentanchor = top|hcenter
-								blockoverride "text" {
-									text = "eocfm_preferatus_header"
-									autoresize = yes
-									elide = right
-									using = fontsize_large
-								}
-							}
-							
-							character_portrait_medium_torso = {
-								parentanchor = center
-								blockoverride "show_hat" {}
-								blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-								blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-								blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-							}
-							
-							default_header_clean_faded = {
-								size = { 100 25 }
-								parentanchor = bottom|hcenter
-								blockoverride "text" {}
-							}
-							
-							textbox = {
-								text = "eocfm_cardinal_name"
-								parentanchor = bottom|hcenter
-								position = { 0 -2 }
-								autoresize = yes
-								max_width = 250
-								elide = right
-								using = fontsize_medium
-							}
-							
-							textbox = {
-								text = "eocfm_cardinal_gravitas"
-								parentanchor = right|vcenter
-								position = { -5 18 }
-								autoresize = yes
-								elide = right
-								using = fontsize_large
-								
-								background = {
-									using = dark_area
-									alpha = 0.5
-								}
-							}
-							
-							icon = {
-								size = { 27 18 }
-								position = { 15 18 }
-								parentanchor = left|vcenter
-								
-								texture = "[Country.GetFlag.GetSmallFlagTexture]"
-								alwaystransparent = yes
-								
-								frame = "[Country.GetFlag.GetSmallFlagFrame]"
-								framesize = "[GetSmallFlagFrameSize]"
-								
-								using = flag_overlay
-								
-								icon = {
-									name = frame
-									texture = "gfx/interface/flag/flag_power_tiny.dds"
-									size = { 33 24 }
-									framesize = { 66 48 }
-									frame = "[Country.GetRankIconIndex]"
-									alwaystransparent = yes
-									parentanchor = center
-									block "visibility" {}
-								}
-							}
-						}
+						eocfm_collegium_preferatus_widget = {}
 					}
 				}
 			}
@@ -132,7 +54,7 @@ types eocfm_collegium_cardinalium_panels {
 		scrollarea = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			minimumsize = { -1 110 }
+			minimumsize = { -1 120 }
 			maximumsize = { 600 -1 }
 
 			scrollbarpolicy_horizontal = always_off
@@ -157,82 +79,9 @@ types eocfm_collegium_cardinalium_panels {
 					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
 					
 					item = {
-						widget = {
-							size = { 140 100 }
-							datacontext = "[Scope.GetCharacter]"
-							visible = "[Or(
-								EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1'),
-								Or(
-									EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2'),
-									Or(
-										EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)3'),
-										EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)4')
-									)
-								)
-							)]"
-							
-							character_portrait_medium = {
-								parentanchor = center
-								position = { 0 -10 }
-								blockoverride "show_hat" {}
-								blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-								blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-								blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-							}
-							
-							default_header_clean_faded = {
-								size = { 110 25 }
-								parentanchor = bottom|hcenter
-								blockoverride "text" {}
-							}
-							
-							textbox = {
-								text = "eocfm_cardinal_name"
-								parentanchor = bottom|hcenter
-								position = { 0 -2 }
-								autoresize = yes
-								max_width = 250
-								elide = right
-								using = fontsize_medium
-							}
-							
-							textbox = {
-								text = "eocfm_cardinal_gravitas"
-								parentanchor = right|vcenter
-								position = { -5 18 }
-								autoresize = yes
-								elide = right
-								using = fontsize_medium
-								
-								background = {
-									using = dark_area
-									alpha = 0.5
-								}
-							}
-							
-							icon = {
-								size = { 27 18 }
-								position = { 15 18 }
-								parentanchor = left|vcenter
-								
-								texture = "[Country.GetFlag.GetSmallFlagTexture]"
-								alwaystransparent = yes
-								
-								frame = "[Country.GetFlag.GetSmallFlagFrame]"
-								framesize = "[GetSmallFlagFrameSize]"
-								
-								using = flag_overlay
-								
-								icon = {
-									name = frame
-									texture = "gfx/interface/flag/flag_power_tiny.dds"
-									size = { 33 24 }
-									framesize = { 66 48 }
-									frame = "[Country.GetRankIconIndex]"
-									alwaystransparent = yes
-									parentanchor = center
-									block "visibility" {}
-								}
+						eocfm_collegium_cardinal_widget = {
+							blockoverride "row_visibility" {
+								visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)3'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)4'))))]"
 							}
 						}
 					}
@@ -244,7 +93,7 @@ types eocfm_collegium_cardinalium_panels {
 		scrollarea = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			minimumsize = { -1 110 }
+			minimumsize = { -1 120 }
 			maximumsize = { 500 -1 }
 
 			scrollbarpolicy_horizontal = always_off
@@ -269,87 +118,170 @@ types eocfm_collegium_cardinalium_panels {
 					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
 					
 					item = {
-						widget = {
-							size = { 140 100 }
-							datacontext = "[Scope.GetCharacter]"
-							visible = "[Or(
-								EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)5'),
-								Or(
-									EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)6'),
-									EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)7')
-								)
-							)]"
-							
-							character_portrait_medium = {
-								parentanchor = center
-								position = { 0 -10 }
-								blockoverride "show_hat" {}
-								blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-								blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-								blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-							}
-							
-							default_header_clean_faded = {
-								size = { 110 25 }
-								parentanchor = bottom|hcenter
-								blockoverride "text" {}
-							}
-							
-							textbox = {
-								text = "eocfm_cardinal_name"
-								parentanchor = bottom|hcenter
-								position = { 0 -2 }
-								autoresize = yes
-								max_width = 250
-								elide = right
-								using = fontsize_medium
-							}
-							
-							textbox = {
-								text = "eocfm_cardinal_gravitas"
-								parentanchor = right|vcenter
-								position = { -5 18 }
-								autoresize = yes
-								elide = right
-								using = fontsize_medium
-								
-								background = {
-									using = dark_area
-									alpha = 0.5
-								}
-							}
-							
-							icon = {
-								size = { 27 18 }
-								position = { 15 18 }
-								parentanchor = left|vcenter
-								
-								texture = "[Country.GetFlag.GetSmallFlagTexture]"
-								alwaystransparent = yes
-								
-								frame = "[Country.GetFlag.GetSmallFlagFrame]"
-								framesize = "[GetSmallFlagFrameSize]"
-								
-								using = flag_overlay
-								
-								icon = {
-									name = frame
-									texture = "gfx/interface/flag/flag_power_tiny.dds"
-									size = { 33 24 }
-									framesize = { 66 48 }
-									frame = "[Country.GetRankIconIndex]"
-									alwaystransparent = yes
-									parentanchor = center
-									block "visibility" {}
-								}
+						eocfm_collegium_cardinal_widget = {
+							blockoverride "row_visibility" {
+								visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)5'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)6'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)7')))]"
 							}
 						}
 					}
 				}
 			}
 		}
-		
-		expand = {}
 	}
 	
+	type eocfm_collegium_preferatus_widget = widget {
+		size = { 240 220 }
+		using = entry_bg_fancy
+		datacontext = "[Scope.GetCharacter]"
+		visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+		
+		default_header_clean_faded = {
+			size = { 220 35 }
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "eocfm_preferatus_header"
+				autoresize = yes
+				elide = right
+				using = fontsize_large
+			}
+		}
+		
+		character_portrait_medium_torso = {
+			parentanchor = center
+			blockoverride "show_hat" {}
+			blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+			blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+			blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+		}
+		
+		default_header_clean_faded = {
+			size = { 210 36 }
+			parentanchor = bottom|hcenter
+			blockoverride "text" {}
+		}
+		
+		textbox = {
+			text = "eocfm_cardinal_name"
+			parentanchor = bottom|hcenter
+			position = { 0 -5 }
+			autoresize = yes
+			max_width = 250
+			elide = right
+			using = fontsize_large
+		}
+		
+		textbox = {
+			text = "eocfm_cardinal_gravitas"
+			parentanchor = top|right
+			position = { -10 40 }
+			autoresize = yes
+			elide = right
+			using = fontsize_large
+			
+			background = {
+				using = dark_area
+				alpha = 0.5
+				margin = { 2 2 }
+			}
+			
+			tooltip = "eocfm_cardinal_gravitas_breakdown"
+		}
+		
+		icon = {
+			size = { 48 32 }
+			parentanchor = top|left
+			position = { 10 39 }
+			
+			texture = "[Country.GetFlag.GetSmallFlagTexture]"
+			alwaystransparent = yes
+			
+			frame = "[Country.GetFlag.GetSmallFlagFrame]"
+			framesize = "[GetSmallFlagFrameSize]"
+			
+			using = flag_overlay
+			
+			icon = {
+				texture = "gfx/interface/flag/flag_power_small.dds"
+				size = { 62 46 }
+				framesize = { 124 92 }
+				frame = "[Country.GetRankIconIndex]"
+				alwaystransparent = yes
+				parentanchor = center
+			}
+		}
+	}
+	
+	type eocfm_collegium_cardinal_widget = widget {
+		size = { 140 100 }
+		datacontext = "[Scope.GetCharacter]"
+		
+		block "row_visibility" {}
+		
+		character_portrait_medium = {
+			parentanchor = center
+			position = { 0 -10 }
+			blockoverride "show_hat" {}
+			blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+			blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+			blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+		}
+		
+		default_header_clean_faded = {
+			size = { 110 25 }
+			parentanchor = bottom|hcenter
+			blockoverride "text" {}
+		}
+		
+		textbox = {
+			text = "eocfm_cardinal_name"
+			parentanchor = bottom|hcenter
+			position = { 0 -2 }
+			autoresize = yes
+			max_width = 250
+			elide = right
+			using = fontsize_medium
+		}
+		
+		textbox = {
+			text = "eocfm_cardinal_gravitas"
+			parentanchor = right|vcenter
+			position = { -5 18 }
+			autoresize = yes
+			elide = right
+			using = fontsize_medium
+			
+			background = {
+				using = dark_area
+				alpha = 0.5
+				margin = { 2 2 }
+			}
+			
+			tooltip = "eocfm_cardinal_gravitas_breakdown"
+		}
+		
+		icon = {
+			size = { 27 18 }
+			position = { 15 18 }
+			parentanchor = left|vcenter
+			
+			texture = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagTexture]"
+			alwaystransparent = yes
+			
+			frame = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagFrame]"
+			framesize = "[GetSmallFlagFrameSize]"
+			
+			using = flag_overlay
+			
+			icon = {
+				name = frame
+				texture = "gfx/interface/flag/flag_power_tiny.dds"
+				size = { 33 24 }
+				framesize = { 66 48 }
+				frame = "[Country.GetRankIconIndex]"
+				alwaystransparent = yes
+				parentanchor = center
+				block "visibility" {}
+			}
+		}
+	}
 }
