@@ -390,4 +390,96 @@ types eocfm_metropolitan_panels {
 		}
 	}
 	
+	type eocfm_oriental_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			
+			vbox = {
+				margin = { 10 10 }
+				spacing = 10
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_venerate_apparition"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_venerate_apparation_desc"
+				}
+			}
+		}
+	}
+	
+	type eocfm_elysian_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			
+			vbox = {
+				margin = { 10 10 }
+				spacing = 10
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_venerate_apparition"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_venerate_apparation_desc"
+				}
+			}
+		}
+	}
+	
 }
