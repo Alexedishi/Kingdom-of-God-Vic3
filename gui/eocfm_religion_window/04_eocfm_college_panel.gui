@@ -8,6 +8,11 @@ types eocfm_collegium_cardinalium_panels {
 		
 		visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')]"
 		
+		background = {
+			using = entry_bg_unit_dark
+			margin = { -10 -5 }
+		}
+		
 		default_header_clean_faded = {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
@@ -47,6 +52,14 @@ types eocfm_collegium_cardinalium_panels {
 						eocfm_collegium_preferatus_widget = {}
 					}
 				}
+			}
+		}
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			maximumsize = { 300 -1 }
+			blockoverride "text" {
+				text = "eocfm_papabili_header"
 			}
 		}
 		
