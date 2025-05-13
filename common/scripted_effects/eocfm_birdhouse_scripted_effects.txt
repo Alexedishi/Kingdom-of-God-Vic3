@@ -2,7 +2,7 @@
 # EOCFM ORNITHOLOGICAL SOCIETY SCRIPTED EFFECTS #
 #################################################
 
-eocfm_update_collegium_lists = {
+eocfm_update_collegium_effect = {
 	# Set Timeout Variable
 	set_global_variable = {
 		name = eocfm_cardinal_timeout
@@ -16,9 +16,6 @@ eocfm_update_collegium_lists = {
 	every_country = {
 		limit = {
 			eocfm_is_roman_catholic_trigger = yes
-			NOT = {
-				has_law = law_type:law_state_atheism
-			}
 		}
 		ig:ig_devout = {
 			leader = {
