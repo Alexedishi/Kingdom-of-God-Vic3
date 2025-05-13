@@ -1536,493 +1536,505 @@ eocfm_set_orthodox_location_effect = {
 }
 
 eocfm_add_reformist_loyalists_effect = {
-	if = {
-		limit = {
-			ig:ig_landowners = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+	custom_tooltip = {
+		text = eocfm_encyclical_reformist_loyalists
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_landowners
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_devout = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_landowners
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_devout
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_armed_forces = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+		if = {
+			limit = {
+				ig:ig_devout = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_armed_forces
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_petty_bourgeoisie = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_devout
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_petty_bourgeoisie
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_intelligentsia = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+		if = {
+			limit = {
+				ig:ig_armed_forces = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_intelligentsia
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_industrialists = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_armed_forces
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_industrialists
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_rural_folk = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+		if = {
+			limit = {
+				ig:ig_petty_bourgeoisie = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_rural_folk
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_trade_unions = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_petty_bourgeoisie
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_trade_unions
-			religion = rel:orthodox
-			value = medium_radicals
+		if = {
+			limit = {
+				ig:ig_intelligentsia = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_intelligentsia
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_industrialists = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_industrialists
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_rural_folk = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_rural_folk
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_trade_unions = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_trade_unions
+				religion = rel:orthodox
+				value = medium_radicals
+			}
 		}
 	}
 }
 
 eocfm_add_reformist_radicals_effect = {
-	if = {
-		limit = {
-			ig:ig_landowners = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+	custom_tooltip = {
+		text = eocfm_encyclical_reformist_radicals
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_landowners
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_devout = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_landowners
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_devout
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_armed_forces = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+		if = {
+			limit = {
+				ig:ig_devout = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_armed_forces
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_petty_bourgeoisie = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_devout
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_petty_bourgeoisie
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_intelligentsia = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+		if = {
+			limit = {
+				ig:ig_armed_forces = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_intelligentsia
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_industrialists = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_armed_forces
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_industrialists
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_rural_folk = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
+		if = {
+			limit = {
+				ig:ig_petty_bourgeoisie = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_rural_folk
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_trade_unions = {
-				OR = {
-					interest_group_has_liberal_ideology = yes
-					interest_group_has_progressive_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_petty_bourgeoisie
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_trade_unions
-			religion = rel:orthodox
-			value = medium_radicals
+		if = {
+			limit = {
+				ig:ig_intelligentsia = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_intelligentsia
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_industrialists = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_industrialists
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_rural_folk = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_rural_folk
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_trade_unions = {
+					OR = {
+						interest_group_has_liberal_ideology = yes
+						interest_group_has_progressive_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_trade_unions
+				religion = rel:orthodox
+				value = medium_radicals
+			}
 		}
 	}
 }
 
 eocfm_add_conservative_loyalists_effect = {
-	if = {
-		limit = {
-			ig:ig_landowners = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+	custom_tooltip = {
+		text = eocfm_encyclical_conservative_loyalists
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_landowners
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_devout = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_landowners
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_devout
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_armed_forces = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+		if = {
+			limit = {
+				ig:ig_devout = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_armed_forces
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_petty_bourgeoisie = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_devout
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_petty_bourgeoisie
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_intelligentsia = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+		if = {
+			limit = {
+				ig:ig_armed_forces = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_intelligentsia
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_industrialists = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_armed_forces
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_industrialists
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_rural_folk = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+		if = {
+			limit = {
+				ig:ig_petty_bourgeoisie = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_loyalists = {
-			interest_group = ig:ig_rural_folk
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_trade_unions = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_loyalists = {
+				interest_group = ig:ig_petty_bourgeoisie
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_loyalists = {
-			interest_group = ig:ig_trade_unions
-			religion = rel:orthodox
-			value = medium_radicals
+		if = {
+			limit = {
+				ig:ig_intelligentsia = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_intelligentsia
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_industrialists = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_industrialists
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_rural_folk = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_rural_folk
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_trade_unions = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_loyalists = {
+				interest_group = ig:ig_trade_unions
+				religion = rel:orthodox
+				value = medium_radicals
+			}
 		}
 	}
 }
 
 eocfm_add_conservative_radicals_effect = {
-	if = {
-		limit = {
-			ig:ig_landowners = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+	custom_tooltip = {
+		text = eocfm_encyclical_conservative_radicals
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_landowners
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_devout = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_landowners
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_devout
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_armed_forces = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+		if = {
+			limit = {
+				ig:ig_devout = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_armed_forces
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_petty_bourgeoisie = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_devout
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_petty_bourgeoisie
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_intelligentsia = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+		if = {
+			limit = {
+				ig:ig_armed_forces = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_intelligentsia
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_industrialists = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_armed_forces
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_industrialists
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_rural_folk = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
+		if = {
+			limit = {
+				ig:ig_petty_bourgeoisie = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
 				}
 			}
-		}
-		add_radicals = {
-			interest_group = ig:ig_rural_folk
-			religion = rel:orthodox
-			value = medium_radicals
-		}
-	}
-	if = {
-		limit = {
-			ig:ig_trade_unions = {
-				OR = {
-					interest_group_has_reactionary_ideology = yes
-					interest_group_has_conservative_ideology = yes
-				}
+			add_radicals = {
+				interest_group = ig:ig_petty_bourgeoisie
+				religion = rel:orthodox
+				value = medium_radicals
 			}
 		}
-		add_radicals = {
-			interest_group = ig:ig_trade_unions
-			religion = rel:orthodox
-			value = medium_radicals
+		if = {
+			limit = {
+				ig:ig_intelligentsia = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_intelligentsia
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_industrialists = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_industrialists
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_rural_folk = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_rural_folk
+				religion = rel:orthodox
+				value = medium_radicals
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_trade_unions = {
+					OR = {
+						interest_group_has_reactionary_ideology = yes
+						interest_group_has_conservative_ideology = yes
+					}
+				}
+			}
+			add_radicals = {
+				interest_group = ig:ig_trade_unions
+				religion = rel:orthodox
+				value = medium_radicals
+			}
 		}
 	}
 }

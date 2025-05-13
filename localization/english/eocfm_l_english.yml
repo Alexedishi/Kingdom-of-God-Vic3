@@ -124,7 +124,7 @@
  
  # dynamic country names
  EOC_ODX_republic: "Orthodox Republic"
- EOC_ODX_peoples_republic: "Orthodox People's Republic"
+ EOC_ODX_peoples_republic: "Orthodox People’s Republic"
  
  # custom loc
  custom_eocfm_roman_catholic: "The Roman Catholic Church"
@@ -224,7 +224,7 @@
  concept_encyclical: "Encyclical"
  concept_encyclical_desc: "An #bold Encyclical#! is a circular letter sent out from either the Pope or other senior Bishops typically concerning matters of doctrine or dispute, meant to provide both clarification and direction to both the clergy and laity."
  concept_faith_capacity: "Religious Eminence"
- concept_faith_capacity_desc: "#bold Religious Eminence#! represents the extent to which the [concept_government] exterts influence, and sometimes direct control, over the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant]. Generally, this value indicates a country's ability to sway its local bishops, and our religious community at large, towards the will of the state."
+ concept_faith_capacity_desc: "#bold Religious Eminence#! represents the extent to which the [concept_government] exterts influence, and sometimes direct control, over the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant]. Generally, this value indicates a country’s ability to sway its local bishops, and our religious community at large, towards the will of the state."
  concept_faith_capacity_catholic: "Papal Eminence"
  concept_faith_capacity_orthodox: "Patriarchal Eminence"
  concept_faith_capacity_oriental: "Synodal Eminence"
@@ -256,7 +256,7 @@
  
  ## Catholic Entries
  je_eocfm_ecyclical_mirari_vos: "Encyclical: #italic Mirari Vos#!"
- je_eocfm_ecyclical_mirari_vos_reason: "“#italic We have learned of the pamphlet written in French under the title Paroles d’un croyant, for it has been printed by this man and disseminated everywhere.... Though small in size, it is enormous in wickedness.... Once the torch of treason is ignited everywhere, it ruins public order, fosters contempt of government, and stimulates lawlessness.... By Our apostolic power, We condemn the book....” -Pope Gregory XVI\n\n Published by French priest, Felicité Robert de Lamennais, the book #italic Paroles d'un croyant#! has ignited controversy by advocating for the separation of church and state and the abilition of the church monopoly on education. The Pope has both condemned the publication and urged Catholic nations to ensure the supremacy of the church in religious and social affairs."
+ je_eocfm_ecyclical_mirari_vos_reason: "“#italic We have learned of the pamphlet written in French... for it has been printed by this man and disseminated everywhere.... Though small in size, it is enormous in wickedness.... Once the torch of treason is ignited everywhere, it ruins public order, fosters contempt of government, and stimulates lawlessness.... By Our apostolic power, We condemn the book....”#! -Pope Gregory XVI\n\n Published by French priest, Felicité Robert de Lamennais, the book #italic Paroles d’un croyant#! has ignited controversy by advocating for the separation of church and state and the abilition of the church monopoly on education. The Pope has both condemned the publication and urged Catholic nations to ensure the supremacy of the church in religious and social affairs."
  
  ## Eastern Orthodox Entries
  je_eocfm_encyclical_orthodox_easterners_1: "The Encyclical of the Eastern Patriarchs"
@@ -383,6 +383,20 @@
  modifier_eocfm_protecting_bishops: "Providing Parochial Escorts"
  modifier_eocfm_elder_assassinated: "Religious Elder Assassinated"
  
+ modifier_eocfm_failed_encyclical: "Failed Encyclical Call to Action"
+ modifier_eocfm_rebuked_lamennais: "Rebuked Lamennais’ Publishings"
+ 
+ modifier_eocfm_rejected_epistle: "Rejected Epistle"
+ modifier_eocfm_accepted_epistle: "Accepted Epistle"
+ modifier_eocfm_supported_fraternity: "Supported the Fraternity of Churches"
+ 
+ modifier_eocfm_hosting_council: "Hosting Council"
+ modifier_eocfm_hosted_council: "Hosted Council"
+ modifier_eocfm_condemned_phyletism: "Condemned Phyletism"
+ modifier_eocfm_endorsed_phyletism: "Endorsed Phyletism"
+ modifier_eocfm_revised_julian_calendar: "Revised Julian Calendar"
+ modifier_eocfm_retained_old_calendar: "Retained Old Calendar"
+ 
  modifier_eocfm_autocephaly_abandoned: "Abandoned Autocepalous Ambitions"
  modifier_eocfm_autocephaly_granted: "[concept_autocephaly] Granted"
  modifier_eocfm_integrating_seat: "Integrating [concept_patriarchal_seat]"
@@ -492,15 +506,6 @@
  modifier_eocfm_integrating_elysium: "Integrating $eocfm_elysium$"
  modifier_eocfm_integrating_mixtec: "Integrating $eocfm_mixtec$"
  modifier_eocfm_integrating_cahokia: "Integrating $eocfm_cahokia$"
- 
- modifier_eocfm_hosting_council: "Hosting Council"
- modifier_eocfm_hosted_council: "Hosted Council"
- modifier_eocfm_rejected_epistle: "Rejected Epistle"
- modifier_eocfm_accepted_epistle: "Accepted Epistle"
- modifier_eocfm_condemned_phyletism: "Condemned Phyletism"
- modifier_eocfm_endorsed_phyletism: "Endorsed Phyletism"
- modifier_eocfm_revised_julian_calendar: "Revised Julian Calendar"
- modifier_eocfm_retained_old_calendar: "Retained Old Calendar"
  
  modifier_eocfm_crusade_launched: "Crusade Launched"
  modifier_eocfm_forced_conversion: "Forced Conversion"
@@ -819,10 +824,10 @@
  eocfm_value_from_elysian_support: "From the influence of [Concept('concept_country','$concept_countries$'] supporting this proposal"
  eocfm_value_from_elysian_opposition: "From the influence of [Concept('concept_country','$concept_countries$'] opposing this proposal"
  
- eocfm_value_from_home_prestige: "From the [concept_prestige] of this character's home [concept_country]"
+ eocfm_value_from_home_prestige: "From the [concept_prestige] of this character’s home [concept_country]"
  eocfm_value_from_italian_culture: "From having an #bold Italian#! [concept_culture]"
- eocfm_value_from_piety: "From this character's $eocfm_piety$"
- eocfm_value_from_age: "From this character's age"
+ eocfm_value_from_piety: "From this character’s $eocfm_piety$"
+ eocfm_value_from_age: "From this character’s age"
  eocfm_value_from_being_underage: "From being #bold Underage#!"
  
  eocfm_value_from_persistent_trait: "From having the trait [concept_character_trait] #bold Persistent#!"
@@ -880,7 +885,7 @@
  eocfm_is_selecting_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
  
  eocfm_piety: "#o #tooltip:[GetRawTextTooltipTag('eocfm_piety_concept')] Piety#!#!"
- eocfm_piety_concept: "#bold Piety#! is a measure of a character's standing as a follower of Christ's teachings. This value is governed by a character's personality traits."
+ eocfm_piety_concept: "#bold Piety#! is a measure of a character’s standing as a follower of Christ’s teachings. This value is governed by a character’s personality traits."
  
  eocfm_national_piety: "#o #tooltip:[GetRawTextTooltipTag('eocfm_national_piety_concept')] National Piety#!#!"
  eocfm_national_piety_concept: "#bold National Piety#! indicates to what extent a [concept_country] has put the teachings of Jesus Christ into practice by providing for the well-being of the downtrodden in society."
@@ -1124,14 +1129,24 @@
  eocfm_patriarch_deposed: "The #bold Ecumenical Patriarch#! has been deposed"
  eocfm_patriarch_deposed_cooldown: "The #bold Ecumenical Patriarch#! has not been deposed within the last five years."
  
+ eocfm_encyclical_timeout: "[ROOT.GetCountry.GetNameNoFlag]’s #bold Success#! or #bold Failure#! will be determined when #bold Time Runs Out#!"
+ eocfm_encyclical_reformist_loyalists: "#tooltippable #tooltip:[GetPlayer.GetTooltipTag],eocfm_encyclical_reformist_loyalists_tt Reform-minded#!#! [concept_pop]#o s#! will become more [concept_loyalist]"
+ eocfm_encyclical_reformist_loyalists_tt: "[GetScriptedGui('eocfm_add_reformist_loyalists_sgui').ExecuteTooltip(GuiScope.SetRoot(Country.MakeScope).End)]"
+ eocfm_encyclical_reformist_radicals: "#tooltippable #tooltip:[GetPlayer.GetTooltipTag],eocfm_encyclical_reformist_radicals_tt Reform-minded#!#! [concept_pop]#o s#! will become more [concept_radical]"
+ eocfm_encyclical_reformist_radicals_tt: "[GetScriptedGui('eocfm_add_reformist_radicals_sgui').ExecuteTooltip(GuiScope.SetRoot(Country.MakeScope).End)]"
+ eocfm_encyclical_conservative_loyalists: "#tooltippable #tooltip:[GetPlayer.GetTooltipTag],eocfm_encyclical_conservative_loyalists_tt Tradition-minded#!#! [concept_pop]#o s#! will become more [concept_loyalist]"
+ eocfm_encyclical_conservative_loyalists_tt: "[GetScriptedGui('eocfm_add_conservative_loyalists_sgui').ExecuteTooltip(GuiScope.SetRoot(Country.MakeScope).End)]"
+ eocfm_encyclical_conservative_radicals: "#tooltippable #tooltip:[GetPlayer.GetTooltipTag],eocfm_encyclical_conservative_radicals_tt Tradition-minded#!#! [concept_pop]#o s#! will become more [concept_radical]"
+ eocfm_encyclical_conservative_radicals_tt: "[GetScriptedGui('eocfm_add_conservative_radicals_sgui').ExecuteTooltip(GuiScope.SetRoot(Country.MakeScope).End)]"
+ 
  eocfm_council_active: "An [concept_ecumenical_council] is currently being held"
  eocfm_council_active_NOT: "An [concept_ecumenical_council] is #bold not#! currently being held"
  eocfm_council_counter_below_4: "There have been less than #variable 4#! councils"
  eocfm_council_skipped: "[ROOT.GetCountry.GetName] will be #bold unable#! to vote in the upcoming [concept_ecumenical_council]"
- eocfm_theological_matter: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_theological_matter_list')] Theologial Matter#!#! calling the Church's attention."
+ eocfm_theological_matter: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_theological_matter_list')] Theologial Matter#!#! calling the Church’s attention."
  eocfm_theological_matter_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_declare_commonwealth_possible')] Orthodox Commonwealth#!#!."
  
- eocfm_orthodox_matters: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_orthodox_matters_list')] Theologial Matter#!#! calling the Church's attention."
+ eocfm_orthodox_matters: "There is a #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_orthodox_matters_list')] Theologial Matter#!#! calling the Church’s attention."
  eocfm_orthodox_matters_list: "•Reply to the Epistle to the Easterners (requires #yellow Mass Communication#!).\n•Settle the issue of Phyletism (requires #yellow Nationalism#!).\n•Reform the Julian Calendar (requires #yellow Central Planning#!).\n•Revive the [Concept('concept_crusades','$concept_crusades$')] (must have #bold Restored the Byzantine Empire#!)\n•Declare the #tooltippable #tooltip:[GetRawTextTooltipTag('eocfm_declare_commonwealth_possible')] Orthodox Commonwealth#!#!."
  eocfm_epistle_to_the_easterners: "The Epistle to the Easterners"
  eocfm_problems_with_phyletism: "Problems with Phyletism"

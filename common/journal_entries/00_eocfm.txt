@@ -78,6 +78,7 @@ je_eocfm_ecyclical_mirari_vos = {
 				has_law = law_type:law_outlawed_dissent
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -100,11 +101,12 @@ je_eocfm_ecyclical_mirari_vos = {
 				has_law = law_type:law_outlawed_dissent
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {
 		add_modifier = {
-			name = modifier_eocfm_rebuked_lamennais
+			name = modifier_eocfm_failed_encyclical
 			months = long_modifier_time
 		}
 		eocfm_add_reformist_loyalists_effect = yes
@@ -201,6 +203,7 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 				}
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -222,6 +225,7 @@ je_eocfm_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 				}
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {
@@ -307,6 +311,7 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 				}
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -328,6 +333,7 @@ je_eocfm_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 				}
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {
@@ -412,6 +418,7 @@ je_eocfm_encyclical_orthodox_fraternity = { #
 				var:eocfm_moscow_opinion_var >= 75
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -434,6 +441,7 @@ je_eocfm_encyclical_orthodox_fraternity = { #
 				var:eocfm_moscow_opinion_var >= 75
 			}
 		}
+		eocfm_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {
