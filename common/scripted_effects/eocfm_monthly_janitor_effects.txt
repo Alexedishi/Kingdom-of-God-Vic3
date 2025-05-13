@@ -234,6 +234,111 @@ eocfm_update_votes_effect = {
 	}
 }
 
+eocfm_update_council_votes_effect = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = eocfm_votes_timeout_var
+		days = 20
+	}
+	
+	# Check Catholic Variables
+	if = {
+		limit = {
+			has_global_variable = eocfm_catholic_matter_var
+		}
+		set_global_variable = {
+			name = eocfm_catholic_support_var
+			value = eocfm_catholic_support_value
+		}
+		set_global_variable = {
+			name = eocfm_catholic_opposition_var
+			value = eocfm_catholic_opposition_value
+		}
+		set_global_variable = {
+			name = eocfm_catholic_council_var
+			value = eocfm_catholic_council_value
+		}
+	}
+	else = {
+		remove_global_variable = eocfm_catholic_support_var
+		remove_global_variable = eocfm_catholic_opposition_var
+		remove_global_variable = eocfm_catholic_council_var
+	}
+	
+	# Check Orthodox Variables
+	if = {
+		limit = {
+			has_global_variable = eocfm_orthodox_matter_var
+		}
+		set_global_variable = {
+			name = eocfm_orthodox_support_var
+			value = eocfm_orthodox_support_value
+		}
+		set_global_variable = {
+			name = eocfm_orthodox_opposition_var
+			value = eocfm_orthodox_opposition_value
+		}
+		set_global_variable = {
+			name = eocfm_orthodox_council_var
+			value = eocfm_orthodox_council_value
+		}
+	}
+	else = {
+		remove_global_variable = eocfm_orthodox_support_var
+		remove_global_variable = eocfm_orthodox_opposition_var
+		remove_global_variable = eocfm_orthodox_council_var
+	}
+	
+	# Check Oriental Variables
+	if = {
+		limit = {
+			has_global_variable = eocfm_oriental_matter_var
+		}
+		set_global_variable = {
+			name = eocfm_oriental_support_var
+			value = eocfm_oriental_support_value
+		}
+		set_global_variable = {
+			name = eocfm_oriental_opposition_var
+			value = eocfm_oriental_opposition_value
+		}
+		set_global_variable = {
+			name = eocfm_oriental_council_var
+			value = eocfm_oriental_council_value
+		}
+	}
+	else = {
+		remove_global_variable = eocfm_oriental_support_var
+		remove_global_variable = eocfm_oriental_opposition_var
+		remove_global_variable = eocfm_oriental_council_var
+	}
+	
+	# Check Elysian Variables
+	if = {
+		limit = {
+			has_global_variable = eocfm_elysian_matter_var
+		}
+		set_global_variable = {
+			name = eocfm_elysian_support_var
+			value = eocfm_elysian_support_value
+		}
+		set_global_variable = {
+			name = eocfm_elysian_opposition_var
+			value = eocfm_elysian_opposition_value
+		}
+		set_global_variable = {
+			name = eocfm_elysian_council_var
+			value = eocfm_elysian_council_value
+		}
+	}
+	else = {
+		remove_global_variable = eocfm_elysian_support_var
+		remove_global_variable = eocfm_elysian_opposition_var
+		remove_global_variable = eocfm_elysian_council_var
+	}
+	
+}
+
 ## PATRIARCH RELATIONS UPKEEP EFFECTS ##
 eocfm_push_patriarch_relations_effect = {
 	if = {
