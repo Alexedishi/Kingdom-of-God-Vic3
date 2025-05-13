@@ -399,7 +399,7 @@ eocfm_initialize_seat_controllers_effect = {
 	
 	# Elysian Orthodox Seats
 	if = {
-		limit = {	
+		limit = {
 			basileia_is_active = yes
 		}
 		p:x700080 = { # Elysium
@@ -415,20 +415,11 @@ eocfm_initialize_seat_controllers_effect = {
 	}
 }
 
-eocfm_initialize_cardinals_effect = {
-	# Set Timeout Variable
-	set_global_variable = {
-		name = eocfm_cardinal_timeout
-		days = 20
-	}
-	
+eocfm_initialize_collegium_effect = {
 	# Place extant Catholic Devout leaders into the Cardinal list
 	every_country = {
 		limit = {
 			eocfm_is_roman_catholic_trigger = yes
-			NOT = {
-				has_law = law_type:law_state_atheism
-			}
 		}
 		ig:ig_devout = {
 			leader = {
