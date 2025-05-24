@@ -688,72 +688,77 @@ eocfm_push_patriarch_relations_effect = {
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_eocfm_swaying_elysium
+			basileia_is_active = yes
 		}
-		change_variable = {
+		if = {
+			limit = {
+				has_modifier = modifier_eocfm_swaying_elysium
+			}
+			change_variable = {
+				name = eocfm_elysium_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_eocfm_antagonizing_elysium
+			}
+			change_variable = {
+				name = eocfm_elysium_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
 			name = eocfm_elysium_relations_var
-			add = 1
+			min = -50
+			max = 50
 		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_eocfm_antagonizing_elysium
+		if = {
+			limit = {
+				has_modifier = modifier_eocfm_swaying_mixtec
+			}
+			change_variable = {
+				name = eocfm_mixtec_relations_var
+				add = 1
+			}
 		}
-		change_variable = {
-			name = eocfm_elysium_relations_var
-			subtract = 1
+		if = {
+			limit = {
+				has_modifier = modifier_eocfm_antagonizing_mixtec
+			}
+			change_variable = {
+				name = eocfm_mixtec_relations_var
+				subtract = 1
+			}
 		}
-	}
-	clamp_variable = {
-		name = eocfm_elysium_relations_var
-		min = -50
-		max = 50
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_eocfm_swaying_mixtec
-		}
-		change_variable = {
+		clamp_variable = {
 			name = eocfm_mixtec_relations_var
-			add = 1
+			min = -50
+			max = 50
 		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_eocfm_antagonizing_mixtec
+		if = {
+			limit = {
+				has_modifier = modifier_eocfm_swaying_cahokia
+			}
+			change_variable = {
+				name = eocfm_cahokia_relations_var
+				add = 1
+			}
 		}
-		change_variable = {
-			name = eocfm_mixtec_relations_var
-			subtract = 1
+		if = {
+			limit = {
+				has_modifier = modifier_eocfm_antagonizing_cahokia
+			}
+			change_variable = {
+				name = eocfm_cahokia_relations_var
+				subtract = 1
+			}
 		}
-	}
-	clamp_variable = {
-		name = eocfm_mixtec_relations_var
-		min = -50
-		max = 50
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_eocfm_swaying_cahokia
-		}
-		change_variable = {
+		clamp_variable = {
 			name = eocfm_cahokia_relations_var
-			add = 1
+			min = -50
+			max = 50
 		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_eocfm_antagonizing_cahokia
-		}
-		change_variable = {
-			name = eocfm_cahokia_relations_var
-			subtract = 1
-		}
-	}
-	clamp_variable = {
-		name = eocfm_cahokia_relations_var
-		min = -50
-		max = 50
 	}
 }
 
