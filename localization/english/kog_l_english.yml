@@ -1,0 +1,294 @@
+﻿l_english:
+ # DLC info
+ dlc_kog: "The Kingdom of God"
+ dlc_kog_desc: "Take up the cross and lead the followers of Christ into the Victorian Era! From the centralized and dogmatic Catholic Church in Rome to the disunified Churches of the East under Muslim rule, take charge of the flock as the faith struggles to find its place in this rapidly changing world."
+ 
+ # Alert groups
+ ag_kog_alerts_name: "Religious Interaction Available"
+ ag_kog_alerts_desc: "There are religious Interactions available."
+ ag_kog_alerts_tooltip: "#header $ag_kog_alerts_name$#!\n$TOOLTIP_DELIMITER$\n$ag_kog_alerts_desc$\n\n$ALERT_GROUP_TOOLTIP_FOOTER$"
+ gg_kog_faith_action: "Kingdom of God Panel"
+
+ # Alerts
+ alert_kog_no_focus_alert_name: "@information! No Metropolitan Focus Active"
+ alert_kog_no_focus_alert_hint: "Our Metropolitan Bishop has not been given an ecclesiastic focus."
+ alert_kog_no_focus_alert_action: "$gg_kog_faith_action$"
+ kog_no_focus_alert_setting_name: "No Metropolitan Focus Active"
+
+ alert_kog_icon_possible_alert_name: "@information! Can Select an Icon"
+ alert_kog_icon_possible_alert_hint: "We have at least 200 $kog_faith_capacity$ and do not have an icon selected."
+ alert_kog_icon_possible_alert_action: "$gg_kog_faith_action$"
+ kog_icon_possible_alert_setting_name: "Icon Selection Possible"
+
+ alert_kog_integration_possible_alert_name: "@information! Can Integrate Patriarchal Seat"
+ alert_kog_integration_possible_alert_hint: "We have at least 200 $kog_faith_capacity$ and own a state that hosts a Patriarchal Seat that is not under our control."
+ alert_kog_integration_possible_alert_action: "$gg_kog_faith_action$"
+ kog_integration_possible_alert_setting_name: "Patriarchal Seat Integration Possible"
+ 
+ # Buildings
+
+ # Building PMGs
+ 
+ # Building Production Methods
+ 
+ # Character Traits
+ 
+ # Country Names
+ KOG_ATH: "Mount Athos"
+ KOG_ATH_ADJ: "Athonite"
+ KOG_ODX: "Orthodox Commonwealth"
+ KOG_ODX_ADJ: "Orthodox"
+ 
+ # Country Dynamic Names
+ KOG_ODX_republic: "Orthodox Republic"
+ KOG_ODX_peoples_republic: "Orthodox People’s Republic"
+
+ # Country Flavor Texts
+ # // 
+ 
+ # Custom Localizations
+ kog_roman_catholic: "The Roman Catholic Church"
+ kog_eastern_orthodox: "The Eastern Orthodox Church"
+ kog_oriental_orthodox: "The Oriental Orthodox Churches"
+ kog_ancient_east: "The Ancient Church of the East"
+ kog_elysian_orthodox: "The Elysian Orthodox Church"
+
+ kog_no_autocephaly_catholic: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $kog_rome$"
+ kog_schismatic_catholic: "[GetPlayer.GetName] is #bold #red In Schism#!#! with $kog_rome$"
+ kog_autocephalous_catholic: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_rome$"
+ kog_supremacy_catholic: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! $kog_rome$"
+ 
+ kog_no_autocephaly_orthodox: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $kog_constantinople$."
+ kog_schismatic_orthodox: "[GetPlayer.GetName] is #bold #red In Schism#!#! with $kog_constantinople$."
+ kog_autocephalous_orthodox: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_constantinople$."
+ kog_supremacy_orthodox: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! $kog_constantinople$."
+ 
+ kog_no_autocephaly_oriental: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $kog_coptic_alexandria$."
+ kog_schismatic_oriental: "[GetPlayer.GetName] is #bold #red In Schism#!#! with $kog_coptic_alexandria$."
+ kog_autocephalous_oriental: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_coptic_alexandria$."
+ kog_supremacy_oriental: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! $kog_coptic_alexandria$."
+ 
+ kog_no_autocephaly_elysian: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $kog_elysium$."
+ kog_schismatic_elysian: "[GetPlayer.GetName] is #bold #red In Schism#!#! with $kog_elysium$."
+ kog_autocephalous_elysian: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_elysium$."
+ kog_supremacy_elysian: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! $kog_elysium$."
+ 
+ kog_no_focus: "#bold None#!"
+ kog_emphasize_unity_focus: "#bold #green Emphasizing Pan-Orthodox Unity#!#!"
+ kog_enforce_attendance_focus: "#bold #red Enforcing Church Attendance#!#!"
+ kog_theologize_dogma_focus: "#bold #greece Theologizing Novel Dogma#!#!"
+ kog_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
+
+ kog_council_oppose: "#red Opposed#!"
+ kog_council_support: "#green Supporting#!"
+ kog_council_abstain: "#yellow Abstention#!"
+ 
+ kog_no_owner: "#bold #yellow No One#!#!"
+ kog_church_owner: "[Character.Var('kog_controller_var').GetFlag]"
+ kog_santiago_owner: "[Character.Var('kog_controller_var').GetCountry.GetName]"
+
+ kog_endorsing: "#bold #green Endorsing#!#!"
+ kog_friendly: "#bold #green Endorsing#!#!"
+ kog_amicable: "#bold #green Amicable#!#!"
+ kog_cordial: "#bold #green Cordial#!#!"
+ kog_neutral: "#bold Neutral#!"
+ kog_poor: "#bold #red Poor#!#!"
+ kog_cold: "#bold #red Cold#!#!"
+ kog_hostile: "#bold #red Hostile#!#!"
+ kog_condemning: "#bold #red Poor#!#!"
+ 
+ # Decisions
+ 
+ # Decrees
+ decree_kog_consecrate_metropolitan: "Consecrate Metropolitan Bishop"
+ decree_kog_consecrate_metropolitan_desc: "Empower a prominent local Bishop with the authority to exert direct control over his episcopal see. #yellow This will cost 100 $kog_faith_capacity$#!."
+ decree_kog_encourage_almsgiving: "Encourage Almsgiving"
+ decree_kog_encourage_almsgiving_desc: "Promote the giving of donations to the Orthodox Church (and skim a little off the top). #yellow This will cost 100 $kog_faith_capacity$#!."
+
+ # Diplomatic Plays
+ dp_crusade: "Crusade"
+ dp_crusade_tooltip: "#header Start a $dp_make_dominion$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_make_dominion_desc$"
+ dp_crusade_desc: "Sets the initiating [concept_war_goal] to force the targeted [concept_country] to become your [concept_dominion]. If enforced, this is convert the targeted [concept_country] to convert its state religion to your state religion."
+
+ # Game Concepts
+ concept_autocephaly: "Autocephaly"
+ concept_autocephaly_desc: "While nominally a single ecumenical church, the non-[GetReligion('catholic').GetName] Church structures are much more decentralized than their Western counterpart in Rome. Every nation plays host to prominent bishops that exert influence over the worship in their domain, sometimes in deviation from the #italic Primus Inter Pares#!, or First Among Equals, $kog_patriarch$ at the head of the church. #bold Autocephalous#! churches have heads who do not report to any higher Bishop such as the Patriarch of Constantinople or the Bishop of Rome."
+ concept_autocephalous: "Autocephalous"
+ concept_crusades: "Crusades"
+ concept_crusades_desc: "The Crusades were a series of religiously-motivated wars initiated by Western European countries against non-Christians. While popularly conceptualized as centered on reclaiming the Holy Land from Muslim rulers, similar religious conflicts saw Christian expansion into Scandinavia, Eastern Europe, and Iberia. These wars were generally motivated by a desire for fame from nobles and a desire for indulgences by the commonfolk."
+ concept_crusade: "Crusade"
+ concept_ecumenical_council: "Ecumenical Council"
+ concept_ecumenical_council_desc: "#bold Ecumenical Councils#! are large gatherings of prominent bishops for the purpose of settling religious questions or disputes. First called by the Roman Emperors, these councils have become a cornerstone of making critical interpretations of or changes to church dogma. In modern Christianity, these are held to be the supreme legal authority in the church... provided their contents are accepted by the Christian community at large."
+ concept_ecumenism: "Ecumenism"
+ concept_ecumenism_desc: "Ecumenism is the belief and goal that all Christian communities, regardless of differences in creeds and doctrine should cooperate to bring together the various Christian denominations and reunite into a Great Church. While unthinkable in previous eras, this idea has begun to take hold as Traditionalist thought slowly gives way to more moderate thinking."
+ concept_ecumenical_relations: "Ecumenical Relations"
+ concept_councils: "Ecumenical Councils"
+ concept_encyclical: "Encyclical"
+ concept_encyclical_desc: "An #bold Encyclical#! is a circular letter sent out from either the Pope or other senior Bishops typically concerning matters of doctrine or dispute, meant to provide both clarification and direction to both the clergy and laity."
+ concept_faith_capacity: "Religious Eminence"
+ concept_faith_capacity_desc: "#bold Religious Eminence#! represents the extent to which the [concept_government] exerts influence, and sometimes direct control, over the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant]. Generally, this value indicates a country’s ability to sway its local bishops, and our religious community at large, towards the will of the state."
+ concept_faith_capacity_catholic: "Papal Eminence"
+ concept_faith_capacity_orthodox: "Patriarchal Eminence"
+ concept_faith_capacity_oriental: "Synodal Eminence"
+ concept_faith_capacity_elysian: "Synkletos Eminence"
+ concept_faith_capacity_anglican: ""
+ concept_faith_capacity_lutheran: ""
+ concept_great_schism: "The Great Schism"
+ concept_great_schism_desc: "The #bold Great Schism#!, or East-West Schism, is a term used to describe the complex chain of events that led to the disintegration of communion between $kog_rome$ and the $kog_eastern_seats$. This division between the churches administered from Rome and those guided by Constantinople has led to deviations in liturgical and dogmatic traditions."
+ concept_holy_site: "Holy Site"
+ concept_holy_site_desc: "Holy Site"
+ concept_liturgical_rite: "Liturgical Rite"
+ concept_liturgical_rite_desc: "A #bold Liturgical Rite#! is a pattern for worship that provides structure for regular church services in a Christian communities. These take many forms from the centralized rituals prescribed by the [GetReligion('catholic').GetName] church to unique rituals localized to small communities."
+ concept_liturgical_rites: "Liturgical Rite"
+ concept_rite: "Rite"
+ concept_rites: "Rite"
+ concept_metropolitan_bishop: "Metropolitan Bishop"
+ concept_metropolitan_bishop_desc: "Metropolitan Bishop"
+ concept_patriarchal_seat: "Patriarchal Seat
+ concept_patriarchal_seat_desc: "In late antiquity, the early Christian church was organized into five major regions, each centered on the ancient holy cites of #yellow Rome#!, #yellow Constantinople#!, #yellow Antioch#!, #yellow Jerusalem#!, and #yellow Alexandria#!. Following the Great Schism, the latter four would go on to form the #bold Eastern Orthodoxy.\n\nWith the spread of Christianity to the lands of the Slavs in the middle ages, #yellow Moscow#! has come to be recognized as one of the most important cities in the East, alongside the ancient Patriarchates.
+ concept_patriarch: "Patriarch"
+ concept_patriarchs: "Patriarchs"
+ concept_patriarchate: "Patriarchate"
+ concept_patriarchal_seats: "Patriarchal Seats"
+ 
+ # Journal Entries
+ 
+ ## Roman Catholic Entries
+ je_kog_ecyclical_mirari_vos: "Encyclical: #italic Mirari Vos#!"
+ je_kog_ecyclical_mirari_vos_reason: "“#italic We have learned of the pamphlet written in French... for it has been printed by this man and disseminated everywhere.... Though small in size, it is enormous in wickedness.... Once the torch of treason is ignited everywhere, it ruins public order, fosters contempt of government, and stimulates lawlessness.... By Our apostolic power, We condemn the book....”#! -Pope Gregory XVI\n\n Published by French priest, Felicité Robert de Lamennais, the book #italic Paroles d’un croyant#! has ignited controversy by advocating for the separation of church and state and the abolition of the church monopoly on education. The Pope has both condemned the publication and urged Catholic nations to ensure the supremacy of the church in religious and social affairs."
+
+ ## Eastern Orthodox Entries
+ je_kog_encyclical_orthodox_easterners_1: "The Encyclical of the Eastern Patriarchs"
+ je_kog_encyclical_orthodox_easterners_1_reason: "#italic “Filled with the desire to see you return to the fold of the Catholic Church, and to bless you as Our brothers and sons, and awaiting the day when this joy will be given us, We yet again attest Our affection and Our tenderness towards all the Catholics spread through all the lands of the East, to all Patriarchs, Primates, Archbishops, bishops, clergy and laity, and We confer on them Our apostolic blessing.”#! -Pope Pius IX, #italic Epistle to the Easterners,#! 1848\n\nThe [concept_ecumenical_council] has rejected the bank-handed olive branch extended by $kog_rome$. The Ecumenical Patriarch, [GetGlobalVariable('kog_constantinople_patriarch_var').GetFirstName], has issued an [concept_encyclical] calling for the cessation of any positive relations with the Pope."
+ je_kog_encyclical_orthodox_easterners_2: "The Encyclical of the Eastern Patriarchs"
+ je_kog_encyclical_orthodox_easterners_2_reason: "#italic “Filled with the desire to see you return to the fold of the Catholic Church, and to bless you as Our brothers and sons, and awaiting the day when this joy will be given us, We yet again attest Our affection and Our tenderness towards all the Catholics spread through all the lands of the East, to all Patriarchs, Primates, Archbishops, bishops, clergy and laity, and We confer on them Our apostolic blessing.”#! -Pope Pius IX, #italic Epistle to the Easterners,#! 1848\n\nThe [concept_ecumenical_council] has shocked the world by accepting the olive branch extended by $kog_rome$. The Ecumenical Patriarch, [GetGlobalVariable('kog_constantinople_patriarch_var').GetFirstName], has issued an [concept_encyclical] calling for the thawing of relations between the Pope and the Eastern Churches."
+ je_kog_encyclical_orthodox_easterners_complete: "The #bold Progress Bar#! is greater than or equal to #bold #greece 90#!#!"
+ je_kog_encyclical_orthodox_easterners_fail: "The #bold Progress Bar#! is less than #bold #greece 90#!#!"
+ je_kog_encyclical_orthodox_fraternity: "The Encyclical of the Fraternity of Churches"
+ je_kog_encyclical_orthodox_fraternity_reason: "The Ecumenical Patriarch, [GetGlobalVariable('kog_constantinople_patriarch_var').GetFirstName], concerned by the increasing capabilities of nation-states across Europe, has called for greater unity between the [GetReligion('orthodox').GetName] churches as a means to safeguard the churches from state interference.\n$TOOLTIP_DELIMITER$\n•$kog_constantinople_opinion$\n•$kog_antioch_opinion$\n•$kog_jerusalem_opinion$\n•$kog_alexandria_opinion$\n•$kog_moscow_opinion$"
+ je_kog_encyclical_orthodox_fraternity_complete: "[ROOT.GetCountry.GetNameNoFlag] has $kog_relations$ of at least #bold #green 75#! or greater#! with at least #bold 2 or More#! $kog_patriarchs$"
+ je_kog_encyclical_orthodox_fraternity_fail: "[ROOT.GetCountry.GetNameNoFlag] #bold does NOT#! have $kog_relations$ of at least #bold #green 75#! or greater#! with at least #bold 2 or More#! $kog_patriarchs$"
+
+ je_kog_the_orthodox_realms: "The Orthodox Realms"
+ je_kog_the_orthodox_realms_reason: "In the times of the Empire, it was the Patriarchate of Constantinople that saw the spread of Christianity across the steppes. Since the fall of the Queen of Cities, the Rus' barbarians have styled themselves as pretenders to the Patriarchal seat. Now that we control the cradles of Christianity, we should extend our oversight to the Greater Orthodox community."
+ je_kog_the_orthodox_realms_constantinople: "Own #yellow Eastern Thrace#! and control the #bold Seat of Constantinople#!."
+ je_kog_the_orthodox_realms_antioch: "Own #yellow Syria#! and control the #bold Seat of Antioch#!."
+ je_kog_the_orthodox_realms_alexandria: "Own #yellow Lower Egypt#! and control the #bold Seat of Alexandria#!."
+ je_kog_the_orthodox_realms_jerusalem: "Own #yellow Palestine#! and control the #bold Seat of Jerusalem#!."
+ je_kog_the_orthodox_realms_metropolitan_lands: "Has completed the #bold The Metropolitan Lands#! [concept_journal_entry]"
+ je_kog_the_orthodox_realms_holy_land: "Has completed the #bold The Holy Land#! [concept_journal_entry]"
+ je_kog_the_orthodox_realms_black_sea: "Has completed the #bold Across the Hospitable Sea#! [concept_journal_entry]"
+ je_kog_the_metropolitan_lands: "The Metropolitan Lands"
+ je_kog_the_metropolitan_lands_reason: "In the decades following the Ascension of Christ and the missions of the Twelve Apostles, Anatolia served as the cradle of Early Christianity. We will free these lands from the Saracens."
+ je_kog_the_metropolitan_lands_complete_1: "Directly or indirectly control 10 or more states in the Balkans."
+ je_kog_the_metropolitan_lands_complete_2: "Directly or indirectly control 9 or more states in Anatolia."
+ je_kog_the_holy_land: "The Holy Land"
+ je_kog_the_holy_land_reason: "The Levant is the birthplace of Christianity and the Holiest Lands to our faith. The Patriarchs have both granted and imposed a mandate that we reclaim these lands from their Muslim occupiers."
+ je_kog_texas_left: "Across the Hospitable Sea"
+ je_kog_texas_left_reason: "The Black Sea was once entirely within the Greek sphere. We will bring relief to our people that still call its shores home."
+ 
+ ## Oriental Orthodox Entries
+  
+ ## Elysian Orthodox Entries
+ 
+ # Journal Entry Groups
+ je_group_kog_content: "Matters of Faith" 
+ 
+ # Modifiers
+ 
+ 
+ # Names
+ De_Quelen: "de Quélen"
+ Droste_zu_Vischering: "Droste zu Vischering"
+ Vinzenz: "Vinzenz"
+
+ Fourtouniadis: "Fourtouniadis"
+ Methodius: "Methodius"
+ Hierotheus: "Hierotheus"
+
+ Abba: "Abba"
+ El_Gawly: "El-Gawly"
+ Karbesti: "Karbesti"
+ Abuna: "Abuna"
+ Mar: "Mar"
+
+ Neophytus: "Neophytus"
+ Dabbas: "Dabbas"
+ Parthenius: "Parthenius"
+ Kosmas: "Kosmas"
+ Theophan: "Theophan"
+ 
+ # Notifications
+ 
+ # Objectives
+ objective_kog: "The Kingdom of God"
+ objective_kog_desc: ""#italic We believe in one God, the Father almighty, maker of all things visible and invisible; And in one Lord, Jesus Christ, the Son of God, begotten from the Father, only-begotten...#!\n\n Lead the Christian community into the dawning age of metal and steel. Hold fast to the tradiitons of old or charge bravely into this new world!"
+
+ objective_kog_name_PAP: "#v Papal States#!"
+ objective_kog_desc_PAP: "#lore #!"
+ objective_kog_name_FRA: "#v $FRA$#!"
+ objective_kog_desc_FRA: "#lore #!"
+ objective_kog_name_RUS: "#v $RUS$#!"
+ objective_kog_desc_RUS: "#lore #!"
+ objective_kog_name_GRE: "#v $GRE$#!"
+ objective_kog_desc_GRE: "#lore #!"
+ objective_kog_name_ALK: "#v $Russian American Company$#!"
+ objective_kog_desc_ALK: "#lore #!"
+ objective_kog_name_SHW: "#v $SHW$#!"
+ objective_kog_desc_SHW: "#lore #!"
+
+ # Scripted Buttons
+ # //
+
+ # Scripted Progress Bars
+ kog_easterners_progress_bar_name: "Epistle of the Easterners"
+ 
+ # Script Value Descriptions
+
+ # Triggers
+ kog_is_catholic: "[concept_state_religion] is [GetReligion('catholic').GetName]"
+ kog_is_catholic_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('catholic').GetName]"
+ kog_has_apparation: "[GetPlayer.GetNameNoFlag] is actively venerating a #bold Marian Apparition#!"
+ kog_has_apparation_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! venerating a #bold Marian Apparition#!"
+
+ kog_is_orthodox: "[concept_state_religion] is [GetReligion('orthodox').GetName]"
+ kog_is_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('orthodox').GetName]"
+ kog_has_icon: "[GetPlayer.GetNameNoFlag] is actively venerating an #bold Orthodox Icon#!"
+ kog_has_icon_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! venerating an #bold Orthodox Icon#!"
+ kog_is_selecting_icon_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
+ kog_considering_mandate_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! already considering a mandate from the Patriarch."
+ kog_has_mandate_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! already have a mandate from the Patriarch"
+ kog_focus_timeout_NOT: "[GetPlayer.GetNameNoFlag] has not changed focus within the last 5 years"
+ kog_focus_timeout_GET: "#red #italic [GetPlayer.GetNameNoFlag] will be unable to change focus for the next 5 years!#!#!"
+
+ kog_is_oriental_orthodox: "[concept_state_religion] is [GetReligion('oriental_othorodx').GetName]"
+ kog_is_oriental_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('oriental_othorodx').GetName]"
+ kog_has_veneration: "[GetPlayer.GetNameNoFlag] is actively venerating an #bold Orthodox Icon#!"
+ kog_has_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! actively venerating an #bold Orthodox Icon#!"
+ kog_is_selecting_veneration_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! in the process of Selecting an Icon"
+
+ kog_has_byzantine_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_byzantine_rite$"
+ kog_has_roman_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_roman_rite$"
+ kog_has_coptic_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_alexandrian_rite$"
+ kog_has_armenian_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_armenian_rite$"
+ kog_has_syriac_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_syriac_rites$"
+ kog_has_elysian_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_elysian_rite$"
+ kog_has_mixtec_rite: "[GetPlayer.GetNameNoFlag] practices the $kog_mixtec_rite$"
+ kog_has_same_rite: "[GetPlayer.GetNameNoFlag] practices the same [concept_liturgical_rite] as this [concept_country]"
+
+ kog_has_100_capacity: "[GetPlayer.GetNameNoFlag] has #blue 100#! $kog_faith_capacity$"
+ kog_has_200_capacity: "[GetPlayer.GetNameNoFlag] has #blue 200#! $kog_faith_capacity$"
+ kog_has_500_capacity: "[GetPlayer.GetNameNoFlag] has #blue 500#! $kog_faith_capacity$"
+ kog_has_800_capacity: "[GetPlayer.GetNameNoFlag] has #blue 800#! $kog_faith_capacity$"
+ kog_has_1000_capacity: "[GetPlayer.GetNameNoFlag] has #blue 1000#! $kog_faith_capacity$"
+ kog_has_2000_capacity: "[GetPlayer.GetNameNoFlag] has #blue 2000#! $kog_faith_capacity$"
+
+ kog_is_autocephalous: "[GetPlayer.GetNameNoFlag] has gained [concept_autocephaly]"
+ kog_is_autocephalous_NOT: "[GetPlayer.GetNameNoFlag] has not gained [concept_autocephaly]"
+ kog_is_schismatic: "[GetPlayer.GetNameNoFlag] is #bold In Schism#! from the Ecumenical Patriarchate"
+
+
+
+
+ k: ""
+ # Yeet
