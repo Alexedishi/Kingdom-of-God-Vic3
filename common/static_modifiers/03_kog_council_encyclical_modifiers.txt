@@ -1,0 +1,84 @@
+﻿# Ecumenical Council Modifiers
+modifier_kog_hosting_council = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_faith_capacity_add = -1000
+}
+
+modifier_kog_attended_council = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_pol_str_mult = 0.05
+	interest_group_approval_add = 5
+}
+
+modifier_kog_denied_council = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	interest_group_pol_str_mult = -0.10
+	interest_group_approval_add = -5
+}
+
+modifier_kog_hosted_council = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_positive.dds
+	country_prestige_add = 50
+	state_conversion_mult = 0.05
+	interest_group_ig_devout_approval_add = 5
+}
+
+# General Encyclical Modifiers
+modifier_kog_failed_encyclical = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_authority_mult = -0.05
+	state_conversion_mult = -0.10
+	interest_group_ig_devout_approval_add = -5
+}
+
+# Catholic Council Modifiers
+modifier_kog_rebuked_lamennais = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_positive.dds
+	country_authority_mult = 0.10
+	state_radicals_from_political_movements_mult = 0.15
+	interest_group_ig_devout_approval_add = 5
+}
+
+# Orthodox Council Modifiers
+modifier_kog_rejected_epistle = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
+	country_authority_mult = 0.10
+	interest_group_ig_devout_approval_add = 5
+}
+
+modifier_kog_accepted_epistle = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
+	country_influence_mult = 0.10
+	country_improve_relations_speed_mult = 0.10
+	interest_group_ig_devout_approval_add = -5
+}
+
+modifier_kog_condemned_phyletism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
+	country_prestige_add = 25
+	state_assimilation_mult = 0.10
+	state_radicalism_increases_open_prejudice_mult = 0.05
+	state_radicalism_increases_cultural_erasure_mult = 0.05
+	state_radicalism_increases_violent_hostility_mult = 0.05
+}
+
+modifier_kog_endorsed_phyletism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
+	country_influence_mult = 0.05
+	state_conversion_mult = 0.10
+	state_radicalism_increases_open_prejudice_mult = -0.05
+	state_radicalism_increases_cultural_erasure_mult = -0.05
+	state_radicalism_increases_violent_hostility_mult = -0.05
+}
+
+modifier_kog_revised_julian_calendar = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_positive.dds
+	country_tech_spread_mult = 0.10
+	interest_group_ig_devout_approval_add = -5
+}
+
+modifier_kog_retained_old_calendar = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_orthodox_negative.dds
+	country_tech_spread_mult = -0.10
+	interest_group_ig_devout_approval_add = -5
+}
