@@ -143,6 +143,79 @@
 				place_character_in_void = 250
 			}
 		}
+
+		c:SHW ?= {
+			## Oriental Orthodox Churches
+			# Coptic Alexandria
+			create_character = {
+				template = template_kog_coptic_alexandria_patriarch
+				first_name = "Abba"
+				last_name = "El_Gawly"
+				historical = yes
+				culture = cu:misri
+				religion = rel:oriental_orthodox
+				age = 60 # birth date unknown, died in 1852
+				on_created = {
+					place_character_in_void = 280
+				}
+			}
+
+			# Syriac Antioch
+			create_character = {
+				template = template_kog_syriac_antioch_patriarch
+				first_name = "Ignatius"
+				last_name = "Georgios"
+				historical = yes
+				culture = cu:mashriqi
+				religion = rel:oriental_orthodox
+				age = 85 # birth date unknown, died in 1836
+				on_created = {
+					place_character_in_void = 24
+				}
+			}
+
+			# Armenia
+			create_character = {
+				template = template_kog_etchmiadzin_patriarch
+				first_name = "Johannes"
+				last_name = "Karbesti"
+				historical = yes
+				culture = cu:armenian
+				religion = rel:oriental_orthodox
+				age = 67 # birth date unknown, position vacated in 1842
+				on_created = {
+					place_character_in_void = 120
+				}
+			}
+
+			# Addis Ababa
+			create_character = { # Seat vacant 1829–1841, Salama III advanced to 1836 for mechanical reasons
+				template = template_kog_addis_ababa_patriarch
+				first_name = "Abuna"
+				last_name = "Salama"
+				historical = yes
+				culture = cu:oromo
+				religion = rel:oriental_orthodox
+				age = 50 # birth date unknown, position vacated in 1867
+				on_created = {
+					place_character_in_void = 260
+				}
+			}
+
+			# Konak
+			create_character = {
+				template = template_kog_konak_patriarch
+				first_name = "Mar"
+				last_name = "Shimun" # idk, there are a few Anglicizations of his last name
+				historical = yes
+				culture = cu:assyrian
+				religion = rel:oriental_orthodox # Not accurate, I know
+				age = 36 # This guy was appointed as the Catholicos-Patriarch at the age of 20, what a chad
+				on_created = {
+					place_character_in_void = 300
+				}
+			}
+		}
 	}
 }
 
@@ -876,6 +949,118 @@ kog_initialize_structs_effect = {
 	
 }
 
+kog_initialize_seat_controllers_effect = {
+	# Catholic Church Seats
+	p:xB040A0 = { # Rome
+		owner = {
+			set_variable = kog_controls_rome
+		}
+	}
+	p:xD0E040 = { # Santiago
+		owner = {
+			set_variable = kog_controls_santiago
+		}
+	}
+	p:x71DA2E = { # Paris
+		owner = {
+			set_variable = kog_controls_paris
+		}
+	}
+	p:x9F4072 = { # Koln
+		owner = {
+			set_variable = kog_controls_koln
+		}
+	}
+	p:x316141 = { # Vienna
+		owner = {
+			set_variable = kog_controls_vienna
+		}
+	}
+
+	# Orthodox Church Seats
+	p:xF0A020 = { # Constantinople
+		owner = {
+			set_variable = kog_controls_constantinople
+		}
+	}
+	if = { # Antioch in BR
+		limit = {
+			basileia_is_active = yes
+		}
+		p:xE01160 = {
+			owner = {
+				set_variable = kog_controls_antioch
+			}
+		}
+	}
+	else = { # Antioch in Reality
+		p:x186A43 = { # Antioch
+			owner = {
+				set_variable = kog_controls_antioch
+			}
+		}
+	}
+	p:xC9CBC0 = { # Jerusalem
+		owner = {
+			set_variable = kog_controls_jerusalem
+		}
+	}
+	p:xA0D020 = { # Alexandria
+		owner = {
+			set_variable = kog_controls_alexandria
+		}
+	}
+	p:x13D91C = { # Moscow
+		owner = {
+			set_variable = kog_controls_moscow
+		}
+	}
+
+	# Oriental Orthodox Church Seats
+	p:xA0D020 = { # Coptic Alexandria
+		owner = {
+			set_variable = kog_controls_coptic_alexandria
+		}
+	}
+	p:x186A43 = { # Syriac Antioch
+		owner = {
+			set_variable = kog_controls_syriac_antioch
+		}
+	}
+	p:x805000 = { # Armenia
+		owner = {
+			set_variable = kog_controls_etchmiadzin
+		}
+	}
+	p:xE7D29C = { # Addis Ababa
+		owner = {
+			set_variable = kog_controls_addis_ababa
+		}
+	}
+	p:xC33C0F = { # Konak
+		owner = {
+			set_variable = kog_controls_konak
+		}
+	}
+
+	# Elysian Orthodox Seats
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		p:x700080 = { # Elysium
+			owner = {
+				set_variable = kog_controls_elysium
+			}
+		}
+		p:x1BC4D0 = { # Mixtec
+			owner = {
+				set_variable = kog_controls_mixtec
+			}
+		}
+	}
+}
+
 kog_initialize_metropolis_effect = {
 	create_struct = {
 		struct_type = kog_local
@@ -1101,5 +1286,175 @@ kog_initialize_metropolis_effect = {
 				value = 0
 			}
 		}
+	}
+}
+
+kog_initialize_collegium_effect = {
+	# Place extant Catholic Devout leaders into the Cardinal list
+	every_country = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		ig:ig_devout = {
+			leader = {
+				add_to_global_variable_list = {
+					name = kog_cardinals_list
+					target = this
+				}
+			}
+		}
+	}
+
+	# Generate Italian Cardinals
+	create_character = {
+		template = template_kog_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+	create_character = {
+		template = template_kog_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+	create_character = {
+		template = template_kog_cardinal_dynamic
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+
+	# Add Void Cardinals to List
+	every_character_in_void = {
+		limit = {
+			has_template = template_kog_cardinal_dynamic
+		}
+		add_to_global_variable_list = {
+			name = kog_cardinals_list
+			target = this
+		}
+	}
+
+	# Sort the list
+	sort_global_variable_list = {
+		name = kog_cardinals_list
+		order = kog_gravitas_value
+	}
+}
+
+kog_initialize_ranking_lists = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = kog_ranking_timeout_var
+		days = 20 # Should be enough to get past all monthly pulses
+	}
+
+	# Build & Sort Catholic List
+	every_country = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_catholic_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_catholic_ranking
+		order = prestige
+	}
+
+	# Build & Sort Orthodox List
+	every_country = {
+		limit = {
+			kog_is_eastern_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_orthodox_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_orthodox_ranking
+		order = prestige
+	}
+
+	# Build & Sort Oriental List
+	every_country = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_oriental_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_oriental_ranking
+		order = prestige
+	}
+
+	# Build & Sort Elysian List
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		every_country = {
+			limit = {
+				kog_is_elysian_orthodox_trigger = yes
+			}
+			add_to_global_variable_list = {
+				name = kog_elysian_ranking
+				target = this
+			}
+		}
+		sort_global_variable_list = {
+			name = kog_elysian_ranking
+			order = prestige
+		}
+	}
+}
+
+kog_specific_country_setups_effect = {
+	# Override this effect for mod-specific starting setups
+	# This is done this way to avoid having to integrate dummy country definitions into kog
+	# Unless you are making a TC or alt-history mod, probably leave this untouched
+	every_country = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		add_journal_entry = {
+			type = je_kog_ecyclical_mirari_vos
+		}
+	}
+	c:GRE ?= {
+		add_modifier = modifier_kog_reformed_synod
+		add_modifier = modifier_kog_dissolved_monasteries
+		var:kog_local = {
+			set_variable = kog_dissolved_monasteries
+			set_variable = kog_ruler_conversion_considered
+		}
+
+	}
+	c:RUS ?= {
+		add_modifier = modifier_kog_reformed_synod
+		var:kog_local = {
+			set_variable = kog_is_autocephalous
+		}
+	}
+}
+
+########################################
+
+# This effect will be overwritten by ETF if it is present. This is here for error suppression.
+add_com_topbar_element = {
+	if = {
+		limit = { always = no }
+		set_variable = $element_name$
+		remove_variable = $element_name$
 	}
 }
