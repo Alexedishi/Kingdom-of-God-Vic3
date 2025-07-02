@@ -1,0 +1,678 @@
+# = From Base Game
+# Panel Constants
+@panel_width_minus_10 = 530
+@panel_width_minus_30 = 510
+@panel_width = 540
+@panel_width_half = 270
+@panel_width_plus_10 = 550
+@panel_width_plus_14 = 554
+@panel_width_plus_14_half = 277
+@panel_width_plus_20 = 560
+@panel_width_plus_30 = 570
+@panel_width_plus_70 = 610
+
+widget = {
+	name = "eocfm_main_window"
+	size { 100% 100% }
+	layer = layer_ingame_menu
+	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+	
+	# This opens the GUI if an alert variable is set
+	eocfm_alert_widget = {}
+	
+	widget = {
+		parentanchor = top|hcenter
+		size = { 100% 100% }
+		using = clickthrough_blocker
+		visible = "[GetVariableSystem.HasValue('com_open_window', 'eocfm_sidebar_button_sgui')]"
+		datacontext = "[GetPlayer]"
+		
+		# This initializes the GUI variable on a fresh load
+		state = {
+		  trigger_when = "[Not(GetVariableSystem.Exists('eocfm_tabs_var'))]"
+		  on_finish = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
+		}
+		
+		state = {
+			name = _show
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+			start_sound = {
+				soundeffect = "event:/eocfm_bell_ring"
+			}
+			start_sound = {
+				soundeffect = "snapshot:/Dynamic/mute_world_80"
+			}
+			start_sound = {
+				soundeffect = "snapshot:/Dynamic/mute_vfx_war_100"
+			}
+			on_finish = "[GetVariableSystem.Set('com_fullscreen', 'com_fullscreen')]"
+			# Close open panel before showing this one
+			on_start = "[InformationPanelBar.ClosePanel]"
+			on_start = "[MapListPanelManager.CloseCurrentPanel]"
+		}
+		
+		state = {
+			name = _hide
+			alpha = 0
+			duration = 0.2
+			using = Animation_Curve_Default
+			end_sound = {
+				soundeffect = "event:/SFX/UI/SideBar/society_stop"
+			}
+			on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
+		}
+		
+		background = {
+			using = default_bg
+			margin = { 40 40 }
+		}
+		
+		## BACKGROUNDS
+		background = {
+			visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/eocfm/eocfm_catholic_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+	
+		background = {
+			visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				
+			texture = "gfx/illustrations/eocfm/eocfm_orthodox_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+				alpha = 0.5
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+	
+		background = {
+			visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/eocfm/eocfm_oriental_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+	
+		background = {
+			visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/eocfm/eocfm_elysian_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		## HEADER
+		eocfm_window_header = {}
+		eocfm_header_left_fade = {}
+		eocfm_header_right_fade = {}
+		eocfm_header_top_filler = {}
+
+		## WIDGET CONTENT
+		eocfm_catholic_window = {}
+		eocfm_orthodox_window = {}
+		eocfm_oriental_window = {}
+		eocfm_elysian_window = {}
+	}
+	
+}
+
+types eocfm_kingdom_of_god_window_types {
+
+	type eocfm_catholic_window = vbox {
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		
+		visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		spacing = 10
+		margin_top = 180
+		margin_bottom = 10
+		margin_left = 60
+		margin_right = 60
+
+		using = default_fade_in_out
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 5
+
+			### Religious Capacity & Autocephaly Status
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin_bottom = 10
+
+				using = entry_bg_fancy
+
+				eocfm_catholic_communion_panel = {}
+
+				### Metropolitan Character Panel and Stats
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin = { 5 5 }
+
+					# Metropolitan Portrait & Church Details
+					eocfm_metropolitan_stats_panel = {}
+
+					### Holy Sites Panel
+					eocfm_holy_sites_panel = {}
+				}
+			}
+
+			## RELIGIOUS COMMUNITY PANEL
+			vbox = {
+				layoutstretchfactor_horizontal = 2
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = preferred
+
+				background = {
+					using = dark_area
+				}
+				
+				using = entry_bg_fancy
+				
+				default_header_clean_faded = {
+					layoutpolicy_horizontal = expanding
+					size = { 0 44 }
+					blockoverride "text" {
+						text = "eocfm_gui_metropolis_header"
+					}
+				}
+				
+				eocfm_metropolitan_tabs = {}
+				
+				# Metropolitan Panels
+				eocfm_catholic_metropolis_panel = {}
+				
+				# College of Cardinals Panel
+				eocfm_collegium_cardinalium_panel = {}
+				
+				# Global Community Panels
+				eocfm_catholic_global_panel = {}
+				
+				# Encyclical Panel
+				eocfm_catholic_encyclical_panel = {}
+				
+				# Ecumenical Council Panels
+				eocfm_catholic_council_panel = {}
+				
+			}
+
+			### PATRIARCHAL SEATS
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				using = entry_bg_fancy
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
+						layoutpolicy_horizontal = expanding
+						size = { 0 44 }
+					}
+					blockoverride "text" {
+						text = "eocfm_gui_christian_community"
+					}
+				}
+
+				### SEAT GROUP BUTTONS
+				eocfm_seat_tab_buttons = {}
+				divider_clean = {}
+				eocfm_catholic_seats = {}
+				eocfm_orthodox_seats = {}
+				eocfm_oriental_seats = {}
+				eocfm_elysian_seats = {}
+			}
+		}
+	}
+	
+	type eocfm_orthodox_window = vbox {
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		
+		visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		spacing = 10
+		margin_top = 180
+		margin_bottom = 10
+		margin_left = 60
+		margin_right = 60
+
+		using = default_fade_in_out
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 5
+
+			### Religious Capacity & Autocephaly Status
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin_bottom = 10
+
+				using = entry_bg_fancy
+
+				eocfm_orthodox_communion_panel = {}
+
+				### Metropolitan Character Panel and Stats
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin = { 5 5 }
+
+					# Metropolitan Portrait & Church Details
+					eocfm_metropolitan_stats_panel = {}
+
+					### Holy Sites Panel
+					eocfm_holy_sites_panel = {}
+				}
+			}
+
+			## RELIGIOUS COMMUNITY PANEL
+			vbox = {
+				layoutstretchfactor_horizontal = 2
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = preferred
+
+				background = {
+					using = dark_area
+				}
+				
+				using = entry_bg_fancy
+				
+				default_header_clean_faded = {
+					layoutpolicy_horizontal = expanding
+					size = { 0 44 }
+					blockoverride "text" {
+						text = "eocfm_gui_metropolis_header"
+					}
+				}
+				
+				eocfm_metropolitan_tabs = {}
+				
+				# Metropolitan Panels
+				eocfm_orthodox_metropolis_panel = {}
+				
+				# Global Community Panels
+				eocfm_orthodox_global_panel = {}
+				
+				# Encyclical Panel
+				eocfm_orthodox_encyclical_panel = {}
+				
+				# Ecumenical Council Panels
+				eocfm_orthodox_council_panel = {}
+				
+			}
+
+			### PATRIARCHAL SEATS
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				using = entry_bg_fancy
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
+						layoutpolicy_horizontal = expanding
+						size = { 0 44 }
+					}
+					blockoverride "text" {
+						text = "eocfm_gui_christian_community"
+					}
+				}
+
+				### SEAT GROUP BUTTONS
+				eocfm_seat_tab_buttons = {}
+				divider_clean = {}
+				eocfm_catholic_seats = {}
+				eocfm_orthodox_seats = {}
+				eocfm_oriental_seats = {}
+				eocfm_elysian_seats = {}
+			}
+		}
+	}
+	
+	type eocfm_oriental_window = vbox {
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		
+		visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		spacing = 10
+		margin_top = 180
+		margin_bottom = 10
+		margin_left = 60
+		margin_right = 60
+
+		using = default_fade_in_out
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 5
+
+			### Religious Capacity & Autocephaly Status
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin_bottom = 10
+
+				using = entry_bg_fancy
+
+				eocfm_oriental_communion_panel = {}
+
+				### Metropolitan Character Panel and Stats
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin = { 5 5 }
+
+					# Metropolitan Portrait & Church Details
+					eocfm_metropolitan_stats_panel = {}
+
+					### Holy Sites Panel
+					eocfm_holy_sites_panel = {}
+				}
+			}
+
+			## RELIGIOUS COMMUNITY PANEL
+			vbox = {
+				layoutstretchfactor_horizontal = 2
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = preferred
+
+				background = {
+					using = dark_area
+				}
+				
+				using = entry_bg_fancy
+				
+				default_header_clean_faded = {
+					layoutpolicy_horizontal = expanding
+					size = { 0 44 }
+					blockoverride "text" {
+						text = "eocfm_gui_metropolis_header"
+					}
+				}
+				
+				eocfm_metropolitan_tabs = {}
+				
+				# Metropolitan Panels
+				eocfm_oriental_metropolis_panel = {}
+				
+				# Global Community Panels
+				eocfm_oriental_global_panel = {}
+				
+				# Encyclical Panel
+				eocfm_encyclical_dummy_panel = {}
+				
+				# Ecumenical Council Panels
+				eocfm_oriental_council_panel = {}
+				
+			}
+
+			### PATRIARCHAL SEATS
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				using = entry_bg_fancy
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
+						layoutpolicy_horizontal = expanding
+						size = { 0 44 }
+					}
+					blockoverride "text" {
+						text = "eocfm_gui_christian_community"
+					}
+				}
+
+				### SEAT GROUP BUTTONS
+				eocfm_seat_tab_buttons = {}
+				divider_clean = {}
+				eocfm_catholic_seats = {}
+				eocfm_orthodox_seats = {}
+				eocfm_oriental_seats = {}
+				eocfm_elysian_seats = {}
+			}
+		}
+	}
+	
+	type eocfm_elysian_window = vbox {
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		
+		visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		spacing = 10
+		margin_top = 180
+		margin_bottom = 10
+		margin_left = 60
+		margin_right = 60
+
+		using = default_fade_in_out
+		
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 5
+
+			### Religious Capacity & Autocephaly Status
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin_bottom = 10
+
+				using = entry_bg_fancy
+
+				eocfm_elysian_communion_panel = {}
+
+				### Metropolitan Character Panel and Stats
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin = { 5 5 }
+
+					# Metropolitan Portrait & Church Details
+					eocfm_metropolitan_stats_panel = {}
+
+					### Holy Sites Panel
+					eocfm_holy_sites_panel = {}
+				}
+			}
+
+			## RELIGIOUS COMMUNITY PANEL
+			vbox = {
+				layoutstretchfactor_horizontal = 2
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = preferred
+
+				background = {
+					using = dark_area
+				}
+				
+				using = entry_bg_fancy
+				
+				default_header_clean_faded = {
+					layoutpolicy_horizontal = expanding
+					size = { 0 44 }
+					blockoverride "text" {
+						text = "eocfm_gui_metropolis_header"
+					}
+				}
+				
+				eocfm_metropolitan_tabs = {}
+				
+				# Metropolitan Panels
+				eocfm_elysian_metropolis_panel = {}
+				
+				# Global Community Panels
+				eocfm_elysian_global_panel = {}
+				
+				# Encyclical Panel
+				eocfm_encyclical_dummy_panel = {}
+				
+				# Ecumenical Council Panels
+				eocfm_elysian_council_panel = {}
+				
+			}
+
+			### PATRIARCHAL SEATS
+			vbox = {
+				layoutstretchfactor_horizontal = 1
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				using = entry_bg_fancy
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				background = {
+					using = entry_bg_simple
+					margin = { -3 -3 }
+				}
+
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
+						layoutpolicy_horizontal = expanding
+						size = { 0 44 }
+					}
+					blockoverride "text" {
+						text = "eocfm_gui_christian_community"
+					}
+				}
+
+				### SEAT GROUP BUTTONS
+				eocfm_seat_tab_buttons = {}
+				divider_clean = {}
+				eocfm_catholic_seats = {}
+				eocfm_orthodox_seats = {}
+				eocfm_oriental_seats = {}
+				eocfm_elysian_seats = {}
+			}
+		}
+	}
+	
+}

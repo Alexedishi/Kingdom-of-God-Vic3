@@ -1,0 +1,485 @@
+types eocfm_metropolitan_panels {
+	
+	type eocfm_metropolitan_tabs = tab_buttons {
+		margin = { 15 0 }
+		layoutpolicy_horizontal = expanding
+		margin_bottom = -5
+		blockoverride "first_button" {
+			text = "eocfm_gui_ecclesiastic_header"
+		}
+		blockoverride "first_button_click" {
+			onclick = "[GetVariableSystem.Set('eocfm_metropolitan_tab', 'head')]"
+		}
+		blockoverride "first_button_visibility" {
+			visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		}
+		blockoverride "first_button_visibility_checked" {
+			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head')), GetVariableSystem.Exists('eocfm_metropolitan_tab'))]"
+		}
+		blockoverride "first_button_selected" {
+			text = "eocfm_gui_ecclesiastic_header"
+		}
+		
+		blockoverride "second_button" {
+			text = "eocfm_gui_collegium_header"
+		}
+		blockoverride "second_button_click" {
+			onclick = "[GetVariableSystem.Set('eocfm_metropolitan_tab', 'curia')]"
+		}
+		blockoverride "second_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')]"
+		}
+		blockoverride "second_button_visibility_checked" {
+			visible = "[And(Not(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')), GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+		}
+		blockoverride "second_button_selected" {
+			text = "eocfm_gui_collegium_header"
+		}
+		
+		blockoverride "third_button" {
+			text = "eocfm_gui_global_header"
+		}
+		blockoverride "third_button_click" {
+			onclick = "[GetVariableSystem.Set('eocfm_metropolitan_tab', 'list')]"
+		}
+		blockoverride "third_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list')]"
+		}
+		blockoverride "third_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list'))]"
+		}
+		blockoverride "third_button_selected" {
+			text = "eocfm_gui_global_header"
+		}
+	}
+	
+	type eocfm_catholic_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			
+			vbox = {
+				margin = { 10 10 }
+				spacing = 10
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				textbox = {
+					autoresize = yes
+					text = "eocfm_gui_national_piety"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+				
+				default_progressbar_horizontal = {
+					size = { 250 24 }
+					blockoverride "values" {
+						min = 0
+						max = 1000
+						value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value'))]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+						text = "eocfm_gui_national_piety_amount"
+						align = center|nobaseline
+						elide = right
+						using = fontsize_medium
+					}
+					tooltip = "eocfm_gui_national_piety_breakdown"
+				}
+				
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_venerate_apparition"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_venerate_apparation_desc"
+				}
+			}
+		}
+	}
+	
+	type eocfm_orthodox_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			using = default_fade_in_out
+			
+			expand = {}
+			
+			## Focus Actions ##
+			vbox = {
+				margin = { 20 20 }
+				spacing = 20
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				### Metropolitan Buttons
+				hbox = {
+					spacing = 5
+					
+					# Emphasize Unity Focus
+					button_icon_round = {
+						# Practical Academia
+						size = { 55 55 }
+						
+						datacontext = "[GetScriptedGui('eocfm_emphasize_unity_sgui')]"
+						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
+						tooltip = "eocfm_gui_emphasize_unity"
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/gui_icons/eocfm_emphasize_unity_button.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+					}
+					
+					# Enforce Attendance Focus
+					button_icon_round = {
+						# Practical Academia
+						size = { 55 55 }
+						
+						datacontext = "[GetScriptedGui('eocfm_enforce_attendance_sgui')]"
+						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
+						tooltip = "eocfm_gui_enforce_attendance"
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/gui_icons/eocfm_enforce_attendance_button.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+					}
+					
+					# Theologize Dogma Focus
+					button_icon_round = {
+						# Practical Academia
+						size = { 55 55 }
+						
+						datacontext = "[GetScriptedGui('eocfm_theologize_dogma_sgui')]"
+						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
+						tooltip = "eocfm_gui_theologize_dogma"
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/gui_icons/eocfm_theologize_dogma_button.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+					}
+					
+					# Promote Ecumenism Focus
+					button_icon_round = {
+						# Practical Academia
+						size = { 55 55 }
+						
+						datacontext = "[GetScriptedGui('eocfm_promote_ecumenism_sgui')]"
+						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						clicksound = "event:/eocfm_focus_selected"
+						tooltip = "eocfm_gui_promote_ecumenism"
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/gui_icons/eocfm_promote_ecumenism_button.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+					}
+				}
+				
+				# Current Focus Status
+				vbox = {
+					background = {
+						using = entry_bg
+						margin = { 10 10 }
+					}
+					textbox = {
+						text = "eocfm_gui_metropolitan_focus_header"
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_large
+					}
+					textbox = {
+						text = "eocfm_gui_eocfm_focus_status"
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+				}
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_commission_icon"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_commission_icon_desc"
+				}
+			}
+			
+			## Authority Actions ##
+			vbox = {
+				layoutpolicy_horizontal = shrinking
+				spacing = 15
+				margin = { 10 10 }
+				background = {
+					using = entry_bg_simple
+				}
+				
+				button = { # Dissolve Monasteries Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_dissolve_monasteries"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_dissolve_monasteries_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_dissolve_monasteries_desc"
+				}
+				
+				button = { # Restore Monasteries Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_restore_monasteries"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_restore_monasteries_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_restore_monasteries_desc"
+				}
+				
+				button = { # Reform Synod Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_reform_synod"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_reform_synod_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_reform_synod_desc"
+				}
+				
+				button = { # Restore Synod Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_restore_synod"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_restore_synod_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_restore_synod_desc"
+				}
+				
+				button = { # Grant Subsidies Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_grant_subsidies"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_grant_subsidies_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_grant_subsidies_desc"
+				}
+				
+				button = { # End Subsidies Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_end_subsidies"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_end_subsidies_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_end_subsidies_desc"
+				}							
+				
+				button = { # Establish Schools Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_establish_schools"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_establish_schools_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_establish_schools_desc"
+				}
+				
+				button = { # Disband Schools Button
+					using = default_button_primary_big_action
+					size = { 200 40 }
+					text = "eocfm_gui_disband_schools"
+					using = fontsize_medium
+					
+					datacontext = "[GetScriptedGui('eocfm_disband_schools_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_disband_schools_desc"
+				}
+			}
+			
+			expand = {}
+			
+		}
+	}
+	
+	type eocfm_oriental_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			
+			vbox = {
+				margin = { 10 10 }
+				spacing = 10
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_venerate_apparition"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_venerate_apparation_desc"
+				}
+			}
+		}
+	}
+	
+	type eocfm_elysian_metropolis_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = shrinking
+		using = default_fade_in_out
+		maximumsize = { -1 400 }
+		
+		visible = "[Or(GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'head'), Not(GetVariableSystem.Exists('eocfm_metropolitan_tab')))]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "eocfm_gui_ecclesiastic_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			margin_top = 10
+			spacing = 5
+			
+			vbox = {
+				margin = { 10 10 }
+				spacing = 10
+				
+				background = {
+					using = entry_bg_unit_dark
+				}
+				
+				button = { # Commission Icon Button
+					using = default_button_primary_big_action
+					size = { 240 44 }
+					text = "eocfm_gui_venerate_apparition"
+					using = fontsize_large
+					
+					datacontext = "[GetScriptedGui('eocfm_commission_icon_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "eocfm_gui_venerate_apparation_desc"
+				}
+			}
+		}
+	}
+	
+}
