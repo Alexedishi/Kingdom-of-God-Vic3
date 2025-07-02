@@ -8,3 +8,57 @@
  kog_topbar_element_capacity_tooltip: ""
  kog_topbar_element_capacity_source: "Gates of the Bosphorus"
  kog_topbar_element_capacity_source_tooltip: "This element is part of the mod #v Kingdom of God#!."
+
+ # Widget Headers
+ kog_gui_main_title: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_denomination_type')]"
+ kog_gui_national_church_name: "The [GetPlayer.GetStateReligion.GetNameNoFormatting] Church of [GetPlayer.GetNameNoFlag]"
+
+ # Papal Influence & Communion Status
+ kog_gui_catholic_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_communion_type')]"
+ kog_gui_catholic_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_catholic_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_catholic_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_papacy_capacity_value')]#!#! $kog_catholic_power$#!"
+ kog_gui_catholic_capacity_breakdown: "@kog_catholic_power! $kog_catholic_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_papacy_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_papacy_capacity_value')]"
+
+ # Orthodox Caesaropapism & Autocephaly Status
+ kog_gui_orthodox_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_communion_type')]"
+ kog_gui_orthodox_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_orthodox_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_orthodox_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_caesaropapism_capacity_value')]#!#! $kog_orthodox_power$#!"
+ kog_gui_orthodox_capacity_breakdown: "@kog_orthodox_power! $kog_orthodox_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_caesaropapism_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_caesaropapism_capacity_value')]"
+
+ # Oriental Caesaropapism & Autocephaly Status
+ kog_gui_oriental_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_oriental_communion_type')]"
+ kog_gui_oriental_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_oriental_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_oriental_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_synodal_capacity_value')]#!#! $kog_oriental_power$#!"
+ kog_gui_oriental_capacity_breakdown: "@kog_oriental_power! $kog_oriental_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_synodal_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_synodal_capacity_value')]"
+
+ # Elysian Caesaropapism & Autocephaly Status
+ kog_gui_elysian_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_elysian_communion_type')]"
+ kog_gui_elysian_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_elysian_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_elysian_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_elysian_capacity_value')]#!#! $kog_elysian_power$#!"
+ kog_gui_elysian_capacity_breakdown: "@kog_elysian_power! $kog_elysian_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_elysian_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_elysian_capacity_value')]"
+
+ # Metropolitan Portrait & Details
+ kog_gui_liturgical_rite_type: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_liturgical_rite_type')]"
+ kog_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('kog_gui_religious_law_tooltip')] Religious Law#!#!"
+ kog_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_church_and_state').GetDesc]"
+
+ # Holy Sites Panel
+ kog_gui_holy_site_count: "[GetPlayer.GetName] $kog_controls$ #bold #greece [GetPlayer.MakeScope.Var('kog_holy_sites_var').GetValue]#!#! [concept_holy_site]#o s#!"
+
+ kog_gui_rome_control_status: "$kog_rome_details$\n$TOOLTIP_DELIMITER$\n$kog_rome_modifier$"
+ kog_gui_santiago_control_status: "$kog_santiago_details$\n$TOOLTIP_DELIMITER$\n$kog_santiago_modifier$"
+ kog_gui_paris_control_status: "$kog_paris_details$\n$TOOLTIP_DELIMITER$\n$kog_paris_modifier$"
+ kog_gui_koln_control_status: "$kog_koln_details$\n$TOOLTIP_DELIMITER$\n$kog_koln_modifier$"
+ kog_gui_vienna_control_status: "$kog_vienna_details$\n$TOOLTIP_DELIMITER$\n$kog_vienna_modifier$"
+
+ kog_gui_constantinople_control_status: "$kog_constantinople_details$\n$TOOLTIP_DELIMITER$\n$kog_constantinople_modifier$"
+ kog_gui_antioch_control_status: "$kog_antioch_details$\n$TOOLTIP_DELIMITER$\n$kog_antioch_modifier$"
+ kog_gui_jerusalem_control_status: "$kog_jerusalem_details$\n$TOOLTIP_DELIMITER$\n$kog_jerusalem_modifier$"
+ kog_gui_alexandria_control_status: "$kog_alexandria_details$\n$TOOLTIP_DELIMITER$\n$kog_alexandria_modifier$"
+ kog_gui_moscow_control_status: "$kog_moscow_details$\n$TOOLTIP_DELIMITER$\n$kog_moscow_modifier$"
+
+ kog_gui_coptic_alexandria_control_status: "$kog_coptic_alexandria_details$\n$TOOLTIP_DELIMITER$\n$kog_coptic_alexandria_modifier$"
+ kog_gui_syriac_antioch_control_status: "$kog_syriac_antioch_details$\n$TOOLTIP_DELIMITER$\n$kog_syriac_antioch_modifier$"
+ kog_gui_etchmiadzin_control_status: "$kog_etchmiadzin_details$\n$TOOLTIP_DELIMITER$\n$kog_etchmiadzin_modifier$"
+ kog_gui_addis_ababa_control_status: "$kog_addis_ababa_details$\n$TOOLTIP_DELIMITER$\n$kog_addis_ababa_modifier$"
+ kog_gui_konak_control_status: "$kog_konak_details$\n$TOOLTIP_DELIMITER$\n$kog_konak_modifier$"
+
+ kog_gui_elysium_control_status: "$kog_elysium_details$\n$TOOLTIP_DELIMITER$\n$kog_elysium_modifier$"
+ kog_gui_mixtec_control_status: "$kog_mixtec_details$\n$TOOLTIP_DELIMITER$\n$kog_mixtec_modifier$"
+ kog_gui_cahokia_control_status: "$kog_cahokia_details$\n$TOOLTIP_DELIMITER$\n$kog_cahokia_modifier$"
