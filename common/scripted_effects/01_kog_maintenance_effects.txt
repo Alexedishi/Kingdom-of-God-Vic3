@@ -13,20 +13,1256 @@ kog_update_holy_site_count_effect = {
 	}
 }
 
-kog_update_patriarch_variables_effect = {}
+kog_update_patriarch_variables_effect = {
+	# Local Metropolitan
+	ig:ig_devout = {
+		leader = {
+			save_scope_as = kog_devout_leader_scope
+		}
+	}
+	set_variable = {
+		name = kog_devout_leader_var
+		value = scope:kog_devout_leader_scope
+	}
+	kog_update_rome_effect = yes
+	kog_update_santiago_effect = yes
+	kog_update_paris_effect = yes
+	kog_update_koln_effect = yes
+	kog_update_vienna_effect = yes
+	kog_update_constantinople_effect = yes
+	kog_update_antioch_effect = yes
+	kog_update_jerusalem_effect = yes
+	kog_update_alexandria_effect = yes
+	kog_update_moscow_effect = yes
+	kog_update_coptic_alexandria_effect = yes
+	kog_update_syriac_antioch_effect = yes
+	kog_update_etchmiadzin_effect = yes
+	kog_update_addis_ababa_effect = yes
+	kog_update_konak_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_update_elysium_effect = yes
+		kog_update_mixtec_effect = yes
+		kog_update_cahokia_effect = yes
+	}
+}
 
-kog_update_seat_controllers_effect = {}
+kog_update_seat_controllers_effect = {
+	## Catholic Seats
+	# Rome
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_rome
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_rome
+			}
+			save_scope_as = kog_rome_controller_scope
+		}
+		global_var:kog_global.var:kog_rome = {
+			set_variable = {
+				name = kog_rome_controller_var
+				value = scope:kog_rome_controller_scope
+			}
+		}
+
+	}
+	else = {
+		global_var:kog_global.var:kog_rome = {
+			remove_variable = kog_rome_controller_var
+		}
+	}
+	# Santiago
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_santiago
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_santiago
+			}
+			save_scope_as = kog_santiago_controller_scope
+		}
+		set_variable = {
+			name = kog_santiago_controller_var
+			value = scope:kog_santiago_controller_scope
+		}
+	}
+	else = {
+		remove_variable = kog_santiago_controller_var
+	}
+	# Paris
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_paris
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_paris
+			}
+			save_scope_as = kog_paris_controller_scope
+		}
+		global_var:kog_global.var:kog_paris = {
+			set_variable = {
+				name = kog_paris_controller_var
+				value = scope:kog_paris_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_paris = {
+			remove_variable = kog_paris_controller_var
+		}
+	}
+	# Cologne
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_koln
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_koln
+			}
+			save_scope_as = kog_koln_controller_scope
+		}
+		global_var:kog_global.var:kog_koln = {
+			set_variable = {
+				name = kog_koln_controller_var
+				value = scope:kog_koln_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_koln = {
+			remove_variable = kog_koln_controller_var
+		}
+	}
+	# Vienna
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_vienna
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_vienna
+			}
+			save_scope_as = kog_vienna_controller_scope
+		}
+		global_var:kog_global.var:kog_vienna = {
+			set_variable = {
+				name = kog_vienna_controller_var
+				value = scope:kog_vienna_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_vienna = {
+			remove_variable = kog_vienna_controller_var
+		}
+	}
+
+	## Orthodox Seats
+	# Constantinople
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_constantinople
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_constantinople
+			}
+			save_scope_as = kog_constantinople_controller_scope
+		}
+		global_var:kog_global.var:kog_constantinople = {
+			set_variable = {
+				name = kog_constantinople_controller_var
+				value = scope:kog_constantinople_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_constantinople = {
+			remove_variable = kog_constantinople_controller_var
+		}
+	}
+	# Antioch
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_antioch
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_antioch
+			}
+			save_scope_as = kog_antioch_controller_scope
+		}
+		global_var:kog_global.var:kog_antioch = {
+			set_variable = {
+				name = kog_antioch_controller_var
+				value = scope:kog_antioch_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_antioch = {
+			remove_variable = kog_antioch_controller_var
+		}
+	}
+	# Jerusalem
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_jerusalem
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_jerusalem
+			}
+			save_scope_as = kog_jerusalem_controller_scope
+		}
+		global_var:kog_global.var:kog_jerusalem = {
+			set_variable = {
+				name = kog_jerusalem_controller_var
+				value = scope:kog_jerusalem_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_jerusalem = {
+			remove_variable = kog_jerusalem_controller_var
+		}
+
+	}
+	# Alexandria
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_alexandria
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_alexandria
+			}
+			save_scope_as = kog_alexandria_controller_scope
+		}
+		global_var:kog_global.var:kog_alexandria = {
+			set_variable = {
+				name = kog_alexandria_controller_var
+				value = scope:kog_alexandria_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_alexandria = {
+			remove_variable = kog_alexandria_controller_var
+		}
+	}
+	# Moscow
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_moscow
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_moscow
+			}
+			save_scope_as = kog_moscow_controller_scope
+		}
+		global_var:kog_global.var:kog_moscow = {
+			set_variable = {
+				name = kog_moscow_controller_var
+				value = scope:kog_moscow_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_moscow = {
+			remove_variable = kog_moscow_controller_var
+		}
+
+	}
+
+	## Oriental Orthodox Seats
+	# Coptic Alexandria
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_coptic_alexandria
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_coptic_alexandria
+			}
+			save_scope_as = kog_coptic_alexandria_controller_scope
+		}
+		global_var:kog_global.var:kog_coptic_alexandria = {
+			set_variable = {
+				name = kog_coptic_alexandria_controller_var
+				value = scope:kog_coptic_alexandria_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_coptic_alexandria = {
+			remove_variable = kog_coptic_alexandria_controller_var
+		}
+	}
+	# Syriac Antioch
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_syriac_antioch
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_syriac_antioch
+			}
+			save_scope_as = kog_syriac_antioch_controller_scope
+		}
+		global_var:kog_global.var:kog_syriac_antioch = {
+			set_variable = {
+				name = kog_syriac_antioch_controller_var
+				value = scope:kog_syriac_antioch_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_syriac_antioch = {
+			remove_variable = kog_syriac_antioch_controller_var
+		}
+	}
+	# Etchmiadzin
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_etchmiadzin
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_etchmiadzin
+			}
+			save_scope_as = kog_etchmiadzin_controller_scope
+		}
+		global_var:kog_global.var:kog_etchmiadzin = {
+			set_variable = {
+				name = kog_etchmiadzin_controller_var
+				value = scope:kog_etchmiadzin_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_etchmiadzin = {
+			remove_variable = kog_etchmiadzin_controller_var
+		}
+	}
+	# Addis Ababa
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_addis_ababa
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_addis_ababa
+			}
+			save_scope_as = kog_addis_ababa_controller_scope
+		}
+		global_var:kog_global.var:kog_addis_ababa = {
+			set_variable = {
+				name = kog_addis_ababa_controller_var
+				value = scope:kog_addis_ababa_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_addis_ababa = {
+			remove_variable = kog_addis_ababa_controller_var
+		}
+	}
+	# Konak
+	if = {
+		limit = {
+			any_country = {
+				has_variable = kog_controls_konak
+			}
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_controls_konak
+			}
+			save_scope_as = kog_konak_controller_scope
+		}
+		global_var:kog_global.var:kog_konak = {
+			set_variable = {
+				name = kog_konak_controller_var
+				value = scope:kog_konak_controller_scope
+			}
+		}
+	}
+	else = {
+		global_var:kog_global.var:kog_konak = {
+			remove_variable = kog_konak_controller_var
+		}
+	}
+	## Basileia Romaion Seats
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_elysium
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_elysium
+				}
+				save_scope_as = kog_elysium_controller_scope
+			}
+			global_var:kog_global.var:kog_elysium = {
+				set_variable = {
+					name = kog_elysium_controller_var
+					value = scope:kog_elysium_controller_scope
+				}
+			}
+		}
+		else = {
+			global_var:kog_global.var:kog_elysium = {
+				remove_variable = kog_elysium_controller_var
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_mixtec
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_mixtec
+				}
+				save_scope_as = kog_mixtec_controller_scope
+			}
+			global_var:kog_global.var:kog_mixtec = {
+				set_variable = {
+					name = kog_mixtec_controller_var
+					value = scope:kog_mixtec_controller_scope
+				}
+			}
+		}
+		else = {
+			global_var:kog_global.var:kog_mixtec = {
+				remove_variable = kog_mixtec_controller_var
+			}
+		}
+		if = {
+			limit = {
+				global_var:kog_global = {
+					has_variable = kog_cahokia
+				}
+			}
+			if = {
+				limit = {
+					any_country = {
+						has_variable = kog_controls_cahokia
+					}
+				}
+				random_country = {
+					limit = {
+						has_variable = kog_controls_cahokia
+					}
+					save_scope_as = kog_cahokia_controller_scope
+				}
+				global_var:kog_global.var:kog_cahokia = {
+					set_variable = {
+						name = kog_cahokia_controller_var
+						value = scope:kog_cahokia_controller_scope
+					}
+				}
+			}
+			else = {
+				global_var:kog_global.var:kog_cahokia = {
+					remove_variable = kog_cahokia_controller_var
+				}
+			}
+		}
+	}
+}
 
 # Monthly Maintenance Effects
-kog_update_ranking_lists = {}
+kog_update_ranking_lists = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = kog_ranking_timeout_var
+		days = 20 # Should be enough to get past all monthly pulses
+	}
 
-kog_update_rite_modifiers_effect = {}
+	# Clear All Lists
+	clear_global_variable_list = kog_catholic_ranking
+	clear_global_variable_list = kog_orthodox_ranking
+	clear_global_variable_list = kog_oriental_ranking
+	clear_global_variable_list = kog_elysian_ranking
 
-kog_update_votes_effect = {}
+	# Build & Sort Catholic List
+	every_country = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_catholic_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_catholic_ranking
+		order = prestige
+	}
 
-kog_update_council_votes_effect = {}
+	# Build & Sort Orthodox List
+	every_country = {
+		limit = {
+			kog_is_eastern_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_orthodox_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_orthodox_ranking
+		order = prestige
+	}
 
-kog_update_patriarch_relations_effect = {}
+	# Build & Sort Oriental List
+	every_country = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_oriental_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_oriental_ranking
+		order = prestige
+	}
+
+	# Build & Sort Elysian List
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		every_country = {
+			limit = {
+				kog_is_elysian_orthodox_trigger = yes
+			}
+			add_to_global_variable_list = {
+				name = kog_elysian_ranking
+				target = this
+			}
+		}
+		sort_global_variable_list = {
+			name = kog_elysian_ranking
+			order = prestige
+		}
+	}
+}
+
+kog_update_rite_modifiers_effect = {
+	hidden_effect = {
+		remove_modifier = modifier_kog_byzantine_rite
+		remove_modifier = modifier_kog_roman_rite
+		remove_modifier = modifier_kog_alexandrian_rite
+		remove_modifier = modifier_kog_armenian_rite
+		remove_modifier = modifier_kog_syro_antiochian_rite
+		remove_modifier = modifier_kog_russian_rite
+		remove_modifier = modifier_kog_nestorian_rite
+		remove_modifier = modifier_kog_elysian_rite
+		remove_modifier = modifier_kog_mixtec_rite
+	}
+	if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_roman_rite
+		}
+		add_modifier = {
+			name = modifier_kog_roman_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_byzantine_rite
+		}
+		add_modifier = {
+			name = modifier_kog_byzantine_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_alexandrian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_alexandrian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_armenian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_armenian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_syro_antiochian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_syro_antiochian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_russian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_russian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit = {
+			var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_nestorian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_elysian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_elysian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_liturgical_rite_var ?= flag:kog_mixtec_rite
+		}
+		add_modifier = {
+			name = modifier_kog_mixtec_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+}
+
+# Council Votes Upkeep
+kog_update_votes_effect = {
+	if = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		set_variable = {
+			name = kog_votes_var
+			value = kog_cardinal_college_value
+		}
+	}
+	if = {
+		limit = {
+			kog_is_eastern_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = kog_votes_var
+			value = kog_ecumenical_weight_value
+		}
+	}
+	if = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = kog_votes_var
+			value = kog_synodal_influence_value
+		}
+	}
+	if = {
+		limit = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		set_variable = {
+			name = kog_votes_var
+			value = kog_elysian_synkletos_value
+		}
+	}
+	else = {
+		set_variable = {
+			name = kog_votes_var
+			value = 0
+		}
+	}
+}
+
+kog_update_council_votes_effect = {
+	# Set Timeout Variable
+	set_global_variable = {
+		name = kog_votes_timeout_var
+		days = 20
+	}
+
+	# Check Catholic Variables
+	if = {
+		limit = {
+			has_global_variable = kog_catholic_matter_var
+		}
+		set_global_variable = {
+			name = kog_catholic_support_var
+			value = kog_catholic_support_value
+		}
+		set_global_variable = {
+			name = kog_catholic_opposition_var
+			value = kog_catholic_opposition_value
+		}
+		set_global_variable = {
+			name = kog_catholic_council_var
+			value = kog_catholic_council_value
+		}
+	}
+	else = {
+		remove_global_variable = kog_catholic_support_var
+		remove_global_variable = kog_catholic_opposition_var
+		remove_global_variable = kog_catholic_council_var
+	}
+
+	# Check Orthodox Variables
+	if = {
+		limit = {
+			has_global_variable = kog_orthodox_matter_var
+		}
+		set_global_variable = {
+			name = kog_orthodox_support_var
+			value = kog_orthodox_support_value
+		}
+		set_global_variable = {
+			name = kog_orthodox_opposition_var
+			value = kog_orthodox_opposition_value
+		}
+		set_global_variable = {
+			name = kog_orthodox_council_var
+			value = kog_orthodox_council_value
+		}
+	}
+	else = {
+		remove_global_variable = kog_orthodox_support_var
+		remove_global_variable = kog_orthodox_opposition_var
+		remove_global_variable = kog_orthodox_council_var
+	}
+
+	# Check Oriental Variables
+	if = {
+		limit = {
+			has_global_variable = kog_oriental_matter_var
+		}
+		set_global_variable = {
+			name = kog_oriental_support_var
+			value = kog_oriental_support_value
+		}
+		set_global_variable = {
+			name = kog_oriental_opposition_var
+			value = kog_oriental_opposition_value
+		}
+		set_global_variable = {
+			name = kog_oriental_council_var
+			value = kog_oriental_council_value
+		}
+	}
+	else = {
+		remove_global_variable = kog_oriental_support_var
+		remove_global_variable = kog_oriental_opposition_var
+		remove_global_variable = kog_oriental_council_var
+	}
+
+	# Check Elysian Variables
+	if = {
+		limit = {
+			has_global_variable = kog_elysian_matter_var
+		}
+		set_global_variable = {
+			name = kog_elysian_support_var
+			value = kog_elysian_support_value
+		}
+		set_global_variable = {
+			name = kog_elysian_opposition_var
+			value = kog_elysian_opposition_value
+		}
+		set_global_variable = {
+			name = kog_elysian_council_var
+			value = kog_elysian_council_value
+		}
+	}
+	else = {
+		remove_global_variable = kog_elysian_support_var
+		remove_global_variable = kog_elysian_opposition_var
+		remove_global_variable = kog_elysian_council_var
+	}
+
+}
+
+kog_push_patriarch_relations_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_rome
+		}
+		change_variable = {
+			name = kog_rome_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_rome
+		}
+		change_variable = {
+			name = kog_rome_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_rome_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_santiago
+		}
+		change_variable = {
+			name = kog_santiago_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_santiago
+		}
+		change_variable = {
+			name = kog_santiago_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_santiago_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_paris
+		}
+		change_variable = {
+			name = kog_paris_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_paris
+		}
+		change_variable = {
+			name = kog_paris_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_paris_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_koln
+		}
+		change_variable = {
+			name = kog_koln_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_koln
+		}
+		change_variable = {
+			name = kog_koln_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_koln_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_vienna
+		}
+		change_variable = {
+			name = kog_vienna_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_vienna
+		}
+		change_variable = {
+			name = kog_vienna_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_vienna_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_constantinople
+		}
+		change_variable = {
+			name = kog_constantinople_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_constantinople
+		}
+		change_variable = {
+			name = kog_constantinople_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_constantinople_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_antioch
+		}
+		change_variable = {
+			name = kog_antioch_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_antioch
+		}
+		change_variable = {
+			name = kog_antioch_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_antioch_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_jerusalem
+		}
+		change_variable = {
+			name = kog_jerusalem_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_jerusalem
+		}
+		change_variable = {
+			name = kog_jerusalem_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_jerusalem_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_alexandria
+		}
+		change_variable = {
+			name = kog_alexandria_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_alexandria
+		}
+		change_variable = {
+			name = kog_alexandria_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_alexandria_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_moscow
+		}
+		change_variable = {
+			name = kog_moscow_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_moscow
+		}
+		change_variable = {
+			name = kog_moscow_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_moscow_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_coptic_alexandria
+		}
+		change_variable = {
+			name = kog_coptic_alexandria_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_coptic_alexandria
+		}
+		change_variable = {
+			name = kog_coptic_alexandria_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_coptic_alexandria_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_syriac_antioch
+		}
+		change_variable = {
+			name = kog_syriac_antioch_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_syriac_antioch
+		}
+		change_variable = {
+			name = kog_syriac_antioch_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_syriac_antioch_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_etchmiadzin
+		}
+		change_variable = {
+			name = kog_etchmiadzin_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_etchmiadzin
+		}
+		change_variable = {
+			name = kog_etchmiadzin_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_etchmiadzin_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_addis_ababa
+		}
+		change_variable = {
+			name = kog_addis_ababa_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_addis_ababa
+		}
+		change_variable = {
+			name = kog_addis_ababa_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_addis_ababa_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_konak
+		}
+		change_variable = {
+			name = kog_konak_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_konak
+		}
+		change_variable = {
+			name = kog_konak_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_konak_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_elysium
+			}
+			change_variable = {
+				name = kog_elysium_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_elysium
+			}
+			change_variable = {
+				name = kog_elysium_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
+			name = kog_elysium_relations_var
+			min = -50
+			max = 50
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_mixtec
+			}
+			change_variable = {
+				name = kog_mixtec_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_mixtec
+			}
+			change_variable = {
+				name = kog_mixtec_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
+			name = kog_mixtec_relations_var
+			min = -50
+			max = 50
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_cahokia
+			}
+			change_variable = {
+				name = kog_cahokia_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_cahokia
+			}
+			change_variable = {
+				name = kog_cahokia_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
+			name = kog_cahokia_relations_var
+			min = -50
+			max = 50
+		}
+	}
+}
 
 # Patriarch Update Effects
 kog_update_rome_effect  = {}
