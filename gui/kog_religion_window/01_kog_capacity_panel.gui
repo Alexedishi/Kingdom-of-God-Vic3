@@ -1,7 +1,7 @@
-types eocfm_capacity_panels {
+types kog_capacity_panels {
 	
 	# Catholic Panel
-	type eocfm_catholic_communion_panel = vbox {
+	type kog_catholic_communion_panel = vbox {
 		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = preferred
 		spacing = 5
@@ -17,13 +17,13 @@ types eocfm_capacity_panels {
 				size = { 0 44 }
 			}
 			blockoverride "text" {
-				text = "eocfm_gui_national_church_name"
+				text = "kog_gui_national_church_name"
 			}
 		}
 		
 		textbox = {
 			autoresize = yes
-			raw_text = "eocfm_gui_catholic_communion_status"
+			raw_text = "kog_gui_catholic_communion_status"
 			align = center|nobaseline
 			elide = right
 			using = fontsize_large
@@ -34,22 +34,22 @@ types eocfm_capacity_panels {
 			blockoverride "values" {
 				min = 0
 				max = 1000
-				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_papacy_capacity_value'))]"
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_papacy_capacity_value'))]"
 			}
 			textbox = {
 				parentanchor = center
 				autoresize = yes
-				text = "eocfm_gui_catholic_capacity_amount"
+				text = "kog_gui_catholic_capacity_amount"
 				align = center|nobaseline
 				elide = right
 				using = fontsize_medium
 			}
-			tooltip = "eocfm_gui_catholic_capacity_breakdown"
+			tooltip = "kog_gui_catholic_capacity_breakdown"
 		}
 	}
 	
 	# Orthodox Panel
-	type eocfm_orthodox_communion_panel = vbox {
+	type kog_orthodox_communion_panel = vbox {
 		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = preferred
 		spacing = 5
@@ -65,13 +65,13 @@ types eocfm_capacity_panels {
 				size = { 0 44 }
 			}
 			blockoverride "text" {
-				text = "eocfm_gui_national_church_name"
+				text = "kog_gui_national_church_name"
 			}
 		}
 		
 		textbox = {
 			autoresize = yes
-			raw_text = "eocfm_gui_orthodox_communion_status"
+			raw_text = "kog_gui_orthodox_communion_status"
 			align = center|nobaseline
 			elide = right
 			using = fontsize_large
@@ -82,22 +82,22 @@ types eocfm_capacity_panels {
 			blockoverride "values" {
 				min = 0
 				max = 1000
-				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_caesaropapism_capacity_value'))]"
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_caesaropapism_capacity_value'))]"
 			}
 			textbox = {
 				parentanchor = center
 				autoresize = yes
-				text = "eocfm_gui_orthodox_capacity_amount"
+				text = "kog_gui_orthodox_capacity_amount"
 				align = center|nobaseline
 				elide = right
 				using = fontsize_medium
 			}
-			tooltip = "eocfm_gui_orthodox_capacity_breakdown"
+			tooltip = "kog_gui_orthodox_capacity_breakdown"
 		}
 	}
 	
 	# Oriental Orthodox Panel
-	type eocfm_oriental_communion_panel = vbox {
+	type kog_oriental_communion_panel = vbox {
 		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = preferred
 		spacing = 5
@@ -113,13 +113,13 @@ types eocfm_capacity_panels {
 				size = { 0 44 }
 			}
 			blockoverride "text" {
-				text = "eocfm_gui_national_church_name"
+				text = "kog_gui_national_church_name"
 			}
 		}
 		
 		textbox = {
 			autoresize = yes
-			raw_text = "eocfm_gui_oriental_communion_status"
+			raw_text = "kog_gui_oriental_communion_status"
 			align = center|nobaseline
 			elide = right
 			using = fontsize_large
@@ -130,22 +130,22 @@ types eocfm_capacity_panels {
 			blockoverride "values" {
 				min = 0
 				max = 1000
-				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_synodal_capacity_value'))]"
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_synodal_capacity_value'))]"
 			}
 			textbox = {
 				parentanchor = center
 				autoresize = yes
-				text = "eocfm_gui_oriental_capacity_amount"
+				text = "kog_gui_oriental_capacity_amount"
 				align = center|nobaseline
 				elide = right
 				using = fontsize_medium
 			}
-			tooltip = "eocfm_gui_oriental_capacity_breakdown"
+			tooltip = "kog_gui_oriental_capacity_breakdown"
 		}
 	}
 	
 	# Elysian Orthodox Panel
-	type eocfm_elysian_communion_panel = vbox {
+	type kog_elysian_communion_panel = vbox {
 		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = preferred
 		spacing = 5
@@ -161,13 +161,13 @@ types eocfm_capacity_panels {
 				size = { 0 44 }
 			}
 			blockoverride "text" {
-				text = "eocfm_gui_national_church_name"
+				text = "kog_gui_national_church_name"
 			}
 		}
 		
 		textbox = {
 			autoresize = yes
-			raw_text = "eocfm_gui_elysian_communion_status"
+			raw_text = "kog_gui_elysian_communion_status"
 			align = center|nobaseline
 			elide = right
 			using = fontsize_large
@@ -178,22 +178,22 @@ types eocfm_capacity_panels {
 			blockoverride "values" {
 				min = 0
 				max = 1000
-				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('eocfm_synodal_capacity_value'))]"
+				value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_synkletos_capacity_value'))]"
 			}
 			textbox = {
 				parentanchor = center
 				autoresize = yes
-				text = "eocfm_gui_elysian_capacity_amount"
+				text = "kog_gui_elysian_capacity_amount"
 				align = center|nobaseline
 				elide = right
 				using = fontsize_medium
 			}
-			tooltip = "eocfm_gui_elysian_capacity_breakdown"
+			tooltip = "kog_gui_elysian_capacity_breakdown"
 		}
 	}
 	
-	type eocfm_metropolitan_stats_panel = character_with_background {
-		datacontext = "[GetPlayer.MakeScope.Var('eocfm_devout_leader_var').GetCharacter]"
+	type kog_metropolitan_stats_panel = character_with_background {
+		datacontext = "[GetPlayer.MakeScope.Var('kog_local').GetCharacter]"
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		minimumsize = { -1 340 }
@@ -232,7 +232,7 @@ types eocfm_capacity_panels {
 						size = { 35 35 }
 						icon = {
 							size = { 100% 100% }
-							texture = "gfx/interface/icons/character_role_icons/eocfm_patriarch.dds"
+							texture = "gfx/interface/icons/character_role_icons/kog_patriarch.dds"
 						}
 					}
 				}
@@ -240,7 +240,7 @@ types eocfm_capacity_panels {
 					raw_text = "[concept_metropolitan_bishop]"
 				}
 				blockoverride "text" {
-					text = "[Character.GetFullName]"
+					text = "kog_gui_metropolian_name"
 				}
 			}
 			### State Religion
@@ -279,7 +279,7 @@ types eocfm_capacity_panels {
 					raw_text = "[concept_liturgical_rite]"
 				}
 				blockoverride "text" {
-					text = "eocfm_gui_liturgical_rite_type"
+					text = "kog_gui_liturgical_rite_type"
 				}
 			}
 			#POPULARITY
@@ -294,7 +294,7 @@ types eocfm_capacity_panels {
 					}
 				}
 				blockoverride "label" {
-					text = "eocfm_gui_religious_law_header"
+					text = "kog_gui_religious_law_header"
 				}
 				blockoverride "text" {
 					raw_text = "[AccessPlayer.AccessActiveLawFromGroup('lawgroup_church_and_state').GetName]"
