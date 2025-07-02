@@ -12,25 +12,25 @@
 @panel_width_plus_70 = 610
 
 widget = {
-	name = "eocfm_main_window"
+	name = "kog_main_window"
 	size { 100% 100% }
 	layer = layer_ingame_menu
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 	
 	# This opens the GUI if an alert variable is set
-	eocfm_alert_widget = {}
+	kog_alert_widget = {}
 	
 	widget = {
 		parentanchor = top|hcenter
 		size = { 100% 100% }
 		using = clickthrough_blocker
-		visible = "[GetVariableSystem.HasValue('com_open_window', 'eocfm_sidebar_button_sgui')]"
+		visible = "[GetVariableSystem.HasValue('com_open_window', '`kog_sidebar_button_sgui`')]"
 		datacontext = "[GetPlayer]"
 		
 		# This initializes the GUI variable on a fresh load
 		state = {
-		  trigger_when = "[Not(GetVariableSystem.Exists('eocfm_tabs_var'))]"
-		  on_finish = "[GetVariableSystem.Set('eocfm_tabs_var', 'eocfm_tab_catholic')]"
+		  trigger_when = "[Not(GetVariableSystem.Exists('kog_tabs_var'))]"
+		  on_finish = "[GetVariableSystem.Set('kog_tabs_var', 'kog_tab_catholic')]"
 		}
 		
 		state = {
@@ -39,7 +39,7 @@ widget = {
 			duration = 0.1
 			using = Animation_Curve_Default
 			start_sound = {
-				soundeffect = "event:/eocfm_bell_ring"
+				soundeffect = "event:/kog_bell_ring"
 			}
 			start_sound = {
 				soundeffect = "snapshot:/Dynamic/mute_world_80"
@@ -71,9 +71,9 @@ widget = {
 		
 		## BACKGROUNDS
 		background = {
-			visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
-			texture = "gfx/illustrations/eocfm/eocfm_catholic_background.dds"
+			texture = "gfx/illustrations/kog/kog_catholic_background.dds"
 			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
@@ -95,9 +95,9 @@ widget = {
 		}
 	
 		background = {
-			visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				
-			texture = "gfx/illustrations/eocfm/eocfm_orthodox_background.dds"
+			texture = "gfx/illustrations/kog/kog_orthodox_background.dds"
 			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
@@ -120,9 +120,9 @@ widget = {
 		}
 	
 		background = {
-			visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
-			texture = "gfx/illustrations/eocfm/eocfm_oriental_background.dds"
+			texture = "gfx/illustrations/kog/kog_oriental_background.dds"
 			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
@@ -144,9 +144,9 @@ widget = {
 		}
 	
 		background = {
-			visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
-			texture = "gfx/illustrations/eocfm/eocfm_elysian_background.dds"
+			texture = "gfx/illustrations/kog/kog_elysian_background.dds"
 			alpha = 1
 			modify_texture = {
 				texture = "gfx/interface/masks/fade_vertical_top.dds"
@@ -168,27 +168,27 @@ widget = {
 		}
 		
 		## HEADER
-		eocfm_window_header = {}
-		eocfm_header_left_fade = {}
-		eocfm_header_right_fade = {}
-		eocfm_header_top_filler = {}
+		kog_window_header = {}
+		kog_header_left_fade = {}
+		kog_header_right_fade = {}
+		kog_header_top_filler = {}
 
 		## WIDGET CONTENT
-		eocfm_catholic_window = {}
-		eocfm_orthodox_window = {}
-		eocfm_oriental_window = {}
-		eocfm_elysian_window = {}
+		kog_catholic_window = {}
+		kog_orthodox_window = {}
+		kog_oriental_window = {}
+		kog_elysian_window = {}
 	}
 	
 }
 
-types eocfm_kingdom_of_god_window_types {
+types kog_kingdom_of_god_window_types {
 
-	type eocfm_catholic_window = vbox {
+	type kog_catholic_window = vbox {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
 		
-		visible = "[GetScriptedGui('eocfm_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		spacing = 10
 		margin_top = 180
@@ -212,7 +212,7 @@ types eocfm_kingdom_of_god_window_types {
 
 				using = entry_bg_fancy
 
-				eocfm_catholic_communion_panel = {}
+				kog_catholic_communion_panel = {}
 
 				### Metropolitan Character Panel and Stats
 				vbox = {
@@ -221,10 +221,10 @@ types eocfm_kingdom_of_god_window_types {
 					margin = { 5 5 }
 
 					# Metropolitan Portrait & Church Details
-					eocfm_metropolitan_stats_panel = {}
+					kog_metropolitan_stats_panel = {}
 
 					### Holy Sites Panel
-					eocfm_holy_sites_panel = {}
+					kog_holy_sites_panel = {}
 				}
 			}
 
@@ -244,26 +244,26 @@ types eocfm_kingdom_of_god_window_types {
 					layoutpolicy_horizontal = expanding
 					size = { 0 44 }
 					blockoverride "text" {
-						text = "eocfm_gui_metropolis_header"
+						text = "kog_gui_metropolis_header"
 					}
 				}
 				
-				eocfm_metropolitan_tabs = {}
+				kog_metropolitan_tabs = {}
 				
 				# Metropolitan Panels
-				eocfm_catholic_metropolis_panel = {}
+				kog_catholic_metropolis_panel = {}
 				
 				# College of Cardinals Panel
-				eocfm_collegium_cardinalium_panel = {}
+				kog_collegium_cardinalium_panel = {}
 				
 				# Global Community Panels
-				eocfm_catholic_global_panel = {}
+				kog_catholic_global_panel = {}
 				
 				# Encyclical Panel
-				eocfm_catholic_encyclical_panel = {}
+				kog_catholic_encyclical_panel = {}
 				
 				# Ecumenical Council Panels
-				eocfm_catholic_council_panel = {}
+				kog_catholic_council_panel = {}
 				
 			}
 
@@ -294,26 +294,26 @@ types eocfm_kingdom_of_god_window_types {
 						size = { 0 44 }
 					}
 					blockoverride "text" {
-						text = "eocfm_gui_christian_community"
+						text = "kog_gui_christian_community"
 					}
 				}
 
 				### SEAT GROUP BUTTONS
-				eocfm_seat_tab_buttons = {}
+				kog_seat_tab_buttons = {}
 				divider_clean = {}
-				eocfm_catholic_seats = {}
-				eocfm_orthodox_seats = {}
-				eocfm_oriental_seats = {}
-				eocfm_elysian_seats = {}
+				kog_catholic_seats = {}
+				kog_orthodox_seats = {}
+				kog_oriental_seats = {}
+				kog_elysian_seats = {}
 			}
 		}
 	}
 	
-	type eocfm_orthodox_window = vbox {
+	type kog_orthodox_window = vbox {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
 		
-		visible = "[GetScriptedGui('eocfm_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		spacing = 10
 		margin_top = 180
@@ -337,7 +337,7 @@ types eocfm_kingdom_of_god_window_types {
 
 				using = entry_bg_fancy
 
-				eocfm_orthodox_communion_panel = {}
+				kog_orthodox_communion_panel = {}
 
 				### Metropolitan Character Panel and Stats
 				vbox = {
@@ -346,10 +346,10 @@ types eocfm_kingdom_of_god_window_types {
 					margin = { 5 5 }
 
 					# Metropolitan Portrait & Church Details
-					eocfm_metropolitan_stats_panel = {}
+					kog_metropolitan_stats_panel = {}
 
 					### Holy Sites Panel
-					eocfm_holy_sites_panel = {}
+					kog_holy_sites_panel = {}
 				}
 			}
 
@@ -369,23 +369,23 @@ types eocfm_kingdom_of_god_window_types {
 					layoutpolicy_horizontal = expanding
 					size = { 0 44 }
 					blockoverride "text" {
-						text = "eocfm_gui_metropolis_header"
+						text = "kog_gui_metropolis_header"
 					}
 				}
 				
-				eocfm_metropolitan_tabs = {}
+				kog_metropolitan_tabs = {}
 				
 				# Metropolitan Panels
-				eocfm_orthodox_metropolis_panel = {}
+				kog_orthodox_metropolis_panel = {}
 				
 				# Global Community Panels
-				eocfm_orthodox_global_panel = {}
+				kog_orthodox_global_panel = {}
 				
 				# Encyclical Panel
-				eocfm_orthodox_encyclical_panel = {}
+				kog_orthodox_encyclical_panel = {}
 				
 				# Ecumenical Council Panels
-				eocfm_orthodox_council_panel = {}
+				kog_orthodox_council_panel = {}
 				
 			}
 
@@ -416,26 +416,26 @@ types eocfm_kingdom_of_god_window_types {
 						size = { 0 44 }
 					}
 					blockoverride "text" {
-						text = "eocfm_gui_christian_community"
+						text = "kog_gui_christian_community"
 					}
 				}
 
 				### SEAT GROUP BUTTONS
-				eocfm_seat_tab_buttons = {}
+				kog_seat_tab_buttons = {}
 				divider_clean = {}
-				eocfm_catholic_seats = {}
-				eocfm_orthodox_seats = {}
-				eocfm_oriental_seats = {}
-				eocfm_elysian_seats = {}
+				kog_catholic_seats = {}
+				kog_orthodox_seats = {}
+				kog_oriental_seats = {}
+				kog_elysian_seats = {}
 			}
 		}
 	}
 	
-	type eocfm_oriental_window = vbox {
+	type kog_oriental_window = vbox {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
 		
-		visible = "[GetScriptedGui('eocfm_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		spacing = 10
 		margin_top = 180
@@ -459,7 +459,7 @@ types eocfm_kingdom_of_god_window_types {
 
 				using = entry_bg_fancy
 
-				eocfm_oriental_communion_panel = {}
+				kog_oriental_communion_panel = {}
 
 				### Metropolitan Character Panel and Stats
 				vbox = {
@@ -468,10 +468,10 @@ types eocfm_kingdom_of_god_window_types {
 					margin = { 5 5 }
 
 					# Metropolitan Portrait & Church Details
-					eocfm_metropolitan_stats_panel = {}
+					kog_metropolitan_stats_panel = {}
 
 					### Holy Sites Panel
-					eocfm_holy_sites_panel = {}
+					kog_holy_sites_panel = {}
 				}
 			}
 
@@ -491,23 +491,23 @@ types eocfm_kingdom_of_god_window_types {
 					layoutpolicy_horizontal = expanding
 					size = { 0 44 }
 					blockoverride "text" {
-						text = "eocfm_gui_metropolis_header"
+						text = "kog_gui_metropolis_header"
 					}
 				}
 				
-				eocfm_metropolitan_tabs = {}
+				kog_metropolitan_tabs = {}
 				
 				# Metropolitan Panels
-				eocfm_oriental_metropolis_panel = {}
+				kog_oriental_metropolis_panel = {}
 				
 				# Global Community Panels
-				eocfm_oriental_global_panel = {}
+				kog_oriental_global_panel = {}
 				
 				# Encyclical Panel
-				eocfm_encyclical_dummy_panel = {}
+				kog_encyclical_dummy_panel = {}
 				
 				# Ecumenical Council Panels
-				eocfm_oriental_council_panel = {}
+				kog_oriental_council_panel = {}
 				
 			}
 
@@ -538,26 +538,26 @@ types eocfm_kingdom_of_god_window_types {
 						size = { 0 44 }
 					}
 					blockoverride "text" {
-						text = "eocfm_gui_christian_community"
+						text = "kog_gui_christian_community"
 					}
 				}
 
 				### SEAT GROUP BUTTONS
-				eocfm_seat_tab_buttons = {}
+				kog_seat_tab_buttons = {}
 				divider_clean = {}
-				eocfm_catholic_seats = {}
-				eocfm_orthodox_seats = {}
-				eocfm_oriental_seats = {}
-				eocfm_elysian_seats = {}
+				kog_catholic_seats = {}
+				kog_orthodox_seats = {}
+				kog_oriental_seats = {}
+				kog_elysian_seats = {}
 			}
 		}
 	}
 	
-	type eocfm_elysian_window = vbox {
+	type kog_elysian_window = vbox {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
 		
-		visible = "[GetScriptedGui('eocfm_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		spacing = 10
 		margin_top = 180
@@ -581,7 +581,7 @@ types eocfm_kingdom_of_god_window_types {
 
 				using = entry_bg_fancy
 
-				eocfm_elysian_communion_panel = {}
+				kog_elysian_communion_panel = {}
 
 				### Metropolitan Character Panel and Stats
 				vbox = {
@@ -590,10 +590,10 @@ types eocfm_kingdom_of_god_window_types {
 					margin = { 5 5 }
 
 					# Metropolitan Portrait & Church Details
-					eocfm_metropolitan_stats_panel = {}
+					kog_metropolitan_stats_panel = {}
 
 					### Holy Sites Panel
-					eocfm_holy_sites_panel = {}
+					kog_holy_sites_panel = {}
 				}
 			}
 
@@ -613,23 +613,23 @@ types eocfm_kingdom_of_god_window_types {
 					layoutpolicy_horizontal = expanding
 					size = { 0 44 }
 					blockoverride "text" {
-						text = "eocfm_gui_metropolis_header"
+						text = "kog_gui_metropolis_header"
 					}
 				}
 				
-				eocfm_metropolitan_tabs = {}
+				kog_metropolitan_tabs = {}
 				
 				# Metropolitan Panels
-				eocfm_elysian_metropolis_panel = {}
+				kog_elysian_metropolis_panel = {}
 				
 				# Global Community Panels
-				eocfm_elysian_global_panel = {}
+				kog_elysian_global_panel = {}
 				
 				# Encyclical Panel
-				eocfm_encyclical_dummy_panel = {}
+				kog_encyclical_dummy_panel = {}
 				
 				# Ecumenical Council Panels
-				eocfm_elysian_council_panel = {}
+				kog_elysian_council_panel = {}
 				
 			}
 
@@ -660,17 +660,17 @@ types eocfm_kingdom_of_god_window_types {
 						size = { 0 44 }
 					}
 					blockoverride "text" {
-						text = "eocfm_gui_christian_community"
+						text = "kog_gui_christian_community"
 					}
 				}
 
 				### SEAT GROUP BUTTONS
-				eocfm_seat_tab_buttons = {}
+				kog_seat_tab_buttons = {}
 				divider_clean = {}
-				eocfm_catholic_seats = {}
-				eocfm_orthodox_seats = {}
-				eocfm_oriental_seats = {}
-				eocfm_elysian_seats = {}
+				kog_catholic_seats = {}
+				kog_orthodox_seats = {}
+				kog_oriental_seats = {}
+				kog_elysian_seats = {}
 			}
 		}
 	}
