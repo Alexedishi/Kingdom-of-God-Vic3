@@ -1,31 +1,69 @@
 ﻿kog_capacity_value = {
 	value = 0
+	if = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		add = kog_papacy_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_eastern_christian_trigger = yes
+		}
+		add = kog_caesaropapism_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		add = kog_synodal_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		add = kog_synkletos_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_protestant_trigger = yes
+		}
+		add = kog_power_capacity_value
+	}
 }
 
 kog_capacity_multiplier_value = {
 	value = 0
-}
-
-kog_cardinal_college_value = {
-	value = 0
-}
-
-kog_piety_baseline_value = {
-	value = 0
-}
-
-kog_ecumenical_weight_value = {
-	value = 0
-}
-
-kog_synodal_influence_value = {
-	value = 0
-}
-
-kog_elysian_synkletos_value = {
-	value = 0
-}
-
-kog_gravitas_value = {
-	value = 0
+	if = {
+		limit = { 
+			kog_is_roman_catholic_trigger = yes
+		}
+		add = kog_papacy_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_eastern_christian_trigger = yes
+		}
+		add = kog_caesaropapism_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		add = kog_synodal_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		add = kog_synkletos_capacity_value
+	}
+	else_if = { 
+		limit = { 
+			kog_is_protestant_trigger = yes
+		}
+		add = kog_power_capacity_value
+	}
+	multiply = 0.1
+	round = 1
 }
