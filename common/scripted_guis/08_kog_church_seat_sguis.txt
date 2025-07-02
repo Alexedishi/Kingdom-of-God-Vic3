@@ -1,0 +1,62 @@
+﻿## Major Seat Interactions
+kog_declare_autocephaly_sgui = {
+	scope = country
+
+	is_shown = {
+		NOR = {
+			kog_is_autocephalous = yes
+			kog_is_schismatic = yes
+		}
+	}
+
+	is_valid = {
+		is_subject = no
+		NOR = {
+			has_law = law_type:law_theocracy
+			has_modifier = modifier_kog_autocephaly_abandoned
+		}
+		trigger_if = {
+			limit = {
+				kog_is_eastern_orthodox_trigger = yes
+			}
+			kog_has_500_capacity = yes
+			trigger_if = {
+				limit = {
+					OR = {
+						c:MOL ?= this
+						c:WAL ?= this
+					}
+				}
+				custom_tooltip = {
+					text = kog_romania_united
+					hidden_trigger = {
+						c:ROM ?= this
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		var:kog_local = {
+			set_variable = {
+				name = kog_schism_var
+				value = 0
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_schismatic
+			months = 120
+		}
+		#TODO Schism Event
+	}
+}
+
+kog_schism_progressbar_sgui = {
+	scope = country
+
+	is_shown = {
+		kog_is_schismatic = yes
+	}
+}
+
