@@ -20,9 +20,11 @@ kog_update_patriarch_variables_effect = {
 			save_scope_as = kog_devout_leader_scope
 		}
 	}
-	set_variable = {
-		name = kog_devout_leader_var
-		value = scope:kog_devout_leader_scope
+	var:kog_local = {
+		set_variable = {
+			name = kog_metropolitan_var
+			value = scope:kog_devout_leader_scope
+		}
 	}
 	kog_update_rome_effect = yes
 	kog_update_santiago_effect = yes
