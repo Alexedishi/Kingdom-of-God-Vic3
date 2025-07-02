@@ -66,7 +66,7 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_rome = {
 			set_variable = {
-				name = kog_rome_controller_var
+				name = kog_controller_var
 				value = scope:kog_rome_controller_scope
 			}
 		}
@@ -74,7 +74,7 @@ kog_update_seat_controllers_effect = {
 	}
 	else = {
 		global_var:kog_global.var:kog_rome = {
-			remove_variable = kog_rome_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Santiago
@@ -90,13 +90,17 @@ kog_update_seat_controllers_effect = {
 			}
 			save_scope_as = kog_santiago_controller_scope
 		}
-		set_variable = {
-			name = kog_santiago_controller_var
-			value = scope:kog_santiago_controller_scope
+		global_var:kog_global.var:kog_santiago = {
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_santiago_controller_scope
+			}
 		}
 	}
 	else = {
-		remove_variable = kog_santiago_controller_var
+		global_var:kog_global.var:kog_santiago = {
+			remove_variable = kog_controller_var
+		}
 	}
 	# Paris
 	if = {
@@ -113,14 +117,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_paris = {
 			set_variable = {
-				name = kog_paris_controller_var
+				name = kog_controller_var
 				value = scope:kog_paris_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_paris = {
-			remove_variable = kog_paris_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Cologne
@@ -138,14 +142,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_koln = {
 			set_variable = {
-				name = kog_koln_controller_var
+				name = kog_controller_var
 				value = scope:kog_koln_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_koln = {
-			remove_variable = kog_koln_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Vienna
@@ -163,14 +167,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_vienna = {
 			set_variable = {
-				name = kog_vienna_controller_var
+				name = kog_controller_var
 				value = scope:kog_vienna_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_vienna = {
-			remove_variable = kog_vienna_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 
@@ -190,14 +194,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_constantinople = {
 			set_variable = {
-				name = kog_constantinople_controller_var
+				name = kog_controller_var
 				value = scope:kog_constantinople_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_constantinople = {
-			remove_variable = kog_constantinople_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Antioch
@@ -215,14 +219,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_antioch = {
 			set_variable = {
-				name = kog_antioch_controller_var
+				name = kog_controller_var
 				value = scope:kog_antioch_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_antioch = {
-			remove_variable = kog_antioch_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Jerusalem
@@ -240,14 +244,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_jerusalem = {
 			set_variable = {
-				name = kog_jerusalem_controller_var
+				name = kog_controller_var
 				value = scope:kog_jerusalem_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_jerusalem = {
-			remove_variable = kog_jerusalem_controller_var
+			remove_variable = kog_controller_var
 		}
 
 	}
@@ -266,14 +270,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_alexandria = {
 			set_variable = {
-				name = kog_alexandria_controller_var
+				name = kog_controller_var
 				value = scope:kog_alexandria_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_alexandria = {
-			remove_variable = kog_alexandria_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Moscow
@@ -291,14 +295,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_moscow = {
 			set_variable = {
-				name = kog_moscow_controller_var
+				name = kog_controller_var
 				value = scope:kog_moscow_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_moscow = {
-			remove_variable = kog_moscow_controller_var
+			remove_variable = kog_controller_var
 		}
 
 	}
@@ -319,14 +323,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_coptic_alexandria = {
 			set_variable = {
-				name = kog_coptic_alexandria_controller_var
+				name = kog_controller_var
 				value = scope:kog_coptic_alexandria_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_coptic_alexandria = {
-			remove_variable = kog_coptic_alexandria_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Syriac Antioch
@@ -344,14 +348,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_syriac_antioch = {
 			set_variable = {
-				name = kog_syriac_antioch_controller_var
+				name = kog_controller_var
 				value = scope:kog_syriac_antioch_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_syriac_antioch = {
-			remove_variable = kog_syriac_antioch_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Etchmiadzin
@@ -369,14 +373,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_etchmiadzin = {
 			set_variable = {
-				name = kog_etchmiadzin_controller_var
+				name = kog_controller_var
 				value = scope:kog_etchmiadzin_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_etchmiadzin = {
-			remove_variable = kog_etchmiadzin_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Addis Ababa
@@ -394,14 +398,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_addis_ababa = {
 			set_variable = {
-				name = kog_addis_ababa_controller_var
+				name = kog_controller_var
 				value = scope:kog_addis_ababa_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_addis_ababa = {
-			remove_variable = kog_addis_ababa_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	# Konak
@@ -419,14 +423,14 @@ kog_update_seat_controllers_effect = {
 		}
 		global_var:kog_global.var:kog_konak = {
 			set_variable = {
-				name = kog_konak_controller_var
+				name = kog_controller_var
 				value = scope:kog_konak_controller_scope
 			}
 		}
 	}
 	else = {
 		global_var:kog_global.var:kog_konak = {
-			remove_variable = kog_konak_controller_var
+			remove_variable = kog_controller_var
 		}
 	}
 	## Basileia Romaion Seats
@@ -448,14 +452,14 @@ kog_update_seat_controllers_effect = {
 			}
 			global_var:kog_global.var:kog_elysium = {
 				set_variable = {
-					name = kog_elysium_controller_var
+					name = kog_controller_var
 					value = scope:kog_elysium_controller_scope
 				}
 			}
 		}
 		else = {
 			global_var:kog_global.var:kog_elysium = {
-				remove_variable = kog_elysium_controller_var
+				remove_variable = kog_controller_var
 			}
 		}
 		if = {
@@ -472,14 +476,14 @@ kog_update_seat_controllers_effect = {
 			}
 			global_var:kog_global.var:kog_mixtec = {
 				set_variable = {
-					name = kog_mixtec_controller_var
+					name = kog_controller_var
 					value = scope:kog_mixtec_controller_scope
 				}
 			}
 		}
 		else = {
 			global_var:kog_global.var:kog_mixtec = {
-				remove_variable = kog_mixtec_controller_var
+				remove_variable = kog_controller_var
 			}
 		}
 		if = {
@@ -502,14 +506,14 @@ kog_update_seat_controllers_effect = {
 				}
 				global_var:kog_global.var:kog_cahokia = {
 					set_variable = {
-						name = kog_cahokia_controller_var
+						name = kog_controller_var
 						value = scope:kog_cahokia_controller_scope
 					}
 				}
 			}
 			else = {
 				global_var:kog_global.var:kog_cahokia = {
-					remove_variable = kog_cahokia_controller_var
+					remove_variable = kog_controller_var
 				}
 			}
 		}
@@ -842,7 +846,7 @@ kog_update_council_votes_effect = {
 
 }
 
-kog_push_patriarch_relations_effect = {
+kog_patriarch_diplomacy_effect = {
 	if = {
 		limit = {
 			has_modifier = modifier_kog_swaying_rome
@@ -1265,41 +1269,1381 @@ kog_push_patriarch_relations_effect = {
 }
 
 # Patriarch Update Effects
-kog_update_rome_effect  = {}
+kog_update_rome_effect = {
+	# First, check for the papacy
+	if = {
+		limit = {
+			c:PAP ?= {
+				has_law = law_type:law_theocracy
+			}
+		}
+		c:PAP ?= {
+			ruler = {
+				save_scope_as = kog_rome_patriarch_scope
+			}
+		}
+	}
+	# Failing that, attempt to find character in void
+	else_if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_rome_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_rome_patriarch
+			}
+			save_scope_as = kog_rome_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Rome controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_rome
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_rome
+				}
+				create_character = {
+					template = template_kog_rome_patriarch
+					religion = rel:orthodox
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to an Italian Catholic
+		else = {
+			create_character = {
+				template = template_kog_rome_patriarch
+				culture = cu:south_italian
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_rome_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_rome_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_rome_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_rome_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_rome_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_rome_patriarch
+			}
+			save_scope_as = kog_rome_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_rome_patriarch_var
+		value = scope:kog_rome_patriarch_scope
+	}
+}
 
-kog_update_santiago_effect = {}
+kog_update_santiago_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_santiago_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_santiago_patriarch
+			}
+			save_scope_as = kog_santiago_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Santiago controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_santiago
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_santiago
+				}
+				create_character = {
+					template = template_kog_santiago_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Spanish Catholic
+		else = {
+			create_character = {
+				template = template_kog_santiago_patriarch
+				culture = cu:spanish
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_santiago_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_santiago_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_santiago_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_santiago_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_santiago_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_santiago_patriarch
+			}
+			save_scope_as = kog_santiago_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_santiago_patriarch_var
+		value = scope:kog_santiago_patriarch_scope
+	}
+}
 
-kog_update_paris_effect = {}
+kog_update_paris_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_paris_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_paris_patriarch
+			}
+			save_scope_as = kog_paris_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Paris controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_paris
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_paris
+				}
+				create_character = {
+					template = template_kog_paris_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to French Catholic
+		else = {
+			create_character = {
+				template = template_kog_paris_patriarch
+				culture = cu:french
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_paris_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_paris_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_paris_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_paris_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_paris_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_paris_patriarch
+			}
+			save_scope_as = kog_paris_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_paris_patriarch_var
+		value = scope:kog_paris_patriarch_scope
+	}
+}
 
-kog_update_koln_effect = {}
+kog_update_koln_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_koln_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_koln_patriarch
+			}
+			save_scope_as = kog_koln_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Koln controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_koln
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_koln
+				}
+				create_character = {
+					template = template_kog_koln_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to North German
+		else = {
+			create_character = {
+				template = template_kog_koln_patriarch
+				culture = cu:north_german
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_koln_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_koln_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_koln_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_koln_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_koln_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_koln_patriarch
+			}
+			save_scope_as = kog_koln_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_koln_patriarch_var
+		value = scope:kog_koln_patriarch_scope
+	}
+}
 
-kog_update_vienna_effect = {}
+kog_update_vienna_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_vienna_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_vienna_patriarch
+			}
+			save_scope_as = kog_vienna_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Vienna controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_vienna
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_vienna
+				}
+				create_character = {
+					template = template_kog_vienna_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to South German Catholic
+		else = {
+			create_character = {
+				template = template_kog_vienna_patriarch
+				culture = cu:south_german
+				religion = rel:catholic
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_vienna_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_vienna_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_vienna_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_vienna_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_vienna_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_vienna_patriarch
+			}
+			save_scope_as = kog_vienna_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_vienna_patriarch_var
+		value = scope:kog_vienna_patriarch_scope
+	}
+}
 
-kog_update_constantinople_effect = {}
+kog_update_constantinople_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_constantinople_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_constantinople_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Constantinople controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_constantinople
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_constantinople
+				}
+				create_character = {
+					template = template_kog_constantinople_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Greek Orthodox
+		else = {
+			create_character = {
+				template = template_kog_constantinople_patriarch
+				culture = cu:greek
+				religion = rel:orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_constantinople_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_constantinople_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_constantinople_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_constantinople_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_constantinople_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_constantinople_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_constantinople_patriarch_var
+		value = scope:kog_constantinople_patriarch_scope
+	}
+}
 
-kog_update_antioch_effect = {}
+kog_update_antioch_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_antioch_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_antioch_patriarch
+			}
+			save_scope_as = kog_antioch_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Antioch controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_antioch
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_antioch
+				}
+				create_character = {
+					template = template_kog_antioch_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Greek Orthodox
+		else = {
+			create_character = {
+				template = template_kog_antioch_patriarch
+				culture = cu:greek
+				religion = rel:orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_antioch_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_antioch_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_antioch_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_antioch_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_antioch_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_antioch_patriarch
+			}
+			save_scope_as = kog_antioch_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_antioch_patriarch_var
+		value = scope:kog_antioch_patriarch_scope
+	}
+}
 
-kog_update_jerusalem_effect = {}
+kog_update_jerusalem_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_jerusalem_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_jerusalem_patriarch
+			}
+			save_scope_as = kog_jerusalem_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Jerusalem controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_jerusalem
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_jerusalem
+				}
+				create_character = {
+					template = template_kog_jerusalem_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Greek Orthodox
+		else = {
+			create_character = {
+				template = template_kog_jerusalem_patriarch
+				culture = cu:greek
+				religion = rel:orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_jerusalem_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_jerusalem_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_jerusalem_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_jerusalem_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_jerusalem_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_jerusalem_patriarch
+			}
+			save_scope_as = kog_jerusalem_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_jerusalem_patriarch_var
+		value = scope:kog_jerusalem_patriarch_scope
+	}
+}
 
-kog_update_alexandria_effect = {}
+kog_update_alexandria_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_alexandria_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_alexandria_patriarch
+			}
+			save_scope_as = kog_alexandria_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the alexandria controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_alexandria
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_alexandria
+				}
+				create_character = {
+					template = template_kog_alexandria_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Greek Orthodox
+		else = {
+			create_character = {
+				template = template_kog_alexandria_patriarch
+				culture = cu:greek
+				religion = rel:orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_alexandria_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_alexandria_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_alexandria_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_alexandria_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_alexandria_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_alexandria_patriarch
+			}
+			save_scope_as = kog_alexandria_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_alexandria_patriarch_var
+		value = scope:kog_alexandria_patriarch_scope
+	}
+}
 
-kog_update_moscow_effect = {}
+kog_update_moscow_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_moscow_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_moscow_patriarch
+			}
+			save_scope_as = kog_moscow_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Moscow controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_moscow
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_moscow
+				}
+				create_character = {
+					template = template_kog_moscow_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Russian Orthodox
+		else = {
+			create_character = {
+				template = template_kog_moscow_patriarch
+				culture = cu:russian
+				religion = rel:orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_moscow_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_moscow_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_moscow_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_moscow_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_moscow_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_moscow_patriarch
+			}
+			save_scope_as = kog_moscow_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_moscow_patriarch_var
+		value = scope:kog_moscow_patriarch_scope
+	}
+}
 
-kog_update_coptic_alexandria_effect = {}
+kog_update_coptic_alexandria_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_coptic_alexandria_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_coptic_alexandria_patriarch
+			}
+			save_scope_as = kog_coptic_alexandria_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Coptic Alexandria controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_coptic_alexandria
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_coptic_alexandria
+				}
+				create_character = {
+					template = template_kog_coptic_alexandria_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Misri Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_kog_coptic_alexandria_patriarch
+				culture = cu:misri
+				religion = rel:oriental_orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_coptic_alexandria_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_coptic_alexandria_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_coptic_alexandria_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_coptic_alexandria_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_coptic_alexandria_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_coptic_alexandria_patriarch
+			}
+			save_scope_as = kog_coptic_alexandria_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_coptic_alexandria_patriarch_var
+		value = scope:kog_coptic_alexandria_patriarch_scope
+	}
+}
 
-kog_update_syriac_antioch_effect = {}
+kog_update_syriac_antioch_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_syriac_antioch_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_syriac_antioch_patriarch
+			}
+			save_scope_as = kog_syriac_antioch_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the Syriac Antioch controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_syriac_antioch
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_syriac_antioch
+				}
+				create_character = {
+					template = template_kog_syriac_antioch_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Mashriqi Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_kog_syriac_antioch_patriarch
+				culture = cu:mashriqi
+				religion = rel:oriental_orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_syriac_antioch_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_syriac_antioch_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_syriac_antioch_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_syriac_antioch_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_syriac_antioch_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_syriac_antioch_patriarch
+			}
+			save_scope_as = kog_syriac_antioch_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_syriac_antioch_patriarch_var
+		value = scope:kog_syriac_antioch_patriarch_scope
+	}
+}
 
-kog_update_etchmiadzin_effect = {}
+kog_update_etchmiadzin_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_etchmiadzin_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_etchmiadzin_patriarch
+			}
+			save_scope_as = kog_etchmiadzin_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the etchmiadzin controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_etchmiadzin
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_etchmiadzin
+				}
+				create_character = {
+					template = template_kog_etchmiadzin_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Armenian Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_kog_etchmiadzin_patriarch
+				culture = cu:armenian
+				religion = rel:oriental_orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_etchmiadzin_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_etchmiadzin_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_etchmiadzin_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_etchmiadzin_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_etchmiadzin_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_etchmiadzin_patriarch
+			}
+			save_scope_as = kog_etchmiadzin_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_etchmiadzin_patriarch_var
+		value = scope:kog_etchmiadzin_patriarch_scope
+	}
+}
 
-kog_update_addis_ababa_effect = {}
+kog_update_addis_ababa_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_addis_ababa_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_addis_ababa_patriarch
+			}
+			save_scope_as = kog_addis_ababa_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the addis_ababa controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_addis_ababa
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_addis_ababa
+				}
+				create_character = {
+					template = template_kog_addis_ababa_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Oromo Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_kog_addis_ababa_patriarch
+				culture = cu:oromo
+				religion = rel:oriental_orthodox
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_addis_ababa_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_addis_ababa_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_addis_ababa_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_addis_ababa_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_addis_ababa_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_addis_ababa_patriarch
+			}
+			save_scope_as = kog_addis_ababa_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_addis_ababa_patriarch_var
+		value = scope:kog_addis_ababa_patriarch_scope
+	}
+}
 
-kog_update_konak_effect = {}
+kog_update_konak_effect = {
+	# First, try to find the character in the void
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = template_kog_konak_patriarch
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_konak_patriarch
+			}
+			save_scope_as = kog_konak_patriarch_scope
+		}
+	}
+	# Failing that, generate a new character
+	else = {
+		# Attempt to generate using the konak controller
+		if = {
+			limit = {
+				any_country = {
+					has_variable = kog_controls_konak
+					kog_is_christian_trigger = yes
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_controls_konak
+				}
+				create_character = {
+					template = template_kog_konak_patriarch
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Fallback to Assyrian Oriental Orthodox
+		else = {
+			create_character = {
+				template = template_kog_konak_patriarch
+				culture = cu:assyrian
+				religion = rel:oriental_orthodox # This is inaccurate, I know
+				on_created = {
+					place_character_in_void = 180 # 15 year shelf life
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_konak_relations_var
+					}
+				}
+				set_variable = {
+					name = kog_konak_relations_var
+					value = 0
+				}
+			}
+			change_variable = {
+				name = kog_konak_relations_var
+				add = -25
+			}
+			clamp_variable = {
+				name = kog_konak_relations_var
+				min = 0
+				max = 50
+			}
+			post_notification = kog_konak_replaced
+		}
+		# Save the new character
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_konak_patriarch
+			}
+			save_scope_as = kog_konak_patriarch_scope
+		}
+	}
+	# Finally, set the new variable
+	set_variable = {
+		name = kog_konak_patriarch_var
+		value = scope:kog_konak_patriarch_scope
+	}
+}
 
-kog_update_elysium_effect = {}
+kog_update_elysium_effect = {
 
-kog_update_mixtec_effect = {}
+}
 
-kog_update_cahokia_effect = {}
+kog_update_mixtec_effect = {
+
+}
+
+kog_update_cahokia_effect = {
+
+}
 
 
 
