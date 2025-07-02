@@ -56,34 +56,6 @@ kog_is_cahokian_orthodox_trigger = { # Basileia Romaion
 	var:kog_local.var:kog_liturgical_rite_var = flag:kog_cahokian_rite
 }
 
-# Metropolis Triggers
-
-kog_has_icon_trigger = {
-	OR = {
-		has_modifier = modifier_kog_icon_christ_pantocrator
-		has_modifier = modifier_kog_icon_eleusa
-		has_modifier = modifier_kog_icon_john_climacus
-		has_modifier = modifier_kog_icon_michael_archistrategos
-		has_modifier = modifier_kog_icon_nikolaos_wonderworker
-		has_modifier = modifier_kog_icon_gregory_nazianzus
-		has_modifier = modifier_kog_icon_paul_of_thebes
-		has_modifier = modifier_kog_icon_issac_the_syrian
-	}
-}
-
-
-kog_is_autocephalous_trigger = {
-	var:kog_local = {
-		has_variable = kog_is_autocephalous
-	}
-}
-
-kog_is_schismatic_trigger = {
-	var:kog_local = {
-		has_variable = kog_schism_var
-	}
-}
-
 # Capacity Triggers
 kog_has_100_capacity_trigger = {
 	custom_tooltip = {
