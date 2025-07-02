@@ -252,6 +252,15 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_rome = {
+		p:xF0A020 = { # Rome
+			owner = {
+				set_variable = kog_controls_rome
+				save_scope_as = kog_rome_controller
+				ruler = {
+					save_scope_as =  kog_rome_patriarch
+				}
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_rome_name
@@ -260,20 +269,13 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_roman_rite
 		}
-		p:xF0A020 = { # rome
-			owner = {
-				set_variable = kog_controls_rome
-				save_scope_as = kog_rome_controller
-			}
+		set_variable = { 
+			name = kog_location_var
+			value = s:STATE_LAZIO
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_rome_controller
-		}
-		scope:kog_rome_controller = {
-			ruler = {
-				save_scope_as = kog_rome_patriarch
-			}
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -293,6 +295,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_santiago = {
+		p:xF0A020 = { # Santiago
+			owner = {
+				set_variable = kog_controls_santiago
+				save_scope_as = kog_santiago_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_santiago_name
@@ -301,20 +309,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_roman_rite
 		}
-		p:xF0A020 = { # santiago
-			owner = {
-				set_variable = kog_controls_santiago
-				save_scope_as = kog_santiago_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_GALICIA
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_santiago_controller
 		}
-		scope:kog_santiago_controller = {
-			ruler = {
-				save_scope_as = kog_santiago_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_santiago_patriarch
 			}
+			save_scope_as = kog_santiago_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -334,6 +341,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_paris = {
+		p:xF0A020 = { # Paris
+			owner = {
+				set_variable = kog_controls_paris
+				save_scope_as = kog_paris_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_paris_name
@@ -342,20 +355,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_roman_rite
 		}
-		p:xF0A020 = { # paris
-			owner = {
-				set_variable = kog_controls_paris
-				save_scope_as = kog_paris_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_ILE_DE_FRANCE
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_paris_controller
 		}
-		scope:kog_paris_controller = {
-			ruler = {
-				save_scope_as = kog_paris_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_paris_patriarch
 			}
+			save_scope_as = kog_paris_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -375,6 +387,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_koln = {
+		p:xF0A020 = { # koln
+			owner = {
+				set_variable = kog_controls_koln
+				save_scope_as = kog_koln_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_koln_name
@@ -383,20 +401,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_roman_rite
 		}
-		p:xF0A020 = { # koln
-			owner = {
-				set_variable = kog_controls_koln
-				save_scope_as = kog_koln_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_NORTH_RHINE
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_koln_controller
 		}
-		scope:kog_koln_controller = {
-			ruler = {
-				save_scope_as = kog_koln_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_koln_patriarch
 			}
+			save_scope_as = kog_koln_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -416,6 +433,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_vienna = {
+		p:xF0A020 = { # vienna
+			owner = {
+				set_variable = kog_controls_vienna
+				save_scope_as = kog_vienna_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_vienna_name
@@ -424,20 +447,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_roman_rite
 		}
-		p:xF0A020 = { # vienna
-			owner = {
-				set_variable = kog_controls_vienna
-				save_scope_as = kog_vienna_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_AUSTRIA
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_vienna_controller
 		}
-		scope:kog_vienna_controller = {
-			ruler = {
-				save_scope_as = kog_vienna_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_vienna_patriarch
 			}
+			save_scope_as = kog_vienna_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -457,6 +479,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_constantinople = {
+		p:xF0A020 = { # Constantinople
+			owner = {
+				set_variable = kog_controls_constantinople
+				save_scope_as = kog_constantinople_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_constantinople_name
@@ -465,11 +493,9 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_byzantine_rite
 		}
-		p:xF0A020 = { # Constantinople
-			owner = {
-				set_variable = kog_controls_constantinople
-				save_scope_as = kog_constantinople_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_EASTERN_THRACE
 		}
 		set_variable = {
 			name = kog_controller_var
@@ -499,6 +525,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_antioch = {
+		p:x186A43 = { # antioch
+			owner = {
+				set_variable = kog_controls_antioch
+				save_scope_as = kog_antioch_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_antioch_name
@@ -507,11 +539,9 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_byzantine_rite
 		}
-		p:x186A43 = { # antioch
-			owner = {
-				set_variable = kog_controls_antioch
-				save_scope_as = kog_antioch_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_SYRIA
 		}
 		set_variable = {
 			name = kog_controller_var
@@ -541,6 +571,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_jerusalem = {
+		p:xC9CBC0 = { # jerusalem
+			owner = {
+				set_variable = kog_controls_jerusalem
+				save_scope_as = kog_jerusalem_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_jerusalem_name
@@ -549,11 +585,9 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_byzantine_rite
 		}
-		p:xC9CBC0 = { # jerusalem
-			owner = {
-				set_variable = kog_controls_jerusalem
-				save_scope_as = kog_jerusalem_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_PALESTINE
 		}
 		set_variable = {
 			name = kog_controller_var
@@ -583,6 +617,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_alexandria = {
+		p:xA0D020 = { # alexandria
+			owner = {
+				set_variable = kog_controls_alexandria
+				save_scope_as = kog_alexandria_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_alexandria_name
@@ -591,11 +631,9 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_byzantine_rite
 		}
-		p:xA0D020 = { # alexandria
-			owner = {
-				set_variable = kog_controls_alexandria
-				save_scope_as = kog_alexandria_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_LOWER_EGYPT
 		}
 		set_variable = {
 			name = kog_controller_var
@@ -625,6 +663,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_moscow = {
+		p:x13D91C = { # moscow
+			owner = {
+				set_variable = kog_controls_moscow
+				save_scope_as = kog_moscow_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_moscow_name
@@ -633,11 +677,9 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_russian_rite
 		}
-		p:x13D91C = { # moscow
-			owner = {
-				set_variable = kog_controls_moscow
-				save_scope_as = kog_moscow_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_MOSCOW
 		}
 		set_variable = {
 			name = kog_controller_var
@@ -667,6 +709,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_coptic_alexandria = {
+		p:xF0A020 = { # coptic_alexandria
+			owner = {
+				set_variable = kog_controls_coptic_alexandria
+				save_scope_as = kog_coptic_alexandria_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_coptic_alexandria_name
@@ -675,20 +723,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_alexandrian_rite
 		}
-		p:xF0A020 = { # coptic_alexandria
-			owner = {
-				set_variable = kog_controls_coptic_alexandria
-				save_scope_as = kog_coptic_alexandria_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_LOWER_EGYPT
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_coptic_alexandria_controller
 		}
-		scope:kog_coptic_alexandria_controller = {
-			ruler = {
-				save_scope_as = kog_coptic_alexandria_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_coptic_alexandria_patriarch
 			}
+			save_scope_as = kog_coptic_alexandria_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -708,6 +755,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_syriac_antioch = {
+		p:xF0A020 = { # syriac_antioch
+			owner = {
+				set_variable = kog_controls_syriac_antioch
+				save_scope_as = kog_syriac_antioch_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_syriac_antioch_name
@@ -716,20 +769,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_syro_antiochian_rite
 		}
-		p:xF0A020 = { # syriac_antioch
-			owner = {
-				set_variable = kog_controls_syriac_antioch
-				save_scope_as = kog_syriac_antioch_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_SYRIA
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_syriac_antioch_controller
 		}
-		scope:kog_syriac_antioch_controller = {
-			ruler = {
-				save_scope_as = kog_syriac_antioch_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_syriac_antioch_patriarch
 			}
+			save_scope_as = kog_syriac_antioch_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -749,6 +801,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_etchmiadzin = {
+		p:xF0A020 = { # Etchmiadzin
+			owner = {
+				set_variable = kog_controls_etchmiadzin
+				save_scope_as = kog_etchmiadzin_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_etchmiadzin_name
@@ -757,20 +815,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_armenian_rite
 		}
-		p:xF0A020 = { # Etchmiadzin
-			owner = {
-				set_variable = kog_controls_etchmiadzin
-				save_scope_as = kog_etchmiadzin_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_ARMENIA
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_etchmiadzin_controller
 		}
-		scope:kog_etchmiadzin_controller = {
-			ruler = {
-				save_scope_as = kog_etchmiadzin_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_etchmiadzin_patriarch
 			}
+			save_scope_as = kog_etchmiadzin_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -790,6 +847,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_addis_ababa = {
+		p:xF0A020 = { # Addis Ababa
+			owner = {
+				set_variable = kog_controls_addis_ababa
+				save_scope_as = kog_addis_ababa_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_addis_ababa_name
@@ -798,20 +861,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_alexandrian_rite
 		}
-		p:xF0A020 = { # Addis Ababa
-			owner = {
-				set_variable = kog_controls_addis_ababa
-				save_scope_as = kog_addis_ababa_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_OROMIA
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_addis_ababa_controller
 		}
-		scope:kog_addis_ababa_controller = {
-			ruler = {
-				save_scope_as = kog_addis_ababa_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_addis_ababa_patriarch
 			}
+			save_scope_as = kog_addis_ababa_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -831,6 +893,12 @@ kog_initialize_structs_effect = {
 		}
 	}
 	global_var:kog_global.var:kog_konak = {
+		p:xF0A020 = { # Qudshanis
+			owner = {
+				set_variable = kog_controls_konak
+				save_scope_as = kog_konak_controller
+			}
+		}
 		set_variable = {
 			name = seat_name
 			value = flag:kog_konak_name
@@ -839,20 +907,19 @@ kog_initialize_structs_effect = {
 			name = kog_rite_var
 			value = flag:kog_nestorian_rite
 		}
-		p:xF0A020 = { # Qudshanis
-			owner = {
-				set_variable = kog_controls_konak
-				save_scope_as = kog_konak_controller
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_DIYARBAKIR
 		}
 		set_variable = {
 			name = kog_controller_var
 			value = scope:kog_konak_controller
 		}
-		scope:kog_konak_controller = {
-			ruler = {
-				save_scope_as = kog_konak_patriarch
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_konak_patriarch
 			}
+			save_scope_as = kog_konak_patriarch
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -876,6 +943,12 @@ kog_initialize_structs_effect = {
 			}
 		}
 		global_var:kog_global.var:kog_elysium = {
+			p:xF0A020 = { # Elysium
+				owner = {
+					set_variable = kog_controls_elysium
+					save_scope_as = kog_elysium_controller
+				}
+			}
 			set_variable = {
 				name = seat_name
 				value = flag:kog_elysium_name
@@ -884,20 +957,19 @@ kog_initialize_structs_effect = {
 				name = kog_rite_var
 				value = flag:kog_elysian_rite
 			}
-			p:xF0A020 = { # Elysium
-				owner = {
-					set_variable = kog_controls_elysium
-					save_scope_as = kog_elysium_controller
-				}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_DISTRICT_OF_COLUMBIA
 			}
 			set_variable = {
 				name = kog_controller_var
 				value = scope:kog_elysium_controller
 			}
-			scope:kog_elysium_controller = {
-				ruler = {
-					save_scope_as = kog_elysium_patriarch
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_elysium_patriarch
 				}
+				save_scope_as = kog_elysium_patriarch
 			}
 			set_variable = {
 				name = kog_patriarch_var
@@ -917,6 +989,12 @@ kog_initialize_structs_effect = {
 			}
 		}
 		global_var:kog_global.var:kog_mixtec = {
+			p:xF0A020 = { # Tututepec
+				owner = {
+					set_variable = kog_controls_mixtec
+					save_scope_as = kog_mixtec_controller
+				}
+			}
 			set_variable = {
 				name = seat_name
 				value = flag:kog_mixtec_name
@@ -925,20 +1003,19 @@ kog_initialize_structs_effect = {
 				name = kog_rite_var
 				value = flag:kog_mixtec_rite
 			}
-			p:xF0A020 = { # Tututepec
-				owner = {
-					set_variable = kog_controls_mixtec
-					save_scope_as = kog_mixtec_controller
-				}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_OAXACA
 			}
 			set_variable = {
 				name = kog_controller_var
 				value = scope:kog_mixtec_controller
 			}
-			scope:kog_mixtec_controller = {
-				ruler = {
-					save_scope_as = kog_mixtec_patriarch
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_mixtec_patriarch
 				}
+				save_scope_as = kog_mixtec_patriarch
 			}
 			set_variable = {
 				name = kog_patriarch_var
@@ -947,118 +1024,6 @@ kog_initialize_structs_effect = {
 		}
 	}
 	
-}
-
-kog_initialize_seat_controllers_effect = {
-	# Catholic Church Seats
-	p:xB040A0 = { # Rome
-		owner = {
-			set_variable = kog_controls_rome
-		}
-	}
-	p:xD0E040 = { # Santiago
-		owner = {
-			set_variable = kog_controls_santiago
-		}
-	}
-	p:x71DA2E = { # Paris
-		owner = {
-			set_variable = kog_controls_paris
-		}
-	}
-	p:x9F4072 = { # Koln
-		owner = {
-			set_variable = kog_controls_koln
-		}
-	}
-	p:x316141 = { # Vienna
-		owner = {
-			set_variable = kog_controls_vienna
-		}
-	}
-
-	# Orthodox Church Seats
-	p:xF0A020 = { # Constantinople
-		owner = {
-			set_variable = kog_controls_constantinople
-		}
-	}
-	if = { # Antioch in BR
-		limit = {
-			basileia_is_active = yes
-		}
-		p:xE01160 = {
-			owner = {
-				set_variable = kog_controls_antioch
-			}
-		}
-	}
-	else = { # Antioch in Reality
-		p:x186A43 = { # Antioch
-			owner = {
-				set_variable = kog_controls_antioch
-			}
-		}
-	}
-	p:xC9CBC0 = { # Jerusalem
-		owner = {
-			set_variable = kog_controls_jerusalem
-		}
-	}
-	p:xA0D020 = { # Alexandria
-		owner = {
-			set_variable = kog_controls_alexandria
-		}
-	}
-	p:x13D91C = { # Moscow
-		owner = {
-			set_variable = kog_controls_moscow
-		}
-	}
-
-	# Oriental Orthodox Church Seats
-	p:xA0D020 = { # Coptic Alexandria
-		owner = {
-			set_variable = kog_controls_coptic_alexandria
-		}
-	}
-	p:x186A43 = { # Syriac Antioch
-		owner = {
-			set_variable = kog_controls_syriac_antioch
-		}
-	}
-	p:x805000 = { # Armenia
-		owner = {
-			set_variable = kog_controls_etchmiadzin
-		}
-	}
-	p:xE7D29C = { # Addis Ababa
-		owner = {
-			set_variable = kog_controls_addis_ababa
-		}
-	}
-	p:xC33C0F = { # Konak
-		owner = {
-			set_variable = kog_controls_konak
-		}
-	}
-
-	# Elysian Orthodox Seats
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		p:x700080 = { # Elysium
-			owner = {
-				set_variable = kog_controls_elysium
-			}
-		}
-		p:x1BC4D0 = { # Mixtec
-			owner = {
-				set_variable = kog_controls_mixtec
-			}
-		}
-	}
 }
 
 kog_initialize_metropolis_effect = {
