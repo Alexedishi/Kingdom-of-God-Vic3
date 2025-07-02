@@ -1,0 +1,360 @@
+﻿# General Holy Site PMs
+pm_kog_holy_site = {
+	texture = "gfx/interface/icons/production_method_icons/kog_holy_site.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_authority_add = 50
+		}
+		unscaled = {
+			country_prestige_add = 25
+		}
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add = 500
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_holy_site
+	}
+}
+pm_kog_museum_site = {
+	texture = "gfx/interface/icons/production_method_icons/kog_religious_museum.dds"
+
+	country_modifiers = {
+		unscaled = {
+			country_prestige_add = 10
+		}
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_migration_pull_mult = 0.05
+		}
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clerks_add = 500
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_museum_site
+	}
+}
+pm_kog_ruins_site = {
+	texture = "gfx/interface/icons/production_method_icons/kog_ruins.dds"
+	
+	unlocking_production_methods = {
+		pm_kog_ruins_site
+	}
+}
+
+# Patriarchal Seat PMs
+pm_kog_patriarchate_occupied = {
+	texture = "gfx/interface/icons/production_method_icons/kog_occupied_site.dds"
+	
+	unlocking_production_methods = {
+		pm_kog_patriarchate_occupied
+	}
+}
+
+## Catholic Holy Site PMs
+pm_kog_patriarchate_rome = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_authority_mult = 0.05
+			state_conversion_mult = 0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_rome
+	}
+}
+pm_kog_patriarchate_santiago = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_tax_capacity_mult = 0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_santiago
+	}
+}
+pm_kog_patriarchate_paris = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_infrastructure_from_population_add = 1
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_paris
+	}
+}
+pm_kog_patriarchate_koln = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_infrastructure_mult = 0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_koln
+	}
+}
+pm_kog_patriarchate_vienna = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_loyalism_increases_full_acceptance_mult = 0.05
+			state_radicalism_increases_full_acceptance_mult = -0.05
+			state_radicalism_increases_open_prejudice_mult = -0.05
+			state_radicalism_increases_cultural_erasure_mult = -0.05
+			state_radicalism_increases_violent_hostility_mult = -0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_vienna
+	}
+}
+
+## Orthodox Holy Site PMs
+pm_kog_patriarchate_constantinople = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_bureaucracy_mult = 0.05
+			state_assimilation_mult = 0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_constantinople
+	}
+}
+pm_kog_patriarchate_antioch = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_infamy_generation_mult = -0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_antioch
+	}
+}
+pm_kog_patriarchate_jerusalem = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_turmoil_effects_mult = -0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_jerusalem
+	}
+}
+pm_kog_patriarchate_alexandria = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_tech_spread_mult = 0.15
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_alexandria
+	}
+}
+pm_kog_patriarchate_moscow = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_decree_cost_mult = -0.10
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_moscow
+	}
+}
+
+## Oriental Orthodox Holy Site PMs
+pm_kog_patriarchate_coptic_alexandria = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_weekly_innovation_mult = 0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_coptic_alexandria
+	}
+}
+pm_kog_patriarchate_syriac_antioch = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_infamy_decay_mult = 0.10
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_syriac_antioch
+	}
+}
+pm_kog_patriarchate_addis_ababa = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_influence_mult = 0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_addis_ababa
+	}
+}
+pm_kog_patriarchate_etchmiadzin = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_liberty_desire_of_subjects_add = -0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_etchmiadzin
+	}
+}
+pm_kog_patriarchate_konak = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_lower_strata_expected_sol_add = -1
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_konak
+	}
+}
+pm_kog_patriarchate_elysium = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			state_colony_growth_speed_mult = 0.25
+			state_conversion_mult = 0.10
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_elysium
+	}
+}
+pm_kog_patriarchate_tututepec = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			building_training_rate_mult = 0.25
+			unit_morale_loss_mult = -0.05
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_tututepec
+	}
+}
+pm_kog_patriarchate_cahokia = {
+	texture = "gfx/interface/icons/production_method_icons/kog_orthodox_site.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_faith_capacity_add = 100
+			country_acceptance_state_religion_add = 10
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_patriarchate_tututepec
+	}
+}
+
+
+## Masjid al-Haram PMs
+pm_kog_masjid_al_haram_base = {
+	texture = "gfx/interface/icons/production_method_icons/kog_holy_site.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pol_str_mult = 0.1
+			country_authority_add = 50
+		}
+		unscaled = {
+			country_prestige_add = 25
+		}
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add = 500
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_masjid_al_haram_base
+	}
+}
+pm_kog_masjid_al_haram_museum = {
+	texture = "gfx/interface/icons/production_method_icons/kog_religious_museum.dds"
+	
+	country_modifiers = {
+		unscaled = {
+			country_prestige_add = 10
+		}
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_migration_pull_mult = 0.05
+		}
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clerks_add = 500
+		}
+	}
+	unlocking_production_methods = {
+		pm_kog_masjid_al_haram_museum
+	}
+}
+pm_kog_masjid_al_haram_ruins = {
+	texture = "gfx/interface/icons/production_method_icons/kog_ruins.dds"
+	
+	unlocking_production_methods = {
+		pm_kog_masjid_al_haram_ruins
+	}
+}
