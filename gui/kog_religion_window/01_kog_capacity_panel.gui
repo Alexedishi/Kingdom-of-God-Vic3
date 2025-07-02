@@ -193,7 +193,7 @@ types kog_capacity_panels {
 	}
 	
 	type kog_metropolitan_stats_panel = character_with_background {
-		datacontext = "[GetPlayer.MakeScope.Var('kog_local').GetCharacter]"
+		datacontext = "[GetPlayer.MakeScope.Var('kog_local').Var('kog_metropolitan_var').GetCharacter]"
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		minimumsize = { -1 340 }
