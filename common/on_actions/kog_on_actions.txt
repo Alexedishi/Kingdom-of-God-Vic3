@@ -1,0 +1,30 @@
+﻿
+
+
+########################################
+
+on_game_started_after_lobby = {
+	on_actions = {
+		kog_topbar_setup
+	}
+}
+
+kog_topbar_setup = {
+	effect = {
+		add_com_topbar_element = {
+			element_name = kog_topbar_element_capacity
+		}
+		every_country = {
+			limit = {
+				kog_is_eastern_christian_trigger =
+			}
+			add_to_variable_list = {
+				name = com_topbar_second_line
+				target = scope:kog_topbar_element_capacity
+			}
+		}
+	}
+}
+
+
+########################################
