@@ -231,7 +231,28 @@ kog_initialize_structs_effect = {
 	}
 	scope:kog_global = {
 		set_variable = {
+			name = kog_catholic_council_counter
+			value = 0
+		}
+		set_variable = {
 			name = kog_othodox_council_counter
+			value = 0
+		}
+		set_variable = {
+			name = kog_oriental_council_counter
+			value = 0
+		}
+		if = {
+			limit = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = kog_elysian_council_counter
+				value = 0
+			}
+		}
+		set_variable = {
+			name = kog_protestant_council_counter
 			value = 0
 		}
 		set_variable = {
