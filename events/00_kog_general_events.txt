@@ -1,1 +1,18 @@
-﻿
+﻿namespace = kog_general
+
+kog_general.001 = { # The Patriarch's Variable Dumpster Fire
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		# DO NOT CALL THIS EVENT
+	}
+
+	immediate = {
+		fix_variable_error = { variable = kog_global }
+		fix_variable_error = { variable = kog_local }
+	}
+
+	orphan = yes
+
+}
