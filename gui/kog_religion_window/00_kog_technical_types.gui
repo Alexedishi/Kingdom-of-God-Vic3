@@ -1,17 +1,17 @@
-types eocfm_technical_types {
+types kog_technical_types {
 	
-	type eocfm_alert_widget = widget {
-		visible = "[GetVariableSystem.HasValue('com_alert_action', Localize('gg_eocfm_faith_action'))]"
+	type kog_alert_widget = widget {
+		visible = "[GetVariableSystem.HasValue('com_alert_action', Localize('gg_kog_faith_action'))]"
 		enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 		state = {
 			name = _show
-			on_finish = "[GetScriptedGui('eocfm_sidebar_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			on_finish = "[GetVariableSystem.Set('com_open_window', 'eocfm_sidebar_button_sgui')]"
+			on_finish = "[GetScriptedGui('kog_sidebar_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			on_finish = "[GetVariableSystem.Set('com_open_window', 'kog_sidebar_button_sgui')]"
 			on_finish = "[GetVariableSystem.Clear('com_alert_action')]"
 		}
 	}
 	
-	type eocfm_window_header = widget {
+	type kog_window_header = widget {
 		size = { 100% 92 }
 		position = { 0 76 }
 
@@ -162,7 +162,7 @@ types eocfm_technical_types {
 		}
 		
 		textbox = {
-			text = "eocfm_gui_main_title"
+			text = "kog_gui_main_title"
 			parentanchor = center
 			position = { 0 8 }
 			autoresize = yes
@@ -187,7 +187,7 @@ types eocfm_technical_types {
 		}
 	}
 	
-	type eocfm_header_left_fade = widget {
+	type kog_header_left_fade = widget {
 		size = { 50 100% }
 		parentanchor = left
 
@@ -205,7 +205,7 @@ types eocfm_technical_types {
 		}
 	}
 	
-	type eocfm_header_right_fade = widget {
+	type kog_header_right_fade = widget {
 		size = { 50 100% }
 		parentanchor = right
 
@@ -222,7 +222,7 @@ types eocfm_technical_types {
 		}
 	}
 	
-	type eocfm_header_top_filler = widget {
+	type kog_header_top_filler = widget {
 		size = { 100% 78 }
 
 		background = {
