@@ -1,0 +1,195 @@
+﻿kog_denomination_type = {
+	type = country
+
+	text = {
+		trigger = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		localization_key = kog_roman_catholic
+	}
+	text = {
+		trigger = {
+			kog_is_eastern_orthodox_trigger = yes
+		}
+		localization_key = kog_eastern_orthodox
+	}
+	text = {
+		trigger = {
+			kog_is_oriental_orthodox_trigger = yes
+			NOT = {
+				var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
+			}
+		}
+		localization_key = kog_oriental_orthodox
+	}
+	text = {
+		trigger = {
+			kog_is_oriental_orthodox_trigger = yes
+			var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
+		}
+		localization_key = kog_ancient_east
+	}
+	text = {
+		trigger = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		localization_key = kog_elysian_orthodox
+	}
+}
+
+kog_faith_capacity_type = {
+	type = country
+
+	text = {
+		trigger = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		localization_key = kog_catholic_power
+	}
+	text = {
+		trigger = {
+			kog_is_eastern_orthodox_trigger = yes
+		}
+		localization_key = kog_orthodox_power
+	}
+	text = {
+		trigger = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		localization_key = kog_oriental_power
+	}
+	text = {
+		trigger = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		localization_key = kog_elysian_power
+	}
+}
+
+kog_catholic_communion_type = {
+	type = country
+
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = no
+			kog_is_schismatic_trigger = no
+		}
+		localization_key = kog_no_autocephaly_catholic
+	}
+	text = {
+		trigger = {
+			kog_is_schismatic_trigger = yes
+		}
+		localization_key = kog_schismatic_catholic
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_rome_trigger = no
+		}
+		localization_key = kog_autocephalous_catholic
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_rome_trigger = yes
+		}
+		localization_key = kog_supremacy_catholic
+	}
+}
+
+kog_orthodox_communion_type = {
+	type = country
+
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = no
+			kog_is_schismatic_trigger = no
+		}
+		localization_key = kog_no_autocephaly_orthodox
+	}
+	text = {
+		trigger = {
+			kog_is_schismatic_trigger = yes
+		}
+		localization_key = kog_schismatic_orthodox
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_rome_trigger = no
+		}
+		localization_key = kog_autocephalous_orthodox
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_constantinople_trigger = yes
+		}
+		localization_key = kog_supremacy_orthodox
+	}
+}
+
+kog_oriental_communion_type = {
+	type = country
+
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = no
+			kog_is_schismatic_trigger = no
+		}
+		localization_key = kog_no_autocephaly_oriental
+	}
+	text = {
+		trigger = {
+			kog_is_schismatic_trigger = yes
+		}
+		localization_key = kog_schismatic_oriental
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_rome_trigger = no
+		}
+		localization_key = kog_autocephalous_oriental
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_coptic_alexandria_trigger = yes
+		}
+		localization_key = kog_supremacy_oriental
+	}
+}
+
+kog_elysian_communion_type = {
+	type = country
+
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = no
+			kog_is_schismatic_trigger = no
+		}
+		localization_key = kog_no_autocephaly_elysian
+	}
+	text = {
+		trigger = {
+			kog_is_schismatic_trigger = yes
+		}
+		localization_key = kog_schismatic_elysian
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_rome_trigger = no
+		}
+		localization_key = kog_autocephalous_elysian
+	}
+	text = {
+		trigger = {
+			kog_is_autocephalous_trigger = yes
+			kog_controls_elysium_trigger = yes
+		}
+		localization_key = kog_supremacy_elysian
+	}
+}
