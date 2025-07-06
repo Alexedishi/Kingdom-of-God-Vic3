@@ -1,6 +1,6 @@
-types eocfm_ecumenical_council_panels {
+types kog_ecumenical_council_panels {
 	
-	type eocfm_catholic_council_panel = vbox {
+	type kog_catholic_council_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		minimumsize = { -1 200 }
@@ -11,45 +11,45 @@ types eocfm_ecumenical_council_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_ecumenical_council_header"
+				text = "kog_gui_ecumenical_council_header"
 			}
 		}
 		
-		eocfm_inactive_council_panel = {
+		kog_inactive_council_panel = {
 			blockoverride "inactive_visibility" {
-				visible = "[Not(GetScriptedGui('eocfm_catholic_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+				visible = "[Not(GetScriptedGui('kog_catholic_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			}
 		}
 		
-		eocfm_active_council_panel = {
+		kog_active_council_panel = {
 			blockoverride "active_visibility" {
-				visible = "[GetScriptedGui('eocfm_catholic_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				visible = "[GetScriptedGui('kog_catholic_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			}
 			blockoverride "council_location" {
-				text = "eocfm_gui_catholic_council_location"
+				text = "kog_gui_catholic_council_location"
 			}
 			blockoverride "council_host" {
-				text = "eocfm_gui_catholic_council_host"
+				text = "kog_gui_catholic_council_host"
 			}
 			blockoverride "council_matter" {
-				text = "eocfm_gui_catholic_council_matter"
+				text = "kog_gui_catholic_council_matter"
 			}
 			blockoverride "council_votes" {
-				text = "eocfm_gui_catholic_council_votes"
+				text = "kog_gui_catholic_council_votes"
 			}
 			blockoverride "council_supporters" {
-				text = "eocfm_gui_catholic_council_supporters"
+				text = "kog_gui_catholic_council_supporters"
 			}
 			blockoverride "council_detractors" {
-				text = "eocfm_gui_catholic_council_detractors"
+				text = "kog_gui_catholic_council_detractors"
 			}
 			blockoverride "council_outcome" {
-				text = "eocfm_gui_catholic_council_outcome"
+				text = "kog_gui_catholic_council_outcome"
 			}
 		}
 	}
 	
-	type eocfm_orthodox_council_panel = vbox {
+	type kog_orthodox_council_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		minimumsize = { -1 200 }
@@ -60,45 +60,45 @@ types eocfm_ecumenical_council_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_ecumenical_council_header"
+				text = "kog_gui_ecumenical_council_header"
 			}
 		}
 		
-		eocfm_inactive_council_panel = {
+		kog_inactive_council_panel = {
 			blockoverride "inactive_visibility" {
-				visible = "[Not(GetScriptedGui('eocfm_orthodox_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+				visible = "[Not(GetScriptedGui('kog_orthodox_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			}
 		}
 		
-		eocfm_active_council_panel = {
+		kog_active_council_panel = {
 			blockoverride "active_visibility" {
-				visible = "[GetScriptedGui('eocfm_orthodox_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				visible = "[GetScriptedGui('kog_orthodox_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			}
 			blockoverride "council_location" {
-				text = "eocfm_gui_orthodox_council_location"
+				text = "kog_gui_orthodox_council_location"
 			}
 			blockoverride "council_host" {
-				text = "eocfm_gui_orthodox_council_host"
+				text = "kog_gui_orthodox_council_host"
 			}
 			blockoverride "council_matter" {
-				text = "eocfm_gui_orthodox_council_matter"
+				text = "kog_gui_orthodox_council_matter"
 			}
 			blockoverride "council_votes" {
-				text = "eocfm_gui_orthodox_council_votes"
+				text = "kog_gui_orthodox_council_votes"
 			}
 			blockoverride "council_supporters" {
-				text = "eocfm_gui_orthodox_council_supporters"
+				text = "kog_gui_orthodox_council_supporters"
 			}
 			blockoverride "council_detractors" {
-				text = "eocfm_gui_orthodox_council_detractors"
+				text = "kog_gui_orthodox_council_detractors"
 			}
 			blockoverride "council_outcome" {
-				text = "eocfm_gui_orthodox_council_outcome"
+				text = "kog_gui_orthodox_council_outcome"
 			}
 		}
 	}
 	
-	type eocfm_oriental_council_panel = vbox {
+	type kog_oriental_council_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		minimumsize = { -1 200 }
@@ -109,45 +109,45 @@ types eocfm_ecumenical_council_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_ecumenical_council_header"
+				text = "kog_gui_ecumenical_council_header"
 			}
 		}
 		
-		eocfm_inactive_council_panel = {
+		kog_inactive_council_panel = {
 #			blockoverride "inactive_visibility" {
-#				visible = "[Not(GetScriptedGui('eocfm_oriental_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+#				visible = "[Not(GetScriptedGui('kog_oriental_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 #			}
 		}
 		
-#		eocfm_active_council_panel = {
+#		kog_active_council_panel = {
 #			blockoverride "active_visibility" {
-#				visible = "[GetScriptedGui('eocfm_oriental_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+#				visible = "[GetScriptedGui('kog_oriental_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 #			}
 #			blockoverride "council_location" {
-#				text = "eocfm_gui_oriental_council_location"
+#				text = "kog_gui_oriental_council_location"
 #			}
 #			blockoverride "council_host" {
-#				text = "eocfm_gui_oriental_council_host"
+#				text = "kog_gui_oriental_council_host"
 #			}
 #			blockoverride "council_matter" {
-#				text = "eocfm_gui_oriental_council_matter"
+#				text = "kog_gui_oriental_council_matter"
 #			}
 #			blockoverride "council_votes" {
-#				text = "eocfm_gui_oriental_council_votes"
+#				text = "kog_gui_oriental_council_votes"
 #			}
 #			blockoverride "council_supporters" {
-#				text = "eocfm_gui_oriental_council_supporters"
+#				text = "kog_gui_oriental_council_supporters"
 #			}
 #			blockoverride "council_detractors" {
-#				text = "eocfm_gui_oriental_council_detractors"
+#				text = "kog_gui_oriental_council_detractors"
 #			}
 #			blockoverride "council_outcome" {
-#				text = "eocfm_gui_oriental_council_outcome"
+#				text = "kog_gui_oriental_council_outcome"
 #			}
 #		}
 	}
 	
-	type eocfm_elysian_council_panel = vbox {
+	type kog_elysian_council_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		minimumsize = { -1 200 }
@@ -158,45 +158,45 @@ types eocfm_ecumenical_council_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_ecumenical_council_header"
+				text = "kog_gui_ecumenical_council_header"
 			}
 		}
 		
-		eocfm_inactive_council_panel = {
+		kog_inactive_council_panel = {
 #			blockoverride "inactive_visibility" {
-#				visible = "[Not(GetScriptedGui('eocfm_elysian_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+#				visible = "[Not(GetScriptedGui('kog_elysian_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 #			}
 		}
 		
-#		eocfm_active_council_panel = {
+#		kog_active_council_panel = {
 #			blockoverride "active_visibility" {
-#				visible = "[GetScriptedGui('eocfm_elysian_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+#				visible = "[GetScriptedGui('kog_elysian_council_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 #			}
 #			blockoverride "council_location" {
-#				text = "eocfm_gui_elysian_council_location"
+#				text = "kog_gui_elysian_council_location"
 #			}
 #			blockoverride "council_host" {
-#				text = "eocfm_gui_elysian_council_host"
+#				text = "kog_gui_elysian_council_host"
 #			}
 #			blockoverride "council_matter" {
-#				text = "eocfm_gui_elysian_council_matter"
+#				text = "kog_gui_elysian_council_matter"
 #			}
 #			blockoverride "council_votes" {
-#				text = "eocfm_gui_elysian_council_votes"
+#				text = "kog_gui_elysian_council_votes"
 #			}
 #			blockoverride "council_supporters" {
-#				text = "eocfm_gui_elysian_council_supporters"
+#				text = "kog_gui_elysian_council_supporters"
 #			}
 #			blockoverride "council_detractors" {
-#				text = "eocfm_gui_elysian_council_detractors"
+#				text = "kog_gui_elysian_council_detractors"
 #			}
 #			blockoverride "council_outcome" {
-#				text = "eocfm_gui_elysian_council_outcome"
+#				text = "kog_gui_elysian_council_outcome"
 #			}
 #		}
 	}
 	
-	type eocfm_inactive_council_panel = hbox {
+	type kog_inactive_council_panel = hbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		
@@ -204,13 +204,13 @@ types eocfm_ecumenical_council_panels {
 		
 		textbox = {
 			autoresize = yes
-			text = "eocfm_gui_ecumenical_council_none"
+			text = "kog_gui_ecumenical_council_none"
 			elide = right
 			using = fontsize_xl
 		}
 	}
 	
-	type eocfm_active_council_panel = vbox {
+	type kog_active_council_panel = vbox {
 		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = preferred
 		margin_top = 10
@@ -303,14 +303,14 @@ types eocfm_ecumenical_council_panels {
 					parentanchor = center
 					position = { 0 0 }
 					autoresize = yes
-					text = "eocfm_gui_council_stance"
+					text = "kog_gui_council_stance"
 					elide = right
 					using = fontsize_large
 				}
 				
 				button_icon_round_big_action = {
 					parentanchor = center
-					datacontext = "[GetScriptedGui('eocfm_oppose_council_sgui')]"
+					datacontext = "[GetScriptedGui('kog_oppose_council_sgui')]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					position = { -50 45 }
@@ -319,14 +319,14 @@ types eocfm_ecumenical_council_panels {
 					icon = {
 						texture = "gfx/interface/icons/diplo_play_icons/stance_supports.dds"
 						mirror = vertical
-						tooltip = "eocfm_gui_ecumenical_council_oppose"
+						tooltip = "kog_gui_ecumenical_council_oppose"
 						parentanchor = center
 						size = { 75% 75% }
 					}
 				}
 				button_icon_round_big_action = {
 					parentanchor = center
-					datacontext = "[GetScriptedGui('eocfm_abstain_council_sgui')]"
+					datacontext = "[GetScriptedGui('kog_abstain_council_sgui')]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					position = { 0 45 }
@@ -334,14 +334,14 @@ types eocfm_ecumenical_council_panels {
 
 					icon = {
 						texture = "gfx/interface/icons/diplo_play_icons/stance_on_the_fence.dds"
-						tooltip = "eocfm_gui_ecumenical_council_abstain"
+						tooltip = "kog_gui_ecumenical_council_abstain"
 						parentanchor = center
 						size = { 75% 75% }
 					}
 				}
 				button_icon_round_big_action = {
 					parentanchor = center
-					datacontext = "[GetScriptedGui('eocfm_support_council_sgui')]"
+					datacontext = "[GetScriptedGui('kog_support_council_sgui')]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					position = { 50 45 }
@@ -349,7 +349,7 @@ types eocfm_ecumenical_council_panels {
 
 					icon = {
 						texture = "gfx/interface/icons/diplo_play_icons/stance_supports.dds"
-						tooltip = "eocfm_gui_ecumenical_council_support"
+						tooltip = "kog_gui_ecumenical_council_support"
 						parentanchor = center
 						size = { 75% 75% }
 					}

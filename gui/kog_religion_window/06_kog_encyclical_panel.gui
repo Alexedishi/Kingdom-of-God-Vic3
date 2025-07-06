@@ -1,7 +1,7 @@
-types eocfm_encyclical_panels {
+types kog_encyclical_panels {
 	
 	# Dummy Panel
-	type eocfm_encyclical_dummy_panel = vbox {
+	type kog_encyclical_dummy_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		using = default_fade_in_out
@@ -12,7 +12,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_encyclical_header"
+				text = "kog_gui_encyclical_header"
 			}
 		}
 		
@@ -22,14 +22,14 @@ types eocfm_encyclical_panels {
 			
 			textbox = {
 				autoresize = yes
-				text = "eocfm_gui_encyclicals_disabled"
+				text = "kog_gui_encyclicals_disabled"
 				elide = right
 				using = fontsize_xl
 			}
 		}
 	}
 	
-	type = eocfm_catholic_encyclical_panel = vbox {
+	type = kog_catholic_encyclical_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		using = default_fade_in_out
@@ -40,7 +40,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_encyclical_header"
+				text = "kog_gui_encyclical_header"
 			}
 		}
 		
@@ -50,11 +50,11 @@ types eocfm_encyclical_panels {
 			layoutpolicy_vertical = preferred
 			margin_left = 15
 			
-			visible = "[Not(GetScriptedGui('eocfm_catholic_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			visible = "[Not(GetScriptedGui('kog_catholic_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			
 			textbox = {
 				autoresize = yes
-				text = "eocfm_gui_no_encyclical"
+				text = "kog_gui_no_encyclical"
 				elide = right
 				using = fontsize_xl
 			}
@@ -66,7 +66,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_vertical = preferred
 			margin_left = 15
 			
-			visible = "[Not(GetScriptedGui('eocfm_catholic_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			visible = "[Not(GetScriptedGui('kog_catholic_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			
 			vbox = {
 				layoutpolicy_horizontal = expanding
@@ -75,15 +75,15 @@ types eocfm_encyclical_panels {
 				margin_top = 10
 				
 				# Mirari Vos
-				eocfm_encyclical_widget = {
+				kog_encyclical_widget = {
 					blockoverride "datacontext" {
-						datacontext = "[GetScriptedGui('eocfm_orthodox_mirari_vos_sgui')]"
+						datacontext = "[GetScriptedGui('kog_orthodox_mirari_vos_sgui')]"
 					}
 					blockoverride "encyclical_icon" {
 						texture = "gfx/interface/icons/invention_icons/egalitarianism.dds"
 					}
 					blockoverride "encyclical_name" {
-						text = "eocfm_gui_encyclical_catholic_mirari_vos"
+						text = "kog_gui_encyclical_catholic_mirari_vos"
 					}
 				}
 				expand = {}
@@ -93,7 +93,7 @@ types eocfm_encyclical_panels {
 		
 	}
 	
-	type = eocfm_orthodox_encyclical_panel = vbox {
+	type = kog_orthodox_encyclical_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = preferred
 		using = default_fade_in_out
@@ -104,7 +104,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_encyclical_header"
+				text = "kog_gui_encyclical_header"
 			}
 		}
 		
@@ -114,11 +114,11 @@ types eocfm_encyclical_panels {
 			layoutpolicy_vertical = preferred
 			margin_left = 15
 			
-			visible = "[Not(GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+			visible = "[Not(GetScriptedGui('kog_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 			
 			textbox = {
 				autoresize = yes
-				text = "eocfm_gui_no_encyclical"
+				text = "kog_gui_no_encyclical"
 				elide = right
 				using = fontsize_xl
 			}
@@ -130,7 +130,7 @@ types eocfm_encyclical_panels {
 			layoutpolicy_vertical = preferred
 			margin_left = 15
 			
-			visible = "[GetScriptedGui('eocfm_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			visible = "[GetScriptedGui('kog_orthodox_encyclicals_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 			
 			vbox = {
 				layoutpolicy_horizontal = expanding
@@ -139,27 +139,27 @@ types eocfm_encyclical_panels {
 				margin_top = 10
 				
 				# Encyclical of the Eastern Patriarchs
-				eocfm_encyclical_widget = {
+				kog_encyclical_widget = {
 					blockoverride "datacontext" {
-						datacontext = "[GetScriptedGui('eocfm_orthodox_easterners_sgui')]"
+						datacontext = "[GetScriptedGui('kog_orthodox_easterners_sgui')]"
 					}
 					blockoverride "encyclical_icon" {
 						texture = "gfx/interface/icons/invention_icons/nationalism.dds"
 					}
 					blockoverride "encyclical_name" {
-						text = "eocfm_gui_encyclical_orthodox_easterners"
+						text = "kog_gui_encyclical_orthodox_easterners"
 					}
 				}
 				# Encyclical of the Fraternity of Churches
-				eocfm_encyclical_widget = {
+				kog_encyclical_widget = {
 					blockoverride "datacontext" {
-						datacontext = "[GetScriptedGui('eocfm_orthodox_fraternity_sgui')]"
+						datacontext = "[GetScriptedGui('kog_orthodox_fraternity_sgui')]"
 					}
 					blockoverride "encyclical_icon" {
 						texture = "gfx/interface/icons/invention_icons/nationalism.dds"
 					}
 					blockoverride "encyclical_name" {
-						text = "eocfm_gui_encyclical_orthodox_fraternity"
+						text = "kog_gui_encyclical_orthodox_fraternity"
 					}
 				}
 				expand = {}
@@ -167,7 +167,7 @@ types eocfm_encyclical_panels {
 		}
 	}
 	
-	type eocfm_encyclical_widget = widget {
+	type kog_encyclical_widget = widget {
 		size = { 350 60 }
 		block "datacontext" {}
 		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"

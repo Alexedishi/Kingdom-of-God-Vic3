@@ -11,9 +11,9 @@
 @panel_width_plus_30 = 570
 @panel_width_plus_70 = 610
 
-types eocfm_global_community_panels {
+types kog_global_community_panels {
 	
-	type eocfm_catholic_global_panel = vbox {
+	type kog_catholic_global_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		margin = { 10 10 }
@@ -22,7 +22,7 @@ types eocfm_global_community_panels {
 		max_update_rate = 100
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
@@ -44,7 +44,7 @@ types eocfm_global_community_panels {
 					spacing = 5
 					margin = { 0 10 }
 
-					datamodel = "[GetGlobalList('eocfm_catholic_ranking')]"
+					datamodel = "[GetGlobalList('kog_catholic_ranking')]"
 
 					item = {
 						widget = {
@@ -129,12 +129,12 @@ types eocfm_global_community_panels {
 								}
 							}
 							
-							eocfm_holy_sites_widget = {
+							kog_holy_sites_widget = {
 								parentanchor = center
 								position = { -10 -8 }
 							}
 							
-							eocfm_global_cardinal_widget = {
+							kog_global_cardinal_widget = {
 								parentanchor = right|vcenter
 							}
 							
@@ -145,14 +145,14 @@ types eocfm_global_community_panels {
 		}
 	}
 	
-	type eocfm_orthodox_global_panel = vbox {
+	type kog_orthodox_global_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		margin = { 10 10 }
 		using = default_fade_in_out
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
@@ -174,7 +174,7 @@ types eocfm_global_community_panels {
 					spacing = 5
 					margin = { 0 10 }
 
-					datamodel = "[GetGlobalList('eocfm_orthodox_ranking')]"
+					datamodel = "[GetGlobalList('kog_orthodox_ranking')]"
 
 					item = {
 						widget = {
@@ -259,12 +259,12 @@ types eocfm_global_community_panels {
 								}
 							}
 							
-							eocfm_holy_sites_widget = {
+							kog_holy_sites_widget = {
 								parentanchor = center
 								position = { -10 -8 }
 							}
 							
-							eocfm_global_patriarch_widget = {
+							kog_global_patriarch_widget = {
 								parentanchor = right|vcenter
 							}
 							
@@ -275,14 +275,14 @@ types eocfm_global_community_panels {
 		}
 	}
 	
-	type eocfm_oriental_global_panel = vbox {
+	type kog_oriental_global_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		margin = { 10 10 }
 		using = default_fade_in_out
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
@@ -304,7 +304,7 @@ types eocfm_global_community_panels {
 					spacing = 5
 					margin = { 0 10 }
 
-					datamodel = "[GetGlobalList('eocfm_oriental_ranking')]"
+					datamodel = "[GetGlobalList('kog_oriental_ranking')]"
 
 					item = {
 						widget = {
@@ -389,12 +389,12 @@ types eocfm_global_community_panels {
 								}
 							}
 							
-							eocfm_holy_sites_widget = {
+							kog_holy_sites_widget = {
 								parentanchor = center
 								position = { -10 -8 }
 							}
 							
-							eocfm_global_patriarch_widget = {
+							kog_global_patriarch_widget = {
 								parentanchor = right|vcenter
 							}
 							
@@ -405,14 +405,14 @@ types eocfm_global_community_panels {
 		}
 	}
 	
-	type eocfm_elysian_global_panel = vbox {
+	type kog_elysian_global_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		margin = { 10 10 }
 		using = default_fade_in_out
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
@@ -434,7 +434,7 @@ types eocfm_global_community_panels {
 					spacing = 5
 					margin = { 0 10 }
 
-					datamodel = "[GetGlobalList('eocfm_elysian_ranking')]"
+					datamodel = "[GetGlobalList('kog_elysian_ranking')]"
 
 					item = {
 						widget = {
@@ -519,12 +519,12 @@ types eocfm_global_community_panels {
 								}
 							}
 							
-							eocfm_holy_sites_widget = {
+							kog_holy_sites_widget = {
 								parentanchor = center
 								position = { -10 -8 }
 							}
 							
-							eocfm_global_patriarch_widget = {
+							kog_global_patriarch_widget = {
 								parentanchor = right|vcenter
 							}
 							
@@ -535,7 +535,7 @@ types eocfm_global_community_panels {
 		}
 	}
 	
-	type eocfm_global_cardinal_widget = widget {
+	type kog_global_cardinal_widget = widget {
 		size = { 140 100 }
 		
 		block "datacontext" {
@@ -558,7 +558,7 @@ types eocfm_global_community_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_name"
+			text = "kog_cardinal_name"
 			parentanchor = bottom|hcenter
 			position = { 0 -2 }
 			autoresize = yes
@@ -568,7 +568,7 @@ types eocfm_global_community_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_gravitas"
+			text = "kog_cardinal_gravitas"
 			parentanchor = right|vcenter
 			position = { -5 18 }
 			autoresize = yes
@@ -580,12 +580,12 @@ types eocfm_global_community_panels {
 				alpha = 0.5
 			}
 			
-			tooltip = "eocfm_cardinal_gravitas_breakdown"
+			tooltip = "kog_cardinal_gravitas_breakdown"
 		}
 		
 	}
 	
-	type eocfm_global_patriarch_widget = widget {
+	type kog_global_patriarch_widget = widget {
 		size = { 140 100 }
 		
 		block "datacontext" {
@@ -608,7 +608,7 @@ types eocfm_global_community_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_name"
+			text = "kog_cardinal_name"
 			parentanchor = bottom|hcenter
 			position = { 0 -2 }
 			autoresize = yes
@@ -619,7 +619,7 @@ types eocfm_global_community_panels {
 		
 	}
 	
-	type eocfm_holy_sites_widget = widget {
+	type kog_holy_sites_widget = widget {
 		size = { 180 75 }
 		
 		background = {
@@ -641,7 +641,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_rome').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_rome').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -653,7 +653,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_rome.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_rome').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_rome').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -661,7 +661,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_rome_control_status"
+					tooltip = "kog_gui_rome_control_status"
 				}
 				
 				vertical_divider_full = {}
@@ -671,7 +671,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_santiago').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_santiago').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -683,7 +683,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_santiago.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_santiago').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_santiago').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -691,7 +691,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_santiago_control_status"
+					tooltip = "kog_gui_santiago_control_status"
 				}
 				
 				# Paris
@@ -699,7 +699,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_paris').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_paris').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -711,7 +711,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_paris.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_paris').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_paris').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -719,7 +719,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_paris_control_status"
+					tooltip = "kog_gui_paris_control_status"
 				}
 				
 				# Cologne / Koln
@@ -727,7 +727,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_koln').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_koln').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -739,7 +739,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_koln.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_koln').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_koln').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -747,7 +747,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_koln_control_status"
+					tooltip = "kog_gui_koln_control_status"
 				}
 				
 				# Vienna
@@ -755,7 +755,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_vienna').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_vienna').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -767,7 +767,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_vienna.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_vienna').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_vienna').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -775,7 +775,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_vienna_control_status"
+					tooltip = "kog_gui_vienna_control_status"
 				}
 			}
 			
@@ -792,7 +792,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_constantinople').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_constantinople').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -804,7 +804,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_constantinople.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_constantinople').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_constantinople').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -812,7 +812,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_constantinople_control_status"
+					tooltip = "kog_gui_constantinople_control_status"
 				}
 				
 				vertical_divider_full = {}
@@ -822,7 +822,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_antioch').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_antioch').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -834,7 +834,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_antioch.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_antioch').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_antioch').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -842,7 +842,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_antioch_control_status"
+					tooltip = "kog_gui_antioch_control_status"
 				}
 				
 				# Jerusalem
@@ -850,7 +850,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_jerusalem').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_jerusalem').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -862,7 +862,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_jerusalem.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_jerusalem').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_jerusalem').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -870,7 +870,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_jerusalem_control_status"
+					tooltip = "kog_gui_jerusalem_control_status"
 				}
 				
 				# Alexandria
@@ -878,7 +878,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_alexandria').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_alexandria').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -890,7 +890,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_alexandria.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_alexandria').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_alexandria').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -898,7 +898,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_alexandria_control_status"
+					tooltip = "kog_gui_alexandria_control_status"
 				}
 				
 				# Moscow
@@ -906,7 +906,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_moscow').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_moscow').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -918,7 +918,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_moscow.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_moscow').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_moscow').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -926,7 +926,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_moscow_control_status"
+					tooltip = "kog_gui_moscow_control_status"
 				}
 			}
 			
@@ -941,7 +941,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_coptic_alexandria').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_coptic_alexandria').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -953,7 +953,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_coptic_alexandria.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_coptic_alexandria').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_coptic_alexandria').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -961,7 +961,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_coptic_alexandria_control_status"
+					tooltip = "kog_gui_coptic_alexandria_control_status"
 				}
 				
 				vertical_divider_full = {}
@@ -971,7 +971,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_syriac_antioch').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_syriac_antioch').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -983,7 +983,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_syriac_antioch.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_syriac_antioch').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_syriac_antioch').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -991,7 +991,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_syriac_antioch_control_status"
+					tooltip = "kog_gui_syriac_antioch_control_status"
 				}
 				
 				# Etchmiadzin
@@ -999,7 +999,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_etchmiadzin').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_etchmiadzin').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -1011,7 +1011,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_etchmiadzin.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_etchmiadzin').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_etchmiadzin').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -1019,7 +1019,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_etchmiadzin_control_status"
+					tooltip = "kog_gui_etchmiadzin_control_status"
 				}
 				
 				# Addis Ababa
@@ -1027,7 +1027,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_addis_ababa').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_addis_ababa').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -1039,7 +1039,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_addis_ababa.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_addis_ababa').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_addis_ababa').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -1047,7 +1047,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_addis_ababa_control_status"
+					tooltip = "kog_gui_addis_ababa_control_status"
 				}
 				
 				# Konak
@@ -1055,7 +1055,7 @@ types eocfm_global_community_panels {
 					size = { 20 20 }
 					
 					icon = {
-						visible = "[Country.MakeScope.Var('eocfm_controls_konak').IsSet]"
+						visible = "[Country.MakeScope.Var('kog_controls_konak').IsSet]"
 						using = selected_sidepanel_animation
 						size = { 90% 90% }
 						alwaystransparent = yes
@@ -1067,7 +1067,7 @@ types eocfm_global_community_panels {
 						texture = "gfx/interface/icons/gui_icons/holy_site_konak.dds"
 						
 						modify_texture = {
-							visible = "[Not(Country.MakeScope.Var('eocfm_controls_konak').IsSet)]"
+							visible = "[Not(Country.MakeScope.Var('kog_controls_konak').IsSet)]"
 							texture = "gfx/interface/backgrounds/grey.dds"
 							spriteType = Corneredstretched
 							spriteborder = { 0 0 }
@@ -1075,7 +1075,7 @@ types eocfm_global_community_panels {
 							alpha = 0.5
 						}
 					}
-					tooltip = "eocfm_gui_konak_control_status"
+					tooltip = "kog_gui_konak_control_status"
 				}
 			}
 		}

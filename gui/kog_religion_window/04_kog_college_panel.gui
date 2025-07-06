@@ -1,12 +1,12 @@
-types eocfm_collegium_cardinalium_panels {
+types kog_collegium_cardinalium_panels {
 
-	type eocfm_collegium_cardinalium_panel = vbox {
+	type kog_collegium_cardinalium_panel = vbox {
 		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = shrinking
 		using = default_fade_in_out
 		spacing = 5
 		
-		visible = "[GetVariableSystem.HasValue('eocfm_metropolitan_tab', 'curia')]"
+		visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'curia')]"
 		
 		background = {
 			using = entry_bg_unit_dark
@@ -17,7 +17,7 @@ types eocfm_collegium_cardinalium_panels {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				text = "eocfm_gui_college_header"
+				text = "kog_gui_college_header"
 			}
 		}
 		
@@ -46,10 +46,10 @@ types eocfm_collegium_cardinalium_panels {
 					spacing = 5
 					margin = { 0 10 }
 					
-					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
+					datamodel = "[GetGlobalList('kog_cardinals_list')]"
 					
 					item = {
-						eocfm_collegium_preferatus_widget = {}
+						kog_collegium_preferatus_widget = {}
 					}
 				}
 			}
@@ -59,7 +59,7 @@ types eocfm_collegium_cardinalium_panels {
 			layoutpolicy_horizontal = expanding
 			maximumsize = { 300 -1 }
 			blockoverride "text" {
-				text = "eocfm_papabili_header"
+				text = "kog_papabili_header"
 			}
 		}
 		
@@ -89,10 +89,10 @@ types eocfm_collegium_cardinalium_panels {
 					spacing = 5
 					margin = { 0 10 }
 					
-					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
+					datamodel = "[GetGlobalList('kog_cardinals_list')]"
 					
 					item = {
-						eocfm_collegium_cardinal_widget = {
+						kog_collegium_cardinal_widget = {
 							blockoverride "row_visibility" {
 								visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)3'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)4'))))]"
 							}
@@ -128,10 +128,10 @@ types eocfm_collegium_cardinalium_panels {
 					spacing = 5
 					margin = { 0 10 }
 					
-					datamodel = "[GetGlobalList('eocfm_cardinals_list')]"
+					datamodel = "[GetGlobalList('kog_cardinals_list')]"
 					
 					item = {
-						eocfm_collegium_cardinal_widget = {
+						kog_collegium_cardinal_widget = {
 							blockoverride "row_visibility" {
 								visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)5'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)6'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)7')))]"
 							}
@@ -142,7 +142,7 @@ types eocfm_collegium_cardinalium_panels {
 		}
 	}
 	
-	type eocfm_collegium_preferatus_widget = widget {
+	type kog_collegium_preferatus_widget = widget {
 		size = { 240 220 }
 		using = entry_bg_fancy
 		datacontext = "[Scope.GetCharacter]"
@@ -152,7 +152,7 @@ types eocfm_collegium_cardinalium_panels {
 			size = { 220 35 }
 			parentanchor = top|hcenter
 			blockoverride "text" {
-				text = "eocfm_preferatus_header"
+				text = "kog_preferatus_header"
 				autoresize = yes
 				elide = right
 				using = fontsize_large
@@ -174,7 +174,7 @@ types eocfm_collegium_cardinalium_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_name"
+			text = "kog_cardinal_name"
 			parentanchor = bottom|hcenter
 			position = { 0 -5 }
 			autoresize = yes
@@ -184,7 +184,7 @@ types eocfm_collegium_cardinalium_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_gravitas"
+			text = "kog_cardinal_gravitas"
 			parentanchor = top|right
 			position = { -10 40 }
 			autoresize = yes
@@ -197,7 +197,7 @@ types eocfm_collegium_cardinalium_panels {
 				margin = { 2 2 }
 			}
 			
-			tooltip = "eocfm_cardinal_gravitas_breakdown"
+			tooltip = "kog_cardinal_gravitas_breakdown"
 		}
 		
 		icon = {
@@ -224,7 +224,7 @@ types eocfm_collegium_cardinalium_panels {
 		}
 	}
 	
-	type eocfm_collegium_cardinal_widget = widget {
+	type kog_collegium_cardinal_widget = widget {
 		size = { 140 100 }
 		datacontext = "[Scope.GetCharacter]"
 		
@@ -246,7 +246,7 @@ types eocfm_collegium_cardinalium_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_name"
+			text = "kog_cardinal_name"
 			parentanchor = bottom|hcenter
 			position = { 0 -2 }
 			autoresize = yes
@@ -256,7 +256,7 @@ types eocfm_collegium_cardinalium_panels {
 		}
 		
 		textbox = {
-			text = "eocfm_cardinal_gravitas"
+			text = "kog_cardinal_gravitas"
 			parentanchor = right|vcenter
 			position = { -5 18 }
 			autoresize = yes
@@ -269,7 +269,7 @@ types eocfm_collegium_cardinalium_panels {
 				margin = { 2 2 }
 			}
 			
-			tooltip = "eocfm_cardinal_gravitas_breakdown"
+			tooltip = "kog_cardinal_gravitas_breakdown"
 		}
 		
 		icon = {
