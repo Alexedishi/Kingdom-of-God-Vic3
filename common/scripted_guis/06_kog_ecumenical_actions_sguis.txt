@@ -14,10 +14,7 @@
 	}
 
 	effect = {
-		trigger_event = {
-			id = kog.2393 # The Ancient Patriarchates
-			popup = yes
-		}
+		#TODO Add re-factored event
 	}
 }
 
@@ -39,10 +36,7 @@ kog_secure_pentarchy_sgui = {
 	}
 
 	effect = {
-		trigger_event = {
-			id = kog.2394 # The Restoration of the Pentarchy
-			popup = yes
-		}
+		#TODO Add re-factored event
 	}
 }
 
@@ -57,7 +51,7 @@ kog_mend_schism_sgui = {
 	}
 
 	is_valid = {
-		kog_has_1000_caesaropapism_trigger = yes
+		kog_has_1000_capacity_trigger = yes
 		kog_controls_and_owns_pentarchy_trigger = yes
 		custom_tooltip = {
 			text = kog_mending_started_NOT
@@ -79,9 +73,9 @@ kog_mend_schism_sgui = {
 			name = kog_mending_var
 			value = 0
 		}
-		trigger_event = {
-			id = kog.0300 # The Council of Unification
-		}
+
+		#TODO Add re-factored event
+
 		add_modifier = modifier_kog_mending_schism
 		hidden_effect = {
 			every_country = {
@@ -91,9 +85,7 @@ kog_mend_schism_sgui = {
 						has_variable = kog_mending_var
 					}
 				}
-				trigger_event = {
-					id = kog.0300 # The Council of Unification
-				}
+				#TODO Add re-factored event
 			}
 		}
 	}
@@ -133,9 +125,7 @@ kog_unify_orthodox_realms_sgui = {
 	}
 
 	effect = {
-		trigger_event = {
-			id = kog.2390 # The Patriarchate Rises
-		}
+		#TODO Add re-factored event
 		set_variable = kog_texas_left
 	}
 }
@@ -162,7 +152,7 @@ kog_seek_mandate_sgui = {
 				kog_has_mandate_trigger = no
 			}
 		}
-		kog_has_500_caesaropapism_trigger = yes
+		kog_has_500_capacity_trigger = yes
 		custom_tooltip = {
 			text = kog_has_ecumenical_patriarch_approval
 			hidden_trigger = {
@@ -187,9 +177,7 @@ kog_seek_mandate_sgui = {
 	}
 
 	effect = {
-		trigger_event = {
-			id = kog.2310 # An Audience with the Patriarch
-		}
+		#TODO Add re-factored event
 		set_variable = kog_considering_mandate
 	}
 }
