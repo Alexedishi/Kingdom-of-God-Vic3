@@ -1513,6 +1513,54 @@ kog_specific_country_setups_effect = {
 	}
 }
 
+kog_initialize_cahokia_effect = {
+	# Cahokia does not exist at game start
+	create_struct = {
+		struct_type = kog_seat
+		struct_scope = kog_cahokia
+	}
+	global_var:kog_global = {
+		set_variable = {
+			name = kog_cahokia
+			value = scope:kog_cahokia
+		}
+	}
+	global_var:kog_global.var:kog_cahokia = {
+		p:x186A43 = { # Cahokia #TODO fix this province ID
+			owner = {
+				set_variable = kog_controls_cahokia
+				save_scope_as = kog_cahokia_controller
+			}
+		}
+		set_variable = {
+			name = seat_name
+			value = flag:kog_cahokia_name
+		}
+		set_variable = {
+			name = kog_rite_var
+			value = flag:kog_elysian_rite
+		}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_ILLINOIS
+		}
+		set_variable = {
+			name = kog_controller_var
+			value = scope:kog_cahokia_controller
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_cahokia_patriarch
+			}
+			save_scope_as = kog_cahokia_patriarch
+		}
+		set_variable = {
+			name = kog_patriarch_var
+			value = scope:kog_cahokia_patriarch
+		}
+	}
+}
+
 ########################################
 
 # This effect will be overwritten by ETF if it is present. This is here for error suppression.
