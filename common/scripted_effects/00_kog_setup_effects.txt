@@ -277,6 +277,12 @@ kog_initialize_structs_effect = {
 			owner = {
 				set_variable = kog_controls_rome
 				save_scope_as = kog_rome_controller
+				random_scope_character = {
+					limit = {
+						has_template = template_kog_rome_patriarch
+					}
+					save_scope_as = kog_rome_patriarch
+				}
 			}
 		}
 		set_variable = {
@@ -293,7 +299,7 @@ kog_initialize_structs_effect = {
 		}
 		set_variable = {
 			name = kog_controller_var
-			value = 0
+			value = scope:kog_rome_controller
 		}
 		set_variable = {
 			name = kog_patriarch_var
@@ -1060,23 +1066,10 @@ kog_initialize_metropolis_effect = {
 		limit = {
 			kog_is_eastern_orthodox_trigger = yes
 		}
-		if = {
-			limit = {
-				kog_is_rus_orthodox_trigger = yes
-			}
-			var:kog_local = {
-				set_variable = {
-					name = kog_rite_var
-					value = flag:kog_russian_rite
-				}
-			}
-		}
-		else = {
-			var:kog_local = {
-				set_variable = {
-					name = kog_rite_var
-					value = flag:kog_byzantine_rite
-				}
+		var:kog_local = {
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_byzantine_rite
 			}
 		}
 	}
@@ -1086,7 +1079,7 @@ kog_initialize_metropolis_effect = {
 		}
 		if = {
 			limit = {
-				always = no # TODO set up Syriac Rites
+				country_has_primary_culture = cu:kurdish
 			}
 			var:kog_local = {
 				set_variable = {
@@ -1097,7 +1090,7 @@ kog_initialize_metropolis_effect = {
 		}
 		else_if = {
 			limit = {
-				always = no # TODO set up Syriac Rites
+				country_has_primary_culture = cu:assyrian
 			}
 			var:kog_local = {
 				set_variable = {
@@ -1108,7 +1101,7 @@ kog_initialize_metropolis_effect = {
 		}
 		else_if = {
 			limit = {
-				kog_is_oriental_armenian_trigger = yes
+				country_has_primary_culture = cu:armenian
 			}
 			var:kog_local = {
 				set_variable = {
@@ -1132,12 +1125,12 @@ kog_initialize_metropolis_effect = {
 		}
 		if = {
 			limit = {
-				kog_is_mixtec_orthodox_trigger = yes
+				country_has_primary_culture = cu:mixtec
 			}
 			var:kog_local = {
 				set_variable = {
 					name = kog_rite_var
-					value = flag:kog_elysian_rite
+					value = flag:kog_mixtec_rite
 				}
 			}
 		}
@@ -1145,7 +1138,7 @@ kog_initialize_metropolis_effect = {
 			var:kog_local = {
 				set_variable = {
 					name = kog_rite_var
-					value = flag:kog_mixtec_rite
+					value = flag:kog_elysian_rite
 				}
 			}
 		}
