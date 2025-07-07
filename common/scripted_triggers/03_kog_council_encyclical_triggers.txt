@@ -4,3 +4,42 @@
 		always = no
 	}
 }
+
+kog_can_host_council_trigger = {
+	OR = {
+		AND = {
+			NOT = { has_global_variable = kog_crusades_unlocked }
+			OR = {
+				country_tier = empire
+				country_tier = hegemony
+			}
+		}
+		AND = {
+			NOT = { has_global_variable = kog_epistle_considered }
+			has_technology_researched = mass_communication
+		}
+		AND = {
+			NOT = { has_global_variable = kog_phyletism_considered }
+			has_technology_researched = nationalism
+		}
+		AND = {
+			NOT = { has_global_variable = kog_calendar_considered }
+			has_technology_researched = central_planning
+		}
+		AND = {
+			NOT = { has_global_variable = kog_schism_mended }
+			kog_controls_and_owns_pentarchy_trigger = yes
+		}
+		AND = {
+			NOT = { has_global_variable = kog_orthodox_realms_started }
+			has_variable = kog_is_autocephalous
+			kog_controls_ancient_seat_trigger = yes
+			country_rank >= rank_value:great_power
+		}
+	}
+	NOT = {
+		any_country = {
+			has_modifier = modifier_kog_hosting_council
+		}
+	}
+}
