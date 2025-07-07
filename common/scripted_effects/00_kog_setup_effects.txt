@@ -1067,13 +1067,13 @@ kog_initialize_metropolis_effect = {
 					kog_is_rus_orthodox_trigger = yes
 				}
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_russian_rite
 				}
 			}
 			else = {
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_byzantine_rite
 				}
 			}
@@ -1087,7 +1087,7 @@ kog_initialize_metropolis_effect = {
 					always = no # TODO set up Syriac Rites
 				}
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_syro_antiochian_rite
 				}
 			}
@@ -1096,7 +1096,7 @@ kog_initialize_metropolis_effect = {
 					always = no # TODO set up Syriac Rites
 				}
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_nestorian_rite
 				}
 			}
@@ -1105,13 +1105,13 @@ kog_initialize_metropolis_effect = {
 					kog_is_oriental_armenian_trigger = yes
 				}
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_armenian_rite
 				}
 			}
 			else = {
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_armenian_rite
 				}
 			}
@@ -1125,20 +1125,20 @@ kog_initialize_metropolis_effect = {
 					kog_is_mixtec_orthodox_trigger = yes
 				}
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_elysian_rite
 				}
 			}
 			else = {
 				set_variable = {
-					name = kog_liturgical_rite_var
+					name = kog_rite_var
 					value = flag:kog_mixtec_rite
 				}
 			}
 		}
 		else = {
 			set_variable = {
-				name = kog_liturgical_rite_var
+				name = kog_rite_var
 				value = flag:kog_roman_rite
 			}
 		}
@@ -1221,6 +1221,85 @@ kog_initialize_metropolis_effect = {
 			}
 			set_variable = {
 				name = kog_mixtec_relations_var
+				value = 0
+			}
+		}
+
+		# Third, set opinion variables
+		set_variable = {
+			name = kog_rome_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_santiago_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_paris_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_koln_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_vienna_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_constantinople_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_antioch_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_jerusalem_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_alexandria_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_moscow_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_coptic_alexandria_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_syriac_antioch_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_etchmiadzin_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_addis_ababa_opinion_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_konak_opinion_var
+			value = 0
+		}
+		if = {
+			limit = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = kog_elysium_opinion_var
+				value = 0
+			}
+			set_variable = {
+				name = kog_mixtec_opinion_var
+				value = 0
+			}
+			set_variable = {
+				name = kog_cahokia_opinion_var
 				value = 0
 			}
 		}
