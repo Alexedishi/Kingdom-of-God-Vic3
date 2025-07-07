@@ -196,7 +196,7 @@ types kog_patriarchal_seat_panels {
 			layoutpolicy_vertical = shrinking
 
 			character_portrait_large_torso = {
-				datacontext = "[Character.Var('kog_patriarch_var').GetCharacter]"
+				datacontext = "[Character.MakeScope.Var('kog_patriarch_var').GetCharacter]"
 				blockoverride "show_hat" {}
 				blockoverride "tooltip" {} # Error Suppression
 				blockoverride "portrait_icons" {} # Error Suppression
@@ -419,7 +419,7 @@ types kog_patriarchal_seat_panels {
 					blockoverride "values" {
 						min = 0
 						max = 120
-						value = "[Character.Var('kog_integration_var').GetValue]"
+						value = "[Character.MakeScope.Var('kog_integration_var').GetValue]"
 					}
 					textbox = {
 						parentanchor = center
@@ -581,7 +581,7 @@ types kog_patriarchal_seat_panels {
 				layoutpolicy_vertical = shrinking
 
 				character_portrait_medium_torso = {
-					datacontext = "[Character.Var('kog_patriarch_var').GetCharacter]"
+					datacontext = "[Character.MakeScope.Var('kog_patriarch_var').GetCharacter]"
 					blockoverride "show_hat" {}
 					blockoverride "tooltip" {} # Error Suppression
 					blockoverride "portrait_icons" {} # Error Suppression
@@ -594,7 +594,7 @@ types kog_patriarchal_seat_panels {
 						blockoverride "text" {
 						}
 						textbox = {
-							text = "kog_gui_rome_patriarch_name"
+							text = "kog_gui_patriarch_name"
 							parentanchor = center
 							position = { 0 -2 }
 							autoresize = yes
@@ -666,7 +666,7 @@ types kog_patriarchal_seat_panels {
 						blockoverride "values" {
 							min = 0
 							max = 120
-							value = "[Character.Var('kog_integration_var').GetValue]"
+							value = "[Character.MakeScope.Var('kog_integration_var').GetValue]"
 						}
 						textbox = {
 							parentanchor = center
@@ -700,7 +700,7 @@ types kog_patriarchal_seat_panels {
 						blockoverride "values" {
 							min = 0
 							max = 120
-							value = "[Character.Var('kog_enforcement_var').GetValue]"
+							value = "[Character.MakeScope.Var('kog_enforcement_var').GetValue]"
 						}
 						textbox = {
 							parentanchor = center

@@ -108,10 +108,11 @@
  
  # Patriarchal Seat Details
  kog_no_owner: "#bold #yellow No One#!#!"
- kog_active_owner: "[Character.Var('kog_controller_var').GetFlagName]"
+ kog_active_owner: "[Character.MakeScope.Var('kog_controller_var').GetFlagName]"
 
- kog_seat_leader: "#white Led By:#! Patriarch [Character.Var('kog_patriarch_var').GetCharacter.GetLastName]"
- kog_seat_location: ""
+ kog_patriarch_name: "[Character.GetLastName]"
+ kog_seat_leader: "#white Led By:#! Patriarch [Character.MakeScope.Var('kog_patriarch_var').GetCharacter.GetLastName]"
+ kog_seat_location: "#italic Seated in:#! [Character.MakeScope.Var('kog_location_var').GetName]"
  
  ## Roman Catholic Church
  kog_rome: "kog_rome"
