@@ -1,5 +1,58 @@
-﻿
+﻿on_monthly_pulse_country = {
+	on_actions = {
+		kog_monthly_pulse
+	}
+}
 
+kog_monthly_pulse = {
+	trigger = {
+		kog_content_scope_trigger = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = kog_monthly_timeout_var
+				}
+			}
+			set_global_variable = {
+				name = kog_monthly_timeout_var
+				days = 20
+			}
+			kog_update_patriarch_variables_effect = yes
+			kog_update_seat_controllers_effect = yes
+		}
+
+	}
+}
+
+########################################
+
+on_yearly_pulse_country = {
+	on_actions = {
+		kog_yearly_pulse
+	}
+}
+
+kog_yearly_pulse = {
+	trigger = {
+		kog_content_scope_trigger = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = kog_yearly_timeout_var
+				}
+			}
+			set_global_variable = {
+				name = kog_yearly_timeout_var
+				days = 20 # Should be enough to get past all monthly pulses
+			}
+			kog_update_ranking_lists = yes
+		}
+	}
+}
 
 ########################################
 
@@ -25,6 +78,5 @@ kog_topbar_setup = {
 		}
 	}
 }
-
 
 ########################################
