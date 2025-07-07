@@ -522,6 +522,88 @@ kog_update_seat_controllers_effect = {
 	}
 }
 
+kog_update_opinion_variables = {
+	var:kog_local = {
+		set_variable = {
+			name = kog_rome_opinion_var
+			value = kog_rome_opinion_value
+		}
+		set_variable = {
+			name = kog_santiago_opinion_var
+			value = kog_santiago_opinion_value
+		}
+		set_variable = {
+			name = kog_paris_opinion_var
+			value = kog_paris_opinion_value
+		}
+		set_variable = {
+			name = kog_koln_opinion_var
+			value = kog_koln_opinion_value
+		}
+		set_variable = {
+			name = kog_vienna_opinion_var
+			value = kog_vienna_opinion_value
+		}
+		set_variable = {
+			name = kog_constantinople_opinion_var
+			value = kog_constantinople_opinion_value
+		}
+		set_variable = {
+			name = kog_antioch_opinion_var
+			value = kog_antioch_opinion_value
+		}
+		set_variable = {
+			name = kog_jerusalem_opinion_var
+			value = kog_jerusalem_opinion_value
+		}
+		set_variable = {
+			name = kog_alexandria_opinion_var
+			value = kog_alexandria_opinion_value
+		}
+		set_variable = {
+			name = kog_moscow_opinion_var
+			value = kog_moscow_opinion_value
+		}
+		set_variable = {
+			name = kog_coptic_alexandria_opinion_var
+			value = kog_coptic_alexandria_opinion_value
+		}
+		set_variable = {
+			name = kog_syriac_antioch_opinion_var
+			value = kog_syriac_antioch_opinion_value
+		}
+		set_variable = {
+			name = kog_etchmiadzin_opinion_var
+			value = kog_etchmiadzin_opinion_value
+		}
+		set_variable = {
+			name = kog_addis_ababa_opinion_var
+			value = kog_addis_ababa_opinion_value
+		}
+		set_variable = {
+			name = kog_konak_opinion_var
+			value = kog_konak_opinion_value
+		}
+		if = {
+			limit = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = kog_elysium_opinion_var
+				value = kog_elysium_opinion_value
+			}
+			set_variable = {
+				name = kog_mixtec_opinion_var
+				value = kog_mixtec_opinion_value
+			}
+			set_variable = {
+				name = kog_cahokia_opinion_var
+				value = kog_cahokia_opinion_value
+			}
+		}
+	}
+}
+
 # Monthly Maintenance Effects
 kog_update_ranking_lists = {
 	# Set Timeout Variable
@@ -616,7 +698,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_roman_rite
+			var:kog_rite_var ?= flag:kog_roman_rite
 		}
 		add_modifier = {
 			name = modifier_kog_roman_rite
@@ -625,7 +707,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_byzantine_rite
+			var:kog_rite_var ?= flag:kog_byzantine_rite
 		}
 		add_modifier = {
 			name = modifier_kog_byzantine_rite
@@ -634,7 +716,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_alexandrian_rite
+			var:kog_rite_var ?= flag:kog_alexandrian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_alexandrian_rite
@@ -643,7 +725,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_armenian_rite
+			var:kog_rite_var ?= flag:kog_armenian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_armenian_rite
@@ -652,7 +734,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_syro_antiochian_rite
+			var:kog_rite_var ?= flag:kog_syro_antiochian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_syro_antiochian_rite
@@ -661,7 +743,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_russian_rite
+			var:kog_rite_var ?= flag:kog_russian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_russian_rite
@@ -670,7 +752,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit = {
-			var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
+			var:kog_rite_var ?= flag:kog_nestorian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_nestorian_rite
@@ -679,7 +761,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_elysian_rite
+			var:kog_rite_var ?= flag:kog_elysian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_elysian_rite
@@ -688,7 +770,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_mixtec_rite
+			var:kog_rite_var ?= flag:kog_mixtec_rite
 		}
 		add_modifier = {
 			name = modifier_kog_mixtec_rite
