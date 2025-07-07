@@ -1,34 +1,34 @@
 ﻿GLOBAL = {
-	# Patriarch Characters Setup
-	p:xB040A0 = { # A Country MUST own the Rome province for this effect to succeed
+	# A Country MUST own the Rome province for these effects to succeed
+	p:xB040A0 = {
 		owner = {
-			kog_initialize_patriarchs_effect = yes 
+			# Patriarch Characters Setup
+			kog_initialize_patriarchs_effect = yes
+
+			# Struct Initialization
+			kog_initialize_structs_effect = yes
+
+			# Initialize Ranking Lists
+			kog_initialize_ranking_lists = yes
+
+			# Initialize College of Cardinals
+			kog_initialize_collegium_effect = yes
 		}
 	}
-
-	# Struct Initialization
-	kog_initialize_structs_effect = yes
 	
-	# Specific Country Setups
-	kog_specific_country_setups_effect = yes 
-	
-	# Initialize Variables and First Opener Events	
+	# Initialize Variables
 	every_country = {
 		limit = {
 			kog_is_christian_trigger = yes
 		}
 		kog_initialize_metropolis_effect = yes 
 	}
-	
-	# Initialize Ranking Lists
-	p:xB040A0 = { # A Country MUST own the Rome province for this effect to succeed
-		owner = {
-			kog_initialize_ranking_lists = yes
-			kog_initialize_collegium_effect = yes
-		}
-	}
-	
-	add_to_global_variable_list = { # Final Setup
+
+	# Specific Country Setups and First Opener Events
+	kog_specific_country_setups_effect = yes
+
+	# Final Setup
+	add_to_global_variable_list = {
 		name = custom_button_list_flag
 		target = flag:kog_sidebar_button_sgui
 	}
