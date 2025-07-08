@@ -1,20 +1,229 @@
 types kog_patriarchal_seat_panels {
 
 	#### PATRIARCHAL SEAT PANELS ####
-	type kog_catholic_seats = widget {
+	type kog_catholic_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_catholic' )]"
 
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+
+				kog_major_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[Not(GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_santiago').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_paris').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_koln').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_vienna').GetCharacter]"
+					}
+				}
+			}
+		}
 	}
 
-	type kog_orthodox_seats = widget {
+	type kog_orthodox_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_orthodox' )]"
 
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+
+				kog_major_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_constantinople').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[Not(GetScriptedGui('kog_orthodox_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_constantinople').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_antioch').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_jerusalem').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_alexandria').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_moscow').GetCharacter]"
+					}
+				}
+			}
+		}
 	}
 
-	type kog_oriental_seats = widget {
+	type kog_oriental_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_oriental' )]"
 
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+
+				kog_major_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_coptic_alexandria').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[Not(GetScriptedGui('kog_oriental_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_coptic_alexandria').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_syriac_antioch').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_etchmiadzin').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_addis_ababa').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_konak').GetCharacter]"
+					}
+				}
+			}
+		}
 	}
 
-	type kog_elysian_seats = widget {
+	type kog_elysian_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_elysian' )]"
 
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+
+				kog_major_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_elysium').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[Not(GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_elysium').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_mixtec').GetCharacter]"
+					}
+				}
+				kog_minor_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[GetScriptedGui('kog_cahokia_founding_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_cahokia').GetCharacter]"
+					}
+				}
+			}
+		}
 	}
 
 	#### PATRIARCHAL SEAT TAB BUTTONS ####
@@ -159,10 +368,12 @@ types kog_patriarchal_seat_panels {
 		}
 	}
 
-	type kog_major_seat_item = vbox {
+	type kog_major_seat_type = vbox {
 		layoutpolicy_vertical = shrinking
 		spacing = 10
 		margin = { 10 10 }
+		block "seat_visibility" {}
+		block "seat_datacontext" {}
 
 		background = {
 			using = entry_bg
@@ -547,6 +758,8 @@ types kog_patriarchal_seat_panels {
 		layoutpolicy_vertical = shrinking
 		spacing = 10
 		margin = { 10 10 }
+		block "seat_visibility" {}
+		block "seat_datacontext" {}
 
 		background = {
 			using = entry_bg
