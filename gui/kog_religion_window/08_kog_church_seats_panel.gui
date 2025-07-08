@@ -544,232 +544,231 @@ types kog_patriarchal_seat_panels {
 	}
 
 	type kog_minor_seat_type = vbox {
-			layoutpolicy_vertical = shrinking
-			spacing = 10
-			margin = { 10 10 }
+		layoutpolicy_vertical = shrinking
+		spacing = 10
+		margin = { 10 10 }
 
-			background = {
-				using = entry_bg
+		background = {
+			using = entry_bg
+		}
+
+		hbox = {
+			default_header_clean_faded = {
+				blockoverride "text" {
+				}
+				textbox = {
+					text = "[Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_name'))]"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 300
+					elide = right
+					using = fontsize_large
+				}
+				textbox = {
+					text = "[Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_controller'))]"
+					parentanchor = right|vcenter
+					autoresize = yes
+					max_width = 300
+					elide = right
+					using = fontsize_medium
+				}
 			}
+		}
 
-			hbox = {
+		## Character Portrait
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = shrinking
+
+			character_portrait_medium_torso = {
+				datacontext = "[Character.MakeScope.Var('kog_patriarch_var').GetCharacter]"
+				blockoverride "show_hat" {}
+				blockoverride "tooltip" {} # Error Suppression
+				blockoverride "portrait_icons" {} # Error Suppression
+				blockoverride "portrait_button" {} # Error Suppression
+
 				default_header_clean_faded = {
+					size = { 150 35 }
+					position = { 0 80 }
+					parentanchor = center
 					blockoverride "text" {
 					}
 					textbox = {
-						text = "[Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_name'))]"
-						parentanchor = left|vcenter
+						text = "kog_gui_patriarch_name"
+						parentanchor = center
+						position = { 0 -2 }
 						autoresize = yes
-						max_width = 300
+						max_width = 190
 						elide = right
 						using = fontsize_large
 					}
-					textbox = {
-						text = "[Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_controller'))]"
-						parentanchor = right|vcenter
-						autoresize = yes
-						max_width = 300
-						elide = right
-						using = fontsize_medium
-					}
+				}
+			}
+			vbox = {
+				background = {
+					using = entry_bg_simple
+				}
+				margin = { 10 10 }
+				spacing = 5
+				textbox = {
+					text = "kog_gui_liturgical_rite"
+					size = { 150 40 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_location"
+					size = { 150 40 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_opinion"
+					size = { 150 40 }
+					elide = right
+					using = fontsize_medium
 				}
 			}
 
-			## Character Portrait
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = shrinking
+			## Seat Interaction Buttons
+			vbox = {
+				layoutpolicy_horizontal = shrinking
+				layoutpolicy_vertical = expanding
+				spacing = 5
+				margin_top = 5
+				margin_bottom = 5
+				margin_left = 5
+				margin_right = 5
 
-				character_portrait_medium_torso = {
-					datacontext = "[Character.MakeScope.Var('kog_patriarch_var').GetCharacter]"
-					blockoverride "show_hat" {}
-					blockoverride "tooltip" {} # Error Suppression
-					blockoverride "portrait_icons" {} # Error Suppression
-					blockoverride "portrait_button" {} # Error Suppression
+				background = {
+					using = entry_bg_unit_dark
+				}
 
-					default_header_clean_faded = {
-						size = { 150 35 }
-						position = { 0 80 }
+				# Integrate Seat Button
+				button = {
+					using = default_button_action
+					size = { 180 40 }
+					text = "kog_gui_integrate_seat"
+					using = fontsize_medium
+
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_integrate_sgui')))]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_integrate_seat_desc"
+				}
+
+				# Integration Progressbar
+				green_progressbar_horizontal = {
+					size = { 180 20 }
+					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
+
+					blockoverride "values" {
+						min = 0
+						max = 120
+						value = "[Character.MakeScope.Var('kog_integration_var').GetValue]"
+					}
+					textbox = {
 						parentanchor = center
-						blockoverride "text" {
-						}
-						textbox = {
-							text = "kog_gui_patriarch_name"
-							parentanchor = center
-							position = { 0 -2 }
-							autoresize = yes
-							max_width = 190
-							elide = right
-							using = fontsize_large
-						}
-					}
-				}
-				vbox = {
-					background = {
-						using = entry_bg_simple
-					}
-					margin = { 10 10 }
-					spacing = 5
-					textbox = {
-						text = "kog_gui_liturgical_rite"
-						size = { 150 40 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						text = "kog_gui_location"
-						size = { 150 40 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						text = "kog_gui_opinion"
-						size = { 150 40 }
+						autoresize = yes
+
+						text = "kog_gui_integration_progress"
 						elide = right
 						using = fontsize_medium
 					}
 				}
 
-				## Seat Interaction Buttons
-				vbox = {
-					layoutpolicy_horizontal = shrinking
-					layoutpolicy_vertical = expanding
-					spacing = 5
-					margin_top = 5
-					margin_bottom = 5
-					margin_left = 5
-					margin_right = 5
+				# Enforce Rite Button
+				button = {
+					using = default_button_action
+					size = { 180 40 }
+					text = "kog_gui_enforce_seat"
+					using = fontsize_medium
 
-					background = {
-						using = entry_bg_unit_dark
-					}
-
-					# Integrate Seat Button
-					button = {
-						using = default_button_action
-						size = { 180 40 }
-						text = "kog_gui_integrate_seat"
-						using = fontsize_medium
-
-						datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_integrate_sgui')))]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_integrate_seat_desc"
-					}
-
-					# Integration Progressbar
-					green_progressbar_horizontal = {
-						size = { 180 20 }
-						visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
-
-						blockoverride "values" {
-							min = 0
-							max = 120
-							value = "[Character.MakeScope.Var('kog_integration_var').GetValue]"
-						}
-						textbox = {
-							parentanchor = center
-							autoresize = yes
-
-							text = "kog_gui_integration_progress"
-							elide = right
-							using = fontsize_medium
-						}
-					}
-
-					# Enforce Rite Button
-					button = {
-						using = default_button_action
-						size = { 180 40 }
-						text = "kog_gui_enforce_seat"
-						using = fontsize_medium
-
-						datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_enforce_sgui')))]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_enforce_seat_desc"
-					}
-
-					# Enforcement Progressbar
-					green_progressbar_horizontal = {
-						size = { 180 20 }
-						visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
-
-						blockoverride "values" {
-							min = 0
-							max = 120
-							value = "[Character.MakeScope.Var('kog_enforcement_var').GetValue]"
-						}
-						textbox = {
-							parentanchor = center
-							autoresize = yes
-
-							text = "kog_gui_enforcement_progress"
-							elide = right
-							using = fontsize_medium
-						}
-					}
-
-					# Improve Relations Button
-					button = {
-						using = default_button_action
-						size = { 180 40 }
-						text = "kog_gui_improve_relations"
-						using = fontsize_medium
-
-						datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_start_sway_sgui')))]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_improve_relations_desc"
-					}
-
-					# Cease Diplomacy Button
-					button = {
-						using = default_button_action
-						size = { 180 40 }
-						text = "kog_gui_cease_diplomacy"
-						using = fontsize_medium
-
-						datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_stop_sway_sgui')))]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_cease_diplomacy_desc"
-					}
-
-					# Damage Relations Button
-					button = {
-						using = default_button_action
-						size = { 180 40 }
-						text = "kog_gui_damage_relations"
-						using = fontsize_medium
-
-						datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_start_harm_sgui')))]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_damage_relations_desc"
-					}
-
-					# Cease Hostilities Button
-					button = {
-						using = default_button_action
-						size = { 180 40 }
-						text = "kog_gui_cease_hostilities"
-						using = fontsize_medium
-
-						datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_stop_harm_sgui')))]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_cease_hostilities_desc"
-					}
-
-					expand = {}
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_enforce_sgui')))]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_enforce_seat_desc"
 				}
+
+				# Enforcement Progressbar
+				green_progressbar_horizontal = {
+					size = { 180 20 }
+					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
+
+					blockoverride "values" {
+						min = 0
+						max = 120
+						value = "[Character.MakeScope.Var('kog_enforcement_var').GetValue]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+
+						text = "kog_gui_enforcement_progress"
+						elide = right
+						using = fontsize_medium
+					}
+				}
+
+				# Improve Relations Button
+				button = {
+					using = default_button_action
+					size = { 180 40 }
+					text = "kog_gui_improve_relations"
+					using = fontsize_medium
+
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_start_sway_sgui')))]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_improve_relations_desc"
+				}
+
+				# Cease Diplomacy Button
+				button = {
+					using = default_button_action
+					size = { 180 40 }
+					text = "kog_gui_cease_diplomacy"
+					using = fontsize_medium
+
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_stop_sway_sgui')))]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_cease_diplomacy_desc"
+				}
+
+				# Damage Relations Button
+				button = {
+					using = default_button_action
+					size = { 180 40 }
+					text = "kog_gui_damage_relations"
+					using = fontsize_medium
+
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_start_harm_sgui')))]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_damage_relations_desc"
+				}
+
+				# Cease Hostilities Button
+				button = {
+					using = default_button_action
+					size = { 180 40 }
+					text = "kog_gui_cease_hostilities"
+					using = fontsize_medium
+
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('seat_key').GetFlagName, '_stop_harm_sgui')))]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_cease_hostilities_desc"
+				}
+
+				expand = {}
 			}
 		}
 	}
