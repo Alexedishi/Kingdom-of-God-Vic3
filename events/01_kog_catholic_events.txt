@@ -92,7 +92,887 @@ namespace = kog_catholic
 ###################################################
 ##  TOC0  CATHOLIC FLAVOR EVENTS  Events 000-099 ##
 ###################################################
-# //
+# Roman Catholic Opener Events I
+kog_catholic.000 = { # Catholic Opener Monitor
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		NOT = {
+			has_variable = kog_starter_var
+		}
+	}
+
+	immediate = {
+		set_variable = kog_starter_var
+		if = {
+			limit = {
+				c:PAP ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.002 # The Throne of St. Peter (PAP)
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					c:PAP ?= this
+				}
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+			}
+			trigger_event = {
+				id = kog_catholic.003 # The Homelands of the Church
+			}
+		}
+		else_if = {
+			limit = {
+				c:SPA ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.004 # St. James and Strike for Spain! (SPA)
+			}
+		}
+		else_if = {
+			limit = {
+				c:FRA ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.005 # The Eldest Daughter of the Church (FRA)
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					c:AUS ?= this
+				}
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+			}
+			trigger_event = {
+				id = kog_catholic.006 # Cuius Regio, Eius Religio (German)
+			}
+		}
+		else_if = {
+			limit = {
+				c:AUS ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.007 # The Guardians of the Church (AUS)
+			}
+		}
+		else_if = {
+			limit = {
+				c:POR ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.008 # POR
+			}
+		}
+		else_if = {
+			limit = {
+				c:BEL ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.009 # BEL
+			}
+		}
+		else_if = {
+			limit = {
+				c:MEX ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.010 # MEX
+			}
+		}
+		else_if = {
+			limit = {
+				c:UCA ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.011 # UCA
+			}
+		}
+		else_if = {
+			limit = {
+				c:CLM ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.012 # CLM
+			}
+		}
+		else_if = {
+			limit = {
+				c:BRZ ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.013 # BRZ
+			}
+		}
+		else_if = {
+			limit = {
+				c:ARG ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.014 # ARG
+			}
+		}
+		else_if = {
+			limit = {
+				c:CHL ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.015 # CHL
+			}
+		}
+		else_if = {
+			limit = {
+				c:PHI ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.016 # PHI
+			}
+		}
+		else_if = {
+			limit = {
+				c:VNZ ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.017 # VNZ
+			}
+		}
+		else_if = {
+			limit = {
+				c:BOL ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.018 # BOL
+			}
+		}
+		else_if = {
+			limit = {
+				c:KRA ?= this
+			}
+			trigger_event = {
+				id = kog_catholic.019 # KRA
+			}
+		}
+		else = {
+			trigger_event = {
+				id = kog_catholic.001 # The Bishops of Rome (Catholic Generic)
+			}
+		}
+	}
+
+}
+
+kog_catholic.001 = { # The Bishops of Rome (Catholic Generic)
+	type = country_event
+	placement = root
+
+	title = kog_catholic.001.t
+	desc = kog_catholic.001.d
+	flavor = kog_catholic.001.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.001.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.002 = { # The Throne of St. Peter (PAP)
+	type = country_event
+	placement = root
+
+	title = kog_catholic.002.t
+	desc = kog_catholic.002.d
+	flavor = kog_catholic.002.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.002.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.003 = { # The Homelands of the Church
+	type = country_event
+	placement = root
+
+	title = kog_catholic.003.t
+	desc = kog_catholic.003.d
+	flavor = kog_catholic.003.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.003.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.004 = { # St. James and Strike for Spain! (SPA)
+	type = country_event
+	placement = root
+
+	title = kog_catholic.004.t
+	desc = kog_catholic.004.d
+	flavor = kog_catholic.004.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.004.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.005 = { # The Eldest Daughter of the Church (FRA)
+	type = country_event
+	placement = root
+
+	title = kog_catholic.005.t
+	desc = kog_catholic.005.d
+	flavor = kog_catholic.005.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.005.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.006 = { # Cuius Regio, Eius Religio (German)
+	type = country_event
+	placement = root
+
+	title = kog_catholic.006.t
+	desc = kog_catholic.006.d
+	flavor = kog_catholic.006.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.006.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.007 = { # The Guardians of the Church (AUS)
+	type = country_event
+	placement = root
+
+	title = kog_catholic.007.t
+	desc = kog_catholic.007.d
+	flavor = kog_catholic.007.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.007.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.008 = { # POR
+	type = country_event
+	placement = root
+
+	title = kog_catholic.008.t
+	desc = kog_catholic.008.d
+	flavor = kog_catholic.008.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.008.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.009 = { # BEL
+	type = country_event
+	placement = root
+
+	title = kog_catholic.009.t
+	desc = kog_catholic.009.d
+	flavor = kog_catholic.009.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.009.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+# Roman Catholic Opener Events II
+kog_catholic.010 = { # MEX
+	type = country_event
+	placement = root
+
+	title = kog_catholic.010.t
+	desc = kog_catholic.010.d
+	flavor = kog_catholic.010.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.010.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.011 = { # UCA
+	type = country_event
+	placement = root
+
+	title = kog_catholic.011.t
+	desc = kog_catholic.011.d
+	flavor = kog_catholic.011.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.011.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.012 = { # CLM
+	type = country_event
+	placement = root
+
+	title = kog_catholic.012.t
+	desc = kog_catholic.012.d
+	flavor = kog_catholic.012.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.012.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.013 = { # BRZ
+	type = country_event
+	placement = root
+
+	title = kog_catholic.013.t
+	desc = kog_catholic.013.d
+	flavor = kog_catholic.013.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.013.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.014 = { # ARG
+	type = country_event
+	placement = root
+
+	title = kog_catholic.014.t
+	desc = kog_catholic.014.d
+	flavor = kog_catholic.014.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.014.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.015 = { # CHL
+	type = country_event
+	placement = root
+
+	title = kog_catholic.015.t
+	desc = kog_catholic.015.d
+	flavor = kog_catholic.015.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.015.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.016 = { # PHI
+	type = country_event
+	placement = root
+
+	title = kog_catholic.016.t
+	desc = kog_catholic.016.d
+	flavor = kog_catholic.016.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.016.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.017 = { # VNZ
+	type = country_event
+	placement = root
+
+	title = kog_catholic.017.t
+	desc = kog_catholic.017.d
+	flavor = kog_catholic.017.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.017.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.018 = { # BOL
+	type = country_event
+	placement = root
+
+	title = kog_catholic.018.t
+	desc = kog_catholic.018.d
+	flavor = kog_catholic.018.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.018.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+kog_catholic.019 = { # KRA
+	type = country_event
+	placement = root
+
+	title = kog_catholic.019.t
+	desc = kog_catholic.019.d
+	flavor = kog_catholic.019.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.019.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+}
+
+# Roman Catholic Opener Events III (Basileia Romaion)
+kog_catholic.020 = { # HRE
+	type = country_event
+	placement = root
+
+	title = kog_catholic.020.t
+	desc = kog_catholic.020.d
+	flavor = kog_catholic.020.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_catholic.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_catholic.020.a
+		default_option = yes
+		custom_tooltip = kog_no_effects
+	}
+
+	orphan = yes
+
+}
 
 
 #####################################################
