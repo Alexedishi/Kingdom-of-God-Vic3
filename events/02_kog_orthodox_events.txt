@@ -12,10 +12,10 @@ namespace = kog_orthodox
 
 ##  TOC0  ORTHODOX FLAVOR EVENTS  Events 000-099
 #000-009 - Eastern Orthodox Opener Events I
-#	>>000 - Eastern Orthodox Opener Monitor
-#	>>001 - The Bishops of the East (Orthodox Generic)
-#	>>002 - The Most Holy Synod (RUS)
-#	>>003 - The Holy Synod of Greece (GRE)
+#	000 - Eastern Orthodox Opener Monitor
+#	001 - The Bishops of the East (Orthodox Generic)
+#	002 - The Most Holy Synod (RUS)
+#	003 - The Holy Synod of Greece (GRE)
 #	004 - //The Union of State and Church (MON)
 #	005 - //Church of Saint Sava (SER)
 #	006 - //The Bulgarian Exarchate
@@ -33,24 +33,24 @@ namespace = kog_orthodox
 
 ##  TOC1  ORTHODOX GENERIC EVENTS  Events 100-199  ##
 #100-109 - Generic Flavor Events
-#	>>100 - Bible Translation Published
-#	>>101 - A Heretical Ruler
+#	100 - Bible Translation Published
+#	101 - A Heretical Ruler
 
 #110-119 - Decree Events
-#	>>110 - Priestly Excesses
-#	>>111 - The Widow's Mite
+#	110 - Priestly Excesses
+#	111 - The Widow's Mite
 
 ##  TOC2  ORTHODOX METROPOLITAN EVENTS  Events 200-299  ##
 #200-209 - Metropolitan Focus Events
-#	>>200 - Theological Dispute with Patriarch
+#	200 - //Theological Dispute with Patriarch
 
 #210-219 - Metropolitan Decisions Events
-#	>>210 - Ecumenical Reforms
-#	>>211 - Monastic Reparations
-#	>>212 - Church-State Relations
+#	210 - Ecumenical Reforms
+#	211 - Monastic Reparations
+#	212 - Church-State Relations
 
 #220-229 - Metropolitan Icon Events
-#	>>220 - Commissioning an Icon
+#	220 - Commissioning an Icon
 
 
 ##  TOC3  ORTHODOX SCHISM EVENTS  Events 300-399  ##
@@ -58,16 +58,16 @@ namespace = kog_orthodox
 #	300 - Declaration of Schism with Constantinople
 
 #310-319 - Orthodox Schism Events
-#	>>310 - Traditionalists March in Capital (Stall Event)
-#	>>311 - A Church for the Nation (Progress Event)
-#	>>312 - Minority Adherents Seek Protections (Debate Event)
-#	>>313 - Patriarch Denounces Schism (Stall Event)
-#	>>314 - Liturgical Language (Debate Event)
-#	>>315 - Ecclesiastic Purges (Advance Event)
-#	>>316 - Promoting Local Bishops (Advance Event)
-#	>>317 - Monastic Brawls (Stall Event)
-#	>>318 - Agitator Condemns Schism (Stall Event)
-#	>>319 - Prominent Priest Assassinated (Stall Event)
+#	310 - Traditionalists March in Capital (Stall Event)
+#	311 - A Church for the Nation (Progress Event)
+#	312 - Minority Adherents Seek Protections (Debate Event)
+#	313 - Patriarch Denounces Schism (Stall Event)
+#	314 - Liturgical Language (Debate Event)
+#	315 - Ecclesiastic Purges (Advance Event)
+#	316 - Promoting Local Bishops (Advance Event)
+#	317 - Monastic Brawls (Stall Event)
+#	318 - Agitator Condemns Schism (Stall Event)
+#	319 - Prominent Priest Assassinated (Stall Event)
 
 
 ##  TOC4  ORTHODOX ENCYCLICAL EVENTS  Events 400-499  ##
@@ -105,3 +105,2758 @@ namespace = kog_orthodox
 ##  TOC9  OPEN  Events 900-999  ##
 
 ###################################################
+
+
+
+##  TOC0  ORTHODOX FLAVOR EVENTS  Events 000-099
+
+# Eastern Orthodox Opener Events I
+kog_orthodox.001 = { # Eastern Orthodox Opener Monitor
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		NOT = {
+			has_variable = kog_starter_var
+		}
+	}
+
+	immediate = {
+		set_variable = kog_starter_var
+		if = {
+			limit = {
+				c:RUS ?= this
+			}
+			trigger_event = {
+				id = kog_orthodox.003 # The Most Holy Synod (RUS)
+			}
+		}
+		else_if = {
+			limit = {
+				c:GRE ?= this
+			}
+			trigger_event = {
+				id = kog_orthodox.004 # The Holy Synod of Greece (GRE)
+			}
+		}
+		else_if = {
+			limit = {
+				c:MON ?= this
+			}
+			trigger_event = {
+				id = kog_orthodox.005 # The Union of State and Church (MON)
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:serb
+				NOT = {
+					c:MON ?= this
+				}
+			}
+			trigger_event = {
+				id = kog_orthodox.006 # Church of Saint Sava (SER)
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture = cu:bulgarian
+			}
+			trigger_event = {
+				id = kog_orthodox.007 # BUL
+			}
+		}
+		else_if = {
+			limit = {
+				country_has_primary_culture= cu:romanian
+			}
+			trigger_event = {
+				id = kog_orthodox.008 # ROM
+			}
+		}
+		else_if = {
+			limit = {
+				c:ALK ?= this
+			}
+			trigger_event = {
+				id = kog_orthodox.009 # ALK
+			}
+		}
+
+		else = {
+			trigger_event = {
+				id = kog_orthodox.002 # The Bishops of the East (Orthodox Generic)
+			}
+		}
+	}
+
+}
+
+kog_orthodox.002 = { # The Bishops of the East (Orthodox Generic)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.002.t
+	desc = kog_orthodox.002.d
+	flavor = kog_orthodox.002.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.002.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.003 = { # The Most Holy Synod (RUS)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.003.t
+	desc = kog_orthodox.003.d
+	flavor = kog_orthodox.003.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.003.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.004 = { # The Holy Synod of Greece (GRE)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.004.t
+	desc = kog_orthodox.004.d
+	flavor = kog_orthodox.004.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.004.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.005 = { # The Union of State and Church (MON)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.005.t
+	desc = kog_orthodox.005.d
+	flavor = kog_orthodox.005.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.005.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.006 = { # Church of Saint Sava (SER)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.006.t
+	desc = kog_orthodox.006.d
+	flavor = kog_orthodox.006.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.006.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.007 = { # BUL
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.007.t
+	desc = kog_orthodox.007.d
+	flavor = kog_orthodox.007.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.007.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.008 = { # ROM
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.008.t
+	desc = kog_orthodox.008.d
+	flavor = kog_orthodox.008.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.008.a
+		default_option = yes
+	}
+
+}
+
+kog_orthodox.009 = { # ALK
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.009.t
+	desc = kog_orthodox.009.d
+	flavor = kog_orthodox.009.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_orthodox.009.a
+		default_option = yes
+	}
+
+}
+
+
+#####################################################
+##  TOC1  ORTHODOX GENERIC EVENTS  Events 100-199  ##
+#####################################################
+
+## GENERIC FLAVOR EVENTS ##
+kog_orthodox.100 = { # Bible Translation Published
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.100.t
+	desc = kog_orthodox.100.d
+	flavor = kog_orthodox.100.f
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_bible_translated
+		}
+		NOT = {
+			has_law = law_type:law_ethnostate
+		}
+		NOT = {
+			c:GRE ?= this # Greece has its own version of this event
+		}
+	}
+
+	immediate = {
+		set_variable = kog_bible_translated
+		random_scope_state = {
+			save_scope_as = kog_event_state
+		}
+		ig:ig_intelligentsia = {
+			save_scope_as = intelligentsia_scope
+		}
+	}
+
+	option = { # Allow the Common Tongue
+		name = kog_orthodox.100.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_published_vulgar_bible
+			months = long_modifier_time
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+
+	option = { # Keep it Classy
+		name = kog_orthodox.100.b
+		add_modifier = {
+			name =  modifier_kog_banned_vulgar_bible
+			months = long_modifier_time
+		}
+		add_radicals = {
+			pop_type = academics
+			value = medium_radicals
+		}
+	}
+
+}
+
+kog_orthodox.101 = { # A Heretical Ruler
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.101.t
+	desc = kog_orthodox.101.d
+	flavor = kog_orthodox.101.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_ruler_conversion_considered
+		}
+		has_law = law_type:law_monarchy
+		ruler = {
+			NOT = {
+				has_religion = orthodox
+			}
+		}
+		heir ?= {
+			NOT = {
+				has_religion = orthodox
+			}
+		}
+		ig:ig_devout = {
+			ig_approval <= 5
+		}
+	}
+
+	immediate = {
+		set_variable = kog_ruler_conversion_considered
+		ruler = {
+			save_scope_as = kog_ruler_scope
+		}
+		heir = {
+			save_scope_as = kog_heir_scope
+		}
+	}
+
+	option = { # Both will convert
+		name = kog_orthodox.101.a
+		default_option = yes
+		scope:kog_ruler_scope = {
+			change_character_religion = rel:orthodox
+			add_modifier = modifier_kog_accepted_conversion
+		}
+		scope:kog_heir_scope = {
+			change_character_religion = rel:orthodox
+			add_modifier = modifier_kog_accepted_conversion
+		}
+		add_modifier = {
+			name = modifier_kog_ruler_accepted_conversion
+			months = normal_modifier_time
+		}
+		add_loyalists = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+	}
+
+	option = { # Heir will convert
+		name = kog_orthodox.101.b
+		scope:kog_ruler_scope = {
+			add_modifier = {
+				name = modifier_kog_refused_conversion
+				months = very_long_modifier_time
+			}
+		}
+		scope:kog_heir_scope = {
+			change_character_religion = rel:orthodox
+			add_modifier = modifier_kog_accepted_conversion
+		}
+		add_loyalists = {
+			religion = rel:orthodox
+			value = small_radicals
+		}
+	}
+
+	option = { # 99 THESES GO BRRRRRRRRR
+		name = kog_orthodox.101.c
+		scope:kog_ruler_scope = {
+			add_modifier = {
+				name = modifier_kog_refused_conversion
+				months = very_long_modifier_time
+			}
+		}
+		scope:kog_heir_scope = {
+			add_modifier = {
+				name = modifier_kog_refused_conversion
+				months = very_long_modifier_time
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_ruler_refused_conversion
+			months = normal_modifier_time
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+	}
+
+}
+
+## DECREE EVENTS ##
+kog_orthodox.110 = { # Priestly Excesses
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.110.t
+	desc = kog_orthodox.110.d
+	flavor = kog_orthodox.110.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_decree_event_var
+		}
+		any_scope_state = {
+			has_decree = decree_kog_consecrate_metropolitan
+			NOT = {
+				has_modifier = modifier_kog_grand_cathedral
+			}
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_decree = decree_kog_consecrate_metropolitan
+				NOT = {
+					has_modifier = modifier_kog_grand_cathedral
+				}
+			}
+			save_scope_as = kog_decree_state_scope
+		}
+		set_variable = {
+			name = kog_decree_event_var
+			days = 1825 # Five year lockout
+		}
+	}
+
+	option = { # Allow Construction
+		name = kog_orthodox.110.a
+		default_option = yes
+		scope:kog_decree_state_scope = {
+			add_modifier = {
+				name = modifier_kog_new_cathedral
+				months = long_modifier_time
+			}
+			add_loyalists_in_state = {
+				pop_type = clergymen
+				value = medium_radicals
+			}
+			add_radicals_in_state = {
+				pop_type = academics
+				value = small_radicals
+			}
+			add_radicals_in_state = {
+				pop_type = clerks
+				value = small_radicals
+			}
+		}
+	}
+
+	option = { # Curtail Construction
+		name = kog_orthodox.110.b
+		scope:kog_decree_state_scope = {
+			add_radicals_in_state = {
+				pop_type = clergymen
+				value = medium_radicals
+			}
+			add_loyalists_in_state = {
+				pop_type = academics
+				value = medium_radicals
+			}
+			add_loyalists_in_state = {
+				pop_type = clerks
+				value = medium_radicals
+			}
+		}
+	}
+
+	option = { # Give More Moni
+		name = kog_orthodox.110.c
+		add_treasury = -50000
+		scope:kog_decree_state_scope = {
+			add_modifier = {
+				name = modifier_kog_grand_cathedral
+				months = long_modifier_time
+			}
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+		add_loyalists = {
+			pop_type = capitalists
+			value = medium_radicals
+		}
+		add_radicals = {
+			pop_type = academics
+			value = medium_radicals
+		}
+		add_radicals = {
+			pop_type = clerks
+			value = medium_radicals
+		}
+	}
+
+}
+
+kog_orthodox.111 = { # The Widow's Mite
+	type = country_event
+	placement = scope:kog_decree_state_scope
+
+	title = kog_orthodox.111.t
+	desc = kog_orthodox.111.d
+	flavor = kog_orthodox.111.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_decree_event_var
+		}
+		any_scope_state = {
+			has_decree = decree_kog_encourage_almsgiving
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_decree = decree_kog_encourage_almsgiving
+			}
+			save_scope_as = kog_decree_state_scope
+		}
+		set_variable = {
+			name = kog_decree_event_var
+			days = 1825 # Five year lockout
+		}
+	}
+
+	option = { # Praise the family
+		name = kog_orthodox.111.a
+		default_option = yes
+		scope:kog_decree_state_scope = {
+			add_modifier = {
+				name = modifier_kog_recognized_pious_donations
+				months = normal_modifier_time
+			}
+			add_loyalists_in_state = {
+				strata = rich
+				value = small_radicals
+			}
+			add_radicals_in_state = {
+				strata = medium
+				value = medium_radicals
+			}
+			add_loyalists_in_state = {
+				strata = poor
+				value = small_radicals
+			}
+		}
+	}
+
+	option = { # Encourage Restraint
+		name = kog_orthodox.111.b
+		scope:kog_decree_state_scope = {
+			add_modifier = {
+				name = modifier_kog_discouraged_pious_donations
+				months = normal_modifier_time
+			}
+			add_radicals_in_state = {
+				strata = rich
+				value = small_radicals
+			}
+			add_loyalists_in_state = {
+				strata = medium
+				value = small_radicals
+			}
+		}
+	}
+
+}
+
+
+##########################################################
+##  TOC2  ORTHODOX METROPOLITAN EVENTS  Events 200-299  ##
+##########################################################
+
+## METROPOLITAN FOCUS EVENTS ##
+# //
+
+## METROPOLITAN DECISION EVENTS ##
+kog_orthodox.210 = { # Ecumenical Reforms
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.210.t
+	desc = kog_orthodox.210.d
+	flavor = kog_orthodox.210.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOR = {
+			has_variable = kog_reform_considered
+			has_modifier = modifier_kog_reformed_synod
+		}
+	}
+
+	immediate = {
+		set_variable = kog_reform_considered
+	}
+
+	option = { # Reform the Church
+		name = kog_orthodox.210.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_backed_reforms
+			months = very_long_modifier_time
+		}
+		add_modifier = modifier_kog_reformed_synod
+		add_radicals = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+	}
+
+	option = { # Do Not
+		name = kog_orthodox.210.b
+		add_modifier = {
+			name = modifier_kog_clung_to_tradition
+			months = very_long_modifier_time
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+		custom_tooltip = kog_orthodox.210.tt
+	}
+
+}
+
+kog_orthodox.211 = { # Monastic Reparations
+	type = country_event
+	placement = root
+
+	title =  kog_orthodox.211.t
+	desc =  kog_orthodox.211.d
+	flavor =  kog_orthodox.211.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_monastic_reparations_considered
+		}
+		has_modifier = modifier_kog_dissolved_monasteries
+	}
+
+	immediate = {
+		set_variable = kog_monastic_reparations_considered
+	}
+
+	option = { # They can deal
+		name = kog_orthodox.211.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_destitute_clergy
+			months = long_modifier_time
+		}
+	}
+
+	option = { # Make them whole
+		name = kog_orthodox.211.b
+		add_modifier = {
+			name = modifier_kog_monastic_reparations
+			months = long_modifier_time
+		}
+	}
+
+}
+
+kog_orthodox.212 = { # Church-State Relations
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.212.t
+	desc = kog_orthodox.212.d
+	flavor = kog_orthodox.212.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_caesaropapism_questioned
+		}
+		has_modifier = modifier_kog_reformed_synod
+	}
+
+	immediate = {
+		set_variable = kog_caesaropapism_questioned
+	}
+
+	option = {
+		name = kog_orthodox.212.a
+		default_option = yes
+		remove_modifier = modifier_kog_reformed_synod
+		add_modifier = {
+			name = modifier_kog_restored_synod
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	option = {
+		name = kog_orthodox.212.b
+		add_modifier = {
+			name = modifier_kog_asserted_caesaropapism
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+}
+
+# METROPOLITAN ICON EVENTS
+kog_orthodox.220 = { # Commissioning an Icon
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.220.t
+	desc = kog_orthodox.220.d
+	flavor = kog_orthodox.220.f
+
+	gui_window = event_window_ethics
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_iconostasis.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_commission_icon_button
+	}
+
+	immediate = {
+		ig:ig_devout = {
+			save_scope_as = devout_scope
+		}
+	}
+
+	option = {
+		name = kog_orthodox.220.1
+		default_option = yes
+		custom_tooltip = kog_orthodox.220.1.tt
+		if = {
+			limit = {
+				kog_has_icon_trigger = no
+			}
+			custom_tooltip = kog_no_effects
+		}
+		else = {
+			kog_remove_icon_modifiers_effect = yes
+		}
+	}
+
+	option = {
+		name = kog_orthodox.220.2
+		custom_tooltip = kog_orthodox.220.2.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_christ_pantocrator
+	}
+
+	option = {
+		name = kog_orthodox.220.3
+		custom_tooltip = kog_orthodox.220.3.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_eleusa
+	}
+
+	option = {
+		name = kog_orthodox.220.4
+		custom_tooltip = kog_orthodox.220.4.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_john_climacus
+	}
+
+	option = {
+		name = kog_orthodox.220.5
+		custom_tooltip = kog_orthodox.220.5.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_michael_archistrategos
+	}
+
+	option = {
+		name = kog_orthodox.220.6
+		custom_tooltip = kog_orthodox.220.6.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_nikolaos_wonderworker
+	}
+
+	option = {
+		name = kog_orthodox.220.7
+		custom_tooltip = kog_orthodox.220.7.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_gregory_nazianzus
+	}
+
+	option = {
+		name = kog_orthodox.220.8
+		custom_tooltip = kog_orthodox.220.8.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_paul_of_thebes
+	}
+
+	option = {
+		name = kog_orthodox.220.9
+		custom_tooltip = kog_orthodox.220.9.tt
+		kog_remove_icon_modifiers_effect = yes
+		add_modifier = modifier_kog_icon_issac_the_syrian
+	}
+
+	after = {
+		remove_variable = kog_icon_var
+	}
+
+}
+
+
+####################################################
+##  TOC3  ORTHODOX SCHISM EVENTS  Events 300-399  ##
+####################################################
+
+## ORTHODOX SCHISM NARRATIVE EVENTS ##
+kog_orthodox.300 = {
+	# Declaration of Schism with Constantinople
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.300.t
+	desc = kog_orthodox.300.d
+	flavor = kog_orthodox.300.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_declare_autocephaly_sgui
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_variable = kog_schism_var
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_var
+			value = 0
+		}
+		kog_update_patriarch_variables_effect = yes
+	}
+
+	option = {
+		name = kog_orthodox.300.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = modifier_kog_schismatic
+		}
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						kog_is_eastern_christian_trigger = yes
+						NOT = {
+							this = ROOT
+						}
+					}
+					c:TUR ?= this
+				}
+			}
+			ROOT = {
+				save_scope_as = kog_schism_scope
+			}
+			post_notification = notification_kog_autocephaly_declared
+		}
+	}
+
+}
+
+## ORTHODOX SCHISM EVENTS ##
+kog_orthodox.310 = { # Traditionalists March in Capital (Stall Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.310.t
+	desc = kog_orthodox.310.d
+	flavor = kog_orthodox.310.f
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		var:kog_schism_var > 30
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	cooldown = {
+		years = 2
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+
+	option = { # Ignore these Losers
+		name = kog_orthodox.310.a
+		default_option = yes
+		add_modifier = modifier_kog_ignored_dissent
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+
+	option = { # Slow Down the Process
+		name = kog_orthodox.310.b
+		custom_tooltip = {
+			text = kog_schism_lose_24
+			hidden_effect = {
+				change_variable = {
+					name = kog_schism_var
+					subtract = 24
+				}
+			}
+		}
+		add_modifier = modifier_kog_conceded_to_traditionalists
+		add_loyalists = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+	}
+
+}
+
+kog_orthodox.311 = { # A Church for the Nation (Progress Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.311.t
+	desc = kog_orthodox.311.d
+	flavor = kog_orthodox.311.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		NOR = {
+			has_modifier = modifier_kog_nationalist_church
+			has_modifier = modifier_kog_sidelined_church
+		}
+		var:kog_schism_var > 90
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+
+	option = { # Adopt Nationalist Dogma
+		name = kog_orthodox.311.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_nationalist_church
+			months = long_modifier_time
+		}
+	}
+
+	option = { # Sideline the Church
+		name = kog_orthodox.311.b
+		add_modifier = {
+			name = modifier_kog_sidelined_church
+			months = long_modifier_time
+		}
+	}
+
+}
+
+kog_orthodox.312 = { # Minority Adherents Seek Protections (Debate Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.312.t
+	desc = kog_orthodox.312.d
+	flavor = kog_orthodox.312.f
+
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		any_scope_pop = {
+			OR = {
+				religion = rel:sunni
+				religion = rel:shiite
+				religion = rel:jewish
+			}
+		}
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	cooldown = {
+		years = 2
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_scope_pop = {
+			limit = {
+				OR = {
+					religion = rel:sunni
+					religion = rel:shiite
+					religion = rel:jewish
+				}
+			}
+			religion = {
+				save_scope_as = kog_minority_religion_scope
+			}
+		}
+	}
+
+	option = { # Grant Them Protections
+		name = kog_orthodox.312.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_minority_protections
+			months = long_modifier_time
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+	}
+
+	option = { # Orthodoxy or Bust
+		name = kog_orthodox.312.b
+		add_modifier = {
+			name = modifier_kog_orthodox_supremacy
+			months = long_modifier_time
+		}
+		add_radicals = {
+			religion = scope:kog_minority_religion_scope
+			value = large_radicals
+		}
+	}
+
+}
+
+kog_orthodox.313 = { # Patriarch Denounces Schism (Stall Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.313.t
+	desc = kog_orthodox.313.d
+	flavor = kog_orthodox.313.f
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOR = {
+			has_variable = kog_schism_event_cooldown_var
+			has_modifier = modifier_kog_schism_denounced
+		}
+		OR = {
+			kog_has_low_opinion_with_any_patriarch_trigger = yes
+			has_variable = kog_schism_var
+		}
+		var:kog_schism_var > 30
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	cooldown = {
+		years = 4
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		kog_update_patriarch_variables_effect = yes
+		kog_select_random_schism_condemnation_seat_effect = yes
+		kog_save_event_patriarch_effect = yes
+	}
+
+	option = { # Tell him to buzz off
+		name = kog_orthodox.313.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_schism_denounced
+			months = normal_modifier_time
+		}
+		kog_decrease_patriarch_opinion_effect = yes
+		custom_tooltip = {
+			text = kog_schism_gain_6
+			change_variable = {
+				name = kog_schism_var
+				add = 6
+			}
+		}
+	}
+
+	option = { # Tell him you're actually a really good boy
+		name = kog_orthodox.313.b
+		add_modifier = {
+			name = modifier_kog_schism_denounced
+			months = normal_modifier_time
+		}
+		kog_increase_patriarch_opinion_effect = yes
+		custom_tooltip = {
+			text = kog_schism_gain_6
+			change_variable = {
+				name = kog_schism_var
+				add = 6
+			}
+		}
+
+	}
+
+	after = {
+		kog_remove_seat_event_variables_effect = yes
+	}
+
+}
+
+kog_orthodox.314 = { # Liturgical Language (Debate Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.314.t
+	desc = kog_orthodox.314.d
+	flavor = kog_orthodox.314.f
+
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOR = {
+			has_variable = kog_language_disputed
+			has_variable = kog_schism_event_cooldown_var
+			country_has_primary_culture = cu:greek
+		}
+		has_technology_researched = mass_communication
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	immediate = {
+		set_variable = kog_language_disputed
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_primary_culture = {
+			save_scope_as = kog_primary_culture_scope
+		}
+	}
+
+	option = { # Local Language or Bust
+		name = kog_orthodox.314.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_local_language
+			months = very_long_modifier_time
+		}
+		add_loyalists = {
+			culture = scope:kog_primary_culture_scope
+			value = medium_radicals
+		}
+		add_radicals = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+		custom_tooltip = {
+			text = kog_schism_gain_12
+			change_variable = {
+				name = kog_schism_var
+				add = 12
+			}
+		}
+	}
+
+	option = { # Ehh, we simp for Greek here
+		name = kog_orthodox.314.b
+		add_modifier = {
+			name = modifier_kog_greek_language
+			months = very_long_modifier_time
+		}
+		add_loyalists = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+		add_radicals = {
+			culture = scope:kog_primary_culture_scope
+			value = medium_radicals
+		}
+	}
+
+}
+
+kog_orthodox.315 = { # Ecclesiatic Purges (Advance Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.315.t
+	desc = kog_orthodox.315.d
+	flavor = kog_orthodox.315.f
+
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOR = {
+			has_variable = kog_ecclesiarchy_purge_considered
+			has_variable = kog_schism_event_cooldown_var
+		}
+		has_technology_researched = central_archives
+		has_variable = kog_language_disputed
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	immediate = {
+		set_variable = kog_ecclesiarchy_purge_considered
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_primary_culture = {
+			save_scope_as = kog_primary_culture_scope
+		}
+	}
+
+	option = { # Kick out the Greeks
+		name = kog_orthodox.315.a
+		default_option = yes
+		add_modifier = modifier_kog_purged_ecclesiarchy
+		add_radicals = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+		create_incident = {
+			country = c:TUR
+			value = 5
+		}
+		custom_tooltip = {
+			text = kog_schism_gain_12
+			change_variable = {
+				name = kog_schism_var
+				add = 12
+			}
+		}
+	}
+
+	option = { # Retain the Greeks
+		name = kog_orthodox.315.b
+		add_modifier = modifier_kog_retained_ecclesiarchy
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+		custom_tooltip = {
+			text = kog_schism_lose_24
+			change_variable = {
+				name = kog_schism_var
+				subtract = 24
+			}
+		}
+	}
+
+}
+
+kog_orthodox.316 = { # Promoting Local Bishops (Advance Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.316.t
+	desc = kog_orthodox.316.d
+	flavor = kog_orthodox.316.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	cooldown = {
+		years = 2
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+
+	option = { # Fast Track New Bishops
+		name = kog_orthodox.316.a
+		default_option = yes
+		add_modifier = modifier_kog_fast_tracking_bishops
+		custom_tooltip = {
+			text = kog_schism_gain_12
+			change_variable = {
+				name = kog_schism_var
+				add = 12
+			}
+		}
+	}
+
+	option = { # Ensure Adequate Training
+		name = kog_orthodox.316.b
+		add_modifier = {
+			name = modifier_kog_disciplined_clergy
+			months = very_long_modifier_time
+		}
+	}
+
+}
+
+kog_orthodox.317 = { # Monastic Brawls (Stall Event)
+	type = country_event
+	placement = scope:kog_monk_fight_state_scope
+
+	title = kog_orthodox.317.t
+	desc = kog_orthodox.317.d
+	flavor = kog_orthodox.317.f
+
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	cooldown = {
+		years = 2
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_scope_state = {
+			save_scope_as = kog_monk_fight_state_scope
+		}
+	}
+
+	option = { # This should be a paid event
+		name = kog_orthodox.317.a
+		default_option = yes
+		add_modifier = modifier_kog_monk_smackdown_tolerated
+		custom_tooltip = {
+			text = kog_schism_lose_24
+			change_variable = {
+				name = kog_schism_var
+				subtract = 24
+			}
+		}
+	}
+
+	option = { # Break up the fighting
+		name = kog_orthodox.317.b
+		add_modifier = modifier_kog_monk_smackdown_stopped
+		custom_tooltip = {
+			text = kog_schism_lose_12
+			change_variable = {
+				name = kog_schism_var
+				subtract = 12
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+
+}
+
+kog_orthodox.318 = { # Agitator Condemns Schism (Stall Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.318.t
+	desc = kog_orthodox.318.d
+	flavor = kog_orthodox.318.f
+
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		any_scope_character = {
+			has_role = agitator
+			OR = {
+				law_stance = {
+					law = law_type:law_state_religion
+					value > neutral
+				}
+				law_stance = {
+					law = law_type:law_theocracy
+					value > neutral
+				}
+			}
+		}
+	}
+
+	cancellation_trigger = {
+		OR = {
+			has_variable = kog_is_autocephalous
+			scope:kog_denouncing_agitator_scope = {
+				is_character_alive = no
+			}
+			NOT = {
+				exists = scope:kog_denouncing_agitator_scope
+			}
+		}
+	}
+
+	cooldown = {
+		years = 10
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_scope_character = {
+			limit = {
+				has_role = agitator
+				OR = {
+					law_stance = {
+						law = law_type:law_state_religion
+						value > neutral
+					}
+					law_stance = {
+						law = law_type:law_theocracy
+						value > neutral
+					}
+				}
+			}
+			save_scope_as = kog_denouncing_agitator_scope
+		}
+	}
+
+	option = { # Let Him Speak
+		name = kog_orthodox.318.a
+		default_option = yes
+		add_modifier = modifier_kog_agitator_delay
+		custom_tooltip = {
+			text = kog_schism_lose_12
+			change_variable = {
+				name = kog_schism_var
+				subtract = 12
+			}
+		}
+	}
+
+	option = { # Kick Him in the Nuts
+		name = kog_orthodox.318.b
+		trigger = {
+			NOR = {
+				has_law = law_type:law_protected_speech
+				has_law = law_type:law_right_of_assembly
+			}
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		scope:kog_denouncing_agitator_scope = {
+			add_modifier = modifier_kog_popular_speaker
+		}
+		add_modifier = {
+			name = modifier_kog_muzzled_agitator
+			months = normal_modifier_time
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+
+}
+
+kog_orthodox.319 = { # Prominent Priest Assassinated (Stall Event)
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.319.t
+	desc = kog_orthodox.319.d
+	flavor = kog_orthodox.319.f
+
+	event_image = {
+		video = "southamerica_public_figure_assassination"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		var:kog_schism_var > 100
+	}
+
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+
+	cooldown = {
+		years = 5
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+
+	option = { # Hunt Down the Killer
+		name = kog_orthodox.319.a
+		default_option = yes
+		add_modifier = modifier_kog_protecting_bishops
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_kog_elder_assassinated
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	option = { # Turn a Blind Eye
+		name = kog_orthodox.319.b
+		custom_tooltip = {
+			text = kog_schism_lose_12
+			change_variable = {
+				name = kog_schism_var
+				subtract = 12
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_kog_elder_assassinated
+				months = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+	}
+
+}
+
+
+#######################################################
+## TOC4  ORTHODOX ENCYCLICAL EVENTS  Events 400-499  ##
+#######################################################
+# //
+
+
+####################################################
+## TOC5  ORTHODOX COUNCIL EVENTS  Events 500-599  ##
+####################################################
+
+# Orthodox Ecumenical Council Events
+kog_orthodox.500 = { # Convoking the Ecumenical Council
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.500.t
+	desc = kog_orthodox.500.d
+	flavor = kog_orthodox.500.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox_convoke_sgui
+	}
+
+	immediate = {
+		save_scope_as = kog_orthodox_host_scope
+		set_global_variable = {
+			name = kog_orthodox_host_var
+			value = scope:kog_orthodox_host_scope
+		}
+		set_global_variable = {
+			name = kog_orthodox_support_var
+			value = 0
+		}
+		set_global_variable = {
+			name = kog_orthodox_opposition_var
+			value = 0
+		}
+		kog_set_orthodox_location_effect = yes
+	}
+
+	option = { # It's Crusadin' time!
+		name = kog_orthodox.500.1
+		default_option = yes
+		trigger = {
+			NOT = { has_global_variable = kog_crusades_unlocked }
+			c:BYZ ?= this
+			has_law = law_type:law_state_religion
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.508 # The New Crusade
+				}
+			}
+		}
+	}
+
+	option = { # Tell the Pope he sucks
+		name = kog_orthodox.500.2
+		trigger = {
+			NOT = { has_global_variable = kog_epistle_considered }
+			has_technology_researched = mass_communication
+		}
+		set_global_variable = {
+			name = kog_orthodox_matter_var
+			value = 1
+		}
+		set_global_variable = {
+			name = kog_orthodox_convocation_var
+			years = 1
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.501 # Ecumenical Council Convoked
+				}
+			}
+		}
+	}
+
+	option = { # Deal with Phyletism
+		name = kog_orthodox.500.3
+		trigger = {
+			NOT = { has_global_variable = kog_phyletism_considered }
+			has_technology_researched = nationalism
+		}
+		set_global_variable = {
+			name = kog_orthodox_matter_var
+			value = 2
+		}
+		set_global_variable = {
+			name = kog_orthodox_convocation_var
+			years = 1
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.501 # Ecumenical Council Convoked
+				}
+			}
+		}
+	}
+
+	option = { # New Calendar
+		name = kog_orthodox.500.4
+		trigger = {
+			NOT = { has_global_variable = kog_calendar_considered }
+			has_technology_researched = pan-nationalism
+		}
+		set_global_variable = {
+			name = kog_orthodox_matter_var
+			value = 3
+		}
+		set_global_variable = {
+			name = kog_orthodox_convocation_var
+			years = 1
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.501 # Ecumenical Council Convoked
+				}
+			}
+		}
+	}
+
+	#	option = { # Mend the Great Schism
+	#		name = kog_orthodox.501.5
+	#		trigger = {
+	#			NOT = { has_global_variable = kog_schism_mended }
+	#			kog_controls_and_owns_pentarchy_trigger = yes
+	#		}
+	#		trigger_event = {
+	#			id = kog.308 # The Council of Unification
+	#			days = 90
+	#		}
+	#	}
+
+	option = { # Unify the Orthodox Realms
+		name = kog_orthodox.500.6
+		trigger = {
+			NOT = { has_global_variable = kog_orthodox_realms_started }
+			has_variable = kog_is_autocephalous
+			kog_controls_ancient_seat_trigger = yes
+			country_rank >= rank_value:great_power
+		}
+		trigger_event = {
+			id = kog.300 # The Patriarchate Rises
+			days = 90
+		}
+		set_variable = kog_texas_left
+	}
+
+}
+
+kog_orthodox.501 = { # Ecumenical Council Convoked
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.501.t
+	desc = kog_orthodox.501.d
+	flavor = kog_orthodox.501.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_orthodox.500
+	}
+
+	immediate = {
+	}
+
+	option = { # Allow Priests to Attend
+		name = kog_orthodox.501.a
+		default_option = yes
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_kog_attended_council
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	option = { # Ban Your Priests From Attending
+		name = kog_orthodox.501.b
+		custom_tooltip = {
+			text = kog_council_skipped
+			set_variable = kog_council_skipped
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_kog_denied_council
+				months = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+		create_incident = {
+			country = global_var:kog_orthodox_host_var
+			value = 5
+		}
+	}
+
+}
+
+kog_orthodox.502 = { # Orthodox Council Monitor
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_global_variable = kog_orthodox_matter_var
+		NOT = {
+			has_global_variable = kog_orthodox_convocation_var
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				global_var:kog_orthodox_matter_var = 1
+			}
+			if = {
+				limit = {
+					global_var:kog_orthodox_support_var <= global_var:kog_orthodox_opposition_var
+				}
+				set_global_variable = {
+					name = kog_epistle_considered
+					value = 1 # Conservative Outcome
+				}
+			}
+			else = {
+				set_global_variable = {
+					name = kog_epistle_considered
+					value = 2 # Reformist Outcome
+				}
+			}
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.503 # Encyclical of the Eastern Patriarchs
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:kog_orthodox_matter_var = 2
+			}
+			if = {
+				limit = {
+					global_var:kog_orthodox_support_var <= global_var:kog_orthodox_opposition_var
+				}
+				set_global_variable = {
+					name = kog_phyletism_considered
+					value = 1 # Conservative Outcome
+				}
+			}
+			else = {
+				set_global_variable = {
+					name = kog_phyletism_considered
+					value = 2 # Reformist Outcome
+				}
+			}
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.504 # Phyletism Addressed
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:kog_orthodox_matter_var = 3
+			}
+			if = {
+				limit = {
+					global_var:kog_orthodox_support_var <= global_var:kog_orthodox_opposition_var
+				}
+				set_global_variable = {
+					name = kog_calendar_considered
+					value = 1 # Conservative Outcome
+				}
+			}
+			else = {
+				set_global_variable = {
+					name = kog_calendar_considered
+					value = 2 # Reformist Outcome
+				}
+			}
+			every_country = {
+				limit = {
+					kog_is_eastern_orthodox_trigger = yes
+				}
+				trigger_event = {
+					id = kog_orthodox.505 # The Julian Calendar
+				}
+			}
+		}
+		remove_global_variable = kog_orthodox_matter_var
+		remove_global_variable = kog_orthodox_host_var
+		remove_global_variable = kog_orthodox_location_var
+		remove_global_variable = kog_orthodox_opposition_var
+	}
+}
+
+kog_orthodox.503 = { # Encyclical of the Eastern Patriarchs
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.503.t
+	desc = {
+		triggered_desc = {
+			desc = kog_orthodox.503.d1
+			trigger = {
+				global_var:kog_epistle_considered = 1
+			}
+		}
+		triggered_desc = {
+			desc = kog_orthodox.503.d2
+			trigger = {
+				global_var:kog_epistle_considered = 2
+			}
+		}
+	}
+	flavor = kog_orthodox.503.f
+
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# Triggered by kog_orthodox.503 # Epistle to the Easterners
+	}
+
+	immediate = {
+		kog_save_pope_scope_effect = yes
+		kog_cleanup_council_effect = yes
+	}
+
+	option = { # Epistle Rejected
+		name = kog_orthodox.503.a
+		default_option = yes
+		trigger = {
+			global_var:kog_epistle_considered = 1
+		}
+		add_journal_entry = {
+			type = je_kog_encyclical_orthodox_easterners_1
+		}
+	}
+
+	option = { # Epistle Accepted
+		name = kog_orthodox.503.b
+		trigger = {
+			global_var:kog_epistle_considered = 2
+		}
+		add_journal_entry = {
+			type = je_kog_encyclical_orthodox_easterners_2
+		}
+	}
+
+}
+
+kog_orthodox.504 = { # Problems with Phyletism
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.504.t
+	desc = {
+		triggered_desc = {
+			desc = kog_orthodox.504.d1
+			trigger = {
+				global_var:kog_phyletism_considered = 1
+			}
+		}
+		triggered_desc = {
+			desc = kog_orthodox.504.d2
+			trigger = {
+				global_var:kog_phyletism_considered = 2
+			}
+		}
+	}
+	flavor = kog_orthodox.504.f
+
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		kog_cleanup_council_effect = yes
+	}
+
+	option = { # Phyletism Condemned
+		name = kog_orthodox.504.a
+		default_option = yes
+		trigger = {
+			global_var:kog_phyletism_considered = 1
+		}
+		add_modifier = {
+			name = modifier_kog_condemned_phyletism
+			months = long_modifier_time
+		}
+	}
+
+	option = { # Phyletism Accepted
+		name = kog_orthodox.504.b
+		trigger = {
+			global_var:kog_phyletism_considered = 2
+		}
+		add_modifier = {
+			name = modifier_kog_endorsed_phyletism
+			months = long_modifier_time
+		}
+	}
+
+}
+
+kog_orthodox.505 = { # The Julian Calendar
+	type = country_event
+	placement = root
+
+	title = {
+		triggered_desc = {
+			desc = kog_orthodox.505.t1
+			trigger = {
+				global_var:kog_calendar_considered = 1
+			}
+		}
+		triggered_desc = {
+			desc = kog_orthodox.505.t2
+			trigger = {
+				global_var:kog_calendar_considered = 2
+			}
+		}
+	}
+	desc = {
+		triggered_desc = {
+			desc = kog_orthodox.505.d1
+			trigger = {
+				global_var:kog_calendar_considered = 1
+			}
+		}
+		triggered_desc = {
+			desc = kog_orthodox.505.d2
+			trigger = {
+				global_var:kog_calendar_considered = 2
+			}
+		}
+	}
+	flavor = kog_orthodox.505.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		kog_cleanup_council_effect = yes
+	}
+
+	option = { # Revised Julian Calendar
+		name = kog_orthodox.505.a
+		default_option = yes
+		trigger = {
+			global_var:kog_calendar_considered = 1
+		}
+		add_modifier = {
+			name = modifier_kog_revised_julian_calendar
+			months = long_modifier_time
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+
+	option = { # Chrysostomos would be proud
+		name = kog_orthodox.505.b
+		trigger = {
+			global_var:kog_calendar_considered = 2
+		}
+		add_modifier = {
+			name = modifier_kog_retained_old_calendar
+			months = long_modifier_time
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+	}
+
+}
+
+kog_orthodox.508 = { # Birth of the New Crusades
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.508.t
+	desc = kog_orthodox.508.d
+	flavor = kog_orthodox.508.f
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		set_global_variable = kog_crusades_unlocked
+	}
+
+	option = {
+		name = kog_orthodox.508.a
+		default_option = yes
+		custom_tooltip = kog_crusades_enabled
+		kog_cleanup_council_effect = yes
+	}
+
+}
+
+kog_orthodox.509 = { # The Byzantine Commonwealth
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.509.t
+	desc = kog_orthodox.509.d
+	flavor = kog_orthodox.509.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog.300
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_texas_left
+			}
+			save_scope_as = kog_conqueror_scope
+		}
+	}
+
+	option = {
+		name = kog_orthodox.509.a
+		default_option = yes
+		custom_tooltip = kog_orthodox_realms_info
+	}
+
+	orphan = yes
+
+}
+
+
+###########################################################
+## TOC6  ORTHODOX EPISCOPAL SEAT EVENTS  Events 600-699  ##
+###########################################################
+
+# Ecumenical Patriarch Decision Events
+kog_orthodox.600 = { # An Audience with the Patriarch
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.600.t
+	desc = kog_orthodox.600.d
+	flavor = kog_orthodox.600.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_mitre.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_seek_mandate_sgui
+	}
+
+	immediate = {
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_patriarch_event_scope
+		}
+	}
+
+	cancellation_trigger = {
+		kog_has_mandate_trigger = yes
+	}
+
+	option = {
+		name = kog_orthodox.600.1
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocracy_mandate
+			months = long_modifier_time
+		}
+	}
+
+	option = {
+		name = kog_orthodox.600.2
+		add_modifier = {
+			name = modifier_kog_government_mandate
+			months = long_modifier_time
+		}
+
+	}
+
+	option = {
+		name = kog_orthodox.600.3
+		add_modifier = {
+			name = modifier_kog_influence_mandate
+			months = long_modifier_time
+		}
+	}
+
+	option = {
+		name = kog_orthodox.600.4
+		add_modifier = {
+			name = modifier_kog_military_mandate
+			months = long_modifier_time
+		}
+	}
+
+	option = {
+		name = kog_orthodox.600.a
+	}
+
+	after = {
+		remove_variable = kog_considering_mandate
+	}
+
+}
+
+kog_orthodox.601 = { # The Patriarch's Blessings
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.601.t
+	desc = kog_orthodox.601.d
+	flavor = kog_orthodox.601.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_mitre.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		always = no
+	}
+
+	cooldown = {
+		years = 2
+	}
+
+	immediate = {
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_patriarch_event_scope
+		}
+	}
+
+	option = {
+		name = kog_orthodox.601.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_divine_mandate
+			months = normal_modifier_time
+		}
+	}
+
+}
+
+kog_orthodox.602 = { # Ecumenical Partiarch Denounces Secularism
+	type = country_event
+	placement = root
+
+	title = kog_orthodox.602.t
+	desc = kog_orthodox.602.d
+	flavor = kog_orthodox.602.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_patriarch_event_scope
+		}
+	}
+
+	option = {
+		name = kog_orthodox.602.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_secularism_denounced
+		}
+	}
+
+}
+
+
+#################################
+## TOC7  OPEN  Events 700-799  ##
+#################################
+# //
+
+
+#################################
+## TOC8  OPEN  Events 800-899  ##
+#################################
+# //
+
+
+#################################
+## TOC9  OPEN  Events 900-999  ##
+#################################
+# //
+
