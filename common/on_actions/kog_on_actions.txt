@@ -1,10 +1,39 @@
 ﻿on_monthly_pulse_country = {
 	on_actions = {
 		kog_monthly_pulse
+		kog_christendom_pulse
+#		kog_catholic_pulse
+#		kog_orthodox_pulse
+#		kog_oriental_pulse
+#		kog_elysian_pulse
+#		kog_protestant_pulse
 	}
 }
 
 kog_monthly_pulse = {
+	events = {
+		kog_general.010 # Rome Holy Site PM
+		kog_general.011 # Santiago Holy Site PM
+		kog_general.012 # Paris Holy Site PM
+		kog_general.013 # Cologne Holy Site PM
+		kog_general.014 # Vienna Holy Site PM
+		kog_general.015 # Constantinople Holy Site PM
+		kog_general.016 # Antioch Holy Site PM
+		kog_general.017 # Jerusalem Holy Site PM
+		kog_general.018 # Alexandria Holy Site PM
+		kog_general.019 # Moscow Holy Site PM
+		kog_general.020 # Coptic Alexandria Holy Site PM
+		kog_general.021 # Syriac Antioch Holy Site PM
+		kog_general.022 # Etchmiadzin Holy Site PM
+		kog_general.023 # Addis Ababa Holy Site PM
+		kog_general.024 # Qudshanis Holy Site PM
+		kog_general.025 # Elysium Holy Site PM
+		kog_general.026 # Mixtec Holy Site PM
+		kog_general.027 # Cahokia Holy Site PM
+	}
+}
+
+kog_christendom_pulse = {
 	trigger = {
 		kog_content_scope_trigger = yes
 	}
@@ -22,7 +51,6 @@ kog_monthly_pulse = {
 			kog_update_patriarch_variables_effect = yes
 			kog_update_seat_controllers_effect = yes
 		}
-
 	}
 }
 
@@ -35,9 +63,6 @@ on_yearly_pulse_country = {
 }
 
 kog_yearly_pulse = {
-	trigger = {
-		kog_content_scope_trigger = yes
-	}
 	effect = {
 		if = {
 			limit = {
