@@ -20,7 +20,7 @@ namespace = kog_general
 #	012 - Paris PM Switch
 #	013 - Koln PM Switch
 #	014 - Vienna PM Switch
-#	015 - Constantinopole PM Switch
+#	015 - Constantinople PM Switch
 #	016 - Antioch PM Switch
 #	017 - Jerusalem PM Switch
 #	018 - Alexandria PM Switch
@@ -48,17 +48,17 @@ namespace = kog_general
 
 ##  TOC1  CHRISTIANITY GENERIC EVENTS  Events 100-199  ##
 #100-109 - Mending Events
-#	>>100 - The Council of Unification
-#	>>109 - The Supreme Pontiff of the Universal Church
+#	100 - The Council of Unification
+#	109 - The Supreme Pontiff of the Universal Church
 
 #110-119 - Crusade Events
-#	>>110 - The X Crusade
-#	>>111 - Victorious Crusade
-#	>>112 - Failed Crusade
+#	110 - The X Crusade
+#	111 - Victorious Crusade
+#	112 - Failed Crusade
 
 #120-129 - Pagan Site Capture Events
 #	120 - //The Hagia Sophia Liberated
-#	>>121 - The Capture of the Great Mosque
+#	121 - The Capture of the Great Mosque
 
 
 ##  TOC2  METROPOLITAN GENERIC EVENTS  Events 200-299  ##
@@ -80,42 +80,42 @@ namespace = kog_general
 
 ##  TOC6  EPISCOPAL SEAT CONTROL EVENTS  Events 600-699  ##
 #600-609 - State Authority Assertion Events
-#	>>600 - State Authority Asserted Over Rome
-#	>>601 - State Authority Asserted Over Constantinople
-#	>>602 - State Authority Asserted Over Coptic Alexandria
-#	>>603 - State Authority Asserted Over Elysium
+#	600 - State Authority Asserted Over Rome
+#	601 - State Authority Asserted Over Constantinople
+#	602 - State Authority Asserted Over Coptic Alexandria
+#	603 - State Authority Asserted Over Elysium
 #	604 - //State Authority Asserted Over Canterbury
 #	605 - ##
 #	606 - ##
 #	607 - ##
 #	608 - ##
-#	>>609 - Control Secured Over Seat
+#	609 - Control Secured Over Seat
 
 #610-619 - Seat Integration Random Events
-#	>>610 - Seat Integration Disputed (Part 1)
-#	>>611 - Seat Integration Disputed (Part 2)
+#	610 - Seat Integration Disputed (Part 1)
+#	611 - Seat Integration Disputed (Part 2)
 
 #620-629 - Seat Control Events I
-#	>>620 - Control Secured Over Rome
-#	>>621 - Control Secured Over Santiago
-#	>>622 - Control Secured Over Paris
-#	>>623 - Control Secured Over Cologne
-#	>>624 - Control Secured Over Vienna
-#	>>625 - Control Secured Over Constantinople
-#	>>626 - Control Secured Over Antioch
-#	>>627 - Control Secured Over Jerusalem
-#	>>628 - Control Secured Over Alexandria
-#	>>629 - Control Secured Over Moscow
+#	620 - Control Secured Over Rome
+#	621 - Control Secured Over Santiago
+#	622 - Control Secured Over Paris
+#	623 - Control Secured Over Cologne
+#	624 - Control Secured Over Vienna
+#	625 - Control Secured Over Constantinople
+#	626 - Control Secured Over Antioch
+#	627 - Control Secured Over Jerusalem
+#	628 - Control Secured Over Alexandria
+#	629 - Control Secured Over Moscow
 
 #630-639 - Seat Control Events II
-#	>>630 - Control Secured Over Coptic Alexandria
-#	>>631 - Control Secured Over Syriac Antioch
-#	>>632 - Control Secured Over Etchmiadzin
-#	>>633 - Control Secured Over Addis Ababa
-#	>>634 - Control Secured Over Qudshanis
-#	>>635 - Control Secured Over Elysium
-#	>>636 - Control Secured Over Tututepec
-#	>>637 - Control Secured Over Cahokia
+#	630 - Control Secured Over Coptic Alexandria
+#	631 - Control Secured Over Syriac Antioch
+#	632 - Control Secured Over Etchmiadzin
+#	633 - Control Secured Over Addis Ababa
+#	634 - Control Secured Over Qudshanis
+#	635 - Control Secured Over Elysium
+#	636 - Control Secured Over Tututepec
+#	637 - Control Secured Over Cahokia
 #	638 - ##
 #	639 - ##
 
@@ -2123,3 +2123,1962 @@ kog_general.309 = { # Autocephaly of the National Church
 	}
 
 }
+
+
+#######################################################
+##  TOC4  ENCYCLICAL GENERIC EVENTS  Events 400-499  ##
+#######################################################
+# //
+
+
+####################################################
+##  TOC5  COUNCIL GENERIC EVENTS  Events 500-599  ##
+#######################################################
+# //
+
+
+###########################################################
+##  TOC6  EPISCOPAL SEAT CONTROL EVENTS  Events 600-699  ##
+###########################################################
+
+## STATE AUTHORITY ASSERTION EVENTS ##
+kog_general.600 = { # State Authority Asserted Over Rome
+	type = country_event
+	placement = root
+
+	title = kog_general.600.t
+	desc = kog_general.600.d
+	flavor = kog_general.600.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_assert_rome_sgui
+	}
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		set_variable = kog_rome_assert_var
+		random_country = {
+			limit = {
+				has_variable = kog_controls_rome
+			}
+			save_scope_as = kog_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_eastern_christian_trigger = yes
+					has_variable = kog_controls_rome
+				}
+				NOT = {
+					has_variable = kog_rome_assert_var
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_rome_assert_var
+				}
+				save_scope_as = kog_usurper_scope
+			}
+			post_notification = notification_kog_rome_usurped
+		}
+		scope:kog_controller_scope ?= {
+			remove_variable = kog_controls_rome
+		}
+		set_variable = kog_controls_rome
+		set_variable = kog_is_autocephalous
+		remove_variable = kog_rome_assert_var
+		remove_variable = kog_schism_var
+	}
+
+	option = {
+		name = kog_general.600.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocephaly_granted
+			months = long_modifier_time
+		}
+		custom_tooltip = kog_usurped_rome
+		scope:kog_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+		}
+	}
+
+}
+
+kog_general.601 = { # Supremacy Asserted Over Constantinopole
+	type = country_event
+	placement = root
+
+	title = kog_general.601.t
+	desc = kog_general.601.d
+	flavor = kog_general.601.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_assert_constantinople_sgui
+	}
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		set_variable = kog_constantinople_assert_var
+		random_country = {
+			limit = {
+				has_variable = kog_controls_constantinople
+			}
+			save_scope_as = kog_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_eastern_christian_trigger = yes
+					has_variable = kog_controls_constantinople
+				}
+				NOT = {
+					has_variable = kog_constantinople_assert_var
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_constantinople_assert_var
+				}
+				save_scope_as = kog_usurper_scope
+			}
+			post_notification = notification_kog_constantinople_usurped
+		}
+		scope:kog_controller_scope ?= {
+			remove_variable = kog_controls_constantinople
+		}
+		set_variable = kog_controls_constantinople
+		set_variable = kog_is_autocephalous
+		remove_variable = kog_constantinople_assert_var
+		remove_variable = kog_schism_var
+	}
+
+	option = {
+		name = kog_general.601.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocephaly_granted
+			months = long_modifier_time
+		}
+		custom_tooltip = kog_usurped_constantinople
+		scope:kog_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+		}
+	}
+
+}
+
+kog_general.602 = { # State Authority Asserted Over Coptic Alexandria
+	type = country_event
+	placement = root
+
+	title = kog_general.602.t
+	desc = kog_general.602.d
+	flavor = kog_general.602.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_assert_coptic_alexandria_sgui
+	}
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		set_variable = kog_coptic_alexandria_assert_var
+		random_country = {
+			limit = {
+				has_variable = kog_controls_coptic_alexandria
+			}
+			save_scope_as = kog_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_eastern_christian_trigger = yes
+					has_variable = kog_controls_coptic_alexandria
+				}
+				NOT = {
+					has_variable = kog_coptic_alexandria_assert_var
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_coptic_alexandria_assert_var
+				}
+				save_scope_as = kog_usurper_scope
+			}
+			post_notification = notification_kog_coptic_alexandria_usurped
+		}
+		scope:kog_controller_scope ?= {
+			remove_variable = kog_controls_coptic_alexandria
+		}
+		set_variable = kog_controls_coptic_alexandria
+		set_variable = kog_is_autocephalous
+		remove_variable = kog_coptic_alexandria_assert_var
+		remove_variable = kog_schism_var
+	}
+
+	option = {
+		name = kog_general.602.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocephaly_granted
+			months = long_modifier_time
+		}
+		custom_tooltip = kog_usurped_coptic_alexandria
+		scope:kog_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+		}
+	}
+
+}
+
+kog_general.603 = { # State Authority Asserted Over Elysium
+	type = country_event
+	placement = root
+
+	title = kog_general.603.t
+	desc = kog_general.603.d
+	flavor = kog_general.603.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_assert_elysium_sgui
+	}
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		set_variable = kog_elysium_assert_var
+		random_country = {
+			limit = {
+				has_variable = kog_controls_elysium
+			}
+			save_scope_as = kog_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_eastern_christian_trigger = yes
+					has_variable = kog_controls_elysium
+				}
+				NOT = {
+					has_variable = kog_elysium_assert_var
+				}
+			}
+			random_country = {
+				limit = {
+					has_variable = kog_elysium_assert_var
+				}
+				save_scope_as = kog_usurper_scope
+			}
+			post_notification = notification_kog_elysium_usurped
+		}
+		scope:kog_controller_scope ?= {
+			remove_variable = kog_controls_elysium
+		}
+		set_variable = kog_controls_elysium
+		set_variable = kog_is_autocephalous
+		remove_variable = kog_elysium_assert_var
+		remove_variable = kog_schism_var
+	}
+
+	option = {
+		name = kog_general.603.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocephaly_granted
+			months = long_modifier_time
+		}
+		custom_tooltip = kog_usurped_elysium
+		scope:kog_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+		}
+	}
+
+}
+
+# Seat Integration Random Events
+kog_general.610 = { # Seat Integration Disputed (Part 1)
+	type = country_event
+	placement = root
+
+	title = kog_general.610.t
+	desc = kog_general.610.d
+	flavor = kog_general.610.f
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		always = no # TODO rework this event
+		kog_controls_any_seat_trigger = yes
+		any_country = {
+			NOT = {
+				this = root
+			}
+			#			has_variable = kog_integration_var
+			#			var:kog_integration_var < 80
+			NOR = {
+				has_modifier = modifier_kog_asserted_integration
+				has_modifier = modifier_kog_folded_integration
+			}
+			relations:root < relations_threshold:cordial # Usually means that only Russia will get in your way most playthroughs, but this is historically pertinent
+		}
+		NOT = {
+			has_global_variable = kog_seat_dispute_cooldown_var
+		}
+	}
+
+	immediate = {
+		set_global_variable = {
+			name = kog_seat_dispute_cooldown_var
+			months = 12 # lazy way to block event from running itself over
+		}
+		random_country = {
+			limit = {
+				NOT = {
+					this = root
+				}
+				#				has_variable = kog_integration_var
+				#				var:kog_integration_var < 100
+				#				var:kog_integration_var > 24
+				NOR = {
+					has_modifier = modifier_kog_asserted_integration
+					has_modifier = modifier_kog_folded_integration
+				}
+			}
+			save_scope_as = kog_integrator_scope
+		}
+		set_variable = kog_seat_dispute_starter
+	}
+
+	option = { # Challenge their seat integration
+		name = kog_general.610.a
+		default_option = yes
+		change_relations = {
+			country = scope:kog_integrator_scope
+			value = -20
+		}
+		scope:kog_integrator_scope = {
+			set_variable = kog_seat_opposed
+		}
+	}
+
+	option = { # Support their seat integration
+		name = kog_general.610.b
+		change_relations = {
+			country = scope:kog_integrator_scope
+			value = 20
+		}
+	}
+
+	after = {
+		scope:kog_integrator_scope = {
+			trigger_event = {
+				id = kog_general.611 # Seat Integration Disputed (Part 2)
+			}
+		}
+	}
+
+}
+
+kog_general.611 = { # Seat Integration Disputed (Part 2)
+	type = country_event
+	placement = root
+
+	title = kog_general.611.t
+	desc = {
+		triggered_desc = {
+			desc = kog_general.611.d1
+			trigger = {
+				has_variable = kog_seat_opposed
+			}
+		}
+		triggered_desc = {
+			desc = kog_general.611.d2
+			trigger = {
+				NOT = {
+					has_variable = kog_seat_opposed
+				}
+			}
+		}
+	}
+	flavor = kog_general.611.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_general.610
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_seat_dispute_starter
+			}
+			save_scope_as = kog_disputer_scope
+		}
+	}
+
+	option = { # Stick to your guns
+		name = kog_general.611.a
+		default_option = yes
+		trigger = {
+			has_variable = kog_seat_opposed
+		}
+		custom_tooltip = {
+			text = kog_integration_gain_2
+			#			hidden_effect = {
+			#				change_variable = {
+			#					name = kog_integration_var
+			#					add = 8
+			#				}
+			#			}
+		}
+		add_modifier = {
+			name = modifier_kog_asserted_integration
+			months = normal_modifier_time
+		}
+		create_incident = {
+			country = scope:kog_disputer_scope
+			value = 10
+		}
+		scope:kog_disputer_scope = {
+			set_secret_goal = {
+				country = root
+				secret_goal = antagonize
+			}
+			remove_variable = kog_seat_dispute_starter
+		}
+		remove_variable = kog_seat_opposed
+	}
+
+	option = { # Back Down a Little Bit
+		name = kog_general.611.b
+		trigger = {
+			has_variable = kog_seat_opposed
+		}
+		custom_tooltip = {
+			text = kog_integration_lose_6
+			#			hidden_effect = {
+			#				change_variable = {
+			#					name = kog_integration_var
+			#					subtract = 24
+			#				}
+			#			}
+		}
+		scope:kog_disputer_scope = {
+			change_relations = {
+				country = root
+				value = 10
+			}
+			remove_variable = kog_seat_dispute_starter
+		}
+		add_modifier = {
+			name = modifier_kog_folded_integration
+			months = normal_modifier_time
+		}
+		remove_variable = kog_seat_opposed
+	}
+
+	option = {
+		name = kog_general.611.c
+		trigger = {
+			NOT = {
+				has_variable = kog_seat_opposed
+			}
+		}
+		custom_tooltip = {
+			text = kog_integration_gain_4
+			#			hidden_effect = {
+			#				change_variable = {
+			#					name = kog_integration_var
+			#					add = 16
+			#				}
+			#			}
+		}
+		scope:kog_disputer_scope = {
+			change_relations = {
+				country = root
+				value = 15
+			}
+			remove_variable = kog_seat_dispute_starter
+		}
+	}
+}
+
+## SEAT CONTROL EVENTS I ##
+kog_general.620 = { # Control Secured Over Rome
+	type = country_event
+	placement = p:xB040A0
+
+	title = kog_general.620.t
+	desc = kog_general.620.d
+	flavor = kog_general.620.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_rome
+		var:kog_integrating_rome >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_rome
+			}
+			save_scope_as = kog_rome_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_rome_usurped
+		}
+		remove_variable = kog_integrating_rome
+	}
+
+	option = {
+		name = kog_general.620.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_rome
+			set_variable = kog_controls_rome
+		}
+		scope:kog_rome_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_rome
+		}
+		remove_modifier =  modifier_kog_integrating_rome
+	}
+
+}
+
+kog_general.621 = { # Control Secured Over Santiago
+	type = country_event
+	placement = p:xD0E040
+
+	title = kog_general.621.t
+	desc = kog_general.621.d
+	flavor = kog_general.621.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_santiago
+		var:kog_integrating_santiago >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_santiago
+			}
+			save_scope_as = kog_santiago_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_santiago_usurped
+		}
+		remove_variable = kog_integrating_santiago
+	}
+
+	option = {
+		name = kog_general.621.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_santiago
+			set_variable = kog_controls_santiago
+		}
+		scope:kog_santiago_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_santiago
+		}
+		remove_modifier =  modifier_kog_integrating_santiago
+	}
+
+}
+
+kog_general.622 = { # Control Secured Over Paris
+	type = country_event
+	placement = p:x71DA2E
+
+	title = kog_general.622.t
+	desc = kog_general.622.d
+	flavor = kog_general.622.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_paris
+		var:kog_integrating_paris >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_paris
+			}
+			save_scope_as = kog_paris_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_paris_usurped
+		}
+		remove_variable = kog_integrating_paris
+	}
+
+	option = {
+		name = kog_general.622.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_paris
+			set_variable = kog_controls_paris
+		}
+		scope:kog_paris_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_paris
+		}
+		remove_modifier =  modifier_kog_integrating_paris
+	}
+
+}
+
+kog_general.623 = { # Control Secured Over Cologne
+	type = country_event
+	placement = p:x9F4072
+
+	title = kog_general.623.t
+	desc = kog_general.623.d
+	flavor = kog_general.623.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_koln
+		var:kog_integrating_koln >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_koln
+			}
+			save_scope_as = kog_koln_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_koln_usurped
+		}
+		remove_variable = kog_integrating_koln
+	}
+
+	option = {
+		name = kog_general.623.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_koln
+			set_variable = kog_controls_koln
+		}
+		scope:kog_koln_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_koln
+		}
+		remove_modifier =  modifier_kog_integrating_koln
+	}
+
+}
+
+kog_general.624 = { # Control Secured Over Vienna
+	type = country_event
+	placement = p:x316141
+
+	title = kog_general.624.t
+	desc = kog_general.624.d
+	flavor = kog_general.624.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_vienna
+		var:kog_integrating_vienna >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_vienna
+			}
+			save_scope_as = kog_vienna_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_vienna_usurped
+		}
+		remove_variable = kog_integrating_vienna
+	}
+
+	option = {
+		name = kog_general.624.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_vienna
+			set_variable = kog_controls_vienna
+		}
+		scope:kog_vienna_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_vienna
+		}
+		remove_modifier =  modifier_kog_integrating_vienna
+	}
+
+}
+
+kog_general.625 = { # Control Secured Over Constantinople
+	type = country_event
+	placement = p:xF0A020
+
+	title = kog_general.625.t
+	desc = kog_general.625.d
+	flavor = kog_general.625.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_constantinople
+		var:kog_integrating_constantinople >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_constantinople
+			}
+			save_scope_as = kog_constantinople_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_constantinople_usurped
+		}
+		remove_variable = kog_integrating_constantinople
+	}
+
+	option = {
+		name = kog_general.625.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_constantinople
+			set_variable = kog_controls_constantinople
+		}
+		scope:kog_constantinople_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_constantinople
+		}
+		remove_modifier =  modifier_kog_integrating_constantinople
+	}
+
+}
+
+kog_general.626 = { # Control Secured Over Antioch
+	type = country_event
+	placement = p:x186A43
+
+	title = kog_general.626.t
+	desc = kog_general.626.d
+	flavor = kog_general.626.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_antioch
+		var:kog_integrating_antioch >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_antioch
+			}
+			save_scope_as = kog_antioch_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_antioch_usurped
+		}
+		remove_variable = kog_integrating_antioch
+	}
+
+	option = {
+		name = kog_general.626.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_antioch
+			set_variable = kog_controls_antioch
+		}
+		scope:kog_antioch_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_antioch
+		}
+		remove_modifier =  modifier_kog_integrating_antioch
+	}
+
+}
+
+kog_general.627 = { # Control Secured Over Jersualem
+	type = country_event
+	placement = p:xC9CBC0
+
+	title = kog_general.627.t
+	desc = kog_general.627.d
+	flavor = kog_general.627.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_jerusalem
+		var:kog_integrating_jerusalem >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_jerusalem
+			}
+			save_scope_as = kog_jerusalem_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_jerusalem_usurped
+		}
+		remove_variable = kog_integrating_jerusalem
+	}
+
+	option = {
+		name = kog_general.627.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_jerusalem
+			set_variable = kog_controls_jerusalem
+		}
+		scope:kog_jerusalem_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_jerusalem
+		}
+		remove_modifier =  modifier_kog_integrating_jerusalem
+	}
+
+}
+
+kog_general.628 = { # Control Secured Over Alexandria
+	type = country_event
+	placement = p:xA0D020
+
+	title = kog_general.628.t
+	desc = kog_general.628.d
+	flavor = kog_general.628.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_alexandria
+		var:kog_integrating_alexandria >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_alexandria
+			}
+			save_scope_as = kog_alexandria_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_alexandria_usurped
+		}
+		remove_variable = kog_integrating_alexandria
+	}
+
+	option = {
+		name = kog_general.628.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_alexandria
+			set_variable = kog_controls_alexandria
+		}
+		scope:kog_alexandria_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_alexandria
+		}
+		remove_modifier =  modifier_kog_integrating_alexandria
+	}
+
+}
+
+kog_general.629 = { # Control Secured Over Moscow
+	type = country_event
+	placement = p:x13D91C
+
+	title = kog_general.629.t
+	desc = kog_general.629.d
+	flavor = kog_general.629.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_moscow
+		var:kog_integrating_moscow >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_moscow
+			}
+			save_scope_as = kog_moscow_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_moscow_usurped
+		}
+		remove_variable = kog_integrating_moscow
+	}
+
+	option = {
+		name = kog_general.629.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_moscow
+			set_variable = kog_controls_moscow
+		}
+		scope:kog_moscow_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_moscow
+		}
+		remove_modifier =  modifier_kog_integrating_moscow
+	}
+
+}
+
+# Seat Control Events II
+kog_general.630 = { # Control Secured Over Coptic Alexandria
+	type = country_event
+	placement = p:xA0D020
+
+	title = kog_general.630.t
+	desc = kog_general.630.d
+	flavor = kog_general.630.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_coptic_alexandria
+		var:kog_integrating_coptic_alexandria >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_coptic_alexandria
+			}
+			save_scope_as = kog_coptic_alexandria_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_coptic_alexandria_usurped
+		}
+		remove_variable = kog_integrating_coptic_alexandria
+	}
+
+	option = {
+		name = kog_general.630.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_coptic_alexandria
+			set_variable = kog_controls_coptic_alexandria
+		}
+		scope:kog_coptic_alexandria_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_coptic_alexandria
+		}
+		remove_modifier =  modifier_kog_integrating_coptic_alexandria
+	}
+
+}
+
+kog_general.631 = { # Control Secured Over Syriac Antioch
+	type = country_event
+	placement = p:x186A43
+
+	title = kog_general.631.t
+	desc = kog_general.631.d
+	flavor = kog_general.631.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_syriac_antioch
+		var:kog_integrating_syriac_antioch >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_syriac_antioch
+			}
+			save_scope_as = kog_syriac_antioch_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_syriac_antioch_usurped
+		}
+		remove_variable = kog_integrating_syriac_antioch
+	}
+
+	option = {
+		name = kog_general.631.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_syriac_antioch
+			set_variable = kog_controls_syriac_antioch
+		}
+		scope:kog_syriac_antioch_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_syriac_antioch
+		}
+		remove_modifier =  modifier_kog_integrating_syriac_antioch
+	}
+
+}
+
+kog_general.632 = { # Control Secured Over Etchmiadzin
+	type = country_event
+	placement = p:x805000
+
+	title = kog_general.632.t
+	desc = kog_general.632.d
+	flavor = kog_general.632.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_etchmiadzin
+		var:kog_integrating_etchmiadzin >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_etchmiadzin
+			}
+			save_scope_as = kog_etchmiadzin_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_etchmiadzin_usurped
+		}
+		remove_variable = kog_integrating_etchmiadzin
+	}
+
+	option = {
+		name = kog_general.632.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_etchmiadzin
+			set_variable = kog_controls_etchmiadzin
+		}
+		scope:kog_etchmiadzin_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_etchmiadzin
+		}
+		remove_modifier =  modifier_kog_integrating_etchmiadzin
+	}
+
+}
+
+kog_general.633 = { # Control Secured Over Addis Ababa
+	type = country_event
+	placement = p:xE7D29C
+
+	title = kog_general.633.t
+	desc = kog_general.633.d
+	flavor = kog_general.633.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_addis_ababa
+		var:kog_integrating_addis_ababa >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_addis_ababa
+			}
+			save_scope_as = kog_addis_ababa_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_addis_ababa_usurped
+		}
+		remove_variable = kog_integrating_addis_ababa
+	}
+
+	option = {
+		name = kog_general.633.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_addis_ababa
+			set_variable = kog_controls_addis_ababa
+		}
+		scope:kog_addis_ababa_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_addis_ababa
+		}
+		remove_modifier =  modifier_kog_integrating_addis_ababa
+	}
+
+}
+
+kog_general.634 = { # Control Secured Over Qudshanis
+	type = country_event
+	placement = p:xC33C0F
+
+	title = kog_general.634.t
+	desc = kog_general.634.d
+	flavor = kog_general.634.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_konak
+		var:kog_integrating_konak >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_konak
+			}
+			save_scope_as = kog_konak_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_konak_usurped
+		}
+		remove_variable = kog_integrating_konak
+	}
+
+	option = {
+		name = kog_general.634.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_konak
+			set_variable = kog_controls_konak
+		}
+		scope:kog_konak_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_konak
+		}
+		remove_modifier =  modifier_kog_integrating_konak
+	}
+
+}
+
+kog_general.635 = { # Control Secured Over Elysium
+	type = country_event
+	placement = p:x700080
+
+	title = kog_general.635.t
+	desc = kog_general.635.d
+	flavor = kog_general.635.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_elysium
+		var:kog_integrating_elysium >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_elysium
+			}
+			save_scope_as = kog_elysium_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_elysium_usurped
+		}
+		remove_variable = kog_integrating_elysium
+	}
+
+	option = {
+		name = kog_general.635.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_elysium
+			set_variable = kog_controls_elysium
+		}
+		scope:kog_elysium_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_elysium
+		}
+		remove_modifier =  modifier_kog_integrating_elysium
+	}
+
+}
+
+kog_general.636 = { # Control Secured Over Tututepec
+	type = country_event
+	placement = p:x1BC4D0
+
+	title = kog_general.636.t
+	desc = kog_general.636.d
+	flavor = kog_general.636.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_mixtec
+		var:kog_integrating_mixtec >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_mixtec
+			}
+			save_scope_as = kog_mixtec_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_mixtec_usurped
+		}
+		remove_variable = kog_integrating_mixtec
+	}
+
+	option = {
+		name = kog_general.636.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_mixtec
+			set_variable = kog_controls_mixtec
+		}
+		scope:kog_mixtec_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_mixtec
+		}
+		remove_modifier =  modifier_kog_integrating_mixtec
+	}
+
+}
+
+kog_general.637 = { # Control Secured Over Cahokia
+	type = country_event
+	placement = p:x6D8AAA
+
+	title = kog_general.637.t
+	desc = kog_general.637.d
+	flavor = kog_general.637.f
+
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_integrating_cahokia
+		var:kog_integrating_cahokia >= 60
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_controls_cahokia
+			}
+			save_scope_as = kog_cahokia_controller_scope
+		}
+		every_country = {
+			limit = {
+				OR = {
+					kog_is_christian_trigger = yes
+					scope:kog_controller_scope ?= this
+				}
+			}
+			post_notification = notification_kog_cahokia_usurped
+		}
+		remove_variable = kog_integrating_cahokia
+	}
+
+	option = {
+		name = kog_general.637.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_cahokia
+			set_variable = kog_controls_cahokia
+		}
+		scope:kog_cahokia_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			remove_variable = kog_controls_cahokia
+		}
+		remove_modifier =  modifier_kog_integrating_cahokia
+	}
+
+}
+
+
+#############################################################
+##  TOC7  EPISCOPAL SEAT RELATIONS EVENTS  Events 700-799  ##
+#############################################################
+
+## PATRIARCHAL SEAT OPINION EVENTS ##
+kog_general.700 = { # Ecumenical Financing
+	type = country_event
+	placement = root
+
+	title = kog_general.700.t
+	desc = kog_general.700.d
+	flavor = kog_general.700.f
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:kog_sway_event_scope
+
+	icon = "gfx/interface/icons/event_icons/event_mitre.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		kog_is_swaying_seat_trigger = yes
+		kog_has_ongoing_patriarch_event_trigger = no
+	}
+
+	cooldown = {
+		years = 5
+	}
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		kog_select_random_swayed_seat_effect = yes
+		kog_save_event_patriarch_effect = yes
+	}
+
+	option = { # Grant Funding
+		name = kog_general.700.a
+		default_option = yes
+		kog_increase_patriarch_opinion_effect = yes
+		add_loyalists = {
+			religion = rel:orthodox
+			value = small_radicals
+		}
+		add_modifier = {
+			name = modifier_kog_granted_ecumenical_funds
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	option = { # Do Not
+		name = kog_general.700.b
+		add_radicals = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+		add_modifier = {
+			name = modifier_kog_refused_ecumenical_funds
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	after = {
+		kog_remove_seat_event_variables_effect = yes
+	}
+
+}
+
+kog_general.701 = { # Delegation Arrives from Seat
+	type = country_event
+	placement = root
+
+	title = kog_general.701.t
+	desc = kog_general.701.d
+	flavor = kog_general.701.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		kog_is_swaying_seat_trigger = yes
+	}
+
+	cooldown = {
+		years = 5
+	}
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		kog_select_random_swayed_seat_effect = yes
+		kog_save_event_patriarch_effect = yes
+	}
+
+	option = { # Receive Them
+		name = kog_general.701.a
+		default_option = yes
+		trigger = {
+			NOT = {
+				has_law = law_type:law_total_separation
+			}
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		kog_increase_patriarch_opinion_effect = yes
+		add_modifier = {
+			name = modifier_kog_received_delegation
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	option = { # Turn Them AWay
+		name = kog_general.701.b
+		trigger = {
+			NOT = {
+				has_law = law_type:law_state_religion
+			}
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		add_modifier = {
+			name = modifier_kog_refused_delegation
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+}
+
+kog_general.702 = { # Patriarch Condemns Immorality
+	type = country_event
+	placement = root
+
+	title = kog_general.702.t
+	desc = kog_general.702.d
+	flavor = kog_general.702.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		kog_is_condemnation_target_trigger = yes
+		kog_has_ongoing_patriarch_event_trigger = no
+	}
+
+	cooldown = {
+		years = 5 # just to avoid getting spammed
+	}
+
+	immediate = {
+		kog_select_random_condemnation_seat_effect = yes
+		kog_save_event_patriarch_effect = yes
+	}
+
+	option = {
+		name = kog_general.702.a
+		default_option = yes
+		kog_add_condemnation_effect = yes
+		kog_remove_seat_event_variables_effect = yes
+	}
+
+}
+
+kog_general.703 = { # Theological Dispute with Patriarch
+	type = country_event
+	placement = root
+
+	title = kog_general.703.t
+	desc = kog_general.703.d
+	flavor = kog_general.703.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_mitre.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_modifier = modifier_kog_theologize_dogma
+		NOT = {
+			has_modifier = modifier_kog_conceded_doctrine
+		}
+		kog_has_low_opinion_with_any_patriarch_trigger = yes
+		kog_has_ongoing_patriarch_event_trigger = no
+	}
+
+	cooldown = {
+		years = 2 # Hope your luck ain't this bad
+	}
+
+	immediate = {
+		kog_select_random_seat_effect = yes
+		kog_save_event_patriarch_effect = yes
+	}
+
+	option = { # Concede the Point
+		name = kog_general.703.a
+		default_option = yes
+		kog_increase_patriarch_opinion_effect = yes
+		add_modifier = {
+			name = modifier_kog_conceded_doctrine
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+	option = { # Assert New Thinking
+		name = kog_general.703.b
+		kog_decrease_patriarch_opinion_effect = yes
+		add_modifier = {
+			name = modifier_kog_asserted_doctrine
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+
+}
+
+
+##################################
+##  TOC8  OPEN  Events 800-899  ##
+##################################
+# //
+
+
+##################################
+##  TOC9  OPEN  Events 900-999  ##
+##################################
+# //
+

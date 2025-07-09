@@ -49,7 +49,6 @@ namespace = kog_catholic
 #	029 -
 
 
-
 ##  TOC1  CATHOLIC GENERIC EVENTS  Events 100-199  ##
 # //
 
@@ -64,30 +63,153 @@ namespace = kog_catholic
 
 
 ##  TOC4  CATHOLIC ENCYCLICAL EVENTS  Events 400-499  ##
-
+# //
 
 
 ##  TOC5  CATHOLIC COUNCIL EVENTS  Events 500-599  ##
+# //
+
+
 ##  TOC6  CATHOLIC EPISCOPAL SEAT EVENTS  Events 600-699  ##
+# //
+
+
 ##  TOC7  OPEN  Events 700-799  ##
+# //
+
+
 ##  TOC8  OPEN  Events 800-899  ##
+# //
+
+
 ##  TOC9  CATHOLIC COLLEGIUM EVENTS  900-999  ##
+# //
 
 
 ###################################################
+
 
 ###################################################
 ##  TOC0  CATHOLIC FLAVOR EVENTS  Events 000-099 ##
 ###################################################
+# //
 
 
 #####################################################
 ##  TOC1  CATHOLIC GENERIC EVENTS  Events 100-199  ##
+#####################################################
 # //
 
 
+##########################################################
 ##  TOC2  CATHOLIC METROPOLITAN EVENTS  Events 200-299  ##
+##########################################################
 # //
 
 
+####################################################
 ##  TOC3  CATHOLIC SCHISM EVENTS  Events 300-399  ##
+####################################################
+
+## CATHOLIC SCHISM EVENTS ##
+kog_catholic.300 = { # Declaration of Schism with Rome
+	type = country_event
+	placement = root
+
+	title = kog_catholic.300.t
+	desc = kog_catholic.300.d
+	flavor = kog_catholic.300.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_declare_autocephaly_sgui
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_variable = kog_schism_var
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			name = kog_schism_var
+			value = 0
+		}
+		kog_update_patriarch_variables_effect = yes
+	}
+
+	option = {
+		name = kog_catholic.300.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = modifier_kog_schismatic
+		}
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						kog_is_roman_catholic_trigger = yes
+						NOT = {
+							this = ROOT
+						}
+					}
+					c:TUR ?= this
+				}
+			}
+			ROOT = {
+				save_scope_as = kog_schism_scope
+			}
+			post_notification = notification_kog_autocephaly_declared
+		}
+	}
+
+}
+
+
+########################################################
+##  TOC4  CATHOLIC ENCYCLICAL EVENTS  Events 400-499  ##
+########################################################
+# //
+
+
+#####################################################
+##  TOC5  CATHOLIC COUNCIL EVENTS  Events 500-599  ##
+#####################################################
+# //
+
+
+############################################################
+##  TOC6  CATHOLIC EPISCOPAL SEAT EVENTS  Events 600-699  ##
+############################################################
+# //
+
+
+##################################
+##  TOC7  OPEN  Events 700-799  ##
+##################################
+# //
+
+
+##################################
+##  TOC8  OPEN  Events 800-899  ##
+##################################
+# //
+
+
+################################################
+##  TOC9  CATHOLIC COLLEGIUM EVENTS  900-999  ##
+################################################
+# //
+
