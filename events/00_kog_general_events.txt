@@ -10,31 +10,31 @@ namespace = kog_general
 # You can use the #TOC_ comments to ctrl+F your way through the event list
 # The // before an event indicates content not yet implemented; the >> indicates an event being moved in from another event module/location
 
-##  TOC0  TECHNICAL EVENTS  Events 000-099
+##  TOC0  TECHNICAL EVENTS  Events 000-099  ##
 #001-009 - Backend and Janitor Events
 #	001 - The Patriarch's Variable Dumpster Fire
 
 #010-019 - Holy Site PM Events I
-#	>>010 - Rome PM Switch
-#	>>011 - Santiago PM Switch
-#	>>012 - Paris PM Switch
-#	>>013 - Koln PM Switch
-#	>>014 - Vienna PM Switch
-#	>>015 - Constantinopole PM Switch
-#	>>016 - Antioch PM Switch
-#	>>017 - Jerusalem PM Switch
-#	>>018 - Alexandria PM Switch
-#	>>019 - Moscow PM Switch
+#	010 - Rome PM Switch
+#	011 - Santiago PM Switch
+#	012 - Paris PM Switch
+#	013 - Koln PM Switch
+#	014 - Vienna PM Switch
+#	015 - Constantinopole PM Switch
+#	016 - Antioch PM Switch
+#	017 - Jerusalem PM Switch
+#	018 - Alexandria PM Switch
+#	019 - Moscow PM Switch
 
 #020-029 - Holy Site PM Events II
-#	>>020 - Coptic Alexandria PM Switch
-#	>>021 - Syriac Alexandria PM Switch
-#	>>022 - Etchmiadzin PM Switch
-#	>>023 - Addis Ababa PM Switch
-#	>>024 - Qudshanis PM Switch
-#	>>025 - Elysium PM Switch
-#	>>026 - Tututepec PM Switch
-#	>>027 - Cahokia PM Switch
+#	020 - Coptic Alexandria PM Switch
+#	021 - Syriac Alexandria PM Switch
+#	022 - Etchmiadzin PM Switch
+#	023 - Addis Ababa PM Switch
+#	024 - Qudshanis PM Switch
+#	025 - Elysium PM Switch
+#	026 - Tututepec PM Switch
+#	027 - Cahokia PM Switch
 #	028 - ##
 #	029 - ##
 
@@ -143,6 +143,11 @@ namespace = kog_general
 
 ###################################################
 
+##############################################
+##  TOC0  TECHNICAL EVENTS  Events 000-099  ##
+##############################################
+
+## BACKEND AND JANITOR EVENTS ##
 kog_general.001 = { # The Patriarch's Variable Dumpster Fire
 	type = country_event
 	hidden = yes
@@ -223,3 +228,1357 @@ kog_general.001 = { # The Patriarch's Variable Dumpster Fire
 	orphan = yes
 
 }
+
+## HOLY SITE PM EVENTS I ##
+kog_general.010 = { # Rome Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_LAZIO
+		OR = {
+			AND = {
+				has_variable = kog_controls_rome
+				s:STATE_LAZIO = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_rome
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_rome
+				}
+				s:STATE_LAZIO = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_rome
+							production_method = pm_kog_patriarchate_rome
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_rome
+			}
+			s:STATE_LAZIO = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_rome
+						production_method = pm_kog_patriarchate_rome
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_rome
+				}
+			}
+			s:STATE_LAZIO = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_rome
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.011 = { # Santiago Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_GALICIA
+		OR = {
+			AND = {
+				has_variable = kog_controls_santiago
+				s:STATE_GALICIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_santiago
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_santiago
+				}
+				s:STATE_GALICIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_santiago
+							production_method = pm_kog_patriarchate_santiago
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_santiago
+			}
+			s:STATE_GALICIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_santiago
+						production_method = pm_kog_patriarchate_santiago
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_santiago
+				}
+			}
+			s:STATE_GALICIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_santiago
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.012 = { # Paris Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_ILE_DE_FRANCE
+		OR = {
+			AND = {
+				has_variable = kog_controls_paris
+				s:STATE_ILE_DE_FRANCE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_paris
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_paris
+				}
+				s:STATE_ILE_DE_FRANCE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_paris
+							production_method = pm_kog_patriarchate_paris
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_paris
+			}
+			s:STATE_ILE_DE_FRANCE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_paris
+						production_method = pm_kog_patriarchate_paris
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_paris
+				}
+			}
+			s:STATE_ILE_DE_FRANCE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_paris
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.013 = { # Cologne Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_NORTH_RHINE
+		OR = {
+			AND = {
+				has_variable = kog_controls_koln
+				s:STATE_NORTH_RHINE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_koln
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_koln
+				}
+				s:STATE_NORTH_RHINE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_koln
+							production_method = pm_kog_patriarchate_koln
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_koln
+			}
+			s:STATE_NORTH_RHINE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_koln
+						production_method = pm_kog_patriarchate_koln
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_koln
+				}
+			}
+			s:STATE_NORTH_RHINE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_koln
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.014 = { # Vienna Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_AUSTRIA
+		OR = {
+			AND = {
+				has_variable = kog_controls_vienna
+				s:STATE_AUSTRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_vienna
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_vienna
+				}
+				s:STATE_AUSTRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_vienna
+							production_method = pm_kog_patriarchate_vienna
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_vienna
+			}
+			s:STATE_AUSTRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_vienna
+						production_method = pm_kog_patriarchate_vienna
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_vienna
+				}
+			}
+			s:STATE_AUSTRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_vienna
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.015 = { # Constantinople Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_EASTERN_THRACE
+		OR = {
+			AND = {
+				has_variable = kog_controls_constantinople
+				s:STATE_EASTERN_THRACE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_constantinople
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_constantinople
+				}
+				s:STATE_EASTERN_THRACE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_constantinople
+							production_method = pm_kog_patriarchate_constantinople
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_constantinople
+			}
+			s:STATE_EASTERN_THRACE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_constantinople
+						production_method = pm_kog_patriarchate_constantinople
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_constantinople
+				}
+			}
+			s:STATE_EASTERN_THRACE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_constantinople
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.016 = { # Antioch Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_SYRIA
+		OR = {
+			AND = {
+				has_variable = kog_controls_antioch
+				s:STATE_SYRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_antioch
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_antioch
+				}
+				s:STATE_SYRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_antioch
+							production_method = pm_kog_patriarchate_antioch
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_antioch
+			}
+			s:STATE_SYRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_antioch
+						production_method = pm_kog_patriarchate_antioch
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_antioch
+				}
+			}
+			s:STATE_SYRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_antioch
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.017 = { # Jersualem Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_PALESTINE
+		OR = {
+			AND = {
+				has_variable = kog_controls_jerusalem
+				s:STATE_PALESTINE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_jerusalem
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_jerusalem
+				}
+				s:STATE_PALESTINE = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_jerusalem
+							production_method = pm_kog_patriarchate_jerusalem
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_jerusalem
+			}
+			s:STATE_PALESTINE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_jerusalem
+						production_method = pm_kog_patriarchate_jerusalem
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_jerusalem
+				}
+			}
+			s:STATE_PALESTINE = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_jerusalem
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.018 = { # Alexandria Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_LOWER_EGYPT
+		OR = {
+			AND = {
+				has_variable = kog_controls_alexandria
+				s:STATE_LOWER_EGYPT = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_alexandria
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_alexandria
+				}
+				s:STATE_LOWER_EGYPT = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_alexandria
+							production_method = pm_kog_patriarchate_alexandria
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_alexandria
+			}
+			s:STATE_LOWER_EGYPT = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_alexandria
+						production_method = pm_kog_patriarchate_alexandria
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_alexandria
+				}
+			}
+			s:STATE_LOWER_EGYPT = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_alexandria
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.019 = { # Moscow Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_MOSCOW
+		OR = {
+			AND = {
+				has_variable = kog_controls_moscow
+				s:STATE_MOSCOW = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_moscow
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_moscow
+				}
+				s:STATE_MOSCOW = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_moscow
+							production_method = pm_kog_patriarchate_moscow
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_moscow
+			}
+			s:STATE_MOSCOW = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_moscow
+						production_method = pm_kog_patriarchate_moscow
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_moscow
+				}
+			}
+			s:STATE_MOSCOW = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_moscow
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+## HOLY SITE PM EVENTS II ##
+kog_general.020 = { # Coptic Alexandria Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_LOWER_EGYPT
+		OR = {
+			AND = {
+				has_variable = kog_controls_coptic_alexandria
+				s:STATE_LOWER_EGYPT = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_coptic_alexandria
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_coptic_alexandria
+				}
+				s:STATE_LOWER_EGYPT = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_coptic_alexandria
+							production_method = pm_kog_patriarchate_coptic_alexandria
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_coptic_alexandria
+			}
+			s:STATE_LOWER_EGYPT = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_coptic_alexandria
+						production_method = pm_kog_patriarchate_coptic_alexandria
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_coptic_alexandria
+				}
+			}
+			s:STATE_LOWER_EGYPT = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_coptic_alexandria
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.021 = { # Syriac Antioch Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_SYRIA
+		OR = {
+			AND = {
+				has_variable = kog_controls_syriac_antioch
+				s:STATE_SYRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_syriac_antioch
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_syriac_antioch
+				}
+				s:STATE_SYRIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_syriac_antioch
+							production_method = pm_kog_patriarchate_syriac_antioch
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_syriac_antioch
+			}
+			s:STATE_SYRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_syriac_antioch
+						production_method = pm_kog_patriarchate_syriac_antioch
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_syriac_antioch
+				}
+			}
+			s:STATE_SYRIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_syriac_antioch
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.022 = { # Etchmiadzin Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_ARMENIA
+		OR = {
+			AND = {
+				has_variable = kog_controls_etchmiadzin
+				s:STATE_ARMENIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_etchmiadzin
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_etchmiadzin
+				}
+				s:STATE_ARMENIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_etchmiadzin
+							production_method = pm_kog_patriarchate_etchmiadzin
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_etchmiadzin
+			}
+			s:STATE_ARMENIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_etchmiadzin
+						production_method = pm_kog_patriarchate_etchmiadzin
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_etchmiadzin
+				}
+			}
+			s:STATE_ARMENIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_etchmiadzin
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.023 = { # Addis Ababa Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_DIYARBAKIR
+		OR = {
+			AND = {
+				has_variable = kog_controls_addis_ababa
+				s:STATE_DIYARBAKIR = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_addis_ababa
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_addis_ababa
+				}
+				s:STATE_DIYARBAKIR = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_addis_ababa
+							production_method = pm_kog_patriarchate_addis_ababa
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_addis_ababa
+			}
+			s:STATE_DIYARBAKIR = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_addis_ababa
+						production_method = pm_kog_patriarchate_addis_ababa
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_addis_ababa
+				}
+			}
+			s:STATE_DIYARBAKIR = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_addis_ababa
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.024 = { # Konak Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_DIYARBAKIR
+		OR = {
+			AND = {
+				has_variable = kog_controls_konak
+				s:STATE_DIYARBAKIR = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_konak
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_konak
+				}
+				s:STATE_DIYARBAKIR = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_konak
+							production_method = pm_kog_patriarchate_konak
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_konak
+			}
+			s:STATE_DIYARBAKIR = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_konak
+						production_method = pm_kog_patriarchate_konak
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_konak
+				}
+			}
+			s:STATE_DIYARBAKIR = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_konak
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.025 = { # Elysium Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_DISTRICT_OF_COLUMBIA
+		OR = {
+			AND = {
+				has_variable = kog_controls_elysium
+				s:STATE_DISTRICT_OF_COLUMBIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_elysium
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_elysium
+				}
+				s:STATE_DISTRICT_OF_COLUMBIA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_elysium
+							production_method = pm_kog_patriarchate_elysium
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_elysium
+			}
+			s:STATE_DISTRICT_OF_COLUMBIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_elysium
+						production_method = pm_kog_patriarchate_elysium
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_elysium
+				}
+			}
+			s:STATE_DISTRICT_OF_COLUMBIA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_elysium
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.026 = { # Mixtec Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_OAXACA
+		OR = {
+			AND = {
+				has_variable = kog_controls_mixtec
+				s:STATE_OAXACA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_tututepec
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_mixtec
+				}
+				s:STATE_OAXACA = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_tututepec
+							production_method = pm_kog_patriarchate_tututepec
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_mixtec
+			}
+			s:STATE_OAXACA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_tututepec
+						production_method = pm_kog_patriarchate_tututepec
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_mixtec
+				}
+			}
+			s:STATE_OAXACA = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_tututepec
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+kog_general.027 = { # Cahokia Holy Site Event
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		has_state_in_state_region = STATE_ILLINOIS
+		OR = {
+			AND = {
+				has_variable = kog_controls_cahokia
+				s:STATE_ILLINOIS = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_cahokia
+							production_method = pm_kog_patriarchate_occupied
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = {
+					has_variable = kog_controls_cahokia
+				}
+				s:STATE_ILLINOIS = {
+					any_scope_state = {
+						owner = root
+						is_production_method_active = {
+							building_type = kog_building_patriarchate_cahokia
+							production_method = pm_kog_patriarchate_cahokia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_variable = kog_controls_cahokia
+			}
+			s:STATE_ILLINOIS = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_cahokia
+						production_method = pm_kog_patriarchate_cahokia
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_variable = kog_controls_cahokia
+				}
+			}
+			s:STATE_ILLINOIS = {
+				random_scope_state = {
+					limit = {
+						owner = root
+					}
+					activate_production_method = {
+						building_type = kog_building_patriarchate_cahokia
+						production_method = pm_kog_patriarchate_occupied
+					}
+				}
+			}
+		}
+	}
+
+}
+
+## HOLY SITE PM EVENTS III ##
