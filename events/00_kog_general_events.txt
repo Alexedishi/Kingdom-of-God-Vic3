@@ -1361,6 +1361,7 @@ kog_general.025 = { # Elysium Holy Site Event
 	hidden = yes
 
 	trigger = {
+		basileia_is_active = yes
 		has_state_in_state_region = STATE_DISTRICT_OF_COLUMBIA
 		OR = {
 			AND = {
@@ -1436,6 +1437,7 @@ kog_general.026 = { # Mixtec Holy Site Event
 	hidden = yes
 
 	trigger = {
+		basileia_is_active = yes
 		has_state_in_state_region = STATE_OAXACA
 		OR = {
 			AND = {
@@ -1511,6 +1513,7 @@ kog_general.027 = { # Cahokia Holy Site Event
 	hidden = yes
 
 	trigger = {
+		basileia_is_active = yes
 		has_state_in_state_region = STATE_ILLINOIS
 		OR = {
 			AND = {
@@ -1582,3 +1585,541 @@ kog_general.027 = { # Cahokia Holy Site Event
 }
 
 ## HOLY SITE PM EVENTS III ##
+
+#########################################################
+##  TOC1  CHRISTIANITY GENERIC EVENTS  Events 100-199  ##
+#########################################################
+
+## GREAT MENDING EVENTS ##
+kog_general.100 = { # The Council of Unification
+	type = country_event
+	placement = scope:kog_mending_country_scope
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	title = kog_general.100.t
+	desc = kog_general.100.d
+	flavor = kog_general.100.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_mending_var
+			}
+			save_scope_as = kog_mending_country_scope
+		}
+	}
+
+	option = {
+		name = kog_general.100.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = modifier_kog_mending_schism
+		}
+	}
+
+}
+
+kog_general.109 = { # The Supreme Pontiff of the Universal Church
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	title = kog_general.109.t
+	desc = kog_general.109.d
+	flavor = kog_general.109.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		var:kog_mending_var >= 240
+	}
+
+	immediate = {
+		random_character_in_void = {
+			limit = {
+				has_template = template_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_patriarch_event_scope
+		}
+		set_global_variable = kog_schism_mended
+		remove_variable = kog_mending_var
+	}
+
+	option = {
+		name = kog_general.109.a
+		default_option = yes
+		add_loyalists = {
+			religion = rel:orthodox
+			value = large_radicals
+		}
+		remove_modifier = modifier_kog_mending_schism
+		add_modifier = modifier_kog_mended_schism
+	}
+
+}
+
+## CRUSADE EVENTS ##
+kog_general.110 = { # Crusade Launched
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	title = kog_general.110.t
+	desc = kog_general.110.d
+	flavor = kog_general.110.f
+
+	event_image = {
+		video = "ep1_redcoats"
+	}
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		has_variable = kog_crusade_initiator
+		NOT = { has_variable = kog_crusade_warmup_var }
+	}
+
+	immediate = {
+		set_variable = kog_crusade_warmup_var
+		random_country = {
+			limit = {
+				has_variable = kog_crusade_target
+			}
+			save_scope_as = kog_crusade_target_scope
+		}
+		ig:ig_devout = {
+			save_scope_as = devout_scope
+		}
+	}
+
+	option = {
+		name = kog_general.110.a
+		default_option = yes
+		show_as_tooltip = {
+			add_modifier = {
+				name = modifier_kog_crusade_launched
+				months = normal_modifier_time
+			}
+		}
+	}
+
+}
+
+kog_general.111 = { # Victorious Crusade
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	title = {
+		triggered_desc = {
+			desc = kog_general.111.t1
+			trigger = {
+				has_variable = kog_crusade_initiator
+			}
+		}
+		triggered_desc = {
+			desc = kog_general.111.t2
+			trigger = {
+				has_variable = kog_crusade_target
+			}
+		}
+	}
+	desc = {
+		triggered_desc = {
+			desc = kog_general.111.d1
+			trigger = {
+				has_variable = kog_crusade_initiator
+			}
+		}
+		triggered_desc = {
+			desc = kog_general.111.d2
+			trigger = {
+				has_variable = kog_crusade_target
+			}
+		}
+	}
+	flavor = kog_general.111.f
+
+	event_image = {
+		video = "unspecific_military_parade"
+	}
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_crusade_initiator
+			}
+			save_scope_as = kog_crusade_initiator_scope
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_crusade_target
+			}
+			save_scope_as = kog_crusade_target_scope
+		}
+	}
+
+	option = { # For the Initiator
+		name = kog_general.111.a
+		default_option = yes
+		trigger = {
+			has_variable = kog_crusade_initiator
+		}
+		add_modifier = {
+			name = modifier_kog_successful_crusade
+			months = normal_modifier_time
+		}
+		show_as_tooltip = {
+			scope:kog_crusade_target_scope = {
+				set_state_religion = rel:orthodox
+			}
+		}
+	}
+
+	option = { # For the Target
+		name = kog_general.111.b
+		trigger = {
+			has_variable = kog_crusade_target
+		}
+		set_state_religion = rel:orthodox
+		add_modifier = {
+			name = modifier_kog_forced_conversion
+			months = long_modifier_time
+		}
+	}
+
+}
+
+kog_general.112 = { # Failed Crusade
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	title = {
+		triggered_desc = {
+			desc = kog_general.112.t1
+			trigger = {
+				has_variable = kog_crusade_initiator
+			}
+		}
+		triggered_desc = {
+			desc = kog_general.112.t2
+			trigger = {
+				has_variable = kog_crusade_target
+			}
+		}
+	}
+	desc = {
+		triggered_desc = {
+			desc = kog_general.112.d1
+			trigger = {
+				has_variable = kog_crusade_initiator
+			}
+		}
+		triggered_desc = {
+			desc = kog_general.112.d2
+			trigger = {
+				has_variable = kog_crusade_target
+			}
+		}
+	}
+	flavor = kog_general.112.f
+
+	event_image = {
+		video = "middleeast_battlefield_trenches"
+	}
+
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_variable = kog_crusade_initiator
+			}
+			save_scope_as = kog_crusade_initiator_scope
+		}
+		random_country = {
+			limit = {
+				has_variable = kog_crusade_target
+			}
+			save_scope_as = kog_crusade_target_scope
+		}
+	}
+
+	option = { # For the Initiator
+		name = kog_general.112.a
+		default_option = yes
+		trigger = {
+			has_variable = kog_crusade_initiator
+		}
+		add_modifier = {
+			name = modifier_kog_failed_crusade
+			months = normal_modifier_time
+		}
+	}
+
+	option = { # For the Target
+		name = kog_general.112.b
+		trigger = {
+			has_variable = kog_crusade_target
+		}
+		add_modifier = {
+			name = modifier_kog_resisted_conversion
+			months = long_modifier_time
+		}
+	}
+
+}
+
+## PAGAN SITE CONQUEST EVENTS ##
+kog_general.120 = { # The Hagia Sohpia Liberated
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	title = kog_general.120.t
+	desc = kog_general.120.d
+	flavor = kog_general.120.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog.2000
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = kog_general.120.a
+		default_option = yes
+	}
+
+	orphan = yes
+
+}
+
+kog_general.121 = { # The Capture of the Great Mosque
+	type = country_event
+	placement = scope:hedjaz_state
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	title = kog_general.121.t
+	desc = kog_general.121.d
+	flavor = kog_general.121.f
+	
+	event_image = {
+		video = "southamerica_war_civilians"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		always = no
+		#		owns_entire_state_region = STATE_HEDJAZ
+		#		NOT = { has_global_variable = grefm_smoked_mecca }
+		#		has_variable = kog_crusades_unlocked
+	}
+
+	immediate = {
+		s:STATE_HEDJAZ = {
+			random_scope_state = {
+				save_scope_as = hedjaz_state
+			}
+		}
+		if = {
+			limit = {
+				any_state = {
+					region = sr:region_arabic
+					NOT = {
+						owner = ROOT
+					}
+				}
+			}
+			owner = {
+				save_scope_as = byzantium_arabia_target
+			}
+		}
+		#		set_global_variable = grefm_smoked_mecca
+	}
+
+	option = { # burn it down
+		name = kog_general.121.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_great_mosque_destroyed
+		}
+		add_radicals = {
+			value = very_large_radicals
+			religion = rel:sunni
+		}
+		add_radicals = {
+			value = very_large_radicals
+			religion = rel:shiite
+		}
+		#		scope:hedjaz_state = {
+		#			remove_building = gbbf_building_masjid_al_haram
+		#			set_devastation = 90
+		#		}
+		if = {
+			limit = {
+				exists = scope:byzantium_arabia_target
+			}
+			create_incident = {
+				country = scope:byzantium_arabia_target
+				value = 15
+			}
+		}
+	}
+
+	option = { # turn it into a museum
+		name = kog_general.121.b
+		add_radicals = {
+			value = medium_radicals
+			religion = rel:sunni
+		}
+		add_radicals = {
+			value = medium_radicals
+			religion = rel:shiite
+		}
+		#		scope:hedjaz_state = {
+		#			remove_building = gbbf_building_masjid_al_haram
+		#			set_devastation = 10
+		#		}
+		change_infamy = 10
+	}
+
+	option = { # leave it be
+		name = kog_general.121.c
+		scope:hedjaz_state = {
+			add_loyalists_in_state = {
+				value = medium_radicals
+				religion = rel:sunni
+			}
+			add_loyalists_in_state = {
+				value = medium_radicals
+				religion = rel:shiite
+			}
+		}
+	}
+
+}
+
+
+#########################################################
+##  TOC2  METROPOLITAN GENERIC EVENTS  Events 200-299  ##
+#########################################################
+
+
+####################################################
+# #  TOC3  SCHISM GENERIC EVENTS  Events 300-399  ##
+####################################################
+
+## GENERIC SCHISM NARRATIVE EVENTS ##
+kog_general.309 = { # Autocephaly of the National Church
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	title = kog_general.309.t
+	desc = kog_general.309.d
+	flavor = kog_general.309.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+		kog_save_head_of_faith_scope = yes
+		remove_variable = kog_schism_var
+		set_variable = kog_is_autocephalous
+		kog_schism_cleanup_effect = yes
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						kog_is_roman_catholic_trigger = yes
+						NOT = {
+							this = ROOT
+						}
+					}
+					c:TUR ?= this
+				}
+			}
+			ROOT = {
+				save_scope_as = kog_schism_scope
+			}
+			post_notification = notification_kog_autocephaly_recognized
+		}
+	}
+
+	option = {
+		name = kog_general.309.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocephaly_granted
+			months = long_modifier_time
+		}
+	}
+
+}
