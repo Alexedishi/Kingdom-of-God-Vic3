@@ -464,6 +464,317 @@ kog_orthodox.009 = { # ALK
 
 }
 
+## THE ORTHODOX DOMAIN EVENTS ##
+kog_orthodox.090 = { # The Patriarchate Rises
+	type = country_event
+	placement = ROOT
+
+	title = kog_orthodox.090.t
+	desc = kog_orthodox.090.d
+	flavor = kog_orthodox.090.f
+
+	gui_window = event_window_superevent_classic_full
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_unify_orthodox_realms_sgui / kog.121
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				kog_is_eastern_christian_trigger = yes
+			}
+			trigger_event = {
+				id = kog.129 # The Byzantine Commonwealth
+			}
+		}
+		set_global_variable = kog_orthodox_realms_started
+	}
+
+	option = {
+		name = kog_orthodox.090.a
+		default_option = yes
+		add_journal_entry = {
+			type = je_kog_the_orthodox_realms
+		}
+		trigger_event = {
+			id = kog_orthodox.091 # The Metropolitan Lands
+			days = 30
+		}
+	}
+}
+
+kog_orthodox.091 = { # The Metropolitan Lands
+	type = country_event
+
+	title = kog_orthodox.091.t
+	desc = kog_orthodox.091.d
+	flavor = kog_orthodox.091.f
+
+	event_image = {
+		video = "byzfm_georgios_averof"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_capital = yes
+			}
+			save_scope_as = byzantium_capital_state
+		}
+	}
+
+	option = {
+		name = kog_orthodox.091.a
+		default_option = yes
+		set_capital = STATE_EASTERN_THRACE
+		every_state_region = {
+			limit = {
+				OR = {
+					region = sr:region_anatolia
+					region = sr:region_balkans
+				}
+				any_scope_state = {
+					NOT = { owner = ROOT }
+					NOT = { has_claim_by = ROOT }
+				}
+			}
+			add_claim = ROOT
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_ALEPPO }
+			}
+			s:STATE_ALEPPO = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_SYRIA }
+			}
+			s:STATE_SYRIA = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LEBANON }
+			}
+			s:STATE_LEBANON = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_TRANSJORDAN }
+			}
+			s:STATE_TRANSJORDAN = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_PALESTINE }
+			}
+			s:STATE_PALESTINE = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_SINAI }
+			}
+			s:STATE_SINAI = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_LOWER_EGYPT }
+			}
+			s:STATE_LOWER_EGYPT = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_MIDDLE_EGYPT }
+			}
+			s:STATE_MIDDLE_EGYPT = {
+				add_claim = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { owns_entire_state_region = STATE_UPPER_EGYPT }
+			}
+			s:STATE_UPPER_EGYPT = {
+				add_claim = ROOT
+			}
+		}
+	}
+
+}
+
+kog_orthodox.092 = { # The Orthodox Realms
+	type = country_event
+
+	title = kog_orthodox.092.t
+	desc = kog_orthodox.092.d
+	flavor = kog_orthodox.092.f
+
+	gui_window = event_window_widescreen_classic
+
+	event_image = {
+		texture = "gfx/event_pictures/kog_backgrounds/southamerica_christianity.dds"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/kog_monk_chant"
+
+	trigger = {
+		# triggered by je_kog_the_orthodox_realms
+	}
+
+	immediate = {
+		remove_variable = kog_metropolitan_lands_complete
+		remove_variable = kog_holy_land_complete
+		remove_variable = kog_black_sea_complete
+	}
+
+	option = {
+		name = kog_orthodox.092.a
+		default_option = yes
+		change_tag = KOG_ODX
+	}
+
+}
+
+kog_orthodox.093 = { # The Ancient Partiarchates
+	type = country_event
+
+	title = kog_orthodox.093.t
+	desc = kog_orthodox.093.d
+	flavor = kog_orthodox.093.f
+
+	placement = root
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_secure_tetrarchy_sgui
+	}
+
+	immediate = {
+		set_variable = kog_tetrarchy_secured
+		ig:ig_devout = {
+			save_scope_as = ig_devout_scope
+		}
+		if = {
+			limit = {
+				ig:ig_devout = {
+					has_party = yes
+				}
+			}
+			ig:ig_devout = {
+				party = {
+					save_scope_as = ig_devout_party_scope
+				}
+			}
+		}
+	}
+
+	option = {
+		name = kog_orthodox.093.a
+		add_modifier = {
+			name = modifier_kog_secured_tetrarchy
+			is_decaying = yes
+			days = long_modifier_time
+		}
+	}
+
+}
+
+kog_orthodox.094 = { # The Restoration of the Pentarchy
+	type = country_event
+
+	title = kog_orthodox.094.t
+	desc = kog_orthodox.094.d
+	flavor = kog_orthodox.094.f
+
+	placement = root
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_secure_pentarchy_sgui
+	}
+
+	immediate = {
+		set_variable = kog_pentarchy_secured
+	}
+
+	option = {
+		name = kog_orthodox.094.a
+		default_option = yes
+		custom_tooltip = kog_mending_possible
+		add_modifier = {
+			name = modifier_kog_secured_pentarchy
+			is_decaying = yes
+			days = long_modifier_time
+		}
+	}
+
+}
+
+
 
 #####################################################
 ##  TOC1  ORTHODOX GENERIC EVENTS  Events 100-199  ##
@@ -517,7 +828,7 @@ kog_orthodox.100 = { # Bible Translation Published
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_published_vulgar_bible
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		add_radicals = {
 			pop_type = clergymen
@@ -529,7 +840,7 @@ kog_orthodox.100 = { # Bible Translation Published
 		name = kog_orthodox.100.b
 		add_modifier = {
 			name =  modifier_kog_banned_vulgar_bible
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		add_radicals = {
 			pop_type = academics
@@ -602,7 +913,7 @@ kog_orthodox.101 = { # A Heretical Ruler
 		}
 		add_modifier = {
 			name = modifier_kog_ruler_accepted_conversion
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		add_loyalists = {
 			religion = rel:orthodox
@@ -615,7 +926,7 @@ kog_orthodox.101 = { # A Heretical Ruler
 		scope:kog_ruler_scope = {
 			add_modifier = {
 				name = modifier_kog_refused_conversion
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 		}
 		scope:kog_heir_scope = {
@@ -633,18 +944,18 @@ kog_orthodox.101 = { # A Heretical Ruler
 		scope:kog_ruler_scope = {
 			add_modifier = {
 				name = modifier_kog_refused_conversion
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 		}
 		scope:kog_heir_scope = {
 			add_modifier = {
 				name = modifier_kog_refused_conversion
-				months = very_long_modifier_time
+				days = very_long_modifier_time
 			}
 		}
 		add_modifier = {
 			name = modifier_kog_ruler_refused_conversion
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		add_radicals = {
 			religion = rel:orthodox
@@ -709,7 +1020,7 @@ kog_orthodox.110 = { # Priestly Excesses
 		scope:kog_decree_state_scope = {
 			add_modifier = {
 				name = modifier_kog_new_cathedral
-				months = long_modifier_time
+				days = long_modifier_time
 			}
 			add_loyalists_in_state = {
 				pop_type = clergymen
@@ -750,7 +1061,7 @@ kog_orthodox.110 = { # Priestly Excesses
 		scope:kog_decree_state_scope = {
 			add_modifier = {
 				name = modifier_kog_grand_cathedral
-				months = long_modifier_time
+				days = long_modifier_time
 			}
 		}
 		add_loyalists = {
@@ -821,18 +1132,18 @@ kog_orthodox.111 = { # The Widow's Mite
 		scope:kog_decree_state_scope = {
 			add_modifier = {
 				name = modifier_kog_recognized_pious_donations
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 			add_loyalists_in_state = {
-				strata = rich
+				strata = upper
 				value = small_radicals
 			}
 			add_radicals_in_state = {
-				strata = medium
+				strata = middle
 				value = medium_radicals
 			}
 			add_loyalists_in_state = {
-				strata = poor
+				strata = lower
 				value = small_radicals
 			}
 		}
@@ -843,14 +1154,14 @@ kog_orthodox.111 = { # The Widow's Mite
 		scope:kog_decree_state_scope = {
 			add_modifier = {
 				name = modifier_kog_discouraged_pious_donations
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 			add_radicals_in_state = {
-				strata = rich
+				strata = upper
 				value = small_radicals
 			}
 			add_loyalists_in_state = {
-				strata = medium
+				strata = middle
 				value = small_radicals
 			}
 		}
@@ -903,7 +1214,7 @@ kog_orthodox.210 = { # Ecumenical Reforms
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_backed_reforms
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_modifier = modifier_kog_reformed_synod
 		add_radicals = {
@@ -916,7 +1227,7 @@ kog_orthodox.210 = { # Ecumenical Reforms
 		name = kog_orthodox.210.b
 		add_modifier = {
 			name = modifier_kog_clung_to_tradition
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_loyalists = {
 			pop_type = clergymen
@@ -963,7 +1274,7 @@ kog_orthodox.211 = { # Monastic Reparations
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_destitute_clergy
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -971,7 +1282,7 @@ kog_orthodox.211 = { # Monastic Reparations
 		name = kog_orthodox.211.b
 		add_modifier = {
 			name = modifier_kog_monastic_reparations
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -1014,7 +1325,7 @@ kog_orthodox.212 = { # Church-State Relations
 		remove_modifier = modifier_kog_reformed_synod
 		add_modifier = {
 			name = modifier_kog_restored_synod
-			months = normal_modifier_time
+			days = normal_modifier_time
 			is_decaying = yes
 		}
 	}
@@ -1023,7 +1334,7 @@ kog_orthodox.212 = { # Church-State Relations
 		name = kog_orthodox.212.b
 		add_modifier = {
 			name = modifier_kog_asserted_caesaropapism
-			months = normal_modifier_time
+			days = normal_modifier_time
 			is_decaying = yes
 		}
 	}
@@ -1331,7 +1642,7 @@ kog_orthodox.311 = { # A Church for the Nation (Progress Event)
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_nationalist_church
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -1339,7 +1650,7 @@ kog_orthodox.311 = { # A Church for the Nation (Progress Event)
 		name = kog_orthodox.311.b
 		add_modifier = {
 			name = modifier_kog_sidelined_church
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -1410,7 +1721,7 @@ kog_orthodox.312 = { # Minority Adherents Seek Protections (Debate Event)
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_minority_protections
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		add_radicals = {
 			religion = rel:orthodox
@@ -1422,7 +1733,7 @@ kog_orthodox.312 = { # Minority Adherents Seek Protections (Debate Event)
 		name = kog_orthodox.312.b
 		add_modifier = {
 			name = modifier_kog_orthodox_supremacy
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		add_radicals = {
 			religion = scope:kog_minority_religion_scope
@@ -1487,7 +1798,7 @@ kog_orthodox.313 = { # Patriarch Denounces Schism (Stall Event)
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_schism_denounced
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		kog_decrease_patriarch_opinion_effect = yes
 		custom_tooltip = {
@@ -1503,7 +1814,7 @@ kog_orthodox.313 = { # Patriarch Denounces Schism (Stall Event)
 		name = kog_orthodox.313.b
 		add_modifier = {
 			name = modifier_kog_schism_denounced
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		kog_increase_patriarch_opinion_effect = yes
 		custom_tooltip = {
@@ -1571,7 +1882,7 @@ kog_orthodox.314 = { # Liturgical Language (Debate Event)
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_local_language
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_loyalists = {
 			culture = scope:kog_primary_culture_scope
@@ -1594,7 +1905,7 @@ kog_orthodox.314 = { # Liturgical Language (Debate Event)
 		name = kog_orthodox.314.b
 		add_modifier = {
 			name = modifier_kog_greek_language
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 		add_loyalists = {
 			culture = cu:greek
@@ -1749,7 +2060,7 @@ kog_orthodox.316 = { # Promoting Local Bishops (Advance Event)
 		name = kog_orthodox.316.b
 		add_modifier = {
 			name = modifier_kog_disciplined_clergy
-			months = very_long_modifier_time
+			days = very_long_modifier_time
 		}
 	}
 
@@ -1937,7 +2248,7 @@ kog_orthodox.318 = { # Agitator Condemns Schism (Stall Event)
 		}
 		add_modifier = {
 			name = modifier_kog_muzzled_agitator
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 		add_radicals = {
 			pop_type = clergymen
@@ -1996,7 +2307,7 @@ kog_orthodox.319 = { # Prominent Priest Assassinated (Stall Event)
 		ig:ig_devout = {
 			add_modifier = {
 				name = modifier_kog_elder_assassinated
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -2013,7 +2324,7 @@ kog_orthodox.319 = { # Prominent Priest Assassinated (Stall Event)
 		ig:ig_devout = {
 			add_modifier = {
 				name = modifier_kog_elder_assassinated
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		add_radicals = {
@@ -2237,7 +2548,7 @@ kog_orthodox.501 = { # Ecumenical Council Convoked
 		ig:ig_devout = {
 			add_modifier = {
 				name = modifier_kog_attended_council
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 	}
@@ -2251,7 +2562,7 @@ kog_orthodox.501 = { # Ecumenical Council Convoked
 		ig:ig_devout = {
 			add_modifier = {
 				name = modifier_kog_denied_council
-				months = normal_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		add_radicals = {
@@ -2482,7 +2793,7 @@ kog_orthodox.504 = { # Problems with Phyletism
 		}
 		add_modifier = {
 			name = modifier_kog_condemned_phyletism
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -2493,7 +2804,7 @@ kog_orthodox.504 = { # Problems with Phyletism
 		}
 		add_modifier = {
 			name = modifier_kog_endorsed_phyletism
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -2560,7 +2871,7 @@ kog_orthodox.505 = { # The Julian Calendar
 		}
 		add_modifier = {
 			name = modifier_kog_revised_julian_calendar
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		add_radicals = {
 			pop_type = clergymen
@@ -2575,7 +2886,7 @@ kog_orthodox.505 = { # The Julian Calendar
 		}
 		add_modifier = {
 			name = modifier_kog_retained_old_calendar
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 		add_loyalists = {
 			pop_type = clergymen
@@ -2712,7 +3023,7 @@ kog_orthodox.600 = { # An Audience with the Patriarch
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_autocracy_mandate
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -2720,7 +3031,7 @@ kog_orthodox.600 = { # An Audience with the Patriarch
 		name = kog_orthodox.600.2
 		add_modifier = {
 			name = modifier_kog_government_mandate
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 
 	}
@@ -2729,7 +3040,7 @@ kog_orthodox.600 = { # An Audience with the Patriarch
 		name = kog_orthodox.600.3
 		add_modifier = {
 			name = modifier_kog_influence_mandate
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -2737,7 +3048,7 @@ kog_orthodox.600 = { # An Audience with the Patriarch
 		name = kog_orthodox.600.4
 		add_modifier = {
 			name = modifier_kog_military_mandate
-			months = long_modifier_time
+			days = long_modifier_time
 		}
 	}
 
@@ -2793,7 +3104,7 @@ kog_orthodox.601 = { # The Patriarch's Blessings
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_divine_mandate
-			months = normal_modifier_time
+			days = normal_modifier_time
 		}
 	}
 
