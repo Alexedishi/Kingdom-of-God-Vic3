@@ -49,6 +49,7 @@ namespace = kog_general
 ##  TOC1  CHRISTIANITY GENERIC EVENTS  Events 100-199  ##
 #100-109 - Mending Events
 #	100 - The Council of Unification
+#	101 - Mending the Great Schism
 #	109 - The Supreme Pontiff of the Universal Church
 
 #110-119 - Crusade Events
@@ -1628,6 +1629,45 @@ kog_general.100 = { # The Council of Unification
 		show_as_tooltip = {
 			add_modifier = modifier_kog_mending_schism
 		}
+	}
+
+}
+
+kog_general.101 = { # Mending the Great Schism
+	type = country_event
+	placement = scope:kog_mending_country_scope
+	icon = "gfx/interface/icons/event_icons/event_mitre.dds"
+
+	title = kog_general.101.t
+	desc = kog_general.101.d
+	flavor = kog_general.101.f
+
+	event_image = {
+		video = "southamerica_christianity"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	dlc = dlc_kog
+
+	trigger = {
+		# triggered by kog_general.100
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				has_modifier = modifier_kog_mending_schism
+			}
+			save_scope_as = kog_mending_country_scope
+		}
+	}
+
+	option = {
+		name = kog_general.101.a
+		default_option = yes
 	}
 
 }
