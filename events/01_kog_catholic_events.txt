@@ -93,7 +93,7 @@ namespace = kog_catholic
 ##  TOC0  CATHOLIC FLAVOR EVENTS  Events 000-099 ##
 ###################################################
 # Roman Catholic Opener Events I
-kog_catholic.000 = { # Catholic Opener Monitor
+kog_catholic.001 = { # Catholic Opener Monitor
 	type = country_event
 	hidden = yes
 
@@ -171,14 +171,6 @@ kog_catholic.000 = { # Catholic Opener Monitor
 			}
 			trigger_event = {
 				id = kog_catholic.008 # POR
-			}
-		}
-		else_if = {
-			limit = {
-				c:BEL ?= this
-			}
-			trigger_event = {
-				id = kog_catholic.009 # BEL
 			}
 		}
 		else_if = {
@@ -263,44 +255,9 @@ kog_catholic.000 = { # Catholic Opener Monitor
 		}
 		else = {
 			trigger_event = {
-				id = kog_catholic.001 # The Bishops of Rome (Catholic Generic)
+				id = kog_catholic.009 # The Bishops of Rome (Catholic Generic)
 			}
 		}
-	}
-
-}
-
-kog_catholic.001 = { # The Bishops of Rome (Catholic Generic)
-	type = country_event
-	placement = root
-
-	title = kog_catholic.001.t
-	desc = kog_catholic.001.d
-	flavor = kog_catholic.001.f
-
-	event_image = {
-		video = "southamerica_christianity"
-	}
-
-	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	duration = 3
-
-	dlc = dlc_kog
-
-	trigger = {
-		# triggered by kog_catholic.000
-	}
-
-	immediate = {
-	}
-
-	option = {
-		name = kog_catholic.001.a
-		default_option = yes
-		custom_tooltip = kog_no_effects
 	}
 
 }
@@ -550,7 +507,7 @@ kog_catholic.008 = { # POR
 
 }
 
-kog_catholic.009 = { # BEL
+kog_catholic.009 = { # The Bishops of Rome (Catholic Generic)
 	type = country_event
 	placement = root
 
