@@ -1,4 +1,426 @@
-﻿# Increase Opinion Effect
+﻿kog_patriarch_diplomacy_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_rome
+		}
+		change_variable = {
+			name = kog_rome_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_rome
+		}
+		change_variable = {
+			name = kog_rome_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_rome_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_santiago
+		}
+		change_variable = {
+			name = kog_santiago_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_santiago
+		}
+		change_variable = {
+			name = kog_santiago_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_santiago_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_paris
+		}
+		change_variable = {
+			name = kog_paris_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_paris
+		}
+		change_variable = {
+			name = kog_paris_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_paris_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_koln
+		}
+		change_variable = {
+			name = kog_koln_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_koln
+		}
+		change_variable = {
+			name = kog_koln_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_koln_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_vienna
+		}
+		change_variable = {
+			name = kog_vienna_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_vienna
+		}
+		change_variable = {
+			name = kog_vienna_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_vienna_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_constantinople
+		}
+		change_variable = {
+			name = kog_constantinople_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_constantinople
+		}
+		change_variable = {
+			name = kog_constantinople_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_constantinople_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_antioch
+		}
+		change_variable = {
+			name = kog_antioch_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_antioch
+		}
+		change_variable = {
+			name = kog_antioch_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_antioch_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_jerusalem
+		}
+		change_variable = {
+			name = kog_jerusalem_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_jerusalem
+		}
+		change_variable = {
+			name = kog_jerusalem_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_jerusalem_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_alexandria
+		}
+		change_variable = {
+			name = kog_alexandria_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_alexandria
+		}
+		change_variable = {
+			name = kog_alexandria_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_alexandria_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_moscow
+		}
+		change_variable = {
+			name = kog_moscow_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_moscow
+		}
+		change_variable = {
+			name = kog_moscow_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_moscow_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_coptic_alexandria
+		}
+		change_variable = {
+			name = kog_coptic_alexandria_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_coptic_alexandria
+		}
+		change_variable = {
+			name = kog_coptic_alexandria_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_coptic_alexandria_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_syriac_antioch
+		}
+		change_variable = {
+			name = kog_syriac_antioch_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_syriac_antioch
+		}
+		change_variable = {
+			name = kog_syriac_antioch_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_syriac_antioch_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_etchmiadzin
+		}
+		change_variable = {
+			name = kog_etchmiadzin_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_etchmiadzin
+		}
+		change_variable = {
+			name = kog_etchmiadzin_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_etchmiadzin_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_addis_ababa
+		}
+		change_variable = {
+			name = kog_addis_ababa_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_addis_ababa
+		}
+		change_variable = {
+			name = kog_addis_ababa_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_addis_ababa_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_konak
+		}
+		change_variable = {
+			name = kog_konak_relations_var
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_konak
+		}
+		change_variable = {
+			name = kog_konak_relations_var
+			subtract = 1
+		}
+	}
+	clamp_variable = {
+		name = kog_konak_relations_var
+		min = -50
+		max = 50
+	}
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_elysium
+			}
+			change_variable = {
+				name = kog_elysium_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_elysium
+			}
+			change_variable = {
+				name = kog_elysium_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
+			name = kog_elysium_relations_var
+			min = -50
+			max = 50
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_mixtec
+			}
+			change_variable = {
+				name = kog_mixtec_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_mixtec
+			}
+			change_variable = {
+				name = kog_mixtec_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
+			name = kog_mixtec_relations_var
+			min = -50
+			max = 50
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_cahokia
+			}
+			change_variable = {
+				name = kog_cahokia_relations_var
+				add = 1
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_cahokia
+			}
+			change_variable = {
+				name = kog_cahokia_relations_var
+				subtract = 1
+			}
+		}
+		clamp_variable = {
+			name = kog_cahokia_relations_var
+			min = -50
+			max = 50
+		}
+	}
+}
+
+# Increase Opinion Effect
 kog_increase_patriarch_opinion_effect = {
 	# This effect does NOT check for BR to be active; be aware when calling this effect
 	if = {
