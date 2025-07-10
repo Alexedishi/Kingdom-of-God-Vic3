@@ -12,23 +12,22 @@ namespace = kog_orthodox
 
 ##  TOC0  ORTHODOX FLAVOR EVENTS  Events 000-099
 #000-009 - Eastern Orthodox Opener Events I
-#	000 - Eastern Orthodox Opener Monitor
-#	001 - The Bishops of the East (Orthodox Generic)
-#	002 - The Most Holy Synod (RUS)
-#	003 - The Holy Synod of Greece (GRE)
-#	004 - //The Union of State and Church (MON)
-#	005 - //Church of Saint Sava (SER)
-#	006 - //The Bulgarian Exarchate
-#	007 - //The Faith in the Principalities
-#	008 - //ALB
+#	001 - Eastern Orthodox Opener Monitor
+#	002 - The Bishops of the East (Orthodox Generic)
+#	003 - The Most Holy Synod (RUS)
+#	004 - The Holy Synod of Greece (GRE)
+#	005 - //The Union of State and Church (MON)
+#	006 - //Church of Saint Sava (SER)
+#	007 - //The Bulgarian Exarchate
+#	008 - //The Faith in the Principalities
 #	009 - //ALK
 
 #090-099 - The Orthodox Domain Events
-#	>>090 - The Patriarchate Rises (Path Event)
-#	>>091 - The Church of the East
-#	>>092 - The Orthodox Realms
-#	>>093 - The Ancient Patriarchates
-#	>>094 - The Restoration of the Pentarchy
+#	090 - The Patriarchate Rises (Path Event)
+#	091 - The Church of the East
+#	092 - The Orthodox Realms
+#	093 - The Ancient Patriarchates
+#	094 - The Restoration of the Pentarchy
 
 
 ##  TOC1  ORTHODOX GENERIC EVENTS  Events 100-199  ##
@@ -525,7 +524,7 @@ kog_orthodox.091 = { # The Metropolitan Lands
 	flavor = kog_orthodox.091.f
 
 	event_image = {
-		video = "byzfm_georgios_averof"
+		video = "unspecific_military_parade"
 	}
 
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
@@ -2507,7 +2506,7 @@ kog_orthodox.500 = { # Convoking the Ecumenical Council
 			country_rank >= rank_value:great_power
 		}
 		trigger_event = {
-			id = kog.300 # The Patriarchate Rises
+			id = kog_orthodox.090 # The Patriarchate Rises
 			days = 90
 		}
 		set_variable = kog_texas_left
