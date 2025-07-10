@@ -69,23 +69,27 @@ kog_mend_schism_sgui = {
 
 	effect = {
 		set_global_variable = kog_mending_started
-		set_variable = {
-			name = kog_mending_var
-			value = 0
+		var:kog_local = {
+			set_variable = {
+				name = kog_mending_var
+				value = 0
+			}
 		}
-
-		#TODO Add re-factored event
-
+		trigger_event = {
+			id = kog_general.100 # The Council of Unification
+		}
 		add_modifier = modifier_kog_mending_schism
 		hidden_effect = {
 			every_country = {
 				limit = {
 					country_has_state_religion = rel:orthodox
 					NOT = {
-						has_variable = kog_mending_var
+						has_modifier = modifier_kog_mending_schism
 					}
 				}
-				#TODO Add re-factored event
+				trigger_event = {
+					id = kog_general.101 # Mending the Great Schism
+				}
 			}
 		}
 	}
@@ -95,7 +99,9 @@ kog_mending_progressbar_sgui = {
 	scope = country
 
 	is_shown = {
-		has_variable = kog_mending_var
+		var:kog_local = {
+			has_variable = kog_mending_var
+		}
 	}
 
 }
