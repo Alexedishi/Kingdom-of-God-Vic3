@@ -1,16 +1,207 @@
 ﻿on_monthly_pulse_country = {
 	on_actions = {
 		kog_monthly_pulse
-		kog_christendom_pulse
-#		kog_catholic_pulse
-#		kog_orthodox_pulse
-#		kog_oriental_pulse
-#		kog_elysian_pulse
-#		kog_protestant_pulse
+		kog_global_pulse
 	}
 }
 
 kog_monthly_pulse = {
+	trigger = {
+		kog_content_scope_trigger = yes
+	}
+	on_actions = {
+		kog_catholic_pulse
+		kog_orthodox_pulse
+		kog_oriental_pulse
+		kog_elysian_pulse
+#		kog_protestant_pulse
+		kog_schism_pulse
+		kog_integration_pulse
+		kog_mending_pulse
+	}
+	events = {
+		kog_general.121 # The Capture of the Great Mosque
+	}
+	random_events = { 
+		chance_of_no_event = 95
+		5 = kog_general.700 # Ecumenical Financing
+		5 = kog_general.701 # Delegation Arrives from Seat
+		5 = kog_general.702 # Patriarch Condemns Immorality
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = kog_monthly_timeout_var
+				}
+			}
+			set_global_variable = {
+				name = kog_monthly_timeout_var
+				days = 20
+			}
+			kog_update_holy_site_count_effect = yes
+			kog_update_patriarch_variables_effect = yes
+			kog_patriarch_diplomacy_effect = yes
+			kog_update_opinion_variables = yes
+			kog_update_rite_modifiers_effect = yes
+			kog_update_seat_controllers_effect = yes
+			kog_update_votes_effect = yes
+		}
+	}
+}
+
+kog_catholic_pulse = {
+	trigger = {
+		kog_is_roman_catholic_trigger = yes
+	}
+	events = {
+		kog_catholic.001 # Catholic Opener Monitor
+	}
+	random_events = {}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = kog_cardinal_timeout
+				}
+			}
+			kog_update_collegium_effect = yes
+		}
+	}
+}
+
+kog_orthodox_pulse = {
+	trigger = {
+		OR = {
+			kog_is_eastern_orthodox_trigger = yes
+			kog_is_rus_orthodox_trigger = yes
+		}
+	}
+	events = {
+		kog_orthodox.001 # Orthodox Opener Monitor
+		kog_orthodox.500 # Orthodox Council Monitor
+	}
+	random_events = {
+		chance_of_no_event = 95
+		5 = kog_orthodox.100 # Bible Translation Published
+		5 = kog_orthodox.101 # A Heretical Ruler
+		5 = kog_orthodox.110 # Priestly Excesses	
+		5 = kog_orthodox.111 # The Widow's Mite
+#		5 = kog_orthodox.200 # Theological Dispute with Patriarch
+		5 = kog_orthodox.210 # Ecumenical Reforms
+		5 = kog_orthodox.211 # Monastic Reparations
+		5 = kog_orthodox.212 # Church-State Relations
+	}
+	effect = {}
+}
+
+kog_oriental_pulse = {
+	trigger = {
+		kog_is_oriental_orthodox_trigger = yes
+	}
+	events = {
+		kog_oriental.001 # Oriental Orthodox Opener Monitor
+	}
+	random_events = {}
+	effect = {}
+}
+
+kog_elysian_pulse = {
+	trigger = {
+		kog_is_elysian_orthodox_trigger = yes
+	}
+	events = {
+		kog_elysian.001 # Orthodox Opener Monitor
+	}
+	random_events = {}
+	effect = {}
+}
+
+kog_schism_pulse = {
+	trigger = {
+		var:kog_local= {
+			has_variable = kog_schism_var
+		}
+	}
+	events = {
+		kog_general.309 # Autocephaly of the National Church
+	}
+	random_events = {
+		chance_of_no_event = 90
+		10 = kog_orthodox.310 # Traditionalists March in Capital (Stall Event)
+		10 = kog_orthodox.311 # A Church for the Nation (Progress Event)
+		10 = kog_orthodox.312 # Minority Adherents Seek Protections (Debate Event)
+		10 = kog_orthodox.313 # Patriarch Denounces Schism (Stall Event)
+		10 = kog_orthodox.314 # Liturgical Language (Debate Event)
+		10 = kog_orthodox.315 # Ecclesiastic Purges (Advance Event)
+		10 = kog_orthodox.316 # Promoting Local Bishops (Advance Event)
+		10 = kog_orthodox.317 # Monastic Brawls (Stall Event)
+		10 = kog_orthodox.318 # Agitator Condemns Schism (Stall Event)
+		10 = kog_orthodox.319 # Prominent Priest Assassinated (Stall Event)
+	}
+	effect = {
+		var:kog_local = {
+			change_variable = {
+				name = kog_schism_var
+				add = kog_schism_progress_value
+			}
+		}
+	}
+}
+
+kog_integration_pulse = {
+	trigger = {
+		kog_integrating_seat_trigger = yes
+	}
+	events = {
+		kog_general.620 # Control Secured Over Rome
+		kog_general.621 # Control Secured Over Santiago
+		kog_general.622 # Control Secured Over Paris
+		kog_general.623 # Control Secured Over Cologne
+		kog_general.624 # Control Secured Over Vienna
+		kog_general.625 # Control Secured Over Constantinople
+		kog_general.626 # Control Secured Over Antioch
+		kog_general.627 # Control Secured Over Jerusalem
+		kog_general.628 # Control Secured Over Alexandria
+		kog_general.629 # Control Secured Over Moscow
+		kog_general.630 # Control Secured Over Coptic Alexandria
+		kog_general.631 # Control Secured Over Syriac Antioch
+		kog_general.632 # Control Secured Over Etchmiadzin
+		kog_general.633 # Control Secured Over Addis Ababa
+		kog_general.634 # Control Secured Over Qudshanis
+		kog_general.635 # Control Secured Over Elysium
+		kog_general.636 # Control Secured Over Tututepec
+		kog_general.637 # Control Secured Over Cahokia
+	}
+	random_events = {
+		chance_of_no_event = 95
+		5 = kog_general.610 # Seat Integration Disputed
+	}
+	effect = {
+		kog_advance_integration_effect = yes
+	}
+}
+
+kog_mending_pulse = {
+	trigger = {
+		var:kog_local = {
+			has_variable = kog_mending_var
+		}
+	}
+	events = {
+		kog_general.109 # The Supreme Pontiff of the Universal Church
+	}
+	effect = {
+		var:kog_local = {
+			change_variable = {
+				name = kog_mending_var
+				add = 1
+			}
+		}
+	}
+}
+
+kog_global_pulse = {
 	events = {
 		kog_general.010 # Rome Holy Site PM
 		kog_general.011 # Santiago Holy Site PM
@@ -30,27 +221,6 @@ kog_monthly_pulse = {
 		kog_general.025 # Elysium Holy Site PM
 		kog_general.026 # Mixtec Holy Site PM
 		kog_general.027 # Cahokia Holy Site PM
-	}
-}
-
-kog_christendom_pulse = {
-	trigger = {
-		kog_content_scope_trigger = yes
-	}
-	effect = {
-		if = {
-			limit = {
-				NOT = {
-					has_global_variable = kog_monthly_timeout_var
-				}
-			}
-			set_global_variable = {
-				name = kog_monthly_timeout_var
-				days = 20
-			}
-			kog_update_patriarch_variables_effect = yes
-			kog_update_seat_controllers_effect = yes
-		}
 	}
 }
 
