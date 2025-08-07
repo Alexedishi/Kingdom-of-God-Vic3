@@ -4,11 +4,9 @@
 # Focus Actions
 kog_emphasize_unity_sgui = {
 	scope = country
-	
 	is_shown = {
 		always = yes
 	}
-	
 	is_valid = {
 		NOR = {
 			has_modifier = modifier_kog_emphasize_unity
@@ -18,7 +16,6 @@ kog_emphasize_unity_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		kog_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_kog_emphasize_unity
@@ -34,11 +31,9 @@ kog_emphasize_unity_sgui = {
 
 kog_enforce_attendance_sgui = {
 	scope = country
-	
 	is_shown = {
 		always = yes
 	}
-	
 	is_valid = {
 		NOR	= {
 			has_modifier = modifier_kog_enforce_attendance
@@ -48,7 +43,6 @@ kog_enforce_attendance_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		kog_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_kog_enforce_attendance
@@ -64,11 +58,9 @@ kog_enforce_attendance_sgui = {
 
 kog_theologize_dogma_sgui = {
 	scope = country
-	
 	is_shown = {
 		always = yes
 	}
-	
 	is_valid = {
 		NOR = {
 			has_modifier = modifier_kog_theologize_dogma
@@ -78,7 +70,6 @@ kog_theologize_dogma_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		kog_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_kog_theologize_dogma
@@ -94,11 +85,9 @@ kog_theologize_dogma_sgui = {
 
 kog_promote_ecumenism_sgui = {
 	scope = country
-	
 	is_shown = {
 		always = yes
 	}
-	
 	is_valid = {
 		NOR = {
 			has_modifier = modifier_kog_promote_ecumenism
@@ -108,7 +97,6 @@ kog_promote_ecumenism_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		kog_remove_focus_modifiers_effect = yes
 		add_modifier = modifier_kog_promote_ecumenism
@@ -122,13 +110,12 @@ kog_promote_ecumenism_sgui = {
 	}
 }
 
+# Decisions
 kog_commission_icon_sgui = {
 	scope = country
-	
 	is_shown = {
 		always = yes
 	}
-	
 	is_valid = {
 		custom_tooltip = {
 			text = kog_is_selecting_icon_NOT
@@ -151,7 +138,6 @@ kog_commission_icon_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		set_variable = kog_icon_var
 		#TODO add re-factored event
@@ -160,13 +146,11 @@ kog_commission_icon_sgui = {
 
 kog_dissolve_monasteries_sgui = {
 	scope = country
-	
 	is_shown = {
 		NOT = {
 			has_modifier = modifier_kog_dissolved_monasteries
 		}
 	}
-	
 	is_valid = {
 		ig:ig_devout = {
 			is_powerful = no
@@ -176,7 +160,6 @@ kog_dissolve_monasteries_sgui = {
 			has_modifier = modifier_kog_restored_monasteries
 		}
 	}
-	
 	effect = {
 		if = {
 			limit = {
@@ -193,15 +176,12 @@ kog_dissolve_monasteries_sgui = {
 
 kog_restore_monasteries_sgui = {
 	scope = country
-	
 	is_shown = {
 		has_modifier = modifier_kog_dissolved_monasteries
 	}
-	
 	is_valid = {
 		always = yes # TODO restore monasteries triggers
 	}
-	
 	effect = {
 		remove_modifier = modifier_kog_dissolved_monasteries
 		add_modifier = {
@@ -213,13 +193,11 @@ kog_restore_monasteries_sgui = {
 
 kog_reform_synod_sgui = {
 	scope = country
-	
 	is_shown = {
 		NOT = {
 			has_modifier = modifier_kog_reformed_synod
 		}
 	}
-	
 	is_valid = {
 		has_technology_researched = tech_bureaucracy
 		ig:ig_devout = {
@@ -232,7 +210,6 @@ kog_reform_synod_sgui = {
 			has_modifier = modifier_kog_clung_to_tradition
 		}
 	}
-	
 	effect = {
 		add_modifier = modifier_kog_reformed_synod
 		add_radicals = {
@@ -244,11 +221,9 @@ kog_reform_synod_sgui = {
 
 kog_restore_synod_sgui = {
 	scope = country
-	
 	is_shown = {
 		has_modifier = modifier_kog_reformed_synod
 	}
-	
 	is_valid = {
 		has_modifier = modifier_kog_reformed_synod
 		custom_tooltip = {
@@ -258,7 +233,6 @@ kog_restore_synod_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		remove_modifier = modifier_kog_reformed_synod
 		add_modifier = {
@@ -276,19 +250,16 @@ kog_restore_synod_sgui = {
 
 kog_grant_subsidies_sgui = {
 	scope = country
-	
 	is_shown = {
 		NOT = {
 			has_modifier = modifier_kog_subsidizing_church
 		}
 	}
-	
 	is_valid = {
 		NOT = {
 			has_modifier = modifier_kog_subsidizing_church
 		}
 	}
-	
 	effect = {
 		add_modifier = modifier_kog_subsidizing_church
 	}
@@ -296,11 +267,9 @@ kog_grant_subsidies_sgui = {
 
 kog_end_subsidies_sgui = {
 	scope = country
-	
 	is_shown = {
 		has_modifier = modifier_kog_subsidizing_church
 	}
-	
 	is_valid = {
 		ig:ig_devout = {
 			NOR = {
@@ -315,7 +284,6 @@ kog_end_subsidies_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		remove_modifier = modifier_kog_subsidizing_church
 	}
@@ -323,19 +291,16 @@ kog_end_subsidies_sgui = {
 
 kog_establish_schools_sgui = {
 	scope = country
-	
 	is_shown = {
 		NOT = {
 			has_modifier = modifier_kog_sunday_schools
 		}
 	}
-	
 	is_valid = {
 		NOT = { has_law = law_type:law_no_schools }
 		NOT = { has_law = law_type:law_total_separation }
 		NOT = { has_modifier = modifier_kog_disbanded_sunday_schools }
 	}
-	
 	effect = {
 		add_modifier = modifier_kog_sunday_schools
 	}
@@ -343,11 +308,9 @@ kog_establish_schools_sgui = {
 
 kog_disband_schools_sgui = {
 	scope = country
-	
 	is_shown = {
 		has_modifier = modifier_kog_sunday_schools
 	}
-	
 	is_valid = {
 		ig:ig_devout = {
 			NOR = {
@@ -356,7 +319,6 @@ kog_disband_schools_sgui = {
 			}
 		}
 	}
-	
 	effect = {
 		remove_modifier = modifier_kog_sunday_schools
 		add_modifier = {

@@ -220,7 +220,7 @@
 }
 
 kog_initialize_structs_effect = {
-	# Global Struct
+	# Global KoG Struct
 	create_struct = {
 		struct_type = flag:kog_global
 		struct_scope = kog_global
@@ -229,35 +229,129 @@ kog_initialize_structs_effect = {
 		name = kog_global
 		value = scope:kog_global
 	}
-	scope:kog_global = {
+
+	# Roman Catholicism Struct
+	create_struct = {
+		struct_type = flag:kog_denomination
+		struct_scope = kog_catholic
+	}
+	global_var:kog_global = {
 		set_variable = {
-			name = kog_catholic_council_counter
+			name = kog_catholic
+			value = scope:kog_catholic
+		}
+	}
+	scope:kog_catholic = {
+		set_variable = {
+			name = kog_council_counter
 			value = 0
 		}
 		set_variable = {
-			name = kog_orthodox_council_counter
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_papal_primacy
+		}
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+	}
+
+	# Eastern Orthodoxy Struct
+	create_struct = {
+		struct_type = flag:kog_denomination
+		struct_scope = kog_orthodox
+	}
+	global_var:kog_global = {
+		set_variable = {
+			name = kog_orthodox
+			value = scope:kog_orthodox
+		}
+	}
+	scope:kog_orthodox = {
+		set_variable = {
+			name = kog_council_counter
 			value = 0
 		}
 		set_variable = {
-			name = kog_oriental_council_counter
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_synodality
+		}
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+	}
+
+	# Oriental Orthodoxy Struct
+	create_struct = {
+		struct_type = flag:kog_denomination
+		struct_scope = kog_oriental
+	}
+	global_var:kog_global = {
+		set_variable = {
+			name = kog_oriental
+			value = scope:kog_oriental
+		}
+	}
+	scope:kog_oriental = {
+		set_variable = {
+			name = kog_council_counter
 			value = 0
 		}
-		if = {
-			limit = {
-				basileia_is_active = yes
-			}
+		set_variable = {
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_synodality
+		}
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+	}
+
+	# Elysian Orthodox Struct
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		create_struct = {
+			struct_type = flag:kog_denomination
+			struct_scope = kog_elysian
+		}
+		global_var:kog_global = {
 			set_variable = {
-				name = kog_elysian_council_counter
+				name = kog_elysian
+				value = scope:kog_elysian
+			}
+		}
+		scope:kog_elysian = {
+			set_variable = {
+				name = kog_council_counter
 				value = 0
 			}
-		}
-		set_variable = {
-			name = kog_protestant_council_counter
-			value = 0
-		}
-		set_variable = {
-			name = kog_crusade_counter
-			value = 0
+			set_variable = {
+				name = kog_canon_law_apostolic_succession_var
+				value = flag:kog_canon_law_synodality
+			}
+			set_variable = {
+				name = kog_canon_law_social_role_var
+				value = flag:kog_canon_law_moral_guidance
+			}
+			set_variable = {
+				name = kog_canon_law_sciences_stance_var
+				value = flag:kog_canon_law_scientific_disengagement
+			}
 		}
 	}
 
@@ -1421,7 +1515,7 @@ kog_initialize_collegium_effect = {
 	}
 }
 
-kog_initialize_ranking_lists = {
+kog_initialize_ranking_lists_effect = {
 	# Build & Sort Catholic List
 	every_country = {
 		limit = {
