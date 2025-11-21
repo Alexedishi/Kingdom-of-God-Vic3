@@ -1,4 +1,5 @@
-﻿on_game_started_after_lobby = {
+﻿####---------- Game Initialization Effect ----------####
+on_game_started_after_lobby = {
 	on_actions = {
 		kog_game_start
 	}
@@ -9,3 +10,15 @@ kog_game_start = {
 		kog_initialize_content_effect = yes
 	}
 }
+
+####---------- Monthly Pulses ----------####
+on_monthly_pulse_country = {
+	on_actions = {
+		kog_catholic_pulse
+		kog_orthodox_pulse
+	}
+}
+
+kog_catholic_pulse = {}
+
+kog_orthodox_pulse = {}
