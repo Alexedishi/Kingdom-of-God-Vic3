@@ -1,0 +1,116 @@
+﻿je_kog_ecyclical_mirari_vos = {
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+
+	group = je_group_kog_content
+
+	should_be_pinned_by_default = yes
+
+	immediate = {}
+
+	complete = {
+		calc_true_if = {
+			amount >= 3
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_religious_schools
+			has_law = law_type:law_charitable_health_system
+			OR = {
+				has_law = law_type:law_censorship
+				has_law = law_type:law_outlawed_dissent
+			}
+		}
+		kog_encyclical_timeout_trigger = yes
+	}
+
+	on_complete = {
+		add_modifier = {
+			name = modifier_kog_rebuked_lamennais
+			months = long_modifier_time
+		}
+		kog_add_conservative_loyalists_effect = yes
+		kog_add_reformist_radicals_effect = yes
+	}
+
+	fail = {
+		calc_true_if = {
+			amount < 3
+			has_law = law_type:law_state_religion
+			has_law = law_type:law_religious_schools
+			has_law = law_type:law_charitable_health_system
+			OR = {
+				has_law = law_type:law_censorship
+				has_law = law_type:law_outlawed_dissent
+			}
+		}
+		kog_encyclical_timeout_trigger = yes
+	}
+
+	on_fail = {
+		add_modifier = {
+			name = modifier_kog_failed_encyclical
+			months = long_modifier_time
+		}
+		kog_add_reformist_loyalists_effect = yes
+		kog_add_conservative_radicals_effect = yes
+	}
+
+	timeout = 2404
+
+	on_timeout = {
+		hidden_effect = {
+			if = {
+				limit = {
+					calc_true_if = {
+						amount >= 3
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_religious_schools
+						has_law = law_type:law_charitable_health_system
+						OR = {
+							has_law = law_type:law_censorship
+							has_law = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				add_modifier = {
+					name = modifier_kog_rebuked_lamennais
+					months = long_modifier_time
+				}
+				kog_add_conservative_loyalists_effect = yes
+				kog_add_reformist_radicals_effect = yes
+			}
+			else = {
+				add_modifier = {
+					name = modifier_kog_rebuked_lamennais
+					months = long_modifier_time
+				}
+				kog_add_reformist_loyalists_effect = yes
+				kog_add_conservative_radicals_effect = yes
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					calc_true_if = {
+						amount >= 3
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_religious_schools
+						has_law = law_type:law_charitable_health_system
+						OR = {
+							has_law = law_type:law_censorship
+							has_law = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				set_variable = kog_catholic_mirari_vos_var
+			}
+			else = {
+				remove_variable = kog_catholic_mirari_vos_var
+			}
+		}
+	}
+
+	weight = 500
+
+}
