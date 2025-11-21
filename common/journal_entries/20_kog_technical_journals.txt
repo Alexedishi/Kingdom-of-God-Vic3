@@ -1,25 +1,175 @@
 ﻿je_kog_intro = {
-	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
-	
-	group = je_group_kog_content
-	
-	should_be_pinned_by_default = no
+    group = je_group_kog_hidden
+    icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
+    weight = 0
 	
 	is_shown_when_inactive = {
 		always = no
 	}
-	
 	possible = {
 		always = no
 	}
-	
 	complete = {
 		always = yes
 	}
+}
 
-	on_complete = {
+je_kog_catholic = {
+	group = je_group_international_organizations
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
+	
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_in_lobby = {
+		country_has_state_religion = rel:catholic
 	}
 	
-	weight = 1
+	scripted_progress_bar = kog_capacity_progress_bar
 	
+	scripted_button = kog_display_widget_button
+	
+	immediate = {
+		kog_assign_dlc_icon_effect = yes
+	}
+	
+	complete = {
+		hidden_trigger = {
+			always = no
+		}
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			every_country = {
+				limit = {
+					OR = {
+						AND = {
+							is_involved_in_journal_entry = je_kog_catholic
+							NOT = {
+								country_has_state_religion = rel:catholic
+							}
+						}
+						AND = {
+							country_has_state_religion = rel:catholic
+							NOT = {
+								is_involved_in_journal_entry = je_kog_catholic
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_involved_in_journal_entry = je_kog_catholic
+						NOT = {
+							country_has_state_religion = rel:catholic
+						}
+					}
+					scope:journal_entry = {
+						remove_involved_country =  prev
+					}
+				}
+				else_if = { 
+					limit = {
+						country_has_state_religion = rel:catholic
+						NOT = {
+							is_involved_in_journal_entry = je_kog_catholic
+						}
+					}
+					scope:journal_entry = {
+						add_involved_country =  prev
+					}
+				}
+			}
+		}
+	}
+	
+	on_yearly_pulse = {
+		effect = {
+			kog_update_catholic_list = yes
+		}
+	}
+}
+
+je_kog_orthodox = {
+	group = je_group_international_organizations
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	weight = 100
+	
+	should_be_pinned_by_default = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_in_lobby = {
+		country_has_state_religion = rel:orthodox
+	}
+	
+	scripted_progress_bar = kog_capacity_progress_bar
+	
+	scripted_button = kog_display_widget_button
+	
+	immediate = {
+		kog_assign_dlc_icon_effect = yes
+	}
+	
+	complete = {
+		hidden_trigger = {
+			always = no
+		}
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			every_country = {
+				limit = {
+					OR = {
+						AND = {
+							is_involved_in_journal_entry = je_kog_orthodox
+							NOT = {
+								country_has_state_religion = rel:orthodox
+							}
+						}
+						AND = {
+							country_has_state_religion = rel:orthodox
+							NOT = {
+								is_involved_in_journal_entry = je_kog_orthodox
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_involved_in_journal_entry = je_kog_orthodox
+						NOT = {
+							country_has_state_religion = rel:orthodox
+						}
+					}
+					scope:journal_entry = {
+						remove_involved_country =  prev
+					}
+				}
+				else_if = {
+					limit = {
+						country_has_state_religion = rel:orthodox
+						NOT = {
+							is_involved_in_journal_entry = je_kog_orthodox
+						}
+					}
+					scope:journal_entry = {
+						add_involved_country =  prev
+					}
+				}
+			}
+		}
+	}
+	
+	on_yearly_pulse = {
+		effect = {
+			kog_update_orthodox_list = yes
+		}
+	}
 }
