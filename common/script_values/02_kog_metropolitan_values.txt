@@ -35,7 +35,7 @@
 kog_capacity_multiplier_value = {
 	value = 0
 	if = {
-		limit = { 
+		limit = {
 			kog_is_roman_catholic_trigger = yes
 		}
 		add = kog_papacy_capacity_value
@@ -58,8 +58,8 @@ kog_capacity_multiplier_value = {
 		}
 		add = kog_synkletos_capacity_value
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			kog_is_protestant_trigger = yes
 		}
 		add = kog_power_capacity_value
@@ -179,9 +179,31 @@ kog_holy_sites_value = {
 	}
 }
 
+kog_decree_expense_value = {
+	value = 0
+	every_scope_state = {
+		limit = {
+			has_decree = decree_kog_consecrate_metropolitan
+		}
+		subtract = {
+			value = 100
+			desc = kog_value_from_metropolitan_decree
+		}
+	}
+	every_scope_state = {
+		limit = {
+			has_decree = decree_kog_encourage_almsgiving
+		}
+		subtract = {
+			value = 100
+			desc = kog_value_from_almsgiving_decree
+		}
+	}
+}
+
 kog_seat_diplomacy_value = {
 	value = 0
-
+	
 	# Relations Improvement Modifiers
 	if = {
 		limit = {
@@ -291,7 +313,7 @@ kog_seat_diplomacy_value = {
 		}
 		add = 100
 	}
-
+	
 	# Relations Reduction Modifiers
 	if = {
 		limit = {
@@ -401,250 +423,4 @@ kog_seat_diplomacy_value = {
 		}
 		add = 100
 	}
-}
-
-kog_seat_integration_value = {
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_rome
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_santiago
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_paris
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_koln
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_vienna
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_constantinople
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_antioch
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_jerusalem
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_alexandria
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_moscow
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_coptic_alexandria
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_syriac_antioch
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_etchmiadzin
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_addis_ababa
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_konak
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_elysium
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_mixtec
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_cahokia
-		}
-		add = 200
-	}
-}
-
-kog_decree_expense_value = {
-	value = 0
-	every_scope_state = {
-		limit = {
-			has_decree = decree_kog_consecrate_metropolitan
-		}
-		subtract = {
-			value = 100
-			desc = kog_value_from_metropolitan_decree
-		}
-	}
-	every_scope_state = {
-		limit = {
-			has_decree = decree_kog_encourage_almsgiving
-		}
-		subtract = {
-			value = 100
-			desc = kog_value_from_almsgiving_decree
-		}
-	}
-}
-
-kog_votes_value = {
-	value = 0
-	if = {
-		limit = {
-			kog_is_roman_catholic_trigger = yes
-		}
-		add = kog_cardinal_college_value
-	}
-	else_if = {
-		limit = {
-			kog_is_oriental_orthodox_trigger = yes
-		}
-		add = kog_ecumenical_weight_value
-	}
-	else_if = {
-		limit = {
-			kog_is_oriental_orthodox_trigger = yes
-		}
-		add = kog_synodal_influence_value
-	}
-	else_if = {
-		limit = {
-			kog_is_elysian_orthodox_trigger = yes
-		}
-		add = kog_elysian_synkletos_value
-	}
-}
-
-kog_schism_progress_value = {
-	# This value is overwritten by GotB to provide support for Bulgarian content
-	value = 0
-
-	## Sources ##
-	if = {
-		limit = {
-			has_modifier = modifier_kog_schismatic
-		}
-		add = {
-			value = 2
-			desc = kog_value_from_base_progress
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_ignored_dissent
-		}
-		add = {
-			value = 1
-			desc = kog_value_from_ignoring_dissent
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_purged_ecclesiarchy
-		}
-		add = {
-			value = 1
-			desc = kog_value_from_purged_ecclesiarchy
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_fast_tracking_bishops
-		}
-		add = {
-			value = 1
-			desc = kog_value_from_fast_tracking_bishops
-		}
-	}
-
-	## Penalities ##
-	if = {
-		limit = {
-			has_modifier = modifier_kog_conceded_to_traditionalists
-		}
-		subtract = {
-			value = 1
-			desc = kog_value_from_conceded_to_traditionalists
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_retained_ecclesiarchy
-		}
-		subtract = {
-			value = 1
-			desc = kog_value_from_retained_ecclesiarchy
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_monk_smackdown_tolerated
-		}
-		subtract = {
-			value = 1
-			desc = kog_value_from_monk_smackdown
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_agitator_delay
-		}
-		subtract = {
-			value = 1
-			desc = kog_value_from_agitator_delay
-		}
-	}
-
-	round = 1
-	min = 1
-	max = 10
 }
