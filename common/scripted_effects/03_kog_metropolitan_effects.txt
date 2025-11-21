@@ -1,0 +1,78 @@
+﻿kog_remove_focus_modifiers_effect = {
+	hidden_effect = {
+		remove_modifier ?= modifier_kog_emphasize_unity
+		remove_modifier ?= modifier_kog_enforce_attendance
+		remove_modifier ?= modifier_kog_theologize_dogma
+		remove_modifier ?= modifier_kog_promote_ecumenism
+	}
+}
+
+kog_remove_icon_modifiers_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_christ_pantocrator
+		}
+		remove_modifier = modifier_kog_icon_christ_pantocrator
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_eleusa
+		}
+		remove_modifier = modifier_kog_icon_eleusa
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_john_climacus
+		}
+		remove_modifier = modifier_kog_icon_john_climacus
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_michael_archistrategos
+		}
+		remove_modifier = modifier_kog_icon_michael_archistrategos
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_nikolaos_wonderworker
+		}
+		remove_modifier = modifier_kog_icon_nikolaos_wonderworker
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_gregory_nazianzus
+		}
+		remove_modifier = modifier_kog_icon_gregory_nazianzus
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_paul_of_thebes
+		}
+		remove_modifier = modifier_kog_icon_paul_of_thebes
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_icon_issac_the_syrian
+		}
+		remove_modifier = modifier_kog_icon_issac_the_syrian
+	}
+}
+
+kog_schism_cleanup_effect = {
+	# This effect will not adjust the kog_schism_var or kog_is_autocephalous variables; those are explicitly handled by kog.107/balkfm.569
+	remove_variable = kog_language_disputed
+	remove_variable = kog_ecclesiarchy_purge_considered
+	remove_variable = kog_schism_event_cooldown_var
+
+	remove_modifier = modifier_kog_schismatic
+	remove_modifier = modifier_kog_ignored_dissent
+	remove_modifier = modifier_kog_conceded_to_traditionalists
+	remove_modifier = modifier_kog_schism_denounced
+	remove_modifier = modifier_kog_purged_ecclesiarchy
+	remove_modifier = modifier_kog_retained_ecclesiarchy
+	remove_modifier = modifier_kog_fast_tracking_bishops
+	remove_modifier = modifier_kog_monk_smackdown_tolerated
+	remove_modifier = modifier_kog_monk_smackdown_stopped
+	remove_modifier = modifier_kog_agitator_delay
+	remove_modifier = modifier_kog_protecting_bishops
+}
