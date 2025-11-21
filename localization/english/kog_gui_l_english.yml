@@ -1,0 +1,230 @@
+﻿l_english:
+ kog_sidebar_button_sgui: "kog_sidebar_button_sgui"
+ kog_sidebar_button_sgui_desc: "Kingdom of God"
+ 
+ kog_topbar_element_capacity: "kog_topbar_element_capacity"
+ kog_topbar_element_capacity_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_icon_type')]"
+ kog_topbar_element_capacity_value: "#v [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!"
+ kog_topbar_element_capacity_tooltip: "[concept_faith_capacity]"
+ kog_topbar_element_capacity_source: "Kingdom of God"
+ kog_topbar_element_capacity_source_tooltip: "This element is part of the mod #v Kingdom of God#!."
+ 
+ # Widget Headers
+ kog_gui_main_title: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_denomination_type')]"
+ kog_gui_national_church_name: "The [GetPlayer.GetStateReligion.GetNameNoFormatting] Church of [GetPlayer.GetNameNoFlag]"
+ 
+ # Papal Influence & Communion Status
+ kog_gui_catholic_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_communion_type')]"
+ kog_gui_catholic_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_catholic_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_catholic_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_papacy_capacity_value')]#!#! $kog_catholic_power$#!"
+ kog_gui_catholic_capacity_breakdown: "@kog_catholic_power! $kog_catholic_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_papacy_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_papacy_capacity_value')]"
+ 
+ # Orthodox Caesaropapism & Autocephaly Status
+ kog_gui_orthodox_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_communion_type')]"
+ kog_gui_orthodox_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_orthodox_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_orthodox_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_caesaropapism_capacity_value')]#!#! $kog_orthodox_power$#!"
+ kog_gui_orthodox_capacity_breakdown: "@kog_orthodox_power! $kog_orthodox_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_caesaropapism_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_caesaropapism_capacity_value')]"
+ 
+ # Oriental Caesaropapism & Autocephaly Status
+ kog_gui_oriental_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_oriental_communion_type')]"
+ kog_gui_oriental_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_oriental_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_oriental_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_synodal_capacity_value')]#!#! $kog_oriental_power$#!"
+ kog_gui_oriental_capacity_breakdown: "@kog_oriental_power! $kog_oriental_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_synodal_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_synodal_capacity_value')]"
+ 
+ # Elysian Caesaropapism & Autocephaly Status
+ kog_gui_elysian_communion_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_elysian_communion_type')]"
+ kog_gui_elysian_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has @kog_elysian_power! #greece #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_elysian_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_elysian_capacity_value')]#!#! $kog_elysian_power$#!"
+ kog_gui_elysian_capacity_breakdown: "@kog_elysian_power! $kog_elysian_power$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_elysian_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_elysian_capacity_value')]"
+ 
+ # Metropolitan Portrait & Details
+ kog_gui_liturgical_rite_type: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_liturgical_rite_type')]"
+ kog_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('kog_gui_religious_law_tooltip')] Religious Law#!#!"
+ kog_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_church_and_state').GetDesc]"
+ 
+ # Holy Sites Panel
+ kog_gui_holy_site_count: "[GetPlayer.GetName] $kog_controls$ #bold #greece [GetPlayer.MakeScope.Var('kog_holy_sites_var').GetValue]#!#! [concept_holy_site]#o s#!"
+ 
+ kog_gui_rome_control_status: "$kog_rome_details$\n$TOOLTIP_DELIMITER$\n$kog_rome_modifier$"
+ kog_gui_santiago_control_status: "$kog_santiago_details$\n$TOOLTIP_DELIMITER$\n$kog_santiago_modifier$"
+ kog_gui_paris_control_status: "$kog_paris_details$\n$TOOLTIP_DELIMITER$\n$kog_paris_modifier$"
+ kog_gui_koln_control_status: "$kog_koln_details$\n$TOOLTIP_DELIMITER$\n$kog_koln_modifier$"
+ kog_gui_vienna_control_status: "$kog_vienna_details$\n$TOOLTIP_DELIMITER$\n$kog_vienna_modifier$"
+ 
+ kog_gui_constantinople_control_status: "$kog_constantinople_details$\n$TOOLTIP_DELIMITER$\n$kog_constantinople_modifier$"
+ kog_gui_antioch_control_status: "$kog_antioch_details$\n$TOOLTIP_DELIMITER$\n$kog_antioch_modifier$"
+ kog_gui_jerusalem_control_status: "$kog_jerusalem_details$\n$TOOLTIP_DELIMITER$\n$kog_jerusalem_modifier$"
+ kog_gui_alexandria_control_status: "$kog_alexandria_details$\n$TOOLTIP_DELIMITER$\n$kog_alexandria_modifier$"
+ kog_gui_moscow_control_status: "$kog_moscow_details$\n$TOOLTIP_DELIMITER$\n$kog_moscow_modifier$"
+ 
+ kog_gui_coptic_alexandria_control_status: "$kog_coptic_alexandria_details$\n$TOOLTIP_DELIMITER$\n$kog_coptic_alexandria_modifier$"
+ kog_gui_syriac_antioch_control_status: "$kog_syriac_antioch_details$\n$TOOLTIP_DELIMITER$\n$kog_syriac_antioch_modifier$"
+ kog_gui_etchmiadzin_control_status: "$kog_etchmiadzin_details$\n$TOOLTIP_DELIMITER$\n$kog_etchmiadzin_modifier$"
+ kog_gui_addis_ababa_control_status: "$kog_addis_ababa_details$\n$TOOLTIP_DELIMITER$\n$kog_addis_ababa_modifier$"
+ kog_gui_konak_control_status: "$kog_konak_details$\n$TOOLTIP_DELIMITER$\n$kog_konak_modifier$"
+ 
+ kog_gui_elysium_control_status: "$kog_elysium_details$\n$TOOLTIP_DELIMITER$\n$kog_elysium_modifier$"
+ kog_gui_mixtec_control_status: "$kog_mixtec_details$\n$TOOLTIP_DELIMITER$\n$kog_mixtec_modifier$"
+ kog_gui_cahokia_control_status: "$kog_cahokia_details$\n$TOOLTIP_DELIMITER$\n$kog_cahokia_modifier$"
+ 
+ # Metropolis Panel General Localization
+ kog_gui_metropolis_header: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
+ kog_gui_ecclesiastic_header: "Ecclesiastic Affairs"
+ kog_gui_collegium_header: "College of Cardinals"
+ kog_gui_global_header: "Global [GetPlayer.GetStateReligion.GetNameNoFormatting] Community"
+ kog_gui_metropolian_name: "[Character.GetFullName]"
+ 
+ # Catholic Metropolis Panel
+ kog_gui_national_piety: "$kog_national_piety$"
+ kog_gui_national_piety_amount: "@kog_piety_dutiful!"
+ kog_gui_national_piety_breakdown: "TODO"
+ 
+ kog_gui_venerate_apparition: "Venerate Apparition"
+ kog_gui_venerate_apparation_desc: "We can use our contacts within the Church to encourage the popular devotion of an approved Marian Apparition. This devotion will last ten years before requiring reinforcement."
+ 
+ # Orthodox Metropolis Panel
+ kog_gui_emphasize_unity: "The Orthodoxy has tied our people together since the Fall of Constantinople. Our bishops could emphasize this common bond that supersedes nationalist thought.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_enforce_attendance: "Many in our communities attend masses only for the holiest of days. We could empower social activists to "persuade" these people to participate more regularly in church services.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_theologize_dogma: "The theology of the Orthodoxy has remained stagnant since the Ottoman conquest. In its isolation from the West, the philosophy and dogma of the Church lags far behind the innovations of Europe, leaving it unsuited to guide the faithful into this new era.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_promote_ecumenism: "As the early fathers said, we are one flock divided only by our disagreements over interpretations. We could pressure the church to reach out to its Western counterpart to seek some type of common understanding.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_metropolitan_focus_header: "Current Focus:"
+ kog_gui_kog_focus_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_metropolitan_focus_type')]"
+ 
+ kog_gui_commission_icon: "Venerate an Icon"
+ kog_gui_commission_icon_desc: "We can use some of our influence over the Church to commission icons to inspire the faithful. These icons will endure for 10 years before needing replacement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_dissolve_monasteries: "Dissolve the Monasteries"
+ kog_gui_dissolve_monasteries_desc: "Throughout our hinterland, there are several ancient monasteries that cling on by momentum alone. Administrators have advised that the functions of both the church and the state could be dramatically improved by shuttering several minor monasteries.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_restore_monasteries: "Restore the Monasteries"
+ kog_gui_restore_monasteries_desc: "As a result of the seizure of monastic estates, many clergy have found themselves destitute. Many would welcome some form of relief.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_reform_synod: "Reform National Synod"
+ kog_gui_reform_synod_desc: "Caesaropapism, the idea of merging the church and state, has gained traction as a means of both protecting and enforcing our independent identity as a people. By subjugating the church to the state apparatus, we can insulate ourselves from further interference by the Sultan.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_restore_synod: "Restore National Synod"
+ kog_gui_restore_synod_desc: "The act of subjugating the Church has had profound effects. Chafing under the yoke of the state, the Church has lost a lot of its former influence. If we wish, we could restore the independence of the clergy.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_grant_subsidies: "Grant Church Subsidies"
+ kog_gui_grant_subsidies_desc: "The state could grant state subsidies to the Orthodox Church in the name of supporting the needs of the clergy... in exchange for their compliance.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_end_subsidies: "End Church Subsidies"
+ kog_gui_end_subsidies_desc: "Civic leaders decry the use of secular funds to provide for spiritual matters. While they make sound legal arguements, the church risks collapse without our continued intervention.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_establish_schools: "Establish Sunday Schools"
+ kog_gui_establish_schools_desc: "The best way to spread the divine word and to bring literacy to the poorest of our children is by providing them with weekly education following liturgical services.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_disband_schools: "Disband Sunday Schools"
+ kog_gui_disband_schools_desc: "While weekend school programs have proven successful in guiding our youth to the faith, they have also proven a major expense for the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ # Oriental Metropolis Panel
+ 
+ # Elysian Metropolis Panel
+ 
+ # Catholic College of Cardinals Panel
+ kog_gui_college_header: "College of Cardinals"
+ kog_preferatus_header: "Preferatus"
+ kog_papabili_header: "Papabili"
+ 
+ kog_cardinal_name: "Cardinal [Character.GetLastName]"
+ kog_cardinal_rating: "@kog_gravitas! Gravitas"
+ kog_cardinal_gravitas: "@kog_gravitas! #bold #greece [Character.MakeScope.ScriptValue('kog_character_gravitas_value')]#!#!"
+ kog_cardinal_gravitas_breakdown: "[Character.MakeScope.GetScriptValueDesc('kog_character_gravitas_value')]"
+ 
+ # Global Community Panel
+ kog_gui_christian_community: "Greater Christian Community"
+ kog_gui_catholic_tab: "Roman Catholicism"
+ kog_gui_catholic_tab_selected: "#bold #white Roman Catholicism#!#!"
+ eocgm_gui_orthodox_tab: "Eastern Orthodoxy"
+ eocgm_gui_orthodox_tab_selected: "#bold #white Eastern Orthodoxy#!#!"
+ kog_gui_oriental_tab: "Oriental Orthodoxy"
+ kog_gui_oriental_tab_selected: "#bold #white Oriental Orthodoxy#!#!"
+ kog_gui_elysian_tab: "Elysian Orthodoxy"
+ kog_gui_elysian_tab_selected: "#bold #white Elysian Orthodoxy#!#!"
+ 
+ # Encyclical Panel General
+ kog_gui_encyclical_header: "Circulating Encyclicals"
+ kog_gui_no_encyclical: "#italic #lore There is no [concept_encyclical] in circulation#!"
+ kog_gui_encyclicals_disabled: "#italic #lore [GetPlayer.GetStateReligion.GetNameNoFormatting] does not use the [concept_encyclical] system#!#!"
+ ecofm_gui_encyclical_good: "@green_checkmark! #green #italic [GetPlayer.GetNameNoFormatting] is in compliance#!#!"
+ ecofm_gui_encyclical_bad: "@warning! #red #italic [GetPlayer.GetNameNoFormatting] is NOT compliant!#!#!"
+ 
+ ## Catholic Encyclicals
+ kog_gui_encyclical_catholic_mirari_vos: "#bold #italic Mirari Vos#!#!"
+ kog_gui_encyclical_catholic_translations: "#bold #italic Inter Praecipuas Machinationes#!#!"
+ 
+ ## Orthodox Encyclicals
+ kog_gui_encyclical_orthodox_easterners: "#bold #italic Encyclical of the Eastern Patriarchs#!#!"
+ kog_gui_encyclical_orthodox_fraternity: "#bold #italic Encyclical of the Fraternity of Churches#!#!"
+ 
+ # Ecumenical Council General
+ kog_gui_ecumenical_council_header: "The Ecumenical Council"
+ kog_gui_ecumenical_council_none: "#italic #lore There is no [concept_ecumenical_council] in session#!"
+ kog_gui_ecumenical_council_oppose: "This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to opposing the proposed reform."
+ kog_gui_ecumenical_council_abstain: "This will withdraw our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes towards either side of the proposed reform."
+ kog_gui_ecumenical_council_support: "This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to supporting the proposed reform."
+ kog_gui_support_winning: "The council favors the #bold Reformist Camp#!."
+ kog_gui_oppose_winning: "The council favors the #bold Conservative Camp#!."
+ kog_gui_noone_winning: "The Council is #bold Undecided#!."
+ kog_gui_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('kog_council_stance_type')]#!"
+ 
+ # Catholic Ecumenical Council Panel
+ kog_gui_catholic_council_location: "The #o Council#! of the #yellow Vatican#!"
+ kog_gui_catholic_council_host: "#italic Convoked by #yellow [GetGlobalVariable('kog_catholic_host_var').GetCountry.GetNameNoFlag]#!#!
+ kog_gui_catholic_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_matter_type')]#!"
+ kog_gui_catholic_council_votes: "#italic #greece [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('kog_votes_var').GetValue] vote(s)#!#!"
+ kog_gui_catholic_council_supporters: "Votes in Favor: #greece [GetGlobalVariable('kog_catholic_support_var').GetValue]#!"
+ kog_gui_catholic_council_detractors: "Votes Against: #greece [GetGlobalVariable('kog_catholic_opposition_var').GetValue]#!"
+ kog_gui_catholic_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_council_outcome_type')]"
+ 
+ # Orthodox Ecumenical Council Panel
+ kog_gui_orthodox_council_location: "The #o Council#! of [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_host_type')]"
+ kog_gui_orthodox_council_host: "#italic Convoked by #yellow [GetGlobalVariable('kog_orthodox_host_var').GetCountry.GetNameNoFlag]#!#!
+ kog_gui_orthodox_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_matter_type')]#!"
+ kog_gui_orthodox_council_votes: "#italic #greece [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('kog_votes_var').GetValue] vote(s)#!#!"
+ kog_gui_orthodox_council_supporters: "Votes in Favor: #greece [GetGlobalVariable('kog_orthodox_support_var').GetValue]#!"
+ kog_gui_orthodox_council_detractors: "Votes Against: #greece [GetGlobalVariable('kog_orthodox_opposition_var').GetValue]#!"
+ kog_gui_orthodox_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('kog_council_stance_type')]#!"
+ kog_gui_orthodox_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_council_outcome_type')]"
+ 
+ # General Seat Widget Loc
+ kog_gui_secure_tetrarchy: "@kog_secure_seats! Secure the Tetrarchy"
+ kog_gui_secure_tetrarchy_desc: "Under the auspices of the Byzantine state, the Ancient Patriarchates existed in a unified structure to administer the ecclesiarchy and shepherd the faithful. Should we secure control over these holy nexuses of the faith, we will be able to reunify the old heart of the Eastern Orthodoxy.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_secure_pentarchy: "@kog_secure_seats! Secure the Pentarchy"
+ kog_gui_secure_pentarchy_desc: "The Pentarchy, consisting of the Eastern seats plus Rome, once ruled over the united Christian church before the Germanic invaders tore Rome away from the Empire for their political aspirations. If we can secure control over the Eternal City, we will be able to unify the Eastern and Western Patriarchates after almost a millennium of estrangement.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_mend_schism: "@kog_establish_communion! Mend the Great Schism"
+ kog_gui_mend_schism_desc: "The five Ancient Seats of the Orthodoxy lie within our control, yet the two churches are divided by a millennium of deviations in legal frameworks and dogmatic principles. To truly combine the two Churches into one Great Church will be a herculean task, one that already failed many times over the centuries.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_mending_header: "#bold #greece Mending Progress#!#!"
+ kog_gui_mending_progress: "TODO"
+ 
+ kog_gui_declare_autocephaly: "@kog_break_communion! Declare Autocephaly"
+ kog_gui_declare_autocephaly_desc: "Once the symbol of unity in the Eastern Church, the Ecumenical Patriarch in Constantinople has increasingly come under the influence of the Ottoman Sultan. Unless we sever our connections with Constantinople, the Ottomans are sure to continue to interfere in our politics and may even try to further their attempts to suppress our culture.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_autocephaly_header: "#bold #greece Autocephaly Progress#!#!"
+ kog_gui_autocephaly_progress: "TODO"
+ kog_gui_convoke_council: "@kog_seek_mandate! Convoke Ecumenical Council"
+ kog_gui_convoke_council_desc: "Our influence within the [GetPlayer.GetStateReligion.GetName] community is obvious. We could use this power to summon an [concept_ecumenical_council] to settle long-standing issues within the [GetPlayer.GetStateReligion.GetName] Church.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ kog_assert_seat: "@kog_secure_seats! Assert State Supremacy"
+ kog_gui_assert_rome_button: "Through the righteous efforts of [GetPlayer.GetNameNoFlag], $kog_rome$ has come under [GetPlayer.GetStateReligion.GetName] control. We should secure our new role as the defender of the faith by asserting state supremacy over the Throne of St. Peter.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_assert_constantinople_button: "Through the righteous efforts of [GetPlayer.GetNameNoFlag], $kog_constantinople$ has come under [GetPlayer.GetStateReligion.GetName] control. We should secure our new role as the defender of the faith by asserting state supremacy over the Ecumenical Patriarchate.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_assert_coptic_alexandria_button: "Through the righteous efforts of [GetPlayer.GetNameNoFlag], $kog_coptic_alexandria$ has come under [GetPlayer.GetStateReligion.GetName] control. We should secure our new role as the defender of the faith by asserting state supremacy over the Church of St. Mark.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_assert_elysium_button: "Through the righteous efforts of [GetPlayer.GetNameNoFlag], $kog_elysium$ has come under [GetPlayer.GetStateReligion.GetName] control. We should secure our new role as the defender of the faith by asserting state supremacy over the Patriarchal See.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ kog_seek_mandate: "@kog_seek_mandate! Seek Political Mandate"
+ kog_gui_seek_mandate_desc: "The Orthodox people hold the positions of their Bishops in high regard. With a little manuvering, we could obtain the blessings of the Ecumenical Patriarch designating our administration as not only legitimate, but divine.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ kog_gui_integrate_seat: "@kog_integrate_seat! #bold Integrate Seat#!"
+ kog_gui_integrate_seat_desc: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_integration_progress: "#bold #greece Integration Progress#!#!"
+ kog_gui_integration_progress_desc: "TODO"
+ kog_gui_enforce_seat: "@kog_integrate_seat! #bold Enforce Rites#!"
+ kog_gui_enforce_seat_desc: "In the centuries since the collapse of the Roman Empire, the many churches have deviated from each other in their chosen [concept_liturgical_rite]. Should the location of this seat come under our control, we could enforce their compliance with our [concept_liturgical_rite].\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_enforcement_progress: "#bold #greece Enforcement Progress#!#!"
+ kog_gui_enforcement_progress_desc: "TODO"
+ 
+ kog_gui_improve_relations: "@kog_improve_relations! #bold Improve Relations#!"
+ kog_gui_improve_relations_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_cease_diplomacy: "@kog_improve_relations! #bold Cease Diplomacy#!"
+ kog_gui_cease_diplomacy_desc: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ kog_gui_damage_relations: "@kog_damage_relations! #bold Damage Relations#!"
+ kog_gui_damage_relations_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ensuring hostilities between ourselves and certain seats, we can earn the respect of those of our faith community.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]
+ kog_gui_cease_hostilities: "@kog_damage_relations! #bold Cease Hostilities#!"
+ kog_gui_cease_hostilities_desc: "This will free up our resources for diplomatic efforts elsewhere.\n$TOOLTIP_DELIMITER$\n[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+ 
+ kog_gui_catholic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ kog_gui_orthodox_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ kog_gui_coptic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ kog_gui_elysian_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_patriarchal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ 
+ kog_gui_patriarch_name: "#TODO Patriarch Name#!"
+ kog_gui_liturgical_rite: "#TODO Liturgical Rite"
+ kog_gui_location: "#TODO Location"
+ kog_gui_opinion: "#TODO Opinion"
