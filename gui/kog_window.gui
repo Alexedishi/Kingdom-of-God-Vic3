@@ -1,0 +1,193 @@
+# = From Base Game
+# Panel Constants
+@panel_width_minus_10 = 530
+@panel_width_minus_30 = 510
+@panel_width = 540
+@panel_width_half = 270
+@panel_width_plus_10 = 550
+@panel_width_plus_14 = 554
+@panel_width_plus_14_half = 277
+@panel_width_plus_20 = 560
+@panel_width_plus_30 = 570
+@panel_width_plus_70 = 610
+
+widget = {
+	name = "kog_main_window"
+	size { 100% 100% }
+	layer = layer_ingame_menu
+	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+	
+	# This opens the GUI if an alert variable is set
+	kog_alert_widget = {}
+	
+	widget = {
+		parentanchor = top|hcenter
+		size = { 100% 100% }
+		using = clickthrough_blocker
+		visible = "[GetVariableSystem.HasValue('com_open_window', 'kog_sidebar_button_sgui')]"
+		datacontext = "[GetPlayer]"
+		
+		# This initializes the GUI variable on a fresh load
+		state = {
+		  trigger_when = "[Not(GetVariableSystem.Exists('kog_tabs_var'))]"
+		  on_finish = "[GetVariableSystem.Set('kog_tabs_var', 'kog_tab_catholic')]"
+		}
+		
+		state = {
+			name = _show
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+			start_sound = {
+				soundeffect = "event:/kog_bell_ring"
+			}
+			start_sound = {
+				soundeffect = "snapshot:/Dynamic/mute_world_80"
+			}
+			start_sound = {
+				soundeffect = "snapshot:/Dynamic/mute_vfx_war_100"
+			}
+			on_finish = "[GetVariableSystem.Set('com_fullscreen', 'com_fullscreen')]"
+			# Close open panel before showing this one
+			on_start = "[InformationPanelBar.ClosePanel]"
+			on_start = "[MapListPanelManager.CloseCurrentPanel]"
+		}
+		
+		state = {
+			name = _hide
+			alpha = 0
+			duration = 0.2
+			using = Animation_Curve_Default
+			end_sound = {
+				soundeffect = "event:/SFX/UI/SideBar/society_stop"
+			}
+			on_finish = "[GetVariableSystem.Clear('com_fullscreen')]"
+		}
+		
+		background = {
+			using = default_bg
+			margin = { 40 40 }
+		}
+		
+		## BACKGROUNDS
+		kog_window_background = {}
+		
+		## HEADER
+		kog_window_header = {}
+		kog_header_left_fade = {}
+		kog_header_right_fade = {}
+		kog_header_top_filler = {}
+
+		## WIDGET CONTENT
+		kog_dev_window = {}
+	}
+	
+}
+
+types kog_kingdom_of_god_window_types {
+	
+	type kog_window_background = widget {
+		parentanchor = top|hcenter
+		size = { 100% 100% }
+		
+		background = {
+			visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_catholic_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		background = {
+			visible = "no"
+			#visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_orthodox_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+				alpha = 0.5
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		background = {
+			visible = "no"
+			#visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_oriental_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		background = {
+			visible = "no"
+			#visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_elysian_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+	}
+}
