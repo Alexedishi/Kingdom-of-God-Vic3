@@ -154,6 +154,7 @@
 			name = kog_patriarch_var
 			value = scope:kog_rome_patriarch
 		}
+		set_variable = kog_is_major_seat
 	}
 	
 	# Santiago
@@ -384,6 +385,7 @@
 			name = kog_patriarch_var
 			value = scope:kog_constantinople_patriarch
 		}
+		set_variable = kog_is_major_seat
 	}
 	
 	# Antioch
@@ -674,7 +676,12 @@
 	}
 	
 	#### Step 6, Initialize Local Structs
-	kog_initialize_metropolis_effect = yes
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		kog_initialize_metropolis_effect = yes
+	}
 	
 	### Step 7, Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
