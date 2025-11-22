@@ -225,7 +225,7 @@ kog_intialize_denomination_structs_effect = {
 	}
 	scope:kog_catholic = {
 		set_variable = {
-			name = kog_senior_patriarch_var
+			name = kog_mother_church_var
 			value = flag:kog_rome
 		}
 		set_variable = {
@@ -271,7 +271,7 @@ kog_intialize_denomination_structs_effect = {
 	}
 	scope:kog_orthodox = {
 		set_variable = {
-			name = kog_senior_patriarch_var
+			name = kog_mother_church_var
 			value = flag:kog_constantinople
 		}
 		set_variable = {
@@ -354,7 +354,6 @@ kog_initialize_seats_effect = {
 			name = kog_patriarch_var
 			value = scope:kog_rome_patriarch
 		}
-		set_variable = kog_is_major_seat
 	}
 	
 	# Santiago
@@ -585,7 +584,6 @@ kog_initialize_seats_effect = {
 			name = kog_patriarch_var
 			value = scope:kog_constantinople_patriarch
 		}
-		set_variable = kog_is_major_seat
 	}
 	
 	# Antioch
