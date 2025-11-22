@@ -1,0 +1,350 @@
+﻿kog_capacity_value = {
+	value = 0
+	
+	## CATHOLIC VALUE LOGIC
+	if = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		# SOURCES
+		add = {
+			value = 100
+			desc = kog_value_from_base
+		}
+		
+		## EXPENSES
+		# Seat Diplomacy Check
+		subtract = {
+			value = kog_seat_diplomacy_value
+			desc = kog_value_from_diplomacy
+		}
+	}
+	
+	## ORTHODOX VALUE LOGIC
+	else_if = {
+		limit = {
+			kog_is_eastern_christian_trigger = yes
+		}
+		## BASE
+		add = {
+			value = 100
+			desc = kog_value_from_base
+		}
+		
+		##SOURCES
+		
+		# Law Check
+		if = {
+			limit = {
+				has_law = law_type:law_monarchy
+			}
+			add = {
+				value = 100
+				desc = kog_value_from_monarchy
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_state_religion
+			}
+			add = {
+				value = 200
+				desc = kog_value_from_state_religion
+			}
+		}
+		
+		# Modifiers Check
+		if = {
+			limit = {
+				has_modifier = modifier_kog_reformed_synod
+			}
+			add = {
+				value = 200
+				desc = kog_value_from_reformed_synod
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_dissolved_monasteries
+			}
+			add = {
+				value = 100
+				desc = kog_value_from_dissolved_monasteries
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_subsidizing_church
+			}
+			add = {
+				value = 100
+				desc = kog_value_from_subsidizing_church
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_sunday_schools
+			}
+			add = {
+				value = 100
+				desc = kog_value_from_established_schools
+			}
+		}
+		
+		# Patriarchal Seat Control Check
+		add = {
+			value = {
+				add = 100
+				multiply = kog_holy_sites_value
+			}
+			desc = kog_value_from_holy_sites
+		}
+		
+		# Other Sources Check
+		if = {
+			limit = {
+				kog_is_autocephalous_trigger = yes
+			}
+			add = {
+				value = 200
+				desc = kog_value_from_having_autocephaly
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_backed_reforms
+			}
+			add = {
+				value = 50
+				desc = kog_value_from_backing_reforms
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_secured_tetrarchy
+			}
+			add = {
+				value = 200
+				desc = kog_value_from_secured_tetrarchy
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_secured_pentarchy
+			}
+			add = {
+				value = 200
+				desc = kog_value_from_secured_pentarchy
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_mended_schism
+			}
+			add = {
+				value = 1000
+				desc = kog_value_from_mended_schism
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_expelled_metropolitan
+			}
+			add = {
+				value = 200
+				desc = kog_value_from_expelled_metropolitan
+			}
+		}
+		
+		##PENALTIES
+		
+		# Law Check
+		if = {
+			limit = {
+				has_law = law_type:law_theocracy
+			}
+			subtract = {
+				value = 500
+				desc = kog_value_from_theocracy
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_total_separation
+			}
+			subtract = {
+				value = 500
+				desc = kog_value_from_total_separation
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+			}
+			subtract = {
+				value = 100
+				desc = kog_value_from_state_atheism
+			}
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_religious_schools
+			}
+			subtract = {
+				value = 200
+				desc = kog_value_from_religious_schools
+			}
+		}
+		
+		# Modifier Check
+		if = {
+			limit = {
+				has_modifier = modifier_kog_autocephaly_abandoned
+			}
+			subtract = {
+				value = 500
+				desc = kog_value_from_autocephaly_abandoned
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_secularism_denounced
+			}
+			subtract = {
+				value = 100
+				desc = kog_value_from_secularism_denounced
+			}
+		}
+		
+		##EXPENSES
+		
+		# Major Actions Check
+		if = {
+			limit = {
+				has_modifier = modifier_kog_hosting_council
+			}
+			subtract = {
+				value = 1000
+				desc = kog_value_from_hosting_council
+			}
+		}
+		if = {
+			limit = {
+				has_variable = kog_schism_var
+			}
+			subtract = {
+				value = 500
+				desc = kog_value_from_schismatic
+			}
+		}
+		subtract = {
+			value = kog_seat_integration_value
+			desc = kog_value_from_seat_integration
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_mending_schism
+			}
+			subtract = {
+				value = 1000
+				desc = kog_value_from_mending_schism
+			}
+		}
+		
+		# Seat Diplomacy Check
+		subtract = {
+			value = kog_seat_diplomacy_value
+			desc = kog_value_from_diplomacy
+		}
+		
+		# Modifiers Check
+		if = {
+			limit = {
+				kog_has_icon_trigger = yes
+			}
+			subtract = {
+				value = 200
+				desc = kog_value_from_has_icon
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_restored_synod
+			}
+			subtract = {
+				value = 500
+				desc = kog_value_from_restored_synod
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_restored_monasteries
+			}
+			subtract = {
+				value = 200
+				desc = kog_value_from_restored_monasteries
+			}
+		}
+		
+		# Decree Check
+		add = {
+			value = kog_decree_expense_value
+			desc = kog_value_from_decrees
+		}
+		
+		round_to = 1
+	}
+	
+	## ORIENTAL VALUE LOGIC
+	else_if = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		# SOURCES
+		add = {
+			value = 100
+			desc = kog_value_from_base
+		}
+		
+		## EXPENSES
+		# Seat Diplomacy Check
+		subtract = {
+			value = kog_seat_diplomacy_value
+			desc = kog_value_from_diplomacy
+		}
+	}
+	
+	## ELYSIAN VALUE LOGIC
+	else_if = {
+		limit = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		# SOURCES
+		add = {
+			value = 100
+			desc = kog_value_from_base
+		}
+		
+		## EXPENSES
+		# Seat Diplomacy Check
+		subtract = {
+			value = kog_seat_diplomacy_value
+			desc = kog_value_from_diplomacy
+		}
+	}
+	
+	## PROTESTANT VALUE LOGIC
+	else_if = {
+		limit = {
+			kog_is_protestant_trigger = yes
+		}
+		multiply = 0
+	}
+}
+
+kog_capacity_multiplier_value = {
+	value = 0
+	add = kog_capacity_value
+	multiply = 0.1
+	round_to = 1
+}
