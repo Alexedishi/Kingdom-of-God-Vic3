@@ -11,6 +11,17 @@ types kog_technical_types {
 		}
 	}
 	
+	type kog_display_widget = widget {
+		datacontext = "[AccessPlayer]"
+		visible = "[GetPlayer.MakeScope.Var('kog_display_widget_var').IsSet]"
+		enabled = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+		state = {
+			name = _show
+			on_finish = "[GetScriptedGui('kog_sidebar_button_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			on_finish = "[GetVariableSystem.Set('com_open_window', 'kog_sidebar_button_sgui')]"
+		}
+	}
+	
 	type kog_window_header = widget {
 		size = { 100% 92 }
 		position = { 0 76 }
