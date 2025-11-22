@@ -119,16 +119,23 @@
  kog_controls_mixtec_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_mixtec$"
  kog_controls_cahokia_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_cahokia$"
  
- kog_controls_any_seat: "[GetPlayer.GetNameNoFlag] $kog_controls$ #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] any#!#! [concept_episcopal_seat]"
- kog_controls_ancient_seat: "[GetPlayer.GetNameNoFlag] $kog_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_ancient_seats')] Ancient#!#! [concept_episcopal_seat]"
- kog_controls_eastern_seat: "[GetPlayer.GetNameNoFlag] $kog_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern#!#! [concept_episcopal_seat]"
- kog_controls_tetrarchy: "[GetPlayer.GetNameNoFlag]  $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#!"
+ kog_controls_any_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] any#!#! [concept_episcopal_seat]"
+ kog_controls_any_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] any#!#! [concept_episcopal_seat]"
+ kog_controls_any_catholic_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ a #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('catholic').GetName]#!#! [concept_episcopal_seat]"
+ kog_controls_any_catholic_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ a #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('catholic').GetName]#!#! [concept_episcopal_seat]"
+ kog_controls_any_orthodox_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('orthodox').GetName]#!#! [concept_episcopal_seat]"
+ kog_controls_any_orthodox_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('orthodox').GetName]#!#! [concept_episcopal_seat]"
+ kog_controls_any_ancient_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_ancient_seats')] Ancient#!#! [concept_episcopal_seat]"
+ kog_controls_any_ancient_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_ancient_seats')] Ancient#!#! [concept_episcopal_seat]"
+ kog_controls_tetrarchy_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#!"
+ kog_controls_tetrarchy_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#!"
+ kog_controls_pentarchy_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#!"
+ kog_controls_pentarchy_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#!"
  kog_controls_and_owns_tetrarchy: "[GetPlayer.GetNameNoFlag]  $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
- kog_controls_pentarchy: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#!"
  kog_controls_and_owns_pentarchy: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
- kog_controls_all_seats: "[GetPlayer.GetNameNoFlag] $kog_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat]"
+ kog_controls_all_seats_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat]"
+ kog_controls_all_seats_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat]"
  kog_controls_and_owns_all_seats: "[GetPlayer.GetNameNoFlag] $kog_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat] and owns their entire associated [concept_state_region]#o s#!"
- 
  
  kog_integrating_seat: "[GetPlayer.GetNameNoFlag] is currently integrating a [concept_episcopal_seat]"
  kog_integrating_seat_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! currently integrating a [concept_episcopal_seat]"
@@ -176,7 +183,6 @@
  kog_can_enforce_elysium: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_elysium$ of #bold #green 50#! or greater#!"
  kog_can_enforce_mixtec: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_mixtec$ of #bold #green 50#! or greater#!"
  kog_can_enforce_cahokia: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cahokia$ of #bold #green 50#! or greater#!"
- 
  
  # Episcopal Seat Relations Triggers
  kog_has_rome_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #green 75#! or greater#!"
