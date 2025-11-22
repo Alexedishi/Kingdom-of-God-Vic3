@@ -1,7 +1,44 @@
-﻿## CATHOLIC DECISIONS
+﻿####---------- Catholic Metropolitan SGUIs ----------####
+# Religious Aspects
+# Religious Focuses
+# Religious Actions
 
-## ORTHODOX DECISIONS
-# Focus Actions
+####---------- Orthodox Metropolitan SGUIs ----------####
+# Religious Aspects
+kog_commission_icon_sgui = {
+	scope = country
+	is_shown = {
+		always = yes
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = kog_is_selecting_icon_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = kog_icon_var
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				kog_has_icon_trigger = no
+			}
+			has_technology_researched = romanticism
+			custom_tooltip = {
+				text = kog_has_200_capacity
+				hidden_trigger = {
+					kog_capacity_value >= 200
+				}
+			}
+		}
+	}
+	effect = {
+		set_variable = kog_icon_var
+		#TODO add re-factored event
+	}
+}
+
+# Religious Focuses
 kog_emphasize_unity_sgui = {
 	scope = country
 	is_shown = {
@@ -110,40 +147,7 @@ kog_promote_ecumenism_sgui = {
 	}
 }
 
-# Decisions
-kog_commission_icon_sgui = {
-	scope = country
-	is_shown = {
-		always = yes
-	}
-	is_valid = {
-		custom_tooltip = {
-			text = kog_is_selecting_icon_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = kog_icon_var
-				}
-			}
-		}
-		trigger_if = {
-			limit = {
-				kog_has_icon_trigger = no
-			}
-			has_technology_researched = romanticism
-			custom_tooltip = {
-				text = kog_has_200_capacity
-				hidden_trigger = {
-					kog_caesaropapism_capacity_value >= 200
-				}
-			}
-		}
-	}
-	effect = {
-		set_variable = kog_icon_var
-		#TODO add re-factored event
-	}
-}
-
+# Religious Actions
 kog_dissolve_monasteries_sgui = {
 	scope = country
 	is_shown = {
@@ -229,7 +233,7 @@ kog_restore_synod_sgui = {
 		custom_tooltip = {
 			text = kog_has_100_capacity
 			hidden_trigger = {
-				kog_caesaropapism_capacity_value >= 100
+				kog_capacity_value >= 100
 			}
 		}
 	}
@@ -280,7 +284,7 @@ kog_end_subsidies_sgui = {
 		custom_tooltip = {
 			text = kog_has_100_capacity
 			hidden_trigger = {
-				kog_caesaropapism_capacity_value >= 100
+				kog_capacity_value >= 100
 			}
 		}
 	}

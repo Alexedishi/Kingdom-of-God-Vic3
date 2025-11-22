@@ -6,20 +6,11 @@ kog_assert_rome_sgui = {
 	is_shown = {
 		kog_is_roman_catholic_trigger = yes
 	}
-	
 	is_valid = {
 		kog_is_autocephalous_trigger = yes
-		custom_tooltip = {
-			text = kog_controls_rome_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = kog_controls_rome
-				}
-			}
-		}
+		kog_controls_rome_trigger = no
 		owns_entire_state_region = STATE_LAZIO
 	}
-	
 	effect = {
 		#TODO Add re-factored event
 	}
@@ -31,10 +22,9 @@ kog_integrate_rome_sgui = {
 	is_shown = {
 		NOR = {
 			has_variable = kog_integrating_rome
-			has_variable = kog_controls_rome
+			kog_controls_rome_trigger = no
 		}
 	}
-	
 	is_valid = {
 		kog_is_autocephalous_trigger = yes
 		kog_has_200_capacity_trigger = yes
@@ -44,7 +34,6 @@ kog_integrate_rome_sgui = {
 		}
 		owns_entire_state_region = STATE_LAZIO
 	}
-	
 	effect = {
 		add_modifier = modifier_kog_integrating_rome
 		set_variable = {
@@ -66,7 +55,6 @@ kog_rome_integration_sgui = {
 	is_shown = {
 		has_variable = kog_integrating_rome
 	}
-	
 }
 
 kog_enforce_rome_sgui = {
@@ -76,7 +64,6 @@ kog_enforce_rome_sgui = {
 		has_variable = kog_controls_rome
 		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_rome.var:kog_rite_var
 	}
-	
 	is_valid = {
 		kog_is_autocephalous_trigger = yes
 		kog_has_200_capacity_trigger = yes
@@ -85,7 +72,6 @@ kog_enforce_rome_sgui = {
 			var:kog_rome_opinion_var >= 50
 		}
 	}
-	
 	effect = {
 		set_variable = kog_enforcing_rome
 		set_variable = {
