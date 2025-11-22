@@ -661,6 +661,7 @@ types kog_episcopal_seat_panels {
 				# Enforcement Progressbar
 				green_progressbar_horizontal = {
 					size = { 180 20 }
+					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
 					
 					blockoverride "values" {
 						min = 0
