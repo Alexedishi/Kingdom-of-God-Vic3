@@ -1,0 +1,86 @@
+types kog_denominational_panels {
+	type kog_denominational_tabs = tab_buttons {
+		margin = { 15 0 }
+		layoutpolicy_horizontal = expanding
+		margin_bottom = -5
+		blockoverride "first_button" {
+			text = "kog_gui_head_of_faith_header"
+		}
+		blockoverride "first_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'head')]"
+		}
+		blockoverride "first_button_visibility" {
+			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		}
+		blockoverride "first_button_visibility_checked" {
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'head')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+		}
+		blockoverride "first_button_selected" {
+			text = "kog_gui_head_of_faith_header"
+		}
+		
+		blockoverride "second_button" {
+			text = "kog_gui_canon_law_header"
+		}
+		blockoverride "second_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+		}
+		blockoverride "second_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+		}
+		blockoverride "second_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+		}
+		blockoverride "second_button_selected" {
+			text = "kog_gui_canon_law_header"
+		}
+		
+		blockoverride "third_button" {
+			text = "kog_gui_collegium_header"
+		}
+		blockoverride "third_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
+		}
+		blockoverride "third_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
+		}
+		blockoverride "third_button_visibility_checked" {
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia')), GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+		}
+		blockoverride "third_button_selected" {
+			text = "kog_gui_collegium_header"
+		}
+		
+		blockoverride "fourth_button" {
+			text = "kog_gui_holy_sites_header"
+		}
+		blockoverride "fourth_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
+		}
+		blockoverride "fourth_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+		}
+		blockoverride "fourth_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
+		}
+		blockoverride "fourth_button_selected" {
+			text = "kog_gui_holy_sites_header"
+		}
+		
+		blockoverride "fifth_button" {
+			text = "kog_gui_global_header"
+		}
+		blockoverride "fifth_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'members')]"
+		}
+		blockoverride "fifth_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'members')]"
+		}
+		blockoverride "fifth_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'members'))]"
+		}
+		blockoverride "fifth_button_selected" {
+			text = "kog_gui_global_header"
+		}
+	}
+}

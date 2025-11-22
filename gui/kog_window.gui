@@ -17,8 +17,8 @@ widget = {
 	layer = layer_ingame_menu
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 	
-	# This opens the GUI if an alert variable is set
-	kog_alert_widget = {}
+	kog_alert_widget = {} # This opens the GUI if an alert variable is set
+	kog_display_widget = {} # This opens the GUI if a local variable is set
 	
 	widget = {
 		parentanchor = top|hcenter
@@ -70,102 +70,7 @@ widget = {
 		}
 		
 		## BACKGROUNDS
-		background = {
-			visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			
-			texture = "gfx/illustrations/kog/kog_catholic_background.dds"
-			alpha = 1
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_top.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
-				spriteType = Corneredstretched
-				spriteborder = { 0 0 }
-				blend_mode = overlay
-				alpha = 0.8
-			}
-		}
-	
-		background = {
-			visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				
-			texture = "gfx/illustrations/kog/kog_orthodox_background.dds"
-			alpha = 1
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_top.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-				alpha = 0.5
-			}
-			modify_texture = {
-				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
-				spriteType = Corneredstretched
-				spriteborder = { 0 0 }
-				blend_mode = overlay
-				alpha = 0.8
-			}
-		}
-	
-		background = {
-			visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			
-			texture = "gfx/illustrations/kog/kog_oriental_background.dds"
-			alpha = 1
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_top.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
-				spriteType = Corneredstretched
-				spriteborder = { 0 0 }
-				blend_mode = overlay
-				alpha = 0.8
-			}
-		}
-	
-		background = {
-			visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			
-			texture = "gfx/illustrations/kog/kog_elysian_background.dds"
-			alpha = 1
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_top.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
-				translate_uv = { 0 0 }
-				blend_mode = alphamultiply
-			}
-			modify_texture = {
-				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
-				spriteType = Corneredstretched
-				spriteborder = { 0 0 }
-				blend_mode = overlay
-				alpha = 0.8
-			}
-		}
+		kog_window_background = {}
 		
 		## HEADER
 		kog_window_header = {}
@@ -175,190 +80,95 @@ widget = {
 
 		## WIDGET CONTENT
 		kog_catholic_window = {}
-		kog_orthodox_window = {}
-		kog_oriental_window = {}
-		kog_elysian_window = {}
+#		kog_orthodox_window = {}
 	}
 	
 }
 
 types kog_kingdom_of_god_window_types {
-
 	type kog_catholic_window = vbox {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
 		
-		visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		#visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		spacing = 10
 		margin_top = 180
 		margin_bottom = 10
 		margin_left = 60
 		margin_right = 60
-
+		
 		using = default_fade_in_out
 		
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			spacing = 5
-
-			### Religious Capacity & Autocephaly Status
+			
+			### LEFT PANEL - LOCAL METROPOLIS
 			vbox = {
 				layoutstretchfactor_horizontal = 1
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				margin_bottom = 10
-
-				using = entry_bg_fancy
-
-				kog_catholic_communion_panel = {}
-
-				### Metropolitan Character Panel and Stats
-				vbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin = { 5 5 }
-
-					# Metropolitan Portrait & Church Details
-					kog_metropolitan_stats_panel = {}
-
-					### Holy Sites Panel
-					kog_holy_sites_panel = {}
-				}
-			}
-
-			## RELIGIOUS COMMUNITY PANEL
-			vbox = {
-				layoutstretchfactor_horizontal = 2
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = preferred
-
-				background = {
-					using = dark_area
-				}
+				spacing = 10
 				
 				using = entry_bg_fancy
 				
-				default_header_clean_faded = {
-					layoutpolicy_horizontal = expanding
-					size = { 0 44 }
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
+						layoutpolicy_horizontal = expanding
+						size = { 0 44 }
+					}
 					blockoverride "text" {
-						text = "kog_gui_metropolis_header"
+						text = "kog_gui_national_church_name"
 					}
 				}
 				
-				kog_metropolitan_tabs = {}
+				textbox = {
+					autoresize = yes
+					text = "kog_gui_communion_status"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
 				
-				# Metropolitan Panels
+				green_progressbar_horizontal = {
+					size = { 400 30 }
+					blockoverride "values" {
+						min = 0
+						max = 1000
+						value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_papacy_capacity_value'))]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+						text = "kog_gui_catholic_capacity_amount"
+						align = center|nobaseline
+						elide = right
+						using = fontsize_medium
+					}
+					tooltip = "kog_gui_catholic_capacity_breakdown"
+				}
+				
+				# Devout Leader Panel
+				kog_metropolitan_bishop_panel = {}
+				
+				# Metropolitan Action Buttons
 				kog_catholic_metropolis_panel = {}
 				
-				# College of Cardinals Panel
-				kog_collegium_cardinalium_panel = {}
-				
-				# Global Community Panels
-				kog_catholic_global_panel = {}
-				
-				# Encyclical Panel
-				kog_catholic_encyclical_panel = {}
-				
-				# Ecumenical Council Panels
-				kog_catholic_council_panel = {}
-				
+				expand = {}
 			}
-
-			### PATRIARCHAL SEATS
-			vbox = {
-				layoutstretchfactor_horizontal = 1
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-
-				using = entry_bg_fancy
-
-				background = {
-					using = entry_bg_simple
-					margin = { -3 -3 }
-				}
-
-				background = {
-					using = entry_bg_simple
-					margin = { -3 -3 }
-				}
-
-				default_header_clean = {
-					blockoverride "header_mask" {
-						using = frame_small_mask_top
-					}
-					blockoverride "size" {
-						layoutpolicy_horizontal = expanding
-						size = { 0 44 }
-					}
-					blockoverride "text" {
-						text = "kog_gui_christian_community"
-					}
-				}
-
-				### SEAT GROUP BUTTONS
-				kog_seat_tab_buttons = {}
-				divider_clean = {}
-				kog_catholic_seats = {}
-				kog_orthodox_seats = {}
-				kog_oriental_seats = {}
-				kog_elysian_seats = {}
-			}
-		}
-	}
-	
-	type kog_orthodox_window = vbox {
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-		
-		visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		
-		spacing = 10
-		margin_top = 180
-		margin_bottom = 10
-		margin_left = 60
-		margin_right = 60
-
-		using = default_fade_in_out
-		
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = expanding
-			spacing = 5
-
-			### Religious Capacity & Autocephaly Status
-			vbox = {
-				layoutstretchfactor_horizontal = 1
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				margin_bottom = 10
-
-				using = entry_bg_fancy
-
-				kog_orthodox_communion_panel = {}
-
-				### Metropolitan Character Panel and Stats
-				vbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin = { 5 5 }
-
-					# Metropolitan Portrait & Church Details
-					kog_metropolitan_stats_panel = {}
-
-					### Holy Sites Panel
-					kog_holy_sites_panel = {}
-				}
-			}
-
-			## RELIGIOUS COMMUNITY PANEL
+			
+			#### CENTER PANEL - DENOMINATIONAL COMMUNITY
 			vbox = {
 				layoutstretchfactor_horizontal = 2
 				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = preferred
-
+				layoutpolicy_vertical = expanding
+				spacing = 10
+				
 				background = {
 					using = dark_area
 				}
@@ -366,6 +176,7 @@ types kog_kingdom_of_god_window_types {
 				using = entry_bg_fancy
 				
 				default_header_clean_faded = {
+					parentanchor = top|hcenter
 					layoutpolicy_horizontal = expanding
 					size = { 0 44 }
 					blockoverride "text" {
@@ -373,41 +184,43 @@ types kog_kingdom_of_god_window_types {
 					}
 				}
 				
-				kog_metropolitan_tabs = {}
-				
-				# Metropolitan Panels
-				kog_orthodox_metropolis_panel = {}
-				
-				# Global Community Panels
-				kog_orthodox_global_panel = {}
+				kog_denominational_tabs = { }
+				#kog_head_of_faith_panel = {}
+				#kog_canon_laws_panel = {}
+				#kog_curia_panel = {}
+				#kog_holy_sites_panel = {}
+				#kog_catholic_members_panel = { }
 				
 				# Encyclical Panel
-				kog_orthodox_encyclical_panel = {}
+				#kog_catholic_encyclical_panel = { }
 				
 				# Ecumenical Council Panels
-				kog_orthodox_council_panel = {}
+				#kog_catholic_council_panel = { }
 				
+				expand = {}
 			}
-
-			### PATRIARCHAL SEATS
+			
+			### RIGHT PANEL - GREATER CHRISTIAN COMMUNITY
 			vbox = {
 				layoutstretchfactor_horizontal = 1
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-
+				spacing = 10
+				
 				using = entry_bg_fancy
-
+				
 				background = {
 					using = entry_bg_simple
 					margin = { -3 -3 }
 				}
-
+				
 				background = {
 					using = entry_bg_simple
 					margin = { -3 -3 }
 				}
-
+				
 				default_header_clean = {
+					parentanchor = top|hcenter
 					blockoverride "header_mask" {
 						using = frame_small_mask_top
 					}
@@ -419,260 +232,17 @@ types kog_kingdom_of_god_window_types {
 						text = "kog_gui_christian_community"
 					}
 				}
-
+				
 				### SEAT GROUP BUTTONS
-				kog_seat_tab_buttons = {}
-				divider_clean = {}
-				kog_catholic_seats = {}
-				kog_orthodox_seats = {}
-				kog_oriental_seats = {}
-				kog_elysian_seats = {}
+				#kog_seat_tab_buttons = { }
+				#divider_clean = { }
+				#kog_catholic_seats = { }
+				#kog_orthodox_seats = { }
+				#	kog_oriental_seats = {}
+				#	kog_elysian_seats = {}
+				
+				expand = {}
 			}
 		}
 	}
-	
-	type kog_oriental_window = vbox {
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-		
-		visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		
-		spacing = 10
-		margin_top = 180
-		margin_bottom = 10
-		margin_left = 60
-		margin_right = 60
-
-		using = default_fade_in_out
-		
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = expanding
-			spacing = 5
-
-			### Religious Capacity & Autocephaly Status
-			vbox = {
-				layoutstretchfactor_horizontal = 1
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				margin_bottom = 10
-
-				using = entry_bg_fancy
-
-				kog_oriental_communion_panel = {}
-
-				### Metropolitan Character Panel and Stats
-				vbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin = { 5 5 }
-
-					# Metropolitan Portrait & Church Details
-					kog_metropolitan_stats_panel = {}
-
-					### Holy Sites Panel
-					kog_holy_sites_panel = {}
-				}
-			}
-
-			## RELIGIOUS COMMUNITY PANEL
-			vbox = {
-				layoutstretchfactor_horizontal = 2
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = preferred
-
-				background = {
-					using = dark_area
-				}
-				
-				using = entry_bg_fancy
-				
-				default_header_clean_faded = {
-					layoutpolicy_horizontal = expanding
-					size = { 0 44 }
-					blockoverride "text" {
-						text = "kog_gui_metropolis_header"
-					}
-				}
-				
-				kog_metropolitan_tabs = {}
-				
-				# Metropolitan Panels
-				kog_oriental_metropolis_panel = {}
-				
-				# Global Community Panels
-				kog_oriental_global_panel = {}
-				
-				# Encyclical Panel
-				kog_encyclical_dummy_panel = {}
-				
-				# Ecumenical Council Panels
-				kog_oriental_council_panel = {}
-				
-			}
-
-			### PATRIARCHAL SEATS
-			vbox = {
-				layoutstretchfactor_horizontal = 1
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-
-				using = entry_bg_fancy
-
-				background = {
-					using = entry_bg_simple
-					margin = { -3 -3 }
-				}
-
-				background = {
-					using = entry_bg_simple
-					margin = { -3 -3 }
-				}
-
-				default_header_clean = {
-					blockoverride "header_mask" {
-						using = frame_small_mask_top
-					}
-					blockoverride "size" {
-						layoutpolicy_horizontal = expanding
-						size = { 0 44 }
-					}
-					blockoverride "text" {
-						text = "kog_gui_christian_community"
-					}
-				}
-
-				### SEAT GROUP BUTTONS
-				kog_seat_tab_buttons = {}
-				divider_clean = {}
-				kog_catholic_seats = {}
-				kog_orthodox_seats = {}
-				kog_oriental_seats = {}
-				kog_elysian_seats = {}
-			}
-		}
-	}
-	
-	type kog_elysian_window = vbox {
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-		
-		visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		
-		spacing = 10
-		margin_top = 180
-		margin_bottom = 10
-		margin_left = 60
-		margin_right = 60
-
-		using = default_fade_in_out
-		
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = expanding
-			spacing = 5
-
-			### Religious Capacity & Autocephaly Status
-			vbox = {
-				layoutstretchfactor_horizontal = 1
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				margin_bottom = 10
-
-				using = entry_bg_fancy
-
-				kog_elysian_communion_panel = {}
-
-				### Metropolitan Character Panel and Stats
-				vbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					margin = { 5 5 }
-
-					# Metropolitan Portrait & Church Details
-					kog_metropolitan_stats_panel = {}
-
-					### Holy Sites Panel
-					kog_holy_sites_panel = {}
-				}
-			}
-
-			## RELIGIOUS COMMUNITY PANEL
-			vbox = {
-				layoutstretchfactor_horizontal = 2
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = preferred
-
-				background = {
-					using = dark_area
-				}
-				
-				using = entry_bg_fancy
-				
-				default_header_clean_faded = {
-					layoutpolicy_horizontal = expanding
-					size = { 0 44 }
-					blockoverride "text" {
-						text = "kog_gui_metropolis_header"
-					}
-				}
-				
-				kog_metropolitan_tabs = {}
-				
-				# Metropolitan Panels
-				kog_elysian_metropolis_panel = {}
-				
-				# Global Community Panels
-				kog_elysian_global_panel = {}
-				
-				# Encyclical Panel
-				kog_encyclical_dummy_panel = {}
-				
-				# Ecumenical Council Panels
-				kog_elysian_council_panel = {}
-				
-			}
-
-			### PATRIARCHAL SEATS
-			vbox = {
-				layoutstretchfactor_horizontal = 1
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-
-				using = entry_bg_fancy
-
-				background = {
-					using = entry_bg_simple
-					margin = { -3 -3 }
-				}
-
-				background = {
-					using = entry_bg_simple
-					margin = { -3 -3 }
-				}
-
-				default_header_clean = {
-					blockoverride "header_mask" {
-						using = frame_small_mask_top
-					}
-					blockoverride "size" {
-						layoutpolicy_horizontal = expanding
-						size = { 0 44 }
-					}
-					blockoverride "text" {
-						text = "kog_gui_christian_community"
-					}
-				}
-
-				### SEAT GROUP BUTTONS
-				kog_seat_tab_buttons = {}
-				divider_clean = {}
-				kog_catholic_seats = {}
-				kog_orthodox_seats = {}
-				kog_oriental_seats = {}
-				kog_elysian_seats = {}
-			}
-		}
-	}
-	
 }

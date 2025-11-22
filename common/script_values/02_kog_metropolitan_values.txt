@@ -1,0 +1,426 @@
+﻿kog_capacity_value = {
+	value = 0
+	if = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		add = kog_papacy_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_eastern_christian_trigger = yes
+		}
+		add = kog_caesaropapism_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		add = kog_synodal_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		add = kog_synkletos_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_protestant_trigger = yes
+		}
+		add = kog_power_capacity_value
+	}
+}
+
+kog_capacity_multiplier_value = {
+	value = 0
+	if = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		add = kog_papacy_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_eastern_christian_trigger = yes
+		}
+		add = kog_caesaropapism_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_oriental_orthodox_trigger = yes
+		}
+		add = kog_synodal_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_elysian_orthodox_trigger = yes
+		}
+		add = kog_synkletos_capacity_value
+	}
+	else_if = {
+		limit = {
+			kog_is_protestant_trigger = yes
+		}
+		add = kog_power_capacity_value
+	}
+	multiply = 0.1
+	round_to = 1
+}
+
+kog_holy_sites_value = {
+	value = 0
+	if = {
+		limit = {
+			has_variable = kog_controls_rome
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_santiago
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_paris
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_koln
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_vienna
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_constantinople
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_antioch
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_jerusalem
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_alexandria
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_moscow
+		}
+		add = 1
+	}if = {
+		limit = {
+			has_variable = kog_controls_coptic_alexandria
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_syriac_antioch
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_etchmiadzin
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_addis_ababa
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_konak
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_elysium
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_mixtec
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_variable = kog_controls_cahokia
+		}
+		add = 1
+	}
+}
+
+kog_decree_expense_value = {
+	value = 0
+	every_scope_state = {
+		limit = {
+			has_decree = decree_kog_consecrate_metropolitan
+		}
+		subtract = {
+			value = 100
+			desc = kog_value_from_metropolitan_decree
+		}
+	}
+	every_scope_state = {
+		limit = {
+			has_decree = decree_kog_encourage_almsgiving
+		}
+		subtract = {
+			value = 100
+			desc = kog_value_from_almsgiving_decree
+		}
+	}
+}
+
+kog_seat_diplomacy_value = {
+	value = 0
+	
+	# Relations Improvement Modifiers
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_rome
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_santiago
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_paris
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_koln
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_vienna
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_constantinople
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_jerusalem
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_moscow
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_coptic_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_syriac_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_etchmiadzin
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_addis_ababa
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_konak
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_elysium
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_mixtec
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_cahokia
+		}
+		add = 100
+	}
+	
+	# Relations Reduction Modifiers
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_rome
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_santiago
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_paris
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_koln
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_vienna
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_constantinople
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_jerusalem
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_moscow
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_coptic_alexandria
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_syriac_antioch
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_etchmiadzin
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_addis_ababa
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_konak
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_elysium
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_mixtec
+		}
+		add = 100
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_cahokia
+		}
+		add = 100
+	}
+}
