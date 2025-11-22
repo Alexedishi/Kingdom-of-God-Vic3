@@ -1,0 +1,68 @@
+﻿namespace = kog_technical
+
+kog_technical.001 = { # The Patriarch's Variable Dumpster Fire
+	type = country_event
+	hidden = yes
+	orphan = yes
+	
+	trigger = {
+		always = no # DO NOT CALL THIS EVENT
+	}
+	cancellation_trigger = {
+		always = yes
+	}
+	immediate = {
+		fix_variable_error = { variable = kog_sidebar_button_sgui }
+		fix_variable_error = { variable = je_group_kog_hidden }
+		fix_variable_error = { variable = kog_global }
+		fix_variable_error = { variable = kog_local }
+		fix_variable_error = { variable = kog_catholic }
+		fix_variable_error = { variable = kog_orthodox }
+		fix_variable_error = { variable = kog_seat }
+		fix_variable_error = { variable = kog_is_major_seat }
+		fix_variable_error = { variable = kog_location_var }
+		fix_variable_error = { variable = kog_denomination }
+		fix_variable_error = { variable = kog_metropolitan_var }
+		
+		fix_variable_error = { variable = kog_language_latin }
+		fix_variable_error = { variable = kog_language_khoine }
+		fix_variable_error = { variable = kog_language_coptic }
+		
+		fix_variable_error = { variable = kog_seat_name }
+		fix_variable_error = { variable = kog_rome_name }
+		fix_variable_error = { variable = kog_santiago_name }
+		fix_variable_error = { variable = kog_paris_name }
+		fix_variable_error = { variable = kog_koln_name }
+		fix_variable_error = { variable = kog_vienna_name }
+		fix_variable_error = { variable = kog_constantinople_name }
+		fix_variable_error = { variable = kog_antioch_name }
+		fix_variable_error = { variable = kog_alexandria_name }
+		fix_variable_error = { variable = kog_jerusalem_name }
+		fix_variable_error = { variable = kog_moscow_name }
+		fix_variable_error = { variable = kog_coptic_alexandria_name }
+		fix_variable_error = { variable = kog_syriac_antioch_name }
+		fix_variable_error = { variable = kog_etchmiadzin_name }
+		fix_variable_error = { variable = kog_addis_ababa_name }
+		fix_variable_error = { variable = kog_konak_name }
+		fix_variable_error = { variable = kog_elysium_name }
+		fix_variable_error = { variable = kog_mixtec_name }
+		fix_variable_error = { variable = kog_cahokia_name }
+		
+		fix_variable_error = { variable = kog_coptic_alexandria }
+		fix_variable_error = { variable = kog_coptic_alexandria_opinion_var }
+		fix_variable_error = { variable = kog_syriac_antioch }
+		fix_variable_error = { variable = kog_syriac_antioch_opinion_var }
+		fix_variable_error = { variable = kog_etchmiadzin }
+		fix_variable_error = { variable = kog_etchmiadzin_opinion_var }
+		fix_variable_error = { variable = kog_addis_ababa }
+		fix_variable_error = { variable = kog_addis_ababa_opinion_var }
+		fix_variable_error = { variable = kog_konak }
+		fix_variable_error = { variable = kog_konak_opinion_var }
+		fix_variable_error = { variable = kog_elysium }
+		fix_variable_error = { variable = kog_elysium_opinion_var }
+		fix_variable_error = { variable = kog_mixtec }
+		fix_variable_error = { variable = kog_mixtec_opinion_var }
+		fix_variable_error = { variable = kog_cahokia }
+		fix_variable_error = { variable = kog_cahokia_opinion_var }
+	}
+}
