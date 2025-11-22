@@ -75,9 +75,9 @@ kog_mend_schism_sgui = {
 				value = 0
 			}
 		}
-		trigger_event = {
-			id = kog_general.100 # The Council of Unification
-		}
+#		trigger_event = {
+#			id = kog_general.100 # The Council of Unification
+#		}
 		add_modifier = modifier_kog_mending_schism
 		hidden_effect = {
 			every_country = {
@@ -87,9 +87,9 @@ kog_mend_schism_sgui = {
 						has_modifier = modifier_kog_mending_schism
 					}
 				}
-				trigger_event = {
-					id = kog_general.101 # Mending the Great Schism
-				}
+#				trigger_event = {
+#					id = kog_general.101 # Mending the Great Schism
+#				}
 			}
 		}
 	}
@@ -116,12 +116,7 @@ kog_unify_orthodox_realms_sgui = {
 	}
 
 	is_valid = {
-		custom_tooltip = {
-			text = kog_is_autocephalous
-			hidden_trigger = {
-				has_variable = kog_is_autocephalous
-			}
-		}
+		kog_is_autocephalous_trigger = yes
 		custom_tooltip = {
 			text = kog_controls_eastern_seat
 			hidden_trigger = {
