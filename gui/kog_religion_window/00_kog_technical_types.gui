@@ -273,4 +273,109 @@ types kog_technical_types {
 		}
 	}
 	
+	type kog_window_background = widget {
+		parentanchor = top|hcenter
+		size = { 100% 100% }
+		
+		background = {
+			visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_catholic_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		background = {
+			visible = "no"
+			#visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_orthodox_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+				alpha = 0.5
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		background = {
+			visible = "no"
+			#visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_oriental_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+		
+		background = {
+			visible = "no"
+			#visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			
+			texture = "gfx/illustrations/kog/kog_elysian_background.dds"
+			alpha = 1
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				translate_uv = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			modify_texture = {
+				texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = overlay
+				alpha = 0.8
+			}
+		}
+	}
+	
 }
