@@ -1,4 +1,6 @@
 ﻿kog_initialize_content_effect = {
+	# If you are making a submod: DO NOT override this effect- override the individual effects downstream
+	
 	#### Preparatory Work
 	kog_initialize_patriarchs_effect = yes
 	
@@ -37,7 +39,7 @@
 }
 
 ####---------- Individual Effects ----------####
-# Modders, override these entries for TCs; the primary initialization effect will pick them up from there
+# Modders: override these entries for submods- kog_initialize_content_effect will pick them up from there
 
 kog_initialize_patriarchs_effect = {
 	# Override this effect for mod-specific starting Patriarchs
@@ -335,6 +337,10 @@ kog_initialize_seats_effect = {
 			}
 		}
 		set_variable = {
+			name = kog_seat_id
+			value = flag:kog_rome
+		}
+		set_variable = {
 			name = kog_seat_name
 			value = flag:kog_rome_name
 		}
@@ -354,6 +360,7 @@ kog_initialize_seats_effect = {
 			name = kog_patriarch_var
 			value = scope:kog_rome_patriarch
 		}
+		set_variable = kog_is_major_seat
 	}
 	
 	# Santiago
@@ -584,6 +591,7 @@ kog_initialize_seats_effect = {
 			name = kog_patriarch_var
 			value = scope:kog_constantinople_patriarch
 		}
+		set_variable = kog_is_major_seat
 	}
 	
 	# Antioch
