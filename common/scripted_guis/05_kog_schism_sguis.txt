@@ -1,0 +1,80 @@
+﻿kog_declare_autocephaly_sgui = {
+	scope = country
+
+	is_shown = {
+		NOR = {
+			has_variable = kog_is_autocephalous
+			has_variable = kog_schism_var
+		}
+	}
+
+	is_valid = {
+		is_subject = no
+		kog_has_500_capacity_trigger = yes
+		NOR = {
+			has_law = law_type:law_theocracy
+			has_modifier = modifier_kog_autocephaly_abandoned
+		}
+		trigger_if = {
+			limit = {
+				OR = {
+					c:MOL ?= this
+					c:WAL ?= this
+				}
+			}
+			custom_tooltip = {
+				text = kog_romania_united
+				hidden_trigger = {
+					c:ROM ?= this
+				}
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = kog_schism_var
+			value = 0
+		}
+		add_modifier = {
+			name = modifier_kog_schismatic
+			months = 120
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					kog_is_roman_catholic_trigger = yes
+				}
+				#TODO Add re-factored event
+			}
+			else_if = {
+				limit = {
+					kog_is_eastern_christian_trigger = yes
+				}
+				#TODO Add re-factored event
+			}
+			else_if = {
+				limit = {
+					kog_is_oriental_orthodox_trigger = yes
+				}
+				#TODO Add re-factored event
+			}
+			else_if = {
+				limit = {
+					kog_is_elysian_orthodox_trigger = yes
+				}
+				#TODO Add re-factored event
+			}
+		}
+	}
+}
+
+kog_schism_progressbar_sgui = {
+	scope = country
+
+	is_shown = {
+		has_variable = kog_schism_var
+	}
+
+}
+

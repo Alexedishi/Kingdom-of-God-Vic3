@@ -1,0 +1,189 @@
+﻿kog_secure_tetrarchy_sgui = {
+	scope = country
+
+	is_shown = {
+		NOR = {
+			has_variable = kog_tetrarchy_secured
+			has_variable = kog_pentarchy_secured
+			has_global_variable = kog_schism_mended
+		}
+	}
+
+	is_valid = {
+		kog_controls_and_owns_tetrarchy_trigger = yes
+	}
+
+	effect = {
+		#TODO Add re-factored event
+	}
+}
+
+kog_secure_pentarchy_sgui = {
+	scope = country
+
+	is_shown = {
+		has_variable = kog_tetrarchy_secured
+		NOT = {
+			has_variable = kog_pentarchy_secured
+		}
+		NOT = {
+			has_global_variable = kog_schism_mended
+		}
+	}
+
+	is_valid = {
+		kog_controls_and_owns_pentarchy_trigger = yes
+	}
+
+	effect = {
+		#TODO Add re-factored event
+	}
+}
+
+kog_mend_schism_sgui = {
+	scope = country
+
+	is_shown = {
+		has_variable = kog_pentarchy_secured
+		NOT = {
+			has_variable = kog_mending_var
+		}
+	}
+
+	is_valid = {
+		kog_has_1000_capacity_trigger = yes
+		kog_controls_and_owns_pentarchy_trigger = yes
+		custom_tooltip = {
+			text = kog_mending_started_NOT
+			NOT = {
+				has_global_variable = kog_mending_started
+			}
+		}
+		custom_tooltip = {
+			text = kog_mending_completed_NOT
+			NOT = {
+				has_global_variable = kog_schism_mended
+			}
+		}
+	}
+
+	effect = {
+		set_global_variable = kog_mending_started
+		var:kog_local = {
+			set_variable = {
+				name = kog_mending_var
+				value = 0
+			}
+		}
+		trigger_event = {
+			id = kog_general.100 # The Council of Unification
+		}
+		add_modifier = modifier_kog_mending_schism
+		hidden_effect = {
+			every_country = {
+				limit = {
+					country_has_state_religion = rel:orthodox
+					NOT = {
+						has_modifier = modifier_kog_mending_schism
+					}
+				}
+				trigger_event = {
+					id = kog_general.101 # Mending the Great Schism
+				}
+			}
+		}
+	}
+}
+
+kog_mending_progressbar_sgui = {
+	scope = country
+
+	is_shown = {
+		var:kog_local = {
+			has_variable = kog_mending_var
+		}
+	}
+
+}
+
+kog_unify_orthodox_realms_sgui = {
+	scope = country
+
+	is_shown = {
+		NOT = {
+			has_variable = kog_texas_left
+		}
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = kog_is_autocephalous
+			hidden_trigger = {
+				has_variable = kog_is_autocephalous
+			}
+		}
+		custom_tooltip = {
+			text = kog_controls_eastern_seat
+			hidden_trigger = {
+				kog_controls_eastern_seat_trigger = yes
+			}
+		}
+	}
+
+	effect = {
+		#TODO Add re-factored event
+		set_variable = kog_texas_left
+	}
+}
+
+kog_seek_mandate_sgui = {
+	scope = country
+
+	is_shown = {
+		always = yes
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = kog_considering_mandate_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = kog_considering_mandate
+				}
+			}
+		}
+		custom_tooltip = {
+			text = kog_has_mandate_NOT
+			hidden_trigger = {
+				kog_has_mandate_trigger = no
+			}
+		}
+		kog_has_500_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_has_ecumenical_patriarch_approval
+			hidden_trigger = {
+				var:kog_constantinople_relations_var >= 80
+			}
+		}
+		trigger_if = {
+			limit = {
+				c:TUR ?= {
+					has_variable = kog_controls_constantinople
+				}
+			}
+			custom_tooltip = {
+				text = kog_turk_relations_cordial
+				hidden_trigger = {
+					c:TUR = {
+						relations:root >= relations_threshold:cordial
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		#TODO Add re-factored event
+		set_variable = kog_considering_mandate
+	}
+}
