@@ -1,74 +1,203 @@
-﻿kog_canon_law_papal_primacy_sgui = {
-	scope = country
-	is_shown = {}
+﻿####---------- Church and State Law ----------####
+kog_canon_law_theocracy_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_religious_law ?= flag:kog_canon_law_theocracy
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_state_religion_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_religious_law ?= flag:kog_canon_law_state_religion
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_freedom_of_conscience_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_religious_law ?= flag:kog_canon_law_freedom_of_conscience
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_total_separation_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_religious_law ?= flag:kog_canon_law_total_separation
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_state_atheism_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_church_and_state_var ?= flag:kog_canon_law_atheist_state
+	}
+	is_valid = {}
+	effect = {}
+}
+
+####---------- Apostolic Succession ----------####
+kog_canon_law_papal_primacy_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_apostolic_succession_var ?= flag:kog_canon_law_papal_primacy
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_synodality_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_apostolic_succession_var ?= flag:kog_canon_law_synodality
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_congregationalism_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_apostolic_succession_var ?= flag:kog_canon_law_congregationalism
+	}
 	is_valid = {}
 	effect = {}
 }
 
+####---------- Role in Society ----------####
 kog_canon_law_moral_authority_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_social_role_var ?= flag:kog_canon_law_moral_authority
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_moral_guidance_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_social_role_var ?= flag:kog_canon_law_moral_guidance
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_social_activism_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_social_role_var ?= flag:kog_canon_law_social_activism
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_modernizing_force_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_social_role_var ?= flag:kog_canon_law_modernizing_force
+	}
 	is_valid = {}
 	effect = {}
 }
 
+####---------- Stance on the Sciences ----------####
 kog_canon_law_scriptural_supremacy_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_sciences_stance_var ?= flag:kog_canon_law_scriptural_supremacy
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_scriptural_favoritism_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_sciences_stance_var ?= flag:kog_canon_law_scriptural_favoritism
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_scientific_disengagement_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_sciences_stance_var ?= flag:kog_canon_law_scientific_disengagement
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_scientific_patronage_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_sciences_stance_var ?= flag:kog_canon_law_scientific_patronage
+	}
 	is_valid = {}
 	effect = {}
 }
 kog_canon_law_scientific_crusage_sgui = {
-	scope = country
-	is_shown = {}
+	scope = character
+	is_shown = {
+		var:kog_canon_law_sciences_stance_var ?= flag:kog_canon_law_scientific_crusade
+	}
+	is_valid = {}
+	effect = {}
+}
+
+####---------- Crusades ----------####
+kog_canon_law_no_crusades_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_crusades_var ?= flag:kog_canon_law_no_crusades
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_pagan_crusades_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_crusades_var ?= flag:kog_canon_law_pagan_crusades
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_heathen_crusades_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_crusades_var ?= flag:kog_canon_law_heathen_crusades
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_heretic_crusades_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_crusades_var ?= flag:kog_canon_law_heretic_crusades
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_unlimited_crusades_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_crusades_var ?= flag:kog_canon_law_unlimited_crusades
+	}
+	is_valid = {}
+	effect = {}
+}
+
+####---------- Marriage of Priests ----------####
+kog_canon_law_priests_celibate_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_clerical_marriage ?= flag:kog_canon_law_priests_celibate
+	}
+	is_valid = {}
+	effect = {}
+}
+kog_canon_law_marriage_allowed_sgui = {
+	scope = character
+	is_shown = {
+		var:kog_canon_law_clerical_marriage ?= flag:kog_canon_law_marriage_allowed
+	}
 	is_valid = {}
 	effect = {}
 }
