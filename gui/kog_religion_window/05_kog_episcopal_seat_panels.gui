@@ -516,7 +516,7 @@ types kog_episcopal_seat_panels {
 						blockoverride "values" {
 							min = 0
 							max = 240
-							value = "[Country.MakeScope.Var('kog_mending_var').GetValue]"
+							value = "[Country.MakeScope.Var('kog_local').Var('kog_mending_var').GetValue]"
 						}
 						textbox = {
 							parentanchor = center
@@ -557,7 +557,7 @@ types kog_episcopal_seat_panels {
 						blockoverride "values" {
 							min = 0
 							max = 120
-							value = "[Country.MakeScope.Var('kog_schism_var').GetValue]"
+							value = "[Country.MakeScope.Var('kog_local').Var('kog_schism_var').GetValue]"
 						}
 						textbox = {
 							parentanchor = center
