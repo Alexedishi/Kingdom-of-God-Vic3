@@ -185,19 +185,34 @@ types kog_kingdom_of_god_window_types {
 				}
 				
 				kog_denominational_tabs = { }
-				#kog_head_of_faith_panel = {}
-				#kog_canon_laws_panel = {}
-				#kog_curia_panel = {}
-				#kog_holy_sites_panel = {}
-				#kog_catholic_members_panel = { }
+				kog_major_seat_type = {
+					blockoverride "seat_visibility" {
+						visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'head')]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
+					}
+				}
+				kog_canon_laws_panel = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_catholic').GetCharacter]"
+					}
+				}
+				kog_curia_panel = {}
+				kog_holy_sites_panel = {}
+				kog_membership_panel = {
+					blockoverride "list_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_catholic').GetCharacter]"
+					}
+				}
 				
 				expand = {}
 				
 				# Encyclical Panel
-				#kog_catholic_encyclical_panel = { }
+				#kog_encyclical_panel = { }
 				
 				# Ecumenical Council Panels
-				#kog_catholic_council_panel = { }
+				#kog_council_panel = { }
 			}
 			
 			### RIGHT PANEL - GREATER CHRISTIAN COMMUNITY

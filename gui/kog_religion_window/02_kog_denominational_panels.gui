@@ -1,4 +1,20 @@
 types kog_denominational_panels {
+	type kog_canon_laws_panel = vbox {
+		visible = "no"
+	}
+	
+	type kog_curia_panel = vbox {
+		visible = "no"
+	}
+	
+	type kog_curia_panel = vbox {
+		visible = "no"
+	}
+	
+	type kog_membership_panel = vbox {
+		visible = "no"
+	}
+	
 	type kog_denominational_tabs = tab_buttons {
 		margin = { 15 0 }
 		layoutpolicy_horizontal = expanding
@@ -68,7 +84,7 @@ types kog_denominational_panels {
 		}
 		
 		blockoverride "fifth_button" {
-			text = "kog_gui_global_header"
+			text = "kog_gui_members_header"
 		}
 		blockoverride "fifth_button_click" {
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'members')]"
@@ -80,7 +96,7 @@ types kog_denominational_panels {
 			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'members'))]"
 		}
 		blockoverride "fifth_button_selected" {
-			text = "kog_gui_global_header"
+			text = "kog_gui_members_header"
 		}
 	}
 	
