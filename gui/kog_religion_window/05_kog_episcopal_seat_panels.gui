@@ -385,7 +385,7 @@ types kog_episcopal_seat_panels {
 			default_header_clean_faded = {
 				blockoverride "text" {}
 				textbox = {
-					text = "[Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_name'))]"
+					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_name'))]"
 					parentanchor = left|vcenter
 					autoresize = yes
 					max_width = 300
@@ -393,7 +393,7 @@ types kog_episcopal_seat_panels {
 					using = fontsize_large
 				}
 				textbox = {
-					text = "[Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_controller'))]"
+					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_controller'))]"
 					parentanchor = right|vcenter
 					autoresize = yes
 					max_width = 300
@@ -409,7 +409,7 @@ types kog_episcopal_seat_panels {
 			layoutpolicy_vertical = shrinking
 			
 			character_portrait_large_torso = {
-				datacontext = "[Character.MakeScope.Var('kog_patriarch_var').GetCharacter]"
+				block "patriarch_datacontext" {}
 				blockoverride "show_hat" {}
 				blockoverride "tooltip" {} # Error Suppression
 				blockoverride "portrait_icons" {} # Error Suppression
@@ -578,7 +578,7 @@ types kog_episcopal_seat_panels {
 						text = "kog_gui_convoke_council"
 						using = fontsize_large
 						
-						datacontext = "[GetScriptedGui('kog_convoke_sgui')]"
+						datacontext = "[GetScriptedGui('kog_convoke_council_sgui')]"
 						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -617,7 +617,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_integrate_seat"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_integrate_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_integrate_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -627,12 +627,12 @@ types kog_episcopal_seat_panels {
 				# Integration Progressbar
 				green_progressbar_horizontal = {
 					size = { 180 20 }
-					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
+					visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
 					
 					blockoverride "values" {
 						min = 0
 						max = 120
-						value = "[Character.MakeScope.Var('kog_integration_var').GetValue]"
+						value = "[GetPlayer.MakeScope.Var('kog_local').Var('kog_integration_var').GetValue]"
 					}
 					textbox = {
 						parentanchor = center
@@ -651,7 +651,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_enforce_seat"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_enforce_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforce_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -661,12 +661,12 @@ types kog_episcopal_seat_panels {
 				# Enforcement Progressbar
 				green_progressbar_horizontal = {
 					size = { 180 20 }
-					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
+					visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
 					
 					blockoverride "values" {
 						min = 0
 						max = 120
-						value = "[Country.MakeScope.Var('kog_enforcement_var').GetValue]"
+						value = "[GetPlayer.MakeScope.Var('kog_local').Var('kog_enforcement_var').GetValue]"
 					}
 					textbox = {
 						parentanchor = center
@@ -685,7 +685,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_assert_seat"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_assert_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_assert_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -704,7 +704,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_improve_relations"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -718,7 +718,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_cease_diplomacy"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -732,7 +732,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_damage_relations"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -746,7 +746,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_cease_hostilities"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -772,7 +772,7 @@ types kog_episcopal_seat_panels {
 				blockoverride "text" {
 				}
 				textbox = {
-					text = "[Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_name'))]"
+					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_name'))]"
 					parentanchor = left|vcenter
 					autoresize = yes
 					max_width = 300
@@ -780,7 +780,7 @@ types kog_episcopal_seat_panels {
 					using = fontsize_large
 				}
 				textbox = {
-					text = "[Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_controller'))]"
+					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_controller'))]"
 					parentanchor = right|vcenter
 					autoresize = yes
 					max_width = 300
@@ -866,7 +866,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_integrate_seat"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_integrate_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_integration_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -876,7 +876,7 @@ types kog_episcopal_seat_panels {
 				# Integration Progressbar
 				green_progressbar_horizontal = {
 					size = { 180 20 }
-					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
+					visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
 					
 					blockoverride "values" {
 						min = 0
@@ -900,7 +900,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_enforce_seat"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_enforce_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -910,7 +910,7 @@ types kog_episcopal_seat_panels {
 				# Enforcement Progressbar
 				green_progressbar_horizontal = {
 					size = { 180 20 }
-					visible = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
+					visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
 					
 					blockoverride "values" {
 						min = 0
@@ -934,7 +934,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_improve_relations"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -948,7 +948,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_cease_diplomacy"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -962,7 +962,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_damage_relations"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -976,7 +976,7 @@ types kog_episcopal_seat_panels {
 					text = "kog_gui_cease_hostilities"
 					using = fontsize_medium
 					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Scope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
+					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
 					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"

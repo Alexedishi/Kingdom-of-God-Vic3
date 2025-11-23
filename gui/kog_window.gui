@@ -192,6 +192,9 @@ types kog_kingdom_of_god_window_types {
 					blockoverride "seat_datacontext" {
 						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
 					}
+					blockoverride "patriarch_datacontext" {
+						datacontext = [GetGlobalVariable('kog_global').Var('kog_rome').Var('kog_patriarch_var').GetCharacter]
+					}
 				}
 				kog_canon_laws_panel = {
 					blockoverride "seat_datacontext" {
