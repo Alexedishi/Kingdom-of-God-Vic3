@@ -2,14 +2,7 @@
 	# If you are making a submod: DO NOT override this effect- override the individual effects downstream
 	
 	#### Step 1, Create Global Struct
-	create_struct = {
-		struct_type = flag:kog_global
-		struct_scope = kog_global
-	}
-	set_global_variable = {
-		name = kog_global
-		value = scope:kog_global
-	}
+	kog_initialize_global_struct_effect = yes
 	
 	#### Step 2, Create Denomination Structs
 	kog_intialize_denomination_structs_effect = yes
@@ -41,574 +34,590 @@
 ####---------- Individual Effects ----------####
 # Modders: override these entries for submods- kog_initialize_content_effect will pick them up from there
 
+kog_initialize_global_struct_effect = {
+	c:PAP = {
+		create_struct = {
+			struct_type = flag:kog_global
+			struct_scope = kog_global
+		}
+		set_global_variable = {
+			name = kog_global
+			value = scope:kog_global
+		}
+	}
+}
+
 kog_intialize_denomination_structs_effect = {
-	# Roman Catholicism Struct
-	create_struct = {
-		struct_type = flag:kog_denomination
-		struct_scope = kog_catholic
+	c:PAP = {
+		# Roman Catholicism Struct
+		create_struct = {
+			struct_type = flag:kog_denomination
+			struct_scope = kog_catholic
+		}
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_catholic
+				value = scope:kog_catholic
+			}
+		}
+		scope:kog_catholic = {
+			set_variable = {
+				name = kog_mother_church_var
+				value = flag:kog_rome
+			}
+			set_variable = {
+				name = kog_liturgical_language
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_council_counter
+				value = 0
+			}
+			set_variable = {
+				name = kog_canon_law_apostolic_succession_var
+				value = flag:kog_canon_law_papal_primacy
+			}
+			set_variable = {
+				name = kog_canon_law_social_role_var
+				value = flag:kog_canon_law_moral_guidance
+			}
+			set_variable = {
+				name = kog_canon_law_sciences_stance_var
+				value = flag:kog_canon_law_scientific_disengagement
+			}
+			set_variable = {
+				name = kog_canon_law_crusades_var
+				value = flag:kog_canon_law_no_crusades
+			}
+			set_variable = {
+				name = kog_canon_law_clerical_marriage
+				value = flag:kog_canon_law_priests_celibate
+			}
+		}
+		
+		# Eastern Orthodoxy Struct
+		create_struct = {
+			struct_type = flag:kog_denomination
+			struct_scope = kog_orthodox
+		}
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_orthodox
+				value = scope:kog_orthodox
+			}
+		}
+		scope:kog_orthodox = {
+			set_variable = {
+				name = kog_mother_church_var
+				value = flag:kog_constantinople
+			}
+			set_variable = {
+				name = kog_liturgical_language
+				value = flag:kog_language_khoine
+			}
+			set_variable = {
+				name = kog_council_counter
+				value = 0
+			}
+			set_variable = {
+				name = kog_canon_law_apostolic_succession_var
+				value = flag:kog_canon_law_synodality
+			}
+			set_variable = {
+				name = kog_canon_law_social_role_var
+				value = flag:kog_canon_law_moral_guidance
+			}
+			set_variable = {
+				name = kog_canon_law_sciences_stance_var
+				value = flag:kog_canon_law_scientific_disengagement
+			}
+			set_variable = {
+				name = kog_canon_law_crusades_var
+				value = flag:kog_canon_law_no_crusades
+			}
+			set_variable = {
+				name = kog_canon_law_clerical_marriage
+				value = flag:kog_canon_law_marriage_allowed
+			}
+		}
+		
+		# TODO Oriental Orthodox Struct Here
+		# TODO Lutheran Struct Here
+		# TODO Elysian Orthodox Struct Here
 	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_catholic
-			value = scope:kog_catholic
-		}
-	}
-	scope:kog_catholic = {
-		set_variable = {
-			name = kog_mother_church_var
-			value = flag:kog_rome
-		}
-		set_variable = {
-			name = kog_liturgical_language
-			value = flag:kog_language_latin
-		}
-		set_variable = {
-			name = kog_council_counter
-			value = 0
-		}
-		set_variable = {
-			name = kog_canon_law_apostolic_succession_var
-			value = flag:kog_canon_law_papal_primacy
-		}
-		set_variable = {
-			name = kog_canon_law_social_role_var
-			value = flag:kog_canon_law_moral_guidance
-		}
-		set_variable = {
-			name = kog_canon_law_sciences_stance_var
-			value = flag:kog_canon_law_scientific_disengagement
-		}
-		set_variable = {
-			name = kog_canon_law_crusades_var
-			value = flag:kog_canon_law_no_crusades
-		}
-		set_variable = {
-			name = kog_canon_law_clerical_marriage
-			value = flag:kog_canon_law_priests_celibate
-		}
-	}
-	
-	# Eastern Orthodoxy Struct
-	create_struct = {
-		struct_type = flag:kog_denomination
-		struct_scope = kog_orthodox
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_orthodox
-			value = scope:kog_orthodox
-		}
-	}
-	scope:kog_orthodox = {
-		set_variable = {
-			name = kog_mother_church_var
-			value = flag:kog_constantinople
-		}
-		set_variable = {
-			name = kog_liturgical_language
-			value = flag:kog_language_khoine
-		}
-		set_variable = {
-			name = kog_council_counter
-			value = 0
-		}
-		set_variable = {
-			name = kog_canon_law_apostolic_succession_var
-			value = flag:kog_canon_law_synodality
-		}
-		set_variable = {
-			name = kog_canon_law_social_role_var
-			value = flag:kog_canon_law_moral_guidance
-		}
-		set_variable = {
-			name = kog_canon_law_sciences_stance_var
-			value = flag:kog_canon_law_scientific_disengagement
-		}
-		set_variable = {
-			name = kog_canon_law_crusades_var
-			value = flag:kog_canon_law_no_crusades
-		}
-		set_variable = {
-			name = kog_canon_law_clerical_marriage
-			value = flag:kog_canon_law_marriage_allowed
-		}
-	}
-	
-	# TODO Oriental Orthodox Struct Here
-	# TODO Lutheran Struct Here
-	# TODO Elysian Orthodox Struct Here
 }
 
 kog_initialize_episcopal_seats_effect = {
-	# Rome
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_rome
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_rome
-			value = scope:kog_rome
+	c:PAP = {
+		# Rome
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_rome
 		}
-	}
-	global_var:kog_global.var:kog_rome = {
-		p:xF0A020 = {
-			# Rome
-			owner = {
-				save_scope_as = kog_rome_controller
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_rome
+				value = scope:kog_rome
 			}
 		}
-		set_variable = {
-			name = kog_seat_id
-			value = flag:kog_rome
+		global_var:kog_global.var:kog_rome = {
+			p:xF0A020 = {
+				# Rome
+				owner = {
+					save_scope_as = kog_rome_controller
+				}
+			}
+			set_variable = {
+				name = kog_seat_id
+				value = flag:kog_rome
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_rome_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_LAZIO
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_rome_controller
+			}
+			c:PAP = {
+				ruler = {
+					save_scope_as = kog_rome_patriarch
+				}
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_rome_patriarch
+			}
+			set_variable = kog_is_major_seat
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_rome_name
+		
+		# Santiago
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_santiago
 		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_roman_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_LAZIO
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_rome_controller
-		}
-		c:PAP = {
-			ruler = {
-				save_scope_as = kog_rome_patriarch
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_santiago
+				value = scope:kog_santiago
 			}
 		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_rome_patriarch
-		}
-		set_variable = kog_is_major_seat
-	}
-	
-	# Santiago
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_santiago
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_santiago
-			value = scope:kog_santiago
-		}
-	}
-	global_var:kog_global.var:kog_santiago = {
-		p:xF0A020 = {
-			# Santiago
-			owner = {
-				save_scope_as = kog_santiago_controller
+		global_var:kog_global.var:kog_santiago = {
+			p:xF0A020 = {
+				# Santiago
+				owner = {
+					save_scope_as = kog_santiago_controller
+				}
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_santiago_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_GALICIA
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_santiago_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_santiago_patriarch
+				}
+				save_scope_as = kog_santiago_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_santiago_patriarch
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_santiago_name
+		
+		# Paris
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_paris
 		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_roman_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_GALICIA
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_santiago_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_santiago_patriarch
-			}
-			save_scope_as = kog_santiago_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_santiago_patriarch
-		}
-	}
-	
-	# Paris
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_paris
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_paris
-			value = scope:kog_paris
-		}
-	}
-	global_var:kog_global.var:kog_paris = {
-		p:xF0A020 = {
-			# Paris
-			owner = {
-				save_scope_as = kog_paris_controller
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_paris
+				value = scope:kog_paris
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_paris_name
-		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_roman_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_ILE_DE_FRANCE
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_paris_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_paris_patriarch
+		global_var:kog_global.var:kog_paris = {
+			p:xF0A020 = {
+				# Paris
+				owner = {
+					save_scope_as = kog_paris_controller
+				}
 			}
-			save_scope_as = kog_paris_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_paris_patriarch
-		}
-	}
-	
-	# Cologne
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_koln
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_koln
-			value = scope:kog_koln
-		}
-	}
-	global_var:kog_global.var:kog_koln = {
-		p:xF0A020 = {
-			# koln
-			owner = {
-				save_scope_as = kog_koln_controller
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_paris_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_ILE_DE_FRANCE
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_paris_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_paris_patriarch
+				}
+				save_scope_as = kog_paris_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_paris_patriarch
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_koln_name
+		
+		# Cologne
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_koln
 		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_roman_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_NORTH_RHINE
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_koln_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_koln_patriarch
-			}
-			save_scope_as = kog_koln_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_koln_patriarch
-		}
-	}
-	
-	# Vienna
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_vienna
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_vienna
-			value = scope:kog_vienna
-		}
-	}
-	global_var:kog_global.var:kog_vienna = {
-		p:xF0A020 = {
-			# vienna
-			owner = {
-				save_scope_as = kog_vienna_controller
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_koln
+				value = scope:kog_koln
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_vienna_name
-		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_roman_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_AUSTRIA
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_vienna_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_vienna_patriarch
+		global_var:kog_global.var:kog_koln = {
+			p:xF0A020 = {
+				# koln
+				owner = {
+					save_scope_as = kog_koln_controller
+				}
 			}
-			save_scope_as = kog_vienna_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_vienna_patriarch
-		}
-	}
-	
-	# Constantinople
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_constantinople
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_constantinople
-			value = scope:kog_constantinople
-		}
-	}
-	global_var:kog_global.var:kog_constantinople = {
-		p:xF0A020 = {
-			# Constantinople
-			owner = {
-				save_scope_as = kog_constantinople_controller
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_koln_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_NORTH_RHINE
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_koln_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_koln_patriarch
+				}
+				save_scope_as = kog_koln_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_koln_patriarch
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_constantinople_name
+		
+		# Vienna
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_vienna
 		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_byzantine_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_EASTERN_THRACE
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_constantinople_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_constantinople_patriarch
-			}
-			save_scope_as = kog_constantinople_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_constantinople_patriarch
-		}
-		set_variable = kog_is_major_seat
-	}
-	
-	# Antioch
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_antioch
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_antioch
-			value = scope:kog_antioch
-		}
-	}
-	global_var:kog_global.var:kog_antioch = {
-		p:x186A43 = {
-			# antioch
-			owner = {
-				save_scope_as = kog_antioch_controller
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_vienna
+				value = scope:kog_vienna
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_antioch_name
-		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_byzantine_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_SYRIA
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_antioch_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_antioch_patriarch
+		global_var:kog_global.var:kog_vienna = {
+			p:xF0A020 = {
+				# vienna
+				owner = {
+					save_scope_as = kog_vienna_controller
+				}
 			}
-			save_scope_as = kog_antioch_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_antioch_patriarch
-		}
-	}
-	
-	# Jerusalem
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_jerusalem
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_jerusalem
-			value = scope:kog_jerusalem
-		}
-	}
-	global_var:kog_global.var:kog_jerusalem = {
-		p:xC9CBC0 = {
-			# jerusalem
-			owner = {
-				save_scope_as = kog_jerusalem_controller
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_vienna_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_AUSTRIA
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_vienna_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_vienna_patriarch
+				}
+				save_scope_as = kog_vienna_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_vienna_patriarch
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_jerusalem_name
+		
+		# Constantinople
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_constantinople
 		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_byzantine_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_PALESTINE
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_jerusalem_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_jerusalem_patriarch
-			}
-			save_scope_as = kog_jerusalem_patriarch
-		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_jerusalem_patriarch
-		}
-	}
-	
-	# Alexandria
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_alexandria
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_alexandria
-			value = scope:kog_alexandria
-		}
-	}
-	global_var:kog_global.var:kog_alexandria = {
-		p:xA0D020 = {
-			# alexandria
-			owner = {
-				save_scope_as = kog_alexandria_controller
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_constantinople
+				value = scope:kog_constantinople
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_alexandria_name
-		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_byzantine_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_LOWER_EGYPT
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_alexandria_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_alexandria_patriarch
+		global_var:kog_global.var:kog_constantinople = {
+			p:xF0A020 = {
+				# Constantinople
+				owner = {
+					save_scope_as = kog_constantinople_controller
+				}
 			}
-			save_scope_as = kog_alexandria_patriarch
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_constantinople_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_byzantine_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_EASTERN_THRACE
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_constantinople_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_constantinople_patriarch
+				}
+				save_scope_as = kog_constantinople_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_constantinople_patriarch
+			}
+			set_variable = kog_is_major_seat
 		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_alexandria_patriarch
+		
+		# Antioch
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_antioch
 		}
-	}
-	
-	# Moscow
-	create_struct = {
-		struct_type = flag:kog_seat
-		struct_scope = kog_moscow
-	}
-	global_var:kog_global = {
-		set_variable = {
-			name = kog_moscow
-			value = scope:kog_moscow
-		}
-	}
-	global_var:kog_global.var:kog_moscow = {
-		p:x13D91C = {
-			# moscow
-			owner = {
-				save_scope_as = kog_moscow_controller
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_antioch
+				value = scope:kog_antioch
 			}
 		}
-		set_variable = {
-			name = kog_seat_name
-			value = flag:kog_moscow_name
-		}
-		set_variable = {
-			name = kog_rite_var
-			value = flag:kog_russian_rite
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_MOSCOW
-		}
-		set_variable = {
-			name = kog_controller_var
-			value = scope:kog_moscow_controller
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = template_kog_moscow_patriarch
+		global_var:kog_global.var:kog_antioch = {
+			p:x186A43 = {
+				# antioch
+				owner = {
+					save_scope_as = kog_antioch_controller
+				}
 			}
-			save_scope_as = kog_moscow_patriarch
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_antioch_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_byzantine_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_SYRIA
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_antioch_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_antioch_patriarch
+				}
+				save_scope_as = kog_antioch_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_antioch_patriarch
+			}
 		}
-		set_variable = {
-			name = kog_patriarch_var
-			value = scope:kog_moscow_patriarch
+		
+		# Jerusalem
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_jerusalem
 		}
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_jerusalem
+				value = scope:kog_jerusalem
+			}
+		}
+		global_var:kog_global.var:kog_jerusalem = {
+			p:xC9CBC0 = {
+				# jerusalem
+				owner = {
+					save_scope_as = kog_jerusalem_controller
+				}
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_jerusalem_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_byzantine_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_PALESTINE
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_jerusalem_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_jerusalem_patriarch
+				}
+				save_scope_as = kog_jerusalem_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_jerusalem_patriarch
+			}
+		}
+		
+		# Alexandria
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_alexandria
+		}
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_alexandria
+				value = scope:kog_alexandria
+			}
+		}
+		global_var:kog_global.var:kog_alexandria = {
+			p:xA0D020 = {
+				# alexandria
+				owner = {
+					save_scope_as = kog_alexandria_controller
+				}
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_alexandria_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_byzantine_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_LOWER_EGYPT
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_alexandria_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_alexandria_patriarch
+				}
+				save_scope_as = kog_alexandria_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_alexandria_patriarch
+			}
+		}
+		
+		# Moscow
+		create_struct = {
+			struct_type = flag:kog_seat
+			struct_scope = kog_moscow
+		}
+		global_var:kog_global = {
+			set_variable = {
+				name = kog_moscow
+				value = scope:kog_moscow
+			}
+		}
+		global_var:kog_global.var:kog_moscow = {
+			p:x13D91C = {
+				# moscow
+				owner = {
+					save_scope_as = kog_moscow_controller
+				}
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_moscow_name
+			}
+			set_variable = {
+				name = kog_rite_var
+				value = flag:kog_russian_rite
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_MOSCOW
+			}
+			set_variable = {
+				name = kog_controller_var
+				value = scope:kog_moscow_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_template = template_kog_moscow_patriarch
+				}
+				save_scope_as = kog_moscow_patriarch
+			}
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_moscow_patriarch
+			}
+		}
+		
+		# TODO Oriental Orthodox Seats Struct Here
+		# TODO Lutheran Struct Seats Here
+		# TODO Elysian Orthodox Struct Seats Here
 	}
-	
-	# TODO Oriental Orthodox Seats Struct Here
-	# TODO Lutheran Struct Seats Here
-	# TODO Elysian Orthodox Struct Seats Here
-	
 }
 
 kog_initialize_patriarchs_effect = {
@@ -704,7 +713,7 @@ kog_initialize_patriarchs_effect = {
 		}
 		var:kog_koln = {
 			# Koln
-			c:NET = {
+			c:PRU = {
 				create_character = {
 					template = template_kog_koln_patriarch
 					first_name = "Clemens"
@@ -1404,48 +1413,47 @@ kog_specific_country_setups_effect = {
 	}
 	
 	## Catholic Setup ##
-	c:PAP ?= {
+	c:PAP = {
 		var:kog_local = {
 			set_variable = kog_controls_rome
 		}
 	}
-	c:SPA ?= {
+	c:SPA = {
 		var:kog_local = {
 			set_variable = kog_controls_santiago
 		}
 	}
-	c:FRA ?= {
+	c:FRA = {
 		var:kog_local = {
-			set_variable = kog_controls_france
+			set_variable = kog_controls_paris
 		}
 	}
-	c:NET ?= {
+	c:PRU = {
 		var:kog_local = {
 			set_variable = kog_controls_koln
 		}
 	}
-	c:AUS ?= {
+	c:AUS = {
 		var:kog_local = {
 			set_variable = kog_controls_vienna
 		}
 	}
 	
 	## Orthodox Setup ##
-	c:RUS ?= {
+	c:RUS = {
 		add_modifier = modifier_kog_reformed_synod
 		var:kog_local = {
 			set_variable = kog_is_autocephalous
 			set_variable = kog_controls_moscow
 		}
 	}
-	c:GRE ?= {
+	c:GRE = {
 		add_modifier = modifier_kog_reformed_synod
 		add_modifier = modifier_kog_dissolved_monasteries
 		var:kog_local = {
 			set_variable = kog_dissolved_monasteries
 			set_variable = kog_ruler_conversion_considered
 		}
-		
 	}
 }
 
