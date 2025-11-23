@@ -1,4 +1,58 @@
-﻿kog_secure_tetrarchy_sgui = {
+﻿####---------- General Ecumenical Actions ----------####
+kog_seek_mandate_sgui = {
+	scope = country
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		custom_tooltip = {
+			text = kog_considering_mandate_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = kog_considering_mandate
+				}
+			}
+		}
+		custom_tooltip = {
+			text = kog_has_mandate_NOT
+			hidden_trigger = {
+				kog_has_mandate_trigger = no
+			}
+		}
+		kog_has_500_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_has_ecumenical_patriarch_approval
+			hidden_trigger = {
+				var:kog_constantinople_relations_var >= 80
+			}
+		}
+		trigger_if = {
+			limit = {
+				c:TUR ?= {
+					has_variable = kog_controls_constantinople
+				}
+			}
+			custom_tooltip = {
+				text = kog_turk_relations_cordial
+				hidden_trigger = {
+					c:TUR = {
+						relations:root >= relations_threshold:cordial
+					}
+				}
+			}
+		}
+	}
+	
+	effect = {
+		#TODO Add re-factored event
+		set_variable = kog_considering_mandate
+	}
+}
+
+####---------- Great Mending Actions ----------####
+kog_secure_tetrarchy_sgui = {
 	scope = country
 
 	is_shown = {
@@ -45,8 +99,10 @@ kog_mend_schism_sgui = {
 
 	is_shown = {
 		has_variable = kog_pentarchy_secured
-		NOT = {
-			has_variable = kog_mending_var
+		var:kog_local = {
+			NOT = {
+				has_variable = kog_mending_var
+			}
 		}
 	}
 
@@ -123,57 +179,5 @@ kog_unify_orthodox_realms_sgui = {
 	effect = {
 		#TODO Add re-factored event
 		set_variable = kog_texas_left
-	}
-}
-
-kog_seek_mandate_sgui = {
-	scope = country
-
-	is_shown = {
-		always = yes
-	}
-
-	is_valid = {
-		custom_tooltip = {
-			text = kog_considering_mandate_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = kog_considering_mandate
-				}
-			}
-		}
-		custom_tooltip = {
-			text = kog_has_mandate_NOT
-			hidden_trigger = {
-				kog_has_mandate_trigger = no
-			}
-		}
-		kog_has_500_capacity_trigger = yes
-		custom_tooltip = {
-			text = kog_has_ecumenical_patriarch_approval
-			hidden_trigger = {
-				var:kog_constantinople_relations_var >= 80
-			}
-		}
-		trigger_if = {
-			limit = {
-				c:TUR ?= {
-					has_variable = kog_controls_constantinople
-				}
-			}
-			custom_tooltip = {
-				text = kog_turk_relations_cordial
-				hidden_trigger = {
-					c:TUR = {
-						relations:root >= relations_threshold:cordial
-					}
-				}
-			}
-		}
-	}
-
-	effect = {
-		#TODO Add re-factored event
-		set_variable = kog_considering_mandate
 	}
 }
