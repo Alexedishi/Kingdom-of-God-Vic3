@@ -54,99 +54,44 @@ kog_update_council_votes_effect = {
 	# Check Catholic Variables
 	if = {
 		limit = {
-			has_global_variable = kog_catholic_matter_var
+			kog_has_catholic_council_trigger = yes
 		}
-		set_global_variable = {
-			name = kog_catholic_support_var
-			value = kog_catholic_support_value
+		global_var:kog_global.var:kog_catholic = {
+			set_variable = {
+				name = kog_council_support_var
+				value = kog_catholic_support_value
+			}
+			set_variable = {
+				name = kog_council_opposition_var
+				value = kog_catholic_opposition_value
+			}
+			set_variable = {
+				name = kog_council_tally_var
+				value = kog_catholic_council_value
+			}
 		}
-		set_global_variable = {
-			name = kog_catholic_opposition_var
-			value = kog_catholic_opposition_value
-		}
-		set_global_variable = {
-			name = kog_catholic_council_var
-			value = kog_catholic_council_value
-		}
-	}
-	else = {
-		remove_global_variable = kog_catholic_support_var
-		remove_global_variable = kog_catholic_opposition_var
-		remove_global_variable = kog_catholic_council_var
 	}
 	
 	# Check Orthodox Variables
 	if = {
 		limit = {
-			has_global_variable = kog_orthodox_matter_var
+			kog_has_orthodox_council_trigger = yes
 		}
-		set_global_variable = {
-			name = kog_orthodox_support_var
-			value = kog_orthodox_support_value
-		}
-		set_global_variable = {
-			name = kog_orthodox_opposition_var
-			value = kog_orthodox_opposition_value
-		}
-		set_global_variable = {
-			name = kog_orthodox_council_var
-			value = kog_orthodox_council_value
-		}
-	}
-	else = {
-		remove_global_variable = kog_orthodox_support_var
-		remove_global_variable = kog_orthodox_opposition_var
-		remove_global_variable = kog_orthodox_council_var
-	}
-	
-	# Check Oriental Variables
-	if = {
-		limit = {
-			has_global_variable = kog_oriental_matter_var
-		}
-		set_global_variable = {
-			name = kog_oriental_support_var
-			value = kog_oriental_support_value
-		}
-		set_global_variable = {
-			name = kog_oriental_opposition_var
-			value = kog_oriental_opposition_value
-		}
-		set_global_variable = {
-			name = kog_oriental_council_var
-			value = kog_oriental_council_value
+		global_var:kog_global.var:kog_orthodox = {
+			set_variable = {
+				name = kog_council_support_var
+				value = kog_catholic_support_value
+			}
+			set_variable = {
+				name = kog_council_opposition_var
+				value = kog_catholic_opposition_value
+			}
+			set_variable = {
+				name = kog_council_tally_var
+				value = kog_catholic_council_value
+			}
 		}
 	}
-	else = {
-		remove_global_variable = kog_oriental_support_var
-		remove_global_variable = kog_oriental_opposition_var
-		remove_global_variable = kog_oriental_council_var
-	}
-	
-	# Check Elysian Variables
-	if = {
-		limit = {
-			has_global_variable = kog_elysian_matter_var
-		}
-		set_global_variable = {
-			name = kog_elysian_support_var
-			value = kog_elysian_support_value
-		}
-		set_global_variable = {
-			name = kog_elysian_opposition_var
-			value = kog_elysian_opposition_value
-		}
-		set_global_variable = {
-			name = kog_elysian_council_var
-			value = kog_elysian_council_value
-		}
-	}
-	else = {
-		remove_global_variable = kog_elysian_support_var
-		remove_global_variable = kog_elysian_opposition_var
-		remove_global_variable = kog_elysian_council_var
-	}
-	
 }
 
 kog_cleanup_council_effect = {
