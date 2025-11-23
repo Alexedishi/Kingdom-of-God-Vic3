@@ -178,6 +178,11 @@ kog_initialize_episcopal_seats_effect = {
 			name = kog_controller_var
 			value = scope:kog_rome_controller
 		}
+		c:PAP = {
+			ruler = {
+				save_scope_as = kog_rome_patriarch
+			}
+		}
 		set_variable = {
 			name = kog_patriarch_var
 			value = scope:kog_rome_patriarch
@@ -1326,6 +1331,63 @@ kog_initialize_metropolis_effect = {
 			value = 0
 		}
 	}
+	
+	# Step 5: Determine Church and State Law
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_theocracy
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_canon_law_church_and_state_var
+				value = flag:kog_canon_law_theocracy
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_state_religion
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_canon_law_church_and_state_var
+				value = flag:kog_canon_law_state_religion
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_freedom_of_conscience
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_canon_law_church_and_state_var
+				value = flag:kog_canon_law_freedom_of_conscience
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_total_separation
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_canon_law_church_and_state_var
+				value = flag:kog_canon_law_total_separation
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_law_or_variant = law_type:law_state_atheism
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_canon_law_church_and_state_var
+				value = flag:kog_canon_law_atheist_state
+			}
+		}
+	}
 }
 
 kog_specific_country_setups_effect = {
@@ -1340,6 +1402,42 @@ kog_specific_country_setups_effect = {
 			type = je_kog_ecyclical_mirari_vos
 		}
 	}
+	
+	## Catholic Setup ##
+	c:PAP ?= {
+		var:kog_local = {
+			set_variable = kog_controls_rome
+		}
+	}
+	c:SPA ?= {
+		var:kog_local = {
+			set_variable = kog_controls_santiago
+		}
+	}
+	c:FRA ?= {
+		var:kog_local = {
+			set_variable = kog_controls_france
+		}
+	}
+	c:NET ?= {
+		var:kog_local = {
+			set_variable = kog_controls_koln
+		}
+	}
+	c:AUS ?= {
+		var:kog_local = {
+			set_variable = kog_controls_vienna
+		}
+	}
+	
+	## Orthodox Setup ##
+	c:RUS ?= {
+		add_modifier = modifier_kog_reformed_synod
+		var:kog_local = {
+			set_variable = kog_is_autocephalous
+			set_variable = kog_controls_moscow
+		}
+	}
 	c:GRE ?= {
 		add_modifier = modifier_kog_reformed_synod
 		add_modifier = modifier_kog_dissolved_monasteries
@@ -1348,12 +1446,6 @@ kog_specific_country_setups_effect = {
 			set_variable = kog_ruler_conversion_considered
 		}
 		
-	}
-	c:RUS ?= {
-		add_modifier = modifier_kog_reformed_synod
-		var:kog_local = {
-			set_variable = kog_is_autocephalous
-		}
 	}
 }
 
