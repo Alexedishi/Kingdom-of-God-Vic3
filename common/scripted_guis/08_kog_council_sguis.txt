@@ -1,5 +1,41 @@
-﻿## General SGUIs
-kog_support_council_sgui = {
+﻿####---------- Council Convocation SGUIs ----------####
+kog_convoke_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		kog_is_autocephalous_trigger = yes
+	}
+	is_valid = {
+		kog_has_ongoing_council_trigger = no
+		kog_has_1000_capacity_trigger = yes
+		kog_controls_any_seat_trigger = yes
+		is_subject = no
+	}
+	effect = {
+		#TODO Add re-factored event
+		add_modifier = modifier_kog_hosting_council
+		global_var:kog_global.var:kog_catholic = {
+			set_variable = {
+				name = kog_council_var
+			}
+		}
+	}
+}
+
+kog_ecumenical_council_sgui = {
+	scope = country
+	
+	is_shown = {
+		kog_has_ongoing_council_trigger = yes
+	}
+}
+
+
+
+
+
+####---------- Council Action SGUIs ----------####
+kog_votes_support_sgui = {
 	scope = country
 	
 	is_valid = {
@@ -18,7 +54,7 @@ kog_support_council_sgui = {
 	}
 }
 
-kog_abstain_council_sgui = {
+kog_votes_abstain_sgui = {
 	scope = country
 	
 	is_valid = {
@@ -41,7 +77,7 @@ kog_abstain_council_sgui = {
 	}
 }
 
-kog_oppose_council_sgui = {
+kog_votes_oppose_sgui = {
 	scope = country
 	
 	is_valid = {
@@ -57,200 +93,5 @@ kog_oppose_council_sgui = {
 			name = kog_council_timeout_var
 			days = 30
 		}
-	}
-}
-
-## Catholic SGUIs
-kog_catholic_council_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable = kog_catholic_convocation_var
-	}
-}
-
-kog_catholic_convoke_sgui = {
-	scope = country
-	
-	is_shown = {
-		kog_is_autocephalous_trigger = yes
-	}
-	is_valid = {
-		is_subject = no
-		is_at_war = no
-		kog_controls_any_seat_trigger = yes
-		kog_has_1000_capacity_trigger = yes
-#		kog_is_autocephalous_trigger = yes # TODO replace this
-		# TODO add can_host_council trigger variant
-		custom_tooltip = {
-			text = kog_council_active_NOT
-			hidden_trigger = {
-				NOT = {
-					has_global_variable = kog_catholic_matter_var
-				}
-			}
-		}
-	}
-	effect = {
-		#TODO Add re-factored event
-
-		show_as_tooltip = {
-			add_modifier = modifier_kog_hosting_council
-		}
-		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
-			add_modifier = {
-				name = modifier_kog_hosting_council
-				months = 12
-			}
-		}
-		set_global_variable = kog_catholic_matter_var
-		set_global_variable = kog_catholic_convocation_var # Error suppression- remove when event is implemented
-	}
-}
-
-## Orthodox SGUIs
-kog_orthodox_council_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable = kog_orthodox_convocation_var
-	}
-}
-
-kog_orthodox_convoke_sgui = {
-	scope = country
-	
-	is_shown = {
-		kog_is_autocephalous_trigger = yes
-	}
-	is_valid = {
-		is_subject = no
-		is_at_war = no
-		kog_controls_any_seat_trigger = yes
-		kog_has_1000_capacity_trigger = yes
-		kog_is_autocephalous_trigger = yes
-		custom_tooltip = {
-			text = kog_theological_matter
-			hidden_trigger = {
-				kog_can_host_council_trigger = yes
-			}
-		}
-		custom_tooltip = {
-			text = kog_council_active_NOT
-			hidden_trigger = {
-				NOT = {
-					has_global_variable = kog_orthodox_matter_var
-				}
-			}
-		}
-	}
-	effect = {
-		#TODO Add re-factored event
-		show_as_tooltip = {
-			add_modifier = modifier_kog_hosting_council
-		}
-		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
-			add_modifier = {
-				name = modifier_kog_hosting_council
-				months = 12
-			}
-		}
-		set_global_variable = kog_orthodox_matter_var
-	}
-}
-
-# Oriental SGUIs
-kog_oriental_council_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable = kog_oriental_convocation_var
-	}
-}
-
-kog_oriental_convoke_sgui = {
-	scope = country
-	
-	is_shown = {
-		kog_is_autocephalous_trigger = yes
-	}
-	is_valid = {
-		is_subject = no
-		is_at_war = no
-		kog_controls_any_seat_trigger = yes
-		kog_has_1000_capacity_trigger = yes
-#		kog_is_autocephalous_trigger = yes # TODO replace this
-		# TODO add can_host_council trigger variant
-		custom_tooltip = {
-			text = kog_council_active_NOT
-			hidden_trigger = {
-				NOT = {
-					has_global_variable = kog_oriental_matter_var
-				}
-			}
-		}
-	}
-	effect = {
-		#TODO Add re-factored event
-
-		show_as_tooltip = {
-			add_modifier = modifier_kog_hosting_council
-		}
-		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
-			add_modifier = {
-				name = modifier_kog_hosting_council
-				months = 12
-			}
-		}
-		set_global_variable = kog_oriental_matter_var
-		set_global_variable = kog_oriental_convocation_var # Error suppression- remove when event is implemented
-	}
-}
-
-# Elysian SGUIs
-kog_elysian_council_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable = kog_elysian_convocation_var
-	}
-}
-
-kog_elysian_convoke_sgui = {
-	scope = country
-	
-	is_shown = {
-		kog_is_autocephalous_trigger = yes
-	}
-	is_valid = {
-		is_subject = no
-		is_at_war = no
-		kog_controls_any_seat_trigger = yes
-		kog_has_1000_capacity_trigger = yes
-#		kog_is_autocephalous_trigger = yes # TODO replace this
-		# TODO add can_host_council trigger variant
-		custom_tooltip = {
-			text = kog_council_active_NOT
-			hidden_trigger = {
-				NOT = {
-					has_global_variable = kog_elysian_matter_var
-				}
-			}
-		}
-	}
-	effect = {
-		#TODO Add re-factored event
-
-		show_as_tooltip = {
-			add_modifier = modifier_kog_hosting_council
-		}
-		hidden_effect = { # This is to present the player clean information in the UI, but has a time limit to avoid shenanigans
-			add_modifier = {
-				name = modifier_kog_hosting_council
-				months = 12
-			}
-		}
-		set_global_variable = kog_elysian_matter_var
-		set_global_variable = kog_elysian_convocation_var # Error suppression- remove when event is implemented
 	}
 }

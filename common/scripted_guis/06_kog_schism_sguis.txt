@@ -1,11 +1,11 @@
-﻿kog_declare_autocephaly_sgui = {
+﻿####---------- Schism SGUIs ----------####
+kog_declare_autocephaly_sgui = {
 	scope = country
 
 	is_shown = {
 		kog_is_schismatic_trigger = no
 		kog_is_autocephalous_trigger = no
 	}
-
 	is_valid = {
 		is_subject = no
 		kog_has_500_capacity_trigger = yes
@@ -15,53 +15,39 @@
 		}
 		trigger_if = {
 			limit = {
-				OR = {
-					c:MOL ?= this
-					c:WAL ?= this
-				}
+				kog_is_roman_catholic_trigger = yes
 			}
-			custom_tooltip = {
-				text = kog_romania_united
-				hidden_trigger = {
-					c:ROM ?= this
+			always = no
+		}
+		trigger_else_if = {
+			limit = {
+				kog_is_eastern_orthodox_trigger = yes
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:MOL ?= this
+						c:WAL ?= this
+					}
+				}
+				custom_tooltip = {
+					text = kog_romania_united
+					hidden_trigger = {
+						c:ROM ?= this
+					}
 				}
 			}
 		}
 	}
-
 	effect = {
-		set_variable = {
-			name = kog_schism_var
-			value = 0
-		}
 		add_modifier = {
 			name = modifier_kog_schismatic
 			months = 120
 		}
-		hidden_effect = {
-			if = {
-				limit = {
-					kog_is_roman_catholic_trigger = yes
-				}
-				#TODO Add re-factored event
-			}
-			else_if = {
-				limit = {
-					kog_is_eastern_christian_trigger = yes
-				}
-				#TODO Add re-factored event
-			}
-			else_if = {
-				limit = {
-					kog_is_oriental_orthodox_trigger = yes
-				}
-				#TODO Add re-factored event
-			}
-			else_if = {
-				limit = {
-					kog_is_elysian_orthodox_trigger = yes
-				}
-				#TODO Add re-factored event
+		var:kog_local = {
+			set_variable = {
+				name = kog_schism_var
+				value = 0
 			}
 		}
 	}
@@ -71,8 +57,8 @@ kog_schism_progressbar_sgui = {
 	scope = country
 
 	is_shown = {
-		has_variable = kog_schism_var
+		var:kog_local = {
+			has_variable = kog_schism_var
+		}
 	}
-
 }
-
