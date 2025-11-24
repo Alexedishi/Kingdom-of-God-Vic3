@@ -37,7 +37,7 @@ types kog_denominational_panels {
 		}
 		
 		blockoverride "third_button" {
-			text = "kog_gui_collegium_header"
+			text = "kog_gui_college_header"
 		}
 		blockoverride "third_button_click" {
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
@@ -49,7 +49,7 @@ types kog_denominational_panels {
 			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia')), GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 		}
 		blockoverride "third_button_selected" {
-			text = "kog_gui_collegium_header"
+			text = "kog_gui_college_header"
 		}
 		
 		blockoverride "fourth_button" {
@@ -1207,7 +1207,7 @@ types kog_denominational_panels {
 					texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
 					parentanchor = center
 					size = { 100% 100% }
-					position = { 4 0 }
+					position = { 4 4 }
 				}
 			}
 			tooltip = "kog_placeholder_text"
