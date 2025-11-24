@@ -1,10 +1,10 @@
 types kog_encyclical_panels {
 	type kog_encyclical_panel = vbox {
 		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = shrinking
-		spacing = 10
-		maximumsize = { -1 200 }
+		layoutpolicy_vertical = preferred
+		using = default_fade_in_out
 		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
 		
 		default_header_clean_faded = {
 			layoutpolicy_horizontal = expanding
@@ -14,15 +14,19 @@ types kog_encyclical_panels {
 			}
 		}
 		
-		hbox = {
-			textbox = {
-				raw_text = "#italic TBA"
-				size = { 200 20 }
-				elide = right
-				fontsize = 18
-			}
-		}
+		kog_encyclicals_disabled_panel = {}
+	}
+	
+	# Dummy Panel
+	type kog_encyclicals_disabled_panel = hbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
 		
-		expand = {}
+		textbox = {
+			autoresize = yes
+			text = "kog_gui_encyclicals_disabled"
+			elide = right
+			using = fontsize_xl
+		}
 	}
 }
