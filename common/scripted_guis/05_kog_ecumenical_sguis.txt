@@ -24,7 +24,7 @@ kog_seek_mandate_sgui = {
 		kog_has_500_capacity_trigger = yes
 		custom_tooltip = {
 			text = kog_has_ecumenical_patriarch_approval
-			hidden_trigger = {
+			var:kog_local = {
 				var:kog_constantinople_relations_var >= 80
 			}
 		}
