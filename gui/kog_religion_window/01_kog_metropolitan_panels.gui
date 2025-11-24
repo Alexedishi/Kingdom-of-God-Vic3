@@ -104,7 +104,7 @@ types kog_metropolitan_panel_types {
 						raw_text = "[concept_liturgical_rite]"
 					}
 					blockoverride "text" {
-						text = "kog_gui_liturgical_rite_type"
+						raw_text = "[GetPlayer.MakeScope.Var('kog_local').Var('kog_rite_var').GetFlagName]"
 					}
 				}
 				### Religious Law
@@ -186,10 +186,10 @@ types kog_metropolitan_panel_types {
 					text = "kog_gui_venerate_apparition"
 					using = fontsize_large
 					
-#					datacontext = "[GetScriptedGui('kog_commission_icon_sgui')]"
-#					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-#					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-#					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					datacontext = "[GetScriptedGui('kog_venerate_apparition_sgui')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 					tooltip = "kog_gui_venerate_apparation_desc"
 				}
 			}

@@ -1,0 +1,15 @@
+types kog_encyclical_panels {
+	type kog_encyclical_panel = vbox {
+		layoutpolicy_horizontal = expanding
+		maximumsize = { -1 200 }
+		minimumsize = { -1 200 }
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "kog_gui_encyclical_header"
+			}
+		}
+	}
+}
