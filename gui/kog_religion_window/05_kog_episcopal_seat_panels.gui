@@ -1,232 +1,4 @@
 types kog_episcopal_seat_panels {
-	
-	#### EPISCOPAL SEAT PANELS ####
-	type kog_catholic_seats = scrollarea {
-		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_catholic' )]"
-		
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-		
-		scrollbarpolicy_horizontal = always_off
-		
-		scrollbar_vertical = {
-			using = vertical_scrollbar
-		}
-		
-		scrollwidget = {
-			vbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				spacing = 10
-				
-				kog_major_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[Not(GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_santiago').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_paris').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_koln').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_vienna').GetCharacter]"
-					}
-				}
-			}
-		}
-	}
-	
-	type kog_orthodox_seats = scrollarea {
-		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_orthodox' )]"
-		
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-		
-		scrollbarpolicy_horizontal = always_off
-		
-		scrollbar_vertical = {
-			using = vertical_scrollbar
-		}
-		
-		scrollwidget = {
-			vbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				spacing = 10
-				
-				kog_major_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_constantinople').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[Not(GetScriptedGui('kog_orthodox_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_constantinople').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_antioch').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_jerusalem').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_alexandria').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_moscow').GetCharacter]"
-					}
-				}
-			}
-		}
-	}
-	
-	type kog_oriental_seats = scrollarea {
-		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_oriental' )]"
-		
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-		
-		scrollbarpolicy_horizontal = always_off
-		
-		scrollbar_vertical = {
-			using = vertical_scrollbar
-		}
-		
-		scrollwidget = {
-			vbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				spacing = 10
-				
-				kog_major_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[GetScriptedGui('kog_oriental_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_coptic_alexandria').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[Not(GetScriptedGui('kog_oriental_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_coptic_alexandria').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_syriac_antioch').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_etchmiadzin').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_addis_ababa').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_konak').GetCharacter]"
-					}
-				}
-			}
-		}
-	}
-	
-	type kog_elysian_seats = scrollarea {
-		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_elysian' )]"
-		
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-		
-		scrollbarpolicy_horizontal = always_off
-		
-		scrollbar_vertical = {
-			using = vertical_scrollbar
-		}
-		
-		scrollwidget = {
-			vbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				spacing = 10
-				
-				kog_major_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_elysium').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[Not(GetScriptedGui('kog_elysian_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_elysium').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_mixtec').GetCharacter]"
-					}
-				}
-				kog_minor_seat_type = {
-					blockoverride "seat_visibility" {
-						visible = "[GetScriptedGui('kog_cahokia_founding_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					}
-					blockoverride "seat_datacontext" {
-						datacontext = "[GetGlobalVariable('kog_global').Var('kog_cahokia').GetCharacter]"
-					}
-				}
-			}
-		}
-	}
-	
-	#### PATRIARCHAL SEAT TAB BUTTONS ####
 	type kog_seat_tab_buttons = vbox {
 		margin = { 5 5 }
 		spacing = 5
@@ -368,395 +140,189 @@ types kog_episcopal_seat_panels {
 			}
 		}
 	}
-	
-	type kog_major_seat_type = vbox {
+
+	type kog_catholic_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_catholic' )]"
+		
 		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = shrinking
-		spacing = 10
-		margin = { 10 10 }
-		block "seat_visibility" {}
-		block "seat_datacontext" {}
+		layoutpolicy_vertical = expanding
 		
-		background = {
-			using = entry_bg
+		scrollbarpolicy_horizontal = always_off
+		
+		scrollbar_vertical = {
+			using = vertical_scrollbar
 		}
 		
-		hbox = {
-			default_header_clean_faded = {
-				blockoverride "text" {}
-				textbox = {
-					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_name'))]"
-					parentanchor = left|vcenter
-					autoresize = yes
-					max_width = 300
-					elide = right
-					using = fontsize_large
-				}
-				textbox = {
-					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_controller'))]"
-					parentanchor = right|vcenter
-					autoresize = yes
-					max_width = 300
-					elide = right
-					using = fontsize_medium
-				}
-			}
-		}
-		
-		## Character Portrait
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = shrinking
-			
-			character_portrait_large_torso = {
-				block "patriarch_datacontext" {}
-				blockoverride "show_hat" {}
-				blockoverride "tooltip" {} # Error Suppression
-				blockoverride "portrait_icons" {} # Error Suppression
-				blockoverride "portrait_button" {} # Error Suppression
-				
-				default_header_clean_faded = {
-					size = { 150 35 }
-					position = { 0 120 }
-					parentanchor = center
-					blockoverride "text" {
-					}
-					textbox = {
-						text = "kog_gui_patriarch_name"
-						parentanchor = center
-						position = { 0 -2 }
-						autoresize = yes
-						max_width = 190
-						elide = right
-						using = fontsize_large
-					}
-				}
-			}
+		scrollwidget = {
 			vbox = {
-				background = {
-					using = entry_bg_simple
-				}
-				margin = { 10 10 }
-				spacing = 5
-				textbox = {
-					text = "kog_gui_liturgical_rite"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_medium
-				}
-				textbox = {
-					text = "kog_gui_location"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_medium
-				}
-				textbox = {
-					text = "kog_gui_opinion"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_medium
-				}
-				divider_clean = {}
-			}
-		}
-		
-		vbox = {
-			hbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				
-				## Tetrarchy/Pentarchy/Mending Buttons
-				widget = {
-					size = { 250 60 }
-					button = {
-						parentanchor = center
-						using = default_button_primary_big_action
-						size = { 200 40 }
-						text = "kog_gui_secure_tetrarchy"
-						using = fontsize_medium
-						
-						datacontext = "[GetScriptedGui('kog_secure_tetrarchy_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_secure_tetrarchy_desc"
-						
-					}
-					button = {
-						parentanchor = center
-						using = default_button_primary_big_action
-						size = { 200 40 }
-						text = "kog_gui_secure_pentarchy"
-						using = fontsize_medium
-						
-						datacontext = "[GetScriptedGui('kog_secure_pentarchy_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_secure_pentarchy_desc"
-					}
-					button = {
-						parentanchor = center
-						using = default_button_primary_big_action
-						size = { 200 40 }
-						text = "kog_gui_mend_schism"
-						using = fontsize_medium
-						
-						datacontext = "[GetScriptedGui('kog_mend_schism_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_mend_schism_desc"
-					}
-					green_progressbar_horizontal = {
-						parentanchor = center
-						size = { 194 30 }
-						visible = "[GetScriptedGui('kog_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-						
-						blockoverride "values" {
-							min = 0
-							max = 240
-							value = "[Country.MakeScope.Var('kog_local').Var('kog_mending_var').GetValue]"
-						}
-						textbox = {
-							parentanchor = center
-							autoresize = yes
-							visible = "[GetScriptedGui('kog_mending_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-							text = "kog_gui_mending_header"
-							elide = right
-							using = fontsize_medium
-						}
-					}
-				}
-				
-				## Autocephaly & Council Buttons
-				widget = {
-					size = { 250 60 }
-					
-					# Autocephaly Button
-					button = {
-						parentanchor = center
-						using = default_button_primary_big_action
-						size = { 260 44 }
-						text = "kog_gui_declare_autocephaly"
-						using = fontsize_large
-						
-						datacontext = "[GetScriptedGui('kog_declare_autocephaly_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_declare_autocephaly_desc"
-					}
-					
-					# Autocephaly Progressbar
-					green_progressbar_horizontal = {
-						parentanchor = center
-						size = { 200 20 }
-						visible = "[GetScriptedGui('kog_schism_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-						
-						blockoverride "values" {
-							min = 0
-							max = 120
-							value = "[Country.MakeScope.Var('kog_local').Var('kog_schism_var').GetValue]"
-						}
-						textbox = {
-							parentanchor = center
-							text = "kog_gui_autocephaly_header"
-							autoresize = yes
-							max_width = 300
-							elide = right
-							using = fontsize_medium
-							visible = "[GetScriptedGui('kog_schism_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-						}
-					}
-					
-					# Convoke Council Button
-					button = {
-						parentanchor = center
-						using = default_button_primary_big_action
-						size = { 260 44 }
-						text = "kog_gui_convoke_council"
-						using = fontsize_large
-						
-						datacontext = "[GetScriptedGui('kog_convoke_council_sgui')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						tooltip = "kog_gui_convoke_council_desc"
-					}
-				}
-			}
-		}
-		
-		## Seat Interaction Buttons
-		vbox = {
-			spacing = 10
-			
-			## Top Row
-			hbox = {
-				spacing = 5
-				
-				# Seek Mandate Button
-				button = {
-					using = default_button_primary_big_action
-					size = { 220 40 }
-					text = "kog_seek_mandate"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui('kog_seek_mandate_sgui')]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_seek_mandate_desc"
-				}
-				
-				# Integrate Seat Button
-				button = {
-					using = default_button_primary_big_action
-					size = { 180 40 }
-					text = "kog_gui_integrate_seat"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_integrate_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_integrate_seat_desc"
-				}
-				
-				# Integration Progressbar
-				green_progressbar_horizontal = {
-					size = { 180 20 }
-					visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_integration_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
-					
-					blockoverride "values" {
-						min = 0
-						max = 120
-						value = "[GetPlayer.MakeScope.Var('kog_local').Var('kog_integration_var').GetValue]"
-					}
-					textbox = {
-						parentanchor = center
-						autoresize = yes
-						
-						text = "kog_gui_integration_progress"
-						elide = right
-						using = fontsize_medium
-					}
-				}
-				
-				# Enforce Rite Button
-				button = {
-					using = default_button_primary_big_action
-					size = { 180 40 }
-					text = "kog_gui_enforce_seat"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforce_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_enforce_seat_desc"
-				}
-				
-				# Enforcement Progressbar
-				green_progressbar_horizontal = {
-					size = { 180 20 }
-					visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
-					
-					blockoverride "values" {
-						min = 0
-						max = 120
-						value = "[GetPlayer.MakeScope.Var('kog_local').Var('kog_enforcement_var').GetValue]"
-					}
-					textbox = {
-						parentanchor = center
-						autoresize = yes
-						
-						text = "kog_gui_enforcement_progress"
-						elide = right
-						using = fontsize_medium
-					}
-				}
-				
-				# Assert Supremacy Button
-				button = {
-					using = default_button_primary_big_action
-					size = { 220 40 }
-					text = "kog_assert_seat"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_assert_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_assert_rome_button"
-				}
-			}
-			
-			hbox = {
 				spacing = 10
-				margin_bottom = 10
 				
-				# Improve Relations Button
-				button = {
-					using = default_button_action
-					size = { 200 40 }
-					text = "kog_gui_improve_relations"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_improve_relations_desc"
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
+					}
 				}
-				
-				# Cease Diplomacy Button
-				button = {
-					using = default_button_action
-					size = { 200 40 }
-					text = "kog_gui_cease_diplomacy"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_cease_diplomacy_desc"
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_santiago').GetCharacter]"
+					}
 				}
-				
-				# Damage Relations Button
-				button = {
-					using = default_button_action
-					size = { 200 40 }
-					text = "kog_gui_damage_relations"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_damage_relations_desc"
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_paris').GetCharacter]"
+					}
 				}
-				
-				# Cease Hostilities Button
-				button = {
-					using = default_button_action
-					size = { 200 40 }
-					text = "kog_gui_cease_hostilities"
-					using = fontsize_medium
-					
-					datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
-					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_cease_hostilities_desc"
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_koln').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_vienna').GetCharacter]"
+					}
 				}
 			}
 		}
 	}
 	
-	type kog_minor_seat_type = vbox {
+	type kog_orthodox_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_orthodox' )]"
+		
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		
+		scrollbarpolicy_horizontal = always_off
+		
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+		
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+				
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_constantinople').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_antioch').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_jerusalem').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_alexandria').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_moscow').GetCharacter]"
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_oriental_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_oriental' )]"
+		
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		
+		scrollbarpolicy_horizontal = always_off
+		
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+		
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+				
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_coptic_alexandria').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_syriac_antioch').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_etchmiadzin').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_addis_ababa').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_konak').GetCharacter]"
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_elysian_seats = scrollarea {
+		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_elysian' )]"
+		
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		
+		scrollbarpolicy_horizontal = always_off
+		
+		scrollbar_vertical = {
+			using = vertical_scrollbar
+		}
+		
+		scrollwidget = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				spacing = 10
+				
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_elysium').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_mixtec').GetCharacter]"
+					}
+				}
+				kog_episcopal_seat = {
+					blockoverride "seat_visibility" {
+						visible = "[GetScriptedGui('kog_cahokia_founding_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					blockoverride "seat_datacontext" {
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_cahokia').GetCharacter]"
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_episcopal_seat = vbox {
 		layoutpolicy_vertical = shrinking
 		spacing = 10
 		margin = { 10 10 }
