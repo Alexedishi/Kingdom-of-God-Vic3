@@ -167,18 +167,21 @@ types kog_kingdom_of_god_window_types {
 				layoutstretchfactor_horizontal = 2
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				spacing = 10
+				
+				using = entry_bg_fancy
 				
 				background = {
 					using = dark_area
 				}
 				
-				using = entry_bg_fancy
-				
-				default_header_clean_faded = {
-					parentanchor = top|hcenter
-					layoutpolicy_horizontal = expanding
-					size = { 0 44 }
+				default_header_clean = {
+					blockoverride "header_mask" {
+						using = frame_small_mask_top
+					}
+					blockoverride "size" {
+						layoutpolicy_horizontal = expanding
+						size = { 0 44 }
+					}
 					blockoverride "text" {
 						text = "kog_gui_metropolis_header"
 					}
@@ -194,6 +197,9 @@ types kog_kingdom_of_god_window_types {
 					}
 					blockoverride "patriarch_datacontext" {
 						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').Var('kog_patriarch_var').GetCharacter]"
+					}
+					blockoverride "patriarch_opinion" {
+						text = "kog_rome_opinion"
 					}
 				}
 				kog_canon_laws_panel = {
