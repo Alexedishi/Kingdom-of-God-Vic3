@@ -10,9 +10,16 @@
 	}
 	text = {
 		trigger = {
-			NOR = {
-				has_variable = kog_controller_var
-				exists = var:kog_controller_var
+			OR = {
+				NOT = {
+					has_variable = kog_controller_var
+				}
+				AND = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
 			}
 		}
 		localization_key = kog_no_owner
