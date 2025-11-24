@@ -143,6 +143,7 @@ types kog_episcopal_seat_panels {
 
 	type kog_catholic_seats = scrollarea {
 		visible = "[GetVariableSystem.HasValue( 'kog_tabs_var', 'kog_tab_catholic' )]"
+		
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		
@@ -354,12 +355,12 @@ types kog_episcopal_seat_panels {
 	type kog_episcopal_seat = vbox {
 		layoutpolicy_horizontal = expanding
 		spacing = 10
-		margin = { -10 10 }
 		block "seat_visibility" {}
 		block "seat_datacontext" {}
 		
 		background = {
 			using = entry_bg
+			margin = { -10 0 }
 		}
 		
 		default_header_clean_faded = {
@@ -374,7 +375,7 @@ types kog_episcopal_seat_panels {
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			
-			character_portrait_medium = {
+			character_portrait_medium_torso = {
 				block "patriarch_datacontext" { }
 				blockoverride "show_hat" { }
 				blockoverride "tooltip" { } # Error Suppression
@@ -399,27 +400,61 @@ types kog_episcopal_seat_panels {
 				}
 			}
 			
-			widget = {
-				size = { 150 150 }
+			vbox = {
+				spacing = 5
+				margin = { 10 5 }
 				
 				background = {
 					using = entry_bg_simple
 				}
+				background = {
+					using = entry_bg_simple
+				}
+				textbox = {
+					text = "kog_gui_controller"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_controller'))]"
+					size = { 200 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				textbox = {
+					raw_text = "[concept_liturgical_rite]:"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
 				textbox = {
 					text = "kog_gui_liturgical_rite"
-					size = { 150 40 }
+					size = { 200 20 }
 					elide = right
 					using = fontsize_medium
 				}
+				divider_clean = {}
 				textbox = {
-					text = "kog_gui_location"
-					size = { 150 40 }
+					raw_text = "[concept_liturgical_language]:"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					text = "kog_gui_liturgical_language"
+					size = { 200 20 }
 					elide = right
 					using = fontsize_medium
 				}
+				divider_clean = {}
 				textbox = {
-					text = "kog_gui_opinion"
-					size = { 150 40 }
+					block "patriarch_opinion" {
+						raw_text = "#TODO Override patriarch_opinion!"
+						using = look_at_me_text_animation
+					}
+					size = { 200 20 }
 					elide = right
 					using = fontsize_medium
 				}
@@ -427,12 +462,6 @@ types kog_episcopal_seat_panels {
 		}
 		
 		hbox = {
-			layoutpolicy_horizontal = shrinking
-			layoutpolicy_vertical = shrinking
-			background = {
-				using = entry_bg_unit_dark
-			}
-			
 			# Integrate Seat Button
 			button = {
 				using = default_button_action
@@ -479,82 +508,6 @@ types kog_episcopal_seat_panels {
 				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				tooltip = "kog_gui_enforce_seat_desc"
-			}
-			
-			# Enforcement Progressbar
-			green_progressbar_horizontal = {
-				size = { 140 20 }
-				visible = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_enforcement_sgui'))).IsShown(GuiScope.SetRoot(Country.MakeScope).End)]"
-				
-				blockoverride "values" {
-					min = 0
-					max = 120
-					value = "[Character.MakeScope.Var('kog_enforcement_var').GetValue]"
-				}
-				textbox = {
-					parentanchor = center
-					autoresize = yes
-					
-					text = "kog_gui_enforcement_progress"
-					elide = right
-					using = fontsize_small
-				}
-			}
-			
-			# Improve Relations Button
-			button = {
-				using = default_button_action
-				size = { 150 40 }
-				text = "kog_gui_improve_relations"
-				using = fontsize_small
-				
-				datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
-				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "kog_gui_improve_relations_desc"
-			}
-			
-			# Cease Diplomacy Button
-			button = {
-				using = default_button_action
-				size = { 150 40 }
-				text = "kog_gui_cease_diplomacy"
-				using = fontsize_small
-				
-				datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
-				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "kog_gui_cease_diplomacy_desc"
-			}
-			
-			# Damage Relations Button
-			button = {
-				using = default_button_action
-				size = { 150 40 }
-				text = "kog_gui_damage_relations"
-				using = fontsize_small
-				
-				datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
-				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "kog_gui_damage_relations_desc"
-			}
-			
-			# Cease Hostilities Button
-			button = {
-				using = default_button_action
-				size = { 150 40 }
-				text = "kog_gui_cease_hostilities"
-				using = fontsize_small
-				
-				datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
-				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				tooltip = "kog_gui_cease_hostilities_desc"
 			}
 		}
 		
