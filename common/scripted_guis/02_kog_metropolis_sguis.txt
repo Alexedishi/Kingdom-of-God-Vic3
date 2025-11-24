@@ -1,5 +1,33 @@
 ﻿####---------- Catholic Metropolitan SGUIs ----------####
 # Religious Aspects
+kog_venerate_apparition_sgui = {
+	scope = country
+	is_shown = {
+		always = yes
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = kog_is_selecting_apparition_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = kog_icon_var
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				kog_has_icon_trigger = no
+			}
+			has_technology_researched = romanticism
+			kog_has_200_capacity_trigger = yes
+		}
+	}
+	effect = {
+		set_variable = kog_icon_var
+		#TODO add re-factored event
+	}
+}
+
 # Religious Focuses
 # Religious Actions
 
@@ -24,12 +52,7 @@ kog_commission_icon_sgui = {
 				kog_has_icon_trigger = no
 			}
 			has_technology_researched = romanticism
-			custom_tooltip = {
-				text = kog_has_200_capacity
-				hidden_trigger = {
-					kog_capacity_value >= 200
-				}
-			}
+			kog_has_200_capacity_trigger = yes
 		}
 	}
 	effect = {
