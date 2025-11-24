@@ -196,7 +196,8 @@ types kog_denominational_panels {
 				divider_clean = {}
 				textbox = {
 					block "patriarch_opinion" {
-						raw_text = "#TODO Override Me!"
+						raw_text = "#TODO Override patriarch_opinion!"
+						using = look_at_me_text_animation
 					}
 					size = { 200 20 }
 					elide = right
@@ -601,7 +602,7 @@ types kog_denominational_panels {
 							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
 						}
 						blockoverride "icon" {
-							texture = "gfx/interface/icons/law_icons/state_religion.dds"
+							texture = "gfx/interface/error_deer.dds"
 						}
 						blockoverride "icon_size" {
 							size = { 70% 70% }
@@ -613,7 +614,7 @@ types kog_denominational_panels {
 							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
 						}
 						blockoverride "icon" {
-							texture = "gfx/interface/icons/law_icons/freedom_of_conscience.dds"
+							texture = "gfx/interface/error_deer.dds"
 						}
 						blockoverride "icon_size" {
 							size = { 70% 70% }
@@ -625,7 +626,7 @@ types kog_denominational_panels {
 							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
 						}
 						blockoverride "icon" {
-							texture = "gfx/interface/icons/law_icons/total_separation.dds"
+							texture = "gfx/interface/error_deer.dds"
 						}
 						blockoverride "icon_size" {
 							size = { 70% 70% }
@@ -637,7 +638,7 @@ types kog_denominational_panels {
 							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
 						}
 						blockoverride "icon" {
-							texture = "gfx/interface/icons/law_icons/state_atheism.dds"
+							texture = "gfx/interface/error_deer.dds"
 						}
 						blockoverride "icon_size" {
 							size = { 70% 70% }
@@ -977,6 +978,7 @@ types kog_denominational_panels {
 			textbox = {
 				block "canon_law_group" {
 					raw_text = "#TODO Override canon_law_group!"
+					using = look_at_me_text_animation
 				}
 				parentanchor = center
 				position = { 0 0 }
@@ -1003,6 +1005,7 @@ types kog_denominational_panels {
 		textbox = {
 			block "canon_law_flag" {
 				raw_text = "#TODO Override canon_law_flag!"
+				using = look_at_me_text_animation
 			}
 			parentanchor = top|left
 			position = { 10 55 }
@@ -1041,12 +1044,14 @@ types kog_denominational_panels {
 	
 	####---------- Curia Panel ----------####
 	type kog_curia_panel = vbox {
-		layoutpolicy_horizontal = preferred
 		layoutpolicy_vertical = shrinking
+		layoutpolicy_horizontal = expanding
+		maximumsize = { -1 400 }
+		minimumsize = { -1 400 }
 		using = default_fade_in_out
-		spacing = 5
+		margin_bottom = 5
 		
-		visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'curia')]"
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
 		
 		background = {
 			using = entry_bg_unit_dark
@@ -1062,142 +1067,62 @@ types kog_denominational_panels {
 		}
 		
 		# Preferatus
-		scrollarea = {
+		hbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			minimumsize = { -1 240 }
-			maximumsize = { -1 240 }
+			spacing = 5
+			margin = { 0 10 }
 			
-			scrollbarpolicy_horizontal = always_off
-			scrollbarpolicy_vertical = as_needed
+			datamodel = "[GetGlobalList('kog_cardinals_list')]"
 			
-			scrollbar_horizontal = {
-				using = horizontal_scrollbar
-			}
-			
-			scrollbar_vertical = {
-				using = vertical_scrollbar
-			}
-			
-			scrollwidget = {
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					spacing = 5
-					margin = { 0 10 }
-					
-					datamodel = "[GetGlobalList('kog_cardinals_list')]"
-					
-					item = {
-						kog_collegium_preferatus_widget = {}
-					}
-				}
-			}
-		}
-		
-		default_header_clean_faded = {
-			layoutpolicy_horizontal = expanding
-			maximumsize = { 300 -1 }
-			blockoverride "text" {
-				text = "kog_papabili_header"
+			item = {
+				kog_collegium_preferatus_widget = {}
 			}
 		}
 		
 		# First Row of Candidates
-		scrollarea = {
-			layoutpolicy_horizontal = expanding
+		hbox = {
+			layoutpolicy_horizontal = shrinking
 			layoutpolicy_vertical = expanding
-			minimumsize = { -1 120 }
-			maximumsize = { 600 -1 }
+			spacing = 30
+			margin = { 0 10 }
 			
-			scrollbarpolicy_horizontal = always_off
-			scrollbarpolicy_vertical = as_needed
+			datamodel = "[GetGlobalList('kog_cardinals_list')]"
 			
-			scrollbar_horizontal = {
-				using = horizontal_scrollbar
-			}
-			
-			scrollbar_vertical = {
-				using = vertical_scrollbar
-			}
-			
-			scrollwidget = {
-				
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					spacing = 5
-					margin = { 0 10 }
-					
-					datamodel = "[GetGlobalList('kog_cardinals_list')]"
-					
-					item = {
-						kog_collegium_cardinal_widget = {
-							blockoverride "row_visibility" {
-								visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)3'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)4'))))]"
-							}
-						}
+			item = {
+				kog_collegium_cardinal_widget = {
+					blockoverride "row_visibility" {
+						visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)1'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)2'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)3'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)4'))))]"
 					}
 				}
 			}
 		}
 		
 		# Second Row of Candidates
-		scrollarea = {
-			layoutpolicy_horizontal = expanding
+		hbox = {
+			layoutpolicy_horizontal = shrinking
 			layoutpolicy_vertical = expanding
-			minimumsize = { -1 120 }
-			maximumsize = { 500 -1 }
+			spacing = 30
+			margin = { 0 10 }
 			
-			scrollbarpolicy_horizontal = always_off
-			scrollbarpolicy_vertical = as_needed
+			datamodel = "[GetGlobalList('kog_cardinals_list')]"
 			
-			scrollbar_horizontal = {
-				using = horizontal_scrollbar
-			}
-			
-			scrollbar_vertical = {
-				using = vertical_scrollbar
-			}
-			
-			scrollwidget = {
-				
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-					spacing = 5
-					margin = { 0 10 }
-					
-					datamodel = "[GetGlobalList('kog_cardinals_list')]"
-					
-					item = {
-						kog_collegium_cardinal_widget = {
-							blockoverride "row_visibility" {
-								visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)5'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)6'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)7')))]"
-							}
-						}
+			item = {
+				kog_collegium_cardinal_widget = {
+					blockoverride "row_visibility" {
+						visible = "[Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)5'), Or(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)6'), EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)7')))]"
 					}
 				}
 			}
 		}
+		
+		expand = {}
 	}
 	
 	type kog_collegium_preferatus_widget = widget {
-		size = { 240 220 }
-		using = entry_bg_fancy
+		size = { 200 150 }
 		datacontext = "[Scope.GetCharacter]"
 		visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
-		
-		default_header_clean_faded = {
-			size = { 220 35 }
-			parentanchor = top|hcenter
-			blockoverride "text" {
-				text = "kog_preferatus_header"
-				autoresize = yes
-				elide = right
-				using = fontsize_large
-			}
-		}
 		
 		character_portrait_medium_torso = {
 			parentanchor = center
@@ -1211,22 +1136,21 @@ types kog_denominational_panels {
 			size = { 210 36 }
 			parentanchor = bottom|hcenter
 			blockoverride "text" {}
-		}
-		
-		textbox = {
-			text = "kog_cardinal_name"
-			parentanchor = bottom|hcenter
-			position = { 0 -5 }
-			autoresize = yes
-			max_width = 250
-			elide = right
-			using = fontsize_large
+			textbox = {
+				text = "kog_cardinal_name"
+				parentanchor = bottom|hcenter
+				position = { 0 -5 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_large
+			}
 		}
 		
 		textbox = {
 			text = "kog_cardinal_gravitas"
-			parentanchor = top|right
-			position = { -10 40 }
+			parentanchor = right|vcenter
+			position = { 10 27 }
 			autoresize = yes
 			elide = right
 			using = fontsize_large
@@ -1242,8 +1166,8 @@ types kog_denominational_panels {
 		
 		icon = {
 			size = { 48 32 }
-			parentanchor = top|left
-			position = { 10 39 }
+			parentanchor = left|vcenter
+			position = { -5 24 }
 			
 			texture = "[Country.GetFlag.GetSmallFlagTexture]"
 			alwaystransparent = yes
@@ -1262,10 +1186,36 @@ types kog_denominational_panels {
 				parentanchor = center
 			}
 		}
+		
+		widget = {
+			parentanchor = top|right
+			position = { -30 15 }
+			size = { 35 35 }
+			
+			icon = {
+				texture = "gfx/interface/backgrounds/round_frame_dec.dds"
+				parentanchor = center
+				size = { 100% 100% }
+				
+				icon = {
+					using = rotate_glow_animation_02
+					size = { 200% 200% }
+					parentanchor = center
+				}
+				
+				icon = {
+					texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
+					parentanchor = center
+					size = { 100% 100% }
+					position = { 4 0 }
+				}
+			}
+			tooltip = "kog_placeholder_text"
+		}
 	}
 	
 	type kog_collegium_cardinal_widget = widget {
-		size = { 140 100 }
+		size = { 140 75 }
 		datacontext = "[Scope.GetCharacter]"
 		
 		block "row_visibility" {}
@@ -1280,19 +1230,19 @@ types kog_denominational_panels {
 		}
 		
 		default_header_clean_faded = {
+			position = { 0 10 }
 			size = { 110 25 }
 			parentanchor = bottom|hcenter
 			blockoverride "text" {}
-		}
-		
-		textbox = {
-			text = "kog_cardinal_name"
-			parentanchor = bottom|hcenter
-			position = { 0 -2 }
-			autoresize = yes
-			max_width = 250
-			elide = right
-			using = fontsize_medium
+			textbox = {
+				text = "kog_cardinal_name"
+				parentanchor = bottom|hcenter
+				position = { 0 -2 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
 		}
 		
 		textbox = {
@@ -1341,19 +1291,23 @@ types kog_denominational_panels {
 	####---------- Holy Sites Panel ----------####
 	type kog_holy_sites_panel = vbox {
 		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = preferred
+		maximumsize = { -1 400 }
+		minimumsize = { -1 400 }
+		margin = { 10 0 }
 		spacing = 10
 		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+		
 		background = {
-			using = default_bg
-			margin_bottom = 8
+			using = entry_bg
+			margin = { -10 0 }
 		}
 		
-		default_header = {
+		default_header_clean_faded = {
 			layoutpolicy_horizontal = expanding
 			size = { 0 44 }
 			blockoverride "text" {
-				raw_text = "Holy Sites"
+				text = "kog_gui_holy_sites_header"
 			}
 		}
 		
@@ -1818,15 +1772,24 @@ types kog_denominational_panels {
 	type kog_catholic_global_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		margin = { 10 10 }
+		margin = { 10 0 }
 		using = default_fade_in_out
 		
-		max_update_rate = 100
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'members')]"
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 44 }
+			blockoverride "text" {
+				text = "kog_gui_members_header"
+			}
+		}
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
+			
+			max_update_rate = 60
 			
 			scrollbarpolicy_horizontal = always_off
 			scrollbarpolicy_vertical = as_needed
@@ -1945,6 +1908,8 @@ types kog_denominational_panels {
 				}
 			}
 		}
+		
+		expand = {}
 	}
 	
 	type kog_orthodox_global_panel = vbox {
@@ -1954,7 +1919,7 @@ types kog_denominational_panels {
 		using = default_fade_in_out
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			
@@ -2084,7 +2049,7 @@ types kog_denominational_panels {
 		using = default_fade_in_out
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			
@@ -2214,7 +2179,7 @@ types kog_denominational_panels {
 		using = default_fade_in_out
 		
 		scrollarea = {
-			visible = "[GetVariableSystem.HasValue('kog_metropolitan_tab', 'list')]"
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'list')]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			
