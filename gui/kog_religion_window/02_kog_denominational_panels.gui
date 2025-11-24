@@ -1,7 +1,95 @@
 types kog_denominational_panels {
+	####---------- Denominational Panel Tabs ----------####
+	type kog_denominational_tabs = tab_buttons {
+		margin = { 15 0 }
+		layoutpolicy_horizontal = expanding
+		margin_bottom = -5
+		blockoverride "first_button" {
+			text = "kog_gui_head_of_faith_header"
+		}
+		blockoverride "first_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'head')]"
+		}
+		blockoverride "first_button_visibility" {
+			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		}
+		blockoverride "first_button_visibility_checked" {
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'head')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+		}
+		blockoverride "first_button_selected" {
+			text = "kog_gui_head_of_faith_header"
+		}
+		
+		blockoverride "second_button" {
+			text = "kog_gui_canon_law_header"
+		}
+		blockoverride "second_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+		}
+		blockoverride "second_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+		}
+		blockoverride "second_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+		}
+		blockoverride "second_button_selected" {
+			text = "kog_gui_canon_law_header"
+		}
+		
+		blockoverride "third_button" {
+			text = "kog_gui_collegium_header"
+		}
+		blockoverride "third_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
+		}
+		blockoverride "third_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
+		}
+		blockoverride "third_button_visibility_checked" {
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia')), GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+		}
+		blockoverride "third_button_selected" {
+			text = "kog_gui_collegium_header"
+		}
+		
+		blockoverride "fourth_button" {
+			text = "kog_gui_holy_sites_header"
+		}
+		blockoverride "fourth_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
+		}
+		blockoverride "fourth_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+		}
+		blockoverride "fourth_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
+		}
+		blockoverride "fourth_button_selected" {
+			text = "kog_gui_holy_sites_header"
+		}
+		
+		blockoverride "fifth_button" {
+			text = "kog_gui_members_header"
+		}
+		blockoverride "fifth_button_click" {
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'members')]"
+		}
+		blockoverride "fifth_button_visibility" {
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'members')]"
+		}
+		blockoverride "fifth_button_visibility_checked" {
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'members'))]"
+		}
+		blockoverride "fifth_button_selected" {
+			text = "kog_gui_members_header"
+		}
+	}
+	
+	####---------- Head of Faith Panel ----------####
 	type kog_head_of_faith_panel = vbox {
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = shrinking
+		maximumsize = { -1 400 }
 		spacing = 10
 		block "seat_visibility" {}
 		block "seat_datacontext" {}
@@ -134,10 +222,6 @@ types kog_denominational_panels {
 					blockoverride "text" {
 						text = "kog_gui_major_actions"
 					}
-					autoresize = yes
-					max_width = 190
-					elide = right
-					using = fontsize_large
 				}
 				
 				## Tetrarchy/Pentarchy/Mending Buttons
@@ -262,10 +346,7 @@ types kog_denominational_panels {
 				blockoverride "text" {
 					text = "kog_gui_diplomatic_actions"
 				}
-				autoresize = yes
 				max_width = 300
-				elide = right
-				using = fontsize_large
 			}
 			
 			## Top Row
@@ -432,106 +513,512 @@ types kog_denominational_panels {
 		}
 	}
 	
+	####---------- Canon Laws Panel ----------####
+	
 	type kog_canon_laws_panel = vbox {
-		visible = "no"
+		layoutpolicy_horizontal = expanding
+		maximumsize = { -1 400 }
+		minimumsize = { -1 400 }
+		margin = { 10 0 }
+		spacing = 5
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+		
+		background = {
+			using = entry_bg
+			margin = { -10 0 }
+		}
+		
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			blockoverride "text" {
+				text = "kog_gui_canon_law_header"
+			}
+		}
+		
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			#### APOSTOLIC SUCCESSION LAW
+			canon_law_entry = {
+				blockoverride "canon_law_background" {
+					texture = "gfx/interface/illustrations/canon_laws/apostolic_succession.dds"
+				}
+				blockoverride "canon_law_group" {
+					text = "kog_canon_lawgroup_apostolic_succession"
+				}
+				blockoverride "canon_law_flag" {
+					raw_text = "#yellow #bold [GetGlobalVariable('kog_global').Var('kog_catholic').Var('kog_canon_law_apostolic_succession_var').GetFlagName]#!#!"
+				}
+				blockoverride "canon_law_button_content" {
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+			#### ICONOGRAPHY LAW
+			canon_law_entry = {
+				blockoverride "canon_law_background" {
+					texture = "gfx/interface/illustrations/canon_laws/iconograpy.dds"
+				}
+				blockoverride "canon_law_group" {
+					text = "kog_canon_lawgroup_iconography"
+				}
+				blockoverride "canon_law_flag" {
+					raw_text = "#yellow #bold [GetGlobalVariable('kog_global').Var('kog_catholic').Var('kog_canon_law_iconography_var').GetFlagName]#!#!"
+				}
+				blockoverride "canon_law_button_content" {
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/law_icons/state_religion.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/law_icons/freedom_of_conscience.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/law_icons/total_separation.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/icons/law_icons/state_atheism.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+			#### CLERICAL MARRIAGE LAW
+			canon_law_entry = {
+				blockoverride "canon_law_background" {
+					texture = "gfx/interface/illustrations/canon_laws/clerical_marriage.dds"
+				}
+				blockoverride "canon_law_group" {
+					text = "kog_canon_lawgroup_clerical_marriage"
+				}
+				blockoverride "canon_law_flag" {
+					raw_text = "#yellow #bold [GetGlobalVariable('kog_global').Var('kog_catholic').Var('kog_canon_law_clerical_marriage_var').GetFlagName]#!#!"
+				}
+				blockoverride "canon_law_button_content" {
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+		}
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			#### SOCIAL ROLE LAW
+			canon_law_entry = {
+				blockoverride "canon_law_background" {
+					texture = "gfx/interface/illustrations/canon_laws/social_role.dds"
+				}
+				blockoverride "canon_law_group" {
+					text = "kog_canon_lawgroup_social_role"
+				}
+				blockoverride "canon_law_flag" {
+					raw_text = "#yellow #bold [GetGlobalVariable('kog_global').Var('kog_catholic').Var('kog_canon_law_social_role_var').GetFlagName]#!#!"
+				}
+				blockoverride "canon_law_button_content" {
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+			#### STANCE ON SCIENCES LAW
+			canon_law_entry = {
+				blockoverride "canon_law_background" {
+					texture = "gfx/interface/illustrations/canon_laws/stance_on_sciences.dds"
+				}
+				blockoverride "canon_law_group" {
+					text = "kog_canon_lawgroup_stance_on_sciences"
+				}
+				blockoverride "canon_law_flag" {
+					raw_text = "#yellow #bold [GetGlobalVariable('kog_global').Var('kog_catholic').Var('kog_canon_law_sciences_stance_var').GetFlagName]#!#!"
+				}
+				blockoverride "canon_law_button_content" {
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+			canon_law_entry = {
+				blockoverride "canon_law_button_content" {}
+			}
+		}
+		hbox = {
+			layoutpolicy_vertical = shrinking
+			layoutpolicy_horizontal = expanding
+			#### CRUSADE LAW
+			canon_law_entry = {
+				blockoverride "canon_law_background" {
+					texture = "gfx/interface/illustrations/canon_laws/crusades.dds"
+				}
+				blockoverride "canon_law_group" {
+					text = "kog_canon_lawgroup_crusades"
+				}
+				blockoverride "canon_law_flag" {
+					raw_text = "#yellow #bold [GetGlobalVariable('kog_global').Var('kog_catholic').Var('kog_canon_law_crusades_var').GetFlagName]#!#!"
+				}
+				blockoverride "canon_law_button_content" {
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+					kog_canon_law_button = {
+						blockoverride "button_datacontext" {
+							datacontext = "[GetScriptedGui('kog_placeholder_sgui')]"
+						}
+						blockoverride "icon" {
+							texture = "gfx/interface/error_deer.dds"
+						}
+						blockoverride "icon_size" {
+							size = { 70% 70% }
+						}
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+			expand = {}
+		}
+		expand = {}
 	}
 	
+	type canon_law_entry = widget {
+		size = { 250 120 }
+		using = entry_bg_fancy
+		
+		background = {
+			block "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+			}
+			size = { 100% 100% }
+			spriteType = Corneredstretched
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			position = { 0 0 }
+			size = { 200 35 }
+			blockoverride "text" {
+			}
+			textbox = {
+				block "canon_law_group" {
+					raw_text = "#TODO Override canon_law_group!"
+				}
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 200
+				elide = right
+				using = fontsize_medium
+			}
+		}
+		textbox = {
+			text = "kog_gui_law_type_header"
+			parentanchor = top|left
+			position = { 10 35 }
+			autoresize = yes
+			max_width = 200
+			elide = right
+			using = fontsize_medium
+			
+			background = {
+				using = dark_area
+				margin = { 2 2 }
+			}
+		}
+		textbox = {
+			block "canon_law_flag" {
+				raw_text = "#TODO Override canon_law_flag!"
+			}
+			parentanchor = top|left
+			position = { 10 55 }
+			autoresize = yes
+			max_width = 200
+			elide = right
+			using = fontsize_medium
+		}
+		hbox = {
+			parentanchor = bottom|hcenter
+			position = { 0 -8 }
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = shrinking
+			spacing = 10
+			minimumsize = { -1 35 }
+			maximumsize = { -1 35 }
+			
+			background = {
+				using = dark_area
+				margin = { -10 2 }
+			}
+			
+			expand = {}
+			block "canon_law_button_content" {}
+			expand = {}
+		}
+	}
+	
+	type kog_canon_law_button = button_icon_round {
+		size = { 35 35 }
+		block "button_datacontext" {}
+		enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		clicksound = "event:/kog_focus_selected"
+	}
+	
+	####---------- Curia Panel ----------####
 	type kog_curia_panel = vbox {
 		visible = "no"
 	}
 	
+	####---------- Holy Sites Panel ----------####
 	type kog_holy_sites_panel = vbox {
 		visible = "no"
 	}
 	
+	####---------- Membership Panel ----------####
 	type kog_membership_panel = vbox {
 		visible = "no"
 	}
-	
-	type kog_denominational_tabs = tab_buttons {
-		margin = { 15 0 }
-		layoutpolicy_horizontal = expanding
-		margin_bottom = -5
-		blockoverride "first_button" {
-			text = "kog_gui_head_of_faith_header"
-		}
-		blockoverride "first_button_click" {
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'head')]"
-		}
-		blockoverride "first_button_visibility" {
-			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
-		}
-		blockoverride "first_button_visibility_checked" {
-			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'head')), GetVariableSystem.Exists('kog_denominational_tab'))]"
-		}
-		blockoverride "first_button_selected" {
-			text = "kog_gui_head_of_faith_header"
-		}
-		
-		blockoverride "second_button" {
-			text = "kog_gui_canon_law_header"
-		}
-		blockoverride "second_button_click" {
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
-		}
-		blockoverride "second_button_visibility" {
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
-		}
-		blockoverride "second_button_visibility_checked" {
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
-		}
-		blockoverride "second_button_selected" {
-			text = "kog_gui_canon_law_header"
-		}
-		
-		blockoverride "third_button" {
-			text = "kog_gui_collegium_header"
-		}
-		blockoverride "third_button_click" {
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
-		}
-		blockoverride "third_button_visibility" {
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
-		}
-		blockoverride "third_button_visibility_checked" {
-			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia')), GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-		}
-		blockoverride "third_button_selected" {
-			text = "kog_gui_collegium_header"
-		}
-		
-		blockoverride "fourth_button" {
-			text = "kog_gui_holy_sites_header"
-		}
-		blockoverride "fourth_button_click" {
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
-		}
-		blockoverride "fourth_button_visibility" {
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
-		}
-		blockoverride "fourth_button_visibility_checked" {
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
-		}
-		blockoverride "fourth_button_selected" {
-			text = "kog_gui_holy_sites_header"
-		}
-		
-		blockoverride "fifth_button" {
-			text = "kog_gui_members_header"
-		}
-		blockoverride "fifth_button_click" {
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'members')]"
-		}
-		blockoverride "fifth_button_visibility" {
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'members')]"
-		}
-		blockoverride "fifth_button_visibility_checked" {
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'members'))]"
-		}
-		blockoverride "fifth_button_selected" {
-			text = "kog_gui_members_header"
-		}
-	}
-	
-	
 }

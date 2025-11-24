@@ -78,6 +78,14 @@ kog_intialize_denomination_structs_effect = {
 				value = flag:kog_canon_law_papal_primacy
 			}
 			set_variable = {
+				name = kog_canon_law_iconography_var
+				value = flag:kog_canon_law_iconodulism
+			}
+			set_variable = {
+				name = kog_canon_law_clerical_marriage_var
+				value = flag:kog_canon_law_priests_celibate
+			}
+			set_variable = {
 				name = kog_canon_law_social_role_var
 				value = flag:kog_canon_law_moral_guidance
 			}
@@ -88,10 +96,6 @@ kog_intialize_denomination_structs_effect = {
 			set_variable = {
 				name = kog_canon_law_crusades_var
 				value = flag:kog_canon_law_no_crusades
-			}
-			set_variable = {
-				name = kog_canon_law_clerical_marriage
-				value = flag:kog_canon_law_priests_celibate
 			}
 		}
 		
@@ -124,6 +128,14 @@ kog_intialize_denomination_structs_effect = {
 				value = flag:kog_canon_law_synodality
 			}
 			set_variable = {
+				name = kog_canon_law_iconography_var
+				value = flag:kog_canon_law_iconodulism
+			}
+			set_variable = {
+				name = kog_canon_law_clerical_marriage_var
+				value = flag:kog_canon_law_marriage_allowed
+			}
+			set_variable = {
 				name = kog_canon_law_social_role_var
 				value = flag:kog_canon_law_moral_guidance
 			}
@@ -134,10 +146,6 @@ kog_intialize_denomination_structs_effect = {
 			set_variable = {
 				name = kog_canon_law_crusades_var
 				value = flag:kog_canon_law_no_crusades
-			}
-			set_variable = {
-				name = kog_canon_law_clerical_marriage
-				value = flag:kog_canon_law_marriage_allowed
 			}
 		}
 		
@@ -1378,63 +1386,6 @@ kog_initialize_metropolis_effect = {
 		set_variable = {
 			name = kog_votes_var
 			value = 0
-		}
-	}
-	
-	# Step 5: Determine Church and State Law
-	if = {
-		limit = {
-			has_law_or_variant = law_type:law_theocracy
-		}
-		var:kog_local = {
-			set_variable = {
-				name = kog_canon_law_church_and_state_var
-				value = flag:kog_canon_law_theocracy
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_law_or_variant = law_type:law_state_religion
-		}
-		var:kog_local = {
-			set_variable = {
-				name = kog_canon_law_church_and_state_var
-				value = flag:kog_canon_law_state_religion
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_law_or_variant = law_type:law_freedom_of_conscience
-		}
-		var:kog_local = {
-			set_variable = {
-				name = kog_canon_law_church_and_state_var
-				value = flag:kog_canon_law_freedom_of_conscience
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_law_or_variant = law_type:law_total_separation
-		}
-		var:kog_local = {
-			set_variable = {
-				name = kog_canon_law_church_and_state_var
-				value = flag:kog_canon_law_total_separation
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_law_or_variant = law_type:law_state_atheism
-		}
-		var:kog_local = {
-			set_variable = {
-				name = kog_canon_law_church_and_state_var
-				value = flag:kog_canon_law_atheist_state
-			}
 		}
 	}
 }
