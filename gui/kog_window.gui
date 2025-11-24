@@ -185,15 +185,15 @@ types kog_kingdom_of_god_window_types {
 				}
 				
 				kog_denominational_tabs = { }
-				kog_major_seat_type = {
+				kog_head_of_faith_panel = {
 					blockoverride "seat_visibility" {
-						visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'head')]"
+						visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 					}
 					blockoverride "seat_datacontext" {
 						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
 					}
 					blockoverride "patriarch_datacontext" {
-						datacontext = [GetGlobalVariable('kog_global').Var('kog_rome').Var('kog_patriarch_var').GetCharacter]
+						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').Var('kog_patriarch_var').GetCharacter]"
 					}
 				}
 				kog_canon_laws_panel = {
@@ -209,13 +209,13 @@ types kog_kingdom_of_god_window_types {
 					}
 				}
 				
-				expand = {}
-				
 				# Encyclical Panel
-				#kog_encyclical_panel = { }
+				kog_encyclical_panel = { }
 				
 				# Ecumenical Council Panels
-				#kog_council_panel = { }
+				kog_council_panel = { }
+				
+				expand = {}
 			}
 			
 			### RIGHT PANEL - GREATER CHRISTIAN COMMUNITY
