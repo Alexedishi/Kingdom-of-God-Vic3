@@ -6,104 +6,139 @@ types kog_denominational_panels {
 		block "seat_visibility" {}
 		block "seat_datacontext" {}
 		
-		hbox = {
-			default_header_clean_faded = {
-				layoutpolicy_horizontal = expanding
-				blockoverride "text" {}
-				textbox = {
-					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_header'))]"
-					parentanchor = left|vcenter
-					autoresize = yes
-					max_width = 300
-					elide = right
-					using = fontsize_large
-				}
-				textbox = {
-					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_controller'))]"
-					parentanchor = right|vcenter
-					autoresize = yes
-					max_width = 300
-					elide = right
-					using = fontsize_medium
-				}
+		default_header_clean_faded = {
+			layoutpolicy_horizontal = expanding
+			blockoverride "text" {
+				text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_header'))]"
 			}
 		}
 		
 		## Character Portrait
 		hbox = {
 			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = shrinking
+			layoutpolicy_vertical = preferred
 			
-			character_portrait_medium_torso = {
-				block "patriarch_datacontext" {}
-				blockoverride "show_hat" {}
-				blockoverride "tooltip" {} # Error Suppression
-				blockoverride "portrait_icons" {} # Error Suppression
-				blockoverride "portrait_button" {} # Error Suppression
-				
+			vbox = {
 				default_header_clean_faded = {
-					size = { 150 35 }
-					position = { 0 120 }
-					parentanchor = center
+					size = { 240 35 }
 					blockoverride "text" {
 					}
 					textbox = {
-						text = "kog_gui_patriarch_name"
+						text = "kog_gui_patriarch_title"
 						parentanchor = center
 						position = { 0 -2 }
 						autoresize = yes
-						max_width = 190
+						max_width = 240
 						elide = right
 						using = fontsize_large
 					}
 				}
-			}
-			vbox = {
-				background = {
-					using = entry_bg_simple
-				}
-				margin = { 10 10 }
-				textbox = {
-					raw_text = "[concept_liturgical_rite]:"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_large
-				}
-				textbox = {
-					text = "[Character.MakeScope.Var('kog_rite_var').GetFlagName]"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_medium
-				}
-				divider_clean = {}
-				textbox = {
-					raw_text = "[concept_liturgical_rite]:"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_large
-				}
-				textbox = {
-					text = "[Character.MakeScope.Var('kog_liturgical_language').GetFlagName]"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_medium
-				}
-				divider_clean = {}
-				textbox = {
-					text = "kog_gui_opinion"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_large
-				}
-				textbox = {
-					text = "kog_gui_opinion"
-					size = { 240 40 }
-					elide = right
-					using = fontsize_medium
+				character_portrait_medium_torso = {
+					block "patriarch_datacontext" {}
+					blockoverride "show_hat" {}
+					blockoverride "tooltip" {} # Error Suppression
+					blockoverride "portrait_icons" {} # Error Suppression
+					blockoverride "portrait_button" {} # Error Suppression
+					
+					default_header_clean_faded = {
+						size = { 240 35 }
+						position = { 0 80 }
+						parentanchor = center
+						blockoverride "text" {
+						}
+						textbox = {
+							text = "kog_gui_patriarch_name"
+							parentanchor = center
+							position = { 0 -2 }
+							autoresize = yes
+							max_width = 240
+							elide = right
+							using = fontsize_large
+						}
+					}
 				}
 			}
 			vbox = {
 				spacing = 5
+				margin = { 10 10 }
+				minimumsize = { 240 -1 }
+				
+				background = {
+					using = entry_bg_simple
+				}
+				
+				textbox = {
+					text = "kog_gui_controller"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					text = "[Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_controller'))]"
+					size = { 200 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				textbox = {
+					raw_text = "[concept_liturgical_rite]:"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					text = "[Character.MakeScope.Var('kog_rite_var').GetFlagName]"
+					size = { 200 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				textbox = {
+					raw_text = "[concept_liturgical_language]:"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					text = "[Character.MakeScope.Var('kog_liturgical_language_var').GetFlagName]"
+					size = { 200 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				textbox = {
+					text = "kog_gui_opinion"
+					size = { 200 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					block "patriarch_opinion" {
+						raw_text = "#TODO Override Me!"
+					}
+					size = { 200 20 }
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			vbox = {
+				spacing = 10
+				margin = { 15 15 }
+				
+				background = {
+					using = entry_bg
+				}
+				
+				default_header_clean_faded = {
+					size = { 200 35 }
+					blockoverride "text" {
+						text = "kog_gui_major_actions"
+					}
+					autoresize = yes
+					max_width = 190
+					elide = right
+					using = fontsize_large
+				}
 				
 				## Tetrarchy/Pentarchy/Mending Buttons
 				button = {
@@ -164,7 +199,6 @@ types kog_denominational_panels {
 				
 				# Autocephaly Button
 				button = {
-					parentanchor = center
 					using = default_button_primary_big_action
 					size = { 260 44 }
 					text = "kog_gui_declare_autocephaly"
@@ -179,7 +213,6 @@ types kog_denominational_panels {
 				
 				# Autocephaly Progressbar
 				green_progressbar_horizontal = {
-					parentanchor = center
 					size = { 200 20 }
 					visible = "[GetScriptedGui('kog_schism_progressbar_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					
@@ -201,7 +234,6 @@ types kog_denominational_panels {
 				
 				# Convoke Council Button
 				button = {
-					parentanchor = center
 					using = default_button_primary_big_action
 					size = { 260 44 }
 					text = "kog_gui_convoke_council"
@@ -219,6 +251,22 @@ types kog_denominational_panels {
 		## Seat Interaction Buttons
 		vbox = {
 			spacing = 10
+			margin = { 10 10 }
+			
+			background = {
+				using = entry_bg
+			}
+			
+			default_header_clean_faded = {
+				size = { 300 35 }
+				blockoverride "text" {
+					text = "kog_gui_diplomatic_actions"
+				}
+				autoresize = yes
+				max_width = 300
+				elide = right
+				using = fontsize_large
+			}
 			
 			## Top Row
 			hbox = {

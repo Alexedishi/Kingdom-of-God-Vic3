@@ -1,4 +1,21 @@
-﻿kog_seat_event_type = {
+﻿kog_patriarch_title_type = {
+	type = character
+	
+	text = {
+		trigger = {
+			var:kog_religion_var = rel:catholic
+		}
+		localization_key = kog_title_bishop
+	}
+	text = {
+		trigger = {
+			var:kog_religion_var = rel:orthodox
+		}
+		localization_key = kog_title_patriarch
+	}
+}
+
+kog_seat_event_type = {
 	type = country
 	
 	text = {
