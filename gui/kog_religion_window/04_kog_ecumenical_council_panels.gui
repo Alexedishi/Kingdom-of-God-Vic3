@@ -1,10 +1,10 @@
 types kog_ecumenical_council_panels {
 	type kog_council_panel = vbox {
 		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = shrinking
-		spacing = 10
-		maximumsize = { -1 200 }
+		layoutpolicy_vertical = preferred
 		minimumsize = { -1 200 }
+		maximumsize = { -1 300 }
+		using = default_fade_in_out
 		
 		default_header_clean_faded = {
 			layoutpolicy_horizontal = expanding
@@ -13,16 +13,23 @@ types kog_ecumenical_council_panels {
 				text = "kog_gui_ecumenical_council_header"
 			}
 		}
-
-        hbox = {
-            textbox = {
-                raw_text = "#italic TBA"
-                size = { 200 20 }
-                elide = right
-                fontsize = 18
-            }
-        }
-
-        expand = {}
+		
+		kog_inactive_council_panel = {
+			blockoverride "inactive_visibility" {}
+		}
+	}
+	
+	type kog_inactive_council_panel = hbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = preferred
+		
+		block "inactive_visibility" {}
+		
+		textbox = {
+			autoresize = yes
+			text = "kog_gui_ecumenical_council_none"
+			elide = right
+			using = fontsize_xl
+		}
 	}
 }
