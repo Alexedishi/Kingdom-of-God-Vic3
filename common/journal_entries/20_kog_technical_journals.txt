@@ -3,9 +3,6 @@
     icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
     weight = 0
 	
-	is_shown_when_inactive = {
-		always = no
-	}
 	possible = {
 		always = no
 	}
@@ -17,7 +14,7 @@
 je_kog_catholic = {
 	group = je_group_international_organizations
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
-	weight = 100
+	weight = 0
 	
 	should_be_pinned_by_default = yes
 	
@@ -25,13 +22,21 @@ je_kog_catholic = {
 		country_has_state_religion = rel:catholic
 	}
 	
+	scripted_button = kog_display_widget_button
+	
+	is_shown_when_inactive = {
+		country_has_state_religion = rel:catholic
+	}
+	
 	should_be_involved = {
 		country_has_state_religion = rel:catholic
 	}
 	
-	scripted_progress_bar = kog_capacity_progress_bar
-	
-	scripted_button = kog_display_widget_button
+	possible = {
+		hidden_trigger = {
+			always = yes
+		}
+	}
 	
 	immediate = {
 		kog_assign_dlc_icon_effect = yes
@@ -87,18 +92,12 @@ je_kog_catholic = {
 			}
 		}
 	}
-	
-	on_yearly_pulse = {
-		effect = {
-			kog_update_catholic_list = yes
-		}
-	}
 }
 
 je_kog_orthodox = {
 	group = je_group_international_organizations
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	weight = 100
+	weight = 0
 	
 	should_be_pinned_by_default = yes
 	
@@ -106,13 +105,21 @@ je_kog_orthodox = {
 		country_has_state_religion = rel:orthodox
 	}
 	
+	scripted_button = kog_display_widget_button
+	
+	is_shown_when_inactive = {
+		country_has_state_religion = rel:orthodox
+	}
+	
 	should_be_involved = {
 		country_has_state_religion = rel:orthodox
 	}
 	
-	scripted_progress_bar = kog_capacity_progress_bar
-	
-	scripted_button = kog_display_widget_button
+	possible = {
+		hidden_trigger = {
+			always = yes
+		}
+	}
 	
 	immediate = {
 		kog_assign_dlc_icon_effect = yes
@@ -166,12 +173,6 @@ je_kog_orthodox = {
 					}
 				}
 			}
-		}
-	}
-	
-	on_yearly_pulse = {
-		effect = {
-			kog_update_orthodox_list = yes
 		}
 	}
 }
