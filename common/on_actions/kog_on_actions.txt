@@ -12,10 +12,31 @@ kog_game_start = {
 }
 
 ####---------- Monthly Pulses ----------####
+on_monthly_pulse = {
+	on_actions = {
+		kog_global_pulse
+	}
+}
+
+kog_global_pulse = {
+	effect = {
+		kog_update_catholic_list = yes
+		kog_update_orthodox_list = yes
+		#		kog_update_oriental_list = yes
+		#		kog_update_elysian_list = yes
+		#		kog_update_anglican_list = yes
+		#		kog_update_lutheran_list = yes
+	}
+}
+
 on_monthly_pulse_country = {
 	on_actions = {
 		kog_catholic_pulse
 		kog_orthodox_pulse
+#		kog_oriental_pulse
+#		kog_elysian_pulse
+#		kog_anglican_pulse
+#		kog_lutheran_pulse
 	}
 }
 
