@@ -160,6 +160,9 @@ types kog_episcopal_seat_panels {
 				spacing = 10
 				
 				kog_episcopal_seat = {
+					blockoverride "seat_visibility" {
+						visible = "[Not(GetScriptedGui('kog_catholic_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					}
 					blockoverride "seat_datacontext" {
 						datacontext = "[GetGlobalVariable('kog_global').Var('kog_rome').GetCharacter]"
 					}
@@ -222,6 +225,9 @@ types kog_episcopal_seat_panels {
 				spacing = 10
 				
 				kog_episcopal_seat = {
+					blockoverride "seat_visibility" {
+						visible = "[Not(GetScriptedGui('kog_orthodox_sgui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					}
 					blockoverride "seat_datacontext" {
 						datacontext = "[GetGlobalVariable('kog_global').Var('kog_constantinople').GetCharacter]"
 					}
