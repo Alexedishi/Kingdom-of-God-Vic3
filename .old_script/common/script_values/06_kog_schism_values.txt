@@ -1,0 +1,84 @@
+﻿kog_schism_progress_value = {
+	# This value is overwritten by GotB to provide support for Bulgarian content
+	value = 0
+	
+	## Sources ##
+	if = {
+		limit = {
+			has_modifier = modifier_kog_schismatic
+		}
+		add = {
+			value = 2
+			desc = kog_value_from_base_progress
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_ignored_dissent
+		}
+		add = {
+			value = 1
+			desc = kog_value_from_ignoring_dissent
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_purged_ecclesiarchy
+		}
+		add = {
+			value = 1
+			desc = kog_value_from_purged_ecclesiarchy
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_fast_tracking_bishops
+		}
+		add = {
+			value = 1
+			desc = kog_value_from_fast_tracking_bishops
+		}
+	}
+	
+	## Penalities ##
+	if = {
+		limit = {
+			has_modifier = modifier_kog_conceded_to_traditionalists
+		}
+		subtract = {
+			value = 1
+			desc = kog_value_from_conceded_to_traditionalists
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_retained_ecclesiarchy
+		}
+		subtract = {
+			value = 1
+			desc = kog_value_from_retained_ecclesiarchy
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_monk_smackdown_tolerated
+		}
+		subtract = {
+			value = 1
+			desc = kog_value_from_monk_smackdown
+		}
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_agitator_delay
+		}
+		subtract = {
+			value = 1
+			desc = kog_value_from_agitator_delay
+		}
+	}
+	
+	round = 1
+	min = 1
+	max = 10
+}

@@ -1,0 +1,57 @@
+﻿kog_has_ongoing_council_trigger = {
+	trigger_if = {
+		limit = {
+			kog_is_roman_catholic_trigger = yes
+		}
+		kog_has_catholic_council_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			kog_is_eastern_orthodox_trigger = yes
+		}
+		kog_has_orthodox_council_trigger = yes
+	}
+}
+
+kog_has_catholic_council_trigger = {
+	custom_description = { 
+		text = kog_has_catholic_council_trigger
+		global_var:kog_global.var:kog_catholic = {
+			has_variable = kog_council_var
+		}
+	}
+}
+kog_has_orthodox_council_trigger = {
+	custom_description = {
+		text = kog_has_orthodox_council_trigger
+		global_var:kog_global.var:kog_orthodox = {
+			has_variable = kog_council_var
+		}
+	}
+}
+
+kog_can_host_council_trigger = {
+	OR = {
+		AND = {
+			NOT = { has_global_variable = kog_epistle_considered }
+			has_technology_researched = mass_communication
+		}
+		AND = {
+			NOT = { has_global_variable = kog_phyletism_considered }
+			has_technology_researched = nationalism
+		}
+		AND = {
+			NOT = { has_global_variable = kog_calendar_considered }
+			has_technology_researched = central_planning
+		}
+		AND = {
+			NOT = { has_global_variable = kog_schism_mended }
+			kog_controls_and_owns_pentarchy_trigger = yes
+		}
+	}
+	NOT = {
+		any_country = {
+			has_modifier = modifier_kog_hosting_council
+		}
+	}
+}

@@ -1,0 +1,145 @@
+﻿namespace = kog_technical
+
+kog_technical.001 = { # The Patriarch's Variable Dumpster Fire
+	type = country_event
+	hidden = yes
+	orphan = yes
+	
+	trigger = {
+		always = no # DO NOT CALL THIS EVENT
+	}
+	cancellation_trigger = {
+		always = yes
+	}
+	immediate = {
+		fix_variable_error = { variable = kog_sidebar_button_sgui }
+		fix_variable_error = { variable = je_group_kog_hidden }
+		fix_variable_error = { variable = kog_global }
+		fix_variable_error = { variable = kog_local }
+		fix_variable_error = { variable = kog_catholic }
+		fix_variable_error = { variable = kog_orthodox }
+		fix_variable_error = { variable = kog_denomination }
+		
+		fix_variable_error = { variable = kog_mother_church_var }
+		fix_variable_error = { variable = kog_location_var }
+		fix_variable_error = { variable = kog_holy_sites_var }
+		fix_variable_error = { variable = kog_metropolitan_var }
+		fix_variable_error = { variable = kog_council_counter_var }
+		fix_variable_error = { variable = kog_liturgical_language_var }
+		
+		fix_variable_error = { variable = kog_language_latin }
+		fix_variable_error = { variable = kog_language_khoine }
+		fix_variable_error = { variable = kog_language_coptic }
+		fix_variable_error = { variable = kog_language_slavonic }
+		
+		fix_variable_error = { variable = kog_canon_law_papal_primacy }
+		fix_variable_error = { variable = kog_canon_law_synodality }
+		fix_variable_error = { variable = kog_canon_law_congregationalism }
+		fix_variable_error = { variable = kog_canon_law_iconoclasm }
+		fix_variable_error = { variable = kog_canon_law_aniconism }
+		fix_variable_error = { variable = kog_canon_law_iconodulism }
+		fix_variable_error = { variable = kog_canon_law_iconolatry }
+		fix_variable_error = { variable = kog_canon_law_priests_celibate }
+		fix_variable_error = { variable = kog_canon_law_marriage_allowed }
+		fix_variable_error = { variable = kog_canon_law_moral_authority }
+		fix_variable_error = { variable = kog_canon_law_moral_guidance }
+		fix_variable_error = { variable = kog_canon_law_social_activism }
+		fix_variable_error = { variable = kog_canon_law_modernizing_force }
+		fix_variable_error = { variable = kog_canon_law_scriptural_supremacy }
+		fix_variable_error = { variable = kog_canon_law_scriptural_favoritism }
+		fix_variable_error = { variable = kog_canon_law_scientific_disengagement }
+		fix_variable_error = { variable = kog_canon_law_scientific_patronage }
+		fix_variable_error = { variable = kog_canon_law_scientific_crusade }
+		fix_variable_error = { variable = kog_canon_law_no_crusades }
+		fix_variable_error = { variable = kog_canon_law_pagan_crusades }
+		fix_variable_error = { variable = kog_canon_law_heathen_crusades }
+		fix_variable_error = { variable = kog_canon_law_heretic_crusades }
+		fix_variable_error = { variable = kog_canon_law_unlimited_crusades }
+		
+		fix_variable_error = { variable = kog_seat }
+		fix_variable_error = { variable = kog_seat_id }
+		fix_variable_error = { variable = kog_seat_name }
+		fix_variable_error = { variable = kog_is_major_seat }
+		fix_variable_error = { variable = kog_rome_name }
+		fix_variable_error = { variable = kog_santiago_name }
+		fix_variable_error = { variable = kog_paris_name }
+		fix_variable_error = { variable = kog_koln_name }
+		fix_variable_error = { variable = kog_vienna_name }
+		fix_variable_error = { variable = kog_constantinople_name }
+		fix_variable_error = { variable = kog_antioch_name }
+		fix_variable_error = { variable = kog_alexandria_name }
+		fix_variable_error = { variable = kog_jerusalem_name }
+		fix_variable_error = { variable = kog_moscow_name }
+		fix_variable_error = { variable = kog_coptic_alexandria_name }
+		fix_variable_error = { variable = kog_syriac_antioch_name }
+		fix_variable_error = { variable = kog_etchmiadzin_name }
+		fix_variable_error = { variable = kog_addis_ababa_name }
+		fix_variable_error = { variable = kog_konak_name }
+		fix_variable_error = { variable = kog_elysium_name }
+		fix_variable_error = { variable = kog_mixtec_name }
+		fix_variable_error = { variable = kog_cahokia_name }
+		
+		fix_variable_error = { variable = kog_coptic_alexandria }
+		fix_variable_error = { variable = kog_coptic_alexandria_opinion_var }
+		fix_variable_error = { variable = kog_coptic_alexandria_relations_var }
+		fix_variable_error = { variable = kog_syriac_antioch }
+		fix_variable_error = { variable = kog_syriac_antioch_opinion_var }
+		fix_variable_error = { variable = kog_syriac_antioch_relations_var }
+		fix_variable_error = { variable = kog_etchmiadzin }
+		fix_variable_error = { variable = kog_etchmiadzin_opinion_var }
+		fix_variable_error = { variable = kog_etchmiadzin_relations_var }
+		fix_variable_error = { variable = kog_addis_ababa }
+		fix_variable_error = { variable = kog_addis_ababa_opinion_var }
+		fix_variable_error = { variable = kog_addis_ababa_relations_var }
+		fix_variable_error = { variable = kog_konak }
+		fix_variable_error = { variable = kog_konak_opinion_var }
+		fix_variable_error = { variable = kog_konak_relations_var }
+		fix_variable_error = { variable = kog_elysium }
+		fix_variable_error = { variable = kog_elysium_opinion_var }
+		fix_variable_error = { variable = kog_elysium_relations_var }
+		fix_variable_error = { variable = kog_mixtec }
+		fix_variable_error = { variable = kog_mixtec_opinion_var }
+		fix_variable_error = { variable = kog_mixtec_relations_var }
+		fix_variable_error = { variable = kog_cahokia }
+		fix_variable_error = { variable = kog_cahokia_opinion_var }
+		fix_variable_error = { variable = kog_cahokia_relations_var }
+		
+		fix_variable_error = { variable = kog_controls_coptic_alexandria }
+		fix_variable_error = { variable = kog_controls_syriac_antioch }
+		fix_variable_error = { variable = kog_controls_etchmiadzin }
+		fix_variable_error = { variable = kog_controls_addis_ababa }
+		fix_variable_error = { variable = kog_controls_konak }
+		fix_variable_error = { variable = kog_controls_elysium }
+		fix_variable_error = { variable = kog_controls_mixtec }
+		fix_variable_error = { variable = kog_controls_cahokia }
+		fix_variable_error = { variable = kog_cahokian_rite }
+		
+		fix_variable_error = { variable = kog_controls_koln }
+		fix_variable_error = { variable = kog_controls_constantinople }
+		fix_variable_error = { variable = kog_controls_antioch }
+		fix_variable_error = { variable = kog_controls_jerusalem }
+		fix_variable_error = { variable = kog_controls_alexandria }
+		
+		fix_variable_error = { variable = kog_schism_event_cooldown_var }
+		fix_variable_error = { variable = kog_tetrarchy_secured }
+		fix_variable_error = { variable = kog_pentarchy_secured }
+		fix_variable_error = { variable = kog_schism_mended }
+		fix_variable_error = { variable = kog_ruler_conversion_considered }
+		fix_variable_error = { variable = kog_ecclesiarchy_purge_considered }
+		fix_variable_error = { variable = kog_caesaropapism_questioned }
+		fix_variable_error = { variable = kog_epistle_considered }
+		fix_variable_error = { variable = kog_language_disputed }
+		
+		fix_variable_error = { variable = kog_votes_var }
+		fix_variable_error = { variable = kog_votes_timeout_var }
+		fix_variable_error = { variable = kog_catholic_support_var }
+		fix_variable_error = { variable = kog_catholic_opposition_var }
+		fix_variable_error = { variable = kog_orthodox_support_var }
+		fix_variable_error = { variable = kog_orthodox_opposition_var }
+		fix_variable_error = { variable = kog_controls_alexandria }
+		fix_variable_error = { variable = kog_council_support_var }
+		fix_variable_error = { variable = kog_council_opposition_var }
+		fix_variable_error = { variable = kog_council_tally_var }
+		fix_variable_error = { variable = kog_council_skipped }
+	}
+}

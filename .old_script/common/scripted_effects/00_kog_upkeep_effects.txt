@@ -1,0 +1,1469 @@
+﻿####---------- Sidebar Button Effect ---------- ####
+kog_gui_toogle_effect = {
+	kog_update_holy_site_count_effect = yes
+	kog_update_patriarch_variables_effect = yes
+	kog_validate_seat_controllers_effect = yes
+	kog_update_opinion_variables = yes
+    remove_variable = kog_display_widget_var
+}
+
+####---------- General Maintenance Effects ---------- ####
+kog_update_holy_site_count_effect = {
+	var:kog_local = {
+		set_variable = {
+			name = kog_holy_sites_var
+			value = prev.kog_holy_sites_value
+		}
+	}
+}
+
+kog_update_patriarch_variables_effect = {
+	# Local Metropolitan
+	ig:ig_devout = {
+		leader = {
+			save_scope_as = kog_devout_leader_scope
+		}
+	}
+	var:kog_local = {
+		set_variable = {
+			name = kog_metropolitan_var
+			value = scope:kog_devout_leader_scope
+		}
+	}
+	kog_update_rome_effect = yes
+	kog_update_santiago_effect = yes
+	kog_update_paris_effect = yes
+	kog_update_koln_effect = yes
+	kog_update_vienna_effect = yes
+	kog_update_constantinople_effect = yes
+	kog_update_antioch_effect = yes
+	kog_update_jerusalem_effect = yes
+	kog_update_alexandria_effect = yes
+	kog_update_moscow_effect = yes
+#	kog_update_coptic_alexandria_effect = yes
+#	kog_update_syriac_antioch_effect = yes
+#	kog_update_etchmiadzin_effect = yes
+#	kog_update_addis_ababa_effect = yes
+#	kog_update_konak_effect = yes
+#	if = {
+#		limit = {
+#			basileia_is_active = yes
+#		}
+#		kog_update_elysium_effect = yes
+#		kog_update_mixtec_effect = yes
+#		kog_update_cahokia_effect = yes
+#	}
+}
+
+kog_validate_seat_controllers_effect = {
+	global_var:kog_global = {
+		var:kog_rome = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_santiago = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_paris = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_koln = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_vienna = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_constantinople = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_antioch = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_jerusalem = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_alexandria = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+		var:kog_moscow = {
+			if = {
+				limit = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+				remove_variable = kog_controller_var
+			}
+		}
+	}
+}
+
+kog_update_opinion_variables = {
+	var:kog_local = {
+		set_variable = {
+			name = kog_rome_opinion_var
+			value = prev.kog_rome_opinion_value
+		}
+		set_variable = {
+			name = kog_santiago_opinion_var
+			value = prev.kog_santiago_opinion_value
+		}
+		set_variable = {
+			name = kog_paris_opinion_var
+			value = prev.kog_paris_opinion_value
+		}
+		set_variable = {
+			name = kog_koln_opinion_var
+			value = prev.kog_koln_opinion_value
+		}
+		set_variable = {
+			name = kog_vienna_opinion_var
+			value = prev.kog_vienna_opinion_value
+		}
+		set_variable = {
+			name = kog_constantinople_opinion_var
+			value = prev.kog_constantinople_opinion_value
+		}
+		set_variable = {
+			name = kog_antioch_opinion_var
+			value = prev.kog_antioch_opinion_value
+		}
+		set_variable = {
+			name = kog_jerusalem_opinion_var
+			value = prev.kog_jerusalem_opinion_value
+		}
+		set_variable = {
+			name = kog_alexandria_opinion_var
+			value = prev.kog_alexandria_opinion_value
+		}
+		set_variable = {
+			name = kog_moscow_opinion_var
+			value = prev.kog_moscow_opinion_value
+		}
+#		set_variable = {
+#			name = kog_coptic_alexandria_opinion_var
+#			value = kog_coptic_alexandria_opinion_value
+#		}
+#		set_variable = {
+#			name = kog_syriac_antioch_opinion_var
+#			value = kog_syriac_antioch_opinion_value
+#		}
+#		set_variable = {
+#			name = kog_etchmiadzin_opinion_var
+#			value = kog_etchmiadzin_opinion_value
+#		}
+#		set_variable = {
+#			name = kog_addis_ababa_opinion_var
+#			value = kog_addis_ababa_opinion_value
+#		}
+#		set_variable = {
+#			name = kog_konak_opinion_var
+#			value = kog_konak_opinion_value
+#		}
+#		if = {
+#			limit = {
+#				basileia_is_active = yes
+#			}
+#			set_variable = {
+#				name = kog_elysium_opinion_var
+#				value = kog_elysium_opinion_value
+#			}
+#			set_variable = {
+#				name = kog_mixtec_opinion_var
+#				value = kog_mixtec_opinion_value
+#			}
+#			set_variable = {
+#				name = kog_cahokia_opinion_var
+#				value = kog_cahokia_opinion_value
+#			}
+#		}
+	}
+}
+
+kog_update_catholic_list = {
+    clear_global_variable_list = kog_catholic_ranking
+    every_country = {
+        limit = {
+            kog_is_roman_catholic_trigger = yes
+        }
+        add_to_global_variable_list = {
+            name = kog_catholic_ranking
+            target = this
+        }
+    }
+    sort_global_variable_list = {
+        name = kog_catholic_ranking
+        order = prestige
+    }
+}
+
+kog_update_orthodox_list = {
+    clear_global_variable_list = kog_orthodox_ranking
+    every_country = {
+        limit = {
+            kog_is_eastern_orthodox_trigger = yes
+        }
+        add_to_global_variable_list = {
+            name = kog_orthodox_ranking
+            target = this
+        }
+    }
+    sort_global_variable_list = {
+        name = kog_orthodox_ranking
+        order = prestige
+    }
+}
+
+kog_update_oriental_list = {
+    clear_global_variable_list = kog_oriental_ranking
+    every_country = {
+        limit = {
+            kog_is_oriental_orthodox_trigger = yes
+        }
+        add_to_global_variable_list = {
+            name = kog_oriental_ranking
+            target = this
+        }
+    }
+    sort_global_variable_list = {
+        name = kog_oriental_ranking
+        order = prestige
+    }
+}
+
+kog_update_elysian_list = {
+    clear_global_variable_list = kog_elysian_ranking
+    every_country = {
+        limit = {
+            kog_is_elysian_orthodox_trigger = yes
+        }
+        add_to_global_variable_list = {
+            name = kog_elysian_ranking
+            target = this
+        }
+    }
+    sort_global_variable_list = {
+        name = kog_elysian_ranking
+        order = prestige
+    }
+}
+
+####---------- Patriarch Update Effects ---------- ####
+# These update effects use the following flow control:
+# Check if the character saved to kog_patriarch_var exists; this variable is set during initialization
+# If the character exists, do nothing
+# If the character does not exist, determine if the seat has a controller and then generate a character from the appropriate scope
+# Update kog_patriarch_var in the appropriate struct
+
+kog_update_rome_effect = {
+	global_var:kog_global = {
+		var:kog_rome = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, check for the papacy
+				if = {
+					limit = {
+						c:PAP ?= {
+							has_law = law_type:law_theocracy
+						}
+					}
+					c:PAP ?= {
+						ruler = {
+							save_scope_as = kog_rome_patriarch_scope
+						}
+					}
+				}
+				# Failing that, attempt to find character in void
+				else_if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_rome_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_rome_patriarch
+						}
+						save_scope_as = kog_rome_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Rome controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_rome_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to an Italian Catholic
+					else = {
+						create_character = {
+							template = template_kog_rome_patriarch
+							culture = cu:south_italian
+							religion = rel:catholic
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_rome_patriarch
+					}
+					save_scope_as = kog_rome_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_rome_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_rome_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_rome_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_rome_relations_var > 0
+							}
+							change_variable = {
+								name = kog_rome_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_rome_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					# Notify all Christians of a new Pope
+					post_notification = notification_kog_rome_replaced
+				}
+			}
+		}
+	}
+}
+
+kog_update_santiago_effect = {
+	global_var:kog_global = {
+		var:kog_santiago = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_santiago_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_santiago_patriarch
+						}
+						save_scope_as = kog_santiago_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Santiago controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_santiago_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a Spanish Catholic
+					else = {
+						create_character = {
+							template = template_kog_santiago_patriarch
+							culture = cu:spanish
+							religion = rel:catholic
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_santiago_patriarch
+					}
+					save_scope_as = kog_santiago_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_santiago_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_santiago_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_santiago_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_santiago_relations_var > 0
+							}
+							change_variable = {
+								name = kog_santiago_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_santiago_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_santiago_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_paris_effect = {
+	global_var:kog_global = {
+		var:kog_paris = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_paris_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_paris_patriarch
+						}
+						save_scope_as = kog_paris_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Rome controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_paris_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a French Catholic
+					else = {
+						create_character = {
+							template = template_kog_paris_patriarch
+							culture = cu:french
+							religion = rel:catholic
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_paris_patriarch
+					}
+					save_scope_as = kog_paris_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_paris_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_paris_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_paris_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_paris_relations_var > 0
+							}
+							change_variable = {
+								name = kog_paris_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_paris_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_paris_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_koln_effect = {
+	global_var:kog_global = {
+		var:kog_koln = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_koln_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_koln_patriarch
+						}
+						save_scope_as = kog_koln_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Cologne controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_koln_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a North German Catholic
+					else = {
+						create_character = {
+							template = template_kog_koln_patriarch
+							culture = cu:north_german
+							religion = rel:catholic
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_koln_patriarch
+					}
+					save_scope_as = kog_koln_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_koln_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_koln_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_koln_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_koln_relations_var > 0
+							}
+							change_variable = {
+								name = kog_koln_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_koln_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_koln_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_vienna_effect = {
+	global_var:kog_global = {
+		var:kog_vienna = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_vienna_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_vienna_patriarch
+						}
+						save_scope_as = kog_vienna_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Vienna controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_vienna_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a South German Catholic
+					else = {
+						create_character = {
+							template = template_kog_vienna_patriarch
+							culture = cu:south_german
+							religion = rel:catholic
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_vienna_patriarch
+					}
+					save_scope_as = kog_vienna_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_vienna_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_vienna_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_vienna_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_vienna_relations_var > 0
+							}
+							change_variable = {
+								name = kog_vienna_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_vienna_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_vienna_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_constantinople_effect = {
+	global_var:kog_global = {
+		var:kog_constantinople = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_constantinople_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_constantinople_patriarch
+						}
+						save_scope_as = kog_constantinople_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Vienna controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_constantinople_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a Greek Orthodox
+					else = {
+						create_character = {
+							template = template_kog_constantinople_patriarch
+							culture = cu:greek
+							religion = rel:orthodox
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_constantinople_patriarch
+					}
+					save_scope_as = kog_constantinople_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_constantinople_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_constantinople_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_constantinople_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_constantinople_relations_var > 0
+							}
+							change_variable = {
+								name = kog_constantinople_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_constantinople_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_constantinople_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_antioch_effect = {
+	global_var:kog_global = {
+		var:kog_antioch = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_antioch_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_antioch_patriarch
+						}
+						save_scope_as = kog_antioch_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Antioch controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_antioch_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a Greek Orthodox
+					else = {
+						create_character = {
+							template = template_kog_antioch_patriarch
+							culture = cu:greek
+							religion = rel:orthodox
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_antioch_patriarch
+					}
+					save_scope_as = kog_antioch_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_antioch_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_antioch_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_antioch_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_antioch_relations_var > 0
+							}
+							change_variable = {
+								name = kog_antioch_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_antioch_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_antioch_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_jerusalem_effect = {
+	global_var:kog_global = {
+		var:kog_jerusalem = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_jerusalem_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_jerusalem_patriarch
+						}
+						save_scope_as = kog_jerusalem_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Jerusalem controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_jerusalem_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a Greek Orthodox
+					else = {
+						create_character = {
+							template = template_kog_jerusalem_patriarch
+							culture = cu:greek
+							religion = rel:orthodox
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_jerusalem_patriarch
+					}
+					save_scope_as = kog_jerusalem_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_jerusalem_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_jerusalem_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_jerusalem_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_jerusalem_relations_var > 0
+							}
+							change_variable = {
+								name = kog_jerusalem_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_jerusalem_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_jerusalem_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_alexandria_effect = {
+	global_var:kog_global = {
+		var:kog_alexandria = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_alexandria_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_alexandria_patriarch
+						}
+						save_scope_as = kog_alexandria_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Alexandria controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_alexandria_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a Greek Orthodox
+					else = {
+						create_character = {
+							template = template_kog_alexandria_patriarch
+							culture = cu:greek
+							religion = rel:orthodox
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_alexandria_patriarch
+					}
+					save_scope_as = kog_alexandria_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_alexandria_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_alexandria_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_alexandria_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_alexandria_relations_var > 0
+							}
+							change_variable = {
+								name = kog_alexandria_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_alexandria_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_alexandria_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_moscow_effect = {
+	global_var:kog_global = {
+		var:kog_moscow = {
+			if = {
+				limit = {
+					NOT = {
+						exists = var:kog_patriarch_var
+					}
+				}
+				# First, try to find character in void
+				if = {
+					limit = {
+						any_character_in_void = {
+							has_template = template_kog_moscow_patriarch
+						}
+					}
+					random_character_in_void = {
+						limit = {
+							has_template = template_kog_moscow_patriarch
+						}
+						save_scope_as = kog_moscow_patriarch_scope
+					}
+				}
+				# Failing that, generate a new character
+				else = {
+					# Attempt to generate using the Moscow controller
+					if = {
+						limit = {
+							has_variable = kog_controller_var
+							exists = var:kog_controller_var
+						}
+						var:kog_controller_var = {
+							create_character = {
+								template = template_kog_moscow_patriarch
+								on_created = {
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+					# Fallback to a Greek Orthodox
+					else = {
+						create_character = {
+							template = template_kog_moscow_patriarch
+							culture = cu:greek
+							religion = rel:orthodox
+							on_created = {
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Save the new character
+				random_character_in_void = {
+					limit = {
+						has_template = template_kog_moscow_patriarch
+					}
+					save_scope_as = kog_moscow_patriarch_scope
+				}
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_moscow_patriarch_scope
+				}
+				
+				# Update Relations Variables
+				every_country = {
+					limit = {
+						kog_content_scope_trigger = yes
+					}
+					var:kog_local = {
+						# Sanity check in case initialization had a wobble
+						if = {
+							limit = {
+								NOT = {
+									has_variable = kog_moscow_relations_var
+								}
+							}
+							set_variable = {
+								name = kog_moscow_relations_var
+								value = 0
+							}
+						}
+						# Do not reduce relations if already at or below 0
+						else_if = {
+							limit = {
+								var:kog_moscow_relations_var > 0
+							}
+							change_variable = {
+								name = kog_moscow_relations_var
+								add = -25
+							}
+							clamp_variable = {
+								name = kog_moscow_relations_var
+								min = 0
+								max = 50
+							}
+						}
+					}
+					if = {
+						limit = {
+							country_has_state_religion = rel:catholic
+						}
+						post_notification = notification_kog_moscow_replaced
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_update_coptic_alexandria_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_syriac_antioch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_etchmiadzin_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_addis_ababa_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_konak_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_elysium_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_mixtec_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_cahokia_effect = {
+	custom_tooltip = kog_nothing_happens
+}

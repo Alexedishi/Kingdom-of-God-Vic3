@@ -1,0 +1,2761 @@
+﻿## CATHOLIC SEAT INTERACTIONS
+# Rome
+kog_rome_assert_sgui = {
+	scope = country
+	
+	is_shown = {
+		kog_is_roman_catholic_trigger = yes
+	}
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_controls_rome_trigger = no
+		owns_entire_state_region = STATE_LAZIO
+	}
+	effect = {
+		#TODO Add re-factored event
+	}
+}
+
+kog_rome_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_rome
+			kog_controls_rome_trigger = no
+		}
+	}
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_rome
+			var:kog_rome_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_LAZIO
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_rome
+		set_variable = {
+			name = kog_integrating_rome
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_rome_claimed
+		}
+	}
+}
+
+kog_rome_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_rome
+	}
+}
+
+kog_rome_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_rome
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_rome.var:kog_rite_var
+	}
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_rome
+			var:kog_rome_opinion_var >= 50
+		}
+	}
+	effect = {
+		set_variable = {
+			name = kog_enforcing_rome
+			value = 0
+		}
+	}
+}
+
+kog_rome_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_rome
+	}
+	
+}
+
+kog_rome_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_rome
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_rome
+	}
+}
+
+kog_rome_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_rome
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_rome
+	}
+}
+
+kog_rome_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_rome
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_rome
+	}
+}
+
+kog_rome_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_rome
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_rome
+	}
+}
+
+# Santiago
+kog_santiago_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_santiago
+			has_variable = kog_controls_santiago
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_santiago
+			var:kog_santiago_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_GALICIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_santiago
+		set_variable = {
+			name = kog_integrating_santiago
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_santiago_claimed
+		}
+	}
+}
+
+kog_santiago_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_santiago
+	}
+	
+}
+
+kog_santiago_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_santiago
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_santiago.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_santiago
+			var:kog_santiago_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_santiago
+			value = 0
+		}
+	}
+}
+
+kog_santiago_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_santiago
+	}
+	
+}
+
+kog_santiago_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_santiago
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_santiago
+	}
+}
+
+kog_santiago_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_santiago
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_santiago
+	}
+}
+
+kog_santiago_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_santiago
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_santiago
+	}
+}
+
+kog_santiago_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_santiago
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_santiago
+	}
+}
+
+# Paris
+kog_paris_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_paris
+			has_variable = kog_controls_paris
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_paris
+			var:kog_paris_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_ILE_DE_FRANCE
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_paris
+		set_variable = {
+			name = kog_integrating_paris
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_paris_claimed
+		}
+	}
+}
+
+kog_paris_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_paris
+	}
+	
+}
+
+kog_paris_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_paris
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_paris.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_paris
+			var:kog_paris_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_paris
+			value = 0
+		}
+	}
+}
+
+kog_paris_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_paris
+	}
+	
+}
+
+kog_paris_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_paris
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_paris
+	}
+}
+
+kog_paris_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_paris
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_paris
+	}
+}
+
+kog_paris_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_paris
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_paris
+	}
+}
+
+kog_paris_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_paris
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_paris
+	}
+}
+
+# Koln
+kog_koln_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_koln
+			has_variable = kog_controls_koln
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_koln
+			var:kog_koln_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_NORTH_RHINE
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_koln
+		set_variable = {
+			name = kog_integrating_koln
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_koln_claimed
+		}
+	}
+}
+
+kog_koln_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_koln
+	}
+	
+}
+
+kog_koln_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_koln
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_koln.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_koln
+			var:kog_koln_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_koln
+			value = 0
+		}
+	}
+}
+
+kog_koln_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_koln
+	}
+	
+}
+
+kog_koln_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_koln
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_koln
+	}
+}
+
+kog_koln_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_koln
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_koln
+	}
+}
+
+kog_koln_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_koln
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_koln
+	}
+}
+
+kog_koln_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_koln
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_koln
+	}
+}
+
+# Vienna
+kog_vienna_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_vienna
+			has_variable = kog_controls_vienna
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_vienna
+			var:kog_vienna_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_AUSTRIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_vienna
+		set_variable = {
+			name = kog_integrating_vienna
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_vienna_claimed
+		}
+	}
+}
+
+kog_vienna_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_vienna
+	}
+	
+}
+
+kog_vienna_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_vienna
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_vienna.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_vienna
+			var:kog_vienna_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_vienna
+			value = 0
+		}
+	}
+}
+
+kog_vienna_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_vienna
+	}
+	
+}
+
+kog_vienna_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_vienna
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_vienna
+	}
+}
+
+kog_vienna_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_vienna
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_vienna
+	}
+}
+
+kog_vienna_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_vienna
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_vienna
+	}
+}
+
+kog_vienna_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_vienna
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_vienna
+	}
+}
+
+## ORTHODOX SEAT INTERACTIONS
+# Constantinople
+kog_constantinople_assert_sgui = {
+	scope = country
+	
+	is_shown = {
+		kog_is_eastern_orthodox_trigger = yes
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_controls_constantinople_trigger = no
+		owns_entire_state_region = STATE_EASTERN_THRACE
+	}
+	
+	effect = {
+		#TODO Add re-factored event
+	}
+}
+
+kog_constantinople_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_constantinople
+			has_variable = kog_controls_constantinople
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_constantinople
+			var:kog_constantinople_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_EASTERN_THRACE
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_constantinople
+		set_variable = {
+			name = kog_integrating_constantinople
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_constantinople_claimed
+		}
+	}
+}
+
+kog_constantinople_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_constantinople
+	}
+	
+}
+kog_constantinople_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_constantinople
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_constantinople.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_constantinople
+			var:kog_constantinople_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_constantinople
+			value = 0
+		}
+	}
+}
+
+kog_constantinople_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_constantinople
+	}
+	
+}
+
+kog_constantinople_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_constantinople
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_constantinople
+	}
+}
+
+kog_constantinople_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_constantinople
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_constantinople
+	}
+}
+
+kog_constantinople_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_constantinople
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_constantinople
+	}
+}
+
+kog_constantinople_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_constantinople
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_constantinople
+	}
+}
+
+# Antioch
+kog_antioch_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_antioch
+			has_variable = kog_controls_antioch
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_antioch
+			var:kog_antioch_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_SYRIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_antioch
+		set_variable = {
+			name = kog_integrating_antioch
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_antioch_claimed
+		}
+	}
+}
+
+kog_antioch_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_antioch
+	}
+	
+}
+
+kog_antioch_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_antioch
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_antioch.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_antioch
+			var:kog_antioch_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_antioch
+			value = 0
+		}
+	}
+}
+
+kog_antioch_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_antioch
+	}
+	
+}
+
+kog_antioch_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_antioch
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_antioch
+	}
+}
+
+kog_antioch_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_antioch
+	}
+}
+
+kog_antioch_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_antioch
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_antioch
+	}
+}
+
+kog_antioch_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_antioch
+	}
+}
+
+# Jerusalem
+kog_jerusalem_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_jerusalem
+			has_variable = kog_controls_jerusalem
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_jerusalem
+			var:kog_jerusalem_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_PALESTINE
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_jerusalem
+		set_variable = {
+			name = kog_integrating_jerusalem
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_jerusalem_claimed
+		}
+	}
+}
+
+kog_jerusalem_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_jerusalem
+	}
+	
+}
+
+kog_jerusalem_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_jerusalem
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_jerusalem.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_jerusalem
+			var:kog_jerusalem_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_jerusalem
+			value = 0
+		}
+	}
+}
+
+kog_jerusalem_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_jerusalem
+	}
+	
+}
+
+kog_jerusalem_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_jerusalem
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_jerusalem
+	}
+}
+
+kog_jerusalem_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_jerusalem
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_jerusalem
+	}
+}
+
+kog_jerusalem_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_jerusalem
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_jerusalem
+	}
+}
+
+kog_jerusalem_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_jerusalem
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_jerusalem
+	}
+}
+
+# Alexandria
+kog_alexandria_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_alexandria
+			has_variable = kog_controls_alexandria
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_alexandria
+			var:kog_alexandria_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_LOWER_EGYPT
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_alexandria
+		set_variable = {
+			name = kog_integrating_alexandria
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_alexandria_claimed
+		}
+	}
+}
+
+kog_alexandria_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_alexandria
+	}
+	
+}
+
+kog_alexandria_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_alexandria
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_alexandria.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_alexandria
+			var:kog_alexandria_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_alexandria
+			value = 0
+		}
+	}
+}
+
+kog_alexandria_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_alexandria
+	}
+	
+}
+
+kog_alexandria_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_alexandria
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_alexandria
+	}
+}
+
+kog_alexandria_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_alexandria
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_alexandria
+	}
+}
+
+kog_alexandria_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_alexandria
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_alexandria
+	}
+}
+
+kog_alexandria_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_alexandria
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_alexandria
+	}
+}
+
+# Moscow
+kog_moscow_integrate_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_moscow
+			has_variable = kog_controls_moscow
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_moscow
+			var:kog_moscow_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_MOSCOW
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_moscow
+		set_variable = {
+			name = kog_integrating_moscow
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_moscow_claimed
+		}
+	}
+}
+
+kog_moscow_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_moscow
+	}
+	
+}
+
+kog_moscow_enforce_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_moscow
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_moscow.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_moscow
+			var:kog_moscow_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_moscow
+			value = 0
+		}
+	}
+}
+
+kog_enforcement_moscow_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_moscow
+	}
+	
+}
+
+kog_moscow_start_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_moscow
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_moscow
+	}
+}
+
+kog_moscow_stop_sway_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_moscow
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_moscow
+	}
+}
+
+kog_moscow_start_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_moscow
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_moscow
+	}
+}
+
+kog_moscow_stop_harm_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_moscow
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_moscow
+	}
+}
+
+## ORIENTAL SEAT INTERACTIONS
+# Coptic Alexandria
+kog_assert_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		kog_is_oriental_orthodox_trigger = yes
+	}
+	
+	is_valid = {
+		kog_is_oriental_orthodox_trigger = yes
+		kog_is_autocephalous_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_coptic_alexandria
+			var:kog_coptic_alexandria_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_LOWER_EGYPT
+	}
+	
+	effect = {
+		#TODO Add re-factored event
+	}
+}
+
+kog_integrate_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_coptic_alexandria
+			has_variable = kog_controls_coptic_alexandria
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		kog_controls_coptic_alexandria_trigger = no
+		owns_entire_state_region = STATE_LOWER_EGYPT
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_coptic_alexandria
+		set_variable = {
+			name = kog_integrating_coptic_alexandria
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_coptic_alexandria_claimed
+		}
+	}
+}
+
+kog_coptic_alexandria_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_coptic_alexandria
+	}
+	
+}
+
+kog_enforce_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_coptic_alexandria
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_coptic_alexandria.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_coptic_alexandria
+			var:kog_coptic_alexandria_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_coptic_alexandria
+			value = 0
+		}
+	}
+}
+
+kog_coptic_alexandria_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_coptic_alexandria
+	}
+	
+}
+
+kog_start_sway_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_coptic_alexandria
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_coptic_alexandria
+	}
+}
+
+kog_stop_sway_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_coptic_alexandria
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_coptic_alexandria
+	}
+}
+
+kog_start_harm_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_coptic_alexandria
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_coptic_alexandria
+	}
+}
+
+kog_stop_harm_coptic_alexandria_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_coptic_alexandria
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_coptic_alexandria
+	}
+}
+
+# Syriac Antioch
+kog_integrate_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_syriac_antioch
+			has_variable = kog_controls_syriac_antioch
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_syriac_antioch
+			var:kog_syriac_antioch_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_SYRIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_syriac_antioch
+		set_variable = {
+			name = kog_integrating_syriac_antioch
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_syriac_antioch_claimed
+		}
+	}
+}
+
+kog_syriac_antioch_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_syriac_antioch
+	}
+	
+}
+
+kog_enforce_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_syriac_antioch
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_syriac_antioch.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_syriac_antioch
+			var:kog_syriac_antioch_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_syriac_antioch
+			value = 0
+		}
+	}
+}
+
+kog_syriac_antioch_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_syriac_antioch
+	}
+	
+}
+
+kog_start_sway_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_syriac_antioch
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_syriac_antioch
+	}
+}
+
+kog_stop_sway_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_syriac_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_syriac_antioch
+	}
+}
+
+kog_start_harm_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_syriac_antioch
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_syriac_antioch
+	}
+}
+
+kog_stop_harm_syriac_antioch_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_syriac_antioch
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_syriac_antioch
+	}
+}
+
+# Etchmiadzin
+kog_integrate_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_etchmiadzin
+			has_variable = kog_controls_etchmiadzin
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_etchmiadzin
+			var:kog_etchmiadzin_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_ARMENIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_etchmiadzin
+		set_variable = {
+			name = kog_integrating_etchmiadzin
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_etchmiadzin_claimed
+		}
+	}
+}
+
+kog_etchmiadzin_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_etchmiadzin
+	}
+	
+}
+
+kog_enforce_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_etchmiadzin
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_etchmiadzin.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_etchmiadzin
+			var:kog_etchmiadzin_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_etchmiadzin
+			value = 0
+		}
+	}
+}
+
+kog_etchmiadzin_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_etchmiadzin
+	}
+	
+}
+
+kog_start_sway_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_etchmiadzin
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_etchmiadzin
+	}
+}
+
+kog_stop_sway_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_etchmiadzin
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_etchmiadzin
+	}
+}
+
+kog_start_harm_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_etchmiadzin
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_etchmiadzin
+	}
+}
+
+kog_stop_harm_etchmiadzin_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_etchmiadzin
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_etchmiadzin
+	}
+}
+
+# Addis Ababa
+kog_integrate_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_addis_ababa
+			has_variable = kog_controls_addis_ababa
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_addis_ababa
+			var:kog_addis_ababa_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_OROMIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_addis_ababa
+		set_variable = {
+			name = kog_integrating_addis_ababa
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_addis_ababa_claimed
+		}
+	}
+}
+
+kog_addis_ababa_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_addis_ababa
+	}
+	
+}
+
+kog_enforce_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_addis_ababa
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_addis_ababa.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_addis_ababa
+			var:kog_addis_ababa_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_addis_ababa
+			value = 0
+		}
+	}
+}
+
+kog_addis_ababa_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_addis_ababa
+	}
+	
+}
+
+kog_start_sway_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_addis_ababa
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_addis_ababa
+	}
+}
+
+kog_stop_sway_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_addis_ababa
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_addis_ababa
+	}
+}
+
+kog_start_harm_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_addis_ababa
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_addis_ababa
+	}
+}
+
+kog_stop_harm_addis_ababa_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_addis_ababa
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_addis_ababa
+	}
+}
+
+# Qudshanis
+kog_integrate_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_konak
+			has_variable = kog_controls_konak
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_konak
+			var:kog_konak_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_DIYARBAKIR
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_konak
+		set_variable = {
+			name = kog_integrating_konak
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_konak_claimed
+		}
+	}
+}
+
+kog_konak_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_konak
+	}
+	
+}
+
+kog_enforce_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_konak
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_konak.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_konak
+			var:kog_konak_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_konak
+			value = 0
+		}
+	}
+}
+
+kog_konak_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_konak
+	}
+	
+}
+
+kog_start_sway_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_konak
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_konak
+	}
+}
+
+kog_stop_sway_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_konak
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_konak
+	}
+}
+
+kog_start_harm_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_konak
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_konak
+	}
+}
+
+kog_stop_harm_konak_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_konak
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_konak
+	}
+}
+
+
+## ELYSIAN SEAT INTERACTIONS ##
+# Elysium
+kog_assert_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		kog_is_elysian_orthodox_trigger = yes
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_controls_elysium_trigger = no
+		owns_entire_state_region = STATE_DISTRICT_OF_COLUMBIA
+	}
+	
+	effect = {
+		#TODO Add re-factored event
+	}
+}
+
+kog_integrate_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_elysium
+			has_variable = kog_controls_elysium
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_elysium
+			var:kog_elysium_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_DISTRICT_OF_COLUMBIA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_elysium
+		set_variable = {
+			name = kog_integrating_elysium
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_elysium_claimed
+		}
+	}
+}
+
+kog_elysium_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_elysium
+	}
+	
+}
+
+kog_enforce_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_elysium
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_elysium.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_elysium
+			var:kog_elysium_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_elysium
+			value = 0
+		}
+	}
+}
+
+kog_elysium_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_elysium
+	}
+	
+}
+
+kog_start_sway_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_elysium
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_elysium
+	}
+}
+
+kog_stop_sway_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_elysium
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_elysium
+	}
+}
+
+kog_start_harm_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_elysium
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_elysium
+	}
+}
+
+kog_stop_harm_elysium_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_elysium
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_elysium
+	}
+}
+
+# Tututepec
+kog_integrate_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_mixtec
+			has_variable = kog_controls_mixtec
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_mixtec
+			var:kog_mixtec_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_OAXACA
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_mixtec
+		set_variable = {
+			name = kog_integrating_mixtec
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_mixtec_claimed
+		}
+	}
+}
+
+kog_mixtec_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_mixtec
+	}
+	
+}
+
+kog_enforce_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_mixtec
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_mixtec.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_mixtec
+			var:kog_mixtec_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_mixtec
+			value = 0
+		}
+	}
+}
+
+kog_mixtec_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_mixtec
+	}
+	
+}
+
+kog_start_sway_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_mixtec
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_mixtec
+	}
+}
+
+kog_stop_sway_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_mixtec
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_mixtec
+	}
+}
+
+kog_start_harm_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_mixtec
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_mixtec
+	}
+}
+
+kog_stop_harm_mixtec_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_mixtec
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_mixtec
+	}
+}
+
+# Cahokia
+kog_cahokia_founding_sgui = {
+	scope = country
+
+	is_shown = {
+		global_var:kog_global = {
+			has_variable = kog_cahokia
+		}
+	}
+}
+
+kog_integrate_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOR = {
+			has_variable = kog_integrating_cahokia
+			has_variable = kog_controls_cahokia
+		}
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_integrate_cahokia
+			var:kog_cahokia_opinion_var >= 25
+		}
+		owns_entire_state_region = STATE_ILLINOIS
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_integrating_cahokia
+		set_variable = {
+			name = kog_integrating_cahokia
+			value = 0
+		}
+		every_country = {
+			limit = {
+				kog_is_christian_trigger = yes
+			}
+			post_notification = notification_kog_cahokia_claimed
+		}
+	}
+}
+
+kog_cahokia_integration_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_integrating_cahokia
+	}
+	
+}
+
+kog_enforce_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_controls_cahokia
+		var:kog_local.var:kog_rite_var != global_var:kog_global.var:kog_cahokia.var:kog_rite_var
+	}
+	
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_200_capacity_trigger = yes
+		custom_tooltip = {
+			text = kog_can_enforce_cahokia
+			var:kog_cahokia_opinion_var >= 50
+		}
+	}
+	
+	effect = {
+		set_variable = {
+			name = kog_enforcing_cahokia
+			value = 0
+		}
+	}
+}
+
+kog_cahokia_enforcement_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_variable = kog_enforcing_cahokia
+	}
+	
+}
+
+kog_start_sway_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_swaying_cahokia
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_swaying_cahokia
+	}
+}
+
+kog_stop_sway_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_swaying_cahokia
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_swaying_cahokia
+	}
+}
+
+kog_start_harm_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		NOT = {
+			has_modifier = modifier_kog_antagonizing_cahokia
+		}
+	}
+	
+	is_valid = {
+		kog_has_100_capacity_trigger = yes
+		influence > 50
+	}
+	
+	effect = {
+		add_modifier = modifier_kog_antagonizing_cahokia
+	}
+}
+
+kog_stop_harm_cahokia_sgui = {
+	scope = country
+	
+	is_shown = {
+		has_modifier = modifier_kog_antagonizing_cahokia
+	}
+	
+	is_valid = {
+		always = yes
+	}
+	
+	effect = {
+		remove_modifier = modifier_kog_antagonizing_cahokia
+	}
+}
