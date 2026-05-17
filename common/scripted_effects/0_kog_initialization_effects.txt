@@ -5,7 +5,7 @@
 	kog_activate_global_journals_effect = yes
 	
 	#### Step 2, Create Denomination Structs
-	kog_intialize_denomination_structs_effect = yes
+	kog_intialize_denomination_variables_effect = yes
 	
 	#### Step 3, Create Seat Structs
 	kog_initialize_episcopal_seats_effect = yes
@@ -48,111 +48,85 @@ kog_activate_global_journals_effect = {
 	}
 }
 
-kog_intialize_denomination_structs_effect = {
-	c:PAP = {
-		# Roman Catholicism Struct
-		create_struct = {
-			struct_type = flag:kog_denomination
-			struct_scope = kog_catholic
+kog_intialize_denomination_variables_effect = {
+	# Roman Catholicism Variables
+	global_var:je_kog_catholic = {
+		set_variable = {
+			name = kog_mother_church_var
+			value = flag:kog_rome
 		}
-		global_var:kog_global = {
-			set_variable = {
-				name = kog_catholic
-				value = scope:kog_catholic
-			}
+		set_variable = {
+			name = kog_liturgical_language_var
+			value = flag:kog_language_latin
 		}
-		scope:kog_catholic = {
-			set_variable = {
-				name = kog_mother_church_var
-				value = flag:kog_rome
-			}
-			set_variable = {
-				name = kog_liturgical_language_var
-				value = flag:kog_language_latin
-			}
-			set_variable = {
-				name = kog_council_counter_var
-				value = 0
-			}
-			set_variable = {
-				name = kog_canon_law_apostolic_succession_var
-				value = flag:kog_canon_law_papal_primacy
-			}
-			set_variable = {
-				name = kog_canon_law_iconography_var
-				value = flag:kog_canon_law_iconodulism
-			}
-			set_variable = {
-				name = kog_canon_law_clerical_marriage_var
-				value = flag:kog_canon_law_priests_celibate
-			}
-			set_variable = {
-				name = kog_canon_law_social_role_var
-				value = flag:kog_canon_law_moral_guidance
-			}
-			set_variable = {
-				name = kog_canon_law_sciences_stance_var
-				value = flag:kog_canon_law_scientific_disengagement
-			}
-			set_variable = {
-				name = kog_canon_law_crusades_var
-				value = flag:kog_canon_law_no_crusades
-			}
+		set_variable = {
+			name = kog_council_counter_var
+			value = 0
 		}
-		
-		# Eastern Orthodoxy Struct
-		create_struct = {
-			struct_type = flag:kog_denomination
-			struct_scope = kog_orthodox
+		set_variable = {
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_papal_primacy
 		}
-		global_var:kog_global = {
-			set_variable = {
-				name = kog_orthodox
-				value = scope:kog_orthodox
-			}
+		set_variable = {
+			name = kog_canon_law_iconography_var
+			value = flag:kog_canon_law_iconodulism
 		}
-		scope:kog_orthodox = {
-			set_variable = {
-				name = kog_mother_church_var
-				value = flag:kog_constantinople
-			}
-			set_variable = {
-				name = kog_liturgical_language_var
-				value = flag:kog_language_khoine
-			}
-			set_variable = {
-				name = kog_council_counter_var
-				value = 0
-			}
-			set_variable = {
-				name = kog_canon_law_apostolic_succession_var
-				value = flag:kog_canon_law_synodality
-			}
-			set_variable = {
-				name = kog_canon_law_iconography_var
-				value = flag:kog_canon_law_iconodulism
-			}
-			set_variable = {
-				name = kog_canon_law_clerical_marriage_var
-				value = flag:kog_canon_law_marriage_allowed
-			}
-			set_variable = {
-				name = kog_canon_law_social_role_var
-				value = flag:kog_canon_law_moral_guidance
-			}
-			set_variable = {
-				name = kog_canon_law_sciences_stance_var
-				value = flag:kog_canon_law_scientific_disengagement
-			}
-			set_variable = {
-				name = kog_canon_law_crusades_var
-				value = flag:kog_canon_law_no_crusades
-			}
+		set_variable = {
+			name = kog_canon_law_clerical_marriage_var
+			value = flag:kog_canon_law_priests_celibate
 		}
-		
-		# TODO Oriental Orthodox Struct Here
-		# TODO Lutheran Struct Here
-		# TODO Elysian Orthodox Struct Here
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+		set_variable = {
+			name = kog_canon_law_crusades_var
+			value = flag:kog_canon_law_no_crusades
+		}
+	}
+	
+	# Eastern Orthodoxy Variables
+	global_var:je_kog_orthodox = {
+		set_variable = {
+			name = kog_mother_church_var
+			value = flag:kog_constantinople
+		}
+		set_variable = {
+			name = kog_liturgical_language_var
+			value = flag:kog_language_khoine
+		}
+		set_variable = {
+			name = kog_council_counter_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_synodality
+		}
+		set_variable = {
+			name = kog_canon_law_iconography_var
+			value = flag:kog_canon_law_iconodulism
+		}
+		set_variable = {
+			name = kog_canon_law_clerical_marriage_var
+			value = flag:kog_canon_law_marriage_allowed
+		}
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+		set_variable = {
+			name = kog_canon_law_crusades_var
+			value = flag:kog_canon_law_no_crusades
+		}
 	}
 }
 
