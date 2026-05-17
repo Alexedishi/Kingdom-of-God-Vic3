@@ -2,7 +2,7 @@
 	# If you are making a submod: DO NOT override this effect- override the individual effects downstream
 	
 	#### Step 1, Create Global Struct
-	kog_initialize_global_struct_effect = yes
+	kog_activate_global_journals_effect = yes
 	
 	#### Step 2, Create Denomination Structs
 	kog_intialize_denomination_structs_effect = yes
@@ -34,16 +34,17 @@
 ####---------- Individual Effects ----------####
 # Modders: override these entries for submods- kog_initialize_content_effect will pick them up from there
 
-kog_initialize_global_struct_effect = {
-	c:PAP = {
-		create_struct = {
-			struct_type = flag:kog_global
-			struct_scope = kog_global
+kog_activate_global_journals_effect = {
+	add_contextless_journal_entry = je_kog_global
+	add_contextless_journal_entry = je_kog_catholic
+	add_contextless_journal_entry = je_kog_orthodox
+	#add_contextless_journal_entry = je_kog_oriental
+	#add_contextless_journal_entry = je_kog_lutheran
+	if = {
+		limit = {
+			basileia_is_active = yes
 		}
-		set_global_variable = {
-			name = kog_global
-			value = scope:kog_global
-		}
+		#add_contextless_journal_entry = je_kog_elysian
 	}
 }
 
@@ -1052,7 +1053,7 @@ kog_initialize_collegium_effect = {
 	# First, place extant Catholic Devout leaders into the Cardinal list
 	every_country = {
 		limit = {
-			kog_is_roman_catholic_trigger = yes
+			kog_country_is_roman_catholic_trigger = yes
 		}
 		ig:ig_devout = {
 			leader = {
@@ -1084,7 +1085,7 @@ kog_initialize_variable_lists_effect = {
 	# Build & Sort Catholic List
 	every_country = {
 		limit = {
-			kog_is_roman_catholic_trigger = yes
+			kog_country_is_roman_catholic_trigger = yes
 		}
 		add_to_global_variable_list = {
 			name = kog_catholic_ranking
@@ -1099,7 +1100,7 @@ kog_initialize_variable_lists_effect = {
 	# Build & Sort Orthodox List
 	every_country = {
 		limit = {
-			kog_is_eastern_orthodox_trigger = yes
+			kog_country_is_eastern_orthodox_trigger = yes
 		}
 		add_to_global_variable_list = {
 			name = kog_orthodox_ranking
@@ -1114,7 +1115,7 @@ kog_initialize_variable_lists_effect = {
 	# Build & Sort Oriental List
 	#	every_country = {
 	#		limit = {
-	#			kog_is_oriental_orthodox_trigger = yes
+	#			kog_country_is_oriental_orthodox_trigger = yes
 	#		}
 	#		add_to_global_variable_list = {
 	#			name = kog_oriental_ranking
@@ -1134,7 +1135,7 @@ kog_initialize_variable_lists_effect = {
 		}
 		every_country = {
 			limit = {
-				kog_is_elysian_orthodox_trigger = yes
+				kog_country_is_elysian_orthodox_trigger = yes
 			}
 			add_to_global_variable_list = {
 				name = kog_elysian_ranking
@@ -1163,7 +1164,7 @@ kog_initialize_metropolis_effect = {
 	# Step 2: Initialize Liturgical Rites
 	if = {
 		limit = {
-			kog_is_eastern_orthodox_trigger = yes
+			kog_country_is_eastern_orthodox_trigger = yes
 		}
 		var:kog_local = {
 			set_variable = {
@@ -1174,7 +1175,7 @@ kog_initialize_metropolis_effect = {
 	}
 	else_if = {
 		limit = {
-			kog_is_oriental_orthodox_trigger = yes
+			kog_country_is_oriental_orthodox_trigger = yes
 		}
 		if = {
 			limit = {
@@ -1221,7 +1222,7 @@ kog_initialize_metropolis_effect = {
 	else_if = {
 		# Basileia Romaion Rites
 		limit = {
-			kog_is_elysian_orthodox_trigger = yes
+			kog_country_is_elysian_orthodox_trigger = yes
 		}
 		if = {
 			limit = {
@@ -1420,7 +1421,7 @@ kog_initialize_metropolis_effect = {
 	# Step 4: Set Faith-Specific Variables
 	if = {
 		limit = {
-			kog_is_roman_catholic_trigger = yes
+			kog_country_is_roman_catholic_trigger = yes
 		}
 		set_variable = {
 			name = kog_votes_var
@@ -1433,7 +1434,7 @@ kog_initialize_metropolis_effect = {
 	}
 	if = {
 		limit = {
-			kog_is_eastern_orthodox_trigger = yes
+			kog_country_is_eastern_orthodox_trigger = yes
 		}
 		set_variable = {
 			name = kog_votes_var
@@ -1442,7 +1443,7 @@ kog_initialize_metropolis_effect = {
 	}
 	if = {
 		limit = {
-			kog_is_oriental_orthodox_trigger = yes
+			kog_country_is_oriental_orthodox_trigger = yes
 		}
 		set_variable = {
 			name = kog_votes_var
@@ -1451,7 +1452,7 @@ kog_initialize_metropolis_effect = {
 	}
 	if = {
 		limit = {
-			kog_is_elysian_orthodox_trigger = yes
+			kog_country_is_elysian_orthodox_trigger = yes
 		}
 		set_variable = {
 			name = kog_votes_var
@@ -1472,7 +1473,7 @@ kog_specific_country_setups_effect = {
 	# Unless you are making a TC or alt-history mod, probably leave this untouched
 	every_country = {
 		limit = {
-			kog_is_roman_catholic_trigger = yes
+			kog_country_is_roman_catholic_trigger = yes
 		}
 		add_journal_entry = {
 			type = je_kog_ecyclical_mirari_vos
