@@ -12,25 +12,57 @@
 }
 
 je_kog_local = {
-	group = je_group_com_hidden
+	group = je_group_kog_content
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
-	weight = 0
+	weight = 100
 	
-	complete = {
-		always = no
-	}
-}
-
-je_kog_global = {
-	group = je_group_com_contextless_hidden
-	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
-	weight = 0
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
 	
-	should_be_involved = {
-		kog_content_scope_trigger = yes
+	modifiers_while_active = {
 	}
 	
 	complete = {
 		always = no
+	}
+	
+	fail = {
+		kog_content_scope_trigger = no
+	}
+	
+	on_fail = {
+		kog_cleanup_content_effect = yes
+	}
+	
+	on_weekly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	on_monthly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	on_yearly_pulse = {
+		events = {
+		}
+		random_events = {
+		}
+		effect = {
+		}
+	}
+	
+	status_desc = {
 	}
 }
