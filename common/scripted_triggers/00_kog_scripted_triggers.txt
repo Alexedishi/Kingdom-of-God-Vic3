@@ -1,0 +1,92 @@
+﻿####---------- Religious Group Triggers ----------####
+kog_content_scope_trigger = {
+	OR = {
+		kog_country_is_roman_catholic_trigger = yes
+		kog_country_is_eastern_orthodox_trigger = yes
+#		kog_country_is_oriental_orthodox_trigger = yes
+#		kog_country_is_protestant_trigger = yes
+#		kog_country_is_rus_orthodox_trigger = yes
+#		kog_country_is_elysian_orthodox_trigger = yes
+	}
+}
+
+kog_country_is_christian_trigger = {
+	OR = {
+		kog_country_is_western_christian_trigger = yes
+		kog_country_is_eastern_christian_trigger = yes
+	}
+}
+
+kog_country_is_western_christian_trigger = {
+	OR = {
+		kog_country_is_roman_catholic_trigger = yes
+		kog_country_is_protestant_trigger = yes
+	}
+}
+
+kog_country_is_eastern_christian_trigger = {
+	OR = {
+		kog_country_is_eastern_orthodox_trigger = yes
+		kog_country_is_oriental_orthodox_trigger = yes
+		kog_country_is_rus_orthodox_trigger = yes # Basileia Romaion
+		kog_country_is_elysian_orthodox_trigger = yes # Basileia Romaion
+	}
+}
+
+
+####---------- Religion Denomination Triggers ----------####
+kog_country_is_roman_catholic_trigger = {
+	country_has_state_religion = rel:catholic
+}
+
+kog_country_is_eastern_orthodox_trigger = {
+	country_has_state_religion = rel:orthodox
+}
+
+kog_country_is_oriental_orthodox_trigger = {
+	country_has_state_religion = rel:oriental_orthodox
+}
+
+kog_country_is_protestant_trigger = {
+	country_has_state_religion = rel:protestant
+}
+
+kog_country_is_oriental_armenian_trigger = {
+	country_has_state_religion = rel:oriental_orthodox
+	je:je_kog_local.var:kog_rite_var = flag:kog_armenian_rite
+}
+
+
+####---------- Basileia Romaion Denomination Triggers ----------####
+##BR NOTE: Override these triggers
+kog_country_is_rus_orthodox_trigger = {
+	always = no
+}
+
+kog_country_is_elysian_orthodox_trigger = {
+	always = no
+}
+
+kog_country_is_mixtec_orthodox_trigger = {
+	kog_country_is_elysian_orthodox_trigger = yes
+	je:je_kog_local.var:kog_rite_var = flag:kog_mixtec_rite
+}
+
+kog_country_is_cahokian_orthodox_trigger = {
+	kog_country_is_elysian_orthodox_trigger = yes
+	je:je_kog_local.var:kog_rite_var = flag:kog_cahokian_rite
+}
+
+
+####---------- Religious Capacity Triggers ----------####
+# Be careful invoking these triggers, they pull the script value directly
+kog_capacity_trigger = {
+	custom_tooltip = {
+		text = kog_capacity_trigger
+		save_temporary_scope_value_as = {
+			name = kog_trigger_value
+			value = $value$
+		}
+		kog_capacity_value >= $value$
+	}
+}
