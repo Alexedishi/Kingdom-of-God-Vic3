@@ -1,94 +1,10 @@
-﻿####---------- ORTHODOX GLOBAL JOURNAL ----------####
-je_kog_orthodox = {
-	group = je_group_com_religious_organizations
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	weight = 0
-	
-	should_be_pinned_by_default_involved = yes
-	
-	is_shown_in_lobby = {
-		country_has_state_religion = rel:orthodox
-	}
-	
-	scripted_button = kog_display_widget_button
-	
-	is_shown_when_inactive = {
-		always = yes
-	}
-	
-	should_be_involved = {
-		country_has_state_religion = rel:orthodox
-	}
-	
-	possible = {
-		hidden_trigger = {
-			always = yes
-		}
-	}
-	
-	immediate = {
-		kog_assign_dlc_icon_effect = yes
-	}
-	
-	complete = {
-		hidden_trigger = {
-			always = no
-		}
-	}
-	
-	on_monthly_pulse = {
-		effect = {
-			every_country = {
-				limit = {
-					OR = {
-						AND = {
-							is_involved_in_journal_entry = je_kog_orthodox
-							NOT = {
-								country_has_state_religion = rel:orthodox
-							}
-						}
-						AND = {
-							country_has_state_religion = rel:orthodox
-							NOT = {
-								is_involved_in_journal_entry = je_kog_orthodox
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						is_involved_in_journal_entry = je_kog_orthodox
-						NOT = {
-							country_has_state_religion = rel:orthodox
-						}
-					}
-					scope:journal_entry = {
-						remove_involved_country =  prev
-					}
-				}
-				else_if = {
-					limit = {
-						country_has_state_religion = rel:orthodox
-						NOT = {
-							is_involved_in_journal_entry = je_kog_orthodox
-						}
-					}
-					scope:journal_entry = {
-						add_involved_country =  prev
-					}
-				}
-			}
-		}
-	}
-}
-
-####---------- ORTHODOX ENCYCLICAL ENTRIES ----------####
+﻿## ORTHODOX ENCYCLICAL ENTRIES
 je_kog_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 
 	group = je_group_kog_content
 
-	should_be_pinned_by_default_uninvolved_or_context = yes
+	should_be_pinned_by_default = yes
 
 	scripted_progress_bar = kog_easterners_progress_bar
 
@@ -195,8 +111,8 @@ je_kog_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 
 	group = je_group_kog_content
-	
-	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	should_be_pinned_by_default = yes
 
 	scripted_progress_bar = kog_easterners_progress_bar
 
@@ -303,8 +219,8 @@ je_kog_encyclical_orthodox_fraternity = { #
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 
 	group = je_group_kog_content
-	
-	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	should_be_pinned_by_default = yes
 
 	immediate = {
 	}
