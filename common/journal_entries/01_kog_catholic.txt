@@ -1,0 +1,75 @@
+﻿je_kog_catholic = {
+	group = je_group_com_religious_organizations
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 0
+	
+	should_be_pinned_by_default_involved = yes
+	
+	is_shown_in_lobby = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_be_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			com_hide_all_journal_elements_for_interorg_effect = yes
+			save_scope_as = je_kog_catholic
+		}
+		set_global_variable = {
+			name = je_kog_catholic
+			value = scope:je_kog_catholic
+		}
+	}
+	
+	complete = {
+		always = no
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			every_country = {
+				limit = {
+					OR = {
+						AND = {
+							is_involved_in_journal_entry = je_kog_catholic
+							kog_country_is_roman_catholic_trigger = no
+						}
+						AND = {
+							kog_country_is_roman_catholic_trigger = yes
+							NOT = {
+								is_involved_in_journal_entry = je_kog_catholic
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_involved_in_journal_entry = je_kog_catholic
+						kog_country_is_roman_catholic_trigger = no
+					}
+					global_var:je_kog_catholic = {
+						remove_involved_country =  prev
+					}
+				}
+				else_if = {
+					limit = {
+						kog_country_is_roman_catholic_trigger = yes
+						NOT = {
+							is_involved_in_journal_entry = je_kog_catholic
+						}
+					}
+					global_var:je_kog_catholic = {
+						add_involved_country =  prev
+					}
+				}
+			}
+		}
+	}
+}
