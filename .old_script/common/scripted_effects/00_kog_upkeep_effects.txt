@@ -9,7 +9,7 @@ kog_gui_toogle_effect = {
 
 ####---------- General Maintenance Effects ---------- ####
 kog_update_holy_site_count_effect = {
-	var:kog_local = {
+	je:je_kog_local = {
 		set_variable = {
 			name = kog_holy_sites_var
 			value = prev.kog_holy_sites_value
@@ -24,7 +24,7 @@ kog_update_patriarch_variables_effect = {
 			save_scope_as = kog_devout_leader_scope
 		}
 	}
-	var:kog_local = {
+	je:je_kog_local = {
 		set_variable = {
 			name = kog_metropolitan_var
 			value = scope:kog_devout_leader_scope
@@ -171,7 +171,7 @@ kog_validate_seat_controllers_effect = {
 }
 
 kog_update_opinion_variables = {
-	var:kog_local = {
+	je:je_kog_local = {
 		set_variable = {
 			name = kog_rome_opinion_var
 			value = prev.kog_rome_opinion_value
@@ -409,7 +409,7 @@ kog_update_rome_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -515,7 +515,7 @@ kog_update_santiago_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -625,7 +625,7 @@ kog_update_paris_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -735,7 +735,7 @@ kog_update_koln_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -845,7 +845,7 @@ kog_update_vienna_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -955,7 +955,7 @@ kog_update_constantinople_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -1065,7 +1065,7 @@ kog_update_antioch_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -1175,7 +1175,7 @@ kog_update_jerusalem_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -1285,7 +1285,7 @@ kog_update_alexandria_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {
@@ -1395,7 +1395,7 @@ kog_update_moscow_effect = {
 					limit = {
 						kog_content_scope_trigger = yes
 					}
-					var:kog_local = {
+					je:je_kog_local = {
 						# Sanity check in case initialization had a wobble
 						if = {
 							limit = {

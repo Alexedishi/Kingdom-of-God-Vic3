@@ -45,7 +45,7 @@ kog_is_antagonizing_seat_trigger = {
 }
 
 kog_has_any_patriarch_approval_trigger = {
-	var:kog_local = {
+	je:je_kog_local = {
 		OR = {
 			var:kog_rome_opinion_var >= 80
 			var:kog_santiago_opinion_var >= 80
@@ -77,7 +77,7 @@ kog_has_any_patriarch_approval_trigger = {
 }
 
 kog_has_junior_patriarch_approval_trigger = {
-	var:kog_local = {
+	je:je_kog_local = {
 		OR = {
 			var:kog_antioch_opinion_var >= 80
 			var:kog_jerusalem_opinion_var >= 80
@@ -102,7 +102,7 @@ kog_has_senior_patriarch_approval_trigger = {
 }
 
 kog_has_low_opinion_with_any_patriarch_trigger = {
-	var:kog_local = {
+	je:je_kog_local = {
 		OR = {
 			var:kog_rome_opinion_var <= -50
 			var:kog_santiago_opinion_var <= -50
@@ -134,13 +134,13 @@ kog_has_low_opinion_with_any_patriarch_trigger = {
 }
 
 kog_has_low_relations_with_ecumenical_patriarch_trigger = {
-	var:kog_local = {
+	je:je_kog_local = {
 		var:kog_constantinople_relations_var < 20
 	}
 }
 
 kog_has_ongoing_patriarch_event_trigger = {
-	var:kog_local = {
+	je:je_kog_local = {
 		has_variable = kog_seat_event_var
 	}
 }

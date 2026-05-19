@@ -44,7 +44,7 @@ kog_declare_autocephaly_sgui = {
 			name = modifier_kog_schismatic
 			months = 120
 		}
-		var:kog_local = {
+		je:je_kog_local = {
 			set_variable = {
 				name = kog_schism_var
 				value = 0
@@ -57,7 +57,7 @@ kog_schism_progressbar_sgui = {
 	scope = country
 
 	is_shown = {
-		var:kog_local = {
+		je:je_kog_local = {
 			has_variable = kog_schism_var
 		}
 	}

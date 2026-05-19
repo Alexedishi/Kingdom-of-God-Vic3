@@ -24,7 +24,7 @@ kog_seek_mandate_sgui = {
 		kog_has_500_capacity_trigger = yes
 		custom_tooltip = {
 			text = kog_has_ecumenical_patriarch_approval
-			var:kog_local = {
+			je:je_kog_local = {
 				var:kog_constantinople_relations_var >= 80
 			}
 		}
@@ -99,7 +99,7 @@ kog_mend_schism_sgui = {
 
 	is_shown = {
 		has_variable = kog_pentarchy_secured
-		var:kog_local = {
+		je:je_kog_local = {
 			NOT = {
 				has_variable = kog_mending_var
 			}
@@ -125,7 +125,7 @@ kog_mend_schism_sgui = {
 
 	effect = {
 		set_global_variable = kog_mending_started
-		var:kog_local = {
+		je:je_kog_local = {
 			set_variable = {
 				name = kog_mending_var
 				value = 0
@@ -155,7 +155,7 @@ kog_mending_progressbar_sgui = {
 	scope = country
 
 	is_shown = {
-		var:kog_local = {
+		je:je_kog_local = {
 			has_variable = kog_mending_var
 		}
 	}

@@ -10,17 +10,17 @@ kog_piety_progress_value = {
 	value = 0
 	if = {
 		limit = {
-			var:kog_local.var:kog_national_piety_var > kog_piety_target_value
+			je:je_kog_local.var:kog_national_piety_var > kog_piety_target_value
 		}
 		add = kog_piety_target_value
-		subtract = var:kog_local.var:kog_national_piety_var
+		subtract = je:je_kog_local.var:kog_national_piety_var
 	}
 	if = {
 		limit = {
-			var:kog_local.var:kog_national_piety_var < kog_piety_target_value
+			je:je_kog_local.var:kog_national_piety_var < kog_piety_target_value
 		}
 		add = kog_piety_target_value
-		subtract = var:kog_local.var:kog_national_piety_var
+		subtract = je:je_kog_local.var:kog_national_piety_var
 	}
 	round_to = 0.1
 	max = 0.5
