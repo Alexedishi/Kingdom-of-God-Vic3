@@ -752,7 +752,7 @@ kog_initialize_patriarchs_effect = {
 			# Rome; overwriting Vanilla character for the template
 			c:PAP = {
 				create_character = {
-					template = template_kog_rome_patriarch
+					template = kog_patriarch_template
 					# Gregory XVI, captured from the vanilla file to ensure usage of template_kog_rome_patriarch
 					first_name = "Gregorius"
 					last_name = "Cappellari"
@@ -765,6 +765,9 @@ kog_initialize_patriarchs_effect = {
 					ideology = ideology_theocrat
 					traits = {
 						imperious
+					}
+					on_created = {
+						add_modifier = modifier_kog_rome_patriarch
 					}
 				}
 			}
@@ -783,7 +786,7 @@ kog_initialize_patriarchs_effect = {
 			# Santiago
 			c:SPA = {
 				create_character = {
-					template = template_kog_santiago_patriarch
+					template = kog_patriarch_template
 					first_name = "Rafael"
 					last_name = "Velez"
 					historical = yes
@@ -791,6 +794,7 @@ kog_initialize_patriarchs_effect = {
 					religion = rel:catholic
 					age = 60 # birth date unknown, position vacated in 1850
 					on_created = {
+						add_modifier = modifier_kog_santiago_patriarch
 						place_character_in_void = 190
 					}
 				}
@@ -810,7 +814,7 @@ kog_initialize_patriarchs_effect = {
 			# Paris
 			c:FRA = {
 				create_character = {
-					template = template_kog_paris_patriarch
+					template = kog_patriarch_template
 					first_name = "Hyacinthe"
 					last_name = "De_Quelen"
 					historical = yes
@@ -818,6 +822,7 @@ kog_initialize_patriarchs_effect = {
 					religion = rel:catholic
 					birth_date = 1778.10.8
 					on_created = {
+						add_modifier = modifier_kog_paris_patriarch
 						place_character_in_void = 170
 					}
 				}
@@ -837,7 +842,7 @@ kog_initialize_patriarchs_effect = {
 			# Koln
 			c:PRU = {
 				create_character = {
-					template = template_kog_koln_patriarch
+					template = kog_patriarch_template
 					first_name = "Clemens"
 					last_name = "Droste_zu_Vischering"
 					historical = yes
@@ -845,6 +850,7 @@ kog_initialize_patriarchs_effect = {
 					religion = rel:catholic
 					birth_date = 1773.1.21
 					on_created = {
+						add_modifier = modifier_kog_koln_patriarch
 						place_character_in_void = 150
 					}
 				}
@@ -864,7 +870,7 @@ kog_initialize_patriarchs_effect = {
 			# Vienna
 			c:AUS = {
 				create_character = {
-					template = template_kog_vienna_patriarch
+					template = kog_patriarch_template
 					first_name = "Vinzenz"
 					last_name = "Milde"
 					historical = yes
@@ -872,6 +878,7 @@ kog_initialize_patriarchs_effect = {
 					religion = rel:catholic
 					birth_date = 1777.5.11
 					on_created = {
+						add_modifier = modifier_kog_vienna_patriarch
 						place_character_in_void = 210
 					}
 				}
@@ -890,21 +897,21 @@ kog_initialize_patriarchs_effect = {
 		c:PAP = {
 			# Prominent Italian Cardinals
 			create_character = {
-				template = template_kog_cardinal_dynamic
+				template = kog_cardinal_template
 				culture = cu:south_italian
 				on_created = {
 					place_character_in_void = 600 # 50 year shelf life
 				}
 			}
 			create_character = {
-				template = template_kog_cardinal_dynamic
+				template = kog_cardinal_template
 				culture = cu:south_italian
 				on_created = {
 					place_character_in_void = 600 # 50 year shelf life
 				}
 			}
 			create_character = {
-				template = template_kog_cardinal_dynamic
+				template = kog_cardinal_template
 				culture = cu:south_italian
 				on_created = {
 					place_character_in_void = 600 # 50 year shelf life
@@ -917,13 +924,14 @@ kog_initialize_patriarchs_effect = {
 			# Constantinople
 			c:TUR = {
 				create_character = {
-					template = template_kog_constantinople_patriarch
+					template = kog_patriarch_template
 					first_name = "Georgios"
 					last_name = "Fourtouniadis"
 					historical = yes
 					culture = cu:greek
 					religion = rel:orthodox
 					on_created = {
+						add_modifier = modifier_kog_constantinople_patriarch
 						place_character_in_void = 140
 					}
 				}
@@ -943,13 +951,14 @@ kog_initialize_patriarchs_effect = {
 			c:EGY = {
 				# Antioch
 				create_character = {
-					template = template_kog_antioch_patriarch
+					template = kog_patriarch_template
 					first_name = "Methodius"
 					last_name = "Methodius"
 					historical = yes
 					culture = cu:greek
 					religion = rel:orthodox
 					on_created = {
+						add_modifier = modifier_kog_antioch_patriarch
 						place_character_in_void = 110
 					}
 				}
@@ -969,13 +978,14 @@ kog_initialize_patriarchs_effect = {
 			# Jerusalem
 			c:EGY = {
 				create_character = {
-					template = template_kog_jerusalem_patriarch
+					template = kog_patriarch_template
 					first_name = "Methodius"
 					last_name = "Methodius"
 					historical = yes
 					culture = cu:greek
 					religion = rel:orthodox
 					on_created = {
+						add_modifier = modifier_kog_jerusalem_patriarch
 						place_character_in_void = 200
 					}
 				}
@@ -995,13 +1005,14 @@ kog_initialize_patriarchs_effect = {
 			# Alexandria
 			c:EGY = {
 				create_character = {
-					template = template_kog_alexandria_patriarch
+					template = kog_patriarch_template
 					first_name = "Hierotheus"
 					last_name = "Hierotheus"
 					historical = yes
 					culture = cu:greek
 					religion = rel:orthodox
 					on_created = {
+						add_modifier = modifier_kog_alexandria_patriarch
 						place_character_in_void = 205
 					}
 				}
@@ -1021,13 +1032,14 @@ kog_initialize_patriarchs_effect = {
 			# Moscow
 			c:RUS = {
 				create_character = {
-					template = template_kog_moscow_patriarch
+					template = kog_patriarch_template
 					first_name = "Vasily"
 					last_name = "Drozdov"
 					historical = yes
 					culture = cu:russian
 					religion = rel:orthodox
 					on_created = {
+						add_modifier = modifier_kog_moscow_patriarch
 						place_character_in_void = 250
 					}
 				}
