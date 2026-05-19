@@ -1,0 +1,527 @@
+﻿####---------- Journal Widget Toggle Effect ---------- ####
+kog_gui_toogle_effect = {
+	kog_update_patriarch_variables_effect = yes
+	kog_validate_seat_controllers_effect = yes
+	kog_update_opinion_variables = yes
+}
+
+####---------- General Maintenance Effects ---------- ####
+kog_update_holy_site_count_effect = {
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_holy_sites_var
+			value = owner.kog_holy_sites_value
+		}
+	}
+}
+
+kog_update_opinion_variables = {
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_rome_opinion_var
+			value = owner.kog_rome_opinion_value
+		}
+		set_variable = {
+			name = kog_santiago_opinion_var
+			value = owner.kog_santiago_opinion_value
+		}
+		set_variable = {
+			name = kog_paris_opinion_var
+			value = owner.kog_paris_opinion_value
+		}
+		set_variable = {
+			name = kog_koln_opinion_var
+			value = owner.kog_koln_opinion_value
+		}
+		set_variable = {
+			name = kog_vienna_opinion_var
+			value = owner.kog_vienna_opinion_value
+		}
+		set_variable = {
+			name = kog_constantinople_opinion_var
+			value = owner.kog_constantinople_opinion_value
+		}
+		set_variable = {
+			name = kog_antioch_opinion_var
+			value = owner.kog_antioch_opinion_value
+		}
+		set_variable = {
+			name = kog_jerusalem_opinion_var
+			value = owner.kog_jerusalem_opinion_value
+		}
+		set_variable = {
+			name = kog_alexandria_opinion_var
+			value = owner.kog_alexandria_opinion_value
+		}
+		set_variable = {
+			name = kog_moscow_opinion_var
+			value = owner.kog_moscow_opinion_value
+		}
+		set_variable = {
+			name = kog_coptic_alexandria_opinion_var
+			value = owner.kog_coptic_alexandria_opinion_value
+		}
+		set_variable = {
+			name = kog_syriac_antioch_opinion_var
+			value = owner.kog_syriac_antioch_opinion_value
+		}
+		set_variable = {
+			name = kog_etchmiadzin_opinion_var
+			value = owner.kog_etchmiadzin_opinion_value
+		}
+		set_variable = {
+			name = kog_addis_ababa_opinion_var
+			value = owner.kog_addis_ababa_opinion_value
+		}
+		set_variable = {
+			name = kog_konak_opinion_var
+			value = owner.kog_konak_opinion_value
+		}
+		if = {
+			limit = {
+				basileia_is_active = yes
+			}
+			set_variable = {
+				name = kog_elysium_opinion_var
+				value = owner.kog_elysium_opinion_value
+			}
+			set_variable = {
+				name = kog_mixtec_opinion_var
+				value = owner.kog_mixtec_opinion_value
+			}
+			set_variable = {
+				name = kog_cahokia_opinion_var
+				value = owner.kog_cahokia_opinion_value
+			}
+		}
+	}
+}
+
+kog_update_catholic_list = {
+	clear_global_variable_list = kog_catholic_ranking
+	every_country = {
+		limit = {
+			kog_country_is_roman_catholic_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_catholic_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_catholic_ranking
+		order = prestige
+	}
+}
+
+kog_update_orthodox_list = {
+	clear_global_variable_list = kog_orthodox_ranking
+	every_country = {
+		limit = {
+			kog_country_is_eastern_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_orthodox_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_orthodox_ranking
+		order = prestige
+	}
+}
+
+kog_update_oriental_list = {
+	clear_global_variable_list = kog_oriental_ranking
+	every_country = {
+		limit = {
+			kog_country_is_oriental_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_oriental_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_oriental_ranking
+		order = prestige
+	}
+}
+
+kog_update_elysian_list = {
+	clear_global_variable_list = kog_elysian_ranking
+	every_country = {
+		limit = {
+			kog_country_is_elysian_orthodox_trigger = yes
+		}
+		add_to_global_variable_list = {
+			name = kog_elysian_ranking
+			target = this
+		}
+	}
+	sort_global_variable_list = {
+		name = kog_elysian_ranking
+		order = prestige
+	}
+}
+
+kog_update_rite_modifiers_effect = {
+	hidden_effect = {
+		remove_modifier = modifier_kog_byzantine_rite
+		remove_modifier = modifier_kog_roman_rite
+		remove_modifier = modifier_kog_alexandrian_rite
+		remove_modifier = modifier_kog_armenian_rite
+		remove_modifier = modifier_kog_syro_antiochian_rite
+		remove_modifier = modifier_kog_russian_rite
+		remove_modifier = modifier_kog_nestorian_rite
+		remove_modifier = modifier_kog_elysian_rite
+		remove_modifier = modifier_kog_mixtec_rite
+	}
+	if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_roman_rite
+		}
+		add_modifier = {
+			name = modifier_kog_roman_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_byzantine_rite
+		}
+		add_modifier = {
+			name = modifier_kog_byzantine_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_alexandrian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_alexandrian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_armenian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_armenian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_syro_antiochian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_syro_antiochian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_russian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_russian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit = {
+			var:kog_rite_var ?= flag:kog_nestorian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_nestorian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_elysian_rite
+		}
+		add_modifier = {
+			name = modifier_kog_elysian_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			var:kog_rite_var ?= flag:kog_mixtec_rite
+		}
+		add_modifier = {
+			name = modifier_kog_mixtec_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+}
+
+
+####---------- Patriarch Upkeep Effects ---------- ####
+# These update effects use the following flow control:
+# Attempt to locate the relevant variable map; regenerate if missing
+# Check if the character saved to flag:kog_seat_patriarch exists; If the character exists, do nothing
+# If the character does not exist, determine if the seat has a controller and then generate a character from the appropriate scope
+# Clear the dead character scope from the map and insert the new scope
+
+kog_update_patriarch_variables_effect = {
+	kog_update_rome_patriatch_effect = yes
+	kog_update_santiago_patriatch_effect = yes
+	kog_update_paris_patriatch_effect = yes
+	kog_update_koln_patriatch_effect = yes
+	kog_update_vienna_patriatch_effect = yes
+	kog_update_constantinople_patriatch_effect = yes
+	kog_update_antioch_patriatch_effect = yes
+	kog_update_jerusalem_patriatch_effect = yes
+	kog_update_alexandria_patriatch_effect = yes
+	kog_update_moscow_patriatch_effect = yes
+	kog_update_coptic_alexandria_patriatch_effect = yes
+	kog_update_syriac_antioch_patriatch_effect = yes
+	kog_update_etchmiadzin_patriatch_effect = yes
+	kog_update_addis_ababa_patriatch_effect = yes
+	kog_update_konak_patriatch_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_update_elysium_patriatch_effect = yes
+		kog_update_mixtec_patriatch_effect = yes
+		kog_update_cahokia_patriatch_effect = yes
+	}
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		kog_update_metropolitan_bishop_patriatch_effect = yes
+	}
+}
+
+kog_update_metropolitan_bishop_patriatch_effect = {
+	# Local Metropolitan
+	ig:ig_devout = {
+		leader = {
+			save_scope_as = kog_devout_leader_scope
+		}
+	}
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_metropolitan_var
+			value = scope:kog_devout_leader_scope
+		}
+	}
+}
+
+kog_update_rome_patriatch_effect = {
+	# Step 1, Ensure the relevant variable map exists
+	if = {
+		limit = {
+			NOT = {
+				has_global_variable_map = kog_rome
+			}
+		}
+		kog_initialize_rome_variable_map_patriatch_effect = yes # Regenerate if missing
+	}
+	# Step 2, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
+	if = {
+		limit = { # If this evaluates to true, proceed to patriarch regeneration
+			OR = {
+				AND = {
+					is_key_in_variable_map = {
+						name = kog_rome
+						target = flag:kog_seat_patriarch
+					}
+					NOT = {
+						exists = "variable_map(kog_rome|flag:kog_seat_patriarch)"
+					}
+				}
+				NOT = {
+					is_key_in_variable_map = flag:kog_seat_patriarch
+				}
+			}
+		}
+		# First, check for the papacy
+		if = {
+			limit = {
+				c:PAP ?= {
+					has_law = law_type:law_theocracy
+				}
+			}
+			c:PAP ?= {
+				ruler = {
+					save_scope_as = kog_rome_patriarch_scope
+				}
+			}
+		}
+		# Failing that, attempt to find character in void
+		else_if = {
+			limit = {
+				any_character_in_void = {
+					has_modifier = modifier_kog_rome_patriarch
+				}
+			}
+			random_character_in_void = {
+				limit = {
+					has_modifier = modifier_kog_rome_patriarch
+				}
+				save_scope_as = kog_rome_patriarch_scope
+			}
+		}
+		# Failing that, generate a new character
+		else = {
+			# Attempt to generate using the Rome controller
+			if = {
+				limit = {
+					AND = {
+						is_key_in_variable_map = {
+							name = kog_rome
+							target = flag:kog_seat_controller
+						}
+						exists = "variable_map(kog_rome|flag:kog_seat_controller)"
+					}
+				}
+				"variable_map(kog_rome|flag:kog_seat_controller)" = {
+					create_character = {
+						template = kog_patriarch_template
+						on_created = {
+							add_modifier = modifier_kog_rome_patriarch
+							place_character_in_void = 180 # 15 year shelf life
+						}
+					}
+				}
+			}
+			# Fallback to an Italian Catholic
+			else = {
+				create_character = {
+					template = kog_patriarch_template
+					culture = cu:south_italian
+					religion = rel:catholic
+					on_created = {
+						place_character_in_void = 180 # 15 year shelf life
+					}
+				}
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_content_scope_trigger = yes
+			}
+			je:je_kog_local = {
+				# Sanity check in case initialization had a wobble
+				if = {
+					limit = {
+						NOT = {
+							has_variable = kog_rome_relations_var
+						}
+					}
+					set_variable = {
+						name = kog_rome_relations_var
+						value = 0
+					}
+				}
+				# Do not reduce relations if already at or below 0
+				else_if = {
+					limit = {
+						var:kog_rome_relations_var > 0
+					}
+					change_variable = {
+						name = kog_rome_relations_var
+						add = -25
+					}
+					clamp_variable = {
+						name = kog_rome_relations_var
+						min = 0
+						max = 50
+					}
+				}
+			}
+			# Notify all Christians of a new Pope
+			post_notification = notification_kog_rome_replaced
+		}
+	}
+	# Step 3, Capture the Relevant Character and update the variable map
+	random_character_in_void = {
+		limit = {
+			add_modifier = modifier_kog_rome_patriarch
+		}
+		save_scope_as = kog_rome_patriarch_scope
+	}
+	remove_from_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_patriarch
+		value = scope:kog_rome_patriarch_scope
+	}
+}
+
+kog_update_coptic_alexandria_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_syriac_antioch_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_etchmiadzin_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_addis_ababa_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_konak_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_elysium_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_mixtec_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+kog_update_cahokia_patriatch_effect = {
+	custom_tooltip = kog_nothing_happens
+}
+
+####---------- Seat Controller Upkeep Effects ---------- ####
+kog_validate_seat_controllers_effect = {
+	kog_validate_rome_controller_effect = yes
+	kog_validate_santiago_controller_effect = yes
+	kog_validate_paris_controller_effect = yes
+	kog_validate_koln_controller_effect = yes
+	kog_validate_vienna_controller_effect = yes
+	kog_validate_constantinople_controller_effect = yes
+	kog_validate_antioch_controller_effect = yes
+	kog_validate_jerusalem_controller_effect = yes
+	kog_validate_alexandria_controller_effect = yes
+	kog_validate_moscow_controller_effect = yes
+	kog_validate_coptic_alexandria_controller_effect = yes
+	kog_validate_syriac_antioch_controller_effect = yes
+	kog_validate_etchmiadzin_controller_effect = yes
+	kog_validate_addis_ababa_controller_effect = yes
+	kog_validate_konak_controller_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_validate_elysium_controller_effect = yes
+		kog_validate_mixtec_controller_effect = yes
+		kog_validate_cahokia_controller_effect = yes
+	}
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		kog_update_holy_site_count_effect = yes
+	}
+}
