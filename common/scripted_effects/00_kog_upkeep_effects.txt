@@ -330,28 +330,42 @@ kog_update_rome_patriatch_effect = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
 			OR = {
 				AND = {
-					is_key_in_variable_map = {
+					is_key_in_global_variable_map = {
 						name = kog_rome
 						target = flag:kog_seat_patriarch
 					}
 					NOT = {
-						exists = "variable_map(kog_rome|flag:kog_seat_patriarch)"
+						exists = "global_variable_map(kog_rome|flag:kog_seat_patriarch)"
 					}
 				}
 				NOT = {
-					is_key_in_variable_map = flag:kog_seat_patriarch
+					is_key_in_global_variable_map = {
+						name = kog_rome
+						target = flag:kog_seat_patriarch
+					}
 				}
 			}
 		}
 		# First, check for the papacy
 		if = {
 			limit = {
-				c:PAP ?= {
-					has_law = law_type:law_theocracy
+				p:xF0A020 = {
+					owner = {
+						c:PAP ?= this
+						has_law = law_type:law_theocracy
+					}
 				}
 			}
 			c:PAP ?= {
 				ruler = {
+					if = {
+						limit = {
+							NOT = {
+								has_modifier = modifier_kog_rome_patriarch
+							}
+						}
+						add_modifier = modifier_kog_rome_patriarch
+					}
 					save_scope_as = kog_rome_patriarch_scope
 				}
 			}
@@ -372,18 +386,18 @@ kog_update_rome_patriatch_effect = {
 		}
 		# Failing that, generate a new character
 		else = {
-			# Attempt to generate using the Rome controller
+			# Attempt to generate using the Rome Seat controller
 			if = {
 				limit = {
 					AND = {
-						is_key_in_variable_map = {
+						is_key_in_global_variable_map = {
 							name = kog_rome
 							target = flag:kog_seat_controller
 						}
-						exists = "variable_map(kog_rome|flag:kog_seat_controller)"
+						exists = "global_variable_map(kog_rome|flag:kog_seat_controller)"
 					}
 				}
-				"variable_map(kog_rome|flag:kog_seat_controller)" = {
+				"global_variable_map(kog_rome|flag:kog_seat_controller)" = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
@@ -393,16 +407,50 @@ kog_update_rome_patriatch_effect = {
 					}
 				}
 			}
-			# Fallback to an Italian Catholic
-			else = {
-				create_character = {
-					template = kog_patriarch_template
-					culture = cu:south_italian
-					religion = rel:catholic
-					on_created = {
-						place_character_in_void = 180 # 15 year shelf life
+			# Attempt to generate using the Rome Province owner
+			else_if = {
+				limit = {
+					p:xF0A020 = {
+						owner = {
+							kog_content_scope_trigger = yes
+						}
 					}
 				}
+				p:xF0A020 = {
+					owner = {
+						create_character = {
+							template = kog_patriarch_template
+							religion = rel:catholic
+							on_created = {
+								add_modifier = modifier_kog_rome_patriarch
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+			}
+			# Fall back to an Italian Catholic; create from scope of province owner
+			else = {
+				p:xF0A020 = {
+					owner = {
+						create_character = {
+							template = kog_patriarch_template
+							culture = cu:south_italian
+							religion = rel:catholic
+							on_created = {
+								add_modifier = modifier_kog_rome_patriarch
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+			}
+			# Capture the new character
+			random_character_in_void = {
+				limit = {
+					has_modifier = modifier_kog_rome_patriarch
+				}
+				save_scope_as = kog_rome_patriarch_scope
 			}
 		}
 		# Update Relations Variables
@@ -443,13 +491,7 @@ kog_update_rome_patriatch_effect = {
 			post_notification = notification_kog_rome_replaced
 		}
 	}
-	# Step 3, Capture the Relevant Character and update the variable map
-	random_character_in_void = {
-		limit = {
-			add_modifier = modifier_kog_rome_patriarch
-		}
-		save_scope_as = kog_rome_patriarch_scope
-	}
+	# Step 3, Update the relevant variable map
 	remove_from_global_variable_map = {
 		name = kog_rome
 		key = flag:kog_seat_patriarch
