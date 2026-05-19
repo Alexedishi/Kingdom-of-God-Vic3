@@ -161,7 +161,7 @@ kog_select_random_orthodox_seat_effect = {
 			trigger = { # Rome only participates if part of the Orthodox sphere
 				any_country = {
 					has_variable = kog_controls_rome
-					kog_is_eastern_orthodox_trigger = yes
+					kog_country_is_eastern_orthodox_trigger = yes
 				}
 			}
 			set_variable = {
@@ -1430,7 +1430,7 @@ kog_save_pope_scope_effect = {
 kog_save_head_of_faith_scope = {
 	if = {
 		limit = {
-			kog_is_roman_catholic_trigger = yes
+			kog_country_is_roman_catholic_trigger = yes
 		}
 		kog_update_rome_effect = yes
 		global_var:kog_global.var:kog_rome.var:kog_patriarch_var = {
@@ -1439,7 +1439,7 @@ kog_save_head_of_faith_scope = {
 	}
 	else_if = {
 		limit = {
-			kog_is_eastern_orthodox_trigger = yes
+			kog_country_is_eastern_orthodox_trigger = yes
 		}
 		kog_update_constantinople_effect = yes
 		global_var:kog_global.var:kog_constantinople.var:kog_patriarch_var = {
@@ -1448,7 +1448,7 @@ kog_save_head_of_faith_scope = {
 	}
 	else_if = {
 		limit = {
-			kog_is_oriental_orthodox_trigger = yes
+			kog_country_is_oriental_orthodox_trigger = yes
 		}
 		kog_update_coptic_alexandria_effect = yes
 		global_var:kog_global.var:kog_coptic_alexandria.var:kog_patriarch_var = {
@@ -1457,7 +1457,7 @@ kog_save_head_of_faith_scope = {
 	}
 	else_if = {
 		limit = {
-			kog_is_elysian_orthodox_trigger = yes
+			kog_country_is_elysian_orthodox_trigger = yes
 		}
 		kog_update_elysium_effect = yes
 		global_var:kog_global.var:kog_elysium.var:kog_patriarch_var = {

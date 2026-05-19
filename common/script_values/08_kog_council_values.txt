@@ -2,25 +2,25 @@
 	value = 0
 	if = {
 		limit = {
-			kog_is_roman_catholic_trigger = yes
+			kog_country_is_roman_catholic_trigger = yes
 		}
 		add = kog_cardinal_college_value
 	}
 	else_if = {
 		limit = {
-			kog_is_oriental_orthodox_trigger = yes
+			kog_country_is_oriental_orthodox_trigger = yes
 		}
 		add = kog_ecumenical_weight_value
 	}
 	else_if = {
 		limit = {
-			kog_is_oriental_orthodox_trigger = yes
+			kog_country_is_oriental_orthodox_trigger = yes
 		}
 		add = kog_synodal_influence_value
 	}
 	else_if = {
 		limit = {
-			kog_is_elysian_orthodox_trigger = yes
+			kog_country_is_elysian_orthodox_trigger = yes
 		}
 		add = kog_elysian_synkletos_value
 	}

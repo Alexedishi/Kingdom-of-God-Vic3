@@ -1,6 +1,169 @@
-﻿kog_rome_opinion_type = {
-	type = country
+﻿####--------- EPISCOPAL SEAT GENERAL ----------##
+kog_patriarch_title_type = {
+	type = character
+	
+	text = {
+		trigger = {
+			var:kog_religion_var = rel:catholic
+		}
+		localization_key = kog_title_bishop
+	}
+	text = {
+		trigger = {
+			var:kog_religion_var = rel:orthodox
+		}
+		localization_key = kog_title_patriarch
+	}
+}
 
+kog_seat_event_type = {
+	type = country
+	
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_rome
+		}
+		localization_key = kog_rome
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_santiago
+		}
+		localization_key = kog_santiago
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_paris
+		}
+		localization_key = kog_paris
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_koln
+		}
+		localization_key = kog_koln
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_vienna
+		}
+		localization_key = kog_vienna
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_constantinople
+		}
+		localization_key = kog_constantinople
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_antioch
+		}
+		localization_key = kog_antioch
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_jerusalem
+		}
+		localization_key = kog_jerusalem
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_alexandria
+		}
+		localization_key = kog_alexandria
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_moscow
+		}
+		localization_key = kog_moscow
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_coptic_alexandria
+		}
+		localization_key = kog_coptic_alexandria
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_syriac_antioch
+		}
+		localization_key = kog_syriac_antioch
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_etchmiadzin
+		}
+		localization_key = kog_etchmiadzin
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_addis_ababa
+		}
+		localization_key = kog_addis_ababa
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_konak
+		}
+		localization_key = kog_konak
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_elysium
+		}
+		localization_key = kog_elysium
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_mixtec
+		}
+		localization_key = kog_mixtec
+	}
+	text = {
+		trigger = {
+			var:kog_seat_event_var ?= flag:kog_cahokia
+		}
+		localization_key = kog_cahokia
+	}
+}
+
+
+####--------- EPISCOPAL SEAT CONTROLLER ----------##
+kog_controller_type = {
+	type = character
+	
+	text = {
+		trigger = {
+			has_variable = kog_controller_var
+			exists = var:kog_controller_var
+		}
+		localization_key = kog_active_owner
+	}
+	text = {
+		trigger = {
+			OR = {
+				NOT = {
+					has_variable = kog_controller_var
+				}
+				AND = {
+					has_variable = kog_controller_var
+					NOT = {
+						exists = var:kog_controller_var
+					}
+				}
+			}
+		}
+		localization_key = kog_no_owner
+	}
+}
+
+
+####--------- EPISCOPAL SEAT OPINOON ----------##
+kog_rome_opinion_type = {
+	type = country
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_rome_opinion_var >= 80
@@ -68,7 +231,7 @@
 
 kog_santiago_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_santiago_opinion_var >= 80
@@ -136,7 +299,7 @@ kog_santiago_opinion_type = {
 
 kog_paris_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_paris_opinion_var >= 80
@@ -204,7 +367,7 @@ kog_paris_opinion_type = {
 
 kog_koln_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_koln_opinion_var >= 80
@@ -272,7 +435,7 @@ kog_koln_opinion_type = {
 
 kog_vienna_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_vienna_opinion_var >= 80
@@ -340,7 +503,7 @@ kog_vienna_opinion_type = {
 
 kog_constantinople_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_constantinople_opinion_var >= 80
@@ -408,7 +571,7 @@ kog_constantinople_opinion_type = {
 
 kog_antioch_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_antioch_opinion_var >= 80
@@ -476,7 +639,7 @@ kog_antioch_opinion_type = {
 
 kog_jerusalem_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_jerusalem_opinion_var >= 80
@@ -544,7 +707,7 @@ kog_jerusalem_opinion_type = {
 
 kog_alexandria_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_alexandria_opinion_var >= 80
@@ -612,7 +775,7 @@ kog_alexandria_opinion_type = {
 
 kog_moscow_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_moscow_opinion_var >= 80
@@ -680,7 +843,7 @@ kog_moscow_opinion_type = {
 
 kog_coptic_alexandria_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_coptic_alexandria_opinion_var >= 80
@@ -748,7 +911,7 @@ kog_coptic_alexandria_opinion_type = {
 
 kog_syriac_antioch_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_syriac_antioch_opinion_var >= 80
@@ -816,7 +979,7 @@ kog_syriac_antioch_opinion_type = {
 
 kog_etchmiadzin_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_etchmiadzin_opinion_var >= 80
@@ -884,7 +1047,7 @@ kog_etchmiadzin_opinion_type = {
 
 kog_addis_ababa_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_addis_ababa_opinion_var >= 80
@@ -952,7 +1115,7 @@ kog_addis_ababa_opinion_type = {
 
 kog_konak_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_konak_opinion_var >= 80
@@ -1020,7 +1183,7 @@ kog_konak_opinion_type = {
 
 kog_elysium_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_elysium_opinion_var >= 80
@@ -1088,7 +1251,7 @@ kog_elysium_opinion_type = {
 
 kog_mixtec_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_mixtec_opinion_var >= 80
@@ -1156,7 +1319,7 @@ kog_mixtec_opinion_type = {
 
 kog_cahokia_opinion_type = {
 	type = country
-
+	
 	text = {
 		trigger = {
 			je:je_kog_local.var:kog_cahokia_opinion_var >= 80

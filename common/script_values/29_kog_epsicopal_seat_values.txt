@@ -1,6 +1,117 @@
-﻿kog_rome_opinion_value = {
-	value = 0
+﻿kog_seat_integration_value = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_rome
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_santiago
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_paris
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_koln
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_vienna
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_constantinople
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_antioch
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_jerusalem
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_alexandria
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_moscow
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_coptic_alexandria
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_syriac_antioch
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_etchmiadzin
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_addis_ababa
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_konak
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_elysium
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_mixtec
+		}
+		add = 200
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_cahokia
+		}
+		add = 200
+	}
+}
 
+kog_rome_opinion_value = {
+	value = 0
+	
 	# Sources
 	if = {
 		limit = {
@@ -65,13 +176,13 @@
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_rome_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -158,7 +269,7 @@
 
 kog_santiago_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -223,13 +334,13 @@ kog_santiago_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_santiago_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -316,7 +427,7 @@ kog_santiago_opinion_value = {
 
 kog_paris_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -381,13 +492,13 @@ kog_paris_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_paris_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -474,7 +585,7 @@ kog_paris_opinion_value = {
 
 kog_koln_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -539,13 +650,13 @@ kog_koln_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_koln_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -632,7 +743,7 @@ kog_koln_opinion_value = {
 
 kog_vienna_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -697,13 +808,13 @@ kog_vienna_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_vienna_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -790,7 +901,7 @@ kog_vienna_opinion_value = {
 
 kog_constantinople_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -855,13 +966,13 @@ kog_constantinople_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_constantinople_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -948,7 +1059,7 @@ kog_constantinople_opinion_value = {
 
 kog_antioch_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1013,13 +1124,13 @@ kog_antioch_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_antioch_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -1106,7 +1217,7 @@ kog_antioch_opinion_value = {
 
 kog_jerusalem_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1171,13 +1282,13 @@ kog_jerusalem_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_jerusalem_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -1264,7 +1375,7 @@ kog_jerusalem_opinion_value = {
 
 kog_alexandria_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1329,13 +1440,13 @@ kog_alexandria_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_alexandria_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -1422,7 +1533,7 @@ kog_alexandria_opinion_value = {
 
 kog_moscow_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1487,13 +1598,13 @@ kog_moscow_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_moscow_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -1580,7 +1691,7 @@ kog_moscow_opinion_value = {
 
 kog_coptic_alexandria_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1645,13 +1756,13 @@ kog_coptic_alexandria_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_coptic_alexandria_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -1738,7 +1849,7 @@ kog_coptic_alexandria_opinion_value = {
 
 kog_syriac_antioch_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1803,13 +1914,13 @@ kog_syriac_antioch_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_syriac_antioch_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -1896,7 +2007,7 @@ kog_syriac_antioch_opinion_value = {
 
 kog_etchmiadzin_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -1961,13 +2072,13 @@ kog_etchmiadzin_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_etchmiadzin_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -2054,7 +2165,7 @@ kog_etchmiadzin_opinion_value = {
 
 kog_addis_ababa_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -2119,13 +2230,13 @@ kog_addis_ababa_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_addis_ababa_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -2212,7 +2323,7 @@ kog_addis_ababa_opinion_value = {
 
 kog_konak_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -2277,13 +2388,13 @@ kog_konak_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_konak_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -2370,7 +2481,7 @@ kog_konak_opinion_value = {
 
 kog_elysium_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -2435,13 +2546,13 @@ kog_elysium_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_elysium_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -2528,7 +2639,7 @@ kog_elysium_opinion_value = {
 
 kog_mixtec_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -2593,13 +2704,13 @@ kog_mixtec_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_mixtec_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
@@ -2686,7 +2797,7 @@ kog_mixtec_opinion_value = {
 
 kog_cahokia_opinion_value = {
 	value = 0
-
+	
 	# Sources
 	if = {
 		limit = {
@@ -2751,13 +2862,13 @@ kog_cahokia_opinion_value = {
 			desc = kog_value_from_matching_liturgical_rite
 		}
 	}
-
+	
 	# Mixed
 	add = {
 		value = je:je_kog_local.var:kog_cahokia_relations_var
 		desc = kog_value_from_relations
 	}
-
+	
 	#Penalities
 	if = {
 		limit = {
