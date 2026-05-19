@@ -7,22 +7,22 @@
 	#### Step 2, Initialize Denomination Variables
 	kog_initialize_catholic_variables_effect = yes
 	kog_initialize_orthodox_variables_effect = yes
-	#kog_initialize_oriental_variables_effect = yes
-	#kog_initialize_lutheran_variables_effect = yes
-	#kog_initialize_anglican_variables_effect = yes
-	#kog_initialize_elysian_variables_effect = yes
+#	kog_initialize_oriental_variables_effect = yes
+#	kog_initialize_lutheran_variables_effect = yes
+#	kog_initialize_anglican_variables_effect = yes
+#	kog_initialize_elysian_variables_effect = yes
 	
 	#### Step 3, Create Seat Variable Maps
-	kog_initialize_rome_variable_map_effect = yes
-	kog_initialize_santiago_variable_map_effect = yes
-	kog_initialize_paris_variable_map_effect = yes
-	kog_initialize_koln_variable_map_effect = yes
-	kog_initialize_vienna_variable_map_effect = yes
-	kog_initialize_constantinople_variable_map_effect = yes
-	kog_initialize_antioch_variable_map_effect = yes
-	kog_initialize_jerusalem_variable_map_effect = yes
-	kog_initialize_alexandria_variable_map_effect = yes
-	kog_initialize_moscow_variable_map_effect = yes
+#	kog_initialize_rome_variable_map_effect = yes
+#	kog_initialize_santiago_variable_map_effect = yes
+#	kog_initialize_paris_variable_map_effect = yes
+#	kog_initialize_koln_variable_map_effect = yes
+#	kog_initialize_vienna_variable_map_effect = yes
+#	kog_initialize_constantinople_variable_map_effect = yes
+#	kog_initialize_antioch_variable_map_effect = yes
+#	kog_initialize_jerusalem_variable_map_effect = yes
+#	kog_initialize_alexandria_variable_map_effect = yes
+#	kog_initialize_moscow_variable_map_effect = yes
 	
 	#### Step 4, Create Patriarchs and Assign to Seats
 	kog_initialize_patriarchs_effect = yes
@@ -49,10 +49,10 @@
 kog_activate_contextless_journals_effect = {
 	add_contextless_journal_entry = je_kog_catholic
 	add_contextless_journal_entry = je_kog_orthodox
-	#add_contextless_journal_entry = je_kog_oriental
-	#add_contextless_journal_entry = je_kog_lutheran
-	#add_contextless_journal_entry = je_kog_anglican
-	#add_contextless_journal_entry = je_kog_elysian
+#	add_contextless_journal_entry = je_kog_oriental
+#	add_contextless_journal_entry = je_kog_lutheran
+#	add_contextless_journal_entry = je_kog_anglican
+#	add_contextless_journal_entry = je_kog_elysian
 }
 
 kog_initialize_catholic_variables_effect = {
@@ -169,7 +169,7 @@ kog_initialize_rome_variable_map_effect = {
 		value = flag:kog_rome_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_rome
 		key = flag:kog_seat_rank
 		value = flag:kog_major_seat
 	}
@@ -227,7 +227,7 @@ kog_initialize_santiago_variable_map_effect = {
 		value = flag:kog_santiago_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_santiago
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
@@ -286,7 +286,7 @@ kog_initialize_paris_variable_map_effect = {
 		value = flag:kog_paris_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_paris
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
@@ -345,7 +345,7 @@ kog_initialize_koln_variable_map_effect = {
 		value = flag:kog_koln_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_koln
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
@@ -404,7 +404,7 @@ kog_initialize_vienna_variable_map_effect = {
 		value = flag:kog_vienna_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_vienna
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
@@ -463,7 +463,7 @@ kog_initialize_constantinople_variable_map_effect = {
 		value = flag:kog_constantinople_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_constantinople
 		key = flag:kog_seat_rank
 		value = flag:kog_major_seat
 	}
@@ -522,7 +522,7 @@ kog_initialize_antioch_variable_map_effect = {
 		value = flag:kog_antioch_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_antioch
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
@@ -581,12 +581,12 @@ kog_initialize_jerusalem_variable_map_effect = {
 		value = flag:kog_jerusalem_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_jerusalem
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
 	add_to_global_variable_map = {
-		name = kog_jerusalem
+		name = kog_alexandria
 		key = flag:kog_seat_religion
 		value = rel:orthodox
 	}
@@ -640,7 +640,7 @@ kog_initialize_alexandria_variable_map_effect = {
 		value = flag:kog_alexandria_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_alexandria
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
@@ -699,7 +699,7 @@ kog_initialize_moscow_variable_map_effect = {
 		value = flag:kog_moscow_name
 	}
 	add_to_global_variable_map = {
-		name = kog_tempkey
+		name = kog_moscow
 		key = flag:kog_seat_rank
 		value = flag:kog_minor_seat
 	}
