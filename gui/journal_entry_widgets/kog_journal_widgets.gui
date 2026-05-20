@@ -20,18 +20,62 @@ flowcontainer = {
 		direction = vertical
 		spacing = 10
 		
-		com_international_organization_header = { }
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 50 }
+			}
+		}
 		com_international_organization_panel = {
+			blockoverride "interorg_journal_icon" {
+				kog_journal_icon = {}
+			}
 			blockoverride "interorg_backdrop_texture" {
 				texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
 			}
-			blockoverride "interorg_icon_frame_texture" {
-				texture = "gfx/coat_of_arms/textured_emblems/kog_frame_leaves_christian.dds"
-			}
 		}
-		com_international_organization_reason = { }
+		kog_denominational_tabs = {}
 		com_international_organization_buttons = { }
 		com_international_organization_modifiers = { }
 		com_international_organization_members = { }
+	}
+}
+
+
+####---------- KOG JOURNAL ENTRY TYPES ----------####
+types kog_journal_widget_types {
+	
+	type kog_journal_icon = widget {
+		parentanchor = top|hcenter
+		size = { 150 150 }
+		position = { 0 -50 }
+		icon = {
+			parentanchor = center
+			size = { 150 150 }
+			position = { 2 2 }
+			texture = "gfx/interface/backgrounds/com_bg_pb_frame.dds"
+		}
+		icon = {
+			parentanchor = center
+			size = { 150 150 }
+			position = { 0 -20 }
+			texture = "gfx/coat_of_arms/textured_emblems/kog_frame_leaves_christian.dds"
+		}
+		icon = {
+			parentanchor = center
+			texture = "[JournalEntry.GetIcon]"
+			position = { 0 -3 }
+			size = { 75 75 }
+		}
+	}
+	
+	type kog_denominational_tabs = flowcontainer {
+		parentanchor = top|hcenter
+		direction = horizontal
+		minimumsize = { 540 30 }
+		
+		background = {
+			using = entry_bg
+			margin = { 0 -2 }
+		}
 	}
 }
