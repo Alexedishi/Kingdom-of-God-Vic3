@@ -225,15 +225,18 @@ kog_update_tempkey_patriatch_effect = {
 
 ####---------- Seat Controller Validation Effect ----------####
 kog_validate_tempkey_controller_effect = {
-	# Clear the controller from the variable map; do NOT regenerate the map, this is handled by Patriarch validation
+	# First, check if a controller is present in the variable map and check for existence
 	if = {
 		limit = {
-			has_global_variable_map = kog_tempkey
-			is_key_in_variable_map = {
+			is_key_in_global_variable_map = {
 				name = kog_tempkey
 				target = flag:kog_seat_controller
 			}
+			NOT = {
+				exists = "global_variable_map(kog_tempkey|flag:kog_seat_controller)"
+			}
 		}
+		# Clear key if the controller does not exist
 		remove_from_global_variable_map = {
 			name = kog_tempkey
 			key = flag:kog_seat_controller
