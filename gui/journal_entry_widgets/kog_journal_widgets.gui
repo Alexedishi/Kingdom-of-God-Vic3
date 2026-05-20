@@ -22,7 +22,7 @@ flowcontainer = {
 		
 		com_international_organization_header = {
 			blockoverride "spacer_size" {
-				size = { 540 50 }
+				size = { 540 60 }
 			}
 		}
 		com_international_organization_panel = {
@@ -34,9 +34,11 @@ flowcontainer = {
 			}
 		}
 		kog_denominational_tabs = {}
-		com_international_organization_buttons = { }
-		com_international_organization_modifiers = { }
-		com_international_organization_members = { }
+		kog_denominational_overview_panel = {}
+		kog_canon_laws_panel = {}
+		# kog_collegium_panel = {}
+		# kog_holy_sites_panel = {}
+		# kog_episcopal_seats_panel = {}
 	}
 }
 
@@ -71,11 +73,297 @@ types kog_journal_widget_types {
 	type kog_denominational_tabs = flowcontainer {
 		parentanchor = top|hcenter
 		direction = horizontal
-		minimumsize = { 540 30 }
+		minimumsize = { 540 40 }
+		
+		### START DIVIDER
+		icon = {
+			texture = "gfx/interface/tabs/tab_divider.dds"
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			size = { 5 -1 }
+			spriteType = Corneredstretched
+			spriteborder = { 0 20 }
+		}
+		
+		# OVERVIEW TAB
+		tab_button = {
+			minimumsize = { 108 -1 }
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'head')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+			textbox = {
+				text = "kog_gui_head_of_faith_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'head')]"
+			tooltip = "TAB_1"
+			input_action = "tab_1"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 108 -1 }
+			using = selected_tabs
+			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+			
+			textbox = {
+				text = "kog_gui_head_of_faith_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# CANON LAWS TAB
+		tab_button = {
+			minimumsize = { 108 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+			textbox = {
+				text = "kog_gui_canon_law_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+			tooltip = "TAB_2"
+			input_action = "tab_2"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 108 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+			
+			textbox = {
+				text = "kog_gui_canon_law_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# COLLEGIUM TAB
+		tab_button = {
+			minimumsize = { 108 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia'))]"
+			textbox = {
+				text = "kog_gui_college_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 108 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
+			
+			textbox = {
+				text = "kog_gui_college_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# HOLY SITES TAB
+		tab_button = {
+			minimumsize = { 108 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
+			textbox = {
+				text = "kog_gui_holy_sites_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 108 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+			
+			textbox = {
+				text = "kog_gui_holy_sites_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# HOLY SITES TAB
+		tab_button = {
+			minimumsize = { 108 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
+			textbox = {
+				text = "concept_episcopal_seats"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 108 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
+			
+			textbox = {
+				text = "concept_episcopal_seats"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		### END DIVIDER
+		icon = {
+			texture = "gfx/interface/tabs/tab_divider.dds"
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			size = { 5 -1 }
+			spriteType = Corneredstretched
+			spriteborder = { 0 20 }
+		}
+	}
+	
+	type kog_denominational_overview_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		
+		com_international_organization_buttons = { }
+		com_international_organization_modifiers = { }
+		com_international_organization_members = { }
+	}
+	
+	type kog_canon_laws_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		spacing = 10
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+		
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+		kog_canon_law_entry = {}
+	}
+	
+	type kog_canon_law_entry = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		minimumsize = { 520 120 }
+		maximumsize = { 520 120 }
+		spacing = 10
+		margin_left = 10
+		
+		using = entry_bg_fancy
 		
 		background = {
-			using = entry_bg
-			margin = { 0 -2 }
+			block "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+			}
+			size = { 100% 100% }
+			spriteType = Corneredstretched
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
 		}
+		
+		default_header_clean_faded = {
+			position = { 0 0 }
+			size = { 500 35 }
+			blockoverride "text" {
+			}
+			textbox = {
+				block "canon_law_group" {
+					raw_text = "#TODO Override canon_law_group!"
+					using = look_at_me_text_animation
+				}
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 520
+				elide = right
+				using = fontsize_large
+			}
+		}
+		textbox = {
+			block "canon_law_flag" {
+				raw_text = "#TODO Override canon_law_flag!"
+				using = look_at_me_text_animation
+			}
+			autoresize = yes
+			max_width = 200
+			elide = right
+			using = fontsize_medium
+		}
+		flowcontainer = {
+			direction = horizontal
+			minimumsize = { 500 35 }
+			spacing = 10
+			
+			background = {
+				using = dark_area
+				margin = { 5 5 }
+			}
+			
+			block "canon_law_button_content" {
+				textbox = {
+					raw_text = "#TODO Override canon_law_button_content!"
+					using = look_at_me_text_animation
+					parentanchor = center
+					position = { 0 0 }
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+				}
+			}
+		}
+	}
+	
+	type kog_collegium_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
+		
+	}
+	
+	type kog_holy_sites_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+	}
+	
+	type kog_episcopal_seats_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 	}
 }
