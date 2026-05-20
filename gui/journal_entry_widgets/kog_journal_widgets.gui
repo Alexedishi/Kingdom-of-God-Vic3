@@ -36,9 +36,9 @@ flowcontainer = {
 		kog_denominational_tabs = {}
 		kog_denominational_overview_panel = {}
 		kog_canon_laws_panel = {}
-		# kog_collegium_panel = {}
-		# kog_holy_sites_panel = {}
-		# kog_episcopal_seats_panel = {}
+		kog_collegium_panel = {}
+		kog_holy_sites_panel = {}
+		kog_episcopal_seats_panel = {}
 	}
 }
 
@@ -88,14 +88,14 @@ types kog_journal_widget_types {
 		# OVERVIEW TAB
 		tab_button = {
 			minimumsize = { 108 -1 }
-			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'head')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
 			textbox = {
-				text = "kog_gui_head_of_faith_header"
+				text = "kog_gui_overview_header"
 				default_format = "#title"
 				using = tab_text_properties
 			}
 			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'head')]"
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
 			tooltip = "TAB_1"
 			input_action = "tab_1"
 			using = tooltip_above
@@ -104,10 +104,10 @@ types kog_journal_widget_types {
 		icon = {
 			minimumsize = { 108 -1 }
 			using = selected_tabs
-			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 			
 			textbox = {
-				text = "kog_gui_head_of_faith_header"
+				text = "kog_gui_overview_header"
 				default_format = "#variable"
 				using = tab_text_properties
 			}
@@ -202,7 +202,7 @@ types kog_journal_widget_types {
 			minimumsize = { 108 -1 }
 			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
 			textbox = {
-				text = "concept_episcopal_seats"
+				text = "kog_gui_seats_header"
 				default_format = "#title"
 				using = tab_text_properties
 			}
@@ -219,7 +219,7 @@ types kog_journal_widget_types {
 			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 			
 			textbox = {
-				text = "concept_episcopal_seats"
+				text = "kog_gui_seats_header"
 				default_format = "#variable"
 				using = tab_text_properties
 			}
@@ -240,7 +240,7 @@ types kog_journal_widget_types {
 		parentanchor = top|hcenter
 		direction = vertical
 		
-		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'head'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
 		com_international_organization_buttons = { }
 		com_international_organization_modifiers = { }
@@ -349,8 +349,190 @@ types kog_journal_widget_types {
 		parentanchor = top|hcenter
 		direction = vertical
 		
-		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
+		visible = "[And(
+			DataModelHasItems(GetGlobalList('kog_cardinals_list')),
+			GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
+		)]"
+		datamodel = "[GetGlobalList('kog_cardinals_list')]"
 		
+		item = {
+			kog_collegium_cardinal_widget = {}
+		}
+	}
+	
+	type kog_collegium_cardinal_widget = flowcontainer {
+		minimumsize = { 520 120 }
+		direction = horizontal
+		spacing = 10
+		
+		datacontext = "[Scope.GetCharacter]"
+		
+		using = entry_bg_fancy
+		
+		widget = {
+			size = { 120 120 }
+			parentanchor = center
+			
+			character_portrait_medium = {
+				parentanchor = center
+				position = { 0 0 }
+				blockoverride "show_hat" {}
+				blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "ig_button" {}
+				
+				icon = {
+					size = { 27 18 }
+					position = { -10 0 }
+					parentanchor = bottom|left
+					
+					texture = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagTexture]"
+					alwaystransparent = yes
+					
+					frame = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagFrame]"
+					framesize = "[GetSmallFlagFrameSize]"
+					
+					using = flag_overlay
+					
+					icon = {
+						name = frame
+						texture = "gfx/interface/flag/flag_power_tiny.dds"
+						size = { 33 24 }
+						framesize = { 66 48 }
+						frame = "[Scope.GetCharacter.GetCountry.GetRankIconIndex]"
+						alwaystransparent = yes
+						parentanchor = center
+						block "visibility" {}
+					}
+				}
+				textbox = {
+					text = "kog_cardinal_gravitas"
+					position = { 14 0 }
+					parentanchor = bottom|right
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+					
+					background = {
+						using = dark_area
+						alpha = 0.5
+						margin = { 2 2 }
+					}
+					
+					tooltip = "kog_cardinal_gravitas_breakdown"
+				}
+				
+				widget = {
+					parentanchor = top|right
+					position = { 5 -5 }
+					size = { 35 35 }
+					
+					visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+					
+					icon = {
+						using = rotate_glow_animation_02
+						size = { 60 60 }
+						parentanchor = center
+						position = { 0 0 }
+						
+						icon = {
+							texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
+							parentanchor = center
+							size = { 35 35 }
+							position = { 4 4 }
+							
+							
+						}
+					}
+					
+					tooltip = "kog_placeholder_text"
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = center
+			direction = vertical
+			minimumsize = { 220 100 }
+			
+			margin = { 10 0 }
+			
+			background = {
+				using = dark_area
+				alpha = 0.25
+			}
+			
+			default_header_clean_faded = {
+				size = { 220 30 }
+				parentanchor = top|hcenter
+				blockoverride "text" {}
+				textbox = {
+					raw_text = "[Character.GetFullName]"
+					parentanchor = center
+					position = { 0 0 }
+					autoresize = yes
+					max_width = 250
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			textbox = {
+				raw_text = "Rank"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+			textbox = {
+				raw_text = "Gravitas"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+			textbox = {
+				raw_text = "Homeland"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+		}
+		
+		dynamicgridbox = {
+			parentanchor = center
+			layoutpolicy_vertical = preferred
+			datamodel = "[Character.AccessTraits]"
+			datamodel_wrap = 3
+			flipdirection = yes
+			
+			background = {
+				using = dark_area
+				alpha = 0.25
+			}
+			
+			item = {
+				flowcontainer = {
+					margin = { 5 5 }
+					alpha = "[TransparentIfTrue(CharacterTrait.IsDisabled)]"
+					
+					tooltipwidget = {
+						FancyTooltip_CharacterTrait = { }
+					}
+					icon = {
+						size = { 32 45 }
+						texture = "[CharacterTrait.GetTexture]"
+					}
+				}
+			}
+		}
 	}
 	
 	type kog_holy_sites_panel = flowcontainer {
@@ -358,6 +540,12 @@ types kog_journal_widget_types {
 		direction = vertical
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+		
+		icon = {
+			size = { 30 30 }
+			texture = "gfx/interface/icons/generic_icons/clock.dds"
+		}
+		
 	}
 	
 	type kog_episcopal_seats_panel = flowcontainer {
@@ -365,5 +553,10 @@ types kog_journal_widget_types {
 		direction = vertical
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
+		
+		icon = {
+			size = { 30 30 }
+			texture = "gfx/interface/icons/generic_icons/clock.dds"
+		}
 	}
 }

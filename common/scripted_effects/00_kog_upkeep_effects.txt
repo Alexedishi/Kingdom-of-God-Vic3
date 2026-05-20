@@ -262,10 +262,28 @@ kog_update_rite_modifiers_effect = {
 
 kog_update_denominational_leaders_effect = {
 	global_var:je_kog_catholic = {
-	
+		random_character_in_void = {
+			limit = {
+				has_modifier = modifier_kog_rome_patriarch
+			}
+			save_scope_as = kog_rome_patriarch
+		}
+		set_variable = {
+			name = com_interorg_chair_var
+			value = scope:kog_rome_patriarch
+		}
 	}
 	global_var:je_kog_orthodox = {
-	
+		random_character_in_void = {
+			limit = {
+				has_modifier = modifier_kog_constantinople_patriarch
+			}
+			save_scope_as = kog_constantinople_patriarch
+		}
+		set_variable = {
+			name = com_interorg_chair_var
+			value = scope:kog_constantinople_patriarch
+		}
 	}
 }
 
