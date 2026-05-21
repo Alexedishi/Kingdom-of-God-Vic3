@@ -259,7 +259,7 @@ kog_initialize_santiago_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_santiago_patriarch
+			has_trait = kog_patriarch_of_santiago
 		}
 		save_scope_as = kog_santiago_patriarch
 	}
@@ -318,7 +318,7 @@ kog_initialize_paris_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_paris_patriarch
+			has_trait = kog_patriarch_of_paris
 		}
 		save_scope_as = kog_paris_patriarch
 	}
@@ -377,7 +377,7 @@ kog_initialize_koln_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_koln_patriarch
+			has_trait = kog_patriarch_of_koln
 		}
 		save_scope_as = kog_koln_patriarch
 	}
@@ -436,7 +436,7 @@ kog_initialize_vienna_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_vienna_patriarch
+			has_trait = kog_patriarch_of_veinna
 		}
 		save_scope_as = kog_vienna_patriarch
 	}
@@ -495,7 +495,7 @@ kog_initialize_constantinople_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_constantinople_patriarch
+			has_trait = kog_patriarch_of_constantinople
 		}
 		save_scope_as = kog_constantinople_patriarch
 	}
@@ -554,7 +554,7 @@ kog_initialize_antioch_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_antioch_patriarch
+			has_trait = kog_patriarch_of_antioch
 		}
 		save_scope_as = kog_antioch_patriarch
 	}
@@ -613,7 +613,7 @@ kog_initialize_jerusalem_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_jerusalem_patriarch
+			has_trait = kog_patriarch_of_jerusalem
 		}
 		save_scope_as = kog_jerusalem_patriarch
 	}
@@ -672,7 +672,7 @@ kog_initialize_alexandria_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_alexandria_patriarch
+			has_trait = kog_patriarch_of_alexandria
 		}
 		save_scope_as = kog_alexandria_patriarch
 	}
@@ -731,7 +731,7 @@ kog_initialize_moscow_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_moscow_patriarch
+			has_trait = kog_patriarch_of_moscow
 		}
 		save_scope_as = kog_moscow_patriarch
 	}
@@ -766,7 +766,7 @@ kog_initialize_patriarchs_effect = {
 				imperious
 			}
 			on_created = {
-				add_modifier = modifier_kog_rome_patriarch
+				add_trait = kog_patriarch_of_rome
 			}
 		}
 		# Prominent Italian Cardinals
@@ -774,7 +774,7 @@ kog_initialize_patriarchs_effect = {
 			template = kog_cardinal_template
 			culture = cu:south_italian
 			on_created = {
-				add_modifier = modifier_kog_cardinal
+				add_trait = kog_cardinal
 				place_character_in_void = 600 # 50 year shelf life
 			}
 		}
@@ -782,7 +782,7 @@ kog_initialize_patriarchs_effect = {
 			template = kog_cardinal_template
 			culture = cu:south_italian
 			on_created = {
-				add_modifier = modifier_kog_cardinal
+				add_trait = kog_cardinal
 				place_character_in_void = 600 # 50 year shelf life
 			}
 		}
@@ -790,7 +790,7 @@ kog_initialize_patriarchs_effect = {
 			template = kog_cardinal_template
 			culture = cu:south_italian
 			on_created = {
-				add_modifier = modifier_kog_cardinal
+				add_trait = kog_cardinal
 				place_character_in_void = 600 # 50 year shelf life
 			}
 		}
@@ -806,7 +806,7 @@ kog_initialize_patriarchs_effect = {
 			religion = rel:catholic
 			age = 60 # birth date unknown, position vacated in 1850
 			on_created = {
-				add_modifier = modifier_kog_santiago_patriarch
+				add_trait = kog_patriarch_of_santiago
 				place_character_in_void = 190
 			}
 		}
@@ -822,7 +822,7 @@ kog_initialize_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1778.10.8
 			on_created = {
-				add_modifier = modifier_kog_paris_patriarch
+				add_trait = kog_patriarch_of_paris
 				place_character_in_void = 170
 			}
 		}
@@ -838,7 +838,7 @@ kog_initialize_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1773.1.21
 			on_created = {
-				add_modifier = modifier_kog_koln_patriarch
+				add_trait = kog_patriarch_of_koln
 				place_character_in_void = 150
 			}
 		}
@@ -854,7 +854,7 @@ kog_initialize_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1777.5.11
 			on_created = {
-				add_modifier = modifier_kog_vienna_patriarch
+				add_trait = kog_patriarch_of_veinna
 				place_character_in_void = 210
 			}
 		}
@@ -871,7 +871,7 @@ kog_initialize_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_modifier = modifier_kog_constantinople_patriarch
+				add_trait = kog_patriarch_of_constantinople
 				place_character_in_void = 140
 			}
 		}
@@ -886,7 +886,7 @@ kog_initialize_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_modifier = modifier_kog_antioch_patriarch
+				add_trait = kog_patriarch_of_antioch
 				place_character_in_void = 110
 			}
 		}
@@ -901,7 +901,7 @@ kog_initialize_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_modifier = modifier_kog_jerusalem_patriarch
+				add_trait = kog_patriarch_of_jerusalem
 				place_character_in_void = 200
 			}
 		}
@@ -916,7 +916,7 @@ kog_initialize_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_modifier = modifier_kog_alexandria_patriarch
+				add_trait = kog_patriarch_of_alexandria
 				place_character_in_void = 205
 			}
 		}
@@ -931,7 +931,7 @@ kog_initialize_patriarchs_effect = {
 			culture = cu:russian
 			religion = rel:orthodox
 			on_created = {
-				add_modifier = modifier_kog_moscow_patriarch
+				add_trait = kog_patriarch_of_moscow
 				place_character_in_void = 250
 			}
 		}
@@ -956,7 +956,7 @@ kog_initialize_collegium_effect = {
 	# Add Void Cardinals to List
 	every_character_in_void = {
 		limit = {
-			has_modifier = modifier_kog_cardinal
+			has_trait = kog_cardinal
 		}
 		add_to_global_variable_list = {
 			name = kog_cardinals_list

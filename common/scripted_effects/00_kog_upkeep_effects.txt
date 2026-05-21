@@ -264,7 +264,7 @@ kog_update_denominational_leaders_effect = {
 	global_var:je_kog_catholic = {
 		random_character_in_void = {
 			limit = {
-				has_modifier = modifier_kog_rome_patriarch
+				has_trait = kog_patriarch_of_rome
 			}
 			save_scope_as = kog_rome_patriarch
 		}
@@ -276,7 +276,7 @@ kog_update_denominational_leaders_effect = {
 	global_var:je_kog_orthodox = {
 		random_character_in_void = {
 			limit = {
-				has_modifier = modifier_kog_constantinople_patriarch
+				has_trait = kog_patriarch_of_constantinople
 			}
 			save_scope_as = kog_constantinople_patriarch
 		}
@@ -553,10 +553,10 @@ kog_update_rome_patriatch_effect = {
 					if = {
 						limit = {
 							NOT = {
-								has_modifier = modifier_kog_rome_patriarch
+								has_trait = kog_patriarch_of_rome
 							}
 						}
-						add_modifier = modifier_kog_rome_patriarch
+						add_trait = kog_patriarch_of_rome
 					}
 					save_scope_as = kog_rome_patriarch_scope
 				}
@@ -566,12 +566,12 @@ kog_update_rome_patriatch_effect = {
 		else_if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_rome_patriarch
+					has_trait = kog_patriarch_of_rome
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_rome_patriarch
+					has_trait = kog_patriarch_of_rome
 				}
 				save_scope_as = kog_rome_patriarch_scope
 			}
@@ -593,7 +593,7 @@ kog_update_rome_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_rome_patriarch
+							add_trait = kog_patriarch_of_rome
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -614,7 +614,7 @@ kog_update_rome_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_rome_patriarch
+								add_trait = kog_patriarch_of_rome
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -630,7 +630,7 @@ kog_update_rome_patriatch_effect = {
 							culture = cu:south_italian
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_rome_patriarch
+								add_trait = kog_patriarch_of_rome
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -640,7 +640,7 @@ kog_update_rome_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_rome_patriarch
+					has_trait = kog_patriarch_of_rome
 				}
 				save_scope_as = kog_rome_patriarch_scope
 			}
@@ -721,12 +721,12 @@ kog_update_santiago_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_santiago_patriarch
+					has_trait = kog_patriarch_of_santiago
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_santiago_patriarch
+					has_trait = kog_patriarch_of_santiago
 				}
 				save_scope_as = kog_santiago_patriarch_scope
 			}
@@ -748,7 +748,7 @@ kog_update_santiago_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_santiago_patriarch
+							add_trait = kog_patriarch_of_santiago
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -769,7 +769,7 @@ kog_update_santiago_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_santiago_patriarch
+								add_trait = kog_patriarch_of_santiago
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -785,7 +785,7 @@ kog_update_santiago_patriatch_effect = {
 							culture = cu:spanish
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_santiago_patriarch
+								add_trait = kog_patriarch_of_santiago
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -795,7 +795,7 @@ kog_update_santiago_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_santiago_patriarch
+					has_trait = kog_patriarch_of_santiago
 				}
 				save_scope_as = kog_santiago_patriarch_scope
 			}
@@ -876,12 +876,12 @@ kog_update_paris_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_paris_patriarch
+					has_trait = kog_patriarch_of_paris
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_paris_patriarch
+					has_trait = kog_patriarch_of_paris
 				}
 				save_scope_as = kog_paris_patriarch_scope
 			}
@@ -903,7 +903,7 @@ kog_update_paris_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_paris_patriarch
+							add_trait = kog_patriarch_of_paris
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -924,7 +924,7 @@ kog_update_paris_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_paris_patriarch
+								add_trait = kog_patriarch_of_paris
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -940,7 +940,7 @@ kog_update_paris_patriatch_effect = {
 							culture = cu:french
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_paris_patriarch
+								add_trait = kog_patriarch_of_paris
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -950,7 +950,7 @@ kog_update_paris_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_paris_patriarch
+					has_trait = kog_patriarch_of_paris
 				}
 				save_scope_as = kog_paris_patriarch_scope
 			}
@@ -1031,12 +1031,12 @@ kog_update_koln_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_koln_patriarch
+					has_trait = kog_patriarch_of_koln
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_koln_patriarch
+					has_trait = kog_patriarch_of_koln
 				}
 				save_scope_as = kog_koln_patriarch_scope
 			}
@@ -1058,7 +1058,7 @@ kog_update_koln_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_koln_patriarch
+							add_trait = kog_patriarch_of_koln
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1079,7 +1079,7 @@ kog_update_koln_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_koln_patriarch
+								add_trait = kog_patriarch_of_koln
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1095,7 +1095,7 @@ kog_update_koln_patriatch_effect = {
 							culture = cu:north_german
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_koln_patriarch
+								add_trait = kog_patriarch_of_koln
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1105,7 +1105,7 @@ kog_update_koln_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_koln_patriarch
+					has_trait = kog_patriarch_of_koln
 				}
 				save_scope_as = kog_koln_patriarch_scope
 			}
@@ -1186,12 +1186,12 @@ kog_update_vienna_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_vienna_patriarch
+					has_trait = kog_patriarch_of_veinna
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_vienna_patriarch
+					has_trait = kog_patriarch_of_veinna
 				}
 				save_scope_as = kog_vienna_patriarch_scope
 			}
@@ -1213,7 +1213,7 @@ kog_update_vienna_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_vienna_patriarch
+							add_trait = kog_patriarch_of_veinna
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1234,7 +1234,7 @@ kog_update_vienna_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_vienna_patriarch
+								add_trait = kog_patriarch_of_veinna
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1250,7 +1250,7 @@ kog_update_vienna_patriatch_effect = {
 							culture = cu:spanish
 							religion = rel:catholic
 							on_created = {
-								add_modifier = modifier_kog_vienna_patriarch
+								add_trait = kog_patriarch_of_veinna
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1260,7 +1260,7 @@ kog_update_vienna_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_vienna_patriarch
+					has_trait = kog_patriarch_of_veinna
 				}
 				save_scope_as = kog_vienna_patriarch_scope
 			}
@@ -1341,12 +1341,12 @@ kog_update_constantinople_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_constantinople_patriarch
+					has_trait = kog_patriarch_of_constantinople
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_constantinople_patriarch
+					has_trait = kog_patriarch_of_constantinople
 				}
 				save_scope_as = kog_constantinople_patriarch_scope
 			}
@@ -1368,7 +1368,7 @@ kog_update_constantinople_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_constantinople_patriarch
+							add_trait = kog_patriarch_of_constantinople
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1389,7 +1389,7 @@ kog_update_constantinople_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_constantinople_patriarch
+								add_trait = kog_patriarch_of_constantinople
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1405,7 +1405,7 @@ kog_update_constantinople_patriatch_effect = {
 							culture = cu:greek
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_constantinople_patriarch
+								add_trait = kog_patriarch_of_constantinople
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1415,7 +1415,7 @@ kog_update_constantinople_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_constantinople_patriarch
+					has_trait = kog_patriarch_of_constantinople
 				}
 				save_scope_as = kog_constantinople_patriarch_scope
 			}
@@ -1496,12 +1496,12 @@ kog_update_antioch_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_antioch_patriarch
+					has_trait = kog_patriarch_of_antioch
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_antioch_patriarch
+					has_trait = kog_patriarch_of_antioch
 				}
 				save_scope_as = kog_antioch_patriarch_scope
 			}
@@ -1523,7 +1523,7 @@ kog_update_antioch_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_antioch_patriarch
+							add_trait = kog_patriarch_of_antioch
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1544,7 +1544,7 @@ kog_update_antioch_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_antioch_patriarch
+								add_trait = kog_patriarch_of_antioch
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1560,7 +1560,7 @@ kog_update_antioch_patriatch_effect = {
 							culture = cu:greek
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_antioch_patriarch
+								add_trait = kog_patriarch_of_antioch
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1570,7 +1570,7 @@ kog_update_antioch_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_antioch_patriarch
+					has_trait = kog_patriarch_of_antioch
 				}
 				save_scope_as = kog_antioch_patriarch_scope
 			}
@@ -1651,12 +1651,12 @@ kog_update_jerusalem_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_jerusalem_patriarch
+					has_trait = kog_patriarch_of_jerusalem
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_jerusalem_patriarch
+					has_trait = kog_patriarch_of_jerusalem
 				}
 				save_scope_as = kog_jerusalem_patriarch_scope
 			}
@@ -1678,7 +1678,7 @@ kog_update_jerusalem_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_jerusalem_patriarch
+							add_trait = kog_patriarch_of_jerusalem
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1699,7 +1699,7 @@ kog_update_jerusalem_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_jerusalem_patriarch
+								add_trait = kog_patriarch_of_jerusalem
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1715,7 +1715,7 @@ kog_update_jerusalem_patriatch_effect = {
 							culture = cu:greek
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_jerusalem_patriarch
+								add_trait = kog_patriarch_of_jerusalem
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1725,7 +1725,7 @@ kog_update_jerusalem_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_jerusalem_patriarch
+					has_trait = kog_patriarch_of_jerusalem
 				}
 				save_scope_as = kog_jerusalem_patriarch_scope
 			}
@@ -1806,12 +1806,12 @@ kog_update_alexandria_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_alexandria_patriarch
+					has_trait = kog_patriarch_of_alexandria
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_alexandria_patriarch
+					has_trait = kog_patriarch_of_alexandria
 				}
 				save_scope_as = kog_alexandria_patriarch_scope
 			}
@@ -1833,7 +1833,7 @@ kog_update_alexandria_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_alexandria_patriarch
+							add_trait = kog_patriarch_of_alexandria
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1854,7 +1854,7 @@ kog_update_alexandria_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_alexandria_patriarch
+								add_trait = kog_patriarch_of_alexandria
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1870,7 +1870,7 @@ kog_update_alexandria_patriatch_effect = {
 							culture = cu:greek
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_alexandria_patriarch
+								add_trait = kog_patriarch_of_alexandria
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1880,7 +1880,7 @@ kog_update_alexandria_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_alexandria_patriarch
+					has_trait = kog_patriarch_of_alexandria
 				}
 				save_scope_as = kog_alexandria_patriarch_scope
 			}
@@ -1961,12 +1961,12 @@ kog_update_moscow_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_modifier = modifier_kog_moscow_patriarch
+					has_trait = kog_patriarch_of_moscow
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_moscow_patriarch
+					has_trait = kog_patriarch_of_moscow
 				}
 				save_scope_as = kog_moscow_patriarch_scope
 			}
@@ -1988,7 +1988,7 @@ kog_update_moscow_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_modifier = modifier_kog_moscow_patriarch
+							add_trait = kog_patriarch_of_moscow
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -2009,7 +2009,7 @@ kog_update_moscow_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_moscow_patriarch
+								add_trait = kog_patriarch_of_moscow
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -2025,7 +2025,7 @@ kog_update_moscow_patriatch_effect = {
 							culture = cu:russian
 							religion = rel:orthodox
 							on_created = {
-								add_modifier = modifier_kog_moscow_patriarch
+								add_trait = kog_patriarch_of_moscow
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -2035,7 +2035,7 @@ kog_update_moscow_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_modifier = modifier_kog_moscow_patriarch
+					has_trait = kog_patriarch_of_moscow
 				}
 				save_scope_as = kog_moscow_patriarch_scope
 			}
