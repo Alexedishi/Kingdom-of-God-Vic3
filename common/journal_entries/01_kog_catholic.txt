@@ -88,99 +88,46 @@ je_kog_catholic = {
 
 ####---------- CATHOLIC ENCYCLICAL JOURNALS ----------#####
 je_kog_ecyclical_mirari_vos = {
+	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
 	
-	group = je_group_kog_content
+	should_be_pinned_by_default_involved = yes
 	
-	should_be_pinned_by_default = yes
-	
-	immediate = {}
-	
-	complete = {
-		calc_true_if = {
-			amount >= 3
-			has_law = law_type:law_state_religion
-			has_law = law_type:law_religious_schools
-			has_law = law_type:law_charitable_health_system
-			OR = {
-				has_law = law_type:law_censorship
-				has_law = law_type:law_outlawed_dissent
-			}
-		}
-		kog_encyclical_timeout_trigger = yes
+	should_be_involved = {
+		kog_country_is_roman_catholic_trigger = yes
 	}
 	
-	on_complete = {
-		add_modifier = {
-			name = modifier_kog_rebuked_lamennais
-			months = long_modifier_time
-		}
-		kog_add_conservative_loyalists_effect = yes
-		kog_add_reformist_radicals_effect = yes
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
 	}
 	
-	fail = {
-		calc_true_if = {
-			amount < 3
-			has_law = law_type:law_state_religion
-			has_law = law_type:law_religious_schools
-			has_law = law_type:law_charitable_health_system
-			OR = {
-				has_law = law_type:law_censorship
-				has_law = law_type:law_outlawed_dissent
-			}
+	immediate = {
+		scope:journal_entry = {
+			save_scope_as = je_kog_ecyclical_mirari_vos
 		}
-		kog_encyclical_timeout_trigger = yes
+		set_global_variable = {
+			name = je_kog_ecyclical_mirari_vos
+			value = scope:je_kog_ecyclical_mirari_vos
+		}
 	}
 	
-	on_fail = {
-		add_modifier = {
-			name = modifier_kog_failed_encyclical
-			months = long_modifier_time
-		}
-		kog_add_reformist_loyalists_effect = yes
-		kog_add_conservative_radicals_effect = yes
-	}
-	
-	timeout = 2404
+	timeout = 2404 # 6.5 years
 	
 	on_timeout = {
-		hidden_effect = {
-			if = {
-				limit = {
-					calc_true_if = {
-						amount >= 3
-						has_law = law_type:law_state_religion
-						has_law = law_type:law_religious_schools
-						has_law = law_type:law_charitable_health_system
-						OR = {
-							has_law = law_type:law_censorship
-							has_law = law_type:law_outlawed_dissent
-						}
-					}
-				}
-				add_modifier = {
-					name = modifier_kog_rebuked_lamennais
-					months = long_modifier_time
-				}
-				kog_add_conservative_loyalists_effect = yes
-				kog_add_reformist_radicals_effect = yes
-			}
-			else = {
-				add_modifier = {
-					name = modifier_kog_rebuked_lamennais
-					months = long_modifier_time
-				}
-				kog_add_reformist_loyalists_effect = yes
-				kog_add_conservative_radicals_effect = yes
-			}
-		}
+		custom_tooltip = je_kog_ecyclical_mirari_vos_success_effect
+		custom_tooltip = je_kog_ecyclical_mirari_vos_failure_effect
 	}
 	
 	on_weekly_pulse = {
 		effect = {
-			if = {
+			scope:journal_entry = {
+				clear_variable_list = kog_ecyclical_compliant_list
+				clear_variable_list = kog_ecyclical_non_compliant_list
+			}
+			every_country = {
 				limit = {
+					is_involved_in_journal_entry = je_kog_ecyclical_mirari_vos
 					calc_true_if = {
 						amount >= 3
 						has_law = law_type:law_state_religion
@@ -192,14 +139,44 @@ je_kog_ecyclical_mirari_vos = {
 						}
 					}
 				}
-				set_variable = kog_catholic_mirari_vos_var
+				global_var:je_kog_ecyclical_mirari_vos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_compliant_list
+						target = prev
+					}
+				}
 			}
-			else = {
-				remove_variable = kog_catholic_mirari_vos_var
+			every_country = {
+				limit = {
+					is_involved_in_journal_entry = je_kog_ecyclical_mirari_vos
+					calc_true_if = {
+						amount < 3
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_religious_schools
+						has_law = law_type:law_charitable_health_system
+						OR = {
+							has_law = law_type:law_censorship
+							has_law = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				global_var:je_kog_ecyclical_mirari_vos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_non_compliant_list
+						target = prev
+					}
+				}
+			}
+			scope:journal_entry = {
+				sort_variable_list = {
+					name = kog_ecyclical_compliant_list
+					order = prestige
+				}
+				sort_variable_list = {
+					name = kog_ecyclical_non_compliant_list
+					order = prestige
+				}
 			}
 		}
 	}
-	
-	weight = 500
-	
 }

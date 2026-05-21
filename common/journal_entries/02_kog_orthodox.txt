@@ -83,9 +83,7 @@ je_kog_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 	
 	group = je_group_kog_content
 	
-	should_be_pinned_by_default = yes
-	
-	scripted_progress_bar = kog_easterners_progress_bar
+	should_be_pinned_by_default_involved = yes
 	
 	immediate = {
 	}
@@ -94,13 +92,9 @@ je_kog_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 		custom_tooltip = {
 			text = je_kog_encyclical_orthodox_easterners_complete
 			scope:journal_entry = {
-				scripted_bar_progress = {
-					name = kog_easterners_progress_bar
-					value <= 10
-				}
+			
 			}
 		}
-		kog_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -116,13 +110,9 @@ je_kog_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 		custom_tooltip = {
 			text = je_kog_encyclical_orthodox_easterners_fail
 			scope:journal_entry = {
-				scripted_bar_progress = {
-					name = kog_easterners_progress_bar
-					value > 10
-				}
+			
 			}
 		}
-		kog_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {
@@ -141,10 +131,7 @@ je_kog_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 			if = {
 				limit = {
 					scope:journal_entry = {
-						scripted_bar_progress = {
-							name = kog_easterners_progress_bar
-							value <= 10
-						}
+					
 					}
 				}
 				add_modifier = {
@@ -169,10 +156,6 @@ je_kog_encyclical_orthodox_easterners_1 = { # Conservative Outcome
 		effect = {
 			if = {
 				limit = {
-					scripted_bar_progress = {
-						name = kog_easterners_progress_bar
-						value <= 10
-					}
 				}
 				set_variable = kog_orthodox_easterners_var
 			}
@@ -191,9 +174,7 @@ je_kog_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	
 	group = je_group_kog_content
 	
-	should_be_pinned_by_default = yes
-	
-	scripted_progress_bar = kog_easterners_progress_bar
+	should_be_pinned_by_default_involved = yes
 	
 	immediate = {
 	}
@@ -202,13 +183,8 @@ je_kog_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 		custom_tooltip = {
 			text = je_kog_encyclical_orthodox_easterners_complete
 			scope:journal_entry = {
-				scripted_bar_progress = {
-					name = kog_easterners_progress_bar
-					value >= 90
-				}
 			}
 		}
-		kog_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -223,14 +199,7 @@ je_kog_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 	fail = {
 		custom_tooltip = {
 			text = je_kog_encyclical_orthodox_easterners_fail
-			scope:journal_entry = {
-				scripted_bar_progress = {
-					name = kog_easterners_progress_bar
-					value < 90
-				}
-			}
 		}
-		kog_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {
@@ -249,10 +218,6 @@ je_kog_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 			if = {
 				limit = {
 					scope:journal_entry = {
-						scripted_bar_progress = {
-							name = kog_easterners_progress_bar
-							value >= 90
-						}
 					}
 				}
 				add_modifier = {
@@ -277,10 +242,6 @@ je_kog_encyclical_orthodox_easterners_2 = { # Reformist Outcome
 		effect = {
 			if = {
 				limit = {
-					scripted_bar_progress = {
-						name = kog_easterners_progress_bar
-						value >= 90
-					}
 				}
 				set_variable = kog_orthodox_easterners_var
 			}
@@ -299,7 +260,7 @@ je_kog_encyclical_orthodox_fraternity = { #
 	
 	group = je_group_kog_content
 	
-	should_be_pinned_by_default = yes
+	should_be_pinned_by_default_involved = yes
 	
 	immediate = {
 	}
@@ -315,7 +276,6 @@ je_kog_encyclical_orthodox_fraternity = { #
 				var:kog_moscow_opinion_var >= 75
 			}
 		}
-		kog_encyclical_timeout_trigger = yes
 	}
 	
 	on_complete = {
@@ -338,7 +298,6 @@ je_kog_encyclical_orthodox_fraternity = { #
 				var:kog_moscow_opinion_var >= 75
 			}
 		}
-		kog_encyclical_timeout_trigger = yes
 	}
 	
 	on_fail = {

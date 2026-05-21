@@ -44,6 +44,9 @@
 	
 	#### Step 8, Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
+	
+	#### Step 9, Any Final Effects
+	kog_initialization_final_effect = yes
 }
 
 ####---------- Journal and Denomination Variable Initialization ----------####
@@ -1367,4 +1370,14 @@ kog_specific_country_setups_effect = {
 			set_variable = kog_ruler_conversion_considered
 		}
 	}
+}
+
+kog_initialization_final_effect = {
+	com_add_journal_group_to_situations_list = {
+		name = je_group_kog_encyclicals
+	}
+	com_add_journal_group_to_situations_list = {
+		name = je_group_kog_councils
+	}
+	add_contextless_journal_entry = je_kog_ecyclical_mirari_vos
 }
