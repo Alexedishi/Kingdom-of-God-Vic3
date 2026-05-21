@@ -797,6 +797,15 @@ kog_initialize_patriarchs_effect = {
 				place_character_in_void = 600 # 50 year shelf life
 			}
 		}
+		ruler = {
+			save_scope_as = kog_rome_patriarch
+		}
+		global_var:je_kog_catholic = {
+			set_variable = {
+				name = com_interorg_chair_var
+				value = scope:kog_rome_patriarch
+			}
+		}
 	}
 	c:SPA = {
 		# Santiago
@@ -876,6 +885,18 @@ kog_initialize_patriarchs_effect = {
 			on_created = {
 				add_trait = kog_patriarch_of_constantinople
 				place_character_in_void = 140
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_trait = kog_patriarch_of_constantinople
+			}
+			save_scope_as = kog_constantinople_patriarch
+		}
+		global_var:je_kog_orthodox = {
+			set_variable = {
+				name = com_interorg_chair_var
+				value = scope:kog_constantinople_patriarch
 			}
 		}
 	}
