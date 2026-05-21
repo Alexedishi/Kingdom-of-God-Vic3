@@ -26,12 +26,12 @@ flowcontainer = {
 			}
 		}
 		kog_head_of_faith_panel = {}
-		kog_denominational_tabs = {}
+		kog_catholic_denominational_tabs = {}
 		kog_denominational_overview_panel = {}
 		kog_canon_laws_panel = {}
 		kog_collegium_panel = {}
 		kog_holy_sites_panel = {}
-		kog_episcopal_seats_panel = {}
+		kog_catholic_episcopal_seats_panel = {}
 	}
 }
 
@@ -48,26 +48,12 @@ flowcontainer = {
 				size = { 540 60 }
 			}
 		}
-		com_international_organization_panel = {
-			blockoverride "interorg_journal_icon" {
-				kog_journal_icon = {}
-			}
-			blockoverride "interorg_backdrop_texture" {
-				texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
-			}
-			blockoverride "interorg_leader_title" {
-				text = "kog_gui_head_of_faith"
-			}
-			blockoverride "interorg_detail_2_texture" {
-				texture = "gfx/interface/icons/generic_icons/kog_holy_site.dds"
-			}
-		}
-		kog_denominational_tabs = {}
+		kog_head_of_faith_panel = {}
+		kog_generic_denominational_tabs = {}
 		kog_denominational_overview_panel = {}
-		kog_canon_laws_panel = {}
 		kog_collegium_panel = {}
 		kog_holy_sites_panel = {}
-		kog_episcopal_seats_panel = {}
+		kog_catholic_episcopal_seats_panel = {}
 	}
 }
 
@@ -101,7 +87,7 @@ types kog_journal_widget_types {
 	
 	type kog_head_of_faith_panel = com_international_organization_panel {
 		blockoverride "interorg_journal_icon" {
-			kog_journal_icon = {}
+			kog_journal_icon = { }
 		}
 		blockoverride "interorg_leader_title" {
 			text = "kog_gui_head_of_faith"
@@ -138,7 +124,7 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_denominational_tabs = flowcontainer {
+	type kog_catholic_denominational_tabs = flowcontainer {
 		parentanchor = top|hcenter
 		direction = horizontal
 		minimumsize = { 540 40 }
@@ -304,6 +290,144 @@ types kog_journal_widget_types {
 		}
 	}
 	
+	type kog_generic_denominational_tabs = flowcontainer {
+		parentanchor = top|hcenter
+		direction = horizontal
+		minimumsize = { 540 40 }
+		
+		### START DIVIDER
+		icon = {
+			texture = "gfx/interface/tabs/tab_divider.dds"
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			size = { 5 -1 }
+			spriteType = Corneredstretched
+			spriteborder = { 0 20 }
+		}
+		
+		# OVERVIEW TAB
+		tab_button = {
+			minimumsize = { 135 -1 }
+			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+			textbox = {
+				text = "kog_gui_overview_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
+			tooltip = "TAB_1"
+			input_action = "tab_1"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 135 -1 }
+			using = selected_tabs
+			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+			
+			textbox = {
+				text = "kog_gui_overview_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# CANON LAWS TAB
+		tab_button = {
+			minimumsize = { 135 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+			textbox = {
+				text = "kog_gui_canon_law_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+			tooltip = "TAB_2"
+			input_action = "tab_2"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 135 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+			
+			textbox = {
+				text = "kog_gui_canon_law_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# HOLY SITES TAB
+		tab_button = {
+			minimumsize = { 135 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
+			textbox = {
+				text = "kog_gui_holy_sites_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 135 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
+			
+			textbox = {
+				text = "kog_gui_holy_sites_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		# HOLY SITES TAB
+		tab_button = {
+			minimumsize = { 135 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
+			textbox = {
+				text = "kog_gui_seats_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 135 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
+			
+			textbox = {
+				text = "kog_gui_seats_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
+		### END DIVIDER
+		icon = {
+			texture = "gfx/interface/tabs/tab_divider.dds"
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			size = { 5 -1 }
+			spriteType = Corneredstretched
+			spriteborder = { 0 20 }
+		}
+	}
+	
 	type kog_denominational_overview_panel = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
@@ -311,7 +435,7 @@ types kog_journal_widget_types {
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
 		com_international_organization_modifiers = { }
-		kog_metropolis_panel = {}
+		kog_metropolis_panel = { }
 		com_international_organization_buttons = { }
 		kog_membership_panel = { }
 	}
@@ -471,15 +595,15 @@ types kog_journal_widget_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
 		
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
-		kog_canon_law_entry = {}
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
+		kog_canon_law_entry = { }
 	}
 	
 	type kog_canon_law_entry = flowcontainer {
@@ -573,7 +697,7 @@ types kog_journal_widget_types {
 		datamodel = "[GetGlobalList('kog_cardinals_list')]"
 		
 		item = {
-			kog_collegium_cardinal_widget = {}
+			kog_collegium_cardinal_widget = { }
 		}
 	}
 	
@@ -593,11 +717,11 @@ types kog_journal_widget_types {
 			character_portrait_medium = {
 				parentanchor = center
 				position = { 0 0 }
-				blockoverride "show_hat" {}
-				blockoverride "tooltip" {} #TODO Remove when Tooltip doesnt cause error anymore
-				blockoverride "portrait_icons" {} #TODO Remove when Tooltip doesnt cause error anymore
-				blockoverride "portrait_button" {} #TODO Remove when Tooltip doesnt cause error anymore
-				blockoverride "ig_button" {}
+				blockoverride "show_hat" { }
+				blockoverride "tooltip" { } #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "portrait_icons" { } #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "portrait_button" { } #TODO Remove when Tooltip doesnt cause error anymore
+				blockoverride "ig_button" { }
 				
 				icon = {
 					size = { 27 18 }
@@ -620,7 +744,7 @@ types kog_journal_widget_types {
 						frame = "[Scope.GetCharacter.GetCountry.GetRankIconIndex]"
 						alwaystransparent = yes
 						parentanchor = center
-						block "visibility" {}
+						block "visibility" { }
 					}
 				}
 				textbox = {
@@ -683,7 +807,7 @@ types kog_journal_widget_types {
 			default_header_clean_faded = {
 				size = { 220 30 }
 				parentanchor = top|hcenter
-				blockoverride "text" {}
+				blockoverride "text" { }
 				textbox = {
 					raw_text = "[Character.GetFullName]"
 					parentanchor = center
@@ -766,14 +890,14 @@ types kog_journal_widget_types {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_rome.dds"
 			}
-			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_control_visibility" { }
 			blockoverride "holy_site_not_controlled_visibility" {
 				visible = "no"
 			}
 			blockoverride "holy_site_name" {
 				text = "kog_rome_building"
 			}
-			blockoverride "holy_site_tooltip" {}
+			blockoverride "holy_site_tooltip" { }
 		}
 		
 		# Santiago
@@ -781,14 +905,14 @@ types kog_journal_widget_types {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_santiago.dds"
 			}
-			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_control_visibility" { }
 			blockoverride "holy_site_not_controlled_visibility" {
 				visible = "no"
 			}
 			blockoverride "holy_site_name" {
 				text = "kog_santiago_building"
 			}
-			blockoverride "holy_site_tooltip" {}
+			blockoverride "holy_site_tooltip" { }
 		}
 		
 		# Paris
@@ -796,14 +920,14 @@ types kog_journal_widget_types {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_paris.dds"
 			}
-			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_control_visibility" { }
 			blockoverride "holy_site_not_controlled_visibility" {
 				visible = "no"
 			}
 			blockoverride "holy_site_name" {
 				text = "kog_paris_building"
 			}
-			blockoverride "holy_site_tooltip" {}
+			blockoverride "holy_site_tooltip" { }
 		}
 		
 		# Koln
@@ -811,14 +935,14 @@ types kog_journal_widget_types {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_koln.dds"
 			}
-			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_control_visibility" { }
 			blockoverride "holy_site_not_controlled_visibility" {
 				visible = "no"
 			}
 			blockoverride "holy_site_name" {
 				text = "kog_koln_building"
 			}
-			blockoverride "holy_site_tooltip" {}
+			blockoverride "holy_site_tooltip" { }
 		}
 		
 		# Vienna
@@ -826,20 +950,20 @@ types kog_journal_widget_types {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_vienna.dds"
 			}
-			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_control_visibility" { }
 			blockoverride "holy_site_not_controlled_visibility" {
 				visible = "no"
 			}
 			blockoverride "holy_site_name" {
 				text = "kog_vienna_building"
 			}
-			blockoverride "holy_site_tooltip" {}
+			blockoverride "holy_site_tooltip" { }
 		}
 	}
 	
 	type kog_holy_site_item = widget {
 		size = { 520 120 }
-		parentanchor = center
+		parentanchor = top|hcenter
 		
 		using = entry_bg_fancy
 		
@@ -889,7 +1013,7 @@ types kog_journal_widget_types {
 				parentanchor = left|vcenter
 				size = { 100 100 }
 				icon = {
-					block "holy_site_control_visibility" {}
+					block "holy_site_control_visibility" { }
 					using = selected_sidepanel_animation
 					size = { 90% 90% }
 					alwaystransparent = yes
@@ -912,7 +1036,7 @@ types kog_journal_widget_types {
 						alpha = 0.5
 					}
 				}
-				block "holy_site_tooltip" {}
+				block "holy_site_tooltip" { }
 			}
 			
 			widget = {
@@ -981,15 +1105,235 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_episcopal_seats_panel = flowcontainer {
+	type kog_catholic_episcopal_seats_panel = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
+		minimumsize = { 540 -1 }
+		spacing = 10
+		margin = { 0 10 }
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 		
-		icon = {
-			size = { 30 30 }
-			texture = "gfx/interface/icons/generic_icons/clock.dds"
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+	}
+	
+	type kog_orthodox_episcopal_seats_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		spacing = 10
+		margin = { 0 10 }
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
+		
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+		kog_episcopal_seat = {}
+	}
+	
+	type kog_episcopal_seat = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		margin_bottom = 20
+		
+		using = entry_bg_fancy
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 540 40 }
+			margin = { 15 0 }
+			
+			background = {
+				using = default_header_bg_faded
+			}
+			
+			widget = {
+				parentanchor = center
+				size = { 400 40 }
+				
+				textbox = {
+					parentanchor = left|vcenter
+					raw_text = "#todo kog_seat_name"
+					autoresize = yes
+					elide = right
+					using = fontsize_large
+				}
+			}
+			widget = {
+				parentanchor = center
+				size = { 120 40 }
+				
+				textbox = {
+					parentanchor = right|vcenter
+					raw_text = "#todo Controlled By: kog_seat_controller_var"
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			spacing = 5
+			minimumsize = { 540 -1 }
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 160 120 }
+				
+				character_portrait_medium_torso = {
+					parentanchor = center
+					datacontext = "[GetPlayer.GetRuler]"
+					
+					block "patriarch_datacontext" { }
+					blockoverride "show_hat" { }
+					blockoverride "tooltip" { } # Error Suppression
+					blockoverride "portrait_icons" { } # Error Suppression
+					blockoverride "portrait_button" { } # Error Suppression
+					
+					default_header_clean_faded = {
+						size = { 150 35 }
+						position = { 0 80 }
+						parentanchor = center
+						blockoverride "text" {
+						}
+						textbox = {
+							raw_text = "#todo kog_gui_patriarch_name"
+							parentanchor = center
+							position = { 0 -2 }
+							autoresize = yes
+							max_width = 190
+							elide = right
+							using = fontsize_medium
+						}
+					}
+				}
+			}
+			
+			flowcontainer = {
+				parentanchor = center
+				direction = vertical
+				spacing = 5
+				margin = { 10 10 }
+				
+				background = {
+					using = entry_bg_simple
+				}
+				background = {
+					using = entry_bg_simple
+				}
+				
+				textbox = {
+					raw_text = "[concept_liturgical_rite]:"
+					size = { 180 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					raw_text = "#todo kog_gui_liturgical_rite"
+					size = { 180 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					raw_text = "[concept_liturgical_language]:"
+					size = { 180 20 }
+					elide = right
+					fontsize = 18
+				}
+				textbox = {
+					raw_text = "#todo kog_gui_liturgical_language"
+					size = { 180 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					block "patriarch_opinion" {
+						raw_text = "#TODO Override patriarch_opinion!"
+						using = look_at_me_text_animation
+					}
+					size = { 180 20 }
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			
+			flowcontainer = {
+				parentanchor = center
+				direction = vertical
+				spacing = 5
+				# Improve Relations Button
+				button = {
+					using = default_button_action
+					size = { 150 40 }
+					text = "kog_gui_improve_relations"
+					using = fontsize_small
+					
+					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
+					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_improve_relations_desc"
+				}
+				
+				# Cease Diplomacy Button
+				button = {
+					using = default_button_action
+					size = { 150 40 }
+					text = "kog_gui_cease_diplomacy"
+					using = fontsize_small
+					
+					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
+					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_cease_diplomacy_desc"
+				}
+				
+				# Damage Relations Button
+				button = {
+					using = default_button_action
+					size = { 150 40 }
+					text = "kog_gui_damage_relations"
+					using = fontsize_small
+					
+					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
+					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_damage_relations_desc"
+				}
+				
+				# Cease Hostilities Button
+				button = {
+					using = default_button_action
+					size = { 150 40 }
+					text = "kog_gui_cease_hostilities"
+					using = fontsize_small
+					
+					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
+					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					tooltip = "kog_gui_cease_hostilities_desc"
+				}
+			}
 		}
 	}
 }
