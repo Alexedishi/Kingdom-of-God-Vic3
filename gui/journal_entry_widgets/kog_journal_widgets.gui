@@ -121,7 +121,7 @@ types kog_journal_widget_types {
 		blockoverride "interorg_detail_1_texture" {
 			texture = "gfx/interface/icons/generic_icons/kog_autocephalous_patriarchate.dds"
 		}
-		blockoverride "interorg_detail_1_visibility" {
+		blockoverride "interorg_detail_2_visibility" {
 			visible = "[ComJournalVar('kog_location_var').IsSet]"
 		}
 		blockoverride "interorg_detail_2_name" {
@@ -310,9 +310,158 @@ types kog_journal_widget_types {
 		
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
-		com_international_organization_buttons = { }
 		com_international_organization_modifiers = { }
-		com_international_organization_members = { }
+		kog_metropolis_panel = {}
+		com_international_organization_buttons = { }
+		kog_membership_panel = { }
+	}
+	
+	type kog_metropolis_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			direction = vertical
+			parentanchor = top|hcenter
+			minimumsize = { 520 100 }
+			spacing = 5
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_gui_national_piety"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			default_progressbar_horizontal = {
+				parentanchor = top|hcenter
+				size = { 250 24 }
+				blockoverride "values" {
+					min = 0
+					max = 1000
+					value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_capacity_value'))]"
+				}
+				textbox = {
+					parentanchor = center
+					autoresize = yes
+					text = "kog_gui_national_piety_amount"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_medium
+				}
+				tooltip = "kog_gui_national_piety_breakdown"
+			}
+		}
+	}
+	
+	type kog_membership_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 15
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_community_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				raw_text = "Members #o In Communion#!"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				datamodel = "[JournalEntry.GetInvolvedCountries]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						size = { 60 40 }
+						
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				raw_text = "Members #o In Schism#!"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				raw_text = "#filler The Church is Undivided#!"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+		}
 	}
 	
 	type kog_canon_laws_panel = flowcontainer {

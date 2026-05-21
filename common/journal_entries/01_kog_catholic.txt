@@ -12,8 +12,10 @@ je_kog_catholic = {
 		container = "custom_widget_container_je_icon"
 	}
 	
-	scripted_button = je_global_test_button
-	scripted_button = je_global_test_button_2
+	scripted_button = kog_gui_venerate_apparition
+	scripted_button = kog_gui_convoke_council
+	scripted_button = kog_gui_secure_tetrarchy
+	scripted_button = kog_gui_mend_schism
 	
 	is_shown_in_lobby = {
 		kog_country_is_roman_catholic_trigger = yes
@@ -25,6 +27,10 @@ je_kog_catholic = {
 	
 	should_show_when_not_involved = {
 		kog_content_scope_trigger = yes
+	}
+	
+	modifiers_while_active = {
+		modifier_kog_catholic
 	}
 	
 	immediate = {

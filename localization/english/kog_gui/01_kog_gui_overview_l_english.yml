@@ -3,9 +3,9 @@
  kog_gui_overview_header: "Overview"
  kog_gui_head_of_faith: "#o Head of Faith#!"
  kog_gui_mother_church_header: "Mother Church"
- kog_gui_mother_church_name: "[JournalEntry.MakeScope.Var('kog_mother_church_var').GetBuilding.GetName]"
+ kog_gui_mother_church_name: "[JournalEntry.MakeScope.Var('kog_mother_church_var').GetBuildingType.GetName]"
  kog_gui_location_header: "Location"
- kog_gui_location_name: "[JournalEntry.MakeScope.Var('kog_location_var').GetBuilding.GetName]"
+ kog_gui_location_name: "[JournalEntry.MakeScope.Var('kog_location_var').GetStateRegion.GetName]"
  kog_gui_membership_header: "Membership"
  
  # Metropolitan Portrait & Details
@@ -25,7 +25,7 @@
  
  # Community Panel
  kog_community_header: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Community"
- kog_community_members_in_communion: "Members in [concept_communion]"
+ kog_community_members_in_communion: "Members #o In Communion#!"
  kog_community_members_in_schism: "Members in [concept_schism]"
  
  # Encyclical Panel General
@@ -73,7 +73,6 @@
  kog_gui_orthodox_council_detractors: "Votes Against: #khoine [GetGlobalVariable('kog_orthodox_opposition_var').GetValue]#!"
  kog_gui_orthodox_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('kog_council_stance_type')]#!"
  kog_gui_orthodox_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_council_outcome_type')]"
- 
  
  # Catholic Scripted Buttons
  kog_gui_venerate_apparition: "Venerate Apparition"
