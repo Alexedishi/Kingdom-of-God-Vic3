@@ -439,7 +439,7 @@ kog_initialize_vienna_variable_map_effect = {
 	}
 	random_character_in_void = {
 		limit = {
-			has_trait = kog_patriarch_of_veinna
+			has_trait = kog_patriarch_of_vienna
 		}
 		save_scope_as = kog_vienna_patriarch
 	}
@@ -1317,14 +1317,6 @@ kog_specific_country_setups_effect = {
 	# Override this effect for mod-specific starting setups
 	# This is done this way to avoid having to integrate dummy country definitions into kog
 	# Unless you are making a TC or alt-history mod, probably leave this untouched
-	every_country = {
-		limit = {
-			kog_country_is_roman_catholic_trigger = yes
-		}
-		add_journal_entry = {
-			type = je_kog_ecyclical_mirari_vos
-		}
-	}
 	
 	## Catholic Setup ##
 	c:PAP = {
@@ -1373,11 +1365,12 @@ kog_specific_country_setups_effect = {
 }
 
 kog_initialization_final_effect = {
+	add_contextless_journal_entry = je_kog_ecyclical_mirari_vos
+	com_activate_interorg_sidebar = yes
 	com_add_journal_group_to_situations_list = {
 		name = je_group_kog_encyclicals
 	}
 	com_add_journal_group_to_situations_list = {
 		name = je_group_kog_councils
 	}
-	add_contextless_journal_entry = je_kog_ecyclical_mirari_vos
 }
