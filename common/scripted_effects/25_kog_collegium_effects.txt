@@ -21,12 +21,12 @@
 	if = {
 		limit = {
 			any_character_in_void = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 			}
 		}
 		random_character_in_void = {
 			limit = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 			}
 			save_scope_as = kog_void_cardinal_1
 		}
@@ -35,7 +35,7 @@
 		kog_generate_curia_cardinal_effect = yes
 		random_character_in_void = {
 			limit = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 			}
 			save_scope_as = kog_void_cardinal_1
 		}
@@ -43,7 +43,7 @@
 	if = {
 		limit = {
 			any_character_in_void = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 				NOT = {
 					scope:kog_void_cardinal_1 = this
 				}
@@ -51,7 +51,7 @@
 		}
 		random_character_in_void = {
 			limit = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 				NOT = {
 					scope:kog_void_cardinal_1 = this
 				}
@@ -63,7 +63,7 @@
 		kog_generate_curia_cardinal_effect = yes
 		random_character_in_void = {
 			limit = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 				NOT = {
 					scope:kog_void_cardinal_1 = this
 				}
@@ -74,7 +74,7 @@
 	if = {
 		limit = {
 			any_character_in_void = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 				NOR = {
 					scope:kog_void_cardinal_1 = this
 					scope:kog_void_cardinal_2 = this
@@ -83,7 +83,7 @@
 		}
 		random_character_in_void = {
 			limit = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 				NOR = {
 					scope:kog_void_cardinal_1 = this
 					scope:kog_void_cardinal_2 = this
@@ -96,7 +96,7 @@
 		kog_generate_curia_cardinal_effect = yes
 		random_character_in_void = {
 			limit = {
-				has_template = template_kog_cardinal_dynamic
+				has_template = kog_cardinal_template
 				NOR = {
 					scope:kog_void_cardinal_1 = this
 					scope:kog_void_cardinal_2 = this
@@ -109,7 +109,7 @@
 	# Purge Excess Cardinals
 	every_character_in_void = {
 		limit = {
-			has_template = template_kog_cardinal_dynamic
+			has_template = kog_cardinal_template
 			NOR = {
 				scope:kog_void_cardinal_1 = this
 				scope:kog_void_cardinal_2 = this
@@ -143,7 +143,7 @@
 
 kog_generate_curia_cardinal_effect = {
 	create_character = {
-		template = template_kog_cardinal_dynamic
+		template = kog_cardinal_template
 		culture = cu:south_italian
 		on_created = {
 			place_character_in_void = 600 # 50 year shelf life
