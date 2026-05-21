@@ -541,11 +541,224 @@ types kog_journal_widget_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
 		
+		kog_holy_site_item = {
+			blockoverride "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
+			}
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_rome.dds"
+			}
+			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_rome_building"
+			}
+			blockoverride "holy_site_location" {
+				raw_text = "Seated in [GetStateRegion('STATE_LAZIO').GetName]"
+			}
+			blockoverride "holy_site_controller" {
+				raw_text = "Controller: Deez Nutz"
+			}
+			blockoverride "holy_site_tooltip" {}
+		}
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_santiago.dds"
+			}
+			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_santiago_building"
+			}
+			blockoverride "holy_site_tooltip" {}
+		}
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_paris.dds"
+			}
+			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_paris_building"
+			}
+			blockoverride "holy_site_tooltip" {}
+		}
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_koln.dds"
+			}
+			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_koln_building"
+			}
+			blockoverride "holy_site_tooltip" {}
+		}
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_vienna.dds"
+			}
+			blockoverride "holy_site_control_visibility" {}
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_vienna_building"
+			}
+			blockoverride "holy_site_tooltip" {}
+		}
+	}
+	
+	type kog_holy_site_item = widget {
+		size = { 520 120 }
+		parentanchor = center
+		
+		using = entry_bg_fancy
+		
+		background = {
+			block "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/ck3_temple_generic_grass.dds"
+			}
+			fittype = centercrop
+			using = frame_small_mask
+			alpha = 0.75
+		}
 		icon = {
-			size = { 30 30 }
-			texture = "gfx/interface/icons/generic_icons/clock.dds"
+			using = dark_area
+			parentanchor = top|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		icon = {
+			using = dark_area
+			parentanchor = bottom|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 -4 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
 		}
 		
+		flowcontainer = {
+			direction = horizontal
+			minimumsize = { 520 120 }
+			margin = { 10 0 }
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 100 100 }
+				icon = {
+					block "holy_site_control_visibility" {}
+					using = selected_sidepanel_animation
+					size = { 90% 90% }
+					alwaystransparent = yes
+					parentanchor = center
+					using = default_fade_in_out
+				}
+				icon = {
+					size = { 100 100 }
+					block "holy_site_texture" {
+						texture = "gfx/interface/icons/generic_icons/kog_holy_site_generic.dds"
+					}
+					modify_texture = {
+						block "holy_site_not_controlled_visibility" {
+							visible = "no"
+						}
+						texture = "gfx/interface/backgrounds/grey.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = normal
+						alpha = 0.5
+					}
+				}
+				block "holy_site_tooltip" {}
+			}
+			
+			widget = {
+				size = { 400 120 }
+				
+				background = {
+					using = dark_area
+					margin = { 0 -10 }
+				}
+				
+				flowcontainer = {
+					direction = vertical
+					margin_left = 10
+					spacing = 5
+					
+					textbox = {
+						block "holy_site_name" {
+							raw_text = "#TODO Override holy_site_name!"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_large
+					}
+					textbox = {
+						block "holy_site_location" {
+							raw_text = "#TODO Override holy_site_location!"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_controller" {
+							raw_text = "#TODO Override holy_site_controller!"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_perk" {
+							raw_text = "#TODO Override holy_site_perk!"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+				}
+			}
+		}
 	}
 	
 	type kog_episcopal_seats_panel = flowcontainer {
