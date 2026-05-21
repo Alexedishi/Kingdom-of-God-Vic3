@@ -33,32 +33,30 @@ je_kog_local = {
 	}
 	
 	on_weekly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
 		effect = {
 		}
 	}
 	
 	on_monthly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
 		effect = {
+			ig:ig_devout = {
+				leader = {
+					if = {
+						limit = {
+							NOR = {
+								has_trait = kog_bishop
+								has_trait = kog_cardinal
+							}
+						}
+						add_trait = kog_bishop
+					}
+				}
+			}
 		}
 	}
 	
 	on_yearly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
 		effect = {
 		}
-	}
-	
-	status_desc = {
 	}
 }

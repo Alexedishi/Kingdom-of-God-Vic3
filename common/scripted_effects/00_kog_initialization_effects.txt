@@ -854,7 +854,7 @@ kog_initialize_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1777.5.11
 			on_created = {
-				add_trait = kog_patriarch_of_veinna
+				add_trait = kog_patriarch_of_vienna
 				place_character_in_void = 210
 			}
 		}
@@ -1045,6 +1045,11 @@ kog_initialize_metropolis_effect = {
 	set_variable = {
 		name = kog_votes_var
 		value = kog_votes_value
+	}
+	ig:ig_devout = {
+		leader = {
+			add_trait = kog_bishop
+		}
 	}
 	
 	# Step 2: Initialize Liturgical Rites
