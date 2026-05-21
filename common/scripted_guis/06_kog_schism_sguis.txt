@@ -8,7 +8,9 @@ kog_declare_autocephaly_sgui = {
 	}
 	is_valid = {
 		is_subject = no
-		kog_has_500_capacity_trigger = yes
+		kog_capacity_trigger = {
+			value = 500
+		}
 		NOR = {
 			has_law = law_type:law_theocracy
 			has_modifier = modifier_kog_autocephaly_abandoned

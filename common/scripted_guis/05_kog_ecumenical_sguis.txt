@@ -21,7 +21,9 @@ kog_seek_mandate_sgui = {
 				kog_has_mandate_trigger = no
 			}
 		}
-		kog_has_500_capacity_trigger = yes
+		kog_capacity_trigger = {
+			value = 500
+		}
 		custom_tooltip = {
 			text = kog_has_ecumenical_patriarch_approval
 			je:je_kog_local = {
@@ -107,7 +109,9 @@ kog_mend_schism_sgui = {
 	}
 
 	is_valid = {
-		kog_has_1000_capacity_trigger = yes
+		kog_capacity_trigger = {
+			value = 1000
+		}
 		kog_controls_and_owns_pentarchy_trigger = yes
 		custom_tooltip = {
 			text = kog_mending_started_NOT
