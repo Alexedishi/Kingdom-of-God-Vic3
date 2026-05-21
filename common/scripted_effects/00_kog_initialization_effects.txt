@@ -61,12 +61,24 @@ kog_activate_contextless_journals_effect = {
 kog_initialize_catholic_variables_effect = {
 	global_var:je_kog_catholic = {
 		set_variable = {
+			name = kog_religion_var
+			value = rel:catholic
+		}
+		set_variable = {
 			name = kog_mother_church_var
-			value = flag:kog_rome
+			value = bt:kog_building_patriarchate_rome
+		}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_LAZIO
 		}
 		set_variable = {
 			name = kog_liturgical_language_var
 			value = flag:kog_language_latin
+		}
+		set_variable = {
+			name = kog_ecumenical_seat_var
+			value = flag:kog_building_patriarchate_rome
 		}
 		set_variable = {
 			name = kog_council_counter_var
@@ -102,12 +114,24 @@ kog_initialize_catholic_variables_effect = {
 kog_initialize_orthodox_variables_effect = {
 	global_var:je_kog_orthodox = {
 		set_variable = {
+			name = kog_religion_var
+			value = rel:orthodox
+		}
+		set_variable = {
 			name = kog_mother_church_var
-			value = flag:kog_constantinople
+			value = bt:kog_building_patriarchate_constantinople
+		}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_EASTERN_THRACE
 		}
 		set_variable = {
 			name = kog_liturgical_language_var
 			value = flag:kog_language_khoine
+		}
+		set_variable = {
+			name = kog_ecumenical_seat_var
+			value = flag:kog_building_patriarchate_constantinople
 		}
 		set_variable = {
 			name = kog_council_counter_var

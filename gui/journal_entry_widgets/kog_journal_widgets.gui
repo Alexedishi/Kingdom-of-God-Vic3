@@ -25,6 +25,29 @@ flowcontainer = {
 				size = { 540 60 }
 			}
 		}
+		kog_head_of_faith_panel = {}
+		kog_denominational_tabs = {}
+		kog_denominational_overview_panel = {}
+		kog_canon_laws_panel = {}
+		kog_collegium_panel = {}
+		kog_holy_sites_panel = {}
+		kog_episcopal_seats_panel = {}
+	}
+}
+
+flowcontainer = {
+	name = "widget_kog_orthodox_church"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
 		com_international_organization_panel = {
 			blockoverride "interorg_journal_icon" {
 				kog_journal_icon = {}
@@ -73,6 +96,45 @@ types kog_journal_widget_types {
 			texture = "[JournalEntry.GetIcon]"
 			position = { 0 -3 }
 			size = { 75 75 }
+		}
+	}
+	
+	type kog_head_of_faith_panel = com_international_organization_panel {
+		blockoverride "interorg_journal_icon" {
+			kog_journal_icon = {}
+		}
+		blockoverride "interorg_leader_title" {
+			text = "kog_gui_head_of_faith"
+		}
+		blockoverride "interorg_backdrop_texture" {
+			texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
+		}
+		blockoverride "interorg_detail_1_visibility" {
+			visible = "[ComJournalVar('kog_mother_church_var').IsSet]"
+		}
+		blockoverride "interorg_detail_1_name" {
+			text = "kog_gui_mother_church_header"
+		}
+		blockoverride "interorg_detail_1_content" {
+			text = "kog_gui_mother_church_name"
+		}
+		blockoverride "interorg_detail_1_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_autocephalous_patriarchate.dds"
+		}
+		blockoverride "interorg_detail_1_visibility" {
+			visible = "[ComJournalVar('kog_location_var').IsSet]"
+		}
+		blockoverride "interorg_detail_2_name" {
+			text = "kog_gui_location_header"
+		}
+		blockoverride "interorg_detail_2_content" {
+			text = "kog_gui_location_name"
+		}
+		blockoverride "interorg_detail_2_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_holy_site.dds"
+		}
+		blockoverride "interorg_detail_3_name" {
+			text = "kog_gui_membership_header"
 		}
 	}
 	
@@ -547,6 +609,7 @@ types kog_journal_widget_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
 		
+		# Rome
 		kog_holy_site_item = {
 			blockoverride "holy_site_background" {
 				texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
@@ -561,14 +624,10 @@ types kog_journal_widget_types {
 			blockoverride "holy_site_name" {
 				text = "kog_rome_building"
 			}
-			blockoverride "holy_site_location" {
-				raw_text = "Seated in [GetStateRegion('STATE_LAZIO').GetName]"
-			}
-			blockoverride "holy_site_controller" {
-				raw_text = "Controller: Deez Nutz"
-			}
 			blockoverride "holy_site_tooltip" {}
 		}
+		
+		# Santiago
 		kog_holy_site_item = {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_santiago.dds"
@@ -582,6 +641,8 @@ types kog_journal_widget_types {
 			}
 			blockoverride "holy_site_tooltip" {}
 		}
+		
+		# Paris
 		kog_holy_site_item = {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_paris.dds"
@@ -595,6 +656,8 @@ types kog_journal_widget_types {
 			}
 			blockoverride "holy_site_tooltip" {}
 		}
+		
+		# Koln
 		kog_holy_site_item = {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_koln.dds"
@@ -608,6 +671,8 @@ types kog_journal_widget_types {
 			}
 			blockoverride "holy_site_tooltip" {}
 		}
+		
+		# Vienna
 		kog_holy_site_item = {
 			blockoverride "holy_site_texture" {
 				texture = "gfx/interface/icons/generic_icons/kog_holy_site_vienna.dds"
@@ -728,7 +793,7 @@ types kog_journal_widget_types {
 					}
 					textbox = {
 						block "holy_site_location" {
-							raw_text = "#TODO Override holy_site_location!"
+							raw_text = "#TODO Override to kog_holy_site_location in variable map!"
 							using = look_at_me_text_animation
 						}
 						parentanchor = left|vcenter
@@ -740,7 +805,7 @@ types kog_journal_widget_types {
 					}
 					textbox = {
 						block "holy_site_controller" {
-							raw_text = "#TODO Override holy_site_controller!"
+							raw_text = "#TODO Override to holy_site_controller in variable map!"
 							using = look_at_me_text_animation
 						}
 						parentanchor = left|vcenter
