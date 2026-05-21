@@ -1346,6 +1346,18 @@ kog_specific_country_setups_effect = {
 	}
 	
 	## Orthodox Setup ##
+	c:TUR = {
+		je:je_kog_local ?= {
+			set_variable = kog_controls_constantinople
+			set_variable = kog_controls_antioch
+		}
+	}
+	c:TUR = {
+		je:je_kog_local ?= {
+			set_variable = kog_controls_jerusalem
+			set_variable = kog_controls_alexandria
+		}
+	}
 	c:RUS = {
 		je:je_kog_local = {
 			add_modifier = modifier_kog_autocephalous

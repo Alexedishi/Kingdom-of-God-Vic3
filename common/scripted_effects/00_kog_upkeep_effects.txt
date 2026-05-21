@@ -312,7 +312,7 @@ kog_validate_episcopal_seat_variable_maps_effect = {
 		kog_validate_mixtec_variable_map_effect = yes
 		if = {
 			limit = {
-				has_variable = kog_cahokia_founded_var
+				has_global_variable = kog_cahokia_founded_var
 			}
 			kog_validate_cahokia_variable_map_effect = yes
 		}
@@ -1186,12 +1186,12 @@ kog_update_vienna_patriatch_effect = {
 		if = {
 			limit = {
 				any_character_in_void = {
-					has_trait = kog_patriarch_of_veinna
+					has_trait = kog_patriarch_of_vienna
 				}
 			}
 			random_character_in_void = {
 				limit = {
-					has_trait = kog_patriarch_of_veinna
+					has_trait = kog_patriarch_of_vienna
 				}
 				save_scope_as = kog_vienna_patriarch_scope
 			}
@@ -1213,7 +1213,7 @@ kog_update_vienna_patriatch_effect = {
 					create_character = {
 						template = kog_patriarch_template
 						on_created = {
-							add_trait = kog_patriarch_of_veinna
+							add_trait = kog_patriarch_of_vienna
 							place_character_in_void = 180 # 15 year shelf life
 						}
 					}
@@ -1234,7 +1234,7 @@ kog_update_vienna_patriatch_effect = {
 							template = kog_patriarch_template
 							religion = rel:catholic
 							on_created = {
-								add_trait = kog_patriarch_of_veinna
+								add_trait = kog_patriarch_of_vienna
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1250,7 +1250,7 @@ kog_update_vienna_patriatch_effect = {
 							culture = cu:spanish
 							religion = rel:catholic
 							on_created = {
-								add_trait = kog_patriarch_of_veinna
+								add_trait = kog_patriarch_of_vienna
 								place_character_in_void = 180 # 15 year shelf life
 							}
 						}
@@ -1260,7 +1260,7 @@ kog_update_vienna_patriatch_effect = {
 			# Capture the new character
 			random_character_in_void = {
 				limit = {
-					has_trait = kog_patriarch_of_veinna
+					has_trait = kog_patriarch_of_vienna
 				}
 				save_scope_as = kog_vienna_patriarch_scope
 			}
