@@ -613,6 +613,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_apostolic_succession"
 			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)16', '(int32)16')]"
+			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
 				kog_canon_law_icon = {}
@@ -631,6 +634,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_church_and_state"
 			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)17', '(int32)17')]"
+			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
 			}
@@ -646,6 +652,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_iconography"
+			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)17', '(int32)17')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -666,6 +675,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_clerical_marriage"
 			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)18', '(int32)18')]"
+			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
 				kog_canon_law_icon = {}
@@ -682,6 +694,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_social_role"
+			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)19', '(int32)19')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -702,6 +717,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_sciences_stance"
 			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)20', '(int32)20')]"
+			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
 				kog_canon_law_icon = {}
@@ -720,6 +738,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_crusades"
+			}
+			blockoverride "canon_law_button_datamodel_subspan" {
+				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)20', '(int32)20')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -809,19 +830,16 @@ types kog_journal_widget_types {
 				parentanchor = right|vcenter
 				size = { 200 35 }
 				
-				button = {
+				flowcontainer = {
 					parentanchor = center
-					using = default_button_action
-					size = { 160 35 }
-					position = { 0 -5 }
-					raw_text = "Raise Matter of Reform"
-					using = fontsize_small
+					ignoreinvisible = yes
+					block "canon_law_button_datamodel_subspan" {
+						visible = "no"
+					}
 					
-					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
-					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#tooltip = "kog_gui_improve_relations_desc"
+					item = {
+						kog_canon_law_debate_button = {}
+					}
 				}
 			}
 		}
@@ -846,6 +864,43 @@ types kog_journal_widget_types {
 					using = fontsize_medium
 				}
 			}
+		}
+	}
+	
+	type kog_canon_law_debate_button = button {
+		parentanchor = center
+		size = { 160 35 }
+		position = { 0 -5 }
+		
+		visible = "[ScriptedButton.IsVisible]"
+		
+		using = default_button_action
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 230
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
 		}
 	}
 	
@@ -1472,27 +1527,6 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_seat_action_button = button {
-		using = default_button_action
-		block "seat_button_size" {
-			size = { 150 40 }
-		}
-		block "seat_button_name" {
-			raw_text = "#todo seat_button_name"
-		}
-		block "seat_button_fontsize" {
-			using = fontsize_small
-		}
-		
-		block "seat_button_datacontext" {}
-		block "seat_button_parameters" {
-			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-			enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-		}
-		block "seat_button_tooltip" {}
-	}
-	
 	type kog_seat_scripted_button_container = widget {
 		parentanchor = top|hcenter
 		size = { 170 180 }
@@ -1504,11 +1538,12 @@ types kog_journal_widget_types {
 		flowcontainer = {
 			parentanchor = center
 			direction = vertical
+			ignoreinvisible = yes
 			spacing = 5
 			
 			block "seat_buttons_datamodel_subspan" {
 				datamodel = "[JournalEntry.GetScriptedButtons]"
-				# [DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)0', '(int32)1')]
+				visible = "no"
 			}
 			
 			item = {
@@ -1524,6 +1559,8 @@ types kog_journal_widget_types {
 		parentanchor = center
 		size = { 150 38 }
 		using = default_button_action
+		
+		visible = "[ScriptedButton.IsVisible]"
 		
 		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
 		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
