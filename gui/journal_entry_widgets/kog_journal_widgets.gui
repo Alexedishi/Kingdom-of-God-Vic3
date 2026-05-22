@@ -1367,7 +1367,7 @@ types kog_journal_widget_types {
 			
 			widget = {
 				parentanchor = left|vcenter
-				size = { 160 120 }
+				size = { 150 160 }
 				
 				character_portrait_medium_torso = {
 					parentanchor = center
@@ -1398,120 +1398,160 @@ types kog_journal_widget_types {
 				}
 			}
 			
-			flowcontainer = {
-				parentanchor = center
-				direction = vertical
-				spacing = 5
-				margin = { 10 10 }
+			widget = {
+				parentanchor = top|hcenter
+				size = { 195 180 }
 				
 				background = {
 					using = entry_bg_simple
 				}
-				background = {
-					using = entry_bg_simple
-				}
 				
-				textbox = {
-					raw_text = "[concept_liturgical_rite]:"
-					size = { 180 20 }
-					elide = right
-					using = fontsize_medium
-				}
-				textbox = {
-					raw_text = "#todo kog_gui_liturgical_rite"
-					size = { 180 20 }
-					elide = right
-					using = fontsize_medium
-				}
-				divider_clean = {
-					parentanchor = center
-				}
-				textbox = {
-					raw_text = "[concept_liturgical_language]:"
-					size = { 180 20 }
-					elide = right
-					using = fontsize_medium
-				}
-				textbox = {
-					raw_text = "#todo kog_gui_liturgical_language"
-					size = { 180 20 }
-					elide = right
-					using = fontsize_medium
-				}
-				divider_clean = {
-					parentanchor = center
-				}
-				textbox = {
-					block "patriarch_opinion" {
-						raw_text = "#TODO Override patriarch_opinion!"
-						using = look_at_me_text_animation
+				flowcontainer = {
+					parentanchor = top|hcenter
+					direction = vertical
+					spacing = 5
+					margin = { 5 5 }
+					
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "[concept_liturgical_rite]:"
+						size = { 180 20 }
+						elide = right
+						using = fontsize_medium
 					}
-					size = { 180 20 }
-					elide = right
-					using = fontsize_medium
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "#todo kog_gui_liturgical_rite"
+						size = { 180 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {
+						parentanchor = center
+					}
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "[concept_liturgical_language]:"
+						size = { 180 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "#todo kog_gui_liturgical_language"
+						size = { 180 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {
+						parentanchor = center
+					}
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "Opinion of [GetPlayer.GetNameNoFlag]:"
+						size = { 180 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						parentanchor = left|vcenter
+						block "patriarch_opinion" {
+							raw_text = "#TODO Override patriarch_opinion!"
+							using = look_at_me_text_animation
+						}
+						size = { 180 20 }
+						elide = right
+						using = fontsize_medium
+					}
 				}
 			}
 			
-			flowcontainer = {
-				parentanchor = center
-				direction = vertical
-				spacing = 5
-				# Improve Relations Button
-				button = {
-					using = default_button_action
+			kog_seat_scripted_button_container = {
+				blockoverride "kog_scripted_button_visibility" {}
+			}
+		}
+	}
+	
+	type kog_seat_action_button = button {
+		using = default_button_action
+		block "seat_button_size" {
+			size = { 150 40 }
+		}
+		block "seat_button_name" {
+			raw_text = "#todo seat_button_name"
+		}
+		block "seat_button_fontsize" {
+			using = fontsize_small
+		}
+		
+		block "seat_button_datacontext" {}
+		block "seat_button_parameters" {
+			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		}
+		block "seat_button_tooltip" {}
+	}
+	
+	type kog_seat_scripted_button_container = widget {
+		parentanchor = top|hcenter
+		size = { 170 180 }
+		
+		background = {
+			using = entry_bg
+		}
+		
+		flowcontainer = {
+			parentanchor = center
+			direction = vertical
+			spacing = 5
+			
+			datamodel = "[JournalEntry.GetScriptedButtons]"
+			
+			item = {
+				widget = {
 					size = { 150 40 }
-					text = "kog_gui_improve_relations"
-					using = fontsize_small
-					
-					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_sway_sgui')))]"
-					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_improve_relations_desc"
-				}
-				
-				# Cease Diplomacy Button
-				button = {
-					using = default_button_action
-					size = { 150 40 }
-					text = "kog_gui_cease_diplomacy"
-					using = fontsize_small
-					
-					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_sway_sgui')))]"
-					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_cease_diplomacy_desc"
-				}
-				
-				# Damage Relations Button
-				button = {
-					using = default_button_action
-					size = { 150 40 }
-					text = "kog_gui_damage_relations"
-					using = fontsize_small
-					
-					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_start_harm_sgui')))]"
-					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_damage_relations_desc"
-				}
-				
-				# Cease Hostilities Button
-				button = {
-					using = default_button_action
-					size = { 150 40 }
-					text = "kog_gui_cease_hostilities"
-					using = fontsize_small
-					
-					#datacontext = "[GetScriptedGui(Localize(Concatenate(Character.MakeScope.Var('kog_seat_id').GetFlagName, '_stop_harm_sgui')))]"
-					#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-					tooltip = "kog_gui_cease_hostilities_desc"
+					kog_seat_scripted_button_item = { }
 				}
 			}
+		}
+	}
+	
+	type kog_seat_scripted_button_item = button {
+		parentanchor = center
+		size = { 150 38 }
+		using = default_button_action
+		
+		block "kog_scripted_button_visibility" {
+			visible = "no"
+		}
+		
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 150
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
 		}
 	}
 }
