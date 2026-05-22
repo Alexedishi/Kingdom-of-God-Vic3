@@ -257,11 +257,8 @@ kog_restore_synod_sgui = {
 	}
 	is_valid = {
 		has_modifier = modifier_kog_reformed_synod
-		custom_tooltip = {
-			text = kog_has_100_capacity
-			hidden_trigger = {
-				kog_capacity_value >= 100
-			}
+		kog_capacity_trigger = {
+			value = 100
 		}
 	}
 	effect = {
@@ -308,11 +305,8 @@ kog_end_subsidies_sgui = {
 				is_in_government = yes
 			}
 		}
-		custom_tooltip = {
-			text = kog_has_100_capacity
-			hidden_trigger = {
-				kog_capacity_value >= 100
-			}
+		kog_capacity_trigger = {
+			value = 100
 		}
 	}
 	effect = {

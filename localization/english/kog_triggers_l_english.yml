@@ -64,17 +64,10 @@
  
  
  ####---------- Ecumenical Action Triggers  ----------####
- kog_has_100_capacity: "[GetPlayer.GetNameNoFlag] has #blue 100#! $kog_faith_capacity$"
- kog_has_200_capacity: "[GetPlayer.GetNameNoFlag] has #blue 200#! $kog_faith_capacity$"
- kog_has_500_capacity: "[GetPlayer.GetNameNoFlag] has #blue 500#! $kog_faith_capacity$"
- kog_has_800_capacity: "[GetPlayer.GetNameNoFlag] has #blue 800#! $kog_faith_capacity$"
- kog_has_1000_capacity: "[GetPlayer.GetNameNoFlag] has #blue 1000#! $kog_faith_capacity$"
- kog_has_2000_capacity: "[GetPlayer.GetNameNoFlag] has #blue 2000#! $kog_faith_capacity$"
- 
+ kog_capacity_trigger: "[GetPlayer.GetNameNoFlag] has #bold #blue [SCOPE.GetValue('kog_trigger_value')]#!#! $kog_faith_capacity$"
  kog_mending_started_NOT: "No one is attempting to mend the [concept_great_schism] has not been started"
  kog_mending_completed_NOT: "The [concept_great_schism] has not been mended"
  kog_mending_possible: "It is now possible to attempt to mend the [concept_great_schism]."
- 
  kog_ongoing_crusade_NOT: "There is not an ongoing [concept_crusade]"
  kog_theological_matter: ""
  
