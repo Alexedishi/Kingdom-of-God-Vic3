@@ -1,1 +1,1683 @@
-﻿
+﻿####---------- Catholic Seat Buttons ----------####
+#### ROME
+kog_sway_rome_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_rome
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_rome
+			}
+			remove_modifier = modifier_kog_swaying_rome
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_rome
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_rome_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_rome
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_rome
+			}
+			remove_modifier = modifier_kog_antagonizing_rome
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_rome
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_rome_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_rome
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_rome_integration_var
+		}
+	}
+	possible = {
+		kog_owns_rome_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_rome
+		custom_tooltip = {
+			text = kog_integrate_rome_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_rome_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_rome_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_rome
+			var:kog_liturgical_rite_var != "global_variable_map(kog_rome|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_rome_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = { 
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_rome|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_rome
+		custom_tooltip = {
+			text = kog_enforce_rome_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_rome_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_rome_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### SANTIAGO
+kog_sway_santiago_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_santiago
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_santiago
+			}
+			remove_modifier = modifier_kog_swaying_santiago
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_santiago
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_santiago_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_santiago
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_santiago
+			}
+			remove_modifier = modifier_kog_antagonizing_santiago
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_santiago
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_santiago_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_santiago
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_santiago_integration_var
+		}
+	}
+	possible = {
+		kog_owns_santiago_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_santiago
+		custom_tooltip = {
+			text = kog_integrate_santiago_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_santiago_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_santiago_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_santiago
+			var:kog_liturgical_rite_var != "global_variable_map(kog_santiago|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_santiago_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_santiago|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_santiago
+		custom_tooltip = {
+			text = kog_enforce_santiago_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_santiago_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_santiago_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### PARIS
+kog_sway_paris_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_paris
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_paris
+			}
+			remove_modifier = modifier_kog_swaying_paris
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_paris
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_paris_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_paris
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_paris
+			}
+			remove_modifier = modifier_kog_antagonizing_paris
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_paris
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_paris_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_paris
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_paris_integration_var
+		}
+	}
+	possible = {
+		kog_owns_paris_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_paris
+		custom_tooltip = {
+			text = kog_integrate_paris_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_paris_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_paris_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_paris
+			var:kog_liturgical_rite_var != "global_variable_map(kog_paris|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_paris_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_paris|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_paris
+		custom_tooltip = {
+			text = kog_enforce_paris_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_paris_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_paris_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### KOLN
+kog_sway_koln_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_koln
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_koln
+			}
+			remove_modifier = modifier_kog_swaying_koln
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_koln
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_koln_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_koln
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_koln
+			}
+			remove_modifier = modifier_kog_antagonizing_koln
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_koln
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_koln_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_koln
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_koln_integration_var
+		}
+	}
+	possible = {
+		kog_owns_koln_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_koln
+		custom_tooltip = {
+			text = kog_integrate_koln_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_koln_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_koln_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_koln
+			var:kog_liturgical_rite_var != "global_variable_map(kog_koln|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_koln_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_koln|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_koln
+		custom_tooltip = {
+			text = kog_enforce_koln_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_koln_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_koln_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### VIENNA
+kog_sway_vienna_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_vienna
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_vienna
+			}
+			remove_modifier = modifier_kog_swaying_vienna
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_vienna
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_vienna_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_vienna
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_vienna
+			}
+			remove_modifier = modifier_kog_antagonizing_vienna
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_vienna
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_vienna_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_vienna
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_vienna_integration_var
+		}
+	}
+	possible = {
+		kog_owns_vienna_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_vienna
+		custom_tooltip = {
+			text = kog_integrate_vienna_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_vienna_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_vienna_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_vienna
+			var:kog_liturgical_rite_var != "global_variable_map(kog_vienna|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_vienna_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_vienna|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_vienna
+		custom_tooltip = {
+			text = kog_enforce_vienna_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_vienna_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_vienna_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+####---------- Orthodox Seat Buttons ----------####
+#### CONSTANTINOPLE
+kog_sway_constantinople_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_constantinople
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_constantinople
+			}
+			remove_modifier = modifier_kog_swaying_constantinople
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_constantinople
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_constantinople_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_constantinople
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_constantinople
+			}
+			remove_modifier = modifier_kog_antagonizing_constantinople
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_constantinople
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_constantinople_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_constantinople
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_constantinople_integration_var
+		}
+	}
+	possible = {
+		kog_owns_constantinople_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_constantinople
+		custom_tooltip = {
+			text = kog_integrate_constantinople_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_constantinople_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_constantinople_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_constantinople
+			var:kog_liturgical_rite_var != "global_variable_map(kog_constantinople|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_constantinople_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_constantinople|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_constantinople
+		custom_tooltip = {
+			text = kog_enforce_constantinople_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_constantinople_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_constaininople_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### ANTIOCH
+kog_sway_antioch_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_antioch
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_antioch
+			}
+			remove_modifier = modifier_kog_swaying_antioch
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_antioch
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_antioch_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_antioch
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_antioch
+			}
+			remove_modifier = modifier_kog_antagonizing_antioch
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_antioch
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_antioch_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_antioch
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_antioch_integration_var
+		}
+	}
+	possible = {
+		kog_owns_antioch_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_antioch
+		custom_tooltip = {
+			text = kog_integrate_antioch_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_antioch_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_antioch_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_antioch
+			var:kog_liturgical_rite_var != "global_variable_map(kog_antioch|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_antioch_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_antioch|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_antioch
+		custom_tooltip = {
+			text = kog_enforce_antioch_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_antioch_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_antioch_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### JERUSALEM
+kog_sway_jerusalem_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_jerusalem
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_jerusalem
+			}
+			remove_modifier = modifier_kog_swaying_jerusalem
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_jerusalem
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_jerusalem_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_jerusalem
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_jerusalem
+			}
+			remove_modifier = modifier_kog_antagonizing_jerusalem
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_jerusalem
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_jerusalem_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_jerusalem
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_jerusalem_integration_var
+		}
+	}
+	possible = {
+		kog_owns_jerusalem_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_jerusalem
+		custom_tooltip = {
+			text = kog_integrate_jerusalem_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_jerusalem_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_jerusalem_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_jerusalem
+			var:kog_liturgical_rite_var != "global_variable_map(kog_jerusalem|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_jerusalem_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_jerusalem|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_jerusalem
+		custom_tooltip = {
+			text = kog_enforce_jerusalem_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_jerusalem_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_jerusalem_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+#### ALEXANDRIA
+kog_sway_alexandria_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_alexandria
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_alexandria
+			}
+			remove_modifier = modifier_kog_swaying_alexandria
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_alexandria
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_alexandria_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_alexandria
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_alexandria
+			}
+			remove_modifier = modifier_kog_antagonizing_alexandria
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_alexandria
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_alexandria_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_alexandria
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_alexandria_integration_var
+		}
+	}
+	possible = {
+		kog_owns_alexandria_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_alexandria
+		custom_tooltip = {
+			text = kog_integrate_alexandria_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_alexandria_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_alexandria_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_alexandria
+			var:kog_liturgical_rite_var != "global_variable_map(kog_alexandria|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_alexandria_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_alexandria|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_alexandria
+		custom_tooltip = {
+			text = kog_enforce_alexandria_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_alexandria_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_alexandria_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### MOSCOW
+kog_sway_moscow_button = {
+	name = "kog_gui_improve_relations"
+	desc = "kog_gui_improve_relations_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_moscow
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_moscow
+			}
+			remove_modifier = modifier_kog_swaying_moscow
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_moscow
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_antagonize_moscow_button = {
+	name = "kog_gui_damage_relations"
+	desc = "kog_gui_damage_relations"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_moscow
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_moscow
+			}
+			remove_modifier = modifier_kog_antagonizing_moscow
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_moscow
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_integrate_moscow_button = {
+	name = "kog_gui_integrate_seat"
+	desc = "kog_gui_integrate_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_variable = kog_controls_moscow
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_moscow_integration_var
+		}
+	}
+	possible = {
+		kog_owns_moscow_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_moscow
+		custom_tooltip = {
+			text = kog_integrate_moscow_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_moscow_integration_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_enforce_moscow_button = {
+	name = "kog_gui_enforce_seat"
+	desc = "kog_gui_enforce_seat_desc"
+	
+	visible = {
+		je:je_kog_local = {
+			has_variable = kog_controls_moscow
+			var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_moscow_enforcement_var
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			text = kog_enforce_seat_possible
+			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			value = 50
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_moscow
+		custom_tooltip = {
+			text = kog_enforce_moscow_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_moscow_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_install_moscow_button = {
+	name = "kog_gui_install_seat"
+	desc = "kog_gui install_seat_desc"
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
