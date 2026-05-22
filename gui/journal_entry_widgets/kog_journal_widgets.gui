@@ -1506,7 +1506,10 @@ types kog_journal_widget_types {
 			direction = vertical
 			spacing = 5
 			
-			datamodel = "[JournalEntry.GetScriptedButtons]"
+			block "seat_buttons_datamodel_subspan" {
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				# [DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)0', '(int32)1')]
+			}
 			
 			item = {
 				widget = {
@@ -1521,10 +1524,6 @@ types kog_journal_widget_types {
 		parentanchor = center
 		size = { 150 38 }
 		using = default_button_action
-		
-		block "kog_scripted_button_visibility" {
-			visible = "no"
-		}
 		
 		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
 		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
