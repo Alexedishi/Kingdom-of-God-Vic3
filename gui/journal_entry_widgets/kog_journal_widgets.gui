@@ -602,6 +602,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_apostolic_succession"
 			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_apostolic_succession"
+			}
 		}
 		kog_canon_law_entry = {
 			blockoverride "canon_law_background" {
@@ -609,6 +612,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_church_and_state"
+			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_church_and_state"
 			}
 		}
 		kog_canon_law_entry = {
@@ -618,6 +624,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_iconography"
 			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_iconography"
+			}
 		}
 		kog_canon_law_entry = {
 			blockoverride "canon_law_background" {
@@ -625,6 +634,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_clerical_marriage"
+			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_clerical_marriage"
 			}
 		}
 		kog_canon_law_entry = {
@@ -634,6 +646,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_social_role"
 			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_social_role"
+			}
 		}
 		kog_canon_law_entry = {
 			blockoverride "canon_law_background" {
@@ -642,6 +657,9 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_stance_on_sciences"
 			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_sciences_stance"
+			}
 		}
 		kog_canon_law_entry = {
 			blockoverride "canon_law_background" {
@@ -649,6 +667,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_crusades"
+			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_crusades"
 			}
 		}
 	}
@@ -705,7 +726,7 @@ types kog_journal_widget_types {
 				using = look_at_me_text_animation
 			}
 			autoresize = yes
-			max_width = 200
+			max_width = 500
 			elide = right
 			using = fontsize_medium
 		}
@@ -724,13 +745,17 @@ types kog_journal_widget_types {
 					raw_text = "#TODO Override canon_law_button_content!"
 					using = look_at_me_text_animation
 					parentanchor = center
-					position = { 0 0 }
 					autoresize = yes
 					elide = right
 					using = fontsize_medium
 				}
 			}
 		}
+	}
+	
+	type kog_canon_law_icon = icon {
+		size = { 35 35 }
+		texture = "gfx/interface/error_frog.dds"
 	}
 	
 	type kog_collegium_panel = flowcontainer {
