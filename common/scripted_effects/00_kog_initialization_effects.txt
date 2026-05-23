@@ -187,394 +187,390 @@ kog_initialize_elysian_variables_effect = {
 }
 
 kog_initialize_catholic_button_lists_effect = {
-	scope:journal_entry = {
-		## Metropolitan Action List
-		#		add_to_variable_list = {
-		#			name = kog_metropolitan_actions_list
-		#			target = flag:
-		#		}
-		
-		## Omen Action List
-		add_to_variable_list = {
-			name = kog_omen_actions_list
-			target = flag:kog_gui_venerate_apparition
-		}
-		
-		## Denominational Decision List
-		#		add_to_variable_list = {
-		#			name = kog_denomination_decision_list
-		#			target = flag:
-		#		}
-		
-		## Ecumenical Decision List
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_declare_autocephaly
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_convoke_council
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_secure_tetrarchy
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_secure_pentarchy
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_mend_schism
-		}
-		
-		## Canon Law Lists
-		add_to_variable_list = {
-			name = kog_apostolic_succession_list
-			target = flag:kog_gui_debate_apostolic_succession
-		}
-		add_to_variable_list = {
-			name = kog_church_and_state_list
-			target = flag:kog_gui_debate_church_and_state
-		}
-		add_to_variable_list = {
-			name = kog_iconography_list
-			target = flag:kog_gui_debate_iconography
-		}
-		add_to_variable_list = {
-			name = kog_clerical_marriage_list
-			target = flag:kog_gui_debate_clerical_marriage
-		}
-		add_to_variable_list = {
-			name = kog_social_role_list
-			target = flag:kog_gui_debate_social_role
-		}
-		add_to_variable_list = {
-			name = kog_stance_on_sciences_list
-			target = flag:kog_gui_debate_stance_on_sciences
-		}
-		add_to_variable_list = {
-			name = kog_crusades_list
-			target = flag:kog_gui_debate_crusades
-		}
-		
-		## Rome Action List
-		add_to_variable_list = {
-			name = kog_rome_actions_list
-			target = flag:kog_gui_sway_rome
-		}
-		add_to_variable_list = {
-			name = kog_rome_actions_list
-			target = flag:kog_gui_antagonize_rome
-		}
-		add_to_variable_list = {
-			name = kog_rome_actions_list
-			target = flag:kog_gui_integrate_rome
-		}
-		add_to_variable_list = {
-			name = kog_rome_actions_list
-			target = flag:kog_gui_enforce_rome
-		}
-		add_to_variable_list = {
-			name = kog_rome_actions_list
-			target = flag:kog_gui_install_rome
-		}
-		
-		## Santiago Action List
-		add_to_variable_list = {
-			name = kog_santiago_actions_list
-			target = flag:kog_gui_sway_santiago
-		}
-		add_to_variable_list = {
-			name = kog_santiago_actions_list
-			target = flag:kog_gui_antagonize_santiago
-		}
-		add_to_variable_list = {
-			name = kog_santiago_actions_list
-			target = flag:kog_gui_integrate_santiago
-		}
-		add_to_variable_list = {
-			name = kog_santiago_actions_list
-			target = flag:kog_gui_enforce_santiago
-		}
-		add_to_variable_list = {
-			name = kog_santiago_actions_list
-			target = flag:kog_gui_install_santiago
-		}
-		
-		## Paris Action List
-		add_to_variable_list = {
-			name = kog_paris_actions_list
-			target = flag:kog_gui_sway_paris
-		}
-		add_to_variable_list = {
-			name = kog_paris_actions_list
-			target = flag:kog_gui_antagonize_paris
-		}
-		add_to_variable_list = {
-			name = kog_paris_actions_list
-			target = flag:kog_gui_integrate_paris
-		}
-		add_to_variable_list = {
-			name = kog_paris_actions_list
-			target = flag:kog_gui_enforce_paris
-		}
-		add_to_variable_list = {
-			name = kog_paris_actions_list
-			target = flag:kog_gui_install_paris
-		}
-		
-		## Koln Action List
-		add_to_variable_list = {
-			name = kog_koln_actions_list
-			target = flag:kog_gui_sway_koln
-		}
-		add_to_variable_list = {
-			name = kog_koln_actions_list
-			target = flag:kog_gui_antagonize_koln
-		}
-		add_to_variable_list = {
-			name = kog_koln_actions_list
-			target = flag:kog_gui_integrate_koln
-		}
-		add_to_variable_list = {
-			name = kog_koln_actions_list
-			target = flag:kog_gui_enforce_koln
-		}
-		add_to_variable_list = {
-			name = kog_koln_actions_list
-			target = flag:kog_gui_install_koln
-		}
-		
-		## Vienna Action List
-		add_to_variable_list = {
-			name = kog_vienna_actions_list
-			target = flag:kog_gui_sway_vienna
-		}
-		add_to_variable_list = {
-			name = kog_vienna_actions_list
-			target = flag:kog_gui_antagonize_vienna
-		}
-		add_to_variable_list = {
-			name = kog_vienna_actions_list
-			target = flag:kog_gui_integrate_vienna
-		}
-		add_to_variable_list = {
-			name = kog_vienna_actions_list
-			target = flag:kog_gui_enforce_vienna
-		}
-		add_to_variable_list = {
-			name = kog_vienna_actions_list
-			target = flag:kog_gui_install_vienna
-		}
+	## Metropolitan Action List
+#	add_to_variable_list = {
+#		name = kog_metropolitan_actions_list
+#		target = flag:
+#	}
+	
+	## Omen Action List
+	add_to_variable_list = {
+		name = kog_omen_actions_list
+		target = flag:kog_gui_venerate_apparition
+	}
+	
+	## Denominational Decision List
+#	add_to_variable_list = {
+#		name = kog_denomination_decision_list
+#		target = flag:
+#	}
+	
+	## Ecumenical Decision List
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_declare_autocephaly
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_convoke_council
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_tetrarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_pentarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_mend_schism
+	}
+	
+	## Canon Law Lists
+	add_to_variable_list = {
+		name = kog_apostolic_succession_list
+		target = flag:kog_gui_debate_apostolic_succession
+	}
+	add_to_variable_list = {
+		name = kog_church_and_state_list
+		target = flag:kog_gui_debate_church_and_state
+	}
+	add_to_variable_list = {
+		name = kog_iconography_list
+		target = flag:kog_gui_debate_iconography
+	}
+	add_to_variable_list = {
+		name = kog_clerical_marriage_list
+		target = flag:kog_gui_debate_clerical_marriage
+	}
+	add_to_variable_list = {
+		name = kog_social_role_list
+		target = flag:kog_gui_debate_social_role
+	}
+	add_to_variable_list = {
+		name = kog_stance_on_sciences_list
+		target = flag:kog_gui_debate_stance_on_sciences
+	}
+	add_to_variable_list = {
+		name = kog_crusades_list
+		target = flag:kog_gui_debate_crusades
+	}
+	
+	## Rome Action List
+	add_to_variable_list = {
+		name = kog_rome_actions_list
+		target = flag:kog_gui_sway_rome
+	}
+	add_to_variable_list = {
+		name = kog_rome_actions_list
+		target = flag:kog_gui_antagonize_rome
+	}
+	add_to_variable_list = {
+		name = kog_rome_actions_list
+		target = flag:kog_gui_integrate_rome
+	}
+	add_to_variable_list = {
+		name = kog_rome_actions_list
+		target = flag:kog_gui_enforce_rome
+	}
+	add_to_variable_list = {
+		name = kog_rome_actions_list
+		target = flag:kog_gui_install_rome
+	}
+	
+	## Santiago Action List
+	add_to_variable_list = {
+		name = kog_santiago_actions_list
+		target = flag:kog_gui_sway_santiago
+	}
+	add_to_variable_list = {
+		name = kog_santiago_actions_list
+		target = flag:kog_gui_antagonize_santiago
+	}
+	add_to_variable_list = {
+		name = kog_santiago_actions_list
+		target = flag:kog_gui_integrate_santiago
+	}
+	add_to_variable_list = {
+		name = kog_santiago_actions_list
+		target = flag:kog_gui_enforce_santiago
+	}
+	add_to_variable_list = {
+		name = kog_santiago_actions_list
+		target = flag:kog_gui_install_santiago
+	}
+	
+	## Paris Action List
+	add_to_variable_list = {
+		name = kog_paris_actions_list
+		target = flag:kog_gui_sway_paris
+	}
+	add_to_variable_list = {
+		name = kog_paris_actions_list
+		target = flag:kog_gui_antagonize_paris
+	}
+	add_to_variable_list = {
+		name = kog_paris_actions_list
+		target = flag:kog_gui_integrate_paris
+	}
+	add_to_variable_list = {
+		name = kog_paris_actions_list
+		target = flag:kog_gui_enforce_paris
+	}
+	add_to_variable_list = {
+		name = kog_paris_actions_list
+		target = flag:kog_gui_install_paris
+	}
+	
+	## Koln Action List
+	add_to_variable_list = {
+		name = kog_koln_actions_list
+		target = flag:kog_gui_sway_koln
+	}
+	add_to_variable_list = {
+		name = kog_koln_actions_list
+		target = flag:kog_gui_antagonize_koln
+	}
+	add_to_variable_list = {
+		name = kog_koln_actions_list
+		target = flag:kog_gui_integrate_koln
+	}
+	add_to_variable_list = {
+		name = kog_koln_actions_list
+		target = flag:kog_gui_enforce_koln
+	}
+	add_to_variable_list = {
+		name = kog_koln_actions_list
+		target = flag:kog_gui_install_koln
+	}
+	
+	## Vienna Action List
+	add_to_variable_list = {
+		name = kog_vienna_actions_list
+		target = flag:kog_gui_sway_vienna
+	}
+	add_to_variable_list = {
+		name = kog_vienna_actions_list
+		target = flag:kog_gui_antagonize_vienna
+	}
+	add_to_variable_list = {
+		name = kog_vienna_actions_list
+		target = flag:kog_gui_integrate_vienna
+	}
+	add_to_variable_list = {
+		name = kog_vienna_actions_list
+		target = flag:kog_gui_enforce_vienna
+	}
+	add_to_variable_list = {
+		name = kog_vienna_actions_list
+		target = flag:kog_gui_install_vienna
 	}
 }
 
 kog_initialize_orthodox_button_lists_effect = {
-	scope:journal_entry = {
-		## Omen Action List
-		add_to_variable_list = {
-			name = kog_omen_actions_list
-			target = flag:kog_gui_commission_icon
-		}
-		
-		## Metropolitan Action List
-		add_to_variable_list = {
-			name = kog_metropolitan_actions_list
-			target = flag:kog_gui_emphasize_unity
-		}
-		add_to_variable_list = {
-			name = kog_metropolitan_actions_list
-			target = flag:kog_gui_enforce_attendance
-		}
-		add_to_variable_list = {
-			name = kog_metropolitan_actions_list
-			target = flag:kog_gui_theologize_dogma
-		}
-		add_to_variable_list = {
-			name = kog_metropolitan_actions_list
-			target = flag:kog_gui_promote_ecumenism
-		}
-		
-		## Denominational Decision List
-		add_to_variable_list = {
-			name = kog_denomination_decision_list
-			target = flag:kog_gui_dissolve_monasteries
-		}
-		add_to_variable_list = {
-			name = kog_denomination_decision_list
-			target = flag:kog_gui_reform_synod
-		}
-		add_to_variable_list = {
-			name = kog_denomination_decision_list
-			target = flag:kog_gui_grant_subsidies
-		}
-		add_to_variable_list = {
-			name = kog_denomination_decision_list
-			target = flag:kog_gui_establish_schools
-		}
-		
-		## Ecumenical Decision List
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_declare_autocephaly
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_convoke_council
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_secure_tetrarchy
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_secure_pentarchy
-		}
-		add_to_variable_list = {
-			name = kog_ecumenical_decisions_list
-			target = flag:kog_gui_mend_schism
-		}
-		
-		## Canon Law Lists
-		add_to_variable_list = {
-			name = kog_apostolic_succession_list
-			target = flag:kog_gui_debate_apostolic_succession
-		}
-		add_to_variable_list = {
-			name = kog_church_and_state_list
-			target = flag:kog_gui_debate_church_and_state
-		}
-		add_to_variable_list = {
-			name = kog_iconography_list
-			target = flag:kog_gui_debate_iconography
-		}
-		add_to_variable_list = {
-			name = kog_clerical_marriage_list
-			target = flag:kog_gui_debate_clerical_marriage
-		}
-		add_to_variable_list = {
-			name = kog_social_role_list
-			target = flag:kog_gui_debate_social_role
-		}
-		add_to_variable_list = {
-			name = kog_stance_on_sciences_list
-			target = flag:kog_gui_debate_stance_on_sciences
-		}
-		add_to_variable_list = {
-			name = kog_crusades_list
-			target = flag:kog_gui_debate_crusades
-		}
-		
-		## constantinople Action List
-		add_to_variable_list = {
-			name = kog_constantinople_actions_list
-			target = flag:kog_gui_sway_constantinople
-		}
-		add_to_variable_list = {
-			name = kog_constantinople_actions_list
-			target = flag:kog_gui_antagonize_constantinople
-		}
-		add_to_variable_list = {
-			name = kog_constantinople_actions_list
-			target = flag:kog_gui_integrate_constantinople
-		}
-		add_to_variable_list = {
-			name = kog_constantinople_actions_list
-			target = flag:kog_gui_enforce_constantinople
-		}
-		add_to_variable_list = {
-			name = kog_constantinople_actions_list
-			target = flag:kog_gui_install_constantinople
-		}
-		
-		## antioch Action List
-		add_to_variable_list = {
-			name = kog_antioch_actions_list
-			target = flag:kog_gui_sway_antioch
-		}
-		add_to_variable_list = {
-			name = kog_antioch_actions_list
-			target = flag:kog_gui_antagonize_antioch
-		}
-		add_to_variable_list = {
-			name = kog_antioch_actions_list
-			target = flag:kog_gui_integrate_antioch
-		}
-		add_to_variable_list = {
-			name = kog_antioch_actions_list
-			target = flag:kog_gui_enforce_antioch
-		}
-		add_to_variable_list = {
-			name = kog_antioch_actions_list
-			target = flag:kog_gui_install_antioch
-		}
-		
-		## jerusalem Action List
-		add_to_variable_list = {
-			name = kog_jerusalem_actions_list
-			target = flag:kog_gui_sway_jerusalem
-		}
-		add_to_variable_list = {
-			name = kog_jerusalem_actions_list
-			target = flag:kog_gui_antagonize_jerusalem
-		}
-		add_to_variable_list = {
-			name = kog_jerusalem_actions_list
-			target = flag:kog_gui_integrate_jerusalem
-		}
-		add_to_variable_list = {
-			name = kog_jerusalem_actions_list
-			target = flag:kog_gui_enforce_jerusalem
-		}
-		add_to_variable_list = {
-			name = kog_jerusalem_actions_list
-			target = flag:kog_gui_install_jerusalem
-		}
-		
-		## alexandria Action List
-		add_to_variable_list = {
-			name = kog_alexandria_actions_list
-			target = flag:kog_gui_sway_alexandria
-		}
-		add_to_variable_list = {
-			name = kog_alexandria_actions_list
-			target = flag:kog_gui_antagonize_alexandria
-		}
-		add_to_variable_list = {
-			name = kog_alexandria_actions_list
-			target = flag:kog_gui_integrate_alexandria
-		}
-		add_to_variable_list = {
-			name = kog_alexandria_actions_list
-			target = flag:kog_gui_enforce_alexandria
-		}
-		add_to_variable_list = {
-			name = kog_alexandria_actions_list
-			target = flag:kog_gui_install_alexandria
-		}
-		
-		## moscow Action List
-		add_to_variable_list = {
-			name = kog_moscow_actions_list
-			target = flag:kog_gui_sway_moscow
-		}
-		add_to_variable_list = {
-			name = kog_moscow_actions_list
-			target = flag:kog_gui_antagonize_moscow
-		}
-		add_to_variable_list = {
-			name = kog_moscow_actions_list
-			target = flag:kog_gui_integrate_moscow
-		}
-		add_to_variable_list = {
-			name = kog_moscow_actions_list
-			target = flag:kog_gui_enforce_moscow
-		}
-		add_to_variable_list = {
-			name = kog_moscow_actions_list
-			target = flag:kog_gui_install_moscow
-		}
+	## Omen Action List
+	add_to_variable_list = {
+		name = kog_omen_actions_list
+		target = flag:kog_gui_commission_icon
+	}
+	
+	## Metropolitan Action List
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_emphasize_unity
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_enforce_attendance
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_theologize_dogma
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_promote_ecumenism
+	}
+	
+	## Denominational Decision List
+	add_to_variable_list = {
+		name = kog_denomination_decision_list
+		target = flag:kog_gui_dissolve_monasteries
+	}
+	add_to_variable_list = {
+		name = kog_denomination_decision_list
+		target = flag:kog_gui_reform_synod
+	}
+	add_to_variable_list = {
+		name = kog_denomination_decision_list
+		target = flag:kog_gui_grant_subsidies
+	}
+	add_to_variable_list = {
+		name = kog_denomination_decision_list
+		target = flag:kog_gui_establish_schools
+	}
+	
+	## Ecumenical Decision List
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_declare_autocephaly
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_convoke_council
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_tetrarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_pentarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_mend_schism
+	}
+	
+	## Canon Law Lists
+	add_to_variable_list = {
+		name = kog_apostolic_succession_list
+		target = flag:kog_gui_debate_apostolic_succession
+	}
+	add_to_variable_list = {
+		name = kog_church_and_state_list
+		target = flag:kog_gui_debate_church_and_state
+	}
+	add_to_variable_list = {
+		name = kog_iconography_list
+		target = flag:kog_gui_debate_iconography
+	}
+	add_to_variable_list = {
+		name = kog_clerical_marriage_list
+		target = flag:kog_gui_debate_clerical_marriage
+	}
+	add_to_variable_list = {
+		name = kog_social_role_list
+		target = flag:kog_gui_debate_social_role
+	}
+	add_to_variable_list = {
+		name = kog_stance_on_sciences_list
+		target = flag:kog_gui_debate_stance_on_sciences
+	}
+	add_to_variable_list = {
+		name = kog_crusades_list
+		target = flag:kog_gui_debate_crusades
+	}
+	
+	## constantinople Action List
+	add_to_variable_list = {
+		name = kog_constantinople_actions_list
+		target = flag:kog_gui_sway_constantinople
+	}
+	add_to_variable_list = {
+		name = kog_constantinople_actions_list
+		target = flag:kog_gui_antagonize_constantinople
+	}
+	add_to_variable_list = {
+		name = kog_constantinople_actions_list
+		target = flag:kog_gui_integrate_constantinople
+	}
+	add_to_variable_list = {
+		name = kog_constantinople_actions_list
+		target = flag:kog_gui_enforce_constantinople
+	}
+	add_to_variable_list = {
+		name = kog_constantinople_actions_list
+		target = flag:kog_gui_install_constantinople
+	}
+	
+	## antioch Action List
+	add_to_variable_list = {
+		name = kog_antioch_actions_list
+		target = flag:kog_gui_sway_antioch
+	}
+	add_to_variable_list = {
+		name = kog_antioch_actions_list
+		target = flag:kog_gui_antagonize_antioch
+	}
+	add_to_variable_list = {
+		name = kog_antioch_actions_list
+		target = flag:kog_gui_integrate_antioch
+	}
+	add_to_variable_list = {
+		name = kog_antioch_actions_list
+		target = flag:kog_gui_enforce_antioch
+	}
+	add_to_variable_list = {
+		name = kog_antioch_actions_list
+		target = flag:kog_gui_install_antioch
+	}
+	
+	## jerusalem Action List
+	add_to_variable_list = {
+		name = kog_jerusalem_actions_list
+		target = flag:kog_gui_sway_jerusalem
+	}
+	add_to_variable_list = {
+		name = kog_jerusalem_actions_list
+		target = flag:kog_gui_antagonize_jerusalem
+	}
+	add_to_variable_list = {
+		name = kog_jerusalem_actions_list
+		target = flag:kog_gui_integrate_jerusalem
+	}
+	add_to_variable_list = {
+		name = kog_jerusalem_actions_list
+		target = flag:kog_gui_enforce_jerusalem
+	}
+	add_to_variable_list = {
+		name = kog_jerusalem_actions_list
+		target = flag:kog_gui_install_jerusalem
+	}
+	
+	## alexandria Action List
+	add_to_variable_list = {
+		name = kog_alexandria_actions_list
+		target = flag:kog_gui_sway_alexandria
+	}
+	add_to_variable_list = {
+		name = kog_alexandria_actions_list
+		target = flag:kog_gui_antagonize_alexandria
+	}
+	add_to_variable_list = {
+		name = kog_alexandria_actions_list
+		target = flag:kog_gui_integrate_alexandria
+	}
+	add_to_variable_list = {
+		name = kog_alexandria_actions_list
+		target = flag:kog_gui_enforce_alexandria
+	}
+	add_to_variable_list = {
+		name = kog_alexandria_actions_list
+		target = flag:kog_gui_install_alexandria
+	}
+	
+	## moscow Action List
+	add_to_variable_list = {
+		name = kog_moscow_actions_list
+		target = flag:kog_gui_sway_moscow
+	}
+	add_to_variable_list = {
+		name = kog_moscow_actions_list
+		target = flag:kog_gui_antagonize_moscow
+	}
+	add_to_variable_list = {
+		name = kog_moscow_actions_list
+		target = flag:kog_gui_integrate_moscow
+	}
+	add_to_variable_list = {
+		name = kog_moscow_actions_list
+		target = flag:kog_gui_enforce_moscow
+	}
+	add_to_variable_list = {
+		name = kog_moscow_actions_list
+		target = flag:kog_gui_install_moscow
 	}
 }
 

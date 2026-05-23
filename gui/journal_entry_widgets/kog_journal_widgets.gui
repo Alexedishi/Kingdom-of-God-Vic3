@@ -53,7 +53,7 @@ flowcontainer = {
 		kog_denominational_overview_panel = {}
 		kog_canon_laws_panel = {}
 		kog_holy_sites_panel = {}
-		kog_catholic_episcopal_seats_panel = {}
+		kog_orthodox_episcopal_seats_panel = {}
 	}
 }
 
@@ -443,8 +443,47 @@ types kog_journal_widget_types {
 		
 		com_international_organization_modifiers = { }
 		kog_metropolis_panel = { }
-		com_international_organization_buttons = { }
+		kog_main_button_container = { }
 		kog_membership_panel = { }
+	}
+	
+	type kog_main_button_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		datamodel = "[JournalEntry.MakeScope.GetList('kog_ecumenical_decisions_list')]"
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "com_gui_main_actions"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		item = {
+			flowcontainer = {
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				direction = vertical
+				parentanchor = top|hcenter
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+						size = { 400 40 }
+						com_international_organization_scripted_button = { }
+					}
+				}
+			}
+		}
 	}
 	
 	type kog_metropolis_panel = flowcontainer {
@@ -613,8 +652,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_apostolic_succession"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)16', '(int32)16')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_apostolic_succession_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -634,8 +673,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_church_and_state"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)17', '(int32)17')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_church_and_state_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -653,8 +692,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_iconography"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)17', '(int32)17')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_iconography_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -675,8 +714,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_clerical_marriage"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)18', '(int32)18')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_clerical_marriage_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -695,8 +734,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_social_role"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)19', '(int32)19')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_social_role_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -717,8 +756,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_sciences_stance"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)20', '(int32)20')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_stance_on_sciences_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -739,8 +778,8 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_crusades"
 			}
-			blockoverride "canon_law_button_datamodel_subspan" {
-				datamodel = "[DataModelSubSpan(JournalEntry.GetScriptedButtons, '(int32)20', '(int32)20')]"
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_crusades_list')]"
 			}
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_icon = {}
@@ -833,12 +872,26 @@ types kog_journal_widget_types {
 				flowcontainer = {
 					parentanchor = center
 					ignoreinvisible = yes
-					block "canon_law_button_datamodel_subspan" {
+					block "canon_law_button_datamodel" {
 						visible = "no"
 					}
 					
 					item = {
-						kog_canon_law_debate_button = {}
+						flowcontainer = {
+							datamodel = "[JournalEntry.GetScriptedButtons]"
+							direction = vertical
+							
+							item = {
+								widget = {
+									visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+									size = { 160 35 }
+									
+									kog_canon_law_debate_button = {
+										parentanchor = center
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -871,8 +924,6 @@ types kog_journal_widget_types {
 		parentanchor = center
 		size = { 160 35 }
 		position = { 0 -5 }
-		
-		visible = "[ScriptedButton.IsVisible]"
 		
 		using = default_button_action
 		tooltip = "SCRIPTED_ACTION_TOOLTIP"
@@ -1299,7 +1350,7 @@ types kog_journal_widget_types {
 					}
 					textbox = {
 						block "holy_site_location" {
-							raw_text = "#TODO Override to kog_holy_site_location in variable map!"
+							raw_text = "#TODO Override kog_holy_site_location!"
 							using = look_at_me_text_animation
 						}
 						parentanchor = left|vcenter
@@ -1311,7 +1362,7 @@ types kog_journal_widget_types {
 					}
 					textbox = {
 						block "holy_site_controller" {
-							raw_text = "#TODO Override to holy_site_controller in variable map!"
+							raw_text = "#TODO Override holy_site_controller!"
 							using = look_at_me_text_animation
 						}
 						parentanchor = left|vcenter
@@ -1347,11 +1398,130 @@ types kog_journal_widget_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 		
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_rome_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_rome_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_santiago_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_santiago_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_paris_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_paris_actions_list')]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_paris_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_koln_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_koln_actions_list')]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_koln_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_vienna_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_vienna_actions_list')]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_vienna_actions_list')]"
+			}
+		}
 	}
 	
 	type kog_orthodox_episcopal_seats_panel = flowcontainer {
@@ -1363,11 +1533,121 @@ types kog_journal_widget_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 		
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
-		kog_episcopal_seat = {}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_constantinople_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_constantinople_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_antioch_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_antioch_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_jerusalem_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_jerusalem_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_alexandria_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_alexandria_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "kog_seat_name" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+			}
+			blockoverride "kog_seat_controller" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
+			}
+			blockoverride "patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_gui_liturgical_rite" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+			}
+			blockoverride "kog_gui_liturgical_language" {
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+			}
+			blockoverride "patriarch_opinion" {
+				raw_text = "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_moscow_opinion_var').GetValue]"
+			}
+			blockoverride "seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_moscow_actions_list')]"
+			}
+		}
 	}
 	
 	type kog_episcopal_seat = flowcontainer {
@@ -1394,7 +1674,9 @@ types kog_journal_widget_types {
 				
 				textbox = {
 					parentanchor = left|vcenter
-					raw_text = "#todo kog_seat_name"
+					block "kog_seat_name" {
+						raw_text = "#todo kog_seat_name"
+					}
 					autoresize = yes
 					elide = right
 					using = fontsize_large
@@ -1406,7 +1688,9 @@ types kog_journal_widget_types {
 				
 				textbox = {
 					parentanchor = right|vcenter
-					raw_text = "#todo Controlled By: kog_seat_controller_var"
+					block "kog_seat_controller" {
+						raw_text = "#todo Controlled By: kog_seat_controller"
+					}
 					autoresize = yes
 					elide = right
 					using = fontsize_medium
@@ -1422,13 +1706,13 @@ types kog_journal_widget_types {
 			
 			widget = {
 				parentanchor = left|vcenter
-				size = { 150 160 }
+				size = { 145 160 }
 				
 				character_portrait_medium_torso = {
 					parentanchor = center
-					datacontext = "[GetPlayer.GetRuler]"
-					
-					block "patriarch_datacontext" { }
+					block "patriarch_datacontext" {
+						datacontext = "[GetPlayer.GetRuler]"
+					}
 					blockoverride "show_hat" { }
 					blockoverride "tooltip" { } # Error Suppression
 					blockoverride "portrait_icons" { } # Error Suppression
@@ -1441,7 +1725,7 @@ types kog_journal_widget_types {
 						blockoverride "text" {
 						}
 						textbox = {
-							raw_text = "#todo kog_gui_patriarch_name"
+							raw_text = "[Character.GetFullName]"
 							parentanchor = center
 							position = { 0 -2 }
 							autoresize = yes
@@ -1455,29 +1739,32 @@ types kog_journal_widget_types {
 			
 			widget = {
 				parentanchor = top|hcenter
-				size = { 195 180 }
+				size = { 180 180 }
 				
 				background = {
 					using = entry_bg_simple
 				}
 				
 				flowcontainer = {
-					parentanchor = top|hcenter
+					parentanchor = center
 					direction = vertical
+					maximumsize = { 180 180 }
 					spacing = 5
-					margin = { 5 5 }
+					margin_left = 8
 					
 					textbox = {
 						parentanchor = left|vcenter
 						raw_text = "[concept_liturgical_rite]:"
-						size = { 180 20 }
+						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
 					textbox = {
 						parentanchor = left|vcenter
-						raw_text = "#todo kog_gui_liturgical_rite"
-						size = { 180 20 }
+						block "kog_gui_liturgical_rite" {
+							raw_text = "#todo kog_gui_liturgical_rite"
+						}
+						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
@@ -1487,14 +1774,16 @@ types kog_journal_widget_types {
 					textbox = {
 						parentanchor = left|vcenter
 						raw_text = "[concept_liturgical_language]:"
-						size = { 180 20 }
+						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
 					textbox = {
 						parentanchor = left|vcenter
-						raw_text = "#todo kog_gui_liturgical_language"
-						size = { 180 20 }
+						block "kog_gui_liturgical_language" {
+							raw_text = "#todo kog_gui_liturgical_language"
+						}
+						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
@@ -1504,7 +1793,7 @@ types kog_journal_widget_types {
 					textbox = {
 						parentanchor = left|vcenter
 						raw_text = "Opinion of [GetPlayer.GetNameNoFlag]:"
-						size = { 180 20 }
+						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
@@ -1514,7 +1803,7 @@ types kog_journal_widget_types {
 							raw_text = "#TODO Override patriarch_opinion!"
 							using = look_at_me_text_animation
 						}
-						size = { 180 20 }
+						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
@@ -1529,27 +1818,39 @@ types kog_journal_widget_types {
 	
 	type kog_seat_scripted_button_container = widget {
 		parentanchor = top|hcenter
-		size = { 170 180 }
+		size = { 190 180 }
 		
 		background = {
 			using = entry_bg
 		}
 		
 		flowcontainer = {
-			parentanchor = center
+			parentanchor = top|hcenter
 			direction = vertical
 			ignoreinvisible = yes
 			spacing = 5
+			margin_top = 5
 			
-			block "seat_buttons_datamodel_subspan" {
-				datamodel = "[JournalEntry.GetScriptedButtons]"
+			block "seat_buttons_datamodel" {
 				visible = "no"
 			}
 			
 			item = {
-				widget = {
-					size = { 150 40 }
-					kog_seat_scripted_button_item = { }
+				flowcontainer = {
+					datamodel = "[JournalEntry.GetScriptedButtons]"
+					direction = vertical
+					ignoreinvisible = yes
+					
+					item = {
+						widget = {
+							visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+							size = { 154 38 }
+							
+							kog_seat_scripted_button_item = {
+								parentanchor = center
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1557,10 +1858,8 @@ types kog_journal_widget_types {
 	
 	type kog_seat_scripted_button_item = button {
 		parentanchor = center
-		size = { 150 38 }
+		size = { 174 38 }
 		using = default_button_action
-		
-		visible = "[ScriptedButton.IsVisible]"
 		
 		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
 		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
@@ -1579,7 +1878,7 @@ types kog_journal_widget_types {
 			parentanchor = center
 			align = nobaseline
 			autoresize = yes
-			max_width = 150
+			max_width = 165
 			elide = right
 			using = fontsize_small
 			text = "[ScriptedButton.GetName]"
