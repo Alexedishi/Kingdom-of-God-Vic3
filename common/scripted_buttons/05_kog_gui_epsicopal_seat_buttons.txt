@@ -1,8 +1,8 @@
 ﻿####---------- Catholic Seat Buttons ----------####
 #### ROME
-kog_sway_rome_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_rome = {
+	name = "kog_gui_sway_rome"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -32,9 +32,9 @@ kog_sway_rome_button = {
 		value = 0
 	}
 }
-kog_antagonize_rome_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_rome = {
+	name = "kog_gui_antagonize_rome"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -64,8 +64,8 @@ kog_antagonize_rome_button = {
 		value = 0
 	}
 }
-kog_integrate_rome_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_rome = {
+	name = "kog_gui_integrate_rome"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -90,7 +90,7 @@ kog_integrate_rome_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_rome
 		custom_tooltip = {
-			text = kog_integrate_rome_effect
+			text = kog_gui_integrate_rome_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_rome_integration_var
@@ -104,8 +104,8 @@ kog_integrate_rome_button = {
 		value = 0
 	}
 }
-kog_enforce_rome_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_rome = {
+	name = "kog_gui_enforce_rome"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -121,7 +121,7 @@ kog_enforce_rome_button = {
 	}
 	possible = {
 		custom_tooltip = { 
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_rome|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -135,7 +135,7 @@ kog_enforce_rome_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_rome
 		custom_tooltip = {
-			text = kog_enforce_rome_effect
+			text = kog_gui_enforce_rome_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_rome_enforcement_var
@@ -149,9 +149,9 @@ kog_enforce_rome_button = {
 		value = 0
 	}
 }
-kog_install_rome_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_rome = {
+	name = "kog_gui_install_rome"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -168,9 +168,9 @@ kog_install_rome_button = {
 }
 
 #### SANTIAGO
-kog_sway_santiago_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_santiago = {
+	name = "kog_gui_sway_santiago"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -200,9 +200,9 @@ kog_sway_santiago_button = {
 		value = 0
 	}
 }
-kog_antagonize_santiago_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_santiago = {
+	name = "kog_gui_antagonize_santiago"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -232,8 +232,8 @@ kog_antagonize_santiago_button = {
 		value = 0
 	}
 }
-kog_integrate_santiago_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_santiago = {
+	name = "kog_gui_integrate_santiago"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -258,7 +258,7 @@ kog_integrate_santiago_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_santiago
 		custom_tooltip = {
-			text = kog_integrate_santiago_effect
+			text = kog_gui_integrate_santiago_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_santiago_integration_var
@@ -272,8 +272,8 @@ kog_integrate_santiago_button = {
 		value = 0
 	}
 }
-kog_enforce_santiago_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_santiago = {
+	name = "kog_gui_enforce_santiago"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -289,7 +289,7 @@ kog_enforce_santiago_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_santiago|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -303,7 +303,7 @@ kog_enforce_santiago_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_santiago
 		custom_tooltip = {
-			text = kog_enforce_santiago_effect
+			text = kog_gui_enforce_santiago_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_santiago_enforcement_var
@@ -317,9 +317,9 @@ kog_enforce_santiago_button = {
 		value = 0
 	}
 }
-kog_install_santiago_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_santiago = {
+	name = "kog_gui_install_santiago"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -336,9 +336,9 @@ kog_install_santiago_button = {
 }
 
 #### PARIS
-kog_sway_paris_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_paris = {
+	name = "kog_gui_sway_paris"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -368,9 +368,9 @@ kog_sway_paris_button = {
 		value = 0
 	}
 }
-kog_antagonize_paris_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_paris = {
+	name = "kog_gui_antagonize_paris"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -400,8 +400,8 @@ kog_antagonize_paris_button = {
 		value = 0
 	}
 }
-kog_integrate_paris_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_paris = {
+	name = "kog_gui_integrate_paris"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -426,7 +426,7 @@ kog_integrate_paris_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_paris
 		custom_tooltip = {
-			text = kog_integrate_paris_effect
+			text = kog_gui_integrate_paris_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_paris_integration_var
@@ -440,8 +440,8 @@ kog_integrate_paris_button = {
 		value = 0
 	}
 }
-kog_enforce_paris_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_paris = {
+	name = "kog_gui_enforce_paris"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -457,7 +457,7 @@ kog_enforce_paris_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_paris|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -471,7 +471,7 @@ kog_enforce_paris_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_paris
 		custom_tooltip = {
-			text = kog_enforce_paris_effect
+			text = kog_gui_enforce_paris_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_paris_enforcement_var
@@ -485,9 +485,9 @@ kog_enforce_paris_button = {
 		value = 0
 	}
 }
-kog_install_paris_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_paris = {
+	name = "kog_gui_install_paris"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -504,9 +504,9 @@ kog_install_paris_button = {
 }
 
 #### KOLN
-kog_sway_koln_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_koln = {
+	name = "kog_gui_sway_koln"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -536,9 +536,9 @@ kog_sway_koln_button = {
 		value = 0
 	}
 }
-kog_antagonize_koln_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_koln = {
+	name = "kog_gui_antagonize_koln"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -568,8 +568,8 @@ kog_antagonize_koln_button = {
 		value = 0
 	}
 }
-kog_integrate_koln_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_koln = {
+	name = "kog_gui_integrate_koln"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -594,7 +594,7 @@ kog_integrate_koln_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_koln
 		custom_tooltip = {
-			text = kog_integrate_koln_effect
+			text = kog_gui_integrate_koln_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_koln_integration_var
@@ -608,8 +608,8 @@ kog_integrate_koln_button = {
 		value = 0
 	}
 }
-kog_enforce_koln_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_koln = {
+	name = "kog_gui_enforce_koln"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -625,7 +625,7 @@ kog_enforce_koln_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_koln|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -639,7 +639,7 @@ kog_enforce_koln_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_koln
 		custom_tooltip = {
-			text = kog_enforce_koln_effect
+			text = kog_gui_enforce_koln_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_koln_enforcement_var
@@ -653,9 +653,9 @@ kog_enforce_koln_button = {
 		value = 0
 	}
 }
-kog_install_koln_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_koln = {
+	name = "kog_gui_install_koln"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -672,9 +672,9 @@ kog_install_koln_button = {
 }
 
 #### VIENNA
-kog_sway_vienna_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_vienna = {
+	name = "kog_gui_sway_"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -704,9 +704,9 @@ kog_sway_vienna_button = {
 		value = 0
 	}
 }
-kog_antagonize_vienna_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_vienna = {
+	name = "kog_gui_antagonize_vienna"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -736,8 +736,8 @@ kog_antagonize_vienna_button = {
 		value = 0
 	}
 }
-kog_integrate_vienna_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_vienna = {
+	name = "kog_gui_integrate_vienna"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -762,7 +762,7 @@ kog_integrate_vienna_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_vienna
 		custom_tooltip = {
-			text = kog_integrate_vienna_effect
+			text = kog_gui_integrate_vienna_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_vienna_integration_var
@@ -776,8 +776,8 @@ kog_integrate_vienna_button = {
 		value = 0
 	}
 }
-kog_enforce_vienna_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_vienna = {
+	name = "kog_gui_enforce_vienna"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -793,7 +793,7 @@ kog_enforce_vienna_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_vienna|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -807,7 +807,7 @@ kog_enforce_vienna_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_vienna
 		custom_tooltip = {
-			text = kog_enforce_vienna_effect
+			text = kog_gui_enforce_vienna_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_vienna_enforcement_var
@@ -821,9 +821,9 @@ kog_enforce_vienna_button = {
 		value = 0
 	}
 }
-kog_install_vienna_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_vienna = {
+	name = "kog_gui_install_vienna"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -842,9 +842,9 @@ kog_install_vienna_button = {
 
 ####---------- Orthodox Seat Buttons ----------####
 #### CONSTANTINOPLE
-kog_sway_constantinople_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_constantinople = {
+	name = "kog_gui_sway_constantinople"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -874,9 +874,9 @@ kog_sway_constantinople_button = {
 		value = 0
 	}
 }
-kog_antagonize_constantinople_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_constantinople = {
+	name = "kog_gui_antagonize_constantinople"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -906,8 +906,8 @@ kog_antagonize_constantinople_button = {
 		value = 0
 	}
 }
-kog_integrate_constantinople_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_constantinople = {
+	name = "kog_gui_integrate_constantinople"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -932,7 +932,7 @@ kog_integrate_constantinople_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_constantinople
 		custom_tooltip = {
-			text = kog_integrate_constantinople_effect
+			text = kog_gui_integrate_constantinople_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_constantinople_integration_var
@@ -946,8 +946,8 @@ kog_integrate_constantinople_button = {
 		value = 0
 	}
 }
-kog_enforce_constantinople_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_constantinople = {
+	name = "kog_gui_enforce_constantinople"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -963,7 +963,7 @@ kog_enforce_constantinople_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_constantinople|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -977,7 +977,7 @@ kog_enforce_constantinople_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_constantinople
 		custom_tooltip = {
-			text = kog_enforce_constantinople_effect
+			text = kog_gui_enforce_constantinople_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_constantinople_enforcement_var
@@ -991,9 +991,9 @@ kog_enforce_constantinople_button = {
 		value = 0
 	}
 }
-kog_install_constantinople_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_constantinople = {
+	name = "kog_gui_install_constantinople"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -1010,9 +1010,9 @@ kog_install_constantinople_button = {
 }
 
 #### ANTIOCH
-kog_sway_antioch_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_antioch = {
+	name = "kog_gui_sway_antioch"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1042,9 +1042,9 @@ kog_sway_antioch_button = {
 		value = 0
 	}
 }
-kog_antagonize_antioch_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_antioch = {
+	name = "kog_gui_antagonize_antioch"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1074,8 +1074,8 @@ kog_antagonize_antioch_button = {
 		value = 0
 	}
 }
-kog_integrate_antioch_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_antioch = {
+	name = "kog_gui_integrate_antioch"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -1100,7 +1100,7 @@ kog_integrate_antioch_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_antioch
 		custom_tooltip = {
-			text = kog_integrate_antioch_effect
+			text = kog_gui_integrate_antioch_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_antioch_integration_var
@@ -1114,8 +1114,8 @@ kog_integrate_antioch_button = {
 		value = 0
 	}
 }
-kog_enforce_antioch_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_antioch = {
+	name = "kog_gui_enforce_antioch"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -1131,7 +1131,7 @@ kog_enforce_antioch_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_antioch|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -1145,7 +1145,7 @@ kog_enforce_antioch_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_antioch
 		custom_tooltip = {
-			text = kog_enforce_antioch_effect
+			text = kog_gui_enforce_antioch_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_antioch_enforcement_var
@@ -1159,9 +1159,9 @@ kog_enforce_antioch_button = {
 		value = 0
 	}
 }
-kog_install_antioch_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_antioch = {
+	name = "kog_gui_install_antioch"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -1178,9 +1178,9 @@ kog_install_antioch_button = {
 }
 
 #### JERUSALEM
-kog_sway_jerusalem_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_jerusalem = {
+	name = "kog_gui_sway_jerusalem"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1210,9 +1210,9 @@ kog_sway_jerusalem_button = {
 		value = 0
 	}
 }
-kog_antagonize_jerusalem_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_jerusalem = {
+	name = "kog_gui_antagonize_jerusalem"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1242,8 +1242,8 @@ kog_antagonize_jerusalem_button = {
 		value = 0
 	}
 }
-kog_integrate_jerusalem_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_jerusalem = {
+	name = "kog_gui_integrate_jerusalem"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -1268,7 +1268,7 @@ kog_integrate_jerusalem_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_jerusalem
 		custom_tooltip = {
-			text = kog_integrate_jerusalem_effect
+			text = kog_gui_integrate_jerusalem_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_jerusalem_integration_var
@@ -1282,8 +1282,8 @@ kog_integrate_jerusalem_button = {
 		value = 0
 	}
 }
-kog_enforce_jerusalem_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_jerusalem = {
+	name = "kog_gui_enforce_jerusalem"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -1299,7 +1299,7 @@ kog_enforce_jerusalem_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_jerusalem|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -1313,7 +1313,7 @@ kog_enforce_jerusalem_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_jerusalem
 		custom_tooltip = {
-			text = kog_enforce_jerusalem_effect
+			text = kog_gui_enforce_jerusalem_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_jerusalem_enforcement_var
@@ -1327,9 +1327,9 @@ kog_enforce_jerusalem_button = {
 		value = 0
 	}
 }
-kog_install_jerusalem_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_jerusalem = {
+	name = "kog_gui_install_jerusalem"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -1347,9 +1347,9 @@ kog_install_jerusalem_button = {
 
 
 #### ALEXANDRIA
-kog_sway_alexandria_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_alexandria = {
+	name = "kog_gui_sway_alexandria"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1379,9 +1379,9 @@ kog_sway_alexandria_button = {
 		value = 0
 	}
 }
-kog_antagonize_alexandria_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_alexandria = {
+	name = "kog_gui_antagonize_alexandria"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1411,8 +1411,8 @@ kog_antagonize_alexandria_button = {
 		value = 0
 	}
 }
-kog_integrate_alexandria_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_alexandria = {
+	name = "kog_gui_integrate_alexandria"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -1437,7 +1437,7 @@ kog_integrate_alexandria_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_alexandria
 		custom_tooltip = {
-			text = kog_integrate_alexandria_effect
+			text = kog_gui_integrate_alexandria_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_alexandria_integration_var
@@ -1451,8 +1451,8 @@ kog_integrate_alexandria_button = {
 		value = 0
 	}
 }
-kog_enforce_alexandria_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_alexandria = {
+	name = "kog_gui_enforce_alexandria"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -1468,7 +1468,7 @@ kog_enforce_alexandria_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_alexandria|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -1482,7 +1482,7 @@ kog_enforce_alexandria_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_alexandria
 		custom_tooltip = {
-			text = kog_enforce_alexandria_effect
+			text = kog_gui_enforce_alexandria_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_alexandria_enforcement_var
@@ -1496,9 +1496,9 @@ kog_enforce_alexandria_button = {
 		value = 0
 	}
 }
-kog_install_alexandria_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_alexandria = {
+	name = "kog_gui_install_alexandria"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}
@@ -1515,9 +1515,9 @@ kog_install_alexandria_button = {
 }
 
 #### MOSCOW
-kog_sway_moscow_button = {
-	name = "kog_gui_improve_relations"
-	desc = "kog_gui_improve_relations_desc"
+kog_gui_sway_moscow = {
+	name = "kog_gui_sway_moscow"
+	desc = "kog_gui_sway_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1547,9 +1547,9 @@ kog_sway_moscow_button = {
 		value = 0
 	}
 }
-kog_antagonize_moscow_button = {
-	name = "kog_gui_damage_relations"
-	desc = "kog_gui_damage_relations"
+kog_gui_antagonize_moscow = {
+	name = "kog_gui_antagonize_moscow"
+	desc = "kog_gui_antagonize_seat_desc"
 	
 	visible = {
 		always = yes
@@ -1579,8 +1579,8 @@ kog_antagonize_moscow_button = {
 		value = 0
 	}
 }
-kog_integrate_moscow_button = {
-	name = "kog_gui_integrate_seat"
+kog_gui_integrate_moscow = {
+	name = "kog_gui_integrate_moscow"
 	desc = "kog_gui_integrate_seat_desc"
 	
 	visible = {
@@ -1605,7 +1605,7 @@ kog_integrate_moscow_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_moscow
 		custom_tooltip = {
-			text = kog_integrate_moscow_effect
+			text = kog_gui_integrate_moscow_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_moscow_integration_var
@@ -1619,8 +1619,8 @@ kog_integrate_moscow_button = {
 		value = 0
 	}
 }
-kog_enforce_moscow_button = {
-	name = "kog_gui_enforce_seat"
+kog_gui_enforce_moscow = {
+	name = "kog_gui_enforce_moscow"
 	desc = "kog_gui_enforce_seat_desc"
 	
 	visible = {
@@ -1636,7 +1636,7 @@ kog_enforce_moscow_button = {
 	}
 	possible = {
 		custom_tooltip = {
-			text = kog_enforce_seat_possible
+			text = kog_gui_enforce_seat_possible
 			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
 		}
 		kog_seat_opinion_greater_than_trigger = {
@@ -1650,7 +1650,7 @@ kog_enforce_moscow_button = {
 	effect = {
 		add_modifier = modifier_kog_integrating_moscow
 		custom_tooltip = {
-			text = kog_enforce_moscow_effect
+			text = kog_gui_enforce_moscow_effect
 			je:je_kog_local = {
 				set_variable = {
 					name = kog_moscow_enforcement_var
@@ -1664,9 +1664,9 @@ kog_enforce_moscow_button = {
 		value = 0
 	}
 }
-kog_install_moscow_button = {
-	name = "kog_gui_install_seat"
-	desc = "kog_gui install_seat_desc"
+kog_gui_install_moscow = {
+	name = "kog_gui_install_moscow"
+	desc = "kog_gui_install_seat_desc"
 	
 	visible = {
 	}

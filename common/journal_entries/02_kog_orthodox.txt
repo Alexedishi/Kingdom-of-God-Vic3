@@ -12,70 +12,67 @@ je_kog_orthodox = {
 		container = "custom_widget_container_je_icon"
 	}
 	
+	# Omen Button
+	scripted_button = kog_gui_commission_icon
+	
 	# Metropolis Buttons
-	scripted_button = kog_gui_venerate_apparition # 0
-	scripted_button = kog_emphasize_unity_button # 1
-	scripted_button = kog_enforce_attendance_button # 2
-	scripted_button = kog_theologize_button # 3
-	scripted_button = kog_promote_ecumenism_button # 4
-	scripted_button = kog_placeholder_0_button # 5
+	scripted_button = kog_gui_emphasize_unity
+	scripted_button = kog_gui_enforce_attendance
+	scripted_button = kog_gui_theologize_dogma
+	scripted_button = kog_gui_promote_ecumenism
 	
 	# Orthodox Decision Buttons
-	scripted_button = kog_dissolve_monasteries_button # 6
-	scripted_button = kog_synodal_reform_button # 7
-	scripted_button = kog_church_subsidies_button # 8
-	scripted_button = kog_sunday_schools_button # 9
-	scripted_button = kog_placeholder_5_button # 10
+	scripted_button = kog_gui_dissolve_monasteries
+	scripted_button = kog_gui_reform_synod
+	scripted_button = kog_gui_grant_subsidies
+	scripted_button = kog_gui_establish_schools
 	
-	# Christian Decision Buttons
-	scripted_button = kog_gui_declare_autocephaly # 11
-	scripted_button = kog_gui_convoke_council # 12
-	scripted_button = kog_gui_secure_tetrarchy # 13
-	scripted_button = kog_gui_secure_pentarchy # 14
-	scripted_button = kog_gui_mend_schism # 15
+	# Ecumenical Decision Buttons
+	scripted_button = kog_gui_declare_autocephaly
+	scripted_button = kog_gui_convoke_council
+	scripted_button = kog_gui_secure_tetrarchy
+	scripted_button = kog_gui_secure_pentarchy
+	scripted_button = kog_gui_mend_schism
 	
 	# Canon Law Debate Buttons
-	scripted_button = kog_debate_apostolic_succession_button # 16
-	scripted_button = kog_debate_church_and_state_button # 17
-	scripted_button = kog_debate_iconography_button # 18
-	scripted_button = kog_debate_clerical_marriage_button # 19
-	scripted_button = kog_debate_social_role_button # 20
-	scripted_button = kog_debate_stance_on_sciences_button # 21
-	scripted_button = kog_debate_crusades_button # 22
-	scripted_button = kog_placeholder_6_button # 23
-	scripted_button = kog_placeholder_7_button # 24
-	scripted_button = kog_placeholder_8_button # 25
+	scripted_button = kog_gui_debate_apostolic_succession
+	scripted_button = kog_gui_debate_church_and_state
+	scripted_button = kog_gui_debate_iconography
+	scripted_button = kog_gui_debate_clerical_marriage
+	scripted_button = kog_gui_debate_social_role
+	scripted_button = kog_gui_debate_stance_on_sciences
+	scripted_button = kog_gui_debate_crusades
 	
 	# Episcopal Seat Buttons
-	scripted_button = kog_sway_constantinople_button # 26
-	scripted_button = kog_antagonize_constantinople_button # 27
-	scripted_button = kog_integrate_constantinople_button # 28
-	scripted_button = kog_enforce_constantinople_button # 29
-	scripted_button = kog_install_constantinople_button # 30
+	scripted_button = kog_gui_sway_constantinople
+	scripted_button = kog_gui_antagonize_constantinople
+	scripted_button = kog_gui_integrate_constantinople
+	scripted_button = kog_gui_enforce_constantinople
+	scripted_button = kog_gui_install_constantinople
 	
-	scripted_button = kog_sway_antioch_button # 31
-	scripted_button = kog_antagonize_antioch_button # 32
-	scripted_button = kog_integrate_antioch_button # 33
-	scripted_button = kog_enforce_antioch_button # 34
-	scripted_button = kog_install_antioch_button # 35
+	scripted_button = kog_gui_sway_antioch
+	scripted_button = kog_gui_antagonize_antioch
+	scripted_button = kog_gui_integrate_antioch
+	scripted_button = kog_gui_enforce_antioch
+	scripted_button = kog_gui_install_antioch
 	
-	scripted_button = kog_sway_jerusalem_button # 36
-	scripted_button = kog_antagonize_jerusalem_button # 37
-	scripted_button = kog_integrate_jerusalem_button # 38
-	scripted_button = kog_enforce_jerusalem_button # 39
-	scripted_button = kog_install_jerusalem_button # 40
+	scripted_button = kog_gui_sway_jerusalem
+	scripted_button = kog_gui_antagonize_jerusalem
+	scripted_button = kog_gui_integrate_jerusalem
+	scripted_button = kog_gui_enforce_jerusalem
+	scripted_button = kog_gui_install_jerusalem
 	
-	scripted_button = kog_sway_alexandria_button # 41
-	scripted_button = kog_antagonize_alexandria_button # 42
-	scripted_button = kog_integrate_alexandria_button # 43
-	scripted_button = kog_enforce_alexandria_button # 44
-	scripted_button = kog_install_alexandria_button # 45
+	scripted_button = kog_gui_sway_alexandria
+	scripted_button = kog_gui_antagonize_alexandria
+	scripted_button = kog_gui_integrate_alexandria
+	scripted_button = kog_gui_enforce_alexandria
+	scripted_button = kog_gui_install_alexandria
 	
-	scripted_button = kog_sway_moscow_button # 46
-	scripted_button = kog_antagonize_moscow_button # 46
-	scripted_button = kog_integrate_moscow_button # 47
-	scripted_button = kog_enforce_moscow_button # 48
-	scripted_button = kog_install_moscow_button # 49
+	scripted_button = kog_gui_sway_moscow
+	scripted_button = kog_gui_antagonize_moscow
+	scripted_button = kog_gui_integrate_moscow
+	scripted_button = kog_gui_enforce_moscow
+	scripted_button = kog_gui_install_moscow
 	
 	is_shown_in_lobby = {
 		kog_country_is_eastern_orthodox_trigger = yes
@@ -95,6 +92,7 @@ je_kog_orthodox = {
 			com_set_international_organization_headquaters_effect = {
 				state_region = s:STATE_EASTERN_THRACE
 			}
+			kog_initialize_orthodox_button_lists_effect = yes
 			set_variable = kog_enable_encyclicals_panel
 			set_variable = kog_enable_councils_panel
 			save_scope_as = je_kog_orthodox
