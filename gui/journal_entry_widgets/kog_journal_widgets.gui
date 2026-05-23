@@ -57,6 +57,70 @@ flowcontainer = {
 	}
 }
 
+flowcontainer = {
+	name = "widget_kog_oriental_church"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+	}
+}
+
+flowcontainer = {
+	name = "widget_kog_lutheran_church"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+	}
+}
+
+flowcontainer = {
+	name = "widget_kog_anglican_church"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+	}
+}
+
+flowcontainer = {
+	name = "widget_kog_elysian_church"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+	}
+}
+
 
 ####---------- KOG JOURNAL ENTRY TYPES ----------####
 types kog_journal_widget_types {
@@ -1400,7 +1464,7 @@ types kog_journal_widget_types {
 		
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1423,7 +1487,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1446,7 +1510,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1472,7 +1536,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1498,7 +1562,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1535,7 +1599,7 @@ types kog_journal_widget_types {
 		
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1558,7 +1622,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1581,7 +1645,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1604,7 +1668,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
@@ -1627,7 +1691,7 @@ types kog_journal_widget_types {
 		}
 		kog_episcopal_seat = {
 			blockoverride "kog_seat_name" {
-				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_name') ).GetFlagName]"
+				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_building') ).GetBuilding.GetName]"
 			}
 			blockoverride "kog_seat_controller" {
 				raw_text = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_controller') ).GetCountry.GetName]"
