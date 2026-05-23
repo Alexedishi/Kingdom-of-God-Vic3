@@ -20,7 +20,14 @@ je_kog_local = {
 	transferable = no
 	can_deactivate = no
 	
-	modifiers_while_active = {
+	immediate = {
+		scope:journal_entry = {
+			save_scope_as = je_kog_local
+		}
+		set_variable = {
+			name = je_kog_local
+			value = scope:je_kog_local
+		}
 	}
 	
 	complete = {
