@@ -706,7 +706,7 @@ types kog_journal_widget_types {
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
 		
 		# Papal Primacy
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/apostolic_succession.dds"
 			}
@@ -727,7 +727,7 @@ types kog_journal_widget_types {
 		}
 		
 		# Church and State
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/almsgiving.dds"
 			}
@@ -748,7 +748,7 @@ types kog_journal_widget_types {
 		}
 		
 		# Stance Towards Icons
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/iconography.dds"
 			}
@@ -770,7 +770,7 @@ types kog_journal_widget_types {
 		}
 		
 		# Clerical Marriage
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/clerical_marriage.dds"
 			}
@@ -790,7 +790,7 @@ types kog_journal_widget_types {
 		}
 		
 		# Social Role
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/social_role.dds"
 			}
@@ -812,7 +812,7 @@ types kog_journal_widget_types {
 		}
 		
 		# Stance on Sciences
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/stance_on_sciences.dds"
 			}
@@ -834,7 +834,7 @@ types kog_journal_widget_types {
 		}
 		
 		# Crusades
-		kog_canon_law_entry = {
+		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/crusades.dds"
 			}
@@ -857,7 +857,7 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_canon_law_entry = flowcontainer {
+	type kog_canon_lawgroup_entry = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
 		
