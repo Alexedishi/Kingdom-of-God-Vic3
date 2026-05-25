@@ -747,7 +747,7 @@ types kog_journal_widget_types {
 			}
 		}
 		
-		# Church and State
+		# Almsgiving
 		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/almsgiving.dds"
@@ -831,6 +831,56 @@ types kog_journal_widget_types {
 				kog_canon_law_type_entry = {
 					blockoverride "kog_canon_law_icon_texture" {
 						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconolatry.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+		}
+		
+		# Church and Nation
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/iconography.dds"
+			}
+			blockoverride "canon_law_group" {
+				text = "kog_canon_lawgroup_nationalism"
+			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_nationalism"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_nationalism_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_uranopolitism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ecclesial_communities.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ethnophyletism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_kinism.dds"
 					}
 					blockoverride "kog_canon_law_icon_tooltip" {
 						tooltip = "kog_placeholder_text"
