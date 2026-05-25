@@ -705,7 +705,7 @@ types kog_journal_widget_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
 		
-		# Papal Primacy
+		# Apostolic Succession
 		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/apostolic_succession.dds"
@@ -720,9 +720,30 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_apostolic_succession_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_papal_primacy.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_synodality.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_congregationalism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 		
@@ -741,9 +762,30 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_almsgiving_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_alms.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_offertory.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_tithing.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 		
@@ -762,10 +804,38 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_iconography_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconoclasm.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_aniconism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconodulism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconolatry.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 		
@@ -784,8 +854,22 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_clerical_marriage_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_priests_celibate.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_marriage_allowed.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 		
@@ -804,10 +888,38 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_social_role_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_moral_authority.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_moral_guidance.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_social_activism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_modernizing_force.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 		
@@ -826,10 +938,46 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_stance_on_sciences_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_supremacy.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_favoritism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_disengagement.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_patronage.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_crusade.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 		
@@ -848,11 +996,54 @@ types kog_journal_widget_types {
 				datamodel = "[JournalEntry.MakeScope.GetList('kog_crusades_list')]"
 			}
 			blockoverride "canon_law_button_content" {
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
-				kog_canon_law_icon = {}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_pagan_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_heathen_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_heretic_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_unlimited_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = ""
+					}
+				}
 			}
 		}
 	}
@@ -1021,18 +1212,18 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_canon_law_icon = icon {
+	type kog_canon_law_type_entry = icon {
 		parentanchor = center
 		size = { 35 35 }
-		block "kog_canon_law_icon_texture" {
-			texture = "gfx/interface/error_frog.dds"
+		texture = "gfx/interface/backgrounds/round_button_bg.dds"
+		icon = {
+			parentanchor = center
+			block "kog_canon_law_icon_texture" {
+				texture = "gfx/interface/error_frog.dds"
+			}
+			size = { 80% 80% }
+			using = look_at_me_text_animation
 		}
-		
-		background = {
-			using = dark_area
-			alpha = 0.50
-		}
-		
 		block "kog_canon_law_icon_tooltip" {}
 	}
 	
