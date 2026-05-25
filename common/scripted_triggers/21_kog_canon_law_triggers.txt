@@ -1,0 +1,17 @@
+kog_canon_lawgroup_debate_trigger = {
+	custom_description = {
+		text = kog_canon_lawgroup_debate_trigger
+		hidden_trigger = {
+			flag:$flag$ = {
+				save_temporary_scope_as = kog_lawgroup_debate_trigger
+			}
+		}
+		scope:journal_entry = {
+			has_variable_map = kog_council_matters_map
+			is_key_in_variable_map = {
+				name = kog_council_matters_map
+				target = flag:$flag$
+			}
+		}
+	}
+}

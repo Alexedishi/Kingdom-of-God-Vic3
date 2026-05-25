@@ -3,14 +3,27 @@
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_apostolic_succession
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_apostolic_succession
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_apostolic_succession
+		}
 	}
 	
 	ai_chance = {

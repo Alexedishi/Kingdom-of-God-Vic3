@@ -1,50 +1,48 @@
 ﻿####---------- Ecumenical Council Effects ---------- ####
-kog_update_votes_effect = {
-	if = {
-		limit = {
-			kog_country_is_roman_catholic_trigger = yes
+kog_convoke_council_effect = { }
+
+kog_add_council_matter_effect = {
+	custom_tooltip = {
+		text = kog_add_council_matter_effect
+		flag:$flag$ = {
+			save_temporary_scope_as = kog_council_matter_scope
 		}
-		set_variable = {
-			name = kog_votes_var
-			value = kog_cardinal_college_value
+		if = {
+			limit = {
+				kog_country_is_roman_catholic_trigger = yes
+			}
+			global_var:je_kog_catholic = {
+				save_scope_as = kog_target_denomination_scope
+			}
 		}
-	}
-	if = {
-		limit = {
-			kog_country_is_eastern_orthodox_trigger = yes
+		else_if = {
+			limit = {
+				kog_country_is_eastern_orthodox_trigger = yes
+			}
+			global_var:je_kog_orthodox = {
+				save_scope_as = kog_target_denomination_scope
+			}
 		}
-		set_variable = {
-			name = kog_votes_var
-			value = kog_ecumenical_weight_value
-		}
-	}
-	if = {
-		limit = {
-			kog_country_is_oriental_orthodox_trigger = yes
-		}
-		set_variable = {
-			name = kog_votes_var
-			value = kog_synodal_influence_value
-		}
-	}
-	if = {
-		limit = {
-			kog_country_is_elysian_orthodox_trigger = yes
-		}
-		set_variable = {
-			name = kog_votes_var
-			value = kog_elysian_synkletos_value
-		}
-	}
-	else = {
-		set_variable = {
-			name = kog_votes_var
-			value = 0
+		scope:kog_target_denomination_scope ?= {
+			if = {
+				limit = {
+					NOT = {
+						is_key_in_variable_map = {
+							name = kog_council_matters_map
+							target = flag:$flag$
+						}
+					}
+				}
+				add_to_variable_map = {
+					name = kog_council_matters_map
+					value = flag:$flag$
+				}
+			}
 		}
 	}
 }
 
-kog_update_council_votes_effect = {
+kog_tally_council_votes_effect = {
 	# Set Timeout Variable
 	set_global_variable = {
 		name = kog_votes_timeout_var
