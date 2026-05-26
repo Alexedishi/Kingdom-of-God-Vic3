@@ -36,34 +36,27 @@ kog_gui_debate_almsgiving = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_almsgiving
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_almsgiving
+			}
+		}
 	}
 	effect = {
-	}
-	
-	ai_chance = {
-		value = 0
-	}
-}
-
-kog_gui_debate_almsgiving = {
-	name = "kog_gui_debate_almsgiving"
-	desc = "kog_gui_debate_canon_law_desc"
-	
-	visible = {
-		always = yes
-	}
-	selected = {
-	}
-	possible = {
-		always = yes
-	}
-	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_almsgiving
+		}
 	}
 	
 	ai_chance = {
@@ -76,14 +69,60 @@ kog_gui_debate_iconography = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_iconography
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_iconography
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_iconography
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_statism = {
+	name = "kog_gui_debate_statism"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_statism
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_statism
+			}
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_statism
+		}
 	}
 	
 	ai_chance = {
@@ -96,14 +135,27 @@ kog_gui_debate_nationalism = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_nationalism
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_nationalism
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_nationalism
+		}
 	}
 	
 	ai_chance = {
@@ -116,14 +168,27 @@ kog_gui_debate_clerical_marriage = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_clerical_marriage
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_clerical_marriage
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_clerical_marriage
+		}
 	}
 	
 	ai_chance = {
@@ -136,14 +201,27 @@ kog_gui_debate_social_role = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_social_role
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_social_role
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_social_role
+		}
 	}
 	
 	ai_chance = {
@@ -156,14 +234,27 @@ kog_gui_debate_stance_on_sciences = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_stance_on_sciences
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_stance_on_sciences
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_stance_on_sciences
+		}
 	}
 	
 	ai_chance = {
@@ -176,14 +267,27 @@ kog_gui_debate_crusades = {
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		always = yes
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = kog_canon_lawgroup_crusades
+		}
 	}
 	possible = {
-		always = yes
+		kog_has_ongoing_council_trigger = yes
+		NOT = {
+			kog_canon_lawgroup_debate_trigger = {
+				flag = kog_canon_lawgroup_crusades
+			}
+		}
 	}
 	effect = {
+		kog_add_council_matter_effect = {
+			flag = kog_canon_lawgroup_crusades
+		}
 	}
 	
 	ai_chance = {

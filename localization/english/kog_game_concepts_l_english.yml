@@ -6,16 +6,21 @@
  kog_autocephaly: "[concept_autocephaly]"
  kog_autocephalous: "[Concept('concept_autocephaly','$concept_autocephalous$')]"
  
- 
  concept_canon_law: "Canon Law"
- concept_canon_law_desc: "#bold Canon Law#! is a set of ordinances and regulations made by church leadership for the administration of a Christian organization or church and its members. These can take many forms ranging the central #italic Ius Canonicum#! of the [GetReligion('catholic').GetName] church to the localized ordinances of Congregationalist [GetReligion('protestant').GetName] churches."
+ concept_canon_law_desc: "#bold Canon Laws#! are the ordinances and regulations made by church leadership for the administration of a Christian organization and its members. These can take many forms ranging from the centralized #italic Ius Canonicum#! of the [GetReligion('catholic').GetName] Church to the localized ordinances of Congregationalist [GetReligion('protestant').GetName] churches."
+ concept_canon_laws: "Canon Laws"
+ kog_canon_law: "[concept_canon_law]"
+ kog_canon_laws: "[Concept('concept_canon_law','$concept_canon_laws$')]"
  
- concept_canon_law_group: ""
+ concept_canon_law_group: "Canon Law Group"
  concept_canon_law_group_desc: ""
+ kog_canon_law_group: "[concept_canon_law_group]"
  
  concept_communion: "Communion"
  concept_communion_desc: ""
  concept_in_communion: "In Communion"
+ kog_communion: "[concept_communion]"
+ kog_in_communion: "[Concept('concept_communion','$concept_in_communion$')]"
  
  concept_crusades: "Crusades"
  concept_crusades_desc: "The Crusades were a series of religiously-motivated wars initiated by Western European countries against non-Christians. While popularly conceptualized as centered on reclaiming the Holy Land from Muslim rulers, similar religious conflicts saw Christian expansion into Scandinavia, Eastern Europe, and Iberia. These wars were generally motivated by a desire for fame from nobles and a desire for indulgences by the commonfolk."
@@ -26,13 +31,19 @@
  concept_ecumenical_council: "Ecumenical Council"
  concept_ecumenical_council_desc: "#bold Ecumenical Councils#! are large gatherings of prominent bishops for the purpose of settling religious questions or disputes. First called by the Roman Emperors, these councils have become a cornerstone of making critical interpretations of or changes to church dogma. In modern Christianity, these are held to be the supreme legal authority in the church... provided their contents are accepted by the Christian community at large."
  concept_councils: "Ecumenical Councils"
+ kog_ecumenical_council: "[concept_ecumenical_council]"
+ kog_ecumenical_councils: "[Concept('concept_ecumenical_council','$concept_ecumenical_councils$')]"
+ kog_councils: "[Concept('concept_ecumenical_council','$concept_council$')]"
  
  concept_ecumenism: "Ecumenism"
  concept_ecumenism_desc: "Ecumenism is the belief and goal that all Christian communities, regardless of differences in creeds and doctrine should cooperate to bring together the various Christian denominations and reunite into a Great Church. While unthinkable in previous eras, this idea has begun to take hold as Traditionalist thought slowly gives way to more moderate thinking."
  concept_ecumenical_relations: "Ecumenical Relations"
+ kog_ecumenism: "[concept_ecumenism]"
+ kog_ecumenical_relations: "[Concept('concept_ecumenism','$concept_ecumenical_relations$')]"
  
  concept_encyclical: "Encyclical"
  concept_encyclical_desc: "An #bold Encyclical#! is a circular letter sent out from either the Pope or other senior Bishops typically concerning matters of doctrine or dispute, meant to provide both clarification and direction to both the clergy and laity."
+ kog_encyclical: "[concept_encyclical]"
  
  concept_faith_capacity: "Religious Eminence"
  concept_faith_capacity_desc: "#bold Religious Eminence#! represents the extent to which the [concept_government] exerts influence, and sometimes direct control, over the [GetInterestGroupVariant('ig_devout',GetPlayer).GetNameWithCountryVariant]. Generally, this value indicates a country’s ability to sway its local bishops, and our religious community at large, towards the will of the state."
@@ -40,26 +51,41 @@
  concept_faith_capacity_orthodox: "Patriarchal Eminence"
  concept_faith_capacity_oriental: "Synodal Eminence"
  concept_faith_capacity_elysian: "Synkletos Eminence"
- concept_faith_capacity_anglican: ""
- concept_faith_capacity_lutheran: ""
+ concept_faith_capacity_anglican: "Primate Eminence"
+ concept_faith_capacity_lutheran: "Confessional Eminence"
+ kog_faith_capacity: "[concept_faith_capacity]"
+ kog_faith_capacity_catholic: "[Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
+ kog_faith_capacity_orthodox: "[Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
+ kog_faith_capacity_oriental: "[Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
+ kog_faith_capacity_elysian: "[Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
+ kog_faith_capacity_anglican: "[Concept('concept_faith_capacity','$concept_faith_capacity_anglican$')]"
+ kog_faith_capacity_lutheran: "[Concept('concept_faith_capacity','$concept_faith_capacity_lutheran$')]"
  
  concept_great_schism: "The Great Schism"
  concept_great_schism_desc: "The #bold Great Schism#!, or East-West Schism, is a term used to describe the complex chain of events that led to the disintegration of communion between $kog_rome$ and the $kog_eastern_seats$. This division between the churches administered from Rome and those guided by Constantinople has led to deviations in liturgical and dogmatic traditions."
+ kog_great_schism: "[concept_great_schism]"
  
  concept_holy_site: "Holy Site"
  concept_holy_site_desc: "Holy Site"
+ kog_holy_site: "[concept_holy_site]"
  
  concept_liturgical_language: "Liturgical Language"
  concept_liturgical_language_desc: "A #bold Liturgical Language#! the language in which a church conducts its worship ceremonies. While priests will communicate with the faithful in their native language, worship services are often conducted in archaic forms of Latin or Greek."
+ kog_liturgical_language: "[concept_liturgical_language]"
  
  concept_liturgical_rite: "Liturgical Rite"
  concept_liturgical_rite_desc: "A #bold Liturgical Rite#! is a pattern for worship that provides structure for regular church services in a Christian communities. These take many forms from the centralized rituals prescribed by the [GetReligion('catholic').GetName] church to unique rituals localized to small communities."
  concept_liturgical_rites: "Liturgical Rite"
  concept_rite: "Rite"
  concept_rites: "Rite"
+ kog_liturgical_rite: "[concept_liturgical_rite]"
+ kog_liturgical_rites: "[Concept('concept_liturgical_rite','$concept_liturgical_rites$')]"
+ kog_rite: "[Concept('concept_liturgical_rite','$concept_rite$')]"
+ kog_rites: "[Concept('concept_liturgical_rite','$concept_rites$')]"
  
  concept_metropolitan_bishop: "Metropolitan Bishop"
  concept_metropolitan_bishop_desc: "Metropolitan Bishop"
+ kog_metropolitan_bishop: "[concept_metropolitan_bishop]"
  
  concept_episcopal_seat: "Episcopal Seat"
  concept_episcopal_seat_desc: "In late antiquity, the early Christian church was organized into five major regions, each centered on the ancient Roman cites of #yellow Rome#!, #yellow Constantinople#!, #yellow Antioch#!, #yellow Jerusalem#!, and #yellow Alexandria#!. Following the Great Schism, the latter four would go on to form the #bold Eastern Orthodoxy.\n\nWith the spread of Christianity to the lands of the Slavs in the middle ages, #yellow Moscow#! has come to be recognized as one of the most important cities in the East, alongside the ancient Patriarchates."
@@ -67,8 +93,18 @@
  concept_patriarchs: "Patriarchs"
  concept_patriarchate: "Patriarchate"
  concept_episcopal_seats: "Episcopal Seats"
+ kog_episcopal_seat: "[concept_episcopal_seat]"
+ kog_patriarch: "[Concept('concept_episcopal_seat','$concept_patriarch$')]"
+ kog_patriarchs: "[Concept('concept_episcopal_seat','$concept_patriarchs$')]"
+ kog_patriarchate: "[Concept('concept_episcopal_seat','$concept_patriarchate$')]"
+ kog_episcopal_seats: "[Concept('concept_episcopal_seat','$kog_episcopal_seats$')]"
  
  concept_schism: "Schism"
  concept_schism_desc: ""
  concept_schismatic: "Schismatic"
  concept_in_schism: "In Schism"
+ kog_schism: "[concept_schism]"
+ kog_schismatic: "[Concept('concept_schism','$concept_schismatic$')]"
+ kog_in_schism: "In [Concept('concept_schism','$concept_in_schism$')]"
+ 
+ # [Concept('','$$')]

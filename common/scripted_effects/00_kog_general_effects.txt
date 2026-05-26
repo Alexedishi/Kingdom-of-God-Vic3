@@ -1,0 +1,18 @@
+﻿kog_save_global_faith_journal_scope = {
+	if = {
+		limit = {
+			kog_country_is_roman_catholic_trigger = yes
+		}
+		global_var:je_kog_catholic = {
+			save_scope_as = kog_global_faith_journal_scope
+		}
+	}
+	else_if = {
+		limit = {
+			kog_country_is_eastern_orthodox_trigger = yes
+		}
+		global_var:je_kog_orthodox = {
+			save_scope_as = kog_global_faith_journal_scope
+		}
+	}
+}

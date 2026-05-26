@@ -4,26 +4,11 @@ kog_convoke_council_effect = { }
 kog_add_council_matter_effect = {
 	custom_tooltip = {
 		text = kog_add_council_matter_effect
-		flag:$flag$ = {
-			save_scope_as = kog_council_matter_scope
+		set_local_variable = {
+			name = kog_council_matter_var
+			value = flag:$flag$
 		}
-		if = {
-			limit = {
-				kog_country_is_roman_catholic_trigger = yes
-			}
-			global_var:je_kog_catholic = {
-				save_scope_as = kog_target_denomination_scope
-			}
-		}
-		else_if = {
-			limit = {
-				kog_country_is_eastern_orthodox_trigger = yes
-			}
-			global_var:je_kog_orthodox = {
-				save_scope_as = kog_target_denomination_scope
-			}
-		}
-		scope:kog_target_denomination_scope ?= {
+		scope:kog_global_faith_journal_scope ?= {
 			if = {
 				limit = {
 					NOT = {

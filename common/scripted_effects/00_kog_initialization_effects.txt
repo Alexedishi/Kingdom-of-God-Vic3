@@ -97,6 +97,10 @@ kog_initialize_catholic_variables_effect = {
 			value = flag:kog_canon_law_iconodulism
 		}
 		set_variable = {
+			name = kog_canon_law_statism_var
+			value = flag:kog_canon_law_gallicanism
+		}
+		set_variable = {
 			name = kog_canon_law_nationalism_var
 			value = flag:kog_canon_law_uranopolitism
 		}
@@ -156,6 +160,10 @@ kog_initialize_orthodox_variables_effect = {
 		set_variable = {
 			name = kog_canon_law_iconography_var
 			value = flag:kog_canon_law_iconodulism
+		}
+		set_variable = {
+			name = kog_canon_law_statism_var
+			value = flag:kog_canon_law_ultramontanism
 		}
 		set_variable = {
 			name = kog_canon_law_nationalism_var
@@ -247,6 +255,10 @@ kog_initialize_catholic_button_lists_effect = {
 	add_to_variable_list = {
 		name = kog_iconography_list
 		target = flag:kog_gui_debate_iconography
+	}
+	add_to_variable_list = {
+		name = kog_nationalism_list
+		target = flag:kog_gui_debate_statism
 	}
 	add_to_variable_list = {
 		name = kog_nationalism_list
