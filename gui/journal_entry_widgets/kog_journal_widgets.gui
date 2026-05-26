@@ -892,7 +892,7 @@ types kog_journal_widget_types {
 		# Church and Nation
 		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
-				texture = "gfx/interface/illustrations/canon_laws/iconography.dds"
+				texture = "gfx/interface/illustrations/canon_laws/church_and_nation.dds"
 			}
 			blockoverride "canon_law_group" {
 				text = "kog_canon_lawgroup_nationalism"
@@ -1145,7 +1145,7 @@ types kog_journal_widget_types {
 		
 		background = {
 			block "canon_law_background" {
-				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				texture = "gfx/interface/illustrations/canon_laws/placeholder.dds"
 			}
 			size = { 100% 100% }
 			fittype = centercrop
@@ -1304,9 +1304,9 @@ types kog_journal_widget_types {
 			parentanchor = center
 			block "kog_canon_law_icon_texture" {
 				texture = "gfx/interface/error_frog.dds"
+				using = look_at_me_text_animation
 			}
 			size = { 80% 80% }
-			using = look_at_me_text_animation
 		}
 		block "kog_canon_law_icon_tooltip" {}
 	}
