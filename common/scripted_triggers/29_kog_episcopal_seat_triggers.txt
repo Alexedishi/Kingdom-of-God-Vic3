@@ -1,4 +1,4 @@
-﻿####----------- Seat Intregation Triggers ----------####
+﻿####----------- Seat Integration Triggers ----------####
 kog_can_integrate_seat_trigger = {
 	kog_is_autocephalous_trigger = yes
 	kog_capacity_trigger = {
@@ -251,7 +251,98 @@ kog_integrating_seat_trigger = {
 	}
 }
 
-####----------- Individual Seat Control Triggers ----------####
+####----------- Seat Province Ownership Triggers ----------####
+kog_owns_rome_province_trigger = {
+	custom_tooltip = { 
+		text = kog_owns_rome_province_trigger
+		p:xB5726E.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_santiago_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_santiago_province_trigger
+		p:xD0E040.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_paris_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_paris_province_trigger
+		p:x71DA2E.state = {
+			owner ?= root
+		}
+	}
+}
+
+kog_owns_koln_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_koln_province_trigger
+		p:x8001E0.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_vienna_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_vienna_province_trigger
+		p:x316141.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_constantinople_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_constantinople_province_trigger
+		p:xF0A020.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_antioch_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_antioch_province_trigger
+		p:x186A43.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_jerusalem_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_jerusalem_province_trigger
+		p:xC9CBC0.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_alexandria_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_alexandria_province_trigger
+		p:xA0D020.state = {
+			owner ?= root
+		}
+	}
+}
+ 
+kog_owns_moscow_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_moscow_province_trigger
+		p:x13D91C.state = {
+			owner ?= root
+		}
+	}
+}
+
+####----------- Episcopal Seat Control Triggers ----------####
 # THESE TRIGGERS EVALUATE FROM THE COUNTRY SCOPE!
 kog_controls_rome_trigger = {
 	custom_description = {
@@ -716,6 +807,32 @@ kog_is_antagonizing_seat_trigger = {
 		#		has_modifier = modifier_kog_antagonizing_elysium
 		#		has_modifier = modifier_kog_antagonizing_mixtec
 		#		has_modifier = modifier_kog_antagonizing_cahokia
+	}
+}
+
+kog_seat_opinion_greater_than_trigger = {
+	custom_tooltip = {
+		text = kog_seat_opinion_greater_than_trigger
+		save_temporary_scope_value_as = {
+			name = kog_seat_opinion_trigger_value
+			value = $value$
+		}
+		je:je_kog_local = {
+			var:kog_$seat$_opinion_var >= $value$
+		}
+	}
+}
+
+kog_seat_opinion_less_than_trigger = {
+	custom_tooltip = {
+		text = kog_seat_opinion_greater_than_trigger
+		save_temporary_scope_value_as = {
+			name = kog_seat_opinion_trigger_value
+			value = $value$
+		}
+		je:je_kog_local = {
+			var:kog_$seat$_opinion_var < $value$
+		}
 	}
 }
 

@@ -79,6 +79,18 @@
  # //
  
  
+ ####----------- Seat Province Ownership Triggers ----------####
+ kog_owns_rome_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_LAZIO').GetCityHubName] in [GetStateRegion('STATE_LAZIO').GetName]"
+ kog_owns_santiago_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_GALICIA').GetCityHubName] in [GetStateRegion('STATE_GALICIA').GetName]"
+ kog_owns_paris_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_ILE_DE_FRANCE').GetCityHubName] in [GetStateRegion('STATE_ILE_DE_FRANCE').GetName]"
+ kog_owns_koln_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_NORTH_RHINE').GetCityHubName] in [GetStateRegion('STATE_NORTH_RHINE').GetName]"
+ kog_owns_vienna_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_AUSTRIA').GetCityHubName] in [GetStateRegion('STATE_AUSTRIA').GetName]"
+ kog_owns_constantinople_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_EASTERN_THRACE').GetCityHubName] in [GetStateRegion('STATE_EASTERN_THRACE').GetName]"
+ kog_owns_antioch_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_SYRIA').GetCityHubName] in [GetStateRegion('STATE_SYRIA').GetName]"
+ kog_owns_jerusalem_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_PALESTINE').GetCityHubName] in [GetStateRegion('STATE_PALESTINE').GetName]"
+ kog_owns_alexandria_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_LOWER_EGYPT').GetCityHubName] in [GetStateRegion('STATE_LOWER_EGYPT').GetName]"
+ kog_owns_moscow_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_MOSCOW').GetCityHubName] in [GetStateRegion('STATE_MOSCOW').GetName]"
+ 
  ####---------- Episcopal Seat Control Triggers  ----------####
  kog_controls_rome_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_rome$"
  kog_controls_santiago_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_santiago$"
@@ -227,6 +239,9 @@
  
  
  ####---------- Episcopal Seat Relations Triggers  ----------####
+ kog_seat_opinion_greater_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! #bold or greater#! with this [concept_episcopal_seat]"
+ kog_seat_opinion_less_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold less than#! #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! with this [concept_episcopal_seat]
+ 
  kog_has_rome_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #green 75#! or greater#!"
  kog_has_santiago_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_santiago$ of #bold #green 75#! or greater#!"
  kog_has_paris_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_paris$ of #bold #green 75#! or greater#!"
