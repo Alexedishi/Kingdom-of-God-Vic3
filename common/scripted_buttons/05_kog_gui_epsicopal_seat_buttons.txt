@@ -120,12 +120,14 @@ kog_gui_enforce_rome = {
 		}
 	}
 	possible = {
-		custom_tooltip = { 
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_rome|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = rome
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = rome
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -288,12 +290,14 @@ kog_gui_enforce_santiago = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_santiago|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = santiago
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = santiago
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -456,12 +460,14 @@ kog_gui_enforce_paris = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_paris|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = paris
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = paris
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -624,12 +630,14 @@ kog_gui_enforce_koln = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_koln|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = koln
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = koln
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -792,12 +800,14 @@ kog_gui_enforce_vienna = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_vienna|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = vienna
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = vienna
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -962,12 +972,14 @@ kog_gui_enforce_constantinople = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_constantinople|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = constantinople
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = constantinople
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -1130,12 +1142,14 @@ kog_gui_enforce_antioch = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_antioch|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = antioch
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = antioch
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -1298,12 +1312,14 @@ kog_gui_enforce_jerusalem = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_jerusalem|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = jerusalem
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = jerusalem
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -1467,12 +1483,14 @@ kog_gui_enforce_alexandria = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_alexandria|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = alexandria
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = alexandria
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {
@@ -1635,12 +1653,14 @@ kog_gui_enforce_moscow = {
 		}
 	}
 	possible = {
-		custom_tooltip = {
-			text = kog_gui_enforce_seat_possible
-			je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = moscow
+			}
 		}
 		kog_seat_opinion_greater_than_trigger = {
-			value = 50
+			seat = moscow
+			value = kog_opinion_threshold_friendly
 		}
 		authority >= 50
 		kog_capacity_trigger = {

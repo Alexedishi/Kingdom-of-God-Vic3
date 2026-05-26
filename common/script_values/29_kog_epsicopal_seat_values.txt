@@ -1,4 +1,384 @@
-﻿kog_seat_integration_value = {
+﻿####---------- Episcopal Seat Static Values ----------####
+kog_opinion_max_value = 100
+kog_opinion_min_value = -100
+kog_opinion_start_value = 0
+kog_opinion_threshold_friendly = 80
+kog_opinion_threshold_amicable = 50
+kog_opinion_threshold_cordial = 20
+kog_opinion_threshold_poor = -20
+kog_opinion_threshold_cold = -50
+kog_opinion_threshold_hostile = -80
+
+####---------- Episcopal Seat Relations Values ----------####
+kog_seat_relations_decay_target_value = {
+	value = 0
+	add = modifier:country_seat_relations_base_add
+}
+
+kog_rome_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = { 
+			has_modifier = modifier_kog_swaying_rome
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = { 
+		limit = { 
+			has_modifier = modifier_kog_antagonizing_rome
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = { 
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_rome_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_rome_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_santiago_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_santiago
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_santiago
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_santiago_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_santiago_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_paris_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_paris
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_paris
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_paris_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_paris_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_koln_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_koln
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_koln
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_koln_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_koln_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_vienna_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_vienna
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_vienna
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_vienna_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_vienna_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_constantinople_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_constantinople
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_constantinople
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_constantinople_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_constantinople_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_antioch_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_antioch
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_antioch
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_antioch_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_antioch_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_jerusalem_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_jerusalem
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_jerusalem
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_jerusalem_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_jerusalem_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_alexandria_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_alexandria
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_alexandria
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_alexandria_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_alexandria_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+kog_moscow_monthly_relations_change_value = {
+	value = 0
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_moscow
+		}
+		add = modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			has_modifier = modifier_kog_antagonizing_moscow
+		}
+		subtract = modifier:country_monthly_seat_relations_progress_add
+	}
+	else = {
+		if = {
+			limit = {
+				je:je_kog_local.var:kog_moscow_relations_var > kog_seat_relations_decay_target_value
+			}
+			subtract = modifier:country_monthly_seat_relations_decay_add
+		}
+		else_if = {
+			limit = {
+				je:je_kog_local.var:kog_moscow_relations_var < kog_seat_relations_decay_target_value
+			}
+			add = modifier:country_monthly_seat_relations_decay_add
+		}
+	}
+	multiply = {
+		value = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	round_to = 0.01
+}
+
+
+####---------- Old Script Values ----------####
+kog_seat_integration_value = {
 	if = {
 		limit = {
 			has_modifier = modifier_kog_integrating_rome
