@@ -839,6 +839,56 @@ types kog_journal_widget_types {
 			}
 		}
 		
+		# Church and State
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/church_and_state.dds"
+			}
+			blockoverride "canon_law_group" {
+				text = "law_canon_lawgroup_statism"
+			}
+			blockoverride "canon_law_flag" {
+				text = "kog_gui_canon_law_statism"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_statism_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_hierocracy.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ultramontanism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_gallicanism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_caesaropapism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+				}
+			}
+		}
+		
 		# Church and Nation
 		kog_canon_lawgroup_entry = {
 			blockoverride "canon_law_background" {
@@ -1048,23 +1098,7 @@ types kog_journal_widget_types {
 			blockoverride "canon_law_button_content" {
 				kog_canon_law_type_entry = {
 					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
 						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_crusades.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_pagan_crusades.dds"
 					}
 					blockoverride "kog_canon_law_icon_tooltip" {
 						tooltip = "kog_placeholder_text"

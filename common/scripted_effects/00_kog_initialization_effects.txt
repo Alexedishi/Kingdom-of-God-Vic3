@@ -257,7 +257,7 @@ kog_initialize_catholic_button_lists_effect = {
 		target = flag:kog_gui_debate_iconography
 	}
 	add_to_variable_list = {
-		name = kog_nationalism_list
+		name = kog_statism_list
 		target = flag:kog_gui_debate_statism
 	}
 	add_to_variable_list = {
@@ -1556,7 +1556,7 @@ kog_initialize_variable_lists_effect = {
 
 kog_initialize_metropolis_effect = {
 	# Step 1: Activate Local Journal
-	add_journal_entry = { 
+	add_journal_entry = {
 		type = je_kog_local
 	}
 	set_variable = {
@@ -1825,6 +1825,9 @@ kog_initialize_metropolis_effect = {
 			}
 		}
 	}
+	
+	# Step 5, Set Up Canon Law Modifiers
+	kog_update_canon_law_modifiers_effect = yes
 }
 
 kog_specific_country_setups_effect = {
