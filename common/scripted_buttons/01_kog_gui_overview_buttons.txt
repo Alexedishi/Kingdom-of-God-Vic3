@@ -4,14 +4,37 @@ kog_gui_venerate_apparition = {
 	desc = "kog_gui_venerate_apparation_desc"
 	
 	visible = {
-		always = yes
+		kog_country_is_roman_catholic_trigger = yes
 	}
 	selected = {
+		kog_has_veneration_trigger = yes
 	}
 	possible = {
-		always = yes
+		has_technology_researched = romanticism
+		trigger_if = {
+			limit = {
+				kog_has_veneration_trigger = no
+			}
+			
+			kog_capacity_trigger = {
+				value = 200
+			}
+		}
+		custom_tooltip = {
+			text = kog_is_selecting_apparition_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = kog_selecting_omen_var
+				}
+			}
+		}
 	}
 	effect = {
+		custom_tooltip = kog_placeholder_text #TODO add re-factored event
+		set_variable = {
+			name = kog_selecting_omen_var
+			months = 3
+		}
 	}
 	
 	ai_chance = {
@@ -25,12 +48,37 @@ kog_gui_commission_icon = {
 	desc = "kog_gui_commission_icon_desc"
 	
 	visible = {
+		kog_country_is_eastern_orthodox_trigger = yes
 	}
 	selected = {
+		kog_has_icon_trigger = yes
 	}
 	possible = {
+		has_technology_researched = romanticism
+		trigger_if = {
+			limit = {
+				kog_has_icon_trigger = no
+			}
+			
+			kog_capacity_trigger = {
+				value = 200
+			}
+		}
+		custom_tooltip = {
+			text = kog_is_selecting_icon_NOT
+			hidden_trigger = {
+				NOT = {
+					has_variable = kog_selecting_omen_var
+				}
+			}
+		}
 	}
 	effect = {
+		custom_tooltip = kog_placeholder_text #TODO add re-factored event
+		set_variable = {
+			name = kog_selecting_omen_var
+			months = 3
+		}
 	}
 	
 	ai_chance = {
@@ -43,12 +91,30 @@ kog_gui_emphasize_unity = {
 	desc = "kog_gui_emphasize_unity_desc"
 	
 	visible = {
+		always = yes
 	}
 	selected = {
+		has_modifier = modifier_kog_emphasize_unity
 	}
 	possible = {
+		NOR = {
+			has_modifier = modifier_kog_emphasize_unity
+			custom_tooltip = {
+				text = kog_focus_timeout_NOT
+				has_variable = kog_focus_timeout_var
+			}
+		}
 	}
 	effect = {
+		kog_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_kog_emphasize_unity
+		custom_tooltip = {
+			text = kog_focus_timeout_GET
+			set_variable = {
+				name = kog_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 	
 	ai_chance = {
@@ -61,12 +127,30 @@ kog_gui_enforce_attendance = {
 	desc = "kog_gui_enforce_attendance_desc"
 	
 	visible = {
+		always = yes
 	}
 	selected = {
+		has_modifier = modifier_kog_enforce_attendance
 	}
 	possible = {
+		NOR	= {
+			has_modifier = modifier_kog_enforce_attendance
+			custom_tooltip = {
+				text = kog_focus_timeout_NOT
+				has_variable = kog_focus_timeout_var
+			}
+		}
 	}
 	effect = {
+		kog_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_kog_enforce_attendance
+		custom_tooltip = {
+			text = kog_focus_timeout_GET
+			set_variable = {
+				name = kog_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 	
 	ai_chance = {
@@ -79,12 +163,30 @@ kog_gui_theologize_dogma = {
 	desc = "kog_gui_theologize_dogma_desc"
 	
 	visible = {
+		always = yes
 	}
 	selected = {
+		has_modifier = modifier_kog_theologize_dogma
 	}
 	possible = {
+		NOR = {
+			has_modifier = modifier_kog_theologize_dogma
+			custom_tooltip = {
+				text = kog_focus_timeout_NOT
+				has_variable = kog_focus_timeout_var
+			}
+		}
 	}
 	effect = {
+		kog_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_kog_theologize_dogma
+		custom_tooltip = {
+			text = kog_focus_timeout_GET
+			set_variable = {
+				name = kog_focus_timeout_var
+				years = 5
+			}
+		}
 	}
 	
 	ai_chance = {
@@ -97,13 +199,32 @@ kog_gui_promote_ecumenism = {
 	desc = "kog_gui_promote_ecumenism_desc"
 	
 	visible = {
+		always = yes
 	}
 	selected = {
+		has_modifier = modifier_kog_promote_ecumenism
 	}
 	possible = {
+		NOR = {
+			has_modifier = modifier_kog_promote_ecumenism
+			custom_tooltip = {
+				text = kog_focus_timeout_NOT
+				has_variable = kog_focus_timeout_var
+			}
+		}
 	}
 	effect = {
+		kog_remove_focus_modifiers_effect = yes
+		add_modifier = modifier_kog_promote_ecumenism
+		custom_tooltip = {
+			text = kog_focus_timeout_GET
+			set_variable = {
+				name = kog_focus_timeout_var
+				years = 5
+			}
+		}
 	}
+	
 	
 	ai_chance = {
 		value = 0
@@ -115,12 +236,23 @@ kog_gui_dissolve_monasteries = {
 	desc = "kog_gui_dissolve_monasteries_desc"
 	
 	visible = {
-	}
-	selected = {
+		NOR = {
+			has_variable = kog_dissolved_monasteries
+		}
 	}
 	possible = {
+		ig:ig_devout = {
+			is_powerful = no
+			is_in_government = no
+		}
+		NOT = {
+			has_law = law_type:law_theocracy
+		}
 	}
 	effect = {
+		#TODO Add re-factored event
+		# add_modifier = modifier_kog_dissolved_monasteries
+		set_variable = kog_dissolved_monasteries
 	}
 	
 	ai_chance = {
@@ -133,12 +265,60 @@ kog_gui_reform_synod = {
 	desc = "kog_gui_reform_synod_desc"
 	
 	visible = {
-	}
-	selected = {
+		NOT = {
+			has_modifier = modifier_kog_reformed_synod
+		}
 	}
 	possible = {
+		has_technology_researched = tech_bureaucracy
+		ig:ig_devout = {
+			is_in_government = no
+			ig_approval > 0
+		}
+		NOR = {
+			has_modifier = modifier_kog_reformed_synod
+			has_modifier = modifier_kog_restored_synod
+			has_modifier = modifier_kog_clung_to_tradition
+		}
 	}
 	effect = {
+		add_modifier = modifier_kog_reformed_synod
+		add_radicals = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_restore_synod = {
+	name = "kog_gui_restore_synod"
+	desc = "kog_gui_restore_synod_desc"
+	
+	visible = {
+		has_modifier = modifier_kog_reformed_synod
+	}
+	possible = {
+		has_modifier = modifier_kog_reformed_synod
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		remove_modifier = modifier_kog_reformed_synod
+		add_modifier = {
+			name = modifier_kog_restored_synod
+			months = long_modifier_time
+			is_decaying = yes
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+		remove_variable = kog_caesaropapism_questioned
 	}
 	
 	ai_chance = {
@@ -151,12 +331,44 @@ kog_gui_grant_subsidies = {
 	desc = "kog_gui_grant_subsidies_desc"
 	
 	visible = {
-	}
-	selected = {
+		NOT = {
+			has_modifier = modifier_kog_subsidizing_church
+		}
 	}
 	possible = {
+		NOT = {
+			has_modifier = modifier_kog_subsidizing_church
+		}
 	}
 	effect = {
+		add_modifier = modifier_kog_subsidizing_church
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_end_subsidies = {
+	name = "kog_gui_end_subsidies"
+	desc = "kog_gui_end_subsidies_desc"
+	
+	visible = {
+		has_modifier = modifier_kog_subsidizing_church
+	}
+	possible = {
+		ig:ig_devout = {
+			NOR = {
+				is_powerful = yes
+				is_in_government = yes
+			}
+		}
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		remove_modifier = modifier_kog_subsidizing_church
 	}
 	
 	ai_chance = {
@@ -169,12 +381,50 @@ kog_gui_establish_schools = {
 	desc = "kog_gui_establish_schools_desc"
 	
 	visible = {
+		has_institution = institution_schools
 	}
 	selected = {
+		has_modifier = modifier_kog_sunday_schools
 	}
 	possible = {
+		trigger_if = {
+			limit = {
+				has_modifier = modifier_kog_sunday_schools
+			}
+			NOT = {
+				has_law = law_type:law_state_religion
+			}
+			ig:ig_devout = {
+				is_in_government = no
+			}
+		}
+		trigger_else = {
+			NOR = {
+				has_law = law_type:law_total_separation
+				has_law = law_type:law_state_atheism
+			}
+		}
+		custom_tooltip = {
+			text = kog_placeholder_text
+			NOT = {
+				has_variable = kog_sunday_schools_cooldown_var
+			}
+		}
 	}
 	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_sunday_schools
+			}
+			remove_modifier = modifier_kog_sunday_schools
+			add_modifier = {
+				name = modifier_kog_disbanded_sunday_schools
+				months = long_modifier_time
+			}
+		}
+		else = {
+			add_modifier = modifier_kog_sunday_schools
+		}
 	}
 	
 	ai_chance = {
@@ -188,14 +438,58 @@ kog_gui_declare_autocephaly = {
 	desc = "kog_gui_declare_autocephaly_desc"
 	
 	visible = {
-		always = yes
+		kog_is_schismatic_trigger = no
+		kog_is_autocephalous_trigger = no
 	}
 	selected = {
+		kog_is_schismatic_trigger = yes
 	}
 	possible = {
-		always = yes
+		is_subject = no
+		kog_capacity_trigger = {
+			value = 500
+		}
+		NOR = {
+			has_law = law_type:law_theocracy
+			has_modifier = modifier_kog_autocephaly_abandoned
+		}
+		trigger_if = {
+			limit = {
+				kog_country_is_roman_catholic_trigger = yes
+			}
+			always = no
+		}
+		trigger_else_if = {
+			limit = {
+				kog_country_is_eastern_orthodox_trigger = yes
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:MOL ?= this
+						c:WAL ?= this
+					}
+				}
+				custom_tooltip = {
+					text = kog_romania_united
+					hidden_trigger = {
+						c:ROM ?= this
+					}
+				}
+			}
+		}
 	}
 	effect = {
+		add_modifier = {
+			name = modifier_kog_schismatic
+			months = 120
+		}
+		je:je_kog_local = {
+			set_variable = {
+				name = kog_schism_var
+				value = 0
+			}
+		}
 	}
 	
 	ai_chance = {
@@ -211,11 +505,25 @@ kog_gui_convoke_council = {
 		always = yes
 	}
 	selected = {
+		kog_has_ongoing_council_trigger = yes
 	}
 	possible = {
-		always = yes
+		kog_is_autocephalous_trigger = yes
+		kog_has_ongoing_council_trigger = no
+		kog_capacity_trigger = {
+			value = 1000
+		}
+		kog_controls_any_seat_trigger = yes
+		is_subject = no
 	}
 	effect = {
+		#TODO Add re-factored event
+		add_modifier = modifier_kog_hosting_council
+		global_var:je_kog_catholic = {
+			set_variable = {
+				name = kog_council_var
+			}
+		}
 	}
 	
 	ai_chance = {
@@ -228,14 +536,29 @@ kog_gui_secure_tetrarchy = {
 	desc = "kog_gui_secure_tetrarchy_desc"
 	
 	visible = {
-		always = yes
-	}
-	selected = {
+		kog_country_is_eastern_christian_trigger = yes
+		NOR = {
+			has_global_variable = kog_tetrarchy_secured_var
+			has_global_variable = kog_schism_mended_var
+		}
 	}
 	possible = {
-		always = yes
+		kog_controls_seat_trigger = {
+			seat = constantinople
+		}
+		kog_controls_seat_trigger = {
+			seat = antioch
+		}
+		kog_controls_seat_trigger = {
+			seat = jerusalem
+		}
+		kog_controls_seat_trigger = {
+			seat = alexandria
+		}
 	}
 	effect = {
+		#TODO Add re-factored event
+		set_global_variable = kog_tetrarchy_secured_var
 	}
 	
 	ai_chance = {
@@ -248,14 +571,38 @@ kog_gui_secure_pentarchy = {
 	desc = "kog_gui_secure_pentarchy_desc"
 	
 	visible = {
-		always = yes
-	}
-	selected = {
+		NOR = {
+			has_global_variable = kog_pentarchy_secured_var
+			has_global_variable = kog_schism_mended_var
+		}
+		trigger_if = {
+			limit = {
+				kog_country_is_eastern_christian_trigger = yes
+			}
+			has_global_variable = kog_tetrarchy_secured_var
+		}
+		
 	}
 	possible = {
-		always = yes
+		kog_controls_seat_trigger = {
+			seat = rome
+		}
+		kog_controls_seat_trigger = {
+			seat = constantinople
+		}
+		kog_controls_seat_trigger = {
+			seat = antioch
+		}
+		kog_controls_seat_trigger = {
+			seat = jerusalem
+		}
+		kog_controls_seat_trigger = {
+			seat = alexandria
+		}
 	}
 	effect = {
+		#TODO Add re-factored event
+		set_global_variable = kog_pentarchy_secured_var
 	}
 	
 	ai_chance = {
@@ -268,14 +615,39 @@ kog_gui_mend_schism = {
 	desc = "kog_gui_mend_schism_desc"
 	
 	visible = {
-		always = yes
+		has_global_variable = kog_pentarchy_secured_var
+		NOT = {
+			has_global_variable = kog_schism_mended_var
+		}
 	}
 	selected = {
+		has_global_variable = kog_mending_var
 	}
 	possible = {
-		always = yes
+		kog_controls_and_owns_pentarchy_trigger = yes
 	}
 	effect = {
+		set_global_variable = {
+			name = kog_mending_var
+			value = 0
+		}
+#		trigger_event = {
+#			id = kog_general.100 # The Council of Unification
+#		}
+		add_modifier = modifier_kog_mending_schism
+		hidden_effect = {
+			every_country = {
+				limit = {
+					kog_content_scope_trigger = yes
+					NOT = {
+						has_modifier = modifier_kog_mending_schism
+					}
+				}
+#				trigger_event = {
+#					id = kog_general.101 # Mending the Great Schism
+#				}
+			}
+		}
 	}
 	
 	ai_chance = {

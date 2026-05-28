@@ -193,6 +193,15 @@ types kog_journal_widget_types {
 				entity_instance = vfx_entity_ui_powerbloc_rank_02_rulers
 			}
 		}
+		state = {
+			name = _show
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+			start_sound = {
+				soundeffect = "event:/SFX/kog_bell_ring"
+			}
+		}
 	}
 	
 	type kog_catholic_denominational_tabs = flowcontainer {
@@ -845,7 +854,7 @@ types kog_journal_widget_types {
 				texture = "gfx/interface/illustrations/canon_laws/church_and_state.dds"
 			}
 			blockoverride "canon_law_group" {
-				text = "law_canon_lawgroup_statism"
+				text = "kog_canon_lawgroup_statism"
 			}
 			blockoverride "canon_law_flag" {
 				text = "kog_gui_canon_law_statism"
