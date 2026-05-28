@@ -737,7 +737,7 @@ types kog_journal_widget_types {
 						tooltip = "kog_placeholder_text"
 					}
 					blockoverride "canon_law_active_glow" {
-						#visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
+						visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
 					}
 				}
 				kog_canon_law_type_entry = {
@@ -748,7 +748,7 @@ types kog_journal_widget_types {
 						tooltip = "kog_placeholder_text"
 					}
 					blockoverride "canon_law_active_glow" {
-						#visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End )]"
+						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End )]"
 					}
 				}
 				kog_canon_law_type_entry = {
@@ -759,7 +759,7 @@ types kog_journal_widget_types {
 						tooltip = "kog_placeholder_text"
 					}
 					blockoverride "canon_law_active_glow" {
-						#visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+						visible = "[GetScriptedGui('kog_canon_law_congregationalism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
 					}
 				}
 			}
@@ -1281,7 +1281,7 @@ types kog_journal_widget_types {
 	
 	type kog_canon_law_debate_button = button {
 		parentanchor = center
-		size = { 160 35 }
+		size = { 184 35 }
 		position = { 0 -5 }
 		
 		using = default_button_action
