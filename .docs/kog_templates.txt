@@ -58,6 +58,40 @@ kog_initialize_tempkey_variable_map_effect = {
 	}
 }
 
+####---------- Episcopal Seat of Template ----------####
+# General Localization
+kog_temp: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_temp_details $kog_temp_name$#!#!"
+kog_temp_name: ""
+kog_temp_header: ""
+kog_temp_building: "The [GetBuildingType('kog_building_patriarchate_temp').GetName]"
+kog_temp_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+kog_temp_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+kog_temp_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+kog_temp_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+kog_temp_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+kog_temp_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_temp_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_temp_opinion_value')|+=]#"
+kog_temp_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_temp_opinion_value')]"
+kog_temp_modifier: "#bold Holding and $kog_controlling$ $kog_temp_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_rome').GetDesc]"
+# Informational Tooltips
+kog_temp_details: "@kog_seat! #header$kog_temp_building$#!$kog_linebreak$•#italic$kog_temp_location$#!\n•#white$kog_temp_patriarch$#!\n•#bold$kog_temp_controller$#!\n•#bold$kog_temp_opinion$#!"
+kog_temp_details_with_modifier: "$kog_temp_details$$kog_linebreak$$kog_temp_modifier$"
+# Journal Widget Localization
+kog_gui_seat_name_temp: "[GetVariableFromGlobalVariableMap('kog_temp',MakeScopeFlag('kog_seat_building')).GetFlagName]"
+kog_gui_seat_controller_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+kog_gui_seat_patriarch_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+kog_gui_seat_location_value_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+kog_gui_liturgical_language_value_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+kog_gui_liturgical_rite_value_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+kog_gui_opinion_value_temp: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_temp_opinion_var').GetValue]"
+# Scripted Buttons
+kog_gui_sway_temp: "Sway $kog_temp$"
+kog_gui_antagonize_temp: "Antagonize $kog_temp$"
+kog_gui_integrate_temp: "Integrate $kog_temp$"
+kog_gui_integrate_temp_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_temp$"
+kog_gui_enforce_temp: "Enforce Rite on $kog_temp$"
+kog_gui_enforce_temp_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_temp$"
+kog_gui_install_temp: "Install Bishop in $kog_temp$"
+
 ####---------- Seat Patriarch Update Effect ----------####
 kog_update_tempkey_patriatch_effect = {
 	# Step 1, Ensure the relevant variable map exists
