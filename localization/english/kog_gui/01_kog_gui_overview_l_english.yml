@@ -1,19 +1,4 @@
 ﻿l_english:
- # Metropolitan Portrait & Details
- kog_gui_national_church_name: "The [GetPlayer.GetStateReligion.GetNameNoFormatting] Church of [GetPlayer.GetNameNoFlag]"
- kog_gui_metropolis_header: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
- kog_gui_metropolitan: "Metropolitan: [GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader.GetFullNameWithTitle]"
- kog_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('kog_gui_religious_law_tooltip')] Religious Law#!#!"
- kog_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_almsgiving').GetDesc]"
- kog_gui_national_piety: "$kog_national_piety$"
- kog_gui_national_piety_amount: "@kog_piety_dutiful!"
- kog_gui_national_piety_breakdown: "TODO"
- 
- # Capacity Value & Communion Status
- kog_gui_communion_status: "[GetPlayer.GetCustom('kog_communion_type')]"
- kog_gui_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has #khoine #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!#! $kog_faith_capacity$#!"
- kog_gui_capacity_breakdown: "$kog_faith_capacity$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_capacity_value')]"
- 
  # Community Panel
  kog_community_header: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Community"
  kog_community_members_in_communion: "Members #o In Communion#!"

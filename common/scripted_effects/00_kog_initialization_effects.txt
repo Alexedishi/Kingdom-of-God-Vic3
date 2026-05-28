@@ -203,24 +203,6 @@ kog_initialize_elysian_variables_effect = {
 }
 
 kog_initialize_catholic_button_lists_effect = {
-	## Metropolitan Action List
-#	add_to_variable_list = {
-#		name = kog_metropolitan_actions_list
-#		target = flag:
-#	}
-	
-	## Omen Action List
-	add_to_variable_list = {
-		name = kog_omen_actions_list
-		target = flag:kog_gui_venerate_apparition
-	}
-	
-	## Denominational Decision List
-#	add_to_variable_list = {
-#		name = kog_denomination_decision_list
-#		target = flag:
-#	}
-	
 	## Ecumenical Decision List
 	add_to_variable_list = {
 		name = kog_ecumenical_decisions_list
@@ -242,6 +224,36 @@ kog_initialize_catholic_button_lists_effect = {
 		name = kog_ecumenical_decisions_list
 		target = flag:kog_gui_mend_schism
 	}
+	
+	## Omen Action List
+	add_to_variable_list = {
+		name = kog_omen_actions_list
+		target = flag:kog_gui_venerate_apparition
+	}
+	
+	## Metropolitan Action List
+	add_to_variable_list = {
+		name = kog_metropolitan_decisions_list
+		target = flag:kog_gui_emphasize_unity
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_decisions_list
+		target = flag:kog_gui_enforce_attendance
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_decisions_list
+		target = flag:kog_gui_theologize_dogma
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_decisions_list
+		target = flag:kog_gui_promote_ecumenism
+	}
+	
+	## Denominational Decision List
+#	add_to_variable_list = {
+#		name = kog_denomination_decision_list
+#		target = flag:
+#	}
 	
 	## Canon Law Lists
 	add_to_variable_list = {
@@ -393,6 +405,28 @@ kog_initialize_catholic_button_lists_effect = {
 }
 
 kog_initialize_orthodox_button_lists_effect = {
+	## Ecumenical Decision List
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_declare_autocephaly
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_convoke_council
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_tetrarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_pentarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_mend_schism
+	}
+	
 	## Omen Action List
 	add_to_variable_list = {
 		name = kog_omen_actions_list
@@ -401,19 +435,19 @@ kog_initialize_orthodox_button_lists_effect = {
 	
 	## Metropolitan Action List
 	add_to_variable_list = {
-		name = kog_metropolitan_actions_list
+		name = kog_metropolitan_decisions_list
 		target = flag:kog_gui_emphasize_unity
 	}
 	add_to_variable_list = {
-		name = kog_metropolitan_actions_list
+		name = kog_metropolitan_decisions_list
 		target = flag:kog_gui_enforce_attendance
 	}
 	add_to_variable_list = {
-		name = kog_metropolitan_actions_list
+		name = kog_metropolitan_decisions_list
 		target = flag:kog_gui_theologize_dogma
 	}
 	add_to_variable_list = {
-		name = kog_metropolitan_actions_list
+		name = kog_metropolitan_decisions_list
 		target = flag:kog_gui_promote_ecumenism
 	}
 	

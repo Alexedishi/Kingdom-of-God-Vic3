@@ -515,12 +515,12 @@ types kog_journal_widget_types {
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
 		com_international_organization_modifiers = { }
-		kog_metropolis_panel = { }
-		kog_main_button_container = { }
+		kog_denominational_actions_container = { }
 		kog_membership_panel = { }
+		kog_holy_sites_panel = { }
 	}
 	
-	type kog_main_button_container = flowcontainer {
+	type kog_denominational_actions_container = flowcontainer {
 		direction = vertical
 		parentanchor = top|hcenter
 		ignoreinvisible = yes
@@ -555,57 +555,6 @@ types kog_journal_widget_types {
 						com_international_organization_scripted_button = { }
 					}
 				}
-			}
-		}
-	}
-	
-	type kog_metropolis_panel = flowcontainer {
-		direction = vertical
-		parentanchor = top|hcenter
-		minimumsize = { 540 -1 }
-		using = entry_bg_fancy
-		
-		default_header_clean_faded = {
-			parentanchor = top|hcenter
-			blockoverride "text" {
-				text = "kog_gui_metropolis_header"
-			}
-			blockoverride "size" {
-				size = { 532 45 }
-			}
-		}
-		
-		flowcontainer = {
-			direction = vertical
-			parentanchor = top|hcenter
-			minimumsize = { 520 100 }
-			spacing = 5
-			
-			textbox = {
-				parentanchor = top|hcenter
-				autoresize = yes
-				text = "kog_gui_national_piety"
-				align = center|nobaseline
-				elide = right
-				using = fontsize_large
-			}
-			default_progressbar_horizontal = {
-				parentanchor = top|hcenter
-				size = { 250 24 }
-				blockoverride "values" {
-					min = 0
-					max = 1000
-					value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_capacity_value'))]"
-				}
-				textbox = {
-					parentanchor = center
-					autoresize = yes
-					text = "kog_gui_national_piety_amount"
-					align = center|nobaseline
-					elide = right
-					using = fontsize_medium
-				}
-				tooltip = "kog_gui_national_piety_breakdown"
 			}
 		}
 	}
@@ -703,6 +652,428 @@ types kog_journal_widget_types {
 				align = center|nobaseline
 				elide = right
 				using = fontsize_large
+			}
+		}
+	}
+	
+	type kog_holy_sites_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		# Rome
+		kog_holy_site_item = {
+			blockoverride "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
+			}
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_rome.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_rome_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Santiago
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_santiago.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_santiago_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Paris
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_paris.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_paris_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Koln
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_koln.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_koln_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Vienna
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/generic_icons/kog_holy_site_vienna.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_vienna_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+	}
+	
+	type kog_holy_site_item = widget {
+		size = { 520 120 }
+		parentanchor = top|hcenter
+		
+		using = entry_bg_fancy
+		
+		background = {
+			block "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/ck3_temple_generic_grass.dds"
+			}
+			fittype = centercrop
+			using = frame_small_mask
+			alpha = 0.75
+		}
+		icon = {
+			using = dark_area
+			parentanchor = top|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		icon = {
+			using = dark_area
+			parentanchor = bottom|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 -4 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		
+		flowcontainer = {
+			direction = horizontal
+			minimumsize = { 520 120 }
+			margin = { 10 0 }
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 100 100 }
+				icon = {
+					block "holy_site_control_visibility" { }
+					using = selected_sidepanel_animation
+					size = { 90% 90% }
+					alwaystransparent = yes
+					parentanchor = center
+					using = default_fade_in_out
+				}
+				icon = {
+					size = { 100 100 }
+					block "holy_site_texture" {
+						texture = "gfx/interface/icons/generic_icons/kog_holy_site_generic.dds"
+					}
+					modify_texture = {
+						block "holy_site_not_controlled_visibility" {
+							visible = "no"
+						}
+						texture = "gfx/interface/backgrounds/grey.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = normal
+						alpha = 0.5
+					}
+				}
+				block "holy_site_tooltip" { }
+			}
+			
+			widget = {
+				size = { 400 120 }
+				
+				background = {
+					using = dark_area
+					margin = { 0 -10 }
+				}
+				
+				flowcontainer = {
+					direction = vertical
+					margin_left = 10
+					spacing = 5
+					
+					textbox = {
+						block "holy_site_name" {
+							text = "kog_block_holy_site_name"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_large
+					}
+					textbox = {
+						block "holy_site_location" {
+							text = "kog_block_holy_site_location"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_controller" {
+							text = "kog_block_holy_site_controller"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_perk" {
+							text = "kog_block_holy_site_perk"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_metropolis_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		
+		kog_metropolitan_status_panel = { }
+		kog_metropolitan_actions_container = { }
+	}
+	
+	type kog_metropolitan_status_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			direction = horizontal
+			parentanchor = top|hcenter
+			minimumsize = { 520 100 }
+			spacing = 5
+			
+			widget = {
+				parentanchor = center
+				size = { 100 100 }
+				
+				character_portrait_medium_torso = {
+					parentanchor = center
+					datacontext = "[GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader]"
+					blockoverride "show_hat" { }
+					blockoverride "tooltip" { } # Error Suppression
+					blockoverride "portrait_icons" { } # Error Suppression
+					blockoverride "portrait_button" { } # Error Suppression
+					
+					default_header_clean_faded = {
+						size = { 150 35 }
+						position = { 0 80 }
+						parentanchor = center
+						blockoverride "text" {}
+						textbox = {
+							text = "kog_gui_metropolitan"
+							parentanchor = center
+							position = { 0 -2 }
+							autoresize = yes
+							max_width = 190
+							elide = right
+							using = fontsize_medium
+						}
+					}
+				}
+			}
+			flowcontainer = {
+				direction = vertical
+				parentanchor = top|hcenter
+				minimumsize = { 320 100 }
+				spacing = 5
+				
+				textbox = {
+					parentanchor = top|hcenter
+					autoresize = yes
+					text = "kog_gui_national_piety"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+				default_progressbar_horizontal = {
+					parentanchor = top|hcenter
+					size = { 250 24 }
+					blockoverride "values" {
+						min = 0
+						max = 1000
+						value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_capacity_value'))]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+						text = "kog_gui_national_piety_amount"
+						align = center|nobaseline
+						elide = right
+						using = fontsize_medium
+					}
+					tooltip = "kog_gui_national_piety_breakdown"
+				}
+			}
+			widget = {
+				parentanchor = center
+				size = { 100 100 }
+				
+				icon = {
+					parentachor = center
+					size = { 90 90 }
+					texture = "gfx/interface/backgrounds/revolution_clock_frame.dds"
+					
+					icon = {
+						parentachor = center
+						size = { 90 90 }
+						visible = "[Not(ComJournalVar('kog_omen_var').IsSet)]"
+						texture = "gfx/interface/backgrounds/blurry_dark_bg.dds"
+						using = look_at_me_text_animation
+					}
+					
+					textbox = {
+						parentanchor = center
+						size = { 90 90 }
+						visible = "[ComJournalVar('kog_omen_var').IsSet]"
+						align = nobaseline
+						autoresize = yes
+						max_width = 50
+						elide = right
+						using = fontsize_small
+						text = "[JournalEntry.MakeScope.Var('kog_omen_var').GetFlagName]"
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_metropolitan_focus_button = button_icon_round {
+		parentanchor = center
+		size = { 55 55 }
+		
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		clicksound = "event:/SFX/kog_focus"
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = rotate_glow_animation_02
+			size = { 90 90 }
+			alwaystransparent = yes
+			parentanchor = center
+			using = default_fade_in_out
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 50
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+	}
+	
+	type kog_metropolitan_actions_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		datamodel = "[JournalEntry.MakeScope.GetList('kog_metropolitan_decisions_list')]"
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "com_gui_metropolitan_buttons"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		item = {
+			flowcontainer = {
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				direction = vertical
+				parentanchor = top|hcenter
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+						size = { 400 40 }
+						com_international_organization_scripted_button = { }
+					}
+				}
 			}
 		}
 	}
@@ -1529,235 +1900,6 @@ types kog_journal_widget_types {
 					icon = {
 						size = { 32 45 }
 						texture = "[CharacterTrait.GetTexture]"
-					}
-				}
-			}
-		}
-	}
-	
-	type kog_holy_sites_panel = flowcontainer {
-		parentanchor = top|hcenter
-		direction = vertical
-		
-		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
-		
-		# Rome
-		kog_holy_site_item = {
-			blockoverride "holy_site_background" {
-				texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
-			}
-			blockoverride "holy_site_texture" {
-				texture = "gfx/interface/icons/generic_icons/kog_holy_site_rome.dds"
-			}
-			blockoverride "holy_site_control_visibility" { }
-			blockoverride "holy_site_not_controlled_visibility" {
-				visible = "no"
-			}
-			blockoverride "holy_site_name" {
-				text = "kog_rome_building"
-			}
-			blockoverride "holy_site_tooltip" { }
-		}
-		
-		# Santiago
-		kog_holy_site_item = {
-			blockoverride "holy_site_texture" {
-				texture = "gfx/interface/icons/generic_icons/kog_holy_site_santiago.dds"
-			}
-			blockoverride "holy_site_control_visibility" { }
-			blockoverride "holy_site_not_controlled_visibility" {
-				visible = "no"
-			}
-			blockoverride "holy_site_name" {
-				text = "kog_santiago_building"
-			}
-			blockoverride "holy_site_tooltip" { }
-		}
-		
-		# Paris
-		kog_holy_site_item = {
-			blockoverride "holy_site_texture" {
-				texture = "gfx/interface/icons/generic_icons/kog_holy_site_paris.dds"
-			}
-			blockoverride "holy_site_control_visibility" { }
-			blockoverride "holy_site_not_controlled_visibility" {
-				visible = "no"
-			}
-			blockoverride "holy_site_name" {
-				text = "kog_paris_building"
-			}
-			blockoverride "holy_site_tooltip" { }
-		}
-		
-		# Koln
-		kog_holy_site_item = {
-			blockoverride "holy_site_texture" {
-				texture = "gfx/interface/icons/generic_icons/kog_holy_site_koln.dds"
-			}
-			blockoverride "holy_site_control_visibility" { }
-			blockoverride "holy_site_not_controlled_visibility" {
-				visible = "no"
-			}
-			blockoverride "holy_site_name" {
-				text = "kog_koln_building"
-			}
-			blockoverride "holy_site_tooltip" { }
-		}
-		
-		# Vienna
-		kog_holy_site_item = {
-			blockoverride "holy_site_texture" {
-				texture = "gfx/interface/icons/generic_icons/kog_holy_site_vienna.dds"
-			}
-			blockoverride "holy_site_control_visibility" { }
-			blockoverride "holy_site_not_controlled_visibility" {
-				visible = "no"
-			}
-			blockoverride "holy_site_name" {
-				text = "kog_vienna_building"
-			}
-			blockoverride "holy_site_tooltip" { }
-		}
-	}
-	
-	type kog_holy_site_item = widget {
-		size = { 520 120 }
-		parentanchor = top|hcenter
-		
-		using = entry_bg_fancy
-		
-		background = {
-			block "holy_site_background" {
-				texture = "gfx/interface/illustrations/holy_sites/ck3_temple_generic_grass.dds"
-			}
-			fittype = centercrop
-			using = frame_small_mask
-			alpha = 0.75
-		}
-		icon = {
-			using = dark_area
-			parentanchor = top|hcenter
-			size = { 100% 30% }
-			alpha = 0.65
-			position = { 0 3 }
-			
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
-				spriteType = Corneredstretched
-				spriteborder = { 0 0 }
-				blend_mode = alphamultiply
-			}
-		}
-		icon = {
-			using = dark_area
-			parentanchor = bottom|hcenter
-			size = { 100% 30% }
-			alpha = 0.65
-			position = { 0 -4 }
-			
-			modify_texture = {
-				texture = "gfx/interface/masks/fade_vertical_top.dds"
-				spriteType = Corneredstretched
-				spriteborder = { 0 0 }
-				blend_mode = alphamultiply
-			}
-		}
-		
-		flowcontainer = {
-			direction = horizontal
-			minimumsize = { 520 120 }
-			margin = { 10 0 }
-			
-			widget = {
-				parentanchor = left|vcenter
-				size = { 100 100 }
-				icon = {
-					block "holy_site_control_visibility" { }
-					using = selected_sidepanel_animation
-					size = { 90% 90% }
-					alwaystransparent = yes
-					parentanchor = center
-					using = default_fade_in_out
-				}
-				icon = {
-					size = { 100 100 }
-					block "holy_site_texture" {
-						texture = "gfx/interface/icons/generic_icons/kog_holy_site_generic.dds"
-					}
-					modify_texture = {
-						block "holy_site_not_controlled_visibility" {
-							visible = "no"
-						}
-						texture = "gfx/interface/backgrounds/grey.dds"
-						spriteType = Corneredstretched
-						spriteborder = { 0 0 }
-						blend_mode = normal
-						alpha = 0.5
-					}
-				}
-				block "holy_site_tooltip" { }
-			}
-			
-			widget = {
-				size = { 400 120 }
-				
-				background = {
-					using = dark_area
-					margin = { 0 -10 }
-				}
-				
-				flowcontainer = {
-					direction = vertical
-					margin_left = 10
-					spacing = 5
-					
-					textbox = {
-						block "holy_site_name" {
-							text = "kog_block_holy_site_name"
-							using = look_at_me_text_animation
-						}
-						parentanchor = left|vcenter
-						position = { 0 0 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_large
-					}
-					textbox = {
-						block "holy_site_location" {
-							text = "kog_block_holy_site_location"
-							using = look_at_me_text_animation
-						}
-						parentanchor = left|vcenter
-						position = { 0 0 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "holy_site_controller" {
-							text = "kog_block_holy_site_controller"
-							using = look_at_me_text_animation
-						}
-						parentanchor = left|vcenter
-						position = { 0 0 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "holy_site_perk" {
-							text = "kog_block_holy_site_perk"
-							using = look_at_me_text_animation
-						}
-						parentanchor = left|vcenter
-						position = { 0 0 }
-						autoresize = yes
-						max_width = 250
-						elide = right
-						using = fontsize_medium
 					}
 				}
 			}
