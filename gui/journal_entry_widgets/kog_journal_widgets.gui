@@ -247,6 +247,34 @@ types kog_journal_widget_types {
 			}
 		}
 		
+		# METROPOLIS TAB
+		tab_button = {
+			minimumsize = { 135 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
+			textbox = {
+				text = "kog_gui_metropolis_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
+			tooltip = "TAB_2"
+			input_action = "tab_2"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 135 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+			
+			textbox = {
+				text = "kog_gui_metropolis_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
 		# CANON LAWS TAB
 		tab_button = {
 			minimumsize = { 108 -1 }
@@ -258,8 +286,8 @@ types kog_journal_widget_types {
 			}
 			
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
-			tooltip = "TAB_2"
-			input_action = "tab_2"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
 			using = tooltip_above
 			
 		}
@@ -286,8 +314,8 @@ types kog_journal_widget_types {
 			}
 			
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
+			tooltip = "TAB_4"
+			input_action = "tab_4"
 			using = tooltip_above
 			
 		}
@@ -303,35 +331,7 @@ types kog_journal_widget_types {
 			}
 		}
 		
-		# HOLY SITES TAB
-		tab_button = {
-			minimumsize = { 108 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
-			textbox = {
-				text = "kog_gui_holy_sites_header"
-				default_format = "#title"
-				using = tab_text_properties
-			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 108 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
-			
-			textbox = {
-				text = "kog_gui_holy_sites_header"
-				default_format = "#variable"
-				using = tab_text_properties
-			}
-		}
-		
-		# HOLY SITES TAB
+		# EPISCOPAL SEATS TAB
 		tab_button = {
 			minimumsize = { 108 -1 }
 			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
@@ -342,8 +342,8 @@ types kog_journal_widget_types {
 			}
 			
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
+			tooltip = "TAB_5"
+			input_action = "tab_5"
 			using = tooltip_above
 			
 		}
@@ -413,6 +413,34 @@ types kog_journal_widget_types {
 			}
 		}
 		
+		# METROPOLIS TAB
+		tab_button = {
+			minimumsize = { 135 -1 }
+			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
+			textbox = {
+				text = "kog_gui_metropolis_header"
+				default_format = "#title"
+				using = tab_text_properties
+			}
+			
+			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
+			tooltip = "TAB_2"
+			input_action = "tab_2"
+			using = tooltip_above
+			
+		}
+		icon = {
+			minimumsize = { 135 -1 }
+			using = selected_tabs
+			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+			
+			textbox = {
+				text = "kog_gui_metropolis_header"
+				default_format = "#variable"
+				using = tab_text_properties
+			}
+		}
+		
 		# CANON LAWS TAB
 		tab_button = {
 			minimumsize = { 135 -1 }
@@ -424,8 +452,8 @@ types kog_journal_widget_types {
 			}
 			
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
-			tooltip = "TAB_2"
-			input_action = "tab_2"
+			tooltip = "TAB_3"
+			input_action = "tab_3"
 			using = tooltip_above
 			
 		}
@@ -441,35 +469,7 @@ types kog_journal_widget_types {
 			}
 		}
 		
-		# HOLY SITES TAB
-		tab_button = {
-			minimumsize = { 135 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'sites'))]"
-			textbox = {
-				text = "kog_gui_holy_sites_header"
-				default_format = "#title"
-				using = tab_text_properties
-			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'sites')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 135 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'sites')]"
-			
-			textbox = {
-				text = "kog_gui_holy_sites_header"
-				default_format = "#variable"
-				using = tab_text_properties
-			}
-		}
-		
-		# HOLY SITES TAB
+		# EPISCOPAL SEATS TAB
 		tab_button = {
 			minimumsize = { 135 -1 }
 			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
@@ -480,8 +480,8 @@ types kog_journal_widget_types {
 			}
 			
 			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
+			tooltip = "TAB_4"
+			input_action = "tab_4"
 			using = tooltip_above
 			
 		}
@@ -887,7 +887,7 @@ types kog_journal_widget_types {
 		parentanchor = top|hcenter
 		direction = vertical
 		
-		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
 		
 		kog_metropolitan_status_panel = { }
 		kog_metropolitan_actions_container = { }
