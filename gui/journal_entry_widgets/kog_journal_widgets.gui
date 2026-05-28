@@ -736,6 +736,9 @@ types kog_journal_widget_types {
 					blockoverride "kog_canon_law_icon_tooltip" {
 						tooltip = "kog_placeholder_text"
 					}
+					blockoverride "canon_law_active_glow" {
+						#visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
+					}
 				}
 				kog_canon_law_type_entry = {
 					blockoverride "kog_canon_law_icon_texture" {
@@ -744,6 +747,9 @@ types kog_journal_widget_types {
 					blockoverride "kog_canon_law_icon_tooltip" {
 						tooltip = "kog_placeholder_text"
 					}
+					blockoverride "canon_law_active_glow" {
+						#visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End )]"
+					}
 				}
 				kog_canon_law_type_entry = {
 					blockoverride "kog_canon_law_icon_texture" {
@@ -751,6 +757,9 @@ types kog_journal_widget_types {
 					}
 					blockoverride "kog_canon_law_icon_tooltip" {
 						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						#visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
 					}
 				}
 			}
@@ -1305,17 +1314,33 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_canon_law_type_entry = icon {
+	type kog_canon_law_type_entry = widget {
 		parentanchor = center
 		size = { 35 35 }
-		texture = "gfx/interface/backgrounds/round_button_bg.dds"
+		
+		icon = {
+			block "canon_law_active_glow" {
+				visible = "no"
+			}
+			using = rotate_glow_animation_02
+			size = { 90 90 }
+			alwaystransparent = yes
+			parentanchor = center
+			using = default_fade_in_out
+		}
 		icon = {
 			parentanchor = center
-			block "kog_canon_law_icon_texture" {
-				texture = "gfx/interface/error_frog.dds"
-				using = look_at_me_text_animation
+			size = { 35 35 }
+			texture = "gfx/interface/backgrounds/round_button_bg.dds"
+			
+			icon = {
+				parentanchor = center
+				block "kog_canon_law_icon_texture" {
+					texture = "gfx/interface/error_frog.dds"
+					using = look_at_me_text_animation
+				}
+				size = { 80% 80% }
 			}
-			size = { 80% 80% }
 		}
 		block "kog_canon_law_icon_tooltip" {}
 	}
