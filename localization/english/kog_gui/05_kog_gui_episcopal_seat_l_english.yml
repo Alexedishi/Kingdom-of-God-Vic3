@@ -60,13 +60,13 @@
  kog_rome_details: "@kog_seat! #header$kog_rome_building$#!$kog_linebreak$•#italic$kog_rome_location$#!\n•#white$kog_rome_patriarch$#!\n•#bold$kog_rome_controller$#!\n•#bold$kog_rome_opinion$#!"
  kog_rome_details_with_modifier: "$kog_rome_details$$kog_linebreak$$kog_rome_modifier$"
  # Journal Widget Localization
- kog_gui_seat_name_rome: "[GetVariableFromGlobalVariableMap('kog_rome',MakeScopeFlag('kog_seat_building')).GetFlagName]"
+ kog_gui_seat_name_rome: "[GetVariableFromGlobalVariableMap('kog_rome',MakeScopeFlag('kog_seat_name')).GetFlagName]"
  kog_gui_seat_controller_rome: "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
  kog_gui_seat_patriarch_rome: "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
  kog_gui_seat_location_value_rome: "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_rome: "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_rome: "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_rome: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_rome_opinion_var').GetValue]"
+ kog_gui_opinion_value_rome: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_rome_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_rome: "Sway $kog_rome$"
  kog_gui_antagonize_rome: "Antagonize $kog_rome$"
@@ -100,7 +100,7 @@
  kog_gui_seat_location_value_santiago: "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_santiago: "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_santiago: "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_santiago: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_santiago_opinion_var').GetValue]"
+ kog_gui_opinion_value_santiago: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_santiago_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_santiago: "Sway $kog_santiago$"
  kog_gui_antagonize_santiago: "Antagonize $kog_santiago$"
@@ -134,7 +134,7 @@
  kog_gui_seat_location_value_paris: "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_paris: "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_paris: "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_paris: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_paris_opinion_var').GetValue]"
+ kog_gui_opinion_value_paris: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_paris_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_paris: "Sway $kog_paris$"
  kog_gui_antagonize_paris: "Antagonize $kog_paris$"
@@ -168,7 +168,7 @@
  kog_gui_seat_location_value_koln: "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_koln: "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_koln: "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_koln: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_koln_opinion_var').GetValue]"
+ kog_gui_opinion_value_koln: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_koln_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_koln: "Sway $kog_koln$"
  kog_gui_antagonize_koln: "Antagonize $kog_koln$"
@@ -202,7 +202,7 @@
  kog_gui_seat_location_value_vienna: "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_vienna: "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_vienna: "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_vienna: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_vienna_opinion_var').GetValue]"
+ kog_gui_opinion_value_vienna: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_vienna_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_vienna: "Sway $kog_vienna$"
  kog_gui_antagonize_vienna: "Antagonize $kog_vienna$"
@@ -236,7 +236,7 @@
  kog_gui_seat_location_value_constantinople: "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_constantinople: "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_constantinople: "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_constantinople: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_constantinople_opinion_var').GetValue]"
+ kog_gui_opinion_value_constantinople: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_constantinople_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_constantinople: "Sway $kog_constantinople$"
  kog_gui_antagonize_constantinople: "Antagonize $kog_constantinople$"
@@ -270,7 +270,7 @@
  kog_gui_seat_location_value_antioch: "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_antioch: "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_antioch: "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_antioch: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_antioch_opinion_var').GetValue]"
+ kog_gui_opinion_value_antioch: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_antioch_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_antioch: "Sway $kog_antioch$"
  kog_gui_antagonize_antioch: "Antagonize $kog_antioch$"
@@ -304,7 +304,7 @@
  kog_gui_seat_location_value_jerusalem: "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_jerusalem: "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_jerusalem: "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_jerusalem: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_jerusalem_opinion_var').GetValue]"
+ kog_gui_opinion_value_jerusalem: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_jerusalem_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_jerusalem: "Sway $kog_jerusalem$"
  kog_gui_antagonize_jerusalem: "Antagonize $kog_jerusalem$"
@@ -338,7 +338,7 @@
  kog_gui_seat_location_value_alexandria: "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_alexandria: "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_alexandria: "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_alexandria: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_alexandria_opinion_var').GetValue]"
+ kog_gui_opinion_value_alexandria: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_alexandria_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_alexandria: "Sway $kog_alexandria$"
  kog_gui_antagonize_alexandria: "Antagonize $kog_alexandria$"
@@ -372,7 +372,7 @@
  kog_gui_seat_location_value_moscow: "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
  kog_gui_liturgical_language_value_moscow: "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
  kog_gui_liturgical_rite_value_moscow: "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
- kog_gui_opinion_value_moscow: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_moscow_opinion_var').GetValue]"
+ kog_gui_opinion_value_moscow: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_moscow_opinion_var').GetValue]"
  # Scripted Buttons
  kog_gui_sway_moscow: "Sway $kog_moscow$"
  kog_gui_antagonize_moscow: "Antagonize $kog_moscow$"
