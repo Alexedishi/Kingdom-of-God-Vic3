@@ -6,7 +6,7 @@ kog_add_council_matter_effect = {
 		text = kog_add_council_matter_effect
 		set_local_variable = {
 			name = kog_council_matter_var
-			value = flag:$flag$
+			value = flag:kog_canon_lawgroup_$flag$
 		}
 		kog_save_global_faith_journal_scope = yes
 		scope:kog_global_faith_journal_scope ?= {
@@ -15,13 +15,13 @@ kog_add_council_matter_effect = {
 					NOT = {
 						is_key_in_variable_map = {
 							name = kog_ecumenical_council_map
-							target = flag:$flag$
+							target = flag:kog_canon_lawgroup_$flag$
 						}
 					}
 				}
 				add_to_variable_map = {
 					name = kog_ecumenical_council_map
-					value = flag:$flag$
+					value = flag:kog_canon_lawgroup_$flag$
 				}
 			}
 		}
