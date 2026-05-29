@@ -225,13 +225,11 @@ kog_initialize_catholic_button_lists_effect = {
 		target = flag:kog_gui_mend_schism
 	}
 	
-	## Omen Action List
+	## Metropolitan Action List
 	add_to_variable_list = {
-		name = kog_omen_actions_list
+		name = kog_metropolitan_decisions_list
 		target = flag:kog_gui_venerate_apparition
 	}
-	
-	## Metropolitan Action List
 	add_to_variable_list = {
 		name = kog_metropolitan_decisions_list
 		target = flag:kog_gui_emphasize_unity
@@ -427,12 +425,6 @@ kog_initialize_orthodox_button_lists_effect = {
 		target = flag:kog_gui_mend_schism
 	}
 	
-	## Omen Action List
-	add_to_variable_list = {
-		name = kog_omen_actions_list
-		target = flag:kog_gui_commission_icon
-	}
-	
 	## Metropolitan Action List
 	add_to_variable_list = {
 		name = kog_metropolitan_decisions_list
@@ -452,6 +444,10 @@ kog_initialize_orthodox_button_lists_effect = {
 	}
 	
 	## Denominational Decision List
+	add_to_variable_list = {
+		name = kog_denomination_decision_list
+		target = flag:kog_gui_commission_icon
+	}
 	add_to_variable_list = {
 		name = kog_denomination_decision_list
 		target = flag:kog_gui_dissolve_monasteries
@@ -1603,7 +1599,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 2: Initialize Liturgical Rites
+	# Step 2: Initialize Liturgical Rites & Languages
 	if = {
 		limit = {
 			kog_country_is_eastern_orthodox_trigger = yes
@@ -1612,6 +1608,25 @@ kog_initialize_metropolis_effect = {
 			set_variable = {
 				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
+			}
+		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:russian
+			}
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_liturgical_language_var
+					value = flag:kog_language_slavonic
+				}
+			}
+		}
+		else = {
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_liturgical_language_var
+					value = flag:kog_language_khoine
+				}
 			}
 		}
 	}
@@ -1660,6 +1675,12 @@ kog_initialize_metropolis_effect = {
 				}
 			}
 		}
+		je:je_kog_local = {
+			set_variable = {
+				name = kog_liturgical_language_var
+				value = flag:kog_language_coptic # TODO replace this once Oriental Churches are added
+			}
+		}
 	}
 	else_if = {
 		# Basileia Romaion Rites
@@ -1685,12 +1706,22 @@ kog_initialize_metropolis_effect = {
 				}
 			}
 		}
+		je:je_kog_local = {
+			set_variable = {
+				name = kog_liturgical_language_var
+				value = flag:kog_language_khoine # TODO replace this once Elysian Churches are added
+			}
+		}
 	}
 	else = {
 		je:je_kog_local = {
 			set_variable = {
 				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_liturgical_language_var
+				value = flag:kog_language_latin
 			}
 		}
 	}

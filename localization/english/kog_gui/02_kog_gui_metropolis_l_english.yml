@@ -2,20 +2,62 @@
  # Metropolitan Portrait & Details
  kog_gui_national_church_name: "The [GetPlayer.GetStateReligion.GetNameNoFormatting] Church of [GetPlayer.GetNameNoFlag]"
  kog_gui_metropolis_header: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
- kog_gui_metropolitan: "Metropolitan: [Character.GetFullName]"
  kog_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('kog_gui_religious_law_tooltip')] Religious Law#!#!"
  kog_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_almsgiving').GetDesc]"
  kog_gui_national_piety: "$kog_national_piety$"
  kog_gui_national_piety_amount: "@kog_piety_dutiful!"
  kog_gui_national_piety_breakdown: "TODO"
  
- # Capacity Value & Communion Status
+ # Communion & Eminence Panel
  kog_gui_communion_status: "[GetPlayer.GetCustom('kog_communion_type')]"
- kog_gui_capacity_amount: "#bold [GetPlayer.GetNameNoFormatting] has #khoine #tooltippable;tooltip:[Country.GetTooltipTag],kog_gui_capacity_breakdown [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!#! $kog_faith_capacity$#!"
- kog_gui_capacity_breakdown: "$kog_faith_capacity$\nBalance: [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')|+=]\n$TOOLTIP_DELIMITER$\n[Country.MakeScope.GetScriptValueDesc('kog_capacity_value')]"
+ kog_gui_capacity_amount: "[GetPlayer.GetCustom('kog_faith_capacity_type')]: #bold #khoine [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!#!"
+ kog_gui_capacity_breakdown: "$kog_faith_capacity$\nBalance: "
+ 
+ # Metropolitan Stats Panel
+ kog_gui_metropolitan_header: "#bold Metropolitan: [GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader.GetFullName]#!"
+ kog_gui_metropolitan_state_religion: "[concept_state_religion]: [GetPlayer.GetStateReligion.GetName]"
+ kog_gui_metropolitan_religion_law: "Religious [concept_law]: [AccessPlayer.AccessActiveLawFromGroup('lawgroup_church_and_state').GetName]"
+ kog_gui_metropolitan_national_piety: "#o National Piety#!: #v Hella#!"
+ kog_gui_metropolitan_liturgical_language: "[concept_liturgical_language]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_liturgical_language_var').GetFlagName]"
+ kog_gui_metropolitan_liturgical_rite: "[concept_liturgical_rite]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_liturgical_rite_var').GetFlagName]"
+ kog_gui_metropolitan_holy_sites: "#o Holy Sites:#! #v 1#!"
+ 
 
  # Metropolitan Decision Buttons
  com_gui_metropolitan_buttons: "Metropolitan Decisions"
-
- # Denomination Decision Buttons
- com_gui_denomination_buttons: "Denominational Decisions"
+ 
+ # Catholic Scripted Buttons
+ kog_gui_venerate_apparition: "Venerate Apparition"
+ kog_gui_venerate_apparation_desc: "We can use our contacts within the Church to encourage the popular devotion of an approved Marian Apparition. This devotion will last ten years before requiring reinforcement."
+ 
+ # Orthodox Scripted Buttons
+ kog_gui_commission_icon: "Venerate an Icon"
+ kog_gui_commission_icon_desc: "We can use some of our influence over the Church to commission icons to inspire the faithful. These icons will endure for 29_kog_episcopal_seat_effects.txt years before needing replacement."
+ 
+ kog_gui_emphasize_unity: "Emphasize Unity"
+ kog_gui_emphasize_unity_desc: "The Orthodoxy has tied our people together since the Fall of Constantinople. Our bishops could emphasize this common bond that supersedes nationalist thought."
+ kog_gui_enforce_attendance: "Enforce Church Attendance"
+ kog_gui_enforce_attendance_desc: "Many in our communities attend masses only for the holiest of days. We could empower social activists to "persuade" these people to participate more regularly in church services."
+ kog_gui_theologize_dogma: "Theologize Novel Dogma"
+ kog_gui_theologize_dogma_desc: "The theology of the Orthodoxy has remained stagnant since the Ottoman conquest. In its isolation from the West, the philosophy and dogma of the Church lags far behind the innovations of Europe, leaving it unsuited to guide the faithful into this new era."
+ kog_gui_promote_ecumenism: "Promote Ecumenism"
+ kog_gui_promote_ecumenism_desc: "As the early fathers said, we are one flock divided only by our disagreements over interpretations. We could pressure the church to reach out to its Western counterpart to seek some type of common understanding."
+ kog_gui_metropolitan_focus_header: "Current Focus:"
+ kog_gui_kog_focus_status: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_metropolitan_focus_type')]"
+ 
+ kog_gui_dissolve_monasteries: "Dissolve the Monasteries"
+ kog_gui_dissolve_monasteries_desc: "Throughout our hinterland, there are several ancient monasteries that cling on by momentum alone. Administrators have advised that the functions of both the church and the state could be dramatically improved by shuttering several minor monasteries."
+ kog_gui_restore_monasteries: "Restore the Monasteries"
+ kog_gui_restore_monasteries_desc: "As a result of the seizure of monastic estates, many clergy have found themselves destitute. Many would welcome some form of relief."
+ kog_gui_reform_synod: "Reform National Synod"
+ kog_gui_reform_synod_desc: "Caesaropapism, the idea of merging the church and state, has gained traction as a means of both protecting and enforcing our independent identity as a people. By subjugating the church to the state apparatus, we can insulate ourselves from further interference by the Sultan."
+ kog_gui_restore_synod: "Restore National Synod"
+ kog_gui_restore_synod_desc: "The act of subjugating the Church has had profound effects. Chafing under the yoke of the state, the Church has lost a lot of its former influence. If we wish, we could restore the independence of the clergy."
+ kog_gui_grant_subsidies: "Grant Church Subsidies"
+ kog_gui_grant_subsidies_desc: "The state could grant state subsidies to the Orthodox Church in the name of supporting the needs of the clergy... in exchange for their compliance."
+ kog_gui_end_subsidies: "End Church Subsidies"
+ kog_gui_end_subsidies_desc: "Civic leaders decry the use of secular funds to provide for spiritual matters. While they make sound legal arguements, the church risks collapse without our continued intervention."
+ kog_gui_establish_schools: "Establish Sunday Schools"
+ kog_gui_establish_schools_desc: "The best way to spread the divine word and to bring literacy to the poorest of our children is by providing them with weekly education following liturgical services."
+ kog_gui_disband_schools: "Disband Sunday Schools"
+ kog_gui_disband_schools_desc: "While weekend school programs have proven successful in guiding our youth to the faith, they have also proven a major expense for the state."
