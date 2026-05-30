@@ -1174,7 +1174,7 @@ types kog_journal_widget_types {
 		default_header_clean_faded = {
 			parentanchor = hcenter
 			blockoverride "text" {
-				text = "com_gui_metropolitan_buttons"
+				text = "kog_gui_metropolitan_buttons"
 			}
 			blockoverride "size" {
 				size = { 532 45 }
@@ -2041,7 +2041,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_rome"
+				text = "kog_rome_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_rome"
@@ -2064,7 +2064,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_santiago"
+				text = "kog_santiago_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_santiago"
@@ -2087,7 +2087,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_paris"
+				text = "kog_paris_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_paris"
@@ -2110,7 +2110,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_koln"
+				text = "kog_koln_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_koln"
@@ -2133,7 +2133,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_vienna"
+				text = "kog_vienna_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_vienna"
@@ -2167,7 +2167,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_constantinople"
+				text = "kog_constantinople_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_constantinople"
@@ -2190,7 +2190,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_antioch"
+				text = "kog_antioch_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_antioch"
@@ -2213,7 +2213,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_jerusalem"
+				text = "kog_jerusalem_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_jerusalem"
@@ -2236,7 +2236,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_alexandria"
+				text = "kog_alexandria_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_alexandria"
@@ -2259,7 +2259,7 @@ types kog_journal_widget_types {
 				datacontext = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
 			}
 			blockoverride "kog_seat_name" {
-				text = "kog_gui_seat_name_moscow"
+				text = "kog_moscow_header"
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_moscow"
@@ -2371,7 +2371,7 @@ types kog_journal_widget_types {
 			
 			widget = {
 				parentanchor = top|hcenter
-				size = { 180 180 }
+				size = { 180 240 }
 				
 				background = {
 					using = entry_bg_simple
@@ -2380,7 +2380,6 @@ types kog_journal_widget_types {
 				flowcontainer = {
 					parentanchor = center
 					direction = vertical
-					maximumsize = { 180 180 }
 					spacing = 5
 					margin_left = 8
 					
@@ -2479,18 +2478,19 @@ types kog_journal_widget_types {
 	
 	type kog_seat_scripted_button_container = widget {
 		parentanchor = top|hcenter
-		size = { 190 180 }
-		
-		background = {
-			using = entry_bg
-		}
+		size = { 190 240 }
 		
 		flowcontainer = {
-			parentanchor = top|hcenter
+			parentanchor = center
 			direction = vertical
 			ignoreinvisible = yes
 			spacing = 5
 			margin_top = 5
+			
+			background = {
+				using = entry_bg
+				margin = { 15 10 }
+			}
 			
 			block "episcopal_seat_buttons_datamodel" {
 				visible = "no"
