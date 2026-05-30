@@ -1589,13 +1589,23 @@ kog_initialize_metropolis_effect = {
 	add_journal_entry = {
 		type = je_kog_local
 	}
-	set_variable = {
-		name = kog_votes_var
-		value = kog_votes_value
-	}
 	ig:ig_devout = {
 		leader = {
 			add_trait = kog_bishop
+		}
+	}
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_national_piety_var
+			value = kog_piety_baseline_value
+		}
+		set_variable = {
+			name = kog_votes_var
+			value = kog_votes_value
+		}
+		set_variable = {
+			name = kog_holy_sites_var
+			value = kog_holy_sites_value
 		}
 	}
 	
