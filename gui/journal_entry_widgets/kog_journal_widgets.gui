@@ -989,7 +989,7 @@ types kog_journal_widget_types {
 					position = { 24 0 }
 					spacing = 20
 					
-					datamodel = "[JournalEntry.MakeScope.GetList('kog_metropolitan_decisions_list')]"
+					datamodel = "[JournalEntry.MakeScope.GetList('kog_focus_buttons_list')]"
 					
 					item = {
 						flowcontainer = {
@@ -1166,10 +1166,10 @@ types kog_journal_widget_types {
 		
 		visible = "[Not(
 			IsDataModelEmpty(
-				JournalEntry.MakeScope.GetList('kog_denomination_decision_list')
+				JournalEntry.MakeScope.GetList('kog_metropolitan_actions_list')
 			)
 		)]"
-		datamodel = "[JournalEntry.MakeScope.GetList('kog_denomination_decision_list')]"
+		datamodel = "[JournalEntry.MakeScope.GetList('kog_metropolitan_actions_list')]"
 		
 		default_header_clean_faded = {
 			parentanchor = hcenter
