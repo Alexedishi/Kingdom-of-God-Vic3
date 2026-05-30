@@ -1560,6 +1560,7 @@ kog_initialize_variable_lists_effect = {
 
 kog_initialize_metropolis_effect = {
 	# Step 1: Activate Local Journal
+	kog_save_global_faith_journal_scope = yes
 	add_journal_entry = {
 		type = je_kog_local
 	}
@@ -1570,8 +1571,12 @@ kog_initialize_metropolis_effect = {
 	}
 	je:je_kog_local = {
 		set_variable = {
+			name = kog_canon_law_compliance_var
+			value = owner.kog_canon_law_compliance_value
+		}
+		set_variable = {
 			name = kog_national_piety_var
-			value = owner.kog_piety_baseline_value
+			value = owner.kog_piety_target_value
 		}
 		set_variable = {
 			name = kog_votes_var
@@ -1580,6 +1585,10 @@ kog_initialize_metropolis_effect = {
 		set_variable = {
 			name = kog_holy_sites_var
 			value = owner.kog_holy_sites_value
+		}
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = scope:kog_global_faith_journal_scope
 		}
 	}
 	
@@ -1877,6 +1886,14 @@ kog_initialize_metropolis_effect = {
 	
 	# Step 5, Set Up Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
+	
+	# Final Step, Calculate Starting Capacity
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_capacity_var
+			value = kog_capacity_value
+		}
+	}
 }
 
 kog_specific_country_setups_effect = {
