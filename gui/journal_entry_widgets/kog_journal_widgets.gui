@@ -198,7 +198,7 @@ types kog_journal_widget_types {
 			duration = 0.1
 			using = Animation_Curve_Default
 			start_sound = {
-				soundeffect = "event:/SFX/kog_bell_ring"
+				soundeffect = "event:/SFX/kog/kog_bell"
 			}
 		}
 	}
@@ -1141,7 +1141,9 @@ types kog_journal_widget_types {
 		
 		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
 		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
-		clicksound = "event:/SFX/kog_focus"
+		blockoverride "sound" {
+			clicksound = "event:/SFX/kog/kog_focus"
+		}
 		tooltip = "kog_gui_focus_button_tooltip"
 		
 		icon = {
@@ -2322,7 +2324,7 @@ types kog_journal_widget_types {
 		parentanchor = top|hcenter
 		direction = vertical
 		minimumsize = { 540 -1 }
-		margin_bottom = 20
+		margin = { 0 5 }
 		
 		using = entry_bg_fancy
 		
@@ -2409,29 +2411,26 @@ types kog_journal_widget_types {
 			}
 			
 			widget = {
-				parentanchor = top|hcenter
-				size = { 180 240 }
+				parentanchor = center
+				size = { 180 220 }
 				
-				background = {
-					using = entry_bg_simple
-				}
-				
-				flowcontainer = {
-					parentanchor = center
-					direction = vertical
+				vbox = {
 					spacing = 5
-					margin_left = 8
+					margin_left = 5
+					
+					background = {
+						using = entry_bg_simple
+						margin = { 0 5 }
+					}
 					
 					# Seat Location
 					textbox = {
-						parentanchor = left|vcenter
 						text = "kog_gui_seat_location_header"
 						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
 					textbox = {
-						parentanchor = left|vcenter
 						block "episcopal_seat_location" {
 							text = "kog_gui_seat_location_value"
 							using = look_at_me_text_animation
@@ -2440,20 +2439,16 @@ types kog_journal_widget_types {
 						elide = right
 						using = fontsize_medium
 					}
-					divider_clean = {
-						parentanchor = center
-					}
+					divider_clean = {}
 					
 					# Liturgical Language
 					textbox = {
-						parentanchor = left|vcenter
 						text = "kog_gui_liturgical_language_header"
 						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
 					textbox = {
-						parentanchor = left|vcenter
 						block "episcopal_seat_liturgical_language" {
 							text = "kog_gui_liturgical_language_value"
 							using = look_at_me_text_animation
@@ -2462,20 +2457,16 @@ types kog_journal_widget_types {
 						elide = right
 						using = fontsize_medium
 					}
-					divider_clean = {
-						parentanchor = center
-					}
+					divider_clean = {}
 					
 					# Liturgical Rite
 					textbox = {
-						parentanchor = left|vcenter
 						text = "kog_gui_liturgical_rite_header"
 						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
 					textbox = {
-						parentanchor = left|vcenter
 						block "episcopal_seat_liturgical_rite" {
 							text = "kog_gui_liturgical_rite_value"
 							using = look_at_me_text_animation
@@ -2484,20 +2475,16 @@ types kog_journal_widget_types {
 						elide = right
 						using = fontsize_medium
 					}
-					divider_clean = {
-						parentanchor = center
-					}
+					divider_clean = {}
 					
 					# Opinion
 					textbox = {
-						parentanchor = left|vcenter
 						text = "kog_gui_opinion_header"
 						size = { 170 20 }
 						elide = right
 						using = fontsize_medium
 					}
 					textbox = {
-						parentanchor = left|vcenter
 						block "episcopal_seat_opinion" {
 							text = "kog_gui_opinion_value"
 							using = look_at_me_text_animation
