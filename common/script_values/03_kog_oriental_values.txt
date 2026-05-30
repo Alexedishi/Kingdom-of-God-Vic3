@@ -55,37 +55,3 @@
 		}
 	}
 }
-
-kog_oriental_support_value = {
-	value = 0
-	every_country = {
-		limit = {
-			kog_country_is_oriental_orthodox_trigger = yes
-			has_variable = kog_council_support_var
-		}
-		add = kog_synodal_influence_value
-	}
-}
-
-kog_oriental_opposition_value = {
-	value = 0
-	every_country = {
-		limit = {
-			kog_country_is_oriental_orthodox_trigger = yes
-			has_variable = kog_council_oppose_var
-		}
-		subtract = kog_synodal_influence_value
-	}
-}
-
-kog_oriental_council_value = {
-	value = 0
-	add = {
-		value = kog_oriental_support_value
-		desc = kog_value_from_oriental_support
-	}
-	subtract = {
-		value = kog_oriental_opposition_value
-		desc = kog_value_from_oriental_opposition
-	}
-}
