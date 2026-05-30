@@ -976,26 +976,35 @@ types kog_journal_widget_types {
 			
 			widget = {
 				parentanchor = top|hcenter
-				size = { 340 60 }
+				size = { 400 30 }
+				
+				textbox = {
+					parentanchor = center
+					autoresize = yes
+					text = "kog_gui_kog_focus_status"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 300 60 }
 				
 				background = {
 					using = dark_area
 					margin = { 0 0 }
 				}
 				
-				flowcontainer = {
-					direction = horizontal
-					parentanchor = center
-					position = { 24 0 }
-					spacing = 20
-					
+				hbox = {
+					margin = { 10 0 }
+					spacing = 10
 					datamodel = "[JournalEntry.MakeScope.GetList('kog_focus_buttons_list')]"
 					
 					item = {
-						flowcontainer = {
+						hbox = {
 							datamodel = "[JournalEntry.GetScriptedButtons]"
-							direction = horizontal
-							parentanchor = top|hcenter
 							ignoreinvisible = yes
 							
 							item = {
@@ -2046,6 +2055,9 @@ types kog_journal_widget_types {
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_rome"
 			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_rome"
+			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_rome"
 			}
@@ -2068,6 +2080,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_santiago"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_santiago"
 			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_santiago"
@@ -2092,6 +2107,9 @@ types kog_journal_widget_types {
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_paris"
 			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_paris"
+			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_paris"
 			}
@@ -2115,6 +2133,9 @@ types kog_journal_widget_types {
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_koln"
 			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_koln"
+			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_koln"
 			}
@@ -2137,6 +2158,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_vienna"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_vienna"
 			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_vienna"
@@ -2172,6 +2196,9 @@ types kog_journal_widget_types {
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_constantinople"
 			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_constantinople"
+			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_constantinople"
 			}
@@ -2194,6 +2221,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_antioch"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_antioch"
 			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_antioch"
@@ -2218,6 +2248,9 @@ types kog_journal_widget_types {
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_jerusalem"
 			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_jerusalem"
+			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_jerusalem"
 			}
@@ -2241,6 +2274,9 @@ types kog_journal_widget_types {
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_alexandria"
 			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_alexandria"
+			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_alexandria"
 			}
@@ -2263,6 +2299,9 @@ types kog_journal_widget_types {
 			}
 			blockoverride "episcopal_seat_controller" {
 				text = "kog_gui_seat_controller_moscow"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_moscow"
 			}
 			blockoverride "episcopal_seat_liturgical_rite" {
 				text = "kog_gui_liturgical_rite_value_moscow"
