@@ -78,8 +78,9 @@ kog_country_is_cahokian_orthodox_trigger = {
 }
 
 
-####---------- Religious Capacity Triggers ----------####
-# Be careful invoking these triggers, they pull the script value directly
+####---------- Religious Capacity Trigger ----------####
+# Be careful invoking this trigger, it calls the script value directly
+# This is gated behind the is_player trigger for performance- kog_capacity_value is very complicated
 kog_capacity_trigger = {
 	custom_tooltip = {
 		text = kog_capacity_trigger
@@ -87,6 +88,14 @@ kog_capacity_trigger = {
 			name = kog_trigger_value
 			value = $value$
 		}
-		kog_capacity_value >= $value$
+		trigger_if = {
+			limit = {
+				is_player = yes
+			}
+			kog_capacity_value >= $value$
+		}
+		trigger_else = {
+			var:je_kog_local.var:kog_capacity_var  >= $value$
+		}
 	}
 }

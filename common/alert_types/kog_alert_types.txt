@@ -25,7 +25,10 @@ kog_icon_possible_alert = {
 	
 	valid = {
 		kog_country_is_eastern_orthodox_trigger = yes
-		kog_capacity_value >= 200
+		kog_capacity_trigger = {
+			value = 200
+		}
+		
 		kog_has_icon_trigger = no
 		has_technology_researched = romanticism
 	}
@@ -40,7 +43,9 @@ kog_integration_possible_alert = {
 
 	valid = {
 		kog_country_is_christian_trigger = yes
-		kog_capacity_value >= 200
+		kog_capacity_trigger = {
+			value = 200
+		}
 		kog_integrating_seat_trigger = no
 		kog_can_integrate_seat_alert_trigger = yes
 	}
