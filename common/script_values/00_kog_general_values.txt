@@ -818,3 +818,54 @@ kog_seat_integration_value = {
 		add = 200
 	}
 }
+
+kog_piety_baseline_value = {
+	value = 25 # TODO temp for testing
+}
+
+kog_piety_target_value = {
+	value = 50 # TODO temp for testing
+}
+
+kog_piety_progress_value = {
+	value = 0
+	if = {
+		limit = {
+			je:je_kog_local.var:kog_national_piety_var > kog_piety_target_value
+		}
+		add = kog_piety_target_value
+		subtract = je:je_kog_local.var:kog_national_piety_var
+	}
+	if = {
+		limit = {
+			je:je_kog_local.var:kog_national_piety_var < kog_piety_target_value
+		}
+		add = kog_piety_target_value
+		subtract = je:je_kog_local.var:kog_national_piety_var
+	}
+	round_to = 0.1
+	max = 0.5
+	min = -0.5
+}
+
+
+kog_piety_progress_value = {
+	value = 0
+	if = {
+		limit = {
+			var:kog_national_piety_var > kog_piety_target_value
+		}
+		add = kog_piety_target_value
+		subtract = var:kog_national_piety_var
+	}
+	if = {
+		limit = {
+			var:kog_national_piety_var < kog_piety_target_value
+		}
+		add = kog_piety_target_value
+		subtract = var:kog_national_piety_var
+	}
+	round_to = 0.1
+	max = 0.5
+	min = -0.5
+}
