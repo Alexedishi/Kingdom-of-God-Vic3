@@ -1565,23 +1565,7 @@ kog_initialize_metropolis_effect = {
 	}
 	kog_save_global_faith_journal_scope = yes
 	
-	# Step 2, Initialize Support Variables & Verify Traits
-	je:je_kog_local = {
-		set_variable = {
-			name = kog_canon_law_compliance_var
-			value = owner.kog_canon_law_compliance_value
-		}
-		set_variable = {
-			name = kog_national_piety_var
-			value = owner.kog_piety_target_value
-		}
-		set_variable = {
-			name = kog_votes_var
-			value = owner.kog_votes_value
-		}
-	}
-	
-	# Step 3: Initialize Liturgical Rites & Languages
+	# Step 2: Initialize Liturgical Rites & Languages
 	if = {
 		limit = {
 			kog_country_is_eastern_orthodox_trigger = yes
@@ -1708,7 +1692,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 4: Set Relations Variables
+	# Step 3: Set Relations Variables
 	je:je_kog_local = {
 		## Catholic Seats
 		set_variable = {
@@ -1792,7 +1776,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 5: Set Opinion Variables
+	# Step 4: Set Opinion Variables
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_rome_opinion_var
@@ -1873,11 +1857,23 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 6, Set Up Canon Law Modifiers
+	# Step 5, Set Up Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
 	
-	# Step 7, Calculate Starting Capacity
+	# Step 6, Calculate Starting Variables
 	je:je_kog_local = {
+		set_variable = {
+			name = kog_canon_law_compliance_var
+			value = owner.kog_canon_law_compliance_value
+		}
+		set_variable = {
+			name = kog_national_piety_var
+			value = owner.kog_piety_target_value
+		}
+		set_variable = {
+			name = kog_votes_var
+			value = owner.kog_votes_value
+		}
 		set_variable = {
 			name = kog_capacity_var
 			value = owner.kog_capacity_value

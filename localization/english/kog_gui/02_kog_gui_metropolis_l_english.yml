@@ -29,10 +29,10 @@
  kog_gui_metropolitan_header: "#bold Metropolitan: [GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader.GetFullName]#!"
  kog_gui_metropolitan_state_religion: "[concept_state_religion]: [GetPlayer.GetStateReligion.GetName]"
  kog_gui_metropolitan_religion_law: "Religious [concept_law]: [AccessPlayer.AccessActiveLawFromGroup('lawgroup_church_and_state').GetName]"
- kog_gui_metropolitan_national_piety: "#o National Piety#!: #v [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_national_piety_var').GetValue]#!"
+ kog_gui_metropolitan_national_piety: "[concept_national_piety]: #v [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_national_piety_var').GetValue|+=0]#!"
  kog_gui_metropolitan_liturgical_language: "[concept_liturgical_language]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_liturgical_language_var').GetFlagName]"
  kog_gui_metropolitan_liturgical_rite: "[concept_liturgical_rite]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_liturgical_rite_var').GetFlagName]"
- kog_gui_metropolitan_holy_sites: "#o Holy Sites:#! #v [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_holy_sites_var').GetValue]#!"
+ kog_gui_metropolitan_holy_sites: "$kog_holy_sites$ #v [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_holy_sites_var').GetValue]#!"
  
  # Catholic Scripted Buttons
  kog_gui_venerate_apparition: "Venerate Apparition"
