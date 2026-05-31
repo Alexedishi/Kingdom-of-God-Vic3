@@ -3,11 +3,6 @@
 	value = 0
 	
 	# Statism Canon Law x Investiture Country Law
-	active_law:lawgroup_investiture = {
-		law_type = {
-			save_temporary_scope_as = kog_active_investiture_law_scope
-		}
-	}
 	var:kog_global_faith_journal_var = {
 		add = {
 			desc = kog_value_from_investiture_compliance
@@ -18,25 +13,33 @@
 					}
 					if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_ecclesiastic_investiture
+							prev = {
+								has_law_or_variant = law_type:law_ecclesiastic_investiture
+							}
 						}
 						add = 10
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_oath_of_supremacy
+							prev = {
+								has_law_or_variant = law_type:law_oath_of_supremacy
+							}
 						}
 						add = -5
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_concordat_of_investment
+							prev = {
+								has_law_or_variant = law_type:law_concordat_of_investment
+							}
 						}
 						add = -10
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_lay_investiture
+							prev = {
+								has_law_or_variant = law_type:law_lay_investiture
+							}
 						}
 						add = -25
 					}
@@ -47,25 +50,33 @@
 					}
 					if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_ecclesiastic_investiture
+							prev = {
+								has_law_or_variant = law_type:law_ecclesiastic_investiture
+							}
 						}
 						add = 10
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_oath_of_supremacy
+							prev = {
+								has_law_or_variant = law_type:law_oath_of_supremacy
+							}
 						}
 						add = 5
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_concordat_of_investment
+							prev = {
+								has_law_or_variant = law_type:law_concordat_of_investment
+							}
 						}
 						add = 5
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_lay_investiture
+							prev = {
+								has_law_or_variant = law_type:law_lay_investiture
+							}
 						}
 						add = -15
 					}
@@ -76,25 +87,33 @@
 					}
 					if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_ecclesiastic_investiture
+							prev = {
+								has_law_or_variant = law_type:law_ecclesiastic_investiture
+							}
 						}
 						add = 10
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_oath_of_supremacy
+							prev = {
+								has_law_or_variant = law_type:law_oath_of_supremacy
+							}
 						}
 						add = 10
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_concordat_of_investment
+							prev = {
+								has_law_or_variant = law_type:law_concordat_of_investment
+							}
 						}
 						add = 5
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_lay_investiture
+							prev = {
+								has_law_or_variant = law_type:law_lay_investiture
+							}
 						}
 						add = -5
 					}
@@ -105,19 +124,25 @@
 					}
 					if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_ecclesiastic_investiture
+							prev = {
+								has_law_or_variant = law_type:law_ecclesiastic_investiture
+							}
 						}
 						add = 20
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_oath_of_supremacy
+							prev = {
+								has_law_or_variant = law_type:law_oath_of_supremacy
+							}
 						}
 						add = 10
 					}
 					else_if = {
 						limit = {
-							scope:kog_active_investiture_law_scope != law_type:law_concordat_of_investment
+							prev = {
+								has_law_or_variant = law_type:law_lay_investiture
+							}
 						}
 						add = 10
 					}

@@ -18,6 +18,24 @@ kog_canon_law_congregationalism_sgui = {
 	}
 }
 
+####---------- Almsgiving ----------####
+kog_canon_law_no_alms_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_almsgiving_var = flag:kog_canon_law_no_alms
+	}
+}
+kog_canon_law_offertory_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_almsgiving_var = flag:kog_canon_law_offertory
+	}
+}
+kog_canon_law_tithing_sgui = {
+	scope = journal_entry
+	
+}
+
 ####---------- Stance Towards Icons ----------####
 kog_canon_law_iconoclasm_sgui = {
 	scope = journal_entry
@@ -41,6 +59,58 @@ kog_canon_law_iconolatry_sgui = {
 	scope = journal_entry
 	is_shown = {
 		var:kog_canon_law_iconography_var = flag:kog_canon_law_iconolatry
+	}
+}
+
+####---------- Church and State ----------####
+kog_canon_law_hierocracy_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_statism_var = flag:kog_canon_law_hierocracy
+	}
+}
+kog_canon_law_ultramontanism_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_statism_var = flag:kog_canon_law_ultramontanism
+	}
+}
+kog_canon_law_gallicanism_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_statism_var = flag:kog_canon_law_gallicanism
+	}
+}
+kog_canon_law_caesaropapism_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_statism_var = flag:kog_canon_law_caesaropapism
+	}
+}
+
+####---------- Church and Nation ----------####
+kog_canon_law_uranopolitism_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_nationalism_var = flag:kog_canon_law_uranopolitism
+	}
+}
+kog_canon_law_ecclesial_communities_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_nationalism_var = flag:kog_canon_law_ecclesial_communities
+	}
+}
+kog_canon_law_ethnophyletism_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_nationalism_var = flag:kog_canon_law_ethnophyletism
+	}
+}
+kog_canon_law_kinism_sgui = {
+	scope = journal_entry
+	is_shown = {
+		var:kog_canon_law_nationalism_var = flag:kog_canon_law_kinism
 	}
 }
 
@@ -115,9 +185,6 @@ kog_canon_law_scientific_crusage_sgui = {
 		var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_crusade
 	}
 }
-
-####---------- OPEN ----------####
-
 
 ####---------- Crusades ----------####
 kog_canon_law_no_crusades_sgui = {

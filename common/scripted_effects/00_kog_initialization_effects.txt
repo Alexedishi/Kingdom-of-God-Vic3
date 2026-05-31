@@ -1560,7 +1560,6 @@ kog_initialize_variable_lists_effect = {
 
 kog_initialize_metropolis_effect = {
 	# Step 1: Activate Local Journal
-	kog_save_global_faith_journal_scope = yes
 	add_journal_entry = {
 		type = je_kog_local
 	}
@@ -1585,10 +1584,6 @@ kog_initialize_metropolis_effect = {
 		set_variable = {
 			name = kog_holy_sites_var
 			value = owner.kog_holy_sites_value
-		}
-		set_variable = {
-			name = kog_global_faith_journal_var
-			value = scope:kog_global_faith_journal_scope
 		}
 	}
 	
@@ -1891,7 +1886,7 @@ kog_initialize_metropolis_effect = {
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_capacity_var
-			value = kog_capacity_value
+			value = owner.kog_capacity_value
 		}
 	}
 }

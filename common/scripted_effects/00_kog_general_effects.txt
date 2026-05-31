@@ -1,4 +1,5 @@
 ﻿kog_save_global_faith_journal_scope = {
+	# Call this from the COUNTRY scope! The resulting variable is expected in the country scope.
 	if = {
 		limit = {
 			kog_country_is_roman_catholic_trigger = yes
@@ -14,6 +15,10 @@
 		global_var:je_kog_orthodox = {
 			save_scope_as = kog_global_faith_journal_scope
 		}
+	}
+	set_variable = {
+		name = kog_global_faith_journal_var
+		value = scope:kog_global_faith_journal_scope
 	}
 }
 

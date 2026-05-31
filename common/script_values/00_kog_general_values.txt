@@ -7,7 +7,7 @@
 	}
 	add = {
 		desc = kog_value_from_national_piety
-		value = var:kog_national_piety_var
+		value = je:je_kog_local.var:kog_national_piety_var
 	}
 	
 	## Faith Capacity Event/Decision Sources
@@ -142,7 +142,7 @@
 	}
 	if = {
 		limit = {
-			has_variable = kog_schism_var
+			kog_is_schismatic_trigger = yes
 		}
 		subtract = {
 			desc = kog_value_from_schismatic
