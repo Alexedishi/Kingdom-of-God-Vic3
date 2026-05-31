@@ -1563,11 +1563,9 @@ kog_initialize_metropolis_effect = {
 	add_journal_entry = {
 		type = je_kog_local
 	}
-	ig:ig_devout = {
-		leader = {
-			add_trait = kog_bishop
-		}
-	}
+	kog_save_global_faith_journal_scope = yes
+	
+	# Step 2, Initialize Support Variables & Verify Traits
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
@@ -1585,9 +1583,10 @@ kog_initialize_metropolis_effect = {
 			name = kog_holy_sites_var
 			value = owner.kog_holy_sites_value
 		}
+		kog_update_devout_member_traits_effect = yes
 	}
 	
-	# Step 2: Initialize Liturgical Rites & Languages
+	# Step 3: Initialize Liturgical Rites & Languages
 	if = {
 		limit = {
 			kog_country_is_eastern_orthodox_trigger = yes
@@ -1714,7 +1713,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 3: Set Relations Variables
+	# Step 4: Set Relations Variables
 	je:je_kog_local = {
 		## Catholic Seats
 		set_variable = {
@@ -1798,7 +1797,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 4: Set Opinion Variables
+	# Step 5: Set Opinion Variables
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_rome_opinion_var
@@ -1879,10 +1878,10 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 5, Set Up Canon Law Modifiers
+	# Step 6, Set Up Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
 	
-	# Final Step, Calculate Starting Capacity
+	# Step 7, Calculate Starting Capacity
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_capacity_var

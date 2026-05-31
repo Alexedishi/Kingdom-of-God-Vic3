@@ -330,6 +330,30 @@ kog_update_country_votes_effect = {
 	}
 }
 
+kog_update_devout_member_traits_effect = {
+	ig:ig_devout = {
+		leader = {
+			if = {
+				limit = {
+					NOR = {
+						has_trait = kog_bishop
+						has_trait = kog_cardinal
+					}
+				}
+				add_trait = kog_bishop
+			}
+		}
+	}
+	every_scope_character = {
+		limit = {
+			interest_group = ig:ig_devout
+			has_trait = kog_bishop
+			has_trait = kog_cardinal
+		}
+		remove_trait = kog_bishop
+	}
+}
+
 ####---------- Variable Map Validation Effects ---------- ####
 kog_validate_episcopal_seat_variable_maps_effect = {
 	kog_validate_rome_variable_map_effect = yes

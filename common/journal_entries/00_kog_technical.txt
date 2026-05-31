@@ -28,7 +28,6 @@ je_kog_local = {
 			name = je_kog_local
 			value = scope:je_kog_local
 		}
-		kog_save_global_faith_journal_scope = yes
 	}
 	
 	complete = {
@@ -41,19 +40,7 @@ je_kog_local = {
 	
 	on_monthly_pulse = {
 		effect = {
-			ig:ig_devout = {
-				leader = {
-					if = {
-						limit = {
-							NOR = {
-								has_trait = kog_bishop
-								has_trait = kog_cardinal
-							}
-						}
-						add_trait = kog_bishop
-					}
-				}
-			}
+			kog_update_devout_member_traits_effect = yes
 			kog_update_opinion_variables = yes
 		}
 	}
