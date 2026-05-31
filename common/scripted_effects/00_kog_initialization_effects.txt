@@ -1579,11 +1579,6 @@ kog_initialize_metropolis_effect = {
 			name = kog_votes_var
 			value = owner.kog_votes_value
 		}
-		set_variable = {
-			name = kog_holy_sites_var
-			value = owner.kog_holy_sites_value
-		}
-		kog_update_devout_member_traits_effect = yes
 	}
 	
 	# Step 3: Initialize Liturgical Rites & Languages
@@ -1950,6 +1945,15 @@ kog_specific_country_setups_effect = {
 			set_variable = kog_dissolved_monasteries
 			set_variable = kog_ruler_conversion_considered
 		}
+	}
+	
+	## Final Tidying Up ##
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		kog_update_devout_member_traits_effect = yes
+		kog_update_holy_site_count_effect = yes
 	}
 }
 

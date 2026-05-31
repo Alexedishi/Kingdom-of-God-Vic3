@@ -8,9 +8,13 @@ on_law_activated = {
 kog_on_theocracy_enacted = {
 	trigger = {
 		law_type = law_type:law_theocracy
-		kog_content_scope_trigger = yes
+		owner = {
+			kog_content_scope_trigger = yes
+		}
 	}
 	effect = {
-		activate_law = law_type:law_theocratic_investiture
+		owner = {
+			activate_law = law_type:law_theocratic_investiture
+		}
 	}
 }

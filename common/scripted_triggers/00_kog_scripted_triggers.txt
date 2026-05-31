@@ -82,9 +82,11 @@ kog_country_is_cahokian_orthodox_trigger = {
 # Be careful invoking this trigger, it calls the script value directly
 # This is gated behind the is_player trigger for performance- kog_capacity_value is very complicated
 kog_capacity_trigger = {
-	save_temporary_scope_value_as = {
-		name = kog_trigger_value
-		value = $value$
+	hidden_trigger = {
+		save_temporary_scope_value_as = {
+			name = kog_trigger_value
+			value = $value$
+		}
 	}
 	custom_tooltip = {
 		text = kog_capacity_trigger

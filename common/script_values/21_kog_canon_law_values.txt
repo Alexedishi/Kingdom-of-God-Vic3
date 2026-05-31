@@ -189,7 +189,7 @@
 					}
 					if = {
 						limit = {
-							var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
 						}
 						multiply = 2
 					}
@@ -220,7 +220,7 @@
 					multiply = 1.5 # Schooling is a bigger deal for the Church
 					if = {
 						limit = {
-							var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
 						}
 						multiply = 2
 					}
@@ -236,12 +236,12 @@
 							}
 							subtract = institution_investment_level:institution_workplace_safety
 						}
-						if = {
-							limit = {
-								var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
-							}
-							multiply = 2
+					}
+					if = {
+						limit = {
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
 						}
+						multiply = 2
 					}
 				}
 			}
@@ -276,7 +276,7 @@
 					}
 					if = {
 						limit = {
-							var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
 						}
 						multiply = 2
 					}
@@ -289,32 +289,30 @@
 				desc = kog_value_from_land_reform
 				value = {
 					prev = {
-						prev = {
-							if = {
-								limit = {
-									has_law_or_variant = law_type:law_serfdom
-								}
-								subtract = 5
-							}
-							else_if = {
-								limit = {
-									has_law_or_variant = law_type:law_tenant_farmers
-								}
-								subtract = 2.5
-							}
-							else_if = {
-								limit = {
-									has_law_or_variant = law_type:law_collectivized_agriculture
-								}
-								subtract = 10 # lol Communism bad or smth
-							}
-						}
 						if = {
 							limit = {
-								var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+								has_law_or_variant = law_type:law_serfdom
 							}
-							multiply = 2
+							subtract = 5
 						}
+						else_if = {
+							limit = {
+								has_law_or_variant = law_type:law_tenant_farmers
+							}
+							subtract = 2.5
+						}
+						else_if = {
+							limit = {
+								has_law_or_variant = law_type:law_collectivized_agriculture
+							}
+							subtract = 10 # lol Communism bad or smth
+						}
+					}
+					if = {
+						limit = {
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+						}
+						multiply = 2
 					}
 				}
 			}
@@ -343,7 +341,7 @@
 					multiply = 1.5 # Schooling is a bigger deal for the Church
 					if = {
 						limit = {
-							var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
 						}
 						multiply = 2
 					}
@@ -359,12 +357,12 @@
 							}
 							add = institution_investment_level:institution_workplace_safety
 						}
-						if = {
-							limit = {
-								var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
-							}
-							multiply = 2
+					}
+					if = {
+						limit = {
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
 						}
+						multiply = 2
 					}
 				}
 			}
@@ -372,38 +370,36 @@
 				desc = kog_value_from_womens_rights
 				value = {
 					prev = {
-						prev = {
-							if = {
-								limit = {
-									has_law_or_variant = law_type:law_no_womens_rights
-								}
-								subtract = 10
-							}
-							else_if = {
-								limit = {
-									has_law_or_variant = law_type:law_women_own_property
-								}
-								subtract = 5
-							}
-							else_if = {
-								limit = {
-									has_law_or_variant = law_type:law_women_in_the_workplace
-								}
-								add = 5
-							}
-							else_if = {
-								limit = {
-									has_law_or_variant = law_type:law_womens_suffrage
-								}
-								add = 10
-							}
-						}
 						if = {
 							limit = {
-								var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+								has_law_or_variant = law_type:law_no_womens_rights
 							}
-							multiply = 2
+							subtract = 10
 						}
+						else_if = {
+							limit = {
+								has_law_or_variant = law_type:law_women_own_property
+							}
+							subtract = 5
+						}
+						else_if = {
+							limit = {
+								has_law_or_variant = law_type:law_women_in_the_workplace
+							}
+							add = 5
+						}
+						else_if = {
+							limit = {
+								has_law_or_variant = law_type:law_womens_suffrage
+							}
+							add = 10
+						}
+					}
+					if = {
+						limit = {
+							var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+						}
+						multiply = 2
 					}
 				}
 			}
@@ -439,14 +435,14 @@
 							subtract = level
 						}
 						multiply = 0.1
-						if = {
-							limit = {
-								var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_scriptural_supremacy
-							}
-							multiply = 2
-						}
 					}
 				}
+			}
+			if = {
+				limit = {
+					var:kog_canon_law_social_role_var = flag:kog_canon_law_scriptural_supremacy
+				}
+				multiply = 2
 			}
 		}
 		# Progressive Church Branch
@@ -476,14 +472,14 @@
 							add = level
 						}
 						multiply = 0.1
-						if = {
-							limit = {
-								var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_scientific_crusade
-							}
-							multiply = 2
-						}
 					}
 				}
+			}
+			if = {
+				limit = {
+					var:kog_canon_law_social_role_var = flag:kog_canon_law_scientific_crusade
+				}
+				multiply = 2
 			}
 			add = {
 				desc = kog_value_from_literacy_rate
