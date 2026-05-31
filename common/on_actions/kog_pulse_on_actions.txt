@@ -1,17 +1,4 @@
-﻿####---------- Game Initialization Effect ----------####
-on_game_started = {
-	on_actions = {
-		kog_game_start
-	}
-}
-
-kog_game_start = {
-	effect = {
-		kog_initialize_content_effect = yes
-	}
-}
-
-####---------- Contextless Monthly Pulses ----------####
+﻿####---------- Contextless Monthly Pulses ----------####
 on_monthly_pulse = {
 	on_actions = {
 		kog_monthly_global_pulse
@@ -46,8 +33,8 @@ kog_yearly_global_pulse = {
 ####---------- Country Monthly Pulses ----------####
 on_monthly_pulse_country = {
 	on_actions = {
-		kog_catholic_pulse
-		kog_orthodox_pulse
+		#kog_catholic_pulse
+		#kog_orthodox_pulse
 		#kog_oriental_pulse
 		#kog_lutheran_pulse
 		#kog_anglican_pulse
