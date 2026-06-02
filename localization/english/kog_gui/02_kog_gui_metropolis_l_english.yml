@@ -4,14 +4,18 @@
  kog_gui_metropolis_header: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
  kog_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('kog_gui_religious_law_tooltip')] Religious Law#!#!"
  kog_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_almsgiving').GetDesc]"
- kog_gui_national_piety: "$kog_national_piety$"
+ kog_gui_national_piety: "[concept_national_piety]"
  kog_gui_national_piety_amount: "@kog_piety_dutiful!"
- kog_gui_national_piety_breakdown: "TODO"
+ kog_gui_national_piety_breakdown: "#todo kog_gui_national_piety_breakdown"
  
  # Communion & Eminence Panel
  kog_gui_communion_status: "[GetPlayer.GetCustom('kog_communion_type')]"
  kog_gui_capacity_amount: "[GetPlayer.GetCustom('kog_faith_capacity_type')]: #bold #khoine [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!#!"
  kog_gui_capacity_breakdown: "$kog_faith_capacity$\nBalance: "
+ kog_gui_in_communion: "[GetPlayer.GetName] is #green #bold $kog_in_communion$#!#! with $kog_rome_name$"
+ kog_gui_in_schism: "[GetPlayer.GetName] is #red #bold $kog_in_schism$#!#! with $kog_rome_name$"
+ kog_gui_is_autocephalous: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_rome_name$"
+ kog_gui_has_supremacy: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_mother_church_var').GetFlagName] "
  
  # Metropolitan Focus Scripted Buttons
  kog_gui_focus_button_tooltip: "[ConcatIfNeitherEmpty('\n', ScriptedButton.GetDesc)]$kog_linebreak$[ConcatIfNeitherEmpty(ScriptedButton.GetPossibleDesc, '\n\n')]#title Effects:#!\n[ScriptedButton.GetEffectDesc]"
@@ -33,6 +37,12 @@
  kog_gui_metropolitan_liturgical_language: "[concept_liturgical_language]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_liturgical_language_var').GetFlagName]"
  kog_gui_metropolitan_liturgical_rite: "[concept_liturgical_rite]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_liturgical_rite_var').GetFlagName]"
  kog_gui_metropolitan_holy_sites: "$kog_holy_sites$ #v [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_holy_sites_var').GetValue]#!"
+ 
+ kog_no_focus: "#bold None#!"
+ kog_emphasize_unity_focus: "#bold #green Emphasizing Church Unity#!#!"
+ kog_enforce_attendance_focus: "#bold #red Enforcing Church Attendance#!#!"
+ kog_theologize_dogma_focus: "#bold #khoine Theologizing Novel Dogma#!#!"
+ kog_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
  
  # Catholic Scripted Buttons
  kog_gui_venerate_apparition: "Venerate Apparition"

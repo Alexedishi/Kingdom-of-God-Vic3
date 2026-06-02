@@ -1575,6 +1575,10 @@ kog_initialize_metropolis_effect = {
 				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
 			}
+			set_variable = {
+				name = kog_mother_church_var
+				value = flag:kog_constantinople
+			}
 		}
 		if = {
 			limit = {
@@ -1599,6 +1603,16 @@ kog_initialize_metropolis_effect = {
 	else_if = {
 		limit = {
 			kog_country_is_oriental_orthodox_trigger = yes
+		}
+		je:je_kog_local = {
+			set_variable = {
+				name = kog_liturgical_language_var
+				value = flag:kog_language_coptic # TODO replace this once Oriental Churches are added
+			}
+			set_variable = {
+				name = kog_mother_church_var
+				value = flag:kog_coptic_alexandria
+			}
 		}
 		if = {
 			limit = {
@@ -1641,12 +1655,6 @@ kog_initialize_metropolis_effect = {
 				}
 			}
 		}
-		je:je_kog_local = {
-			set_variable = {
-				name = kog_liturgical_language_var
-				value = flag:kog_language_coptic # TODO replace this once Oriental Churches are added
-			}
-		}
 	}
 	else_if = {
 		# Basileia Romaion Rites
@@ -1661,6 +1669,10 @@ kog_initialize_metropolis_effect = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_mixtec_rite
+				}
+				set_variable = {
+					name = kog_mother_church_var
+					value = flag:kog_elysium
 				}
 			}
 		}
@@ -1688,6 +1700,10 @@ kog_initialize_metropolis_effect = {
 			set_variable = {
 				name = kog_liturgical_language_var
 				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_mother_church_var
+				value = flag:kog_rome
 			}
 		}
 	}

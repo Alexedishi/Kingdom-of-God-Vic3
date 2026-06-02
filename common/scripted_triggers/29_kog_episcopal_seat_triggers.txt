@@ -732,6 +732,36 @@ kog_controls_cahokia_trigger = {
 	}
 }
 
+kog_controls_mother_seat_trigger = {
+	trigger_if = {
+		limit = {
+			kog_country_is_roman_catholic_trigger = yes
+		}
+		kog_controls_rome_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			kog_country_is_eastern_orthodox_trigger = yes
+		}
+		kog_controls_constantinople_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			kog_country_is_oriental_orthodox_trigger = yes
+		}
+		kog_controls_coptic_alexandria_trigger = yes
+	}
+	trigger_else_if = {
+		limit = {
+			kog_country_is_elysian_orthodox_trigger = yes
+		}
+		kog_controls_elysium_trigger = yes
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
 ####----------- Seat Group Control Triggers ----------####
 kog_controls_any_seat_trigger = {
 	custom_description = {
