@@ -1,13 +1,13 @@
 ﻿l_english:
  # Community Panel
  kog_community_header: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Community"
- kog_community_members_in_communion: "Members #o In Communion#!"
+ kog_community_members_in_communion: "Members $kog_in_communion$"
  kog_community_members_in_schism: "Members in [concept_schism]"
  kog_community_church_undivided: "#filler The Church is Undivided#!"
  
  # Holy Sites Panel
  kog_gui_holy_sites_header: "Holy Sites"
- kog_gui_holy_site_count: "[GetPlayer.GetName] $kog_controls$ #bold #khoine [GetPlayer.MakeScope.Var('kog_local').Var('kog_holy_sites_var').GetValue]#!#! [concept_holy_site]#o s#!"
+ kog_gui_holy_site_count: "[GetPlayer.GetName] $kog_controls$ #bold #khoine [GetPlayer.MakeScope.Var('kog_local').Var('kog_holy_sites_var').GetValue]#!#! $kog_holy_sites$!"
  kog_block_holy_site_name: "#TODO Override holy_site_name!"
  kog_block_holy_site_location: "#TODO Override kog_holy_site_location!"
  kog_block_holy_site_controller: "#TODO Override holy_site_controller!"
@@ -42,7 +42,7 @@
  kog_gui_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('kog_council_stance_type')]#!"
  
  # Catholic Ecumenical Council Panel
- kog_gui_catholic_council_location: "The #o Council#! of the #yellow Vatican#!"
+ kog_gui_catholic_council_location: "The $kog_council$ of the #yellow Vatican#!"
  kog_gui_catholic_council_host: "#italic Convoked by #yellow [GetGlobalVariable('kog_catholic_host_var').GetCountry.GetNameNoFlag]#!#!
  kog_gui_catholic_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_matter_type')]#!"
  kog_gui_catholic_council_votes: "#italic #khoine [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('kog_votes_var').GetValue] vote(s)#!#!"
@@ -51,7 +51,7 @@
  kog_gui_catholic_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_council_outcome_type')]"
  
  # Orthodox Ecumenical Council Panel
- kog_gui_orthodox_council_location: "The #o Council#! of [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_host_type')]"
+ kog_gui_orthodox_council_location: "The $kog_council$ of [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_host_type')]"
  kog_gui_orthodox_council_host: "#italic Convoked by #yellow [GetGlobalVariable('kog_orthodox_host_var').GetCountry.GetNameNoFlag]#!#!
  kog_gui_orthodox_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_matter_type')]#!"
  kog_gui_orthodox_council_votes: "#italic #khoine [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('kog_votes_var').GetValue] vote(s)#!#!"
