@@ -14,26 +14,26 @@
  kog_canon_laws: "[Concept('concept_canon_law','$concept_canon_laws$')]"
  
  concept_canon_law_compliance: "Canon Law Compliance"
- concept_canon_law_compliance_desc: ""
+ concept_canon_law_compliance_desc: "Canon Law Compliance is a measure of how well-aligned a [concept_country]'s legal framework is aligned with that of its [concept_mother_church]. Failure to abide by the $kog_canon_laws$ of the church will invite friction between the church and state."
  concept_compliance: "Compliance"
  kog_canon_law_compliance: "[concept_canon_law_compliance]"
  kog_compliance: "[Concept('concept_canon_law_compliance','$concept_compliance$')]"
  
  concept_canon_law_group: "Canon Law Group"
- concept_canon_law_group_desc: ""
+ concept_canon_law_group_desc: "A $concept_canon_law_group$ contains several $kog_canon_laws$ that affect aspects of the church's member $kog_countries$ in different ways. Each $concept_canon_law_group$ can only have one $concept_canon_law$ active at a time.""
  kog_canon_law_group: "[concept_canon_law_group]"
  
  concept_collegium: "College of Cardinals"
- concept_collegium_desc: ""
+ concept_collegium_desc: "The College of Cardinals is the body of all $kog_cardinals$ appointed by the $kog_pope$ of a given church. These individuals are seen as the most senior and prominent bishops of a church and serve as semi-formal advisors to the pontiff. Their most important act, however, typically comes with the election of a new $kog_pope$ upon the death a sitting pontiff."
  
  concept_communion: "Communion"
- concept_communion_desc: ""
+ concept_communion_desc: "Communion is the metaphysical bond that is seen as connecting individual Christians with each other and Jesus Christ. As an administrative concept, it represents the close alignment of congregations in matters of authority and doctrine. Typically, churches in communion with each other will align their doctrines with each other, even if a high level of local autonomy is retained."
  concept_in_communion: "In Communion"
  kog_communion: "[concept_communion]"
  kog_in_communion: "[Concept('concept_communion','$concept_in_communion$')]"
  
  concept_crusades: "Crusades"
- concept_crusades_desc: "The Crusades were a series of religiously-motivated wars initiated by Western European countries against non-Christians. While popularly conceptualized as centered on reclaiming the Holy Land from Muslim rulers, similar religious conflicts saw Christian expansion into Scandinavia, Eastern Europe, and Iberia. These wars were generally motivated by a desire for fame from nobles and a desire for indulgences by the commonfolk."
+ concept_crusades_desc: "The #bold Crusades#! were a series of religiously-motivated wars initiated by Western European countries against non-Christians. While popularly conceptualized as centered on reclaiming the Holy Land from Muslim rulers, similar religious conflicts saw Christian expansion into Scandinavia, Eastern Europe, and Iberia. These wars were generally motivated by a desire for fame from nobles and a desire for indulgences by the commonfolk."
  concept_crusade: "Crusade"
  kog_crusades: "[concept_crusades]"
  kog_crusade: "[Concept('concept_crusades','$concept_crusade$')]"
@@ -93,8 +93,9 @@
  kog_faith_capacity_anglican: "[Concept('concept_faith_capacity','$concept_faith_capacity_anglican$')]"
  kog_faith_capacity_lutheran: "[Concept('concept_faith_capacity','$concept_faith_capacity_lutheran$')]"
  
- concept_gravitas: "Personal Piety"
- concept_gravitas_desc: ""
+ concept_gravitas: "Collegial Prominence"
+ concept_gravitas_alt: "Pope Points"
+ concept_gravitas_desc: "#bold Collegial Prominence#! is a measure of a [concept_character]'s weight within the [concept_collegium]. The character with the highest $concept_gravitas$ will be elected as the next $kog_pope$ upon the death of the sitting pontiff."
  
  concept_great_schism: "The Great Schism"
  concept_great_schism_desc: "The #bold Great Schism#!, or East-West Schism, is a term used to describe the complex chain of events that led to the disintegration of communion between $kog_rome$ and the $kog_eastern_seats$. This division between the churches administered from Rome and those guided by Constantinople has led to deviations in liturgical and dogmatic traditions."
@@ -107,6 +108,11 @@
  concept_pope: "Pope"
  concept_ecumenical_patriarch: "Ecumenical Patriarch"
  concept_catholicos: "Catholicos"
+ kog_faith: "[Concept('concept_head_of_faith','$kog_faith$')]"
+ kog_faiths: "[Concept('concept_head_of_faith','$kog_faiths$')]"
+ kog_pope: "[Concept('concept_head_of_faith','$kog_pope$')]"
+ kog_ecumenical_patriarch: "[Concept('concept_head_of_faith','$kog_ecumenical_patriarch$')]"
+ kog_catholicos: "[Concept('concept_head_of_faith','$kog_catholicos$')]"
  
  concept_holy_site: "Holy Site"
  concept_holy_site_desc: "Holy Site"
@@ -132,11 +138,14 @@
  concept_metropolitan_bishop_desc: "Metropolitan Bishop"
  kog_metropolitan_bishop: "[concept_metropolitan_bishop]"
  
+ concept_mother_church: "Mother Church"
+ concept_mother_church_desc: "All churches in Christendom claim descent from the apostles of Christ in one way or another. A #bold Mother Church#! represents the oldest, and typically most prominent, church within a denomination. This church is often either the center of authority in that denomination or occupies a position of relatively increased authority compared to other churches."
+ 
  concept_national_piety: "National Piety"
  concept_national_piety_desc: "#bold National Piety#! indicates to what extent a [concept_country] has put the teachings of Jesus Christ into practice by providing for the well-being of the downtrodden in society."
  
  concept_omen: "Omen"
- concept_omen_desc: ""
+ concept_omen_desc: "Divine Omens are signs of good fortune from heaven sent from God to motivate the faithful. These can take many forms ranging from small events in nature to life-changing experiences. For the church, these omens are often used to steer the actions and lifestyles of their flock."
  concept_omens: "Omens"
  concept_auspicious_omen: "Auspicious Omen"
  concept_auspicious_omens: "Auspicious Omens"
@@ -149,7 +158,7 @@
  concept_personal_piety_desc: "#bold Personal Piety#! is a measure of a character’s standing as a follower of Christ’s teachings. This value is governed by a character’s personality traits."
  
  concept_schism: "Schism"
- concept_schism_desc: ""
+ concept_schism_desc: "A Schism is a break in [concept_communion] within a religious hierarchy. This can occur over administrative issues or deeper divisions such as disagreements over doctrine. Schism is typically the first step undertaken by a church seeking [concept_autocephaly]."
  concept_schismatic: "Schismatic"
  concept_in_schism: "In Schism"
  kog_schism: "[concept_schism]"
@@ -157,7 +166,7 @@
  kog_in_schism: "In [Concept('concept_schism','$concept_in_schism$')]"
  
  concept_tithing: "Tithing"
- concept_tithing_desc: ""
+ concept_tithing_desc: "Tithing is the act of paying a portion (typically one tenth) of something as a contribution to the church or government a means of supporting the church. While absent as a mandatory act in most branches of Christianity, compulsory tithing has found purchase in several branches of [GetReligion('protestant').GetName] Christianity."
  concept_tithe: "Tithe"
- kog_tithing: ""
+ kog_tithing: "[concept_tithing]"
  kog_tithe: "[Concept('concept_tithing','$concept_tithe$')]"
