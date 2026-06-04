@@ -111,40 +111,16 @@ je_kog_orthodox = {
 	
 	on_monthly_pulse = {
 		effect = {
-			every_country = {
-				limit = {
-					OR = {
-						AND = {
-							is_involved_in_journal_entry = je_kog_orthodox
-							kog_country_is_eastern_orthodox_trigger = no
-						}
-						AND = {
-							kog_country_is_eastern_orthodox_trigger = yes
-							NOT = {
-								is_involved_in_journal_entry = je_kog_orthodox
-							}
-						}
-					}
+			scope:journal_entry = {
+				kog_validate_global_journal_involvement_effect = {
+					type = je_kog_orthodox
+					trigger = kog_country_is_eastern_orthodox_trigger
 				}
-				if = {
-					limit = {
-						is_involved_in_journal_entry = je_kog_orthodox
-						kog_country_is_eastern_orthodox_trigger = no
-					}
-					global_var:je_kog_orthodox = {
-						remove_involved_country =  prev
-					}
+				kog_update_schism_list_effect = {
+					type = je_kog_orthodox
 				}
-				else_if = {
-					limit = {
-						kog_country_is_eastern_orthodox_trigger = yes
-						NOT = {
-							is_involved_in_journal_entry = je_kog_orthodox
-						}
-					}
-					global_var:je_kog_orthodox = {
-						add_involved_country =  prev
-					}
+				kog_update_autocephaly_list_effect = {
+					type = je_kog_orthodox
 				}
 			}
 		}

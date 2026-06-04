@@ -516,7 +516,7 @@ types kog_journal_widget_types {
 		com_international_organization_modifiers = { }
 		kog_denominational_actions_container = { }
 		kog_membership_panel = { }
-		kog_holy_sites_panel = { }
+		# kog_holy_sites_panel = { } # TODO enable holy sites when ready
 	}
 	
 	type kog_denominational_actions_container = flowcontainer {
@@ -610,8 +610,8 @@ types kog_journal_widget_types {
 				
 				item = {
 					widget = {
+						visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
 						size = { 60 40 }
-						
 						small_flag = { }
 					}
 				}
@@ -646,11 +646,71 @@ types kog_journal_widget_types {
 			
 			textbox = {
 				parentanchor = top|hcenter
+				visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_schism_list'))]"
 				autoresize = yes
 				text = "kog_community_church_undivided"
 				align = center|nobaseline
 				elide = right
 				using = fontsize_large
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_schism_list')))]"
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_schism_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_autocephalous_list')))]"
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_with_autocephaly"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_autocephalous_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
 			}
 		}
 	}
