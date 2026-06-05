@@ -1926,7 +1926,7 @@ types kog_journal_widget_types {
 			
 			kog_episcopal_seat_filter_button = {
 				blockoverride "filter_button_name" {
-					raw_text = "[GetReligion('catholic').GetName] Seats"
+					text = "kog_catholic_seats_filter"
 				}
 				blockoverride "filter_button_onclick" {
 					onclick = "[GetVariableSystem.Set('kog_episcopal_seat_tab', 'catholic')]"
@@ -1941,7 +1941,7 @@ types kog_journal_widget_types {
 			
 			kog_episcopal_seat_filter_button = {
 				blockoverride "filter_button_name" {
-					raw_text = "[GetReligion('orthodox').GetName] Seats"
+					text = "kog_orthodox_seats_filter"
 				}
 				blockoverride "filter_button_onclick" {
 					onclick = "[GetVariableSystem.Set('kog_episcopal_seat_tab', 'orthodox')]"
