@@ -672,7 +672,10 @@ types kog_journal_widget_types {
 		direction = vertical
 		spacing = 5
 		
-		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+		visible = "[And(
+			GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'),
+			GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)
+		)]"
 		
 		kog_metropolitan_status_panel = { }
 		kog_metropolitan_actions_container = { }
@@ -1918,6 +1921,8 @@ types kog_journal_widget_types {
 	type kog_episcopal_seat_buttons = widget {
 		parentanchor = top|hcenter
 		size = { 520 40 }
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 		
 		hbox = {
 			parentanchor = center
