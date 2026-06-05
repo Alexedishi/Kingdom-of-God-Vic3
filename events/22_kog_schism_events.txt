@@ -1,0 +1,897 @@
+﻿namespace = kog_schism_events
+
+kog_schism_events.001 = {
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_schism_events.001.t
+	desc = kog_schism_events.001.d
+	flavor = kog_schism_events.001.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered by
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			je:je_kog_local = {
+				has_variable = kog_schism_var
+			}
+		}
+	}
+	
+	cooldown = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = event_id.a
+		default_option = yes
+	}
+}
+
+kog_schism_events.009 = { # Autocephaly of the National Church
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.009.t
+	desc = kog_schism_events.009.d
+	flavor = kog_schism_events.009.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_schism_var
+			var:kog_schism_var >= 120
+		}
+	}
+	
+	immediate = {
+		kog_update_patriarch_variables_effect = yes
+	}
+	
+	option = {
+		name = kog_schism_events.009.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_autocephaly_granted
+			months = long_modifier_time
+		}
+	}
+	
+}
+
+kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.010.t
+	desc = kog_schism_events.010.d
+	flavor = kog_schism_events.010.f
+	
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		var:kog_schism_var > 30
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	cooldown = {
+		years = 2
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+	
+	option = { # Ignore these Losers
+		name = kog_schism_events.010.a
+		default_option = yes
+		add_modifier = modifier_kog_ignored_dissent
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+	
+	option = { # Slow Down the Process
+		name = kog_schism_events.010.b
+		custom_tooltip = {
+			text = kog_schism_lose_24
+			hidden_effect = {
+				change_variable = {
+					name = kog_schism_var
+					subtract = 24
+				}
+			}
+		}
+		add_modifier = modifier_kog_conceded_to_traditionalists
+		add_loyalists = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+	}
+	
+}
+
+kog_schism_events.011 = { # A Church for the Nation (Progress Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.011.t
+	desc = kog_schism_events.011.d
+	flavor = kog_schism_events.011.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		NOR = {
+			has_modifier = modifier_kog_nationalist_church
+			has_modifier = modifier_kog_sidelined_church
+		}
+		var:kog_schism_var > 90
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+	
+	option = { # Adopt Nationalist Dogma
+		name = kog_schism_events.011.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_nationalist_church
+			months = long_modifier_time
+		}
+	}
+	
+	option = { # Sideline the Church
+		name = kog_schism_events.011.b
+		add_modifier = {
+			name = modifier_kog_sidelined_church
+			months = long_modifier_time
+		}
+	}
+	
+}
+
+kog_schism_events.012 = { # Minority Adherents Seek Protections (Debate Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.012.t
+	desc = kog_schism_events.012.d
+	flavor = kog_schism_events.012.f
+	
+	event_image = {
+		video = "africa_leader_arguing"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		any_scope_pop = {
+			OR = {
+				religion = rel:sunni
+				religion = rel:shiite
+				religion = rel:jewish
+			}
+		}
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	cooldown = {
+		years = 2
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_scope_pop = {
+			limit = {
+				OR = {
+					religion = rel:sunni
+					religion = rel:shiite
+					religion = rel:jewish
+				}
+			}
+			religion = {
+				save_scope_as = kog_minority_religion_scope
+			}
+		}
+	}
+	
+	option = { # Grant Them Protections
+		name = kog_schism_events.012.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_minority_protections
+			months = long_modifier_time
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+	}
+	
+	option = { # Orthodoxy or Bust
+		name = kog_schism_events.012.b
+		add_modifier = {
+			name = modifier_kog_orthodox_supremacy
+			months = long_modifier_time
+		}
+		add_radicals = {
+			religion = scope:kog_minority_religion_scope
+			value = large_radicals
+		}
+	}
+	
+}
+
+kog_schism_events.013 = { # Patriarch Denounces Schism (Stall Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.013.t
+	desc = kog_schism_events.013.d
+	flavor = kog_schism_events.013.f
+	
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOR = {
+			has_variable = kog_schism_event_cooldown_var
+			has_modifier = modifier_kog_schism_denounced
+		}
+		OR = {
+			kog_has_low_opinion_with_any_patriarch_trigger = yes
+			has_variable = kog_schism_var
+		}
+		var:kog_schism_var > 30
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	cooldown = {
+		years = 4
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		kog_update_patriarch_variables_effect = yes
+		kog_select_random_schism_condemnation_seat_effect = yes
+		kog_save_event_patriarch_effect = yes
+	}
+	
+	option = { # Tell him to buzz off
+		name = kog_schism_events.013.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_schism_denounced
+			months = normal_modifier_time
+		}
+		kog_decrease_patriarch_opinion_effect = yes
+		custom_tooltip = {
+			text = kog_schism_gain_6
+			change_variable = {
+				name = kog_schism_var
+				add = 6
+			}
+		}
+	}
+	
+	option = { # Tell him you're actually a really good boy
+		name = kog_schism_events.013.b
+		add_modifier = {
+			name = modifier_kog_schism_denounced
+			months = normal_modifier_time
+		}
+		kog_increase_patriarch_opinion_effect = yes
+		custom_tooltip = {
+			text = kog_schism_gain_6
+			change_variable = {
+				name = kog_schism_var
+				add = 6
+			}
+		}
+		
+	}
+	
+	after = {
+		kog_remove_seat_event_variables_effect = yes
+	}
+	
+}
+
+kog_schism_events.014 = { # Liturgical Language (Debate Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.014.t
+	desc = kog_schism_events.014.d
+	flavor = kog_schism_events.014.f
+	
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOR = {
+			has_variable = kog_language_disputed
+			has_variable = kog_schism_event_cooldown_var
+			country_has_primary_culture = cu:greek
+		}
+		has_technology_researched = mass_communication
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	immediate = {
+		set_variable = kog_language_disputed
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_primary_culture = {
+			save_scope_as = kog_primary_culture_scope
+		}
+	}
+	
+	option = { # Local Language or Bust
+		name = kog_schism_events.014.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_local_language
+			months = very_long_modifier_time
+		}
+		add_loyalists = {
+			culture = scope:kog_primary_culture_scope
+			value = medium_radicals
+		}
+		add_radicals = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+		custom_tooltip = {
+			text = kog_schism_gain_12
+			change_variable = {
+				name = kog_schism_var
+				add = 12
+			}
+		}
+	}
+	
+	option = { # Ehh, we simp for Greek here
+		name = kog_schism_events.014.b
+		add_modifier = {
+			name = modifier_kog_greek_language
+			months = very_long_modifier_time
+		}
+		add_loyalists = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+		add_radicals = {
+			culture = scope:kog_primary_culture_scope
+			value = medium_radicals
+		}
+	}
+	
+}
+
+kog_schism_events.015 = { # Ecclesiatic Purges (Advance Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.015.t
+	desc = kog_schism_events.015.d
+	flavor = kog_schism_events.015.f
+	
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOR = {
+			has_variable = kog_ecclesiarchy_purge_considered
+			has_variable = kog_schism_event_cooldown_var
+		}
+		has_technology_researched = central_archives
+		has_variable = kog_language_disputed
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	immediate = {
+		set_variable = kog_ecclesiarchy_purge_considered
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_primary_culture = {
+			save_scope_as = kog_primary_culture_scope
+		}
+	}
+	
+	option = { # Kick out the Greeks
+		name = kog_schism_events.015.a
+		default_option = yes
+		add_modifier = modifier_kog_purged_ecclesiarchy
+		add_radicals = {
+			culture = cu:greek
+			value = medium_radicals
+		}
+		create_incident = {
+			country = c:TUR
+			value = 5
+		}
+		custom_tooltip = {
+			text = kog_schism_gain_12
+			change_variable = {
+				name = kog_schism_var
+				add = 12
+			}
+		}
+	}
+	
+	option = { # Retain the Greeks
+		name = kog_schism_events.015.b
+		add_modifier = modifier_kog_retained_ecclesiarchy
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+		custom_tooltip = {
+			text = kog_schism_lose_24
+			change_variable = {
+				name = kog_schism_var
+				subtract = 24
+			}
+		}
+	}
+	
+}
+
+kog_schism_events.016 = { # Promoting Local Bishops (Advance Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.016.t
+	desc = kog_schism_events.016.d
+	flavor = kog_schism_events.016.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	cooldown = {
+		years = 2
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+	
+	option = { # Fast Track New Bishops
+		name = kog_schism_events.016.a
+		default_option = yes
+		add_modifier = modifier_kog_fast_tracking_bishops
+		custom_tooltip = {
+			text = kog_schism_gain_12
+			change_variable = {
+				name = kog_schism_var
+				add = 12
+			}
+		}
+	}
+	
+	option = { # Ensure Adequate Training
+		name = kog_schism_events.016.b
+		add_modifier = {
+			name = modifier_kog_disciplined_clergy
+			months = very_long_modifier_time
+		}
+	}
+	
+}
+
+kog_schism_events.017 = { # Monastic Brawls (Stall Event)
+	type = country_event
+	placement = scope:kog_monk_fight_state_scope
+	
+	title = kog_schism_events.017.t
+	desc = kog_schism_events.017.d
+	flavor = kog_schism_events.017.f
+	
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	cooldown = {
+		years = 2
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_scope_state = {
+			save_scope_as = kog_monk_fight_state_scope
+		}
+	}
+	
+	option = { # This should be a paid event
+		name = kog_schism_events.017.a
+		default_option = yes
+		add_modifier = modifier_kog_monk_smackdown_tolerated
+		custom_tooltip = {
+			text = kog_schism_lose_24
+			change_variable = {
+				name = kog_schism_var
+				subtract = 24
+			}
+		}
+	}
+	
+	option = { # Break up the fighting
+		name = kog_schism_events.017.b
+		add_modifier = modifier_kog_monk_smackdown_stopped
+		custom_tooltip = {
+			text = kog_schism_lose_12
+			change_variable = {
+				name = kog_schism_var
+				subtract = 12
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+	
+}
+
+kog_schism_events.018 = { # Agitator Condemns Schism (Stall Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.018.t
+	desc = kog_schism_events.018.d
+	flavor = kog_schism_events.018.f
+	
+	event_image = {
+		video = "unspecific_ruler_speaking_to_people"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		any_scope_character = {
+			has_role_of_type = agitator
+			OR = {
+				law_stance = {
+					law = law_type:law_state_religion
+					value > neutral
+				}
+				law_stance = {
+					law = law_type:law_theocracy
+					value > neutral
+				}
+			}
+		}
+	}
+	
+	cancellation_trigger = {
+		OR = {
+			has_variable = kog_is_autocephalous
+			scope:kog_denouncing_agitator_scope = {
+				is_character_alive = no
+			}
+			NOT = {
+				exists = scope:kog_denouncing_agitator_scope
+			}
+		}
+	}
+	
+	cooldown = {
+		years = 10
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+		random_scope_character = {
+			limit = {
+				has_role_of_type = agitator
+				OR = {
+					law_stance = {
+						law = law_type:law_state_religion
+						value > neutral
+					}
+					law_stance = {
+						law = law_type:law_theocracy
+						value > neutral
+					}
+				}
+			}
+			save_scope_as = kog_denouncing_agitator_scope
+		}
+	}
+	
+	option = { # Let Him Speak
+		name = kog_schism_events.018.a
+		default_option = yes
+		add_modifier = modifier_kog_agitator_delay
+		custom_tooltip = {
+			text = kog_schism_lose_12
+			change_variable = {
+				name = kog_schism_var
+				subtract = 12
+			}
+		}
+	}
+	
+	option = { # Kick Him in the Nuts
+		name = kog_schism_events.018.b
+		trigger = {
+			NOR = {
+				has_law = law_type:law_protected_speech
+				has_law = law_type:law_right_of_assembly
+			}
+		}
+		show_as_unavailable = {
+			always = yes
+		}
+		scope:kog_denouncing_agitator_scope = {
+			add_modifier = modifier_kog_popular_speaker
+		}
+		add_modifier = {
+			name = modifier_kog_muzzled_agitator
+			months = normal_modifier_time
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+	
+}
+
+kog_schism_events.019 = { # Prominent Priest Assassinated (Stall Event)
+	type = country_event
+	placement = root
+	
+	title = kog_schism_events.019.t
+	desc = kog_schism_events.019.d
+	flavor = kog_schism_events.019.f
+	
+	event_image = {
+		video = "southamerica_public_figure_assassination"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_schism_event_cooldown_var
+		}
+		var:kog_schism_var > 100
+	}
+	
+	cancellation_trigger = {
+		has_variable = kog_is_autocephalous
+	}
+	
+	cooldown = {
+		years = 5
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_schism_event_cooldown_var
+			months = 3
+		}
+	}
+	
+	option = { # Hunt Down the Killer
+		name = kog_schism_events.019.a
+		default_option = yes
+		add_modifier = modifier_kog_protecting_bishops
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_kog_elder_assassinated
+				months = normal_modifier_time
+			}
+		}
+	}
+	
+	option = { # Turn a Blind Eye
+		name = kog_schism_events.019.b
+		custom_tooltip = {
+			text = kog_schism_lose_12
+			change_variable = {
+				name = kog_schism_var
+				subtract = 12
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = modifier_kog_elder_assassinated
+				months = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = large_radicals
+		}
+	}
+	
+}
