@@ -33,8 +33,8 @@ kog_yearly_global_pulse = {
 ####---------- Country Monthly Pulses ----------####
 on_monthly_pulse_country = {
 	on_actions = {
-		#kog_catholic_pulse
-		#kog_orthodox_pulse
+		kog_catholic_pulse
+		kog_orthodox_pulse
 		#kog_oriental_pulse
 		#kog_lutheran_pulse
 		#kog_anglican_pulse
@@ -46,10 +46,107 @@ kog_catholic_pulse = {
 	trigger = {
 		kog_country_is_roman_catholic_trigger = yes
 	}
+	on_actions = {
+		kog_schism_pulse
+		kog_integration_pulse
+	}
+	effect = {
+		kog_update_devout_member_traits_effect = yes
+		kog_monthly_seat_relations_effect = yes
+		kog_update_opinion_variables = yes
+	}
 }
 
 kog_orthodox_pulse = {
 	trigger = {
 		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	on_actions = {
+		kog_schism_pulse
+		kog_integration_pulse
+	}
+	effect = {
+		kog_update_devout_member_traits_effect = yes
+		kog_monthly_seat_relations_effect = yes
+		kog_update_opinion_variables = yes
+	}
+}
+
+kog_schism_pulse = {
+	trigger = { 
+		je:je_kog_local ?= {
+			has_variable = kog_schism_var
+		}
+	}
+	events = {
+		kog_schism_events.002 # Autocephaly of the National Church
+	}
+	random_events = {
+		chance_of_no_event = 90
+		10 = kog_schism_events.010 # Traditionalists March in Capital (Stall Event)
+		10 = kog_schism_events.011 # A Church for the Nation (Progress Event)
+		10 = kog_schism_events.012 # Minority Adherents Seek Protections (Debate Event)
+		10 = kog_schism_events.013 # Patriarch Denounces Schism (Stall Event)
+		10 = kog_schism_events.014 # Liturgical Language (Debate Event)
+		10 = kog_schism_events.015 # Ecclesiastic Purges (Advance Event)
+		10 = kog_schism_events.016 # Promoting Local Bishops (Advance Event)
+		10 = kog_schism_events.017 # Monastic Brawls (Stall Event)
+		10 = kog_schism_events.018 # Agitator Condemns Schism (Stall Event)
+		10 = kog_schism_events.019 # Prominent Priest Assassinated (Stall Event)
+	}
+	effect = {
+		kog_schism_monthly_progress_effect = yes
+	}
+}
+
+kog_integration_pulse = {
+	trigger = {
+		kog_integrating_seat_trigger = yes
+	}
+	events = {
+		kog_episcopal_events.100 # Control Secured Over Rome
+		kog_episcopal_events.101 # Control Secured Over Santiago
+		kog_episcopal_events.102 # Control Secured Over Paris
+		kog_episcopal_events.103 # Control Secured Over Cologne
+		kog_episcopal_events.104 # Control Secured Over Vienna
+		kog_episcopal_events.105 # Control Secured Over Constantinople
+		kog_episcopal_events.106 # Control Secured Over Antioch
+		kog_episcopal_events.107 # Control Secured Over Jerusalem
+		kog_episcopal_events.108 # Control Secured Over Alexandria
+		kog_episcopal_events.109 # Control Secured Over Moscow
+		# kog_episcopal_events.110 # Control Secured Over Coptic Alexandria
+		# kog_episcopal_events.111 # Control Secured Over Syriac Antioch
+		# kog_episcopal_events.112 # Control Secured Over Etchmiadzin
+		# kog_episcopal_events.113 # Control Secured Over Addis Ababa
+		# kog_episcopal_events.114 # Control Secured Over Qudshanis
+		# kog_episcopal_events.190 # Control Secured Over Elysium
+		# kog_episcopal_events.191 # Control Secured Over Tututepec
+		# kog_episcopal_events.192 # Control Secured Over Cahokia
+	}
+	#random_events = {
+	#	chance_of_no_event = 95
+	#	5 = kog_episcopal_events.200 # Seat Integration Disputed
+	#}
+	effect = {
+		kog_seat_integration_monthly_progress_effect = yes
+	}
+}
+
+####---------- Yearly Monthly Pulses ----------####
+on_yearly_pulse_country = {
+	on_actions = {
+		kog_yearly_country_pulse
+	}
+}
+
+kog_yearly_country_pulse = {
+	trigger = {
+		kog_content_scope_trigger = yes
+	}
+	effect = {
+		kog_update_holy_site_count_effect = yes
+		kog_update_canon_law_modifiers_effect = yes
+		kog_update_rite_modifiers_effect = yes
+		kog_update_country_votes_effect = yes
 	}
 }

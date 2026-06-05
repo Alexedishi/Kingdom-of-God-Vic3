@@ -1,4 +1,21 @@
-﻿kog_schism_cleanup_effect = {
+﻿kog_schism_monthly_progress_effect = {
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_schism_var
+			value = {
+				add = var:kog_schism_var
+				add = owner.modifier:country_monthly_schism_progress_add
+				max = 120
+				min = 0
+			}
+		}
+	}
+}
+
+
+
+
+kog_schism_cleanup_effect = {
 	# This effect will not adjust the kog_schism_var or kog_is_autocephalous variables; those are explicitly handled by kog.107/balkfm.569
 	remove_variable = kog_language_disputed
 	remove_variable = kog_ecclesiarchy_purge_considered
