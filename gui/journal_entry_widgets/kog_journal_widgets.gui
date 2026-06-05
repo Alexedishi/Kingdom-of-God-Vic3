@@ -26,7 +26,7 @@ flowcontainer = {
 			}
 		}
 		kog_head_of_faith_panel = {}
-		kog_catholic_denominational_tabs = {}
+		kog_tab_buttons = {}
 		kog_denominational_overview_panel = {}
 		kog_metropolis_panel = {}
 		kog_canon_laws_panel = {}
@@ -49,7 +49,7 @@ flowcontainer = {
 			}
 		}
 		kog_head_of_faith_panel = {}
-		kog_generic_denominational_tabs = {}
+		kog_tab_buttons = {}
 		kog_denominational_overview_panel = {}
 		kog_canon_laws_panel = {}
 		kog_orthodox_episcopal_seats_panel = {}
@@ -203,307 +203,102 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_catholic_denominational_tabs = flowcontainer {
+	type kog_tab_buttons = widget {
 		parentanchor = top|hcenter
-		direction = horizontal
-		minimumsize = { 540 40 }
+		size = { 540 40 }
 		
-		### START DIVIDER
-		icon = {
-			texture = "gfx/interface/tabs/tab_divider.dds"
-			layoutpolicy_horizontal = fixed
-			layoutpolicy_vertical = expanding
-			size = { 5 -1 }
-			spriteType = Corneredstretched
-			spriteborder = { 0 20 }
-		}
-		
-		# OVERVIEW TAB
-		tab_button = {
-			minimumsize = { 108 -1 }
-			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
-			textbox = {
+		tab_buttons = {
+			parentanchor = center
+			# OVERVIEW TAB
+			blockoverride "first_button" {
 				text = "kog_gui_overview_header"
-				default_format = "#title"
-				using = tab_text_properties
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
-			tooltip = "TAB_1"
-			input_action = "tab_1"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 108 -1 }
-			using = selected_tabs
-			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
-			
-			textbox = {
+			blockoverride "first_button_selected" {
 				text = "kog_gui_overview_header"
-				default_format = "#variable"
-				using = tab_text_properties
 			}
-		}
-		
-		# METROPOLIS TAB
-		tab_button = {
-			minimumsize = { 135 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
-			textbox = {
+			blockoverride "first_button_visibility_checked" {
+				visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+			}
+			blockoverride "first_button_visibility" {
+				visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+			}
+			blockoverride "first_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
+			}
+			
+			# METROPOLIS TAB
+			blockoverride "second_button" {
 				text = "kog_gui_metropolis_header"
-				default_format = "#title"
-				using = tab_text_properties
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
-			tooltip = "TAB_2"
-			input_action = "tab_2"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 135 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
-			
-			textbox = {
+			blockoverride "second_button_selected" {
 				text = "kog_gui_metropolis_header"
-				default_format = "#variable"
-				using = tab_text_properties
 			}
-		}
-		
-		# CANON LAWS TAB
-		tab_button = {
-			minimumsize = { 108 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
-			textbox = {
+			blockoverride "second_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
+			}
+			blockoverride "second_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+			}
+			blockoverride "second_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
+			}
+			
+			# CANON LAW TAB
+			blockoverride "third_button" {
 				text = "kog_gui_canon_law_header"
-				default_format = "#title"
-				using = tab_text_properties
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 108 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
-			
-			textbox = {
+			blockoverride "third_button_selected" {
 				text = "kog_gui_canon_law_header"
-				default_format = "#variable"
-				using = tab_text_properties
 			}
-		}
-		
-		# COLLEGIUM TAB
-		tab_button = {
-			minimumsize = { 108 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia'))]"
-			textbox = {
+			blockoverride "third_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+			}
+			blockoverride "third_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+			}
+			blockoverride "third_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+			}
+			
+			# COLLEGIUM TAB
+			blockoverride "fourth_button" {
 				text = "kog_gui_college_header"
-				default_format = "#title"
-				using = tab_text_properties
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
-			tooltip = "TAB_4"
-			input_action = "tab_4"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 108 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'curia')]"
-			
-			textbox = {
+			blockoverride "fourth_button_selected" {
 				text = "kog_gui_college_header"
-				default_format = "#variable"
-				using = tab_text_properties
 			}
-		}
-		
-		# EPISCOPAL SEATS TAB
-		tab_button = {
-			minimumsize = { 108 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
-			textbox = {
+			blockoverride "fourth_button_visibility_checked" {
+				visible = "[And(
+					GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End),
+					Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia'))
+				)]"
+			}
+			blockoverride "fourth_button_visibility" {
+				visible = "[And(
+					GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End),
+					GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
+				)]"
+			}
+			blockoverride "fourth_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
+			}
+			
+			# EPISCOPAL SEATS TAB
+			blockoverride "fifth_button" {
 				text = "kog_gui_seats_header"
-				default_format = "#title"
-				using = tab_text_properties
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
-			tooltip = "TAB_5"
-			input_action = "tab_5"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 108 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
-			
-			textbox = {
+			blockoverride "fifth_button_selected" {
 				text = "kog_gui_seats_header"
-				default_format = "#variable"
-				using = tab_text_properties
 			}
-		}
-		
-		### END DIVIDER
-		icon = {
-			texture = "gfx/interface/tabs/tab_divider.dds"
-			layoutpolicy_horizontal = fixed
-			layoutpolicy_vertical = expanding
-			size = { 5 -1 }
-			spriteType = Corneredstretched
-			spriteborder = { 0 20 }
-		}
-	}
-	
-	type kog_generic_denominational_tabs = flowcontainer {
-		parentanchor = top|hcenter
-		direction = horizontal
-		minimumsize = { 540 40 }
-		
-		### START DIVIDER
-		icon = {
-			texture = "gfx/interface/tabs/tab_divider.dds"
-			layoutpolicy_horizontal = fixed
-			layoutpolicy_vertical = expanding
-			size = { 5 -1 }
-			spriteType = Corneredstretched
-			spriteborder = { 0 20 }
-		}
-		
-		# OVERVIEW TAB
-		tab_button = {
-			minimumsize = { 135 -1 }
-			visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
-			textbox = {
-				text = "kog_gui_overview_header"
-				default_format = "#title"
-				using = tab_text_properties
+			blockoverride "fifth_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
-			tooltip = "TAB_1"
-			input_action = "tab_1"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 135 -1 }
-			using = selected_tabs
-			visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
-			
-			textbox = {
-				text = "kog_gui_overview_header"
-				default_format = "#variable"
-				using = tab_text_properties
+			blockoverride "fifth_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
 			}
-		}
-		
-		# METROPOLIS TAB
-		tab_button = {
-			minimumsize = { 135 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
-			textbox = {
-				text = "kog_gui_metropolis_header"
-				default_format = "#title"
-				using = tab_text_properties
+			blockoverride "fifth_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
 			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
-			tooltip = "TAB_2"
-			input_action = "tab_2"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 135 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
-			
-			textbox = {
-				text = "kog_gui_metropolis_header"
-				default_format = "#variable"
-				using = tab_text_properties
-			}
-		}
-		
-		# CANON LAWS TAB
-		tab_button = {
-			minimumsize = { 135 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
-			textbox = {
-				text = "kog_gui_canon_law_header"
-				default_format = "#title"
-				using = tab_text_properties
-			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
-			tooltip = "TAB_3"
-			input_action = "tab_3"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 135 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
-			
-			textbox = {
-				text = "kog_gui_canon_law_header"
-				default_format = "#variable"
-				using = tab_text_properties
-			}
-		}
-		
-		# EPISCOPAL SEATS TAB
-		tab_button = {
-			minimumsize = { 135 -1 }
-			visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
-			textbox = {
-				text = "kog_gui_seats_header"
-				default_format = "#title"
-				using = tab_text_properties
-			}
-			
-			onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
-			tooltip = "TAB_4"
-			input_action = "tab_4"
-			using = tooltip_above
-			
-		}
-		icon = {
-			minimumsize = { 135 -1 }
-			using = selected_tabs
-			visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
-			
-			textbox = {
-				text = "kog_gui_seats_header"
-				default_format = "#variable"
-				using = tab_text_properties
-			}
-		}
-		
-		### END DIVIDER
-		icon = {
-			texture = "gfx/interface/tabs/tab_divider.dds"
-			layoutpolicy_horizontal = fixed
-			layoutpolicy_vertical = expanding
-			size = { 5 -1 }
-			spriteType = Corneredstretched
-			spriteborder = { 0 20 }
 		}
 	}
 	
@@ -610,7 +405,7 @@ types kog_journal_widget_types {
 				
 				item = {
 					widget = {
-						visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+						visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(Country.MakeScope ).End)]"
 						size = { 60 40 }
 						small_flag = { }
 					}

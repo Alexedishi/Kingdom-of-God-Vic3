@@ -70,29 +70,37 @@ kog_update_denominational_leaders_effect = {
 }
 
 kog_update_schism_list_effect = {
-	clear_variable_list = kog_schism_list
+	global_var:$type$ = {
+		clear_variable_list = kog_schism_list
+	}
 	every_country = {
 		limit = {
 			is_involved_in_journal_entry = $type$
 			kog_is_schismatic_trigger = yes
 		}
-		add_to_variable_list = {
-			name = kog_schism_list
-			target = this
+		global_var:$type$ = {
+			add_to_variable_list = {
+				name = kog_schism_list
+				target = prev
+			}
 		}
 	}
 }
 
 kog_update_autocephaly_list_effect = {
-	clear_variable_list = kog_autocephalous_list
+	global_var:$type$ = {
+		clear_variable_list = kog_autocephalous_list
+	}
 	every_country = {
 		limit = {
 			is_involved_in_journal_entry = $type$
 			kog_is_autocephalous_trigger = yes
 		}
-		add_to_variable_list = {
-			name = kog_autocephalous_list
-			target = this
+		global_var:$type$ = {
+			add_to_variable_list = {
+				name = kog_autocephalous_list
+				target = prev
+			}
 		}
 	}
 }

@@ -105,6 +105,20 @@ je_kog_orthodox = {
 		}
 	}
 	
+	immediate_all_involved = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+	}
+	
+	on_become_involved_after_activation = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+	}
+	
 	complete = {
 		always = no
 	}
