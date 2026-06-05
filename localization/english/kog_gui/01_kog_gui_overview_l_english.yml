@@ -1,0 +1,86 @@
+﻿l_english:
+ # Community Panel
+ kog_community_header: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Community"
+ kog_community_members_in_communion: "Members $kog_in_communion$"
+ kog_community_members_in_schism: "Members in [concept_schism]"
+ kog_community_members_with_autocephaly: "Members with [concept_autocephaly]"
+ kog_community_church_undivided: "#filler The Church is Undivided#!"
+ 
+ # Holy Sites Panel
+ kog_gui_holy_sites_header: "Holy Sites"
+ kog_gui_holy_site_count: "[GetPlayer.GetName] $kog_controls$ #bold #khoine [GetPlayer.MakeScope.Var('kog_local').Var('kog_holy_sites_var').GetValue]#!#! $kog_holy_sites$!"
+ kog_block_holy_site_name: "#dummy Override holy_site_name!"
+ kog_block_holy_site_location: "#dummy Override kog_holy_site_location!"
+ kog_block_holy_site_controller: "#dummy Override holy_site_controller!"
+ kog_block_holy_site_perk: "#dummy Override holy_site_perk!"
+ 
+ ####---------- Old Localization ----------####
+ # Encyclical Panel General
+ kog_gui_encyclical_header: "Circulating Encyclicals"
+ kog_gui_no_encyclical: "#italic #lore There is no [concept_encyclical] in circulation#!"
+ kog_gui_encyclicals_disabled: "#italic #lore [GetPlayer.GetStateReligion.GetNameNoFormatting] does not use the [concept_encyclical] system#!#!"
+ ecofm_gui_encyclical_good: "@green_checkmark! #green #italic [GetPlayer.GetNameNoFormatting] is in compliance#!#!"
+ ecofm_gui_encyclical_bad: "@warning! #red #italic [GetPlayer.GetNameNoFormatting] is NOT compliant!#!#!"
+ 
+ ## Catholic Encyclicals
+ kog_gui_encyclical_catholic_mirari_vos: "#bold #italic Mirari Vos#!#!"
+ kog_gui_encyclical_catholic_translations: "#bold #italic Inter Praecipuas Machinationes#!#!"
+ 
+ ## Orthodox Encyclicals
+ kog_gui_encyclical_orthodox_easterners: "#bold #italic Encyclical of the Eastern Patriarchs#!#!"
+ kog_gui_encyclical_orthodox_fraternity: "#bold #italic Encyclical of the Fraternity of Churches#!#!"
+ 
+ 
+ # Ecumenical Council General
+ kog_gui_ecumenical_council_header: "The Ecumenical Council"
+ kog_gui_ecumenical_council_none: "#italic #lore There is no [concept_ecumenical_council] in session#!"
+ kog_gui_ecumenical_council_oppose: "This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to opposing the proposed reform."
+ kog_gui_ecumenical_council_abstain: "This will withdraw our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes towards either side of the proposed reform."
+ kog_gui_ecumenical_council_support: "This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to supporting the proposed reform."
+ kog_gui_support_winning: "The council favors the #bold Reformist Camp#!."
+ kog_gui_oppose_winning: "The council favors the #bold Conservative Camp#!."
+ kog_gui_noone_winning: "The Council is #bold Undecided#!."
+ kog_gui_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('kog_council_stance_type')]#!"
+ 
+ # Catholic Ecumenical Council Panel
+ kog_gui_catholic_council_location: "The $kog_council$ of the #yellow Vatican#!"
+ kog_gui_catholic_council_host: "#italic Convoked by #yellow [GetGlobalVariable('kog_catholic_host_var').GetCountry.GetNameNoFlag]#!#!
+ kog_gui_catholic_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_matter_type')]#!"
+ kog_gui_catholic_council_votes: "#italic #khoine [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('kog_votes_var').GetValue] vote(s)#!#!"
+ kog_gui_catholic_council_supporters: "Votes in Favor: #khoine [GetGlobalVariable('kog_catholic_support_var').GetValue]#!"
+ kog_gui_catholic_council_detractors: "Votes Against: #khoine [GetGlobalVariable('kog_catholic_opposition_var').GetValue]#!"
+ kog_gui_catholic_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('kog_catholic_council_outcome_type')]"
+ 
+ # Orthodox Ecumenical Council Panel
+ kog_gui_orthodox_council_location: "The $kog_council$ of [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_host_type')]"
+ kog_gui_orthodox_council_host: "#italic Convoked by #yellow [GetGlobalVariable('kog_orthodox_host_var').GetCountry.GetNameNoFlag]#!#!
+ kog_gui_orthodox_council_matter: "Subject Matter: #italic [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_matter_type')]#!"
+ kog_gui_orthodox_council_votes: "#italic #khoine [GetPlayer.GetNameNoFlag] has [GetPlayer.MakeScope.Var('kog_votes_var').GetValue] vote(s)#!#!"
+ kog_gui_orthodox_council_supporters: "Votes in Favor: #khoine [GetGlobalVariable('kog_orthodox_support_var').GetValue]#!"
+ kog_gui_orthodox_council_detractors: "Votes Against: #khoine [GetGlobalVariable('kog_orthodox_opposition_var').GetValue]#!"
+ kog_gui_orthodox_council_stance: "Stance: #yellow [GetPlayer.MakeScope.GetCountry.GetCustom('kog_council_stance_type')]#!"
+ kog_gui_orthodox_council_outcome: "The Council is [GetPlayer.MakeScope.GetCountry.GetCustom('kog_orthodox_council_outcome_type')]"
+
+ # Major Action Scripted Buttons
+ kog_gui_secure_tetrarchy: "@kog_secure_seats! Secure the Tetrarchy"
+ kog_gui_secure_tetrarchy_desc: "Under the auspices of the Byzantine state, the Ancient Patriarchates existed in a unified structure to administer the ecclesiarchy and shepherd the faithful. Should we secure control over these holy nexuses of the faith, we will be able to reunify the old heart of the Eastern Orthodoxy."
+ kog_gui_secure_pentarchy: "@kog_secure_seats! Secure the Pentarchy"
+ kog_gui_secure_pentarchy_desc: "The Pentarchy, consisting of the Eastern seats plus Rome, once ruled over the united Christian church before the Germanic invaders tore Rome away from the Empire for their political aspirations. If we can secure control over the Eternal City, we will be able to unify the Eastern and Western Patriarchates after almost a millennium of estrangement."
+ 
+ kog_gui_mend_schism: "@kog_establish_communion! Mend the Great Schism"
+ kog_gui_mend_schism_desc: "The five Ancient Seats of the Orthodoxy lie within our control, yet the two churches are divided by a millennium of deviations in legal frameworks and dogmatic principles. To truly combine the two Churches into one Great Church will be a herculean task, one that already failed many times over the centuries."
+ kog_gui_mending_header: "#bold #khoine Mending Progress#!#!"
+ kog_gui_mending_progress: "#dummy kog_gui_mending_progress"
+ 
+ kog_gui_declare_autocephaly: "@kog_break_communion! Declare Autocephaly"
+ kog_gui_declare_autocephaly_desc: "Once the symbol of unity in the Eastern Church, the Ecumenical Patriarch in Constantinople has increasingly come under the influence of the Ottoman Sultan. Unless we sever our connections with Constantinople, the Ottomans are sure to continue to interfere in our politics and may even try to further their attempts to suppress our culture."
+ kog_gui_autocephaly_header: "#bold #khoine Autocephaly Progress#!#!"
+ kog_gui_autocephaly_progress: "TODO"
+ 
+ kog_gui_convoke_council: "@kog_seek_mandate! Convoke Ecumenical Council"
+ kog_gui_convoke_council_desc: "Our influence within the [GetPlayer.GetStateReligion.GetName] community is obvious. We could use this power to summon an [concept_ecumenical_council] to settle long-standing issues within the [GetPlayer.GetStateReligion.GetName] Church."
+ 
+ kog_gui_catholic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_episcopal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ kog_gui_orthodox_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_episcopal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ kog_gui_coptic_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_episcopal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"
+ kog_gui_elysian_event_counter: "[Concept('concept_ecumenical_council','$concept_councils$')] Convoked: #bold [GetGlobalVariable('kog_council_var').GetValue]#!\n[Concept('concept_crusades','$concept_crusades$')] Launched: #bold [GetGlobalVariable('kog_crusade_counter').GetValue]#!\n[Concept('concept_episcopal_seat','$concept_patriarchs$')] Deposed: #bold [GetGlobalVariable('kog_deposition_counter').GetValue]#!"

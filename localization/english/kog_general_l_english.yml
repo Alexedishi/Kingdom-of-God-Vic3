@@ -5,143 +5,100 @@
  kog: "@kog! #bold #khoine Kingdom of God#!#!!"
  kog_no_icon: "#bold #khoine Kingdom of God#!#!!"
  
- # Alert groups
- ag_kog_alerts_name: "Religious Interaction Available"
- ag_kog_alerts_desc: "There are religious Interactions available."
- ag_kog_alerts_tooltip: "#header $ag_kog_alerts_name$#!\n$TOOLTIP_DELIMITER$\n$ag_kog_alerts_desc$\n\n$ALERT_GROUP_TOOLTIP_FOOTER$"
- gg_kog_faith_action: "Kingdom of God Panel"
- 
- # Alerts
- alert_kog_no_focus_alert_name: "@information! No Metropolitan Focus Active"
- alert_kog_no_focus_alert_hint: "Our Metropolitan Bishop has not been given an ecclesiastic focus."
- alert_kog_no_focus_alert_action: "$gg_kog_faith_action$"
- kog_no_focus_alert_setting_name: "No Metropolitan Focus Active"
- 
- alert_kog_icon_possible_alert_name: "@information! Can Select an Icon"
- alert_kog_icon_possible_alert_hint: "We have at least 200 $kog_faith_capacity$ and do not have an icon selected."
- alert_kog_icon_possible_alert_action: "$gg_kog_faith_action$"
- kog_icon_possible_alert_setting_name: "Icon Selection Possible"
- 
- alert_kog_integration_possible_alert_name: "@information! Can Integrate Episcopal Seat"
- alert_kog_integration_possible_alert_hint: "We have at least 200 $kog_faith_capacity$ and own a state that hosts a Episcopal Seat that is not under our control."
- alert_kog_integration_possible_alert_action: "$gg_kog_faith_action$"
- kog_integration_possible_alert_setting_name: "Episcopal Seat Integration Possible"
- 
- # Country Names
- KOG_ATH: "Mount Athos"
- KOG_ATH_ADJ: "Athonite"
- KOG_ODX: "Orthodox Commonwealth"
- KOG_ODX_ADJ: "Orthodox"
- 
- # Country Dynamic Names
- KOG_ODX_republic: "Orthodox Republic"
- KOG_ODX_peoples_republic: "Orthodox People’s Republic"
- 
- # Custom Localizations
- kog_roman_catholic: "The Roman Catholic Church"
- kog_eastern_orthodox: "The Eastern Orthodox Church"
- kog_oriental_orthodox: "The Oriental Orthodox Churches"
- kog_ancient_east: "The Ancient Church of the East"
- kog_elysian_orthodox: "The Elysian Orthodox Church"
- 
- kog_no_autocephaly_catholic: "[GetPlayer.GetName] is #bold #green In Communion#!#! with $kog_rome_name$"
- kog_schismatic_catholic: "[GetPlayer.GetName] is #bold #red In Schism#!#! with $kog_rome_name$"
- kog_autocephalous_catholic: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_rome_name$"
- kog_supremacy_catholic: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! $kog_rome_name$"
- 
- kog_no_focus: "#bold None#!"
- kog_emphasize_unity_focus: "#bold #green Emphasizing Pan-Orthodox Unity#!#!"
- kog_enforce_attendance_focus: "#bold #red Enforcing Church Attendance#!#!"
- kog_theologize_dogma_focus: "#bold #khoine Theologizing Novel Dogma#!#!"
- kog_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
- 
- kog_council_oppose: "#red Opposed#!"
- kog_council_support: "#green Supporting#!"
- kog_council_abstain: "#yellow Abstention#!"
- 
- kog_endorsing: "#bold #green Endorsing#!#!"
- kog_friendly: "#bold #green Endorsing#!#!"
- kog_amicable: "#bold #green Amicable#!#!"
- kog_cordial: "#bold #green Cordial#!#!"
- kog_neutral: "#bold Neutral#!"
- kog_poor: "#bold #red Poor#!#!"
- kog_cold: "#bold #red Cold#!#!"
- kog_hostile: "#bold #red Hostile#!#!"
- kog_condemning: "#bold #red Poor#!#!"
- 
- kog_catholic_power_icon: "@kog_catholic_power!"
- kog_orthodox_power_icon: "@kog_orthodox_power!"
- kog_oriental_power_icon: "@kog_oriental_power!"
- kog_elysian_power_icon: "@kog_elysian_power!"
- kog_protestant_power_icon: "@kog_protestant_power!"
- 
- # Decrees
- decree_kog_consecrate_metropolitan: "Consecrate Metropolitan Bishop"
- decree_kog_consecrate_metropolitan_desc: "Empower a prominent local Bishop with the authority to exert direct control over his episcopal see. #yellow This will cost 100 $kog_faith_capacity$#!."
- decree_kog_encourage_almsgiving: "Encourage Almsgiving"
- decree_kog_encourage_almsgiving_desc: "Promote the giving of donations to the Orthodox Church (and skim a little off the top). #yellow This will cost 100 $kog_faith_capacity$#!."
- 
- # Diplomatic Plays
- dp_crusade: "Crusade"
- dp_crusade_tooltip: "#header Start a $dp_make_dominion$ [concept_diplomatic_play]#!\n$TOOLTIP_DELIMITER$\n$dp_make_dominion_desc$"
- dp_crusade_desc: "Sets the initiating [concept_war_goal] to force the targeted [concept_country] to become your [concept_dominion]. If enforced, this is convert the targeted [concept_country] to convert its state religion to your state religion."
- 
  # Journal Entries
- je_kog_intro: ""
- je_kog_intro_reason: ""
- je_kog_catholic: "The [GetReligion('catholic').GetName] Church"
- je_kog_catholic_reason: "dummy"
- je_kog_catholic_lobby: "dummy"
- je_kog_orthodox: "The [GetReligion('orthodox').GetName] Church"
- je_kog_orthodox_reason: "dummy"
- je_kog_orthodox_lobby: "dummy"
- 
- # Journal entry groups
- je_group_kog_hidden: "Super Secret Truth of the Faith" # It's just three lizards in a trench coat
+ je_kog_intro: "The Kingdom of God"
+ je_kog_intro_reason: "#filler je_kog_intro_reason#!"
+ je_kog_local: "The [JournalEntry.GetCountry.GetAdjective] Church"
+ je_kog_local_reason: "#filler je_kog_local_reason#!"
+
+ # Journal Entry Groups
  je_group_kog_content: "Matters of Faith"
+ je_group_kog_encyclicals: "Circulating Encyclicals"
+ je_group_kog_councils: "Ecumenical Councils"
  
- # modifier types
- country_faith_capacity_add: "$kog_faith_capacity$"
- country_faith_capacity_add_desc: "$kog_faith_capacity$"
- country_faith_capacity_mult: "$kog_faith_capacity$"
- country_faith_capacity_mult_desc: "$kog_faith_capacity$"
- country_monthly_schism_progress_add: "Monthly [concept_autocephaly] Progress"
- country_monthly_schism_progress_add_desc: "Monthly [concept_autocephaly] Progress"
- country_monthly_patriarch_relations_progress_add: "Monthly [Concept('concept_episcopal_seat','$concept_patriarch$')] [concept_relations] Progress"
- country_monthly_patriarch_relations_progress_add_desc: "Monthly [Concept('concept_episcopal_seat','$concept_patriarch$')] [concept_relations] Progress"
- country_monthly_patriarch_relations_progress_mult: "Monthly [Concept('concept_episcopal_seat','$concept_patriarch$')] [concept_relations] Progress"
- country_monthly_patriarch_relations_progress_mult_desc: "Monthly [Concept('concept_episcopal_seat','$concept_patriarch$')] [concept_relations] Progress"
+ # Tooltips
+ kog_no_effects: "No immediate effects..."
+ kog_nothing_happens: "Nothing happens..."
+ kog_placeholder_text: "#dummy Placeholder Text#!"
  
- # Objectives
- objective_kog: "@kog!Kingdom of God"
- objective_kog_desc: ""#italic We believe in one God, the Father almighty, maker of all things visible and invisible; And in one Lord, Jesus Christ, the Son of God, begotten from the Father, only-begotten...#!\n\nLead the Christian community into the dawning age of steam and steel. Hold fast to the traditions of old or charge bravely into this new world."
+ kog_faith_capacity_type: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_type')]"
+ kog_catholic_power: "@kog_catholic_power! [Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
+ kog_orthodox_power: "@kog_orthodox_power! [Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
+ kog_oriental_power: "@kog_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
+ kog_elysian_power: "@kog_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
  
- objective_kog_name_PAP: "#v Papal States#!"
- objective_kog_desc_PAP: "#lore The Papal States are the collection of lands under the rule of Bishop of Rome, the Pope of the Catholic Church. Fresh off a popular revolt, the Papal administration struggles to fend off anti-clerical and nationalist movements.#!"
- objective_kog_name_FRA: "#v $FRA$#!"
- objective_kog_desc_FRA: "#lore Following decades of turmoil, the Concordat of 1801 restored order between the church and the state. However, tensions have arisen anew as the vocational missions of the church begin begin to assert themselves against the absolutist powers of the Bourbon monarchs.#!"
- objective_kog_name_RUS: "#v $RUS$#!"
- objective_kog_desc_RUS: "#lore Since the reforms of Peter the Great, the Most Holy Synod has ensured state control over the Russian Orthodoxy. Under the tutelage of the czars, the church serves as little more than an extension of imperial authority.#!"
- objective_kog_name_GRE: "#v $GRE$#!"
- objective_kog_desc_GRE: "#lore Greece has recently gained its independence from the Ottoman Empire. In a bid to insulate the young nation from Turkish meddling, the young King Otto has unilaterally severed communion with the Ecumenical Patriarchate.#!"
- objective_kog_name_ALK: "#v $ALK$#!"
- objective_kog_desc_ALK: "#lore Following in the footsteps of the Priest Ivan Veniaminov, Russian missionaries have spread across the Alaskan coasts seeking to educate and baptize all they can find.#!"
- objective_kog_name_SHW: "#v $SHW$#!"
- objective_kog_desc_SHW: "#lore In isolation from the Christian world, the Church in Ethiopia has fragmented along with the Ethiopian Empire. In Shewa, the King Sehla Selassie has asserted state control over the priesthood in his lands in defiance of the nominal authority of the Emperor.#!"
- objective_kog_name_PRU: "#v $PRU$#!"
- objective_kog_name_PRU_desc: "#lore #!"
+ kog_faith_capacity_no_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_no_icon_type')]"
+ kog_catholic_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
+ kog_orthodox_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
+ kog_oriental_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
+ kog_elysian_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
  
- # Scripted Buttons
- kog_display_widget_button: "Display the $kog$ Window"
- kog_display_widget_button_desc: "This will open the $kog$ Window."
- kog_display_widget_effect: "Opens the $kog$ Window"
+ kog_sinful: "@kog_piety_sinful! #red #bold Sinful#!#!"
+ kog_dutiful: "@kog_piety_dutiful! #bold Dutiful#!"
+ kog_faithful: "@kog_piety_faithful! #bold #green Faithful#!#!"
+ kog_devoted: "@kog_piety_devoted! #bold #green Devoted#!#!"
  
- # Scripted Progress Bars
- kog_capacity_progress_bar: "dummy"
- kog_capacity_progress_bar_desc: "dummy"
+ kog_sinful_icon: "@kog_piety_sinful! #red #bold Sinful#!#!"
+ kog_dutiful_icon: "@kog_piety_dutiful! #bold Dutiful#!"
+ kog_faithful_icon: "@kog_piety_faithful! #bold #green Faithful#!#!"
+ kog_devoted_icon: "@kog_piety_devoted! #bold #green Devoted#!#!"
  
- # Technical Loc
- kog_global: "kog_global"
- kog_local: "kog_local"
- kog_denomination: "kog_church"
- kog_seat: "kog_seat"
+ kog_sinful_no_icon: "#red #bold Sinful#!#!"
+ kog_dutiful_no_icon: "#bold Dutiful#!"
+ kog_faithful_no_icon: "#bold #green Faithful#!#!"
+ kog_devoted_no_icon: "#bold #green Devoted#!#!"
+ 
+ kog_control: "#o #tooltip:[GetRawTextTooltipTag('kog_control_desc')] Control#!#!"
+ kog_controls: "#o #tooltip:[GetRawTextTooltipTag('kog_control_desc')] Controls#!#!"
+ kog_controlling: "#o #tooltip:[GetRawTextTooltipTag('kog_control_desc')] Controlling#!#!"
+ kog_controller:  "#o #tooltip:[GetRawTextTooltipTag('kog_control_desc')] Controller#!#!"
+ kog_control_desc: "A [concept_country] #bold controls#! a [concept_episcopal_seat] if it has $kog_integrated$ that seat into its religious administration."
+ 
+ kog_integrate: "#o #tooltip:[GetRawTextTooltipTag('kog_integrate_desc')] Integrate#!#!"
+ kog_integrated: "#o #tooltip:[GetRawTextTooltipTag('kog_integrate_desc')] Integrated#!#!"
+ kog_integrating: "#o #tooltip:[GetRawTextTooltipTag('kog_integrate_desc')] Integrating#!#!"
+ kog_integrate_desc: "The act of integration involves the systematic replacement of the clerical administration of an [concept_episcopal_seat] with one more favorable to the state."
+ 
+ kog_all_patriarchal_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
+ kog_ancient_seats: "The following are the #bold Ancient#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ kog_eastern_seats: "The following are the #bold Eastern#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
+ kog_tetrarchy_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ kog_pentarchy_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ kog_senior_seats: "The following are the #bold senior#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$"
+ kog_junior_seats: "The following are the #bold junior#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
+ kog_oriental_seats: "The following are the Oriental [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n•$kog_coptic_alexandria$\n•$kog_syriac_antioch$\n•$kog_konak$\n•$kog_etchmiadzin$"
+ 
+ kog_needs_controller: "A [concept_country] must have $kog_control$ of $kog_constantinople$"
+ kog_rome_reclaimed: "$kog_rome$ is controlled by an [GetReligion('orthodox').GetName] [concept_country]"
+ kog_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
+ kog_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $kog_constantinople$"
+ 
+ kog_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
+ kog_romania_united: "We have #bold United the Principalities#!"
+ kog_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#, they will be able to form the #bold Orthodox Commonwealth#!"
+ 
+ # Technical
+ kog_topbar_element_capacity: "kog_topbar_element_capacity"
+ kog_topbar_element_capacity_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_icon_only_type')]"
+ kog_topbar_element_capacity_value: "#v [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!"
+ kog_topbar_element_capacity_tooltip: "[concept_faith_capacity]"
+ kog_topbar_element_capacity_source: "Kingdom of God"
+ kog_topbar_element_capacity_source_tooltip: "This element is part of the mod #v Kingdom of God#!."
+ 
+ kog_linebreak: "\n@divider_start!@divider_mid!@divider_mid!@divider_mid!@divider_end!\n"
+ kog_divider: "@divider_start!@divider_mid!@divider_mid!@divider_mid!@divider_end!"
+ 
+ kog_coptic_alexandria: "#filler kog_coptic_alexandria#!"
+ kog_syriac_antioch: "#filler kog_syriac_antioch#!"
+ kog_etchmiadzin: "#filler kog_etchmiadzin#!"
+ kog_addis_ababa: "#filler kog_addis_ababa#!"
+ kog_konak: "#filler kog_konak#!"
+ kog_elysium: "#filler kog_elysium#!"
+ kog_mixtec: "#filler kog_mixtec#!"
+ kog_cahokia: "#filler kog_cahokia#!"
+ 
+ # Localization Shorthands
+ # [Concept('','$$')]
+ kog_countries: "[Concept('concept_country','$concept_countries$')]"
+ kog_faith: "[Concept('concept_religion','$concept_faith$')]"
+ kog_faiths: "[Concept('concept_religion','$concept_faiths$')]"

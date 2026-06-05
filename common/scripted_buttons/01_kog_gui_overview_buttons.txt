@@ -1,0 +1,222 @@
+﻿####---------- Ecumenical Action Buttons ----------####
+kog_gui_declare_autocephaly = {
+	name = "kog_gui_declare_autocephaly"
+	desc = "kog_gui_declare_autocephaly_desc"
+	
+	visible = {
+		kog_is_schismatic_trigger = no
+		kog_is_autocephalous_trigger = no
+	}
+	selected = {
+		kog_is_schismatic_trigger = yes
+	}
+	possible = {
+		is_subject = no
+		kog_capacity_trigger = {
+			value = 500
+		}
+		NOR = {
+			has_law = law_type:law_theocracy
+			has_modifier = modifier_kog_autocephaly_abandoned
+		}
+		trigger_if = {
+			limit = {
+				kog_country_is_roman_catholic_trigger = yes
+			}
+			always = no
+		}
+		trigger_else_if = {
+			limit = {
+				kog_country_is_eastern_orthodox_trigger = yes
+			}
+			trigger_if = {
+				limit = {
+					OR = {
+						c:MOL ?= this
+						c:WAL ?= this
+					}
+				}
+				custom_tooltip = {
+					text = kog_romania_united
+					hidden_trigger = {
+						c:ROM ?= this
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		add_modifier = {
+			name = modifier_kog_schismatic
+			months = 120
+		}
+		je:je_kog_local = {
+			set_variable = {
+				name = kog_schism_var
+				value = 0
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_convoke_council = {
+	name = "kog_gui_convoke_council"
+	desc = "kog_gui_convoke_council_desc"
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		kog_has_ongoing_council_trigger = yes
+	}
+	possible = {
+		kog_is_autocephalous_trigger = yes
+		kog_has_ongoing_council_trigger = no
+		kog_capacity_trigger = {
+			value = 1000
+		}
+		kog_controls_any_seat_trigger = yes
+		is_subject = no
+	}
+	effect = {
+		# TODO Add re-factored event
+		add_modifier = modifier_kog_hosting_council
+		global_var:je_kog_catholic = {
+			set_variable = {
+				name = kog_council_var
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_secure_tetrarchy = {
+	name = "kog_gui_secure_tetrarchy"
+	desc = "kog_gui_secure_tetrarchy_desc"
+	
+	visible = {
+		kog_country_is_eastern_christian_trigger = yes
+		NOR = {
+			has_global_variable = kog_tetrarchy_secured_var
+			has_global_variable = kog_schism_mended_var
+		}
+	}
+	possible = {
+		kog_controls_seat_trigger = {
+			seat = constantinople
+		}
+		kog_controls_seat_trigger = {
+			seat = antioch
+		}
+		kog_controls_seat_trigger = {
+			seat = jerusalem
+		}
+		kog_controls_seat_trigger = {
+			seat = alexandria
+		}
+	}
+	effect = {
+		# TODO Add re-factored event
+		set_global_variable = kog_tetrarchy_secured_var
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_secure_pentarchy = {
+	name = "kog_gui_secure_pentarchy"
+	desc = "kog_gui_secure_pentarchy_desc"
+	
+	visible = {
+		NOR = {
+			has_global_variable = kog_pentarchy_secured_var
+			has_global_variable = kog_schism_mended_var
+		}
+		trigger_if = {
+			limit = {
+				kog_country_is_eastern_christian_trigger = yes
+			}
+			has_global_variable = kog_tetrarchy_secured_var
+		}
+		
+	}
+	possible = {
+		kog_controls_seat_trigger = {
+			seat = rome
+		}
+		kog_controls_seat_trigger = {
+			seat = constantinople
+		}
+		kog_controls_seat_trigger = {
+			seat = antioch
+		}
+		kog_controls_seat_trigger = {
+			seat = jerusalem
+		}
+		kog_controls_seat_trigger = {
+			seat = alexandria
+		}
+	}
+	effect = {
+		# TODO Add re-factored event
+		set_global_variable = kog_pentarchy_secured_var
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_mend_schism = {
+	name = "kog_gui_mend_schism"
+	desc = "kog_gui_mend_schism_desc"
+	
+	visible = {
+		has_global_variable = kog_pentarchy_secured_var
+		NOT = {
+			has_global_variable = kog_schism_mended_var
+		}
+	}
+	selected = {
+		has_global_variable = kog_mending_var
+	}
+	possible = {
+		kog_controls_and_owns_pentarchy_trigger = yes
+	}
+	effect = {
+		set_global_variable = {
+			name = kog_mending_var
+			value = 0
+		}
+#		trigger_event = {
+#			id = kog_general.100 # The Council of Unification
+#		}
+		add_modifier = modifier_kog_mending_schism
+		hidden_effect = {
+			every_country = {
+				limit = {
+					kog_content_scope_trigger = yes
+					NOT = {
+						has_modifier = modifier_kog_mending_schism
+					}
+				}
+#				trigger_event = {
+#					id = kog_general.101 # Mending the Great Schism
+#				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}

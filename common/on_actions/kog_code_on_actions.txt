@@ -1,0 +1,20 @@
+﻿####---------- on_law_activated ----------####
+on_law_activated = {
+	on_actions = {
+		kog_on_theocracy_enacted
+	}
+}
+
+kog_on_theocracy_enacted = {
+	trigger = {
+		law_type = law_type:law_theocracy
+		owner = {
+			kog_content_scope_trigger = yes
+		}
+	}
+	effect = {
+		owner = {
+			activate_law = law_type:law_theocratic_investiture
+		}
+	}
+}

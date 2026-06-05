@@ -1,0 +1,361 @@
+﻿kog_canon_law_compliance_value = {
+	# Call this from COUNTRY scope!
+	value = 0
+	
+	# Statism Canon Law x Investiture Country Law
+	add = {
+		desc = kog_value_from_investiture_compliance
+		value = {
+			if = {
+				limit = {
+					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_hierocracy
+				}
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_ecclesiastic_investiture
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_oath_of_supremacy
+					}
+					add = -5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_concordat_of_investment
+					}
+					add = -10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_lay_investiture
+					}
+					add = -25
+				}
+			}
+			else_if = {
+				limit = {
+					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_ultramontanism
+				}
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_ecclesiastic_investiture
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_oath_of_supremacy
+					}
+					add = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_concordat_of_investment
+					}
+					add = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_lay_investiture
+					}
+					add = -15
+				}
+			}
+			else_if = {
+				limit = {
+					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_gallicanism
+				}
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_ecclesiastic_investiture
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_oath_of_supremacy
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_concordat_of_investment
+					}
+					add = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_lay_investiture
+					}
+					add = -5
+				}
+			}
+			else_if = {
+				limit = {
+					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_caesaropapism
+				}
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_ecclesiastic_investiture
+					}
+					add = 20
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_oath_of_supremacy
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_lay_investiture
+					}
+					add = 10
+				}
+			}
+		}
+	}
+	
+	# Nationalism Canon Law
+	## TODO figure out what goes here
+	
+	# Social Role Canon Law x Institutions
+	# Conservative Church Branch
+	if = {
+		limit = {
+			OR = {
+				var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+				var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_guidance
+			}
+		}
+		add = {
+			desc = kog_value_from_land_reform
+			value = {
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_serfdom
+					}
+					add = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_tenant_farmers
+					}
+					add = 2.5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_collectivized_agriculture
+					}
+					subtract = 10 # lol Communism bad or smth
+				}
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+					}
+					multiply = 2
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_schooling
+			value = {
+				if = {
+					limit = {
+						has_institution = institution_schools
+					}
+					if = {
+						limit = {
+							has_law_or_variant = law_type:law_religious_schools
+						}
+						add = institution_investment_level:institution_schools
+					}
+					else_if = {
+						limit = {
+							has_law_or_variant = law_type:law_public_schools
+						}
+						subtract = institution_investment_level:institution_schools
+					}
+				}
+				multiply = 1.5 # Schooling is a bigger deal for the Church
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+					}
+					multiply = 2
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_labor_rights
+			value = {
+				if = {
+					limit = {
+						has_institution = institution_workplace_safety
+					}
+					subtract = institution_investment_level:institution_workplace_safety
+				}
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+					}
+					multiply = 2
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_womens_rights
+			value = {
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_no_womens_rights
+					}
+					add = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_women_own_property
+					}
+					add = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_women_in_the_workplace
+					}
+					subtract = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_womens_suffrage
+					}
+					subtract = 10
+				}
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+					}
+					multiply = 2
+				}
+			}
+		}
+	}
+	# Progressive Church Branch
+	else = {
+		add = {
+			desc = kog_value_from_land_reform
+			value = {	if = {
+				limit = {
+					has_law_or_variant = law_type:law_serfdom
+				}
+				subtract = 5
+			}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_tenant_farmers
+					}
+					subtract = 2.5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_collectivized_agriculture
+					}
+					subtract = 10 # lol Communism bad or smth
+				}
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+					}
+					multiply = 2
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_schooling
+			value = {
+				if = {
+					limit = {
+						has_institution = institution_schools
+					}
+					if = {
+						limit = {
+							has_law_or_variant = law_type:law_religious_schools
+						}
+						subtract = institution_investment_level:institution_schools
+					}
+					else_if = {
+						limit = {
+							has_law_or_variant = law_type:law_public_schools
+						}
+						add = institution_investment_level:institution_schools
+					}
+				}
+				multiply = 1.5 # Schooling is a bigger deal for the Church
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+					}
+					multiply = 2
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_labor_rights
+			value = {
+				if = {
+					limit = {
+						has_institution = institution_workplace_safety
+					}
+					add = institution_investment_level:institution_workplace_safety
+				}
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+					}
+					multiply = 2
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_womens_rights
+			value = {
+				if = {
+					limit = {
+						has_law_or_variant = law_type:law_no_womens_rights
+					}
+					subtract = 10
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_women_own_property
+					}
+					subtract = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_women_in_the_workplace
+					}
+					add = 5
+				}
+				else_if = {
+					limit = {
+						has_law_or_variant = law_type:law_womens_suffrage
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+					}
+					multiply = 2
+				}
+			}
+		}
+	}
+	
+	round_to = 0.01
+	max = 100
+	min = -100
+}

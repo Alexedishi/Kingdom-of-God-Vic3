@@ -7,7 +7,6 @@
  kog_is_oriental_orthodox: "[concept_state_religion] is [GetReligion('oriental_orthodox').GetName]"
  kog_is_oriental_orthodox_NOT: "[concept_state_religion] is #bold NOT#! [GetReligion('oriental_orthodox').GetName]"
  
- 
  ####---------- Liturgical Rite Triggers  ----------####
  kog_has_same_rite: "[GetPlayer.GetNameNoFlag] practices the same [concept_liturgical_rite] as this [concept_country]"
  kog_has_roman_rite_trigger: "[GetPlayer.GetNameNoFlag] practices the $kog_roman_rite$"
@@ -55,8 +54,37 @@
  kog_has_orthodox_council_trigger: "The [GetReligion('orthodox').GetName] Church is holding an [concept_ecumenical_council]"
  kog_has_orthodox_council_trigger_NOT: "The [GetReligion('orthodox').GetName] Church is #bold not#! holding an [concept_ecumenical_council]"
  
+ kog_canon_lawgroup_apostolic_succession_debate_trigger: "$kog_canon_lawgroup_apostolic_succession$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_apostolic_succession_debate_trigger_NOT: "$kog_canon_lawgroup_apostolic_succession$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_almsgiving_debate_trigger: "$kog_canon_lawgroup_almsgiving$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_almsgiving_debate_trigger_NOT: "$kog_canon_lawgroup_almsgiving$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_iconography_debate_trigger: "$kog_canon_lawgroup_iconography$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_iconography_debate_trigger_NOT: "$kog_canon_lawgroup_iconography$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_statism_debate_trigger: "$kog_canon_lawgroup_statism$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_statism_debate_trigger_NOT: "$kog_canon_lawgroup_statism$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_nationalism_debate_trigger: "$kog_canon_lawgroup_nationalism$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_nationalism_debate_trigger_NOT: "$kog_canon_lawgroup_nationalism$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_clerical_marriage_debate_trigger: "$kog_canon_lawgroup_clerical_marriage$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_clerical_marriage_debate_trigger_NOT: "$kog_canon_lawgroup_clerical_marriage$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_social_role_debate_trigger: "$kog_canon_lawgroup_social_role$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_social_role_debate_trigger_NOT: "$kog_canon_lawgroup_social_role$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_stance_on_sciences_debate_trigger: "$kog_canon_lawgroup_stance_on_sciences$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_stance_on_sciences_debate_trigger_NOT: "$kog_canon_lawgroup_stance_on_sciences$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_canon_lawgroup_crusades_debate_trigger: "$kog_canon_lawgroup_crusades$ is a matter of debate in the current [concept_ecumenical_council]"
+ kog_canon_lawgroup_crusades_debate_trigger_NOT: "$kog_canon_lawgroup_crusades$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+
  
  ####---------- Schism Triggers  ----------####
+ kog_country_schism_threshold_trigger: "[GetPlayer.GetNameNoFlag] has #bold at least#! #v [SCOPE.GetValue('kog_schism_threshold_value')]#! $kog_faith_capacity$"
+ 
  kog_is_schismatic_trigger: "The Church of [GetPlayer.GetNameNoFlag] is in [concept_schism] from its Mother Church"
  kog_is_schismatic_trigger_NOT: "The Church of [GetPlayer.GetNameNoFlag] is #bold not#! in [concept_schism] from its Mother Church"
  kog_is_autocephalous_trigger: "The Church of [GetPlayer.GetNameNoFlag] has gained [concept_autocephaly] from its Mother Church"
@@ -64,24 +92,28 @@
  
  
  ####---------- Ecumenical Action Triggers  ----------####
- kog_has_100_capacity: "[GetPlayer.GetNameNoFlag] has #blue 100#! $kog_faith_capacity$"
- kog_has_200_capacity: "[GetPlayer.GetNameNoFlag] has #blue 200#! $kog_faith_capacity$"
- kog_has_500_capacity: "[GetPlayer.GetNameNoFlag] has #blue 500#! $kog_faith_capacity$"
- kog_has_800_capacity: "[GetPlayer.GetNameNoFlag] has #blue 800#! $kog_faith_capacity$"
- kog_has_1000_capacity: "[GetPlayer.GetNameNoFlag] has #blue 1000#! $kog_faith_capacity$"
- kog_has_2000_capacity: "[GetPlayer.GetNameNoFlag] has #blue 2000#! $kog_faith_capacity$"
- 
+ kog_capacity_trigger: "[GetPlayer.GetNameNoFlag] has #bold #blue [SCOPE.GetValue('kog_trigger_value')]#!#! $kog_faith_capacity$"
  kog_mending_started_NOT: "No one is attempting to mend the [concept_great_schism] has not been started"
  kog_mending_completed_NOT: "The [concept_great_schism] has not been mended"
  kog_mending_possible: "It is now possible to attempt to mend the [concept_great_schism]."
- 
  kog_ongoing_crusade_NOT: "There is not an ongoing [concept_crusade]"
- kog_theological_matter: ""
  
  
  ####---------- Cardinal / Collegium Triggers  ----------####
  # //
  
+ 
+ ####----------- Seat Province Ownership Triggers ----------####
+ kog_owns_rome_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_LAZIO').GetCityHubName] in [GetStateRegion('STATE_LAZIO').GetName]"
+ kog_owns_santiago_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_GALICIA').GetCityHubName] in [GetStateRegion('STATE_GALICIA').GetName]"
+ kog_owns_paris_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_ILE_DE_FRANCE').GetCityHubName] in [GetStateRegion('STATE_ILE_DE_FRANCE').GetName]"
+ kog_owns_koln_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_NORTH_RHINE').GetCityHubName] in [GetStateRegion('STATE_NORTH_RHINE').GetName]"
+ kog_owns_vienna_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_AUSTRIA').GetCityHubName] in [GetStateRegion('STATE_AUSTRIA').GetName]"
+ kog_owns_constantinople_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_EASTERN_THRACE').GetCityHubName] in [GetStateRegion('STATE_EASTERN_THRACE').GetName]"
+ kog_owns_antioch_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_SYRIA').GetCityHubName] in [GetStateRegion('STATE_SYRIA').GetName]"
+ kog_owns_jerusalem_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_PALESTINE').GetCityHubName] in [GetStateRegion('STATE_PALESTINE').GetName]"
+ kog_owns_alexandria_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_LOWER_EGYPT').GetCityHubName] in [GetStateRegion('STATE_LOWER_EGYPT').GetName]"
+ kog_owns_moscow_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_MOSCOW').GetCityHubName] in [GetStateRegion('STATE_MOSCOW').GetName]"
  
  ####---------- Episcopal Seat Control Triggers  ----------####
  kog_controls_rome_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_rome$"
@@ -210,6 +242,17 @@
  kog_enforcing_seat: "[GetPlayer.GetNameNoFlag] is currently enforcing its [concept_liturgical_rite] onto a [concept_episcopal_seat]"
  kog_enforcing_seat_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! currently enforcing its [concept_liturgical_rite] onto a [concept_episcopal_seat]"
  
+ kog_country_has_same_rite_as_rome_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_rome$"
+ kog_country_has_same_rite_as_santiago_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_santiago$"
+ kog_country_has_same_rite_as_paris_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_paris$"
+ kog_country_has_same_rite_as_koln_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_koln$"
+ kog_country_has_same_rite_as_vienna_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_vienna$"
+ kog_country_has_same_rite_as_constantinople_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_constantinople$"
+ kog_country_has_same_rite_as_antioch_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_antioch$"
+ kog_country_has_same_rite_as_jerusalem_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_jerusalem$"
+ kog_country_has_same_rite_as_alexandria_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_alexandria$"
+ kog_country_has_same_rite_as_moscow_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_moscow$"
+ 
  kog_can_enforce_rome: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #green 50#! or greater#!"
  kog_can_enforce_santiago: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_santiago$ of #bold #green 50#! or greater#!"
  kog_can_enforce_paris: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_paris$ of #bold #green 50#! or greater#!"
@@ -231,44 +274,11 @@
  
  
  ####---------- Episcopal Seat Relations Triggers  ----------####
- kog_has_rome_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #green 75#! or greater#!"
- kog_has_santiago_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_santiago$ of #bold #green 75#! or greater#!"
- kog_has_paris_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_paris$ of #bold #green 75#! or greater#!"
- kog_has_koln_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_koln$ of #bold #green 75#! or greater#!"
- kog_has_vienna_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_vienna$ of #bold #green 75#! or greater#!"
- kog_has_constantinople_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_constantinople$ of #bold #green 75#! or greater#!"
- kog_has_antioch_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_antioch$ of #bold #green 75#! or greater#!"
- kog_has_jerusalem_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_jerusalem$ of #bold #green 75#! or greater#!"
- kog_has_alexandria_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_alexandria$ of #bold #green 75#! or greater#!"
- kog_has_moscow_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_moscow$ of #bold #green 75#! or greater#!"
- kog_has_coptic_alexandria_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_coptic_alexandria$ of #bold #green 75#! or greater#!"
- kog_has_syriac_antioch_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_syriac_antioch$ of #bold #green 75#! or greater#!"
- kog_has_etchmiadzin_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_etchmiadzin$ of #bold #green 75#! or greater#!"
- kog_has_addis_ababa_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_addis_ababa$ of #bold #green 75#! or greater#!"
- kog_has_konak_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_konak$ of #bold #green 75#! or greater#!"
- kog_has_elysium_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_elysium$ of #bold #green 75#! or greater#!"
- kog_has_mixtec_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_mixtec$ of #bold #green 75#! or greater#!"
- kog_has_cahokia_approval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cahokia$ of #bold #green 75#! or greater#!"
+ kog_seat_opinion_greater_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! #bold or greater#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
+ kog_seat_opinion_less_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold less than#! #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
  
- kog_has_rome_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #red -50#! or less#!"
- kog_has_santiago_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_santiago$ of #bold #red -50#! or less#!"
- kog_has_paris_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_paris$ of #bold #red -50#! or less#!"
- kog_has_koln_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_koln$ of #bold #red -50#! or less#!"
- kog_has_vienna_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_vienna$ of #bold #red -50#! or less#!"
- kog_has_constantinople_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_constantinople$ of #bold #red -50#! or less#!"
- kog_has_antioch_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_antioch$ of #bold #red -50#! or less#!"
- kog_has_jerusalem_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_jerusalem$ of #bold #red -50#! or less#!"
- kog_has_alexandria_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_alexandria$ of #bold #red -50#! or less#!"
- kog_has_moscow_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_moscow$ of #bold #red -50#! or less#!"
- kog_has_coptic_alexandria_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_coptic_alexandria$ of #bold #red -50#! or less#!"
- kog_has_syriac_antioch_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_syriac_antioch$ of #bold #red -50#! or less#!"
- kog_has_etchmiadzin_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_etchmiadzin$ of #bold #red -50#! or less#!"
- kog_has_addis_ababa_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_addis_ababa$ of #bold #red -50#! or less#!"
- kog_has_konak_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_konak$ of #bold #red -50#! or less#!"
- kog_has_elysium_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_elysium$ of #bold #red -50#! or less#!"
- kog_has_mixtec_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_mixtec$ of #bold #red -50#! or less#!"
- kog_has_cahokia_disaproval: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cahokia$ of #bold #red -50#! or less#!"
- 
+ kog_seat_approval_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold #green 75#! or greater#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
+ kog_seat_disapproval_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold #red 50#! or less#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
  kog_has_any_patriarch_approval: "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $kog_relations$ with #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] any#!#! [Concept('concept_episcopal_seat','$concept_patriarchate$')]"
  kog_has_ecumenical_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $kog_relations$ with $kog_constantinople$"
  kog_has_east_patriarch_approval:  "[GetPlayer.GetNameNoFlag] has #bold 100 or greater $kog_relations$ with any #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern#!#! [Concept('concept_episcopal_seat','$concept_patriarchate$')]"

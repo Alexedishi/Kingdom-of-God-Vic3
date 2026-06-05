@@ -1,0 +1,239 @@
+﻿####---------- CATHOLIC GLOBAL JOURNAL ----------#####
+je_kog_catholic = {
+	group = je_group_com_religious_organizations
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+	weight = 0
+	
+	should_be_pinned_by_default_involved = yes
+	
+	widget = {
+		gui = "gui/journal_entry_widgets/kog_journal_widgets.gui"
+		name = "widget_kog_church_interorg"
+		container = "custom_widget_container_je_icon"
+	}
+	
+	# Omen Button
+	scripted_button = kog_gui_venerate_apparition
+	
+	# Metropolis Buttons
+	scripted_button = kog_gui_emphasize_unity
+	scripted_button = kog_gui_enforce_attendance
+	scripted_button = kog_gui_theologize_dogma
+	scripted_button = kog_gui_promote_ecumenism
+	
+	# Catholic Decision Buttons
+	# //
+	
+	# Christian Decision Buttons
+	scripted_button = kog_gui_declare_autocephaly
+	scripted_button = kog_gui_convoke_council
+	scripted_button = kog_gui_secure_tetrarchy
+	scripted_button = kog_gui_secure_pentarchy
+	scripted_button = kog_gui_mend_schism
+	
+	# Canon Law Debate Buttons
+	scripted_button = kog_gui_debate_apostolic_succession
+	scripted_button = kog_gui_debate_almsgiving
+	scripted_button = kog_gui_debate_iconography
+	scripted_button = kog_gui_debate_statism
+	scripted_button = kog_gui_debate_nationalism
+	scripted_button = kog_gui_debate_clerical_marriage
+	scripted_button = kog_gui_debate_social_role
+	scripted_button = kog_gui_debate_stance_on_sciences
+	scripted_button = kog_gui_debate_crusades
+	
+	# Episcopal Seat Buttons
+	scripted_button = kog_gui_sway_rome
+	scripted_button = kog_gui_antagonize_rome
+	scripted_button = kog_gui_integrate_rome
+	scripted_button = kog_gui_enforce_rome
+	scripted_button = kog_gui_install_rome
+	
+	scripted_button = kog_gui_sway_santiago
+	scripted_button = kog_gui_antagonize_santiago
+	scripted_button = kog_gui_integrate_santiago
+	scripted_button = kog_gui_enforce_santiago
+	scripted_button = kog_gui_install_santiago
+	
+	scripted_button = kog_gui_sway_paris
+	scripted_button = kog_gui_antagonize_paris
+	scripted_button = kog_gui_integrate_paris
+	scripted_button = kog_gui_enforce_paris
+	scripted_button = kog_gui_install_paris
+	
+	scripted_button = kog_gui_sway_koln
+	scripted_button = kog_gui_antagonize_koln
+	scripted_button = kog_gui_integrate_koln
+	scripted_button = kog_gui_enforce_koln
+	scripted_button = kog_gui_install_koln
+	
+	scripted_button = kog_gui_sway_vienna
+	scripted_button = kog_gui_antagonize_vienna
+	scripted_button = kog_gui_integrate_vienna
+	scripted_button = kog_gui_enforce_vienna
+	scripted_button = kog_gui_install_vienna
+	
+	is_shown_in_lobby = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_be_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	modifiers_while_active = {
+		modifier_kog_catholic
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			com_hide_all_journal_elements_for_interorg_effect = yes
+			com_set_international_organization_headquaters_effect = {
+				state_region = s:STATE_LAZIO
+			}
+			kog_initialize_catholic_button_lists_effect = yes
+			set_variable = kog_enable_encyclicals_panel
+			set_variable = kog_enable_councils_panel
+			save_scope_as = je_kog_catholic
+		}
+		set_global_variable = {
+			name = je_kog_catholic
+			value = scope:je_kog_catholic
+		}
+	}
+	
+	
+	immediate_all_involved = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+	}
+	
+	on_become_involved_after_activation = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+	}
+	
+	complete = {
+		always = no
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				kog_validate_global_journal_involvement_effect = {
+					type = je_kog_catholic
+					trigger = kog_country_is_roman_catholic_trigger
+				}
+				kog_update_schism_list_effect = {
+					type = je_kog_catholic
+				}
+				kog_update_autocephaly_list_effect = {
+					type = je_kog_catholic
+				}
+			}
+		}
+	}
+}
+
+####---------- CATHOLIC ENCYCLICAL JOURNALS ----------#####
+je_kog_ecyclical_mirari_vos = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
+	
+	should_be_pinned_by_default_involved = yes
+	
+	should_be_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			save_scope_as = je_kog_ecyclical_mirari_vos
+		}
+		set_global_variable = {
+			name = je_kog_ecyclical_mirari_vos
+			value = scope:je_kog_ecyclical_mirari_vos
+		}
+	}
+	
+	timeout = 2404 # 6.5 years
+	
+	on_timeout = {
+		custom_tooltip = je_kog_ecyclical_mirari_vos_success_effect
+		custom_tooltip = je_kog_ecyclical_mirari_vos_failure_effect
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				clear_variable_list = kog_ecyclical_compliant_list
+				clear_variable_list = kog_ecyclical_non_compliant_list
+			}
+			every_country = {
+				limit = {
+					is_involved_in_journal_entry = je_kog_ecyclical_mirari_vos
+					calc_true_if = {
+						amount >= 3
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_religious_schools
+						has_law = law_type:law_charitable_health_system
+						OR = {
+							has_law = law_type:law_censorship
+							has_law = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				global_var:je_kog_ecyclical_mirari_vos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_compliant_list
+						target = prev
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					is_involved_in_journal_entry = je_kog_ecyclical_mirari_vos
+					calc_true_if = {
+						amount < 3
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_religious_schools
+						has_law = law_type:law_charitable_health_system
+						OR = {
+							has_law = law_type:law_censorship
+							has_law = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				global_var:je_kog_ecyclical_mirari_vos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_non_compliant_list
+						target = prev
+					}
+				}
+			}
+			scope:journal_entry = {
+				sort_variable_list = {
+					name = kog_ecyclical_compliant_list
+					order = prestige
+				}
+				sort_variable_list = {
+					name = kog_ecyclical_non_compliant_list
+					order = prestige
+				}
+			}
+		}
+	}
+}

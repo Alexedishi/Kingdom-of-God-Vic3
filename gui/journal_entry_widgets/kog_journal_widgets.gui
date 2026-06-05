@@ -1,0 +1,2550 @@
+# INHERITED FROM BASE GAME
+@panel_width_minus_30 = 510
+@panel_width_minus_20 = 520
+@panel_width_minus_10 = 530 # used to be 450
+@panel_width = 540 # used to be 460
+@panel_width_half = 270 # used to be 230
+@panel_width_plus_10 = 550 # used to be 470
+@panel_width_plus_14 = 554 # used to be 474
+@panel_width_plus_14_half = 277 # used to be 237
+@panel_width_plus_20 = 560 # used to be 480
+@panel_width_plus_30 = 570 # used to be 490
+@panel_width_plus_70 = 610 # used to be 530
+
+####---------- KOG GLOBAL JOURNAL ENTRY WIDGETS ----------####
+flowcontainer = {
+	name = "widget_kog_church_interorg"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+		kog_head_of_faith_panel = {}
+		kog_tab_buttons = {}
+		kog_denominational_overview_panel = {}
+		kog_metropolis_panel = {}
+		kog_canon_laws_panel = {}
+		kog_collegium_panel = {}
+		kog_episcopal_seat_buttons = {}
+		kog_catholic_episcopal_seats_panel = {}
+		kog_orthodox_episcopal_seats_panel = {}
+	}
+}
+
+####---------- KOG JOURNAL ENTRY TYPES ----------####
+types kog_journal_widget_types {
+	
+	type kog_journal_icon = widget {
+		parentanchor = top|hcenter
+		size = { 150 150 }
+		position = { 0 -50 }
+		icon = {
+			parentanchor = center
+			size = { 150 150 }
+			position = { 2 2 }
+			texture = "gfx/interface/backgrounds/com_bg_pb_frame.dds"
+		}
+		icon = {
+			parentanchor = center
+			size = { 150 150 }
+			position = { 0 -20 }
+			texture = "gfx/coat_of_arms/textured_emblems/kog_frame_leaves_christian.dds"
+		}
+		icon = {
+			parentanchor = center
+			texture = "[JournalEntry.GetIcon]"
+			position = { 0 -3 }
+			size = { 75 75 }
+		}
+	}
+	
+	type kog_head_of_faith_panel = com_international_organization_panel {
+		blockoverride "interorg_journal_icon" {
+			kog_journal_icon = { }
+		}
+		blockoverride "interorg_leader_title" {
+			text = "kog_gui_head_of_faith"
+		}
+		blockoverride "interorg_backdrop_texture" {
+			texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
+		}
+		blockoverride "interorg_detail_1_visibility" {
+			visible = "[ComJournalVar('kog_mother_church_var').IsSet]"
+		}
+		blockoverride "interorg_detail_1_name" {
+			text = "kog_gui_mother_church_header"
+		}
+		blockoverride "interorg_detail_1_content" {
+			text = "kog_gui_mother_church_name"
+		}
+		blockoverride "interorg_detail_1_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_autocephalous_patriarchate.dds"
+		}
+		blockoverride "interorg_detail_2_visibility" {
+			visible = "[ComJournalVar('kog_location_var').IsSet]"
+		}
+		blockoverride "interorg_detail_2_name" {
+			text = "kog_gui_location_header"
+		}
+		blockoverride "interorg_detail_2_content" {
+			text = "kog_gui_location_name"
+		}
+		blockoverride "interorg_detail_2_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_holy_site.dds"
+		}
+		blockoverride "interorg_detail_3_name" {
+			text = "kog_gui_membership_header"
+		}
+		vfx = {
+			position = { 0 -2 }
+			
+			blockoverride "entity_instance" {
+				entity_instance = vfx_entity_ui_powerbloc_rank_02_rulers
+			}
+		}
+		state = {
+			name = _show
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+			start_sound = {
+				soundeffect = "event:/SFX/kog/kog_bell"
+			}
+		}
+	}
+	
+	type kog_tab_buttons = widget {
+		parentanchor = top|hcenter
+		size = { 540 40 }
+		
+		tab_buttons = {
+			parentanchor = center
+			# OVERVIEW TAB
+			blockoverride "first_button" {
+				text = "kog_gui_overview_header"
+			}
+			blockoverride "first_button_selected" {
+				text = "kog_gui_overview_header"
+			}
+			blockoverride "first_button_visibility_checked" {
+				visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+			}
+			blockoverride "first_button_visibility" {
+				visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+			}
+			blockoverride "first_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
+			}
+			
+			# METROPOLIS TAB
+			blockoverride "second_button" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "second_button_selected" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "second_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
+			}
+			blockoverride "second_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+			}
+			blockoverride "second_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
+			}
+			
+			# CANON LAW TAB
+			blockoverride "third_button" {
+				text = "kog_gui_canon_law_header"
+			}
+			blockoverride "third_button_selected" {
+				text = "kog_gui_canon_law_header"
+			}
+			blockoverride "third_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+			}
+			blockoverride "third_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+			}
+			blockoverride "third_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+			}
+			
+			# COLLEGIUM TAB
+			blockoverride "fourth_button" {
+				text = "kog_gui_college_header"
+			}
+			blockoverride "fourth_button_selected" {
+				text = "kog_gui_college_header"
+			}
+			blockoverride "fourth_button_visibility_checked" {
+				visible = "[And(
+					GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End),
+					Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia'))
+				)]"
+			}
+			blockoverride "fourth_button_visibility" {
+				visible = "[And(
+					GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End),
+					GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
+				)]"
+			}
+			blockoverride "fourth_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
+			}
+			
+			# EPISCOPAL SEATS TAB
+			blockoverride "fifth_button" {
+				text = "kog_gui_seats_header"
+			}
+			blockoverride "fifth_button_selected" {
+				text = "kog_gui_seats_header"
+			}
+			blockoverride "fifth_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
+			}
+			blockoverride "fifth_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
+			}
+			blockoverride "fifth_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
+			}
+		}
+	}
+	
+	type kog_denominational_overview_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		
+		com_international_organization_modifiers = { }
+		kog_denominational_actions_container = { }
+		kog_membership_panel = { }
+		# kog_holy_sites_panel = { } # TODO enable holy sites when ready
+	}
+	
+	type kog_denominational_actions_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		datamodel = "[JournalEntry.MakeScope.GetList('kog_ecumenical_decisions_list')]"
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "com_gui_main_actions"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		item = {
+			flowcontainer = {
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				direction = vertical
+				parentanchor = top|hcenter
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+						size = { 400 40 }
+						com_international_organization_scripted_button = { }
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_membership_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 15
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_community_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_in_communion"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				datamodel = "[JournalEntry.GetInvolvedCountries]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(Country.MakeScope ).End)]"
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_in_schism"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_schism_list'))]"
+				autoresize = yes
+				text = "kog_community_church_undivided"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_schism_list')))]"
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_schism_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_autocephalous_list')))]"
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_with_autocephaly"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_autocephalous_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_holy_sites_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 15
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_holy_sites_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		# Rome
+		kog_holy_site_item = {
+			blockoverride "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
+			}
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_rome.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_rome_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Santiago
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_santiago.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_santiago_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Paris
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_paris.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_paris_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Koln
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_koln.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_koln_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Vienna
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_vienna.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_vienna_building"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+	}
+	
+	type kog_holy_site_item = widget {
+		size = { 520 120 }
+		parentanchor = top|hcenter
+		
+		using = entry_bg_fancy
+		
+		background = {
+			block "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/ck3_temple_generic_grass.dds"
+			}
+			fittype = centercrop
+			using = frame_small_mask
+			alpha = 0.75
+		}
+		icon = {
+			using = dark_area
+			parentanchor = top|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		icon = {
+			using = dark_area
+			parentanchor = bottom|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 -4 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		
+		flowcontainer = {
+			direction = horizontal
+			minimumsize = { 520 120 }
+			margin = { 10 0 }
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 100 100 }
+				icon = {
+					block "holy_site_control_visibility" { }
+					using = selected_sidepanel_animation
+					size = { 90% 90% }
+					alwaystransparent = yes
+					parentanchor = center
+					using = default_fade_in_out
+				}
+				icon = {
+					size = { 100 100 }
+					block "holy_site_texture" {
+						texture = "gfx/interface/icons/holy_site_icons/kog_holy_site_generic.dds"
+					}
+					modify_texture = {
+						block "holy_site_not_controlled_visibility" {
+							visible = "no"
+						}
+						texture = "gfx/interface/backgrounds/grey.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = normal
+						alpha = 0.5
+					}
+				}
+				block "holy_site_tooltip" { }
+			}
+			
+			widget = {
+				size = { 400 120 }
+				
+				background = {
+					using = dark_area
+					margin = { 0 -10 }
+				}
+				
+				flowcontainer = {
+					direction = vertical
+					margin_left = 10
+					spacing = 5
+					
+					textbox = {
+						block "holy_site_name" {
+							text = "kog_block_holy_site_name"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_large
+					}
+					textbox = {
+						block "holy_site_location" {
+							text = "kog_block_holy_site_location"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_controller" {
+							text = "kog_block_holy_site_controller"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_perk" {
+							text = "kog_block_holy_site_perk"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_metropolis_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		spacing = 5
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+		
+		kog_metropolitan_status_panel = { }
+		kog_metropolitan_actions_container = { }
+	}
+	
+	type kog_metropolitan_status_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 5
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			direction = vertical
+			parentanchor = top|hcenter
+			minimumsize = { 520 -1 }
+			spacing = 10
+			margin = { 0 12 }
+			
+			background = {
+				alpha = 0.5
+				using = entry_bg_fancy_dark
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 400 30 }
+				
+				textbox = {
+					parentanchor = center
+					autoresize = yes
+					text = "kog_gui_communion_status"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 400 40 }
+				
+				green_progressbar_horizontal = {
+					parentanchor = center
+					size = { 480 28 }
+					blockoverride "values" {
+						min = 0
+						max = 1000
+						value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_capacity_value'))]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+						text = "kog_gui_capacity_amount"
+						align = center|nobaseline
+						elide = right
+						using = fontsize_medium
+					}
+					tooltip = "kog_gui_capacity_breakdown"
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 400 30 }
+				
+				textbox = {
+					parentanchor = center
+					autoresize = yes
+					text = "kog_gui_kog_focus_status"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 300 60 }
+				
+				background = {
+					using = dark_area
+					margin = { 0 0 }
+				}
+				
+				hbox = {
+					margin = { 10 0 }
+					spacing = 10
+					datamodel = "[JournalEntry.MakeScope.GetList('kog_focus_buttons_list')]"
+					
+					item = {
+						hbox = {
+							datamodel = "[JournalEntry.GetScriptedButtons]"
+							ignoreinvisible = yes
+							
+							item = {
+								widget = {
+									visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+									size = { 50 50 }
+									kog_metropolitan_focus_button = { }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			direction = horizontal
+			parentanchor = top|hcenter
+			minimumsize = { 520 -1 }
+			spacing = 5
+			margin = { 10 0 }
+			margin_bottom = 20
+			
+			character_portrait_medium_torso = {
+				parentanchor = center
+				position = { 10 -22 }
+				datacontext = "[GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader]"
+				blockoverride "show_hat" { }
+				blockoverride "tooltip" { } # Error Suppression
+				blockoverride "portrait_icons" { } # Error Suppression
+				blockoverride "portrait_button" { } # Error Suppression
+			}
+			
+			flowcontainer = {
+				parentanchor = center
+				direction = vertical
+				minimumsize = { 220 -1 }
+				margin = { 10 0 }
+				margin_bottom = 10
+				spacing = 4
+				
+				background = {
+					using = dark_area
+					alpha = 0.25
+				}
+				
+				default_header_clean_faded = {
+					size = { 320 40 }
+					parentanchor = top|hcenter
+					blockoverride "text" { }
+					textbox = {
+						text = "kog_gui_metropolitan_header"
+						parentanchor = center
+						position = { 0 1 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_state_religion"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_religion_law"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_national_piety"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_liturgical_language"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_liturgical_rite"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_holy_sites"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_decorative = {
+					parentanchor = center
+				}
+			}
+		}
+	}
+	
+	type kog_metropolitan_focus_button = button_icon_round {
+		parentanchor = center
+		size = { 55 55 }
+		
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		blockoverride "sound" {
+			clicksound = "event:/SFX/kog/kog_focus"
+		}
+		tooltip = "kog_gui_focus_button_tooltip"
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = rotate_glow_animation_02
+			size = { 90 90 }
+			alwaystransparent = yes
+			parentanchor = center
+			using = default_fade_in_out
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 50
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+	}
+	
+	type kog_metropolitan_actions_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		visible = "[Not(
+			IsDataModelEmpty(
+				JournalEntry.MakeScope.GetList('kog_metropolitan_actions_list')
+			)
+		)]"
+		datamodel = "[JournalEntry.MakeScope.GetList('kog_metropolitan_actions_list')]"
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "kog_gui_metropolitan_buttons"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		item = {
+			flowcontainer = {
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				direction = vertical
+				parentanchor = top|hcenter
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+						size = { 400 40 }
+						com_international_organization_scripted_button = { }
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_canon_laws_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		spacing = 10
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+		
+		textbox = {
+			parentanchor = top|hcenter
+			size = { 520 60 }
+			text = "kog_gui_canon_law_compliance"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+			
+			background = {
+				alpha = 0.5
+				using = entry_bg_fancy_dark
+			}
+			
+			tooltip = "kog_gui_canon_law_compliance_breakdown"
+		}
+		
+		# Apostolic Succession
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/apostolic_succession.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_apostolic_succession"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_apostolic_succession"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_apostolic_succession_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_papal_primacy.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_synodality.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End )]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_congregationalism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_congregationalism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Almsgiving
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/almsgiving.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_almsgiving"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_almsgiving"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_almsgiving_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_alms.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_no_alms_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_offertory.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_offertory_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_tithing.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_tithing_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Stance Towards Icons
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/iconography.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_iconography"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_iconography"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_iconography_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconoclasm.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_iconoclasm_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_aniconism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_aniconism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconodulism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_iconodulism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconolatry.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_iconolatry_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Church and State
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/church_and_state.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_statism"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_statism"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_statism_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_hierocracy.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_hierocracy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ultramontanism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_ultramontanism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_gallicanism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_gallicanism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_caesaropapism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_caesaropapism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Church and Nation
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/church_and_nation.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_nationalism"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_nationalism"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_nationalism_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_uranopolitism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_uranopolitism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ecclesial_communities.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_ecclesial_communities_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ethnophyletism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_ethnophyletism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_kinism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_kinism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Clerical Marriage
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/clerical_marriage.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_clerical_marriage"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_clerical_marriage"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_clerical_marriage_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_priests_celibate.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_priests_celibate_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_marriage_allowed.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_marriage_allowed_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Social Role
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/social_role.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_social_role"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_social_role"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_social_role_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_moral_authority.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_moral_authority_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_moral_guidance.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_moral_guidance_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_social_activism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_social_activism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_modernizing_force.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_modernizing_force_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Stance on Sciences
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/stance_on_sciences.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_stance_on_sciences"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_sciences_stance"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_stance_on_sciences_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_supremacy.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_scriptural_supremacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_favoritism.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_scriptural_favoritism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_disengagement.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_scientific_disengagement_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_patronage.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_scientific_patronage_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_crusade.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_scientific_crusage_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+		
+		# Crusades
+		kog_canon_lawgroup_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/crusades.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_crusades"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_crusades"
+			}
+			blockoverride "canon_law_button_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_crusades_list')]"
+			}
+			blockoverride "canon_law_button_content" {
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_no_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_heathen_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_heathen_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_heretic_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_heretic_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+				kog_canon_law_type_entry = {
+					blockoverride "kog_canon_law_icon_texture" {
+						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_unlimited_crusades.dds"
+					}
+					blockoverride "kog_canon_law_icon_tooltip" {
+						tooltip = "kog_placeholder_text"
+					}
+					blockoverride "canon_law_active_glow" {
+						visible = "[GetScriptedGui('kog_canon_law_unlimited_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_canon_lawgroup_entry = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		minimumsize = { 520 120 }
+		maximumsize = { 520 120 }
+		spacing = 5
+		margin_left = 10
+		
+		using = entry_bg_fancy
+		
+		background = {
+			block "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/placeholder.dds"
+			}
+			size = { 100% 100% }
+			fittype = centercrop
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		default_header_clean_faded = {
+			position = { 0 0 }
+			size = { 500 35 }
+			blockoverride "text" {
+			}
+			textbox = {
+				block "canon_law_group_name" {
+					text = "kog_block_canon_law_group"
+					using = look_at_me_text_animation
+				}
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 520
+				elide = right
+				using = fontsize_large
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 500 35 }
+			maximumsize = { 500 35 }
+			spacing = 5
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 300 35 }
+				
+				textbox = {
+					parentanchor = left|vcenter
+					size = { 300 35 }
+					position = { 5 0 }
+					
+					block "active_canon_law_flag" {
+						text = "kog_block_canon_law_flag"
+						using = look_at_me_text_animation
+					}
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			
+			widget = {
+				parentanchor = right|vcenter
+				size = { 200 35 }
+				
+				flowcontainer = {
+					parentanchor = center
+					ignoreinvisible = yes
+					block "canon_law_button_datamodel" {
+						visible = "no"
+					}
+					
+					item = {
+						flowcontainer = {
+							datamodel = "[JournalEntry.GetScriptedButtons]"
+							direction = vertical
+							
+							item = {
+								widget = {
+									visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+									size = { 160 35 }
+									
+									kog_canon_law_debate_button = {
+										parentanchor = center
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 500 35 }
+			spacing = 10
+			
+			background = {
+				using = dark_area
+				margin = { 5 5 }
+			}
+			
+			block "canon_law_button_content" {
+				textbox = {
+					text = "kog_block_canon_law_button_content"
+					using = look_at_me_text_animation
+					parentanchor = center
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+				}
+			}
+		}
+	}
+	
+	type kog_canon_law_debate_button = button {
+		parentanchor = center
+		size = { 184 35 }
+		position = { 0 -5 }
+		
+		using = default_button_action
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 230
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
+		}
+	}
+	
+	type kog_canon_law_type_entry = widget {
+		parentanchor = center
+		size = { 35 35 }
+		
+		icon = {
+			block "canon_law_active_glow" {
+				visible = "no"
+			}
+			using = rotate_glow_animation_02
+			size = { 90 90 }
+			alwaystransparent = yes
+			parentanchor = center
+			using = default_fade_in_out
+		}
+		icon = {
+			parentanchor = center
+			size = { 35 35 }
+			texture = "gfx/interface/backgrounds/round_button_bg.dds"
+			
+			icon = {
+				parentanchor = center
+				block "kog_canon_law_icon_texture" {
+					texture = "gfx/interface/error_frog.dds"
+					using = look_at_me_text_animation
+				}
+				size = { 80% 80% }
+			}
+		}
+		block "kog_canon_law_icon_tooltip" {}
+	}
+	
+	type kog_collegium_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[And(
+			DataModelHasItems(GetGlobalList('kog_cardinals_list')),
+			GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
+		)]"
+		datamodel = "[GetGlobalList('kog_cardinals_list')]"
+		
+		item = {
+			kog_collegium_cardinal_widget = { }
+		}
+	}
+	
+	type kog_collegium_cardinal_widget = flowcontainer {
+		minimumsize = { 520 120 }
+		direction = horizontal
+		spacing = 10
+		
+		datacontext = "[Scope.GetCharacter]"
+		
+		using = entry_bg_fancy
+		
+		widget = {
+			size = { 120 120 }
+			parentanchor = center
+			
+			character_portrait_medium = {
+				parentanchor = center
+				position = { 0 0 }
+				blockoverride "show_hat" { }
+				blockoverride "tooltip" { }
+				blockoverride "portrait_icons" { }
+				blockoverride "portrait_button" { }
+				blockoverride "ig_button" { }
+				
+				icon = {
+					size = { 27 18 }
+					position = { -10 0 }
+					parentanchor = bottom|left
+					
+					texture = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagTexture]"
+					alwaystransparent = yes
+					
+					frame = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagFrame]"
+					framesize = "[GetSmallFlagFrameSize]"
+					
+					using = flag_overlay
+					
+					icon = {
+						name = frame
+						texture = "gfx/interface/flag/flag_power_tiny.dds"
+						size = { 33 24 }
+						framesize = { 66 48 }
+						frame = "[Scope.GetCharacter.GetCountry.GetRankIconIndex]"
+						alwaystransparent = yes
+						parentanchor = center
+						block "visibility" { }
+					}
+				}
+				textbox = {
+					text = "kog_cardinal_gravitas"
+					position = { 14 0 }
+					parentanchor = bottom|right
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+					
+					background = {
+						using = dark_area
+						alpha = 0.5
+						margin = { 2 2 }
+					}
+					
+					tooltip = "kog_cardinal_gravitas_breakdown"
+				}
+				
+				widget = {
+					parentanchor = top|right
+					position = { 5 -5 }
+					size = { 35 35 }
+					
+					visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+					
+					icon = {
+						using = rotate_glow_animation_02
+						size = { 60 60 }
+						parentanchor = center
+						position = { 0 0 }
+						
+						icon = {
+							texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
+							parentanchor = center
+							size = { 35 35 }
+							position = { 4 4 }
+							
+							
+						}
+					}
+					
+					tooltip = "kog_placeholder_text"
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = center
+			direction = vertical
+			minimumsize = { 220 100 }
+			
+			margin = { 10 0 }
+			
+			background = {
+				using = dark_area
+				alpha = 0.25
+			}
+			
+			default_header_clean_faded = {
+				size = { 220 30 }
+				parentanchor = top|hcenter
+				blockoverride "text" { }
+				textbox = {
+					text = "kog_gui_name"
+					parentanchor = center
+					position = { 0 0 }
+					autoresize = yes
+					max_width = 250
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			textbox = {
+				text = "kog_gui_title"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+			textbox = {
+				text = "kog_cardinal_gravitas"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+			textbox = {
+				text = "kog_gui_homeland"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+		}
+		
+		dynamicgridbox = {
+			parentanchor = center
+			layoutpolicy_vertical = preferred
+			datamodel = "[Character.AccessTraits]"
+			datamodel_wrap = 3
+			flipdirection = yes
+			
+			background = {
+				using = dark_area
+				alpha = 0.25
+			}
+			
+			item = {
+				flowcontainer = {
+					margin = { 5 5 }
+					alpha = "[TransparentIfTrue(CharacterTrait.IsDisabled)]"
+					
+					tooltipwidget = {
+						FancyTooltip_CharacterTrait = { }
+					}
+					icon = {
+						size = { 32 45 }
+						texture = "[CharacterTrait.GetTexture]"
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_episcopal_seat_buttons = widget {
+		parentanchor = top|hcenter
+		size = { 520 40 }
+		
+		hbox = {
+			parentanchor = center
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = fixed
+			
+			kog_episcopal_seat_filter_button = {
+				blockoverride "filter_button_name" {
+					raw_text = "[GetReligion('catholic').GetName] Seats"
+				}
+				blockoverride "filter_button_onclick" {
+					onclick = "[GetVariableSystem.Set('kog_episcopal_seat_tab', 'catholic')]"
+				}
+				blockoverride "filter_button_tooltip" {
+					tooltip = "kog_placeholder_text"
+				}
+				blockoverride "filter_button_selected" {
+					visible = "[GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'catholic')]"
+				}
+			}
+			
+			kog_episcopal_seat_filter_button = {
+				blockoverride "filter_button_name" {
+					raw_text = "[GetReligion('orthodox').GetName] Seats"
+				}
+				blockoverride "filter_button_onclick" {
+					onclick = "[GetVariableSystem.Set('kog_episcopal_seat_tab', 'orthodox')]"
+				}
+				blockoverride "filter_button_tooltip" {
+					tooltip = "kog_placeholder_text"
+				}
+				blockoverride "filter_button_selected" {
+					visible = "[GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'orthodox')]"
+				}
+			}
+		}
+	}
+	
+	type kog_episcopal_seat_filter_button = button {
+		size = { 160 40 }
+		
+		using = default_button_action
+		block "filter_button_tooltip" {
+			tooltip = "kog_placeholder_text"
+		}
+		block "filter_button_onclick" {
+			onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		}
+		
+		widget = {
+			block "filter_button_selected" {
+				visible = "no"
+			}
+			size = { 100% 100% }
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 230
+			elide = right
+			using = fontsize_small
+			block "filter_button_name" {
+				text = "kog_placeholder_text"
+			}
+		}
+		
+		icon = {
+			block "filter_button_selected" {
+				visible = "no"
+			}
+			using = highlighted_square_selection
+		}
+	}
+	
+	type kog_catholic_episcopal_seats_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		spacing = 10
+		margin = { 0 10 }
+		
+		visible = "[And(
+			GetVariableSystem.HasValue('kog_denominational_tab', 'seats'),
+			Or(
+				GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'catholic'),
+				Not(GetVariableSystem.Exists('kog_episcopal_seat_tab'))
+			)
+		)]"
+		
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_rome_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_rome"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_rome"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_rome"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_rome"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_rome"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_rome_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_santiago_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_santiago"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_santiago"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_santiago"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_santiago"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_santiago"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_santiago_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_paris_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_paris"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_paris"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_paris"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_paris"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_paris"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_paris_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_koln_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_koln"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_koln"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_koln"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_koln"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_koln"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_koln_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_vienna_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_vienna"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_vienna"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_vienna"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_vienna"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_vienna"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_vienna_actions_list')]"
+			}
+		}
+	}
+	
+	type kog_orthodox_episcopal_seats_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		spacing = 10
+		margin = { 0 10 }
+		
+		visible = "[And(
+			GetVariableSystem.HasValue('kog_denominational_tab', 'seats'),
+			Or(
+				GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'orthodox'),
+				Not(GetVariableSystem.Exists('kog_episcopal_seat_tab'))
+			)
+		)]"
+		
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_constantinople_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_constantinople"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_constantinople"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_constantinople"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_constantinople"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_constantinople"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_constantinople_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_antioch_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_antioch"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_antioch"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_antioch"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_antioch"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_antioch"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_antioch_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_jerusalem_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_jerusalem"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_jerusalem"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_jerusalem"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_jerusalem"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_jerusalem"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_jerusalem_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_alexandria_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_alexandria"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_alexandria"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_alexandria"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_alexandria"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_alexandria"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_alexandria_actions_list')]"
+			}
+		}
+		kog_episcopal_seat = {
+			blockoverride "episcopal_seat_patriarch_datacontext" {
+				datacontext = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
+			}
+			blockoverride "kog_seat_name" {
+				text = "kog_moscow_header"
+			}
+			blockoverride "episcopal_seat_controller" {
+				text = "kog_gui_seat_controller_moscow"
+			}
+			blockoverride "episcopal_seat_location" {
+				text = "kog_gui_seat_location_value_moscow"
+			}
+			blockoverride "episcopal_seat_liturgical_rite" {
+				text = "kog_gui_liturgical_rite_value_moscow"
+			}
+			blockoverride "episcopal_seat_liturgical_language" {
+				text = "kog_gui_liturgical_language_value_moscow"
+			}
+			blockoverride "episcopal_seat_opinion" {
+				text = "kog_gui_opinion_value_moscow"
+			}
+			blockoverride "episcopal_seat_buttons_datamodel" {
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_moscow_actions_list')]"
+			}
+		}
+	}
+	
+	type kog_episcopal_seat = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		margin = { 0 5 }
+		
+		using = entry_bg_fancy
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 540 40 }
+			margin = { 15 0 }
+			
+			background = {
+				using = default_header_bg_faded
+			}
+			
+			widget = {
+				parentanchor = center
+				size = { 400 40 }
+				
+				textbox = {
+					parentanchor = left|vcenter
+					block "kog_seat_name" {
+						text = "kog_gui_seat_name"
+						using = look_at_me_text_animation
+					}
+					autoresize = yes
+					elide = right
+					using = fontsize_large
+				}
+			}
+			widget = {
+				parentanchor = center
+				size = { 120 40 }
+				
+				textbox = {
+					parentanchor = right|vcenter
+					block "episcopal_seat_controller" {
+						text = "kog_gui_seat_controller"
+						using = look_at_me_text_animation
+					}
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			spacing = 5
+			minimumsize = { 540 -1 }
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 145 160 }
+				
+				character_portrait_medium_torso = {
+					parentanchor = center
+					block "episcopal_seat_patriarch_datacontext" {
+						datacontext = "[GetPlayer.GetRuler]"
+					}
+					blockoverride "show_hat" { }
+					blockoverride "tooltip" { } # Error Suppression
+					blockoverride "portrait_icons" { } # Error Suppression
+					blockoverride "portrait_button" { } # Error Suppression
+					
+					default_header_clean_faded = {
+						size = { 150 35 }
+						position = { 0 80 }
+						parentanchor = center
+						blockoverride "text" {}
+						textbox = {
+							block "episcopal_seat_patriarch_name" {
+								text = "kog_gui_patriarch_name"
+							}
+							parentanchor = center
+							position = { 0 -2 }
+							autoresize = yes
+							max_width = 190
+							elide = right
+							using = fontsize_medium
+						}
+					}
+				}
+			}
+			
+			widget = {
+				parentanchor = center
+				size = { 180 220 }
+				
+				vbox = {
+					spacing = 5
+					margin_left = 5
+					
+					background = {
+						using = entry_bg_simple
+						margin = { 0 5 }
+					}
+					
+					# Seat Location
+					textbox = {
+						text = "kog_gui_seat_location_header"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "episcopal_seat_location" {
+							text = "kog_gui_seat_location_value"
+							using = look_at_me_text_animation
+						}
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {}
+					
+					# Liturgical Language
+					textbox = {
+						text = "kog_gui_liturgical_language_header"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "episcopal_seat_liturgical_language" {
+							text = "kog_gui_liturgical_language_value"
+							using = look_at_me_text_animation
+						}
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {}
+					
+					# Liturgical Rite
+					textbox = {
+						text = "kog_gui_liturgical_rite_header"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "episcopal_seat_liturgical_rite" {
+							text = "kog_gui_liturgical_rite_value"
+							using = look_at_me_text_animation
+						}
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {}
+					
+					# Opinion
+					textbox = {
+						text = "kog_gui_opinion_header"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "episcopal_seat_opinion" {
+							text = "kog_gui_opinion_value"
+							using = look_at_me_text_animation
+						}
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+				}
+			}
+			
+			kog_seat_scripted_button_container = {
+				blockoverride "kog_scripted_button_visibility" {}
+			}
+		}
+	}
+	
+	type kog_seat_scripted_button_container = widget {
+		parentanchor = top|hcenter
+		size = { 190 240 }
+		
+		flowcontainer = {
+			parentanchor = center
+			direction = vertical
+			ignoreinvisible = yes
+			spacing = 5
+			margin_top = 5
+			
+			background = {
+				using = entry_bg
+				margin = { 15 10 }
+			}
+			
+			block "episcopal_seat_buttons_datamodel" {
+				visible = "no"
+			}
+			
+			item = {
+				flowcontainer = {
+					datamodel = "[JournalEntry.GetScriptedButtons]"
+					direction = vertical
+					ignoreinvisible = yes
+					
+					item = {
+						widget = {
+							visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
+							size = { 154 38 }
+							
+							kog_seat_scripted_button_item = {
+								parentanchor = center
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_seat_scripted_button_item = button {
+		parentanchor = center
+		size = { 174 38 }
+		using = default_button_action
+		
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 165
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
+		}
+	}
+}

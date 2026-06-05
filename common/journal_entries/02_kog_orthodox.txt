@@ -1,0 +1,330 @@
+﻿####---------- ORTHODOX GLOBAL JOURNAL ----------#####
+je_kog_orthodox = {
+	group = je_group_com_religious_organizations
+	icon = "gfx/interface/icons/religion_icons/orthodox.dds"
+	weight = 0
+	
+	should_be_pinned_by_default_involved = yes
+	
+	widget = {
+		gui = "gui/journal_entry_widgets/kog_journal_widgets.gui"
+		name = "widget_kog_church_interorg"
+		container = "custom_widget_container_je_icon"
+	}
+	
+	# Omen Button
+	scripted_button = kog_gui_commission_icon
+	
+	# Metropolis Buttons
+	scripted_button = kog_gui_emphasize_unity
+	scripted_button = kog_gui_enforce_attendance
+	scripted_button = kog_gui_theologize_dogma
+	scripted_button = kog_gui_promote_ecumenism
+	
+	# Orthodox Decision Buttons
+	scripted_button = kog_gui_dissolve_monasteries
+	scripted_button = kog_gui_reform_synod
+	scripted_button = kog_gui_grant_subsidies
+	scripted_button = kog_gui_establish_schools
+	
+	# Ecumenical Decision Buttons
+	scripted_button = kog_gui_declare_autocephaly
+	scripted_button = kog_gui_convoke_council
+	scripted_button = kog_gui_secure_tetrarchy
+	scripted_button = kog_gui_secure_pentarchy
+	scripted_button = kog_gui_mend_schism
+	
+	# Canon Law Debate Buttons
+	scripted_button = kog_gui_debate_apostolic_succession
+	scripted_button = kog_gui_debate_almsgiving
+	scripted_button = kog_gui_debate_iconography
+	scripted_button = kog_gui_debate_statism
+	scripted_button = kog_gui_debate_nationalism
+	scripted_button = kog_gui_debate_clerical_marriage
+	scripted_button = kog_gui_debate_social_role
+	scripted_button = kog_gui_debate_stance_on_sciences
+	scripted_button = kog_gui_debate_crusades
+	
+	# Episcopal Seat Buttons
+	scripted_button = kog_gui_sway_constantinople
+	scripted_button = kog_gui_antagonize_constantinople
+	scripted_button = kog_gui_integrate_constantinople
+	scripted_button = kog_gui_enforce_constantinople
+	scripted_button = kog_gui_install_constantinople
+	
+	scripted_button = kog_gui_sway_antioch
+	scripted_button = kog_gui_antagonize_antioch
+	scripted_button = kog_gui_integrate_antioch
+	scripted_button = kog_gui_enforce_antioch
+	scripted_button = kog_gui_install_antioch
+	
+	scripted_button = kog_gui_sway_jerusalem
+	scripted_button = kog_gui_antagonize_jerusalem
+	scripted_button = kog_gui_integrate_jerusalem
+	scripted_button = kog_gui_enforce_jerusalem
+	scripted_button = kog_gui_install_jerusalem
+	
+	scripted_button = kog_gui_sway_alexandria
+	scripted_button = kog_gui_antagonize_alexandria
+	scripted_button = kog_gui_integrate_alexandria
+	scripted_button = kog_gui_enforce_alexandria
+	scripted_button = kog_gui_install_alexandria
+	
+	scripted_button = kog_gui_sway_moscow
+	scripted_button = kog_gui_antagonize_moscow
+	scripted_button = kog_gui_integrate_moscow
+	scripted_button = kog_gui_enforce_moscow
+	scripted_button = kog_gui_install_moscow
+	
+	is_shown_in_lobby = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	
+	should_be_involved = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			com_hide_all_journal_elements_for_interorg_effect = yes
+			com_set_international_organization_headquaters_effect = {
+				state_region = s:STATE_EASTERN_THRACE
+			}
+			kog_initialize_orthodox_button_lists_effect = yes
+			set_variable = kog_enable_encyclicals_panel
+			set_variable = kog_enable_councils_panel
+			save_scope_as = je_kog_orthodox
+		}
+		set_global_variable = {
+			name = je_kog_orthodox
+			value = scope:je_kog_orthodox
+		}
+	}
+	
+	immediate_all_involved = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+	}
+	
+	on_become_involved_after_activation = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+	}
+	
+	complete = {
+		always = no
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				kog_validate_global_journal_involvement_effect = {
+					type = je_kog_orthodox
+					trigger = kog_country_is_eastern_orthodox_trigger
+				}
+				kog_update_schism_list_effect = {
+					type = je_kog_orthodox
+				}
+				kog_update_autocephaly_list_effect = {
+					type = je_kog_orthodox
+				}
+			}
+		}
+	}
+}
+
+####---------- ORTHODOX ENCYCLICAL JOURNALS ----------#####
+je_kog_encyclical_orthodox_easterners = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	weight = 100
+	should_be_pinned_by_default_involved = yes
+	
+	should_be_involved = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	
+	should_show_when_not_involved = {}
+	
+	immediate = {
+		scope:journal_entry = {
+			save_scope_as = je_kog_encyclical_orthodox_easterners
+		}
+		set_global_variable = {
+			name = je_kog_encyclical_orthodox_easterners
+			value = scope:je_kog_encyclical_orthodox_easterners
+		}
+	}
+	
+	timeout = 3650
+	
+	on_timeout = {
+		if = {
+			limit = {
+				global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_rejected_epistle
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_accepted_epistle
+			}
+		}
+		remove_global_variable = je_kog_encyclical_orthodox_easterners
+	}
+	
+	on_timeout_all_involved = {
+		hidden_effect = {
+			custom_tooltip = kog_nothing_happens # TODO put real effect here
+		}
+	}
+	
+	invalid = {
+		NOT = {
+			has_global_variable = kog_encyclical_orthodox_easterners_var
+		}
+	}
+	
+	on_invalid = {
+		remove_global_variable = je_kog_encyclical_orthodox_easterners
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_rejected_epistle
+				}
+				every_country = {
+					limit = {
+						is_involved_in_journal_entry = je_kog_encyclical_orthodox_easterners
+					}
+					if = {
+						limit = {
+							## TODO Rejection Compliance Trigger
+						}
+						set_variable = kog_encyclical_orthodox_easterners_compliance_var
+						remove_variable = kog_encyclical_orthodox_easterners_non_compliance_var
+					}
+					if = {
+						limit = {
+							## TODO Rejection Non-Compliance Trigger
+						}
+						set_variable = kog_encyclical_orthodox_easterners_non_compliance_var
+						remove_variable = kog_encyclical_orthodox_easterners_compliance_var
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_accepted_epistle
+				}
+				every_country = {
+					limit = {
+						is_involved_in_journal_entry = je_kog_encyclical_orthodox_easterners
+					}
+					if = {
+						limit = {
+							## TODO Acceptance Compliance Trigger
+						}
+						set_variable = kog_encyclical_orthodox_easterners_compliance_var
+						remove_variable = kog_encyclical_orthodox_easterners_non_compliance_var
+					}
+					if = {
+						limit = {
+							## TODO Acceptance Non-Compliance Trigger
+						}
+						set_variable = kog_encyclical_orthodox_easterners_non_compliance_var
+						remove_variable = kog_encyclical_orthodox_easterners_compliance_var
+					}
+				}
+			}
+		}
+	}
+	
+	status_desc = {
+		desc = je_kog_encyclical_orthodox_easterners_status
+	}
+}
+
+je_kog_encyclical_orthodox_fraternity = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	weight = 100
+	should_be_pinned_by_default_involved = yes
+	
+	should_be_involved = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			save_scope_as = je_kog_encyclical_orthodox_fraternity
+		}
+		set_global_variable = {
+			name = je_kog_encyclical_orthodox_fraternity
+			value = scope:je_kog_encyclical_orthodox_fraternity
+		}
+	}
+	
+	timeout = 3650
+	
+	on_timeout = {
+		remove_global_variable = je_kog_encyclical_orthodox_fraternity
+	}
+	
+	on_timeout_all_involved = {
+		if = {
+			limit = {
+				has_variable = kog_encyclical_orthodox_fraternity_compliance_var
+			}
+			add_modifier = {
+				name = modifier_kog_rejected_epistle
+				months = long_modifier_time
+			}
+			kog_add_conservative_loyalists_effect = yes
+			kog_add_reformist_radicals_effect = yes
+		}
+		else = {
+			add_modifier = {
+				name = modifier_kog_failed_encyclical
+				months = long_modifier_time
+			}
+			kog_add_reformist_loyalists_effect = yes
+			kog_add_conservative_radicals_effect = yes
+		}
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			every_country = {
+				limit = {
+					is_involved_in_journal_entry = je_kog_encyclical_orthodox_fraternity
+				}
+				if = {
+					limit = {
+						calc_true_if = {
+							amount >= 3
+							var:je_kog_local.var:kog_constantinople_opinion_var >= 75
+							var:je_kog_local.var:kog_antioch_opinion_var >= 75
+							var:je_kog_local.var:kog_jerusalem_opinion_var >= 75
+							var:je_kog_local.var:kog_alexandria_opinion_var >= 75
+							var:je_kog_local.var:kog_moscow_opinion_var >= 75
+						}
+					}
+					set_variable = kog_encyclical_orthodox_fraternity_compliance_var
+				}
+				else = {
+					remove_variable = kog_encyclical_orthodox_fraternity_compliance_var
+				}
+			}
+		}
+	}
+}

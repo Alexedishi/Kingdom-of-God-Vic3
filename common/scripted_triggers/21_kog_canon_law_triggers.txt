@@ -1,0 +1,27 @@
+﻿kog_canon_lawgroup_debate_trigger = {
+	custom_tooltip = {
+		text = kog_canon_lawgroup_$flag$_debate_trigger
+		scope:journal_entry = {
+			has_variable_map = kog_ecumenical_council_map
+			is_key_in_variable_map = {
+				name = kog_ecumenical_council_map
+				target = flag:kog_canon_lawgroup_$flag$
+			}
+		}
+	}
+}
+
+kog_canon_lawgroup_debate_trigger_NOT = {
+	custom_tooltip = {
+		text = kog_canon_lawgroup_$flag$_debate_trigger_NOT
+		scope:journal_entry = {
+			has_variable_map = kog_ecumenical_council_map
+			NOR = {
+				is_key_in_variable_map = {
+					name = kog_ecumenical_council_map
+					target = flag:kog_canon_lawgroup_$flag$
+				}
+			}
+		}
+	}
+}

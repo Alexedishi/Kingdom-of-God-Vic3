@@ -1,5 +1,33 @@
 ﻿l_english:
-## Seat Effects
+ ####---------- Schism Effects ----------####
+ kog_schism_gain_6: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 6#!"
+ kog_schism_lose_6: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 6#!"
+ kog_schism_gain_12: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 12#!"
+ kog_schism_lose_12: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 12#!"
+ kog_schism_gain_24: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 24#!"
+ kog_schism_lose_24: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 24#!"
+ 
+ ####---------- Ecumenical Council Effects ----------####
+ kog_add_council_matter_effect: "[SCOPE.GetLocalVariable('kog_council_matter_var').GetFlagName] will be raised as an issue of debate in this $kog_ecumenical_council$"
+ 
+ ####---------- Encyclical Effects ----------####
+ kog_encyclical_reformist_loyalists: "#todo kog_encyclical_reformist_loyalists#!"
+ kog_encyclical_reformist_radicals: "#todo kog_encyclical_reformist_radicals#!"
+ kog_encyclical_conservative_loyalists: "#todo kog_encyclical_conservative_loyalists#!"
+ kog_encyclical_conservative_radicals: "#todo kog_encyclical_conservative_radicals#!"
+ 
+ ####---------- Episcopal Seat Effects ----------####
+ kog_change_rome_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_rome$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_santiago_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_santiago$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_paris_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_paris$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_koln_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_koln$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_vienna_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_vienna$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_constantinople_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_constantinople$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_antioch_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_antioch$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_jerusalem_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_jerusalem$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_alexandria_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_alexandria$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_moscow_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_moscow$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ 
  kog_usurped_rome: "[GetPlayer.GetNameNoFlag] now $kog_controls$ the [concept_episcopal_seat] of $kog_rome$"
  kog_usurped_santiago: "[GetPlayer.GetNameNoFlag] now $kog_controls$ the [concept_episcopal_seat] of $kog_santiago$"
  kog_usurped_paris: "[GetPlayer.GetNameNoFlag] now $kog_controls$ the [concept_episcopal_seat] of $kog_paris$"
@@ -56,21 +84,3 @@
  kog_reduce_elysium_relations: "This will decrease $kog_relations$ with $kog_elysium$ by #bold #red +20#!#!"
  kog_reduce_mixtec_relations: "This will decrease $kog_relations$ with $kog_mixtec$ by #bold #red +20#!#!"
  kog_reduce_cahokia_relations: "This will decrease $kog_relations$ with $kog_cahokia$ by #bold #red +20#!#!"
- 
- kog_all_patriarchal_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
- kog_ancient_seats: "The following are the #bold Ancient#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
- kog_eastern_seats: "The following are the #bold Eastern#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
- kog_tetrarchy_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
- kog_pentarchy_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
- kog_senior_seats: "The following are the #bold senior#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$"
- kog_junior_seats: "The following are the #bold junior#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
- kog_oriental_seats: "The following are the Oriental [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n•$kog_coptic_alexandria$\n•$kog_syriac_antioch$\n•$kog_konak$\n•$kog_etchmiadzin$"
- 
- kog_needs_controller: "A [concept_country] must have $kog_control$ of $kog_constantinople$"
- kog_rome_reclaimed: "$kog_rome$ is controlled by an [GetReligion('orthodox').GetName] [concept_country]"
- kog_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
- kog_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $kog_constantinople$"
- 
- kog_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
- kog_romania_united: "We have #bold United the Principalities#!"
- kog_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#, they will be able to form the #bold Orthodox Commonwealth#!"

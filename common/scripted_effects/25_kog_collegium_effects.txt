@@ -1,0 +1,152 @@
+﻿kog_update_collegium_effect = {
+	# Clear list
+	clear_global_variable_list = kog_cardinals_list
+
+	# Place extant Catholic Devout leaders into the Cardinal list
+	every_country = {
+		limit = {
+			kog_country_is_roman_catholic_trigger = yes
+		}
+		ig:ig_devout = {
+			leader = {
+				add_to_global_variable_list = {
+					name = kog_cardinals_list
+					target = this
+				}
+			}
+		}
+	}
+
+	# Capture Void Characters and generate any that are missing
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = kog_cardinal_template
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = kog_cardinal_template
+			}
+			save_scope_as = kog_void_cardinal_1
+		}
+	}
+	else = {
+		kog_generate_curia_cardinal_effect = yes
+		random_character_in_void = {
+			limit = {
+				has_template = kog_cardinal_template
+			}
+			save_scope_as = kog_void_cardinal_1
+		}
+	}
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = kog_cardinal_template
+				NOT = {
+					scope:kog_void_cardinal_1 = this
+				}
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = kog_cardinal_template
+				NOT = {
+					scope:kog_void_cardinal_1 = this
+				}
+			}
+			save_scope_as = kog_void_cardinal_2
+		}
+	}
+	else = {
+		kog_generate_curia_cardinal_effect = yes
+		random_character_in_void = {
+			limit = {
+				has_template = kog_cardinal_template
+				NOT = {
+					scope:kog_void_cardinal_1 = this
+				}
+			}
+			save_scope_as = kog_void_cardinal_2
+		}
+	}
+	if = {
+		limit = {
+			any_character_in_void = {
+				has_template = kog_cardinal_template
+				NOR = {
+					scope:kog_void_cardinal_1 = this
+					scope:kog_void_cardinal_2 = this
+				}
+			}
+		}
+		random_character_in_void = {
+			limit = {
+				has_template = kog_cardinal_template
+				NOR = {
+					scope:kog_void_cardinal_1 = this
+					scope:kog_void_cardinal_2 = this
+				}
+			}
+			save_scope_as = kog_void_cardinal_3
+		}
+	}
+	else = {
+		kog_generate_curia_cardinal_effect = yes
+		random_character_in_void = {
+			limit = {
+				has_template = kog_cardinal_template
+				NOR = {
+					scope:kog_void_cardinal_1 = this
+					scope:kog_void_cardinal_2 = this
+				}
+			}
+			save_scope_as = kog_void_cardinal_3
+		}
+	}
+
+	# Purge Excess Cardinals
+	every_character_in_void = {
+		limit = {
+			has_template = kog_cardinal_template
+			NOR = {
+				scope:kog_void_cardinal_1 = this
+				scope:kog_void_cardinal_2 = this
+				scope:kog_void_cardinal_3 = this
+			}
+		}
+		free_character_from_void = yes
+	}
+
+	# Add Cardinals to the list
+	add_to_global_variable_list = {
+		name = kog_cardinals_list
+		target = scope:kog_void_cardinal_1
+	}
+	add_to_global_variable_list = {
+		name = kog_cardinals_list
+		target = scope:kog_void_cardinal_2
+	}
+	add_to_global_variable_list = {
+		name = kog_cardinals_list
+		target = scope:kog_void_cardinal_3
+	}
+
+	# Sort the list
+	sort_global_variable_list = {
+		name = kog_cardinals_list
+		order = kog_character_gravitas_value
+	}
+
+}
+
+kog_generate_curia_cardinal_effect = {
+	create_character = {
+		template = kog_cardinal_template
+		culture = cu:south_italian
+		on_created = {
+			place_character_in_void = 600 # 50 year shelf life
+		}
+	}
+}

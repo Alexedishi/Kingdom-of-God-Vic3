@@ -1,0 +1,214 @@
+﻿####---------- Apostolic Succession ----------####
+modifier_kog_canon_law_papal_primacy = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_papal_primacy.dds
+	country_enable_collegium_bool = yes
+	country_schism_threshold_add = 1000
+}
+modifier_kog_canon_law_synodality = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_synodality.dds
+	country_schism_threshold_add = 500
+	
+}
+modifier_kog_canon_law_congregationalism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_congregationalism.dds
+	country_enable_free_association = yes
+}
+
+####---------- Almsgiving ----------####
+modifier_kog_canon_law_no_alms = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_no_alms.dds
+	country_enable_church_funding_laws = no
+}
+modifier_kog_canon_law_offertory = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_offertory.dds
+	country_enable_church_funding_laws = yes
+}
+modifier_kog_canon_law_tithing = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_tithing.dds
+	country_enable_church_funding_laws = yes
+	country_enable_tithing = yes
+	state_catholic_standard_of_living_add = 1
+	state_lower_strata_expected_sol_add = -0.05
+}
+
+####---------- Church and State ----------####
+modifier_kog_canon_law_hierocracy = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_hierocracy.dds
+	country_allow_dismiss_bishop = no
+	country_allow_appoint_bishop = no
+}
+modifier_kog_canon_law_ultramontanism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_ultramontanism.dds
+	country_allow_dismiss_bishop = no
+	country_allow_appoint_bishop = no
+}
+modifier_kog_canon_law_gallicanism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_gallicanism.dds
+	country_allow_dismiss_bishop = no
+	country_allow_appoint_bishop = yes
+}
+modifier_kog_canon_law_caesaropapism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_caesaropapism.dds
+	country_allow_dismiss_bishop = yes
+	country_allow_appoint_bishop = yes
+}
+
+####---------- Church and Nation ----------####
+modifier_kog_canon_law_uranopolitism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_uranopolitism.dds
+	country_faith_capacity_add = -100
+	country_authority_mult = -0.05
+	country_clergymen_pol_str_mult = -0.05
+	state_radicals_from_political_movements_mult = -0.025
+	political_movement_pop_attraction_mult = -0.025
+}
+modifier_kog_canon_law_ecclesial_communities = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_ecclesial_communities.dds
+	country_faith_capacity_add = -50
+	country_authority_mult = -0.025
+	country_clergymen_pol_str_mult = -0.025
+	state_radicals_from_political_movements_mult = -0.01
+	political_movement_pop_attraction_mult = -0.01
+}
+modifier_kog_canon_law_ethnophyletism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_ethnophyletism.dds
+	country_authority_mult = 0.05
+	country_clergymen_pol_str_mult = 0.025
+	state_radicals_from_political_movements_mult = 0.01
+	political_movement_pop_attraction_mult = 0.01
+}
+modifier_kog_canon_law_kinism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_kinism.dds
+	country_faith_capacity_add = 100
+	country_authority_mult = 0.05
+	country_clergymen_pol_str_mult = 0.05
+	state_radicals_from_political_movements_mult = 0.025
+	political_movement_pop_attraction_mult = 0.015
+	unit_morale_loss_mult = -0.05
+}
+
+####---------- Stance Towards Icons ----------####
+modifier_kog_canon_law_iconoclasm = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_iconoclasm.dds
+	country_authority_mult = 0.10
+	country_prestige_mult = -0.05
+	state_radicals_from_political_movements_mult = 0.10
+	building_art_academy_throughput_add = -0.05
+}
+modifier_kog_canon_law_aniconism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_aniconism.dds
+	country_authority_mult = 0.05
+}
+modifier_kog_canon_law_iconodulism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_iconodulism.dds
+	country_prestige_mult = 0.01
+	state_conversion_mult = 0.05
+}
+modifier_kog_canon_law_iconolatry = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_iconolatry.dds
+	country_prestige_mult = 0.02
+	state_conversion_mult = 0.10
+	state_assimilation_mult = 0.05
+	building_art_academy_throughput_add = 0.05
+}
+
+####---------- Marriage of Priests ----------####
+modifier_kog_canon_law_priests_celibate = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_priests_celibate.dds
+	country_modifier_no_effects = yes
+}
+modifier_kog_canon_law_marriage_allowed = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_marriage_allowed.dds
+	state_birth_rate_mult = 0.005
+}
+
+####---------- Role in Society ----------####
+modifier_kog_canon_law_moral_authority = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_moral_authority.dds
+	country_authority_mult = 0.15
+	state_birth_rate_mult = 0.02
+	state_dependent_political_participation_add = -0.05
+	state_radicals_from_political_movements_mult = 0.10
+	political_movement_pop_attraction_mult = -0.10
+	state_working_adult_ratio_add = -0.01
+}
+modifier_kog_canon_law_moral_guidance = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_moral_guidance.dds
+	country_authority_mult = 0.05
+	state_birth_rate_mult = 0.01
+	state_dependent_political_participation_add = -0.025
+	political_movement_pop_attraction_mult = -0.05
+}
+modifier_kog_canon_law_social_activism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_social_activism.dds
+	political_movement_pop_attraction_mult = 0.15
+	state_radicals_from_political_movements_mult = -0.05
+	state_loyalists_from_political_movements_mult = 0.10
+}
+modifier_kog_canon_law_modernizing_force = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_modernizing_force.dds
+	political_movement_pop_attraction_mult = 0.25
+	state_radicals_from_political_movements_mult = -0.15
+	state_loyalists_from_political_movements_mult = 0.25
+	political_movement_activism_growth_mult = 0.25
+	country_society_tech_spread_mult = 0.10
+}
+
+####---------- Stance on the Sciences ----------####
+modifier_kog_canon_law_scriptural_supremacy = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_supremacy.dds
+	country_authority_mult = 0.15
+	country_tech_spread_mult = -0.25
+	state_education_access_add = -0.0125
+	country_clergymen_pol_str_mult = 0.10
+	state_radicals_from_political_movements_mult = -0.05
+}
+modifier_kog_canon_law_scriptural_favoritism = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_favoritism.dds
+	country_authority_mult = 0.05
+	country_tech_spread_mult = -0.10
+	state_education_access_add = -0.005
+	country_clergymen_pol_str_mult = 0.05
+}
+modifier_kog_canon_law_scientific_disengagement = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_disengagement.dds
+	country_modifier_no_effects = yes
+}
+modifier_kog_canon_law_scientific_patronage = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_patronage.dds
+	country_tech_spread_mult = 0.10
+	state_education_access_add = 0.005
+	country_academics_pol_str_mult = 0.05
+}
+modifier_kog_canon_law_scientific_crusade = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_crusade.dds
+	country_tech_spread_mult = 0.25
+	state_education_access_add = 0.01
+	country_academics_pol_str_mult = 0.15
+	state_radicals_from_political_movements_mult = 0.10
+	country_production_tech_spread_mult = 0.10
+}
+
+####---------- Crusades ----------####
+modifier_kog_canon_law_no_crusades = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_no_crusades.dds
+	country_modifier_no_effects = yes
+}
+modifier_kog_canon_law_heathen_crusades = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_heathen_crusades.dds
+	country_allow_crusades_against_heathens = yes
+	building_training_rate_mult = 0.01
+}
+modifier_kog_canon_law_heretic_crusades = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_heretic_crusades.dds
+	country_allow_crusades_against_heretics = yes
+	country_military_tech_spread_mult = 0.05
+	building_training_rate_mult = 0.025
+}
+modifier_kog_canon_law_unlimited_crusades = {
+	icon = gfx/interface/icons/canon_law_icons/kog_canon_law_unlimited_crusades.dds
+	country_allow_unlimited_crusades = yes
+	country_military_tech_spread_mult = 0.10
+	building_training_rate_mult = 0.05
+	country_infamy_generation_against_unrecognized_mult = -0.10
+}

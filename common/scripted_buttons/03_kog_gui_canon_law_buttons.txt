@@ -1,0 +1,278 @@
+﻿kog_gui_debate_apostolic_succession = {
+	name = "kog_gui_debate_apostolic_succession"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = apostolic_succession
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = apostolic_succession
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = apostolic_succession
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_almsgiving = {
+	name = "kog_gui_debate_almsgiving"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = almsgiving
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = almsgiving
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = almsgiving
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_iconography = {
+	name = "kog_gui_debate_iconography"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = iconography
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = iconography
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = iconography
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_statism = {
+	name = "kog_gui_debate_statism"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = statism
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = statism
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = statism
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_nationalism = {
+	name = "kog_gui_debate_nationalism"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = nationalism
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = nationalism
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = nationalism
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_clerical_marriage = {
+	name = "kog_gui_debate_clerical_marriage"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = clerical_marriage
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = clerical_marriage
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = clerical_marriage
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_social_role = {
+	name = "kog_gui_debate_social_role"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = social_role
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = social_role
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = social_role
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_stance_on_sciences = {
+	name = "kog_gui_debate_stance_on_sciences"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = stance_on_sciences
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = stance_on_sciences
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = stance_on_sciences
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_debate_crusades = {
+	name = "kog_gui_debate_crusades"
+	desc = "kog_gui_debate_canon_law_desc"
+	
+	visible = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
+	}
+	selected = {
+		kog_canon_lawgroup_debate_trigger = {
+			flag = crusades
+		}
+	}
+	possible = {
+		kog_has_ongoing_council_trigger = yes
+		kog_canon_lawgroup_debate_trigger_NOT = {
+			flag = crusades
+		}
+	}
+	effect = {
+		kog_add_council_matter_effect = {
+			flag = crusades
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}

@@ -1,593 +1,313 @@
+####---------- Episcopal Seat Variable Map Template ----------####
+kog_initialize_tempkey_variable_map_effect = {
+	p: = {
+		owner = {
+			save_scope_as = kog_tempkey_controller
+		}
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_id
+		value = flag:kog_tempkey
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_name
+		value = flag:kog_tempkey_name
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_rank
+		value = flag:kog_minor_seat
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_religion
+		value = rel:
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_liturgical_language
+		value = flag:kog_language_
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_liturgical_rite
+		value = flag:kog_
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_location
+		value = s:
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_controller
+		value = scope:kog_tempkey_controller
+	}
+	random_character_in_void = {
+		limit = {
+			has_modifier = modifier_kog_tempkey_patriarch
+		}
+		save_scope_as = kog_tempkey_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_patriarch
+		value = scope:kog_tempkey_patriarch
+	}
+}
+
+####---------- Episcopal Seat of Template ----------####
+# General Localization
+kog_temp: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_temp_details $kog_temp_name$#!#!"
+kog_temp_name: ""
+kog_temp_header: ""
+kog_temp_building: "The [GetBuildingType('kog_building_patriarchate_temp').GetName]"
+kog_temp_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+kog_temp_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+kog_temp_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+kog_temp_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+kog_temp_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+kog_temp_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_temp_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_temp_opinion_value')|+=]#"
+kog_temp_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_temp_opinion_value')]"
+kog_temp_modifier: "#bold Holding and $kog_controlling$ $kog_temp_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_rome').GetDesc]"
+# Informational Tooltips
+kog_temp_details: "@kog_seat! #header $kog_temp_building$#!$kog_linebreak$•#italic $kog_temp_location$#!\n•#white $kog_temp_patriarch$#!\n•#bold $kog_temp_controller$#!\n•#bold $kog_temp_opinion$#!"
+kog_temp_details_with_modifier: "$kog_temp_details$$kog_linebreak$$kog_temp_modifier$"
+# Journal Widget Localization
+kog_gui_seat_name_temp: "[GetVariableFromGlobalVariableMap('kog_temp',MakeScopeFlag('kog_seat_building')).GetFlagName]"
+kog_gui_seat_controller_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+kog_gui_seat_patriarch_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+kog_gui_seat_location_value_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+kog_gui_liturgical_language_value_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+kog_gui_liturgical_rite_value_temp: "[GetVariableFromGlobalVariableMap('kog_temp', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+kog_gui_opinion_value_temp: "[JournalEntry.GetCountry.MakeScope.Var('je_kog_local').Var('kog_temp_opinion_var').GetValue]"
+# Scripted Buttons
+kog_gui_sway_temp: "Sway $kog_temp$"
+kog_gui_antagonize_temp: "Antagonize $kog_temp$"
+kog_gui_integrate_temp: "Integrate $kog_temp$"
+kog_gui_integrate_temp_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_temp$"
+kog_gui_enforce_temp: "Enforce Rite on $kog_temp$"
+kog_gui_enforce_temp_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_temp$"
+kog_gui_install_temp: "Install Bishop in $kog_temp$"
+
+####---------- Seat Patriarch Update Effect ----------####
+kog_update_tempkey_patriatch_effect = {
+	# Step 1, Ensure the relevant variable map exists
+	if = {
+		limit = {
+			NOT = {
+				has_global_variable_map = kog_tempkey
+			}
+		}
+		kog_initialize_tempkey_variable_map_effect = yes # Regenerate if missing
+	}
+	# Step 2, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
+	if = {
+		limit = { # If this evaluates to true, proceed to patriarch regeneration
+			OR = {
+				AND = {
+					is_key_in_global_variable_map = {
+						name = kog_tempkey
+						target = flag:kog_seat_patriarch
+					}
+					NOT = {
+						exists = "global_variable_map(kog_tempkey|flag:kog_seat_patriarch)"
+					}
+				}
+				NOT = {
+					is_key_in_global_variable_map = {
+						name = kog_tempkey
+						target = flag:kog_seat_patriarch
+					}
+				}
+			}
+		}
+		# First, attempt to find the character in the void
+		if = {
+			limit = {
+				any_character_in_void = {
+					has_modifier = modifier_kog_tempkey_patriarch
+				}
+			}
+			random_character_in_void = {
+				limit = {
+					has_modifier = modifier_kog_tempkey_patriarch
+				}
+				save_scope_as = kog_tempkey_patriarch_scope
+			}
+		}
+		# Failing that, generate a new character
+		else = {
+			# Attempt to generate using the Seat controller
+			if = {
+				limit = {
+					AND = {
+						is_key_in_global_variable_map = {
+							name = kog_tempkey
+							target = flag:kog_seat_controller
+						}
+						exists = "global_variable_map(kog_tempkey|flag:kog_seat_controller)"
+					}
+				}
+				"global_variable_map(kog_tempkey|flag:kog_seat_controller)" = {
+					create_character = {
+						template = kog_patriarch_template
+						on_created = {
+							add_modifier = modifier_kog_tempkey_patriarch
+							place_character_in_void = 180 # 15 year shelf life
+						}
+					}
+				}
+			}
+			# Attempt to generate using the Province owner
+			else_if = {
+				limit = {
+					p: = {
+						owner = {
+							kog_content_scope_trigger = yes
+						}
+					}
+				}
+				p: = {
+					owner = {
+						create_character = {
+							template = kog_patriarch_template
+							religion = rel:
+							on_created = {
+								add_modifier = modifier_kog_tempkey_patriarch
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+			}
+			# Fall back to a --; create from scope of province owner
+			else = {
+				p: = {
+					owner = {
+						create_character = {
+							template = kog_patriarch_template
+							culture = cu:
+							religion = rel:
+							on_created = {
+								add_modifier = modifier_kog_tempkey_patriarch
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+			}
+			# Capture the new character
+			random_character_in_void = {
+				limit = {
+					has_modifier = modifier_kog_tempkey_patriarch
+				}
+				save_scope_as = kog_tempkey_patriarch_scope
+			}
+		}
+		# Update Relations Variables
+		every_country = {
+			limit = {
+				kog_content_scope_trigger = yes
+			}
+			je:je_kog_local = {
+				# Sanity check in case initialization had a wobble
+				if = {
+					limit = {
+						NOT = {
+							has_variable = kog_tempkey_relations_var
+						}
+					}
+					set_variable = {
+						name = kog_tempkey_relations_var
+						value = 0
+					}
+				}
+				# Do not reduce relations if already at or below 0
+				else_if = {
+					limit = {
+						var:kog_tempkey_relations_var > 0
+					}
+					change_variable = {
+						name = kog_tempkey_relations_var
+						add = -25
+					}
+					clamp_variable = {
+						name = kog_tempkey_relations_var
+						min = 0
+						max = 50
+					}
+				}
+			}
+			# Notify all Christians of a new Pope
+			post_notification = notification_kog_tempkey_replaced
+		}
+	}
+	# Step 3, Update the relevant variable map
+	remove_from_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_tempkey
+		key = flag:kog_seat_patriarch
+		value = scope:kog_tempkey_patriarch_scope
+	}
+}
+
+####---------- Seat Controller Validation Effect ----------####
+kog_validate_tempkey_controller_effect = {
+	# First, check if a controller is present in the variable map and check for existence
+	if = {
+		limit = {
+			is_key_in_global_variable_map = {
+				name = kog_tempkey
+				target = flag:kog_seat_controller
+			}
+			NOT = {
+				exists = "global_variable_map(kog_tempkey|flag:kog_seat_controller)"
+			}
+		}
+		# Clear key if the controller does not exist
+		remove_from_global_variable_map = {
+			name = kog_tempkey
+			key = flag:kog_seat_controller
+		}
+	}
+	# Attempt to find the controller with this terrible iterator
+	random_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+			je:je_kog_local = {
+				has_variable = kog_controls_tempkey
+			}
+		}
+		save_scope_as = kog_tempkey_controller
+	}
+	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
+	if = {
+		limit = {
+			exists = scope:kog_tempkey_controller
+		}
+		add_to_global_variable_map = {
+			name = kog_tempkey
+			key = flag:kog_seat_controller
+			value = scope:kog_tempkey_controller
+		}
+	}
+}
+
+################################################################################
+
 ####----------  ----------####
-
-## Normal Event Template ##
-temp_event_normal = { # 
-	type = country_event
-	placement = root
-	icon = "gfx/interface/icons/event_icons/event_"
-	duration = 3
-	dlc = dlc_kog
-	
-	title = temp_event_normal.t
-	desc = temp_event_normal.d
-	flavor = temp_event_normal.f
-	
-	event_image = {
-		video = "media_alias"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	trigger = {
-	}
-	
-	cancellation_trigger = {
-	}
-	
-	cooldown = {
-	}
-	
-	immediate = {
-	}
-	
-	option = {
-		name = temp_event_normal.a
-		default_option = yes
-	}
-	
-	after = {
-	}
-}
-
-##  Character Event Template ##
-temp_event_char = { # 
-	type = country_event
-	placement = root
-	icon = "gfx/interface/icons/event_icons/event_"
-	duration = 3
-	dlc = dlc_kog
-	
-	title = temp_event_char.t
-	desc = temp_event_char.d
-	flavor = temp_event_char.f
-	
-	gui_window =
-	left_icon = scope:left_icon
-	center_icon = scope:center_icon
-	right_icon = scope:right_icon
-	
-	event_image = {
-		texture = "gfx/interface/illustrations/event_backgrounds/gbbf_"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
-	
-	trigger = {
-	}
-	
-	cancellation_trigger = {
-	}
-	
-	cooldown = {
-	}
-	
-	immediate = {
-	}
-	
-	option = {
-		name = temp_event_char.a
-		default_option = yes
-	}
-	
-	option = {
-		name = temp_event_char.b
-	}
-	
-	after = {
-	}
-}
-
-## Hidden Event Template ##
-temp_event_hidden = { # 
-	type = country_event
-	hidden = yes
-	
-	trigger = {
-	}
-	
-	immediate = {
-	}
-}
-
-## show_as_unavailable Tooltip Function ##
-trigger = {
-}
-highlighted_option = yes
-show_as_unavailable = {
-	always = yes
-}
-
-## General Journal Template ##
-je_temp_name_normal = { #
-	group = je_group_
-	icon = "gfx/interface/icons/event_icons/event_"
-	weight = 100
-	
-	should_be_pinned_by_default = yes
-	can_revolution_inherit = yes
-	transferable = no
-	can_deactivate = no
-	
-	is_shown_in_lobby = {
-	}
-	
-	scripted_progress_bar =
-	
-	scripted_button =
-	
-	is_shown_when_inactive = {
-	}
-	
-	possible = {
-	}
-	
-	immediate = {
-		kog_assign_dlc_icon_effect = yes
-	}
-	
-	modifiers_while_active = {
-	}
-	
-	complete = {
-	}
-	
-	on_complete = {
-	}
-	
-	fail = {
-	}
-	
-	on_fail = {
-	}
-	
-	timeout =
-	
-	on_timeout = {
-	}
-	
-	invalid = {
-	}
-	
-	on_invalid = {
-	}
-	
-	on_weekly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	on_monthly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	on_yearly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	status_desc = {
-	}
-}
-
-## Journal Template with old progress bar ##
-je_temp_name_old_bar = { #
-	group = je_group_
-	icon = "gfx/interface/icons/event_icons/event_"
-	weight = 100
-	
-	should_be_pinned_by_default = yes
-	can_revolution_inherit = yes
-	transferable = no
-	can_deactivate = no
-	
-	is_shown_in_lobby = {
-	}
-	
-	progressbar = yes
-	goal_add_value = {
-		value =
-	}
-	current_value = {
-		value =
-	}
-	is_progressing = {
-	}
-	progress_desc =
-	
-	scripted_button =
-	
-	is_shown_when_inactive = {
-	}
-	
-	possible = {
-	}
-	
-	immediate = {
-		kog_assign_dlc_icon_effect = yes
-	}
-	
-	modifiers_while_active = {
-	}
-	
-	complete = {
-	}
-	
-	on_complete = {
-	}
-	
-	fail = {
-	}
-	
-	on_fail = {
-	}
-	
-	timeout =
-	
-	on_timeout = {
-	}
-	
-	invalid = {
-	}
-	
-	on_invalid = {
-	}
-	
-	on_weekly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	on_monthly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	on_yearly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	status_desc = {
-	}
-}
-
-## Global Journal Template ##
-je_temp_name = { #
-	group = je_group_
-	icon = "gfx/interface/icons/event_icons/event_"
-	weight = 100
-	
-	should_be_pinned_by_default = yes
-	can_revolution_inherit = yes
-	transferable = no
-	can_deactivate = no
-	
-	is_shown_in_lobby = {
-	}
-	
-	scripted_progress_bar =
-	
-	scripted_button =
-	
-	is_shown_when_inactive = {
-	}
-	
-	should_be_involved = {
-	}
-	
-	should_show_when_not_involved = {
-	}
-	
-	possible = {
-	}
-	
-	immediate = {
-		kog_assign_dlc_icon_effect = yes
-	}
-	
-	modifiers_while_active = {
-	}
-	
-	complete = {
-	}
-	
-	on_complete = {
-	}
-	
-	fail = {
-	}
-	
-	on_fail = {
-	}
-	
-	timeout =
-	
-	on_timeout = {
-	}
-	
-	invalid = {
-	}
-	
-	on_invalid = {
-	}
-	
-	on_weekly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	on_monthly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	on_yearly_pulse = {
-		events = {
-		}
-		random_events = {
-		}
-		effect = {
-		}
-	}
-	
-	status_desc = {
-	}
-}
-
-## General Scripted Button Template ##
-temp_name = {
-	name = "temp_name"
-	desc = "temp_name_desc"
-	
-	visible = {
-	}
-	
-	selected = {
-	}
-	
-	possible = {
-	}
-	
-	effect = {
-	}
-	
-	ai_chance = {
-		base = 0
-		modifier = {
-			trigger = {}
-			add = 0
-		}
-	}
-}
-
-## Character Template ##
-template_temp_name = {
-	#
-	first_name =
-	last_name =
-	#	birth_date = 
-	age =
-	#	dna = 
-	culture = cu:
-	religion = rel:
-	#	female = yes
-	#	noble = yes
-	#	ruler = yes
-	#	heir = yes
-	#	historical = yes
-	#	ig_leader = yes
-	#	is_general = yes
-	#	hq = 
-	ideology =
-	interest_group =
-	traits = {
-	}
-}
-
-## Create Character Template ##
-# For insertion into immediate/option blocks
-create_character = {
-	#
-	template =
-	first_name =
-	last_name =
-	birth_date =
-	age =
-	dna =
-	culture = cu:
-	religion = rel:
-	female = yes
-	noble = yes
-	ruler = yes
-	heir = yes
-	historical = yes
-	ig_leader = yes
-	is_general = yes
-	hq =
-	ideology =
-	interest_group =
-	traits = {
-	}
-	on_created = {
-	}
-	
-}
-
-# Character Trait Template	
-# trait types are personality, skill, and condition
-trait_template = {
-	type = skill
-	texture = "gfx/interface/icons/character_trait_icons/reserved.dds"
-	
-	character_modifier = {
-	}
-	
-	country_modifier = {
-	}
-	
-	command_modifier = {
-	}
-	
-	interest_group_modifier = {
-	}
-	
-	agitator_modifier = {
-	}
-	
-	possible = {
-		always = no
-	}
-	
-	weight = {
-		value = 0
-	}
-	
-	replace = {
-	}
-	
-	value = 0 # remove for conditions
-	
-}
-
-## SGUI Template ##
-temp_name_sgui = {
-	scope = country
-	
-	is_shown = {
-	}
-	
-	is_valid = {
-	}
-	
-	effect = {
-	}
-}
-
-## Trigger Loc / Custom Desc ##
-temp = {
-	global = temp
-	global_not = temp_NOT
-	first = temp
-	first_not = temp_NOT
-	third = temp
-	third_not = temp_NOT
-}
-
-## CMF Event Windows ##
-#### Vanilla Event Window Variants
-event_window_default = {}
-event_window_1char_tabloid = {}
-event_window_1char_propaganda = {}
-event_window_1char_lord_kitchener = {}
-event_window_2char = {}
-event_window_2char_halloween = {}
-event_window_1char_tabloid_halloween = {}
-event_window_big_icon_center = {}
-
-#### CMF Character Window Variants
-event_window_1char_adventure = {}
-event_window_2char_adventure = {}
-event_window_2char_duel = {}
-event_window_2char_discussion = {}
-event_window_highlander = {}
-event_window_3char = {}
-event_window_3char_selection = {}
-
-#### CMF Superevent Window Variants
-event_window_superevent_newspaper = {}
-event_window_superevent_newspaper_full = {}
-event_window_superevent_classic = {}
-event_window_superevent_classic_full = {}
-event_window_superevent_modern = {}
-event_window_superevent_modern_full = {}
-event_window_superevent_crisis = {}
-
-#### CMF Widescreen Window Variants
-event_window_widescreen_classic = {}
-event_window_widescreen_newspaper = {}
-
-#### CMF Special Window Variants
-event_window_special = {} # placeholder
-event_window_ethics = {}
-
-#### CMF Letter Window Variants
-com_event_window_letter_simple = {}
-com_event_window_letter_paper = {}
-com_event_window_letter_image = {}
-com_event_window_telegram = {}
-com_event_window_newspaper = {}
-
-## State Claim Template
-if = {
-	limit = {
-		NOR = {
-			has_claim = s:STATE_xyx
-			owns_entire_state_region = STATE_xyx
-		}
-	}
-	s:STATE_xyx = {
-		add_claim = ROOT
-	}
-}
 
 ## Script for getting relations between two countries as a scope value
 scope:country_scope = {
 	save_scope_value_as = {
 		name = relations_scope
 		value = "relations(scope:country_scope)"
-	}
-}
-
-## If you want to display a variable that is saved on a journal entry inside the locs of that journal entry, you can use this:
-loc_key: [SCOPE.sJE('journal_entry').MakeScope.Var('your_variable_name').GetValue]
-
-## To connect a scripted progress bar to a variable: *DO NOT FORGET TO SCOPE TO "owner"!
-je:je_your_je = {
-	set_bar_progress = {
-		value = owner.var:your_var
-		name = your_progress_bar
 	}
 }
 
@@ -708,123 +428,3 @@ kog_cannon_law_: ""
 kog_cannon_law__desc: ""
 kog_cannon_law_: ""
 kog_cannon_law__desc: ""
-
-
-# Acceptance Modifier Types
-state_radicals_and_loyalists_from_sol_change_mult
-
-country_loyalism_increases_full_acceptance_mult =
-country_loyalism_increases_second_rate_citizen_mult =
-country_loyalism_increases_open_prejudice_mult =
-country_loyalism_increases_cultural_erasure_mult =
-country_loyalism_increases_violent_hostility_mult =
-
-country_radicalism_increases_full_acceptance_mult =
-country_radicalism_increases_second_rate_citizen_mult =
-country_radicalism_increases_open_prejudice_mult =
-country_radicalism_increases_cultural_erasure_mult =
-country_radicalism_increases_violent_hostility_mult =
-
-country_qualification_growth_full_acceptance_mult =
-country_qualification_growth_second_rate_citizen_mult =
-country_qualification_growth_open_prejudice_mult =
-country_qualification_growth_cultural_erasure_mult =
-country_qualification_growth_violent_hostility_mult =
-
-
-state_loyalism_increases_full_acceptance_mult =
-state_loyalism_increases_second_rate_citizen_mult =
-state_loyalism_increases_open_prejudice_mult =
-state_loyalism_increases_cultural_erasure_mult =
-state_loyalism_increases_violent_hostility_mult =
-
-state_radicalism_increases_full_acceptance_mult =
-state_radicalism_increases_second_rate_citizen_mult =
-state_radicalism_increases_open_prejudice_mult =
-state_radicalism_increases_cultural_erasure_mult =
-state_radicalism_increases_violent_hostility_mult =
-
-state_qualification_growth_full_acceptance_mult =
-state_qualification_growth_second_rate_citizen_mult =
-state_qualification_growth_open_prejudice_mult =
-state_qualification_growth_cultural_erasure_mult =
-state_qualification_growth_violent_hostility_mult =
-
-# Social Class Modifier Template
-
-country_key_acceptance_min_add = {
-decimals = 0
-color = good
-percent = no
-game_data = {
-ai_value = 0
-tags = { cultural_acceptance }
-}
-}
-
-country_key_acceptance_max_add = {
-decimals = 0
-color = bad
-percent = no
-game_data = {
-ai_value = 0
-tags = { cultural_acceptance }
-}
-}
-
-country_key_cultural_acceptance_add = {
-decimals = 0
-color = good
-percent = no
-}
-
-country_key_cultural_acceptance_mult = {
-decimals = 0
-color = good
-percent = yes
-}
-
-country_key_education_access_add = {
-decimals = 0
-color = good
-percent = no
-}
-
-country_key_education_access_mult = {
-decimals = 0
-color = good
-percent = yes
-}
-
-country_key_qualification_growth_add = {
-decimals = 0
-color = good
-percent = no
-}
-
-country_key_qualification_growth_mult = {
-decimals = 0
-color = good
-percent = yes
-}
-
-country_key_qualification_growth_same_class_mult = {
-decimals = 0
-color = good
-percent = yes
-}
-
-country_key_qualification_growth_other_class_mult = {
-decimals = 0
-color = good
-percent = yes
-}
-
-#####################################
-
-cd /d D:\SteamLibrary\steamapps\common\Victoria 3\game
-findstr /s /i /c:"search_key" *
-
-/home/alexedishi/.local/share/Paradox Interactive/Victoria 3/logs/error.log
-
-#####################################

@@ -1,0 +1,55 @@
+﻿####---------- Contextless Monthly Pulses ----------####
+on_monthly_pulse = {
+	on_actions = {
+		kog_monthly_global_pulse
+	}
+}
+
+on_yearly_pulse = {
+	on_actions = {
+		kog_yearly_global_pulse
+	}
+}
+
+kog_monthly_global_pulse = {
+	effect = {
+		kog_update_patriarch_variables_effect = yes
+		kog_check_seat_controllers_effect = yes
+		kog_update_catholic_list = yes
+		kog_update_orthodox_list = yes
+		#kog_update_oriental_list = yes
+		#kog_update_lutheran_list = yes
+		#kog_update_anglican_list = yes
+		#kog_update_elysian_list = yes
+	}
+}
+
+kog_yearly_global_pulse = {
+	effect = {
+		kog_validate_episcopal_seat_variable_maps_effect = yes
+	}
+}
+
+####---------- Country Monthly Pulses ----------####
+on_monthly_pulse_country = {
+	on_actions = {
+		#kog_catholic_pulse
+		#kog_orthodox_pulse
+		#kog_oriental_pulse
+		#kog_lutheran_pulse
+		#kog_anglican_pulse
+		#kog_elysian_pulse
+	}
+}
+
+kog_catholic_pulse = {
+	trigger = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+}
+
+kog_orthodox_pulse = {
+	trigger = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+}
