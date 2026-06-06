@@ -1,2 +1,961 @@
 ﻿namespace = kog_episcopal_events
 
+####---------- Episcopal Seat Control Events ----------####
+kog_episcopal_events.100 = {
+	type = country_event
+	placement = p:xB040A0
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.100.t
+	desc = kog_episcopal_events.100.d
+	flavor = kog_episcopal_events.100.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_rome
+			var:kog_integrating_rome >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_rome
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_rome|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_rome|flag:kog_seat_controller)" = {
+				save_scope_as = kog_rome_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.100.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = rome
+		}
+	}
+}
+
+kog_episcopal_events.101 = {
+	type = country_event
+	placement = p:xD0E040
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.101.t
+	desc = kog_episcopal_events.101.d
+	flavor = kog_episcopal_events.101.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_santiago
+			var:kog_integrating_santiago >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_santiago
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_santiago|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_santiago|flag:kog_seat_controller)" = {
+				save_scope_as = kog_santiago_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.101.a
+		default_option = yes
+		custom_tooltip = {
+			text = kog_usurped_santiago
+			je:je_kog_local = {
+				set_variable = kog_controls_santiago
+			}
+		}
+		kog_complete_seat_integration_effect = {
+			seat = santiago
+		}
+	}
+}
+
+kog_episcopal_events.102 = {
+	type = country_event
+	placement = p:x71DA2E
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.102.t
+	desc = kog_episcopal_events.102.d
+	flavor = kog_episcopal_events.102.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_paris
+			var:kog_integrating_paris >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = { 
+					name = kog_paris
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_paris|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_paris|flag:kog_seat_controller)" = {
+				save_scope_as = kog_paris_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.102.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = paris
+		}
+	}
+}
+
+kog_episcopal_events.103 = {
+	type = country_event
+	placement = p:x9F4072
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.103.t
+	desc = kog_episcopal_events.103.d
+	flavor = kog_episcopal_events.103.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_koln
+			var:kog_integrating_koln >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_koln
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_koln|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_koln|flag:kog_seat_controller)" = {
+				save_scope_as = kog_koln_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.103.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = koln
+		}
+	}
+}
+
+kog_episcopal_events.104 = {
+	type = country_event
+	placement = p:x316141
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.104.t
+	desc = kog_episcopal_events.104.d
+	flavor = kog_episcopal_events.104.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		has_variable = kog_integrating_vienna
+		var:kog_integrating_vienna >= 60
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_vienna
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_vienna|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_vienna|flag:kog_seat_controller)" = {
+				save_scope_as = kog_vienna_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.104.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = vienna
+		}
+	}
+}
+
+kog_episcopal_events.105 = {
+	type = country_event
+	placement = p:xF0A020
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.105.t
+	desc = kog_episcopal_events.105.d
+	flavor = kog_episcopal_events.105.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_constantinople
+			var:kog_integrating_constantinople >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_constantinople
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_constantinople|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_constantinople|flag:kog_seat_controller)" = {
+				save_scope_as = kog_constantinople_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.105.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = constantinople
+		}
+	}
+	
+}
+
+kog_episcopal_events.106 = {
+	type = country_event
+	placement = p:x186A43
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.106.t
+	desc = kog_episcopal_events.106.d
+	flavor = kog_episcopal_events.106.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_antioch
+			var:kog_integrating_antioch >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_antioch
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_antioch|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_antioch|flag:kog_seat_controller)" = {
+				save_scope_as = kog_antioch_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.106.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = antioch
+		}
+	}
+}
+
+kog_episcopal_events.107 = {
+	type = country_event
+	placement = p:xC9CBC0
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.107.t
+	desc = kog_episcopal_events.107.d
+	flavor = kog_episcopal_events.107.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_jerusalem
+			var:kog_integrating_jerusalem >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_jerusalem
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_jerusalem|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_jerusalem|flag:kog_seat_controller)" = {
+				save_scope_as = kog_jerusalem_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.107.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = jerusalem
+		}
+	}
+}
+
+kog_episcopal_events.108 = {
+	type = country_event
+	placement = p:xA0D020
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.108.t
+	desc = kog_episcopal_events.108.d
+	flavor = kog_episcopal_events.108.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_alexandria
+			var:kog_integrating_alexandria >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_alexandria
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_alexandria|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_alexandria|flag:kog_seat_controller)" = {
+				save_scope_as = kog_alexandria_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.108.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = alexandria
+		}
+	}
+}
+
+kog_episcopal_events.109 = {
+	type = country_event
+	placement = p:x13D91C
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.109.t
+	desc = kog_episcopal_events.109.d
+	flavor = kog_episcopal_events.109.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_moscow
+			var:kog_integrating_moscow >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_moscow
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_moscow|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_moscow|flag:kog_seat_controller)" = {
+				save_scope_as = kog_moscow_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.109.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = moscow
+		}
+	}
+}
+
+kog_episcopal_events.110 = {
+	type = country_event
+	placement = p:xA0D020
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.110.t
+	desc = kog_episcopal_events.110.d
+	flavor = kog_episcopal_events.110.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_coptic_alexandria
+			var:kog_integrating_coptic_alexandria >= 60
+		}
+	}
+	
+	cooldown = { 
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_coptic_alexandria
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_coptic_alexandria|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_controller)" = {
+				save_scope_as = kog_coptic_alexandria_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.110.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = coptic_alexandria
+		}
+	}
+}
+
+kog_episcopal_events.111 = {
+	type = country_event
+	placement = p:x186A43
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.111.t
+	desc = kog_episcopal_events.111.d
+	flavor = kog_episcopal_events.111.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_syriac_antioch
+			var:kog_integrating_syriac_antioch >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_syriac_antioch
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_syriac_antioch|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_controller)" = {
+				save_scope_as = kog_syriac_antioch_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.111.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = syriac_antioch
+		}
+	}
+}
+
+kog_episcopal_events.112 = {
+	type = country_event
+	placement = p:x805000
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.112.t
+	desc = kog_episcopal_events.112.d
+	flavor = kog_episcopal_events.112.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_etchmiadzin
+			var:kog_integrating_etchmiadzin >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_etchmiadzin
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_etchmiadzin|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_controller)" = {
+				save_scope_as = kog_etchmiadzin_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.112.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = etchmiadzin
+		}
+	}
+}
+
+kog_episcopal_events.113 = {
+	type = country_event
+	placement = p:xE7D29C
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.113.t
+	desc = kog_episcopal_events.113.d
+	flavor = kog_episcopal_events.113.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_addis_ababa
+			var:kog_integrating_addis_ababa >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_addis_ababa
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_addis_ababa|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_controller)" = {
+				save_scope_as = kog_addis_ababa_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.113.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = addis_ababa
+		}
+	}
+}
+
+kog_episcopal_events.114 = {
+	type = country_event
+	placement = p:xC33C0F
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.114.t
+	desc = kog_episcopal_events.114.d
+	flavor = kog_episcopal_events.114.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_konak
+			var:kog_integrating_konak >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_konak
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_konak|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_konak|flag:kog_seat_controller)" = {
+				save_scope_as = kog_konak_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.114.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = konak
+		}
+	}
+}
+
+kog_episcopal_events.190 = {
+	type = country_event
+	placement = p:x700080
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.190.t
+	desc = kog_episcopal_events.190.d
+	flavor = kog_episcopal_events.190.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_elysium
+			var:kog_integrating_elysium >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_elysium
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_elysium|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_elysium|flag:kog_seat_controller)" = {
+				save_scope_as = kog_elysium_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.190.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = elysium
+		}
+	}
+}
+
+kog_episcopal_events.191 = {
+	type = country_event
+	placement = p:x1BC4D0
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.191.t
+	desc = kog_episcopal_events.191.d
+	flavor = kog_episcopal_events.191.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_mixtec
+			var:kog_integrating_mixtec >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_mixtec
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_mixtec|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_mixtec|flag:kog_seat_controller)" = {
+				save_scope_as = kog_mixtec_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.191.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = mixtec
+		}
+	}
+}
+
+kog_episcopal_events.192 = {
+	type = country_event
+	placement = p:x6D8AAA
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.192.t
+	desc = kog_episcopal_events.192.d
+	flavor = kog_episcopal_events.192.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_cahokia
+			var:kog_integrating_cahokia >= 60
+		}
+	}
+	
+	cooldown = {
+		months = 6
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_cahokia
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_cahokia|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_cahokia|flag:kog_seat_controller)" = {
+				save_scope_as = kog_cahokia_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.192.a
+		default_option = yes
+		kog_complete_seat_integration_effect = {
+			seat = cahokia
+		}
+	}
+}

@@ -639,6 +639,41 @@ kog_seat_integration_monthly_progress_effect = {
 	}
 }
 
+kog_complete_seat_integration_effect = {
+	custom_tooltip = {
+		text = kog_usurped_$seat$
+		je:je_kog_local = {
+			remove_variable = kog_integrating_$seat$
+			set_variable = kog_controls_$seat$
+		}
+		scope:kog_$seat$_controller_scope ?= {
+			change_relations = {
+				country = root
+				value = -30
+			}
+			je:je_kog_local = {
+				remove_variable = kog_controls_$seat$
+			}
+		}
+		remove_from_global_variable_map = {
+			name = kog_$seat$
+			key = flag:kog_seat_controller
+		}
+		add_to_global_variable_map = {
+			name = kog_$set$
+			key = flag:kog_seat_controller
+			value = scope:kog_usurper_scope
+		}
+	}
+	remove_modifier =  modifier_kog_integrating_$seat$
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		post_notification = notification_kog_$seat$_usurped
+	}
+}
+
 ####---------- Episcopal Seat Selection Effects ----------####
 kog_select_random_seat_in_faith_effect = {}
 
