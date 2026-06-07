@@ -57,10 +57,11 @@ kog_holy_site_events.002 = {
 	dlc = dlc_kog
 	
 	trigger = {
-		always = no
-		#		owns_entire_state_region = STATE_HEDJAZ
-		#		NOT = { has_global_variable = grefm_smoked_mecca }
-		#		has_variable = eocfm_crusades_unlocked
+		# triggered from kog_validate_holy_site_methods_effect
+	}
+	
+	cooldown = {
+		years = 1
 	}
 	
 	immediate = {
