@@ -1,5 +1,6 @@
 ﻿namespace = kog_generic_events
 
+####---------- Generic Flavor Events ----------####
 kog_generic_events.001 = {
 	type = country_event
 	placement = scope:kog_event_target_state
@@ -69,7 +70,6 @@ kog_generic_events.002 = {
 	placement = root
 	icon = gfx/interface/icons/event_icons/event_orthodox.dds
 	duration = 3
-	
 	dlc = dlc_kog
 	
 	title = kog_generic_events.002.t
@@ -176,22 +176,20 @@ kog_generic_events.002 = {
 kog_generic_events.003 = { # Ecumenical Reforms
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_generic_events.003.t
 	desc = kog_generic_events.003.d
 	flavor = kog_generic_events.003.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOR = {
@@ -230,28 +228,25 @@ kog_generic_events.003 = { # Ecumenical Reforms
 		}
 		custom_tooltip = kog_generic_events.003.tt
 	}
-	
 }
 
 kog_generic_events.004 = { # Monastic Reparations
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title =  kog_generic_events.004.t
 	desc =  kog_generic_events.004.d
 	flavor =  kog_generic_events.004.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -286,22 +281,20 @@ kog_generic_events.004 = { # Monastic Reparations
 kog_generic_events.005 = { # Church-State Relations
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_generic_events.005.t
 	desc = kog_generic_events.005.d
 	flavor = kog_generic_events.005.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {

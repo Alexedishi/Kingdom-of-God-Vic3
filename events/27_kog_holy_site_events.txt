@@ -1,0 +1,148 @@
+namespace = kog_holy_site_events
+
+####---------- Christian Holy Site Conquest Events ----------####
+kog_holy_site_events.001 = {
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_holy_site_events.001.t
+	desc = kog_holy_site_events.001.d
+	flavor = kog_holy_site_events.001.f
+	
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	
+	trigger = {
+		# triggered by eocfm.2000
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = kog_holy_site_events.001.a
+		default_option = yes
+	}
+	
+}
+
+kog_holy_site_events.002 = {
+	type = country_event
+	
+	title = kog_holy_site_events.002.t
+	desc = kog_holy_site_events.002.d
+	flavor = kog_holy_site_events.002.f
+	
+	placement = scope:hedjaz_state
+	
+	event_image = {
+		video = "southamerica_war_civilians"
+	}
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		always = no
+		#		owns_entire_state_region = STATE_HEDJAZ
+		#		NOT = { has_global_variable = grefm_smoked_mecca }
+		#		has_variable = eocfm_crusades_unlocked
+	}
+	
+	immediate = {
+		s:STATE_HEDJAZ = {
+			random_scope_state = {
+				save_scope_as = hedjaz_state
+			}
+		}
+		if = {
+			limit = {
+				any_state = {
+					region = sr:region_arabic
+					NOT = {
+						owner = ROOT
+					}
+				}
+			}
+			owner = {
+				save_scope_as = byzantium_arabia_target
+			}
+		}
+		#		set_global_variable = grefm_smoked_mecca
+	}
+	
+	option = { # burn it down
+		name = kog_holy_site_events.002.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_great_mosque_destroyed
+		}
+		add_radicals = {
+			value = very_large_radicals
+			religion = rel:sunni
+		}
+		add_radicals = {
+			value = very_large_radicals
+			religion = rel:shiite
+		}
+		#		scope:hedjaz_state = {
+		#			remove_building = gbbf_building_masjid_al_haram
+		#			set_devastation = 90
+		#		}
+		if = {
+			limit = {
+				exists = scope:byzantium_arabia_target
+			}
+			create_incident = {
+				country = scope:byzantium_arabia_target
+				value = 15
+			}
+		}
+	}
+	
+	option = { # turn it into a museum
+		name = kog_holy_site_events.002.b
+		add_radicals = {
+			value = medium_radicals
+			religion = rel:sunni
+		}
+		add_radicals = {
+			value = medium_radicals
+			religion = rel:shiite
+		}
+		#		scope:hedjaz_state = {
+		#			remove_building = gbbf_building_masjid_al_haram
+		#			set_devastation = 10
+		#		}
+		change_infamy = 10
+	}
+	
+	option = { # leave it be
+		name = kog_holy_site_events.002.c
+		scope:hedjaz_state = {
+			add_loyalists_in_state = {
+				value = medium_radicals
+				religion = rel:sunni
+			}
+			add_loyalists_in_state = {
+				value = medium_radicals
+				religion = rel:shiite
+			}
+		}
+	}
+	
+}
