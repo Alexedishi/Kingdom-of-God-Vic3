@@ -665,12 +665,34 @@ kog_complete_seat_integration_effect = {
 			value = scope:kog_usurper_scope
 		}
 	}
-	remove_modifier =  modifier_kog_integrating_$seat$
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_$seat$
+		}
+		remove_modifier =  modifier_kog_integrating_$seat$
+	}
 	every_country = {
 		limit = {
 			kog_content_scope_trigger = yes
 		}
 		post_notification = notification_kog_$seat$_usurped
+	}
+}
+
+kog_assert_seat_control_effect = {
+	je:je_kog_local = {
+		remove_variable = kog_schism_var
+		if = {
+			limit = {
+				NOT = {
+					has_modifier = modifier_kog_autocephalous
+				}
+			}
+			add_modifier = modifier_kog_autocephalous
+		}
+	}
+	kog_complete_seat_integration_effect = {
+		seat = $seat$
 	}
 }
 

@@ -804,7 +804,7 @@ kog_episcopal_events.114 = {
 ## NOTES:
 # 15-19 = Lutheran
 # 20-24 = Anglican
-# 25-29 = Possibly for Calvinist or Evangelist, but idk
+# 25-29 = Possibly for Calvinist or Evangelist, but idk if we're going there
 # 30-39 = Blocked in case of future expansion
 
 kog_episcopal_events.140 = {
@@ -966,6 +966,213 @@ kog_episcopal_events.142 = {
 	}
 }
 
+####---------- Episcopal Seat Assertion Events ----------####
+kog_episcopal_events.180 = {
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	duration = 2
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.180.t
+	desc = kog_episcopal_events.180.d
+	flavor = kog_episcopal_events.180.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		kog_integrating_rome_trigger = no
+	}
+	
+	cancellation_trigger = { 
+		kog_owns_rome_province_trigger = no
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_rome
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_rome|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_rome|flag:kog_seat_controller)" = {
+				save_scope_as = kog_rome_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.180.a
+		default_option = yes
+		kog_assert_seat_control_effect = {
+			seat = rome
+		}
+	}
+}
+
+kog_episcopal_events.181 = {
+	type = country_event
+	placement = root
+	
+	title = kog_episcopal_events.181.t
+	desc = kog_episcopal_events.181.d
+	flavor = kog_episcopal_events.181.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		kog_integrating_constantinople_trigger = no
+	}
+	
+	cancellation_trigger = {
+		kog_owns_constantinople_province_trigger = no
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_constantinople
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_constantinople|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_constantinople|flag:kog_seat_controller)" = {
+				save_scope_as = kog_constantinople_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.181.a
+		default_option = yes
+		kog_assert_seat_control_effect = {
+			seat = constantinople
+		}
+	}
+}
+
+kog_episcopal_events.182 = {
+	type = country_event
+	placement = root
+	
+	title = kog_episcopal_events.182.t
+	desc = kog_episcopal_events.182.d
+	flavor = kog_episcopal_events.182.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		kog_integrating_coptic_alexandria_trigger = no
+	}
+	
+	cancellation_trigger = {
+		kog_owns_coptic_alexandria_province_trigger = no
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_coptic_alexandria
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_coptic_alexandria|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_controller)" = {
+				save_scope_as = kog_coptic_alexandria_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.182.a
+		default_option = yes
+		kog_assert_seat_control_effect = {
+			seat = coptic_alexandria
+		}
+	}
+}
+
+kog_episcopal_events.188 = {
+	type = country_event
+	placement = root
+	
+	title = kog_episcopal_events.188.t
+	desc = kog_episcopal_events.188.d
+	flavor = kog_episcopal_events.188.f
+	
+	event_image = {
+		video = "ep1_transfer_of_authority"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		kog_integrating_elysium_trigger = no
+	}
+	
+	cancellation_trigger = {
+		kog_owns_elysium_province_trigger = no
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				is_key_in_global_variable_map = {
+					name = kog_elysium
+					target = flag:kog_seat_controller
+				}
+				exists = "global_variable_map(kog_elysium|flag:kog_seat_controller)"
+			}
+			"global_variable_map(kog_elysium|flag:kog_seat_controller)" = {
+				save_scope_as = kog_elysium_controller_scope
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.188.a
+		default_option = yes
+		kog_assert_seat_control_effect = {
+			seat = elysium
+		}
+	}
+}
+
 ####---------- Episcopal Seat Integration Random Events ----------####
 kog_episcopal_events.190 = {
 	type = country_event
@@ -1118,11 +1325,11 @@ kog_episcopal_events.191 = {
 			months = normal_modifier_time
 		}
 		create_incident = {
-			country = scope:eocfm_disputer_scope
+			country = scope:kog_disputer_scope
 			value = 5
 		}
 		hidden_effect = {
-			scope:eocfm_disputer_scope = {
+			scope:kog_disputer_scope = {
 				set_secret_goal = {
 					country = root
 					secret_goal = antagonize
@@ -1136,7 +1343,7 @@ kog_episcopal_events.191 = {
 		trigger = {
 			has_variable = kog_seat_integration_opposed
 		}
-		scope:eocfm_disputer_scope = {
+		scope:kog_disputer_scope = {
 			change_relations = {
 				country = root
 				value = 10
@@ -1159,7 +1366,7 @@ kog_episcopal_events.191 = {
 			name = modifier_kog_integration_supported
 			months = normal_modifier_time
 		}
-		scope:eocfm_disputer_scope = {
+		scope:kog_disputer_scope = {
 			change_relations = {
 				country = root
 				value = 15
