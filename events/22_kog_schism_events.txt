@@ -43,7 +43,7 @@ kog_schism_events.001 = {
 kog_schism_events.002 = {
 	type = country_event
 	placement = root
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	icon = "gfx/interface/icons/generic_icons/kog_schism.dds"
 	duration = 3
 	dlc = dlc_kog
 	
@@ -81,7 +81,7 @@ kog_schism_events.002 = {
 }
 
 ####---------- Schism Random Events ----------####
-kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
+kog_schism_events.010 = {
 	type = country_event
 	placement = root
 	icon = "gfx/interface/icons/event_icons/event_protest.dds"
@@ -103,7 +103,9 @@ kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
 		NOT = {
 			has_variable = kog_schism_event_cooldown_var
 		}
-		var:kog_schism_var > 30
+		je:je_kog_local ?= {
+			var:kog_schism_var > 30
+		}
 	}
 	
 	cancellation_trigger = {
@@ -152,7 +154,7 @@ kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
 	}
 }
 
-kog_schism_events.011 = { # A Church for the Nation (Progress Event)
+kog_schism_events.011 = {
 	type = country_event
 	placement = root
 	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
@@ -178,7 +180,9 @@ kog_schism_events.011 = { # A Church for the Nation (Progress Event)
 			has_modifier = modifier_kog_nationalist_church
 			has_modifier = modifier_kog_sidelined_church
 		}
-		var:kog_schism_var > 90
+		je:je_kog_local ?= {
+			var:kog_schism_var > 90
+		}
 	}
 	
 	cancellation_trigger = {
@@ -210,28 +214,25 @@ kog_schism_events.011 = { # A Church for the Nation (Progress Event)
 			months = long_modifier_time
 		}
 	}
-	
 }
 
-kog_schism_events.012 = { # Minority Adherents Seek Protections (Debate Event)
+kog_schism_events.012 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.012.t
 	desc = kog_schism_events.012.d
 	flavor = kog_schism_events.012.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "africa_leader_arguing"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -299,28 +300,25 @@ kog_schism_events.012 = { # Minority Adherents Seek Protections (Debate Event)
 			value = large_radicals
 		}
 	}
-	
 }
 
-kog_schism_events.013 = { # Patriarch Denounces Schism (Stall Event)
+kog_schism_events.013 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.013.t
 	desc = kog_schism_events.013.d
 	flavor = kog_schism_events.013.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "europenorthamerica_political_extremism"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOR = {
@@ -331,7 +329,9 @@ kog_schism_events.013 = { # Patriarch Denounces Schism (Stall Event)
 			kog_has_low_opinion_with_any_patriarch_trigger = yes
 			has_variable = kog_schism_var
 		}
-		var:kog_schism_var > 30
+		je:je_kog_local ?= {
+			var:kog_schism_var > 30
+		}
 	}
 	
 	cancellation_trigger = {
@@ -385,34 +385,30 @@ kog_schism_events.013 = { # Patriarch Denounces Schism (Stall Event)
 				add = 6
 			}
 		}
-		
 	}
 	
 	after = {
 		kog_remove_seat_event_variables_effect = yes
 	}
-	
 }
 
-kog_schism_events.014 = { # Liturgical Language (Debate Event)
+kog_schism_events.014 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.014.t
 	desc = kog_schism_events.014.d
 	flavor = kog_schism_events.014.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "middleeast_courtroom_upheaval"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOR = {
@@ -479,28 +475,25 @@ kog_schism_events.014 = { # Liturgical Language (Debate Event)
 			value = medium_radicals
 		}
 	}
-	
 }
 
-kog_schism_events.015 = { # Ecclesiatic Purges (Advance Event)
+kog_schism_events.015 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/generic_icons/kog_schism.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.015.t
 	desc = kog_schism_events.015.d
 	flavor = kog_schism_events.015.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "middleeast_courtroom_upheaval"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOR = {
@@ -564,28 +557,25 @@ kog_schism_events.015 = { # Ecclesiatic Purges (Advance Event)
 			}
 		}
 	}
-	
 }
 
-kog_schism_events.016 = { # Promoting Local Bishops (Advance Event)
+kog_schism_events.016 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/generic_icons/kog_schism.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.016.t
 	desc = kog_schism_events.016.d
 	flavor = kog_schism_events.016.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -630,28 +620,25 @@ kog_schism_events.016 = { # Promoting Local Bishops (Advance Event)
 			months = very_long_modifier_time
 		}
 	}
-	
 }
 
-kog_schism_events.017 = { # Monastic Brawls (Stall Event)
+kog_schism_events.017 = {
 	type = country_event
 	placement = scope:kog_monk_fight_state_scope
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.017.t
 	desc = kog_schism_events.017.d
 	flavor = kog_schism_events.017.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "middleeast_courtroom_upheaval"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -707,28 +694,25 @@ kog_schism_events.017 = { # Monastic Brawls (Stall Event)
 			value = medium_radicals
 		}
 	}
-	
 }
 
-kog_schism_events.018 = { # Agitator Condemns Schism (Stall Event)
+kog_schism_events.018 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/generic_icons/kog_schism.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.018.t
 	desc = kog_schism_events.018.d
 	flavor = kog_schism_events.018.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "unspecific_ruler_speaking_to_people"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -752,8 +736,8 @@ kog_schism_events.018 = { # Agitator Condemns Schism (Stall Event)
 	cancellation_trigger = {
 		OR = {
 			je:je_kog_local ?= {
-			has_modifier = modifier_kog_autocephalous
-		}
+				has_modifier = modifier_kog_autocephalous
+			}
 			scope:kog_denouncing_agitator_scope = {
 				is_character_alive = no
 			}
@@ -826,28 +810,25 @@ kog_schism_events.018 = { # Agitator Condemns Schism (Stall Event)
 			value = medium_radicals
 		}
 	}
-	
 }
 
-kog_schism_events.019 = { # Prominent Priest Assassinated (Stall Event)
+kog_schism_events.019 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.019.t
 	desc = kog_schism_events.019.d
 	flavor = kog_schism_events.019.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "southamerica_public_figure_assassination"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_fire.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -905,5 +886,4 @@ kog_schism_events.019 = { # Prominent Priest Assassinated (Stall Event)
 			value = large_radicals
 		}
 	}
-	
 }
