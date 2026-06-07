@@ -1,5 +1,6 @@
 ﻿namespace = kog_schism_events
 
+####---------- Schism Narrative Events ----------####
 kog_schism_events.001 = {
 	type = country_event
 	placement = root
@@ -19,7 +20,7 @@ kog_schism_events.001 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
 	trigger = {
-		# triggered by
+		# triggered by kog_gui_declare_autocephaly button
 	}
 	
 	cancellation_trigger = {
@@ -30,37 +31,32 @@ kog_schism_events.001 = {
 		}
 	}
 	
-	cooldown = {
-	}
-	
 	immediate = {
 	}
 	
 	option = {
-		name = event_id.a
+		name = kog_schism_events.001.a
 		default_option = yes
 	}
 }
 
-kog_schism_events.009 = { # Autocephaly of the National Church
+kog_schism_events.002 = {
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	duration = 3
+	dlc = dlc_kog
 	
-	title = kog_schism_events.009.t
-	desc = kog_schism_events.009.d
-	flavor = kog_schism_events.009.f
+	title = kog_schism_events.002.t
+	desc = kog_schism_events.002.d
+	flavor = kog_schism_events.002.f
+	
+	gui_window = event_window_com_default
 	
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		je:je_kog_local = {
@@ -74,7 +70,7 @@ kog_schism_events.009 = { # Autocephaly of the National Church
 	}
 	
 	option = {
-		name = kog_schism_events.009.a
+		name = kog_schism_events.002.a
 		default_option = yes
 		add_modifier = {
 			name = modifier_kog_autocephaly_granted
@@ -84,25 +80,24 @@ kog_schism_events.009 = { # Autocephaly of the National Church
 	
 }
 
+####---------- Schism Random Events ----------####
 kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.010.t
 	desc = kog_schism_events.010.d
 	flavor = kog_schism_events.010.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "europenorthamerica_political_extremism"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_protest.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -112,7 +107,9 @@ kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	cooldown = {
@@ -153,28 +150,25 @@ kog_schism_events.010 = { # Traditionalists March in Capital (Stall Event)
 			value = small_radicals
 		}
 	}
-	
 }
 
 kog_schism_events.011 = { # A Church for the Nation (Progress Event)
 	type = country_event
 	placement = root
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	duration = 3
+	dlc = dlc_kog
 	
 	title = kog_schism_events.011.t
 	desc = kog_schism_events.011.d
 	flavor = kog_schism_events.011.f
 	
+	gui_window = event_window_com_default
+	
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	duration = 3
-	
-	dlc = dlc_kog
 	
 	trigger = {
 		NOT = {
@@ -188,7 +182,9 @@ kog_schism_events.011 = { # A Church for the Nation (Progress Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	immediate = {
@@ -251,7 +247,9 @@ kog_schism_events.012 = { # Minority Adherents Seek Protections (Debate Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	cooldown = {
@@ -337,7 +335,9 @@ kog_schism_events.013 = { # Patriarch Denounces Schism (Stall Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	cooldown = {
@@ -424,7 +424,9 @@ kog_schism_events.014 = { # Liturgical Language (Debate Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	immediate = {
@@ -510,7 +512,9 @@ kog_schism_events.015 = { # Ecclesiatic Purges (Advance Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	immediate = {
@@ -590,7 +594,9 @@ kog_schism_events.016 = { # Promoting Local Bishops (Advance Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	cooldown = {
@@ -654,7 +660,9 @@ kog_schism_events.017 = { # Monastic Brawls (Stall Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	cooldown = {
@@ -743,7 +751,9 @@ kog_schism_events.018 = { # Agitator Condemns Schism (Stall Event)
 	
 	cancellation_trigger = {
 		OR = {
-			has_variable = kog_is_autocephalous
+			je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 			scope:kog_denouncing_agitator_scope = {
 				is_character_alive = no
 			}
@@ -847,7 +857,9 @@ kog_schism_events.019 = { # Prominent Priest Assassinated (Stall Event)
 	}
 	
 	cancellation_trigger = {
-		has_variable = kog_is_autocephalous
+		je:je_kog_local ?= {
+			has_modifier = modifier_kog_autocephalous
+		}
 	}
 	
 	cooldown = {
