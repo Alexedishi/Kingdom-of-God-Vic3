@@ -1,2 +1,109 @@
 ﻿namespace = kog_catholic_events
 
+kog_catholic_events.001 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/event_icons/event_catholic.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_catholic_events.001.t
+	desc = kog_catholic_events.001.d
+	flavor = kog_catholic_events.001.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_starter_var
+		}
+	}
+	
+	cancellation_trigger = {
+		kog_content_scope_trigger = no
+	}
+	
+	immediate = {
+		set_variable = kog_starter_var
+	}
+	
+	option = {
+		name = kog_catholic_events.001.a
+		default_option = yes
+		custom_tooltip = kog_welcome_text
+	}
+}
+
+kog_catholic_events.002 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/generic_icons/kog_icon.dds
+	duration = 1
+	dlc = dlc_kog
+	
+	title = kog_catholic_events.002.t
+	desc = kog_catholic_events.002.d
+	flavor = kog_catholic_events.002.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered by kog_gui_venerate_apparition
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_selecting_omen_var
+			months = 1
+		}
+	}
+	
+	option = {
+		name = kog_catholic_events.002.a
+		default_option = yes
+		kog_remove_catholic_omen_modifiers_effect = yes
+	}
+	
+	option = {
+		name = kog_catholic_events.002.1
+		default_option = yes
+	}
+	
+	option = {
+		name = kog_catholic_events.002.2
+	}
+	
+	option = {
+		name = kog_catholic_events.002.3
+	}
+	
+	option = {
+		name = kog_catholic_events.002.4
+	}
+	
+	option = {
+		name = kog_catholic_events.002.5
+	}
+	
+	option = {
+		name = kog_catholic_events.002.6
+	}
+	
+	option = {
+		name = kog_catholic_events.002.7
+	}
+	
+	option = {
+		name = kog_catholic_events.002.8
+	}
+	
+	after = {
+		remove_variable = kog_selecting_omen_var
+	}
+}

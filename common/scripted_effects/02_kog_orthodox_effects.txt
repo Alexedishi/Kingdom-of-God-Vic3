@@ -1,59 +1,53 @@
-﻿kog_remove_focus_modifiers_effect = {
-	hidden_effect = {
-		remove_modifier ?= modifier_kog_emphasize_unity
-		remove_modifier ?= modifier_kog_enforce_attendance
-		remove_modifier ?= modifier_kog_theologize_dogma
-		remove_modifier ?= modifier_kog_promote_ecumenism
-	}
-}
-
-kog_remove_icon_modifiers_effect = {
+﻿kog_remove_orthodox_omen_modifiers_effect = {
 	if = {
 		limit = {
 			has_modifier = modifier_kog_icon_christ_pantocrator
 		}
 		remove_modifier = modifier_kog_icon_christ_pantocrator
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_eleusa
 		}
 		remove_modifier = modifier_kog_icon_eleusa
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_john_climacus
 		}
 		remove_modifier = modifier_kog_icon_john_climacus
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_michael_archistrategos
 		}
 		remove_modifier = modifier_kog_icon_michael_archistrategos
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_nikolaos_wonderworker
 		}
 		remove_modifier = modifier_kog_icon_nikolaos_wonderworker
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_gregory_nazianzus
 		}
 		remove_modifier = modifier_kog_icon_gregory_nazianzus
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_paul_of_thebes
 		}
 		remove_modifier = modifier_kog_icon_paul_of_thebes
 	}
-	if = {
+	else_if = {
 		limit = {
 			has_modifier = modifier_kog_icon_issac_the_syrian
 		}
 		remove_modifier = modifier_kog_icon_issac_the_syrian
+	}
+	else = {
+		custom_tooltip = kog_nothing_happens
 	}
 }

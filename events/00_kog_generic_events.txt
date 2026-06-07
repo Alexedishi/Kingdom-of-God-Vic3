@@ -1,0 +1,336 @@
+﻿namespace = kog_generic_events
+
+kog_generic_events.001 = {
+	type = country_event
+	placement = scope:kog_event_target_state
+	icon = gfx/interface/icons/generic_icons/kog_liturgical_language.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_generic_events.001.t
+	desc = kog_generic_events.001.d
+	flavor = kog_generic_events.001.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "ip3_agitator_reading_manifesto"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		NOR = {
+			has_variable = kog_bible_translation_published
+			has_law_or_variant = law_type:law_ethnostate
+			has_law_or_variant = law_type:law_no_schools
+			has_law_or_variant = law_type:law_religious_schools
+		}
+		literacy_rate >= 0.33
+	}
+	
+	immediate = {
+		set_variable = kog_bible_translation_published
+		random_scope_state = {
+			save_scope_as = kog_event_target_state
+		}
+		ig:ig_intelligentsia = {
+			save_scope_as = intelligentsia_scope
+		}
+	}
+	
+	option = { # Allow the Common Tongue
+		name = kog_generic_events.001.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_published_vulgar_bible
+			months = long_modifier_time
+		}
+		add_radicals = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+	}
+	
+	option = { # Keep it Classy
+		name = kog_generic_events.001.b
+		add_modifier = {
+			name =  modifier_kog_banned_vulgar_bible
+			months = long_modifier_time
+		}
+		add_radicals = {
+			pop_type = academics
+			value = medium_radicals
+		}
+	}
+}
+
+kog_generic_events.002 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/event_icons/event_orthodox.dds
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	title = kog_generic_events.002.t
+	desc = kog_generic_events.002.d
+	flavor = kog_generic_events.002.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_ruler_conversion_considered
+		}
+		has_law = law_type:law_monarchy
+		ruler = {
+			religion != root.religion
+		}
+		heir ?= {
+			religion != root.religion
+		}
+		ig:ig_devout = {
+			ig_approval <= 5
+		}
+	}
+	
+	immediate = {
+		set_variable = kog_ruler_conversion_considered
+		ruler = {
+			save_scope_as = kog_ruler_scope
+		}
+		heir = {
+			save_scope_as = kog_heir_scope
+		}
+	}
+	
+	option = { # Both will convert
+		name = kog_generic_events.002.a
+		default_option = yes
+		scope:kog_ruler_scope = {
+			change_character_religion = rel:orthodox
+			add_modifier = modifier_kog_accepted_conversion
+		}
+		scope:kog_heir_scope = {
+			change_character_religion = rel:orthodox
+			add_modifier = modifier_kog_accepted_conversion
+		}
+		add_modifier = {
+			name = modifier_kog_ruler_accepted_conversion
+			months = normal_modifier_time
+		}
+		add_loyalists = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+	}
+	
+	option = { # Heir will convert
+		name = kog_generic_events.002.b
+		scope:kog_ruler_scope = {
+			add_modifier = {
+				name = modifier_kog_refused_conversion
+				months = very_long_modifier_time
+			}
+		}
+		scope:kog_heir_scope = {
+			change_character_religion = rel:orthodox
+			add_modifier = modifier_kog_accepted_conversion
+		}
+		add_loyalists = {
+			religion = rel:orthodox
+			value = small_radicals
+		}
+	}
+	
+	option = { # 99 THESES GO BRRRRRRRRR
+		name = kog_generic_events.002.c
+		scope:kog_ruler_scope = {
+			add_modifier = {
+				name = modifier_kog_refused_conversion
+				months = very_long_modifier_time
+			}
+		}
+		scope:kog_heir_scope = {
+			add_modifier = {
+				name = modifier_kog_refused_conversion
+				months = very_long_modifier_time
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_ruler_refused_conversion
+			months = normal_modifier_time
+		}
+		add_radicals = {
+			religion = rel:orthodox
+			value = medium_radicals
+		}
+	}
+}
+
+kog_generic_events.003 = { # Ecumenical Reforms
+	type = country_event
+	placement = root
+	
+	title = kog_generic_events.003.t
+	desc = kog_generic_events.003.d
+	flavor = kog_generic_events.003.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOR = {
+			has_variable = kog_reform_considered
+			has_modifier = modifier_kog_reformed_synod
+		}
+	}
+	
+	immediate = {
+		set_variable = kog_reform_considered
+	}
+	
+	option = { # Reform the Church
+		name = kog_generic_events.003.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_backed_reforms
+			months = very_long_modifier_time
+		}
+		add_modifier = modifier_kog_reformed_synod
+		add_radicals = {
+			pop_type = clergymen
+			value = small_radicals
+		}
+	}
+	
+	option = { # Do Not
+		name = kog_generic_events.003.b
+		add_modifier = {
+			name = modifier_kog_clung_to_tradition
+			months = very_long_modifier_time
+		}
+		add_loyalists = {
+			pop_type = clergymen
+			value = medium_radicals
+		}
+		custom_tooltip = kog_generic_events.003.tt
+	}
+	
+}
+
+kog_generic_events.004 = { # Monastic Reparations
+	type = country_event
+	placement = root
+	
+	title =  kog_generic_events.004.t
+	desc =  kog_generic_events.004.d
+	flavor =  kog_generic_events.004.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_monastic_reparations_considered
+		}
+		has_modifier = modifier_kog_dissolved_monasteries
+	}
+	
+	immediate = {
+		set_variable = kog_monastic_reparations_considered
+	}
+	
+	option = { # They can deal
+		name = kog_generic_events.004.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_kog_destitute_clergy
+			months = long_modifier_time
+		}
+	}
+	
+	option = { # Make them whole
+		name = kog_generic_events.004.b
+		add_modifier = {
+			name = modifier_kog_monastic_reparations
+			months = long_modifier_time
+		}
+	}
+	
+}
+
+kog_generic_events.005 = { # Church-State Relations
+	type = country_event
+	placement = root
+	
+	title = kog_generic_events.005.t
+	desc = kog_generic_events.005.d
+	flavor = kog_generic_events.005.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	
+	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
+	
+	on_opened_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	duration = 3
+	
+	dlc = dlc_kog
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_caesaropapism_questioned
+		}
+		has_modifier = modifier_kog_reformed_synod
+	}
+	
+	immediate = {
+		set_variable = kog_caesaropapism_questioned
+	}
+	
+	option = {
+		name = kog_generic_events.005.a
+		default_option = yes
+		remove_modifier = modifier_kog_reformed_synod
+		add_modifier = {
+			name = modifier_kog_restored_synod
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+	
+	option = {
+		name = kog_generic_events.005.b
+		add_modifier = {
+			name = modifier_kog_asserted_caesaropapism
+			months = normal_modifier_time
+			is_decaying = yes
+		}
+	}
+}

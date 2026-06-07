@@ -1,2 +1,133 @@
 ﻿namespace = kog_orthodox_events
 
+kog_orthodox_events.001 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/event_icons/event_orthodox.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_orthodox_events.001.t
+	desc = kog_orthodox_events.001.d
+	flavor = kog_orthodox_events.001.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		NOT = {
+			has_variable = kog_starter_var
+		}
+	}
+	
+	cancellation_trigger = {
+		kog_content_scope_trigger = no
+	}
+	
+	immediate = {
+		set_variable = kog_starter_var
+	}
+	
+	option = {
+		name = kog_orthodox_events.001.a
+		default_option = yes
+		custom_tooltip = kog_welcome_text
+	}
+}
+
+kog_orthodox_events.002 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/generic_icons/kog_icon.dds
+	duration = 1
+	dlc = dlc_kog
+	
+	title = kog_orthodox_events.002.t
+	desc = kog_orthodox_events.002.d
+	flavor = kog_orthodox_events.002.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered by kog_gui_commission_icon
+	}
+	
+	immediate = {
+		set_variable = {
+			name = kog_selecting_omen_var
+			months = 1
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.a
+		default_option = yes
+		kog_remove_orthodox_omen_modifiers_effect = yes
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.1
+		default_option = yes
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_christ_pantocrator
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.2
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_eleusa
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.3
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_john_climacus
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.4
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_michael_archistrategos
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.5
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_nikolaos_wonderworker
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.6
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_gregory_nazianzus
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.7
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_paul_of_thebes
+		}
+	}
+	
+	option = {
+		name = kog_orthodox_events.002.8
+		kog_set_omen_modifier_effect = {
+			modifier = modifier_kog_icon_issac_the_syrian
+		}
+	}
+	
+	after = {
+		remove_variable = kog_selecting_omen_var
+	}
+}

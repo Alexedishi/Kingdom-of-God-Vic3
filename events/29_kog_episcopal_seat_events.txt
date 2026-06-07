@@ -1,6 +1,6 @@
 ﻿namespace = kog_episcopal_events
 
-####---------- Episcopal Seat Control Events ----------####
+####---------- Episcopal Seat Integration Completion Events ----------####
 kog_episcopal_events.100 = {
 	type = country_event
 	placement = p:xB040A0
@@ -801,16 +801,22 @@ kog_episcopal_events.114 = {
 	}
 }
 
-kog_episcopal_events.190 = {
+## NOTES:
+# 15-19 = Lutheran
+# 20-24 = Anglican
+# 25-29 = Possibly for Calvinist or Evangelist, but idk
+# 30-39 = Blocked in case of future expansion
+
+kog_episcopal_events.140 = {
 	type = country_event
 	placement = p:x700080
 	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
 	duration = 3
 	dlc = dlc_kog
 	
-	title = kog_episcopal_events.190.t
-	desc = kog_episcopal_events.190.d
-	flavor = kog_episcopal_events.190.f
+	title = kog_episcopal_events.140.t
+	desc = kog_episcopal_events.140.d
+	flavor = kog_episcopal_events.140.f
 	
 	gui_window = event_window_com_default
 	
@@ -846,7 +852,7 @@ kog_episcopal_events.190 = {
 	}
 	
 	option = {
-		name = kog_episcopal_events.190.a
+		name = kog_episcopal_events.140.a
 		default_option = yes
 		kog_complete_seat_integration_effect = {
 			seat = elysium
@@ -854,16 +860,16 @@ kog_episcopal_events.190 = {
 	}
 }
 
-kog_episcopal_events.191 = {
+kog_episcopal_events.141 = {
 	type = country_event
 	placement = p:x1BC4D0
 	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
 	duration = 3
 	dlc = dlc_kog
 	
-	title = kog_episcopal_events.191.t
-	desc = kog_episcopal_events.191.d
-	flavor = kog_episcopal_events.191.f
+	title = kog_episcopal_events.141.t
+	desc = kog_episcopal_events.141.d
+	flavor = kog_episcopal_events.141.f
 	
 	gui_window = event_window_com_default
 	
@@ -899,7 +905,7 @@ kog_episcopal_events.191 = {
 	}
 	
 	option = {
-		name = kog_episcopal_events.191.a
+		name = kog_episcopal_events.141.a
 		default_option = yes
 		kog_complete_seat_integration_effect = {
 			seat = mixtec
@@ -907,16 +913,16 @@ kog_episcopal_events.191 = {
 	}
 }
 
-kog_episcopal_events.192 = {
+kog_episcopal_events.142 = {
 	type = country_event
 	placement = p:x6D8AAA
 	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
 	duration = 3
 	dlc = dlc_kog
 	
-	title = kog_episcopal_events.192.t
-	desc = kog_episcopal_events.192.d
-	flavor = kog_episcopal_events.192.f
+	title = kog_episcopal_events.142.t
+	desc = kog_episcopal_events.142.d
+	flavor = kog_episcopal_events.142.f
 	
 	gui_window = event_window_com_default
 	
@@ -952,10 +958,212 @@ kog_episcopal_events.192 = {
 	}
 	
 	option = {
-		name = kog_episcopal_events.192.a
+		name = kog_episcopal_events.142.a
 		default_option = yes
 		kog_complete_seat_integration_effect = {
 			seat = cahokia
+		}
+	}
+}
+
+####---------- Episcopal Seat Integration Random Events ----------####
+kog_episcopal_events.190 = {
+	type = country_event
+	placement = scope:kog_integrator_scope
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.190.t
+	desc = kog_episcopal_events.190.d
+	flavor = kog_episcopal_events.190.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = southamerica_christianity
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		NOT = {
+			has_global_variable = kog_episcopal_seat_dispute_cooldown
+		}
+		any_country = {
+			religion = root.religion
+			relations:root <= relations_threshold:poor
+			kog_integrating_seat_trigger = yes
+		}
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			exists = scope:kog_integrator_scope
+		}
+	}
+	
+	immediate = {
+		set_global_variable = {
+			name = kog_episcopal_seat_dispute_cooldown
+			years = 5
+		}
+		random_country = {
+			limit = {
+				religion = root.religion
+				relations:root <= relations_threshold:poor
+				kog_integrating_seat_trigger = yes
+			}
+			save_scope_as = kog_integrator_scope
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.190.a
+		default_option = yes
+		scope:kog_integrator_scope = {
+			change_relations = {
+				country = root
+				value = -20
+			}
+			create_diplomatic_catalyst = {
+				type = catalyst_event_negative
+				target = root
+			}
+			set_variable = {
+				name = kog_seat_integration_opposed
+				years = 2
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.190.b
+		scope:kog_integrator_scope = {
+			change_relations = {
+				country = root
+				value = 20
+			}
+			create_diplomatic_catalyst = {
+				type = catalyst_event_positive
+				target = root
+			}
+		}
+	}
+	
+	after = {
+		save_scope_as = kog_disputer_scope
+		scope:kog_integrator_scope = {
+			trigger_event = kog_episcopal_events.191
+		}
+	}
+}
+
+kog_episcopal_events.191 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/generic_icons/kog_episcopal_seat.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_episcopal_events.191.t
+	desc = {
+		triggered_desc = {
+			desc = kog_episcopal_events.191.d1
+			trigger = {
+				has_variable = kog_seat_integration_opposed
+			}
+		}
+		triggered_desc = {
+			desc = kog_episcopal_events.191.d2
+			trigger = {
+				NOT = {
+					has_variable = kog_seat_integration_opposed
+				}
+			}
+		}
+	}
+	flavor = kog_episcopal_events.191.f
+	
+	gui_window = event_window_com_default
+	
+	event_image = {
+		video = southamerica_christianity
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered by kog_episcopal_events.190
+	}
+	
+	cancellation_trigger = {
+		OR = {
+			kog_integrating_seat_trigger = no
+			NOT = {
+				exists = scope:kog_disputer_scope
+			}
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = { # Stick to your guns
+		name = kog_episcopal_events.191.a
+		default_option = yes
+		trigger = {
+			has_variable = kog_seat_integration_opposed
+		}
+		add_modifier = {
+			name = modifier_kog_asserted_integration
+			months = normal_modifier_time
+		}
+		create_incident = {
+			country = scope:eocfm_disputer_scope
+			value = 5
+		}
+		hidden_effect = {
+			scope:eocfm_disputer_scope = {
+				set_secret_goal = {
+					country = root
+					secret_goal = antagonize
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.191.b
+		trigger = {
+			has_variable = kog_seat_integration_opposed
+		}
+		scope:eocfm_disputer_scope = {
+			change_relations = {
+				country = root
+				value = 10
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_folded_integration
+			months = normal_modifier_time
+		}
+	}
+	
+	option = {
+		name = kog_episcopal_events.191.c
+		trigger = {
+			NOT = {
+				has_variable = kog_seat_integration_opposed
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_integration_supported
+			months = normal_modifier_time
+		}
+		scope:eocfm_disputer_scope = {
+			change_relations = {
+				country = root
+				value = 15
+			}
 		}
 	}
 }
