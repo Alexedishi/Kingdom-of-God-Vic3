@@ -33,8 +33,9 @@ kog_yearly_global_pulse = {
 ####---------- Country Monthly Pulses ----------####
 on_monthly_pulse_country = {
 	on_actions = {
-		kog_catholic_pulse
-		kog_orthodox_pulse
+		kog_monthly_pulse
+		#kog_catholic_pulse
+		#kog_orthodox_pulse
 		#kog_oriental_pulse
 		#kog_lutheran_pulse
 		#kog_anglican_pulse
@@ -42,9 +43,9 @@ on_monthly_pulse_country = {
 	}
 }
 
-kog_catholic_pulse = {
+kog_monthly_pulse = {
 	trigger = {
-		kog_country_is_roman_catholic_trigger = yes
+		kog_content_scope_trigger = yes
 	}
 	on_actions = {
 		kog_schism_pulse
@@ -57,18 +58,15 @@ kog_catholic_pulse = {
 	}
 }
 
+kog_catholic_pulse = {
+	trigger = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+}
+
 kog_orthodox_pulse = {
 	trigger = {
 		kog_country_is_eastern_orthodox_trigger = yes
-	}
-	on_actions = {
-		kog_schism_pulse
-		kog_integration_pulse
-	}
-	effect = {
-		kog_update_devout_member_traits_effect = yes
-		kog_monthly_seat_relations_effect = yes
-		kog_update_opinion_variables = yes
 	}
 }
 
