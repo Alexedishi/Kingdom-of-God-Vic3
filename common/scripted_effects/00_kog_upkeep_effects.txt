@@ -105,7 +105,14 @@ kog_update_autocephaly_list_effect = {
 	}
 }
 
-kog_update_country_votes_effect =
+kog_update_country_votes_effect = {
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_votes_var
+			value = kog_votes_value
+		}
+	}
+}
 
 kog_validate_holy_site_methods_effect = {
 	s:STATE_EASTERN_THRACE = {
@@ -192,8 +199,8 @@ kog_validate_holy_site_methods_effect = {
 kog_update_holy_site_count_effect = {
 	je:je_kog_local = {
 		set_variable = {
-			name = kog_holy_sites_var
-			value = owner.kog_holy_sites_value
+			name = kog_episcopal_seats_var
+			value = owner.kog_episcopal_seats_value
 		}
 	}
 }
