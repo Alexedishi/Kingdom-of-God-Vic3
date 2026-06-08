@@ -1,8 +1,8 @@
 ﻿####---------- Catholic Seat Buttons ----------####
 #### ROME
 kog_gui_sway_rome = {
-	name = "kog_gui_sway_rome"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_rome
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -33,8 +33,8 @@ kog_gui_sway_rome = {
 	}
 }
 kog_gui_antagonize_rome = {
-	name = "kog_gui_antagonize_rome"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_rome
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -65,8 +65,8 @@ kog_gui_antagonize_rome = {
 	}
 }
 kog_gui_integrate_rome = {
-	name = "kog_gui_integrate_rome"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_rome
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -98,8 +98,8 @@ kog_gui_integrate_rome = {
 	}
 }
 kog_gui_enforce_rome = {
-	name = "kog_gui_enforce_rome"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_rome
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -145,8 +145,8 @@ kog_gui_enforce_rome = {
 	}
 }
 kog_gui_install_rome = {
-	name = "kog_gui_install_rome"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_rome
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -161,11 +161,44 @@ kog_gui_install_rome = {
 		value = 0
 	}
 }
+kog_gui_assert_rome = {
+	name = kog_gui_assert_rome
+	desc = kog_gui_assert_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOR = {
+				has_variable = kog_controls_rome
+				has_modifier = modifier_kog_autocephalous
+			}
+		}
+	}
+	possible = {
+		kog_owns_rome_province_trigger = yes
+		kog_capacity_trigger = {
+			value = 400
+		}
+		NOT = {
+			has_modifier = modifier_kog_asserted_seat
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = kog_episcopal_events.180
+			popup = yes
+		}
+		show_as_tooltip = {
+			kog_assert_seat_control_effect = {
+				seat = rome
+			}
+		}
+	}
+}
 
 #### SANTIAGO
 kog_gui_sway_santiago = {
-	name = "kog_gui_sway_santiago"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_santiago
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -196,8 +229,8 @@ kog_gui_sway_santiago = {
 	}
 }
 kog_gui_antagonize_santiago = {
-	name = "kog_gui_antagonize_santiago"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_santiago
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -228,8 +261,8 @@ kog_gui_antagonize_santiago = {
 	}
 }
 kog_gui_integrate_santiago = {
-	name = "kog_gui_integrate_santiago"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_santiago
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -261,8 +294,8 @@ kog_gui_integrate_santiago = {
 	}
 }
 kog_gui_enforce_santiago = {
-	name = "kog_gui_enforce_santiago"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_santiago
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -308,8 +341,8 @@ kog_gui_enforce_santiago = {
 	}
 }
 kog_gui_install_santiago = {
-	name = "kog_gui_install_santiago"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_santiago
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -327,8 +360,8 @@ kog_gui_install_santiago = {
 
 #### PARIS
 kog_gui_sway_paris = {
-	name = "kog_gui_sway_paris"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_paris
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -359,8 +392,8 @@ kog_gui_sway_paris = {
 	}
 }
 kog_gui_antagonize_paris = {
-	name = "kog_gui_antagonize_paris"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_paris
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -391,8 +424,8 @@ kog_gui_antagonize_paris = {
 	}
 }
 kog_gui_integrate_paris = {
-	name = "kog_gui_integrate_paris"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_paris
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -424,8 +457,8 @@ kog_gui_integrate_paris = {
 	}
 }
 kog_gui_enforce_paris = {
-	name = "kog_gui_enforce_paris"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_paris
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -471,8 +504,8 @@ kog_gui_enforce_paris = {
 	}
 }
 kog_gui_install_paris = {
-	name = "kog_gui_install_paris"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_paris
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -488,10 +521,10 @@ kog_gui_install_paris = {
 	}
 }
 
-#### KOLN
+#### COLOGNE
 kog_gui_sway_koln = {
-	name = "kog_gui_sway_koln"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_koln
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -522,8 +555,8 @@ kog_gui_sway_koln = {
 	}
 }
 kog_gui_antagonize_koln = {
-	name = "kog_gui_antagonize_koln"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_koln
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -554,8 +587,8 @@ kog_gui_antagonize_koln = {
 	}
 }
 kog_gui_integrate_koln = {
-	name = "kog_gui_integrate_koln"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_koln
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -587,8 +620,8 @@ kog_gui_integrate_koln = {
 	}
 }
 kog_gui_enforce_koln = {
-	name = "kog_gui_enforce_koln"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_koln
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -634,8 +667,8 @@ kog_gui_enforce_koln = {
 	}
 }
 kog_gui_install_koln = {
-	name = "kog_gui_install_koln"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_koln
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -653,8 +686,8 @@ kog_gui_install_koln = {
 
 #### VIENNA
 kog_gui_sway_vienna = {
-	name = "kog_gui_sway_vienna"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_vienna
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -685,8 +718,8 @@ kog_gui_sway_vienna = {
 	}
 }
 kog_gui_antagonize_vienna = {
-	name = "kog_gui_antagonize_vienna"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_vienna
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -717,8 +750,8 @@ kog_gui_antagonize_vienna = {
 	}
 }
 kog_gui_integrate_vienna = {
-	name = "kog_gui_integrate_vienna"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_vienna
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -750,8 +783,8 @@ kog_gui_integrate_vienna = {
 	}
 }
 kog_gui_enforce_vienna = {
-	name = "kog_gui_enforce_vienna"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_vienna
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -797,8 +830,8 @@ kog_gui_enforce_vienna = {
 	}
 }
 kog_gui_install_vienna = {
-	name = "kog_gui_install_vienna"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_vienna
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -818,8 +851,8 @@ kog_gui_install_vienna = {
 ####---------- Orthodox Seat Buttons ----------####
 #### CONSTANTINOPLE
 kog_gui_sway_constantinople = {
-	name = "kog_gui_sway_constantinople"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_constantinople
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -850,8 +883,8 @@ kog_gui_sway_constantinople = {
 	}
 }
 kog_gui_antagonize_constantinople = {
-	name = "kog_gui_antagonize_constantinople"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_constantinople
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -882,8 +915,8 @@ kog_gui_antagonize_constantinople = {
 	}
 }
 kog_gui_integrate_constantinople = {
-	name = "kog_gui_integrate_constantinople"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_constantinople
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -915,8 +948,8 @@ kog_gui_integrate_constantinople = {
 	}
 }
 kog_gui_enforce_constantinople = {
-	name = "kog_gui_enforce_constantinople"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_constantinople
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -962,8 +995,8 @@ kog_gui_enforce_constantinople = {
 	}
 }
 kog_gui_install_constantinople = {
-	name = "kog_gui_install_constantinople"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_constantinople
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -978,11 +1011,44 @@ kog_gui_install_constantinople = {
 		value = 0
 	}
 }
+kog_gui_assert_constantinople = {
+	name = kog_gui_assert_constantinople
+	desc = kog_gui_assert_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOR = {
+				has_variable = kog_controls_constantinople
+				has_modifier = modifier_kog_autocephalous
+			}
+		}
+	}
+	possible = {
+		kog_owns_constantinople_province_trigger = yes
+		kog_capacity_trigger = {
+			value = 400
+		}
+		NOT = {
+			has_modifier = modifier_kog_asserted_seat
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = kog_episcopal_events.180
+			popup = yes
+		}
+		show_as_tooltip = {
+			kog_assert_seat_control_effect = {
+				seat = constantinople
+			}
+		}
+	}
+}
 
 #### ANTIOCH
 kog_gui_sway_antioch = {
-	name = "kog_gui_sway_antioch"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_antioch
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -1013,8 +1079,8 @@ kog_gui_sway_antioch = {
 	}
 }
 kog_gui_antagonize_antioch = {
-	name = "kog_gui_antagonize_antioch"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_antioch
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -1045,8 +1111,8 @@ kog_gui_antagonize_antioch = {
 	}
 }
 kog_gui_integrate_antioch = {
-	name = "kog_gui_integrate_antioch"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_antioch
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1078,8 +1144,8 @@ kog_gui_integrate_antioch = {
 	}
 }
 kog_gui_enforce_antioch = {
-	name = "kog_gui_enforce_antioch"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_antioch
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1125,8 +1191,8 @@ kog_gui_enforce_antioch = {
 	}
 }
 kog_gui_install_antioch = {
-	name = "kog_gui_install_antioch"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_antioch
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -1144,8 +1210,8 @@ kog_gui_install_antioch = {
 
 #### JERUSALEM
 kog_gui_sway_jerusalem = {
-	name = "kog_gui_sway_jerusalem"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_jerusalem
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -1176,8 +1242,8 @@ kog_gui_sway_jerusalem = {
 	}
 }
 kog_gui_antagonize_jerusalem = {
-	name = "kog_gui_antagonize_jerusalem"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_jerusalem
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -1208,8 +1274,8 @@ kog_gui_antagonize_jerusalem = {
 	}
 }
 kog_gui_integrate_jerusalem = {
-	name = "kog_gui_integrate_jerusalem"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_jerusalem
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1241,8 +1307,8 @@ kog_gui_integrate_jerusalem = {
 	}
 }
 kog_gui_enforce_jerusalem = {
-	name = "kog_gui_enforce_jerusalem"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_jerusalem
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1288,8 +1354,8 @@ kog_gui_enforce_jerusalem = {
 	}
 }
 kog_gui_install_jerusalem = {
-	name = "kog_gui_install_jerusalem"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_jerusalem
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -1308,8 +1374,8 @@ kog_gui_install_jerusalem = {
 
 #### ALEXANDRIA
 kog_gui_sway_alexandria = {
-	name = "kog_gui_sway_alexandria"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_alexandria
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -1340,8 +1406,8 @@ kog_gui_sway_alexandria = {
 	}
 }
 kog_gui_antagonize_alexandria = {
-	name = "kog_gui_antagonize_alexandria"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_alexandria
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -1372,8 +1438,8 @@ kog_gui_antagonize_alexandria = {
 	}
 }
 kog_gui_integrate_alexandria = {
-	name = "kog_gui_integrate_alexandria"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_alexandria
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1405,8 +1471,8 @@ kog_gui_integrate_alexandria = {
 	}
 }
 kog_gui_enforce_alexandria = {
-	name = "kog_gui_enforce_alexandria"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_alexandria
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1452,8 +1518,8 @@ kog_gui_enforce_alexandria = {
 	}
 }
 kog_gui_install_alexandria = {
-	name = "kog_gui_install_alexandria"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_alexandria
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
@@ -1471,8 +1537,8 @@ kog_gui_install_alexandria = {
 
 #### MOSCOW
 kog_gui_sway_moscow = {
-	name = "kog_gui_sway_moscow"
-	desc = "kog_gui_sway_seat_desc"
+	name = kog_gui_sway_moscow
+	desc = kog_gui_sway_seat_desc
 	
 	visible = {
 		always = yes
@@ -1503,8 +1569,8 @@ kog_gui_sway_moscow = {
 	}
 }
 kog_gui_antagonize_moscow = {
-	name = "kog_gui_antagonize_moscow"
-	desc = "kog_gui_antagonize_seat_desc"
+	name = kog_gui_antagonize_moscow
+	desc = kog_gui_antagonize_seat_desc
 	
 	visible = {
 		always = yes
@@ -1535,8 +1601,8 @@ kog_gui_antagonize_moscow = {
 	}
 }
 kog_gui_integrate_moscow = {
-	name = "kog_gui_integrate_moscow"
-	desc = "kog_gui_integrate_seat_desc"
+	name = kog_gui_integrate_moscow
+	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1568,8 +1634,8 @@ kog_gui_integrate_moscow = {
 	}
 }
 kog_gui_enforce_moscow = {
-	name = "kog_gui_enforce_moscow"
-	desc = "kog_gui_enforce_seat_desc"
+	name = kog_gui_enforce_moscow
+	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
 		je:je_kog_local = {
@@ -1615,8 +1681,8 @@ kog_gui_enforce_moscow = {
 	}
 }
 kog_gui_install_moscow = {
-	name = "kog_gui_install_moscow"
-	desc = "kog_gui_install_seat_desc"
+	name = kog_gui_install_moscow
+	desc = kog_gui_install_seat_desc
 	
 	visible = {
 	}
