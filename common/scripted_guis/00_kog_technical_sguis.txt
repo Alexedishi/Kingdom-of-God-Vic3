@@ -50,6 +50,25 @@ kog_elysian_sgui = {
 	}
 }
 
+####---------- Journal Religion Identification SGUIs ----------####
+# GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_religion_sgui')).IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)
+je_kog_catholic_religion_sgui = {
+	scope = journal_entry
+	
+	is_shown = { 
+		var:kog_religion_var ?= rel:catholic
+	}
+}
+
+je_kog_orthodox_religion_sgui = {
+	scope = journal_entry
+	
+	is_shown = {
+		var:kog_religion_var ?= rel:orthodox
+	}
+}
+
+
 ####---------- Development SGUIs ----------####
 kog_placeholder_sgui = {
 	scope = country

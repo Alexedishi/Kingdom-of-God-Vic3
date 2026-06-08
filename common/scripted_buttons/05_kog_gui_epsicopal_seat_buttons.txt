@@ -166,6 +166,7 @@ kog_gui_assert_rome = {
 	desc = kog_gui_assert_seat_desc
 	
 	visible = {
+		"global_variable_map(kog_rome|flag:kog_seat_religion)" = root.religion
 		je:je_kog_local = {
 			NOR = {
 				has_variable = kog_controls_rome
@@ -1016,6 +1017,7 @@ kog_gui_assert_constantinople = {
 	desc = kog_gui_assert_seat_desc
 	
 	visible = {
+		"global_variable_map(kog_constantinople|flag:kog_seat_religion)" = root.religion
 		je:je_kog_local = {
 			NOR = {
 				has_variable = kog_controls_constantinople
