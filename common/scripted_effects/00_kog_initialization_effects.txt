@@ -612,10 +612,8 @@ kog_initialize_orthodox_button_lists_effect = {
 
 ####---------- Episcopal Seat Variable Map Initialization ----------####
 kog_initialize_rome_variable_map_effect = {
-	p:xB5726E = {
-		owner = {
-			save_scope_as = kog_rome_controller
-		}
+	c:PAP = {
+		save_scope_as = kog_rome_controller
 	}
 	add_to_global_variable_map = {
 		name = kog_rome
@@ -675,10 +673,8 @@ kog_initialize_rome_variable_map_effect = {
 }
 
 kog_initialize_santiago_variable_map_effect = {
-	p:xD0E040 = {
-		owner = {
-			save_scope_as = kog_santiago_controller
-		}
+	c:PAP ?= {
+		save_scope_as = kog_santiago_controller
 	}
 	add_to_global_variable_map = {
 		name = kog_santiago
@@ -739,10 +735,8 @@ kog_initialize_santiago_variable_map_effect = {
 }
 
 kog_initialize_paris_variable_map_effect = {
-	p:x71DA2E = {
-		owner = {
-			save_scope_as = kog_paris_controller
-		}
+	c:PAP = {
+		save_scope_as = kog_paris_controller
 	}
 	add_to_global_variable_map = {
 		name = kog_paris
@@ -803,10 +797,8 @@ kog_initialize_paris_variable_map_effect = {
 }
 
 kog_initialize_koln_variable_map_effect = {
-	p:x8001E0 = {
-		owner = {
-			save_scope_as = kog_koln_controller
-		}
+	c:PAP = {
+		save_scope_as = kog_koln_controller
 	}
 	add_to_global_variable_map = {
 		name = kog_koln
@@ -867,10 +859,8 @@ kog_initialize_koln_variable_map_effect = {
 }
 
 kog_initialize_vienna_variable_map_effect = {
-	p:x316141 = {
-		owner = {
-			save_scope_as = kog_vienna_controller
-		}
+	c:PAP = {
+		save_scope_as = kog_vienna_controller
 	}
 	add_to_global_variable_map = {
 		name = kog_vienna
@@ -1913,25 +1903,9 @@ kog_specific_country_setups_effect = {
 	c:PAP = {
 		je:je_kog_local = {
 			set_variable = kog_controls_rome
-		}
-	}
-	c:SPA = {
-		je:je_kog_local = {
 			set_variable = kog_controls_santiago
-		}
-	}
-	c:FRA = {
-		je:je_kog_local = {
 			set_variable = kog_controls_paris
-		}
-	}
-	c:PRU = {
-		je:je_kog_local ?= { # TODO change this to a straight check once Lutheranism is in
 			set_variable = kog_controls_koln
-		}
-	}
-	c:AUS = {
-		je:je_kog_local = {
 			set_variable = kog_controls_vienna
 		}
 	}
