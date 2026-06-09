@@ -1918,90 +1918,6 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_episcopal_seat_buttons = widget {
-		parentanchor = top|hcenter
-		size = { 520 40 }
-		
-		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
-		
-		hbox = {
-			parentanchor = center
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = fixed
-			
-			kog_episcopal_seat_filter_button = {
-				blockoverride "filter_button_name" {
-					text = "kog_catholic_seats_filter"
-				}
-				blockoverride "filter_button_onclick" {
-					onclick = "[GetVariableSystem.Set('kog_episcopal_seat_tab', 'catholic')]"
-				}
-				blockoverride "filter_button_tooltip" {
-					tooltip = "kog_placeholder_text"
-				}
-				blockoverride "filter_button_selected" {
-					visible = "[GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'catholic')]"
-				}
-			}
-			
-			kog_episcopal_seat_filter_button = {
-				blockoverride "filter_button_name" {
-					text = "kog_orthodox_seats_filter"
-				}
-				blockoverride "filter_button_onclick" {
-					onclick = "[GetVariableSystem.Set('kog_episcopal_seat_tab', 'orthodox')]"
-				}
-				blockoverride "filter_button_tooltip" {
-					tooltip = "kog_placeholder_text"
-				}
-				blockoverride "filter_button_selected" {
-					visible = "[GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'orthodox')]"
-				}
-			}
-		}
-	}
-	
-	type kog_episcopal_seat_filter_button = button {
-		size = { 160 40 }
-		
-		using = default_button_action
-		block "filter_button_tooltip" {
-			tooltip = "kog_placeholder_text"
-		}
-		block "filter_button_onclick" {
-			onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
-		}
-		
-		widget = {
-			block "filter_button_selected" {
-				visible = "no"
-			}
-			size = { 100% 100% }
-			background = {
-				using = paper_bg
-			}
-		}
-		
-		textbox = {
-			parentanchor = center
-			align = nobaseline
-			autoresize = yes
-			max_width = 230
-			elide = right
-			using = fontsize_small
-			block "filter_button_name" {
-				text = "kog_placeholder_text"
-			}
-		}
-		
-		icon = {
-			block "filter_button_selected" {
-				visible = "no"
-			}
-			using = highlighted_square_selection
-		}
-	}
-	
 	type kog_catholic_episcopal_seats_panel = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
@@ -2011,10 +1927,7 @@ types kog_journal_widget_types {
 		
 		visible = "[And(
 			GetVariableSystem.HasValue('kog_denominational_tab', 'seats'),
-			Or(
-				GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'catholic'),
-				Not(GetVariableSystem.Exists('kog_episcopal_seat_tab'))
-			)
+			GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_religion_sgui')).IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)
 		)]"
 		
 		kog_episcopal_seat = {
@@ -2158,10 +2071,7 @@ types kog_journal_widget_types {
 		
 		visible = "[And(
 			GetVariableSystem.HasValue('kog_denominational_tab', 'seats'),
-			Or(
-				GetVariableSystem.HasValue('kog_episcopal_seat_tab', 'orthodox'),
-				Not(GetVariableSystem.Exists('kog_episcopal_seat_tab'))
-			)
+			GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_religion_sgui')).IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)
 		)]"
 		
 		kog_episcopal_seat = {
