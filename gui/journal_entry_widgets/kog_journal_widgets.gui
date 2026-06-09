@@ -75,13 +75,13 @@ types kog_journal_widget_types {
 			texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
 		}
 		blockoverride "interorg_detail_1_visibility" {
-			visible = "[ComJournalVar('kog_mother_church_var').IsSet]"
+			visible = "[ComJournalVar('kog_top_church_var').IsSet]"
 		}
 		blockoverride "interorg_detail_1_name" {
 			text = "kog_gui_mother_church_header"
 		}
 		blockoverride "interorg_detail_1_content" {
-			text = "kog_gui_mother_church_name"
+			text = "kog_gui_top_church_name"
 		}
 		blockoverride "interorg_detail_1_texture" {
 			texture = "gfx/interface/icons/generic_icons/kog_autocephalous_patriarchate.dds"
