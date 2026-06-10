@@ -7,7 +7,79 @@ kog_catholic_events.001 = {
 	duration = 3
 	dlc = dlc_kog
 	
-	title = kog_catholic_events.001.t
+	title = {
+		first_valid = {
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.PAP
+				trigger = {
+					c:PAP ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.ITA
+				trigger = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.SPA
+				trigger = {
+					c:SPA ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.SPC
+				trigger = {
+					c:SPC ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.FRA
+				trigger = {
+					c:FRA ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.AUS
+				trigger = {
+					c:AUS ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.GER
+				trigger = {
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+					}
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.POR
+				trigger = {
+					c:POR ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.BEL
+				trigger = {
+					c:BEL ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t.MEX
+				trigger = {
+					c:MEX ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.t
+			}
+		}
+	}
 	desc = kog_catholic_events.001.d
 	flavor = kog_catholic_events.001.f
 	
