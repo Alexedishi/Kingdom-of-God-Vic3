@@ -1,5 +1,10 @@
 ﻿kog_capacity_value = {
 	value = 0
+	add = modifier:country_faith_capacity_add
+}
+
+kog_capacity_value_old = {
+	value = 0
 	## Faith Capacity Base Sources
 	add = {
 		desc = kog_value_from_base
@@ -275,4 +280,13 @@ kog_piety_progress_value = {
 	round_to = 0.1
 	max = 0.5
 	min = -0.5
+}
+
+kog_piety_multiplier_value = {
+	value = 0
+	add = je:je_kog_local.var:kog_national_piety_var
+	divide = 500
+	round_to = 0.01
+	max = 1
+	min = -1
 }
