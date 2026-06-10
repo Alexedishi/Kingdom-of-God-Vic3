@@ -1,8 +1,16 @@
 ﻿COUNTRIES = {
 	c:PAP = {
+		activate_law = law_type:law_papal_see
 		activate_law = law_type:law_theocratic_investiture
 	}
 	c:MON = {
 		activate_law = law_type:law_theocratic_investiture
+	}
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		activate_law = law_type:law_monastic_secularization
+		activate_law = law_type:law_no_church_tax
 	}
 }

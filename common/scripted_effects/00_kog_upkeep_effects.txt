@@ -324,6 +324,19 @@ kog_update_devout_member_traits_effect = {
 	}
 }
 
+kog_update_piety_modifier_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_national_piety
+		}
+		remove_modifier = modifier_kog_national_piety
+	}
+	add_modifier = {
+		name = modifier_kog_national_piety
+		multiplier = kog_piety_multiplier_value
+	}
+}
+
 ## Canon Law Effects
 kog_update_canon_law_modifiers_effect = {
 	kog_clear_canon_law_modifiers_effect = yes

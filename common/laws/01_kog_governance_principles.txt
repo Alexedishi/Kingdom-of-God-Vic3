@@ -1,0 +1,118 @@
+﻿law_papal_see = {
+	group = lawgroup_governance_principles
+	parent = law_theocracy
+	
+	icon = "gfx/interface/icons/law_icons/law_papal_see.dds"
+	
+	progressiveness = -25
+	
+	disallowing_laws = {
+		law_total_separation
+	}
+	
+	is_visible = {
+		has_law = law_type:law_papal_see
+	}
+	
+	can_impose = {
+		always = no
+	}
+	
+	on_activate = {
+		transition_off_of_monarchy_law_effects = yes # Reduced version of the effect that only removes Bakufu
+	}
+	
+	on_deactivate = {
+		if = {
+			limit = {
+				AND = {
+					has_law = law_type:law_subjecthood
+					NOR = {
+						has_law = law_type:law_monarchy
+						is_enacting_law = law_type:law_monarchy
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_interest_group = {
+						is_in_government = yes
+						any_preferred_law = {
+							is_citizenship_law = yes
+							NOT = {
+								type ?= law_type:law_subjecthood
+							}
+						}
+					}
+				}
+				ordered_interest_group = {
+					limit = {
+						is_in_government = yes
+						any_preferred_law = {
+							is_citizenship_law = yes
+							NOT = {
+								type ?= law_type:law_subjecthood
+							}
+						}
+					}
+					order_by = ig_clout
+					position = 0
+					check_range_bounds = no
+					ordered_preferred_law = {
+						limit = {
+							is_citizenship_law = yes
+							NOT = {
+								type ?= law_type:law_subjecthood
+							}
+						}
+						position = 0
+						check_range_bounds = no
+						prev.owner = {
+							activate_law = prev.type
+						}
+					}
+				}
+			}
+			else = {
+				activate_law = law_type:law_national_supremacy
+			}
+		}
+	}
+	
+	modifier = {
+		country_legitimacy_headofstate_add = 20
+		country_legitimacy_ideological_incoherence_mult = 0.25
+		interest_group_ig_devout_pol_str_mult = 0.50
+		interest_group_ig_landowners_pol_str_mult = 0.25
+		country_authority_add = 200
+		country_faith_capacity_add = 1000
+	}
+	
+	ai_will_do = {
+		OR = {
+			ruler ?= {
+				has_ideology = ideology:ideology_theocrat
+			}
+			any_interest_group = {
+				is_in_government = yes
+				is_powerful = yes
+				leader = {
+					has_ideology = ideology:ideology_theocrat
+				}
+			}
+		}
+	}
+	
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+	
+	ai_impose_chance = {
+		value = -1000
+	}
+}
