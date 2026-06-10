@@ -1,0 +1,39 @@
+﻿INJECT:law_theocracy = {
+	modifier = {
+		country_faith_capacity_add = -500
+	}
+}
+
+INJECT:law_monarchy = {
+	modifier = {
+		country_faith_capacity_add = 100
+	}
+}
+
+INJECT:law_state_religion = {
+	modifier = {
+		country_faith_capacity_add = 200
+	}
+}
+
+INJECT:law_freedom_of_conscience = {
+	modifier = {
+		country_faith_capacity_add = 100
+	}
+}
+
+INJECT:law_total_separation = {
+	modifier = {
+		country_faith_capacity_add = -100
+	}
+}
+
+INJECT:law_state_atheism = {
+	modifier = {
+		country_faith_capacity_add = -1000
+	}
+	
+	disallowing_laws = {
+		law_papal_see
+	}
+}
