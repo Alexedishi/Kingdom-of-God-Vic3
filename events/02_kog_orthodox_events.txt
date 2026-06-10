@@ -7,9 +7,59 @@ kog_orthodox_events.001 = {
 	duration = 3
 	dlc = dlc_kog
 	
-	title = kog_orthodox_events.001.t
+	title = {
+		first_valid = {
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.RUS
+				trigger = {
+					c:RUS ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.GRE
+				trigger = {
+					c:GRE ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.MON
+				trigger = {
+					c:MON ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.SER
+				trigger = {
+					c:SER ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.BUL
+				trigger = {
+					c:BUL ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.ROM
+				trigger = {
+					c:ROM ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t.ALK
+				trigger = {
+					c:ALK ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_orthodox_events.001.t
+			}
+		}
+	}
 	desc = kog_orthodox_events.001.d
 	flavor = kog_orthodox_events.001.f
+	
+	gui_window = event_window_com_default
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -47,6 +97,8 @@ kog_orthodox_events.002 = {
 	title = kog_orthodox_events.002.t
 	desc = kog_orthodox_events.002.d
 	flavor = kog_orthodox_events.002.f
+	
+	gui_window = event_window_ethics
 	
 	event_image = {
 		video = "southamerica_christianity"
