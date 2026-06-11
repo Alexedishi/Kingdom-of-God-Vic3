@@ -86,35 +86,6 @@ kog_gui_commission_icon = {
 	}
 }
 
-kog_gui_dissolve_monasteries = {
-	name = "kog_gui_dissolve_monasteries"
-	desc = "kog_gui_dissolve_monasteries_desc"
-	
-	visible = {
-		NOR = {
-			has_variable = kog_dissolved_monasteries
-		}
-	}
-	possible = {
-		ig:ig_devout = {
-			is_powerful = no
-			is_in_government = no
-		}
-		NOT = {
-			has_law = law_type:law_theocracy
-		}
-	}
-	effect = {
-		# TODO Add re-factored event
-		# add_modifier = modifier_kog_dissolved_monasteries
-		set_variable = kog_dissolved_monasteries
-	}
-	
-	ai_chance = {
-		value = 0
-	}
-}
-
 kog_gui_reform_synod = {
 	name = "kog_gui_reform_synod"
 	desc = "kog_gui_reform_synod_desc"
@@ -174,56 +145,6 @@ kog_gui_restore_synod = {
 			value = small_radicals
 		}
 		remove_variable = kog_caesaropapism_questioned
-	}
-	
-	ai_chance = {
-		value = 0
-	}
-}
-
-kog_gui_grant_subsidies = {
-	name = "kog_gui_grant_subsidies"
-	desc = "kog_gui_grant_subsidies_desc"
-	
-	visible = {
-		NOT = {
-			has_modifier = modifier_kog_subsidizing_church
-		}
-	}
-	possible = {
-		NOT = {
-			has_modifier = modifier_kog_subsidizing_church
-		}
-	}
-	effect = {
-		add_modifier = modifier_kog_subsidizing_church
-	}
-	
-	ai_chance = {
-		value = 0
-	}
-}
-
-kog_gui_end_subsidies = {
-	name = "kog_gui_end_subsidies"
-	desc = "kog_gui_end_subsidies_desc"
-	
-	visible = {
-		has_modifier = modifier_kog_subsidizing_church
-	}
-	possible = {
-		ig:ig_devout = {
-			NOR = {
-				is_powerful = yes
-				is_in_government = yes
-			}
-		}
-		kog_capacity_trigger = {
-			value = 100
-		}
-	}
-	effect = {
-		remove_modifier = modifier_kog_subsidizing_church
 	}
 	
 	ai_chance = {

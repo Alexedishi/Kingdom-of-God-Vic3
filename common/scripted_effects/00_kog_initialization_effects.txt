@@ -1,5 +1,5 @@
 ﻿kog_initialize_content_effect = {
-	# If you are making a submod: DO NOT override anything in this effect- override the individual effects downstream
+	# If you are making a sub-mod: DO NOT override anything in this effect- override the individual effects downstream
 	
 	#### Step 1, Activate Contextless Journals
 	kog_activate_contextless_journals_effect = yes
@@ -450,15 +450,7 @@ kog_initialize_orthodox_button_lists_effect = {
 	}
 	add_to_variable_list = {
 		name = kog_metropolitan_actions_list
-		target = flag:kog_gui_dissolve_monasteries
-	}
-	add_to_variable_list = {
-		name = kog_metropolitan_actions_list
 		target = flag:kog_gui_reform_synod
-	}
-	add_to_variable_list = {
-		name = kog_metropolitan_actions_list
-		target = flag:kog_gui_grant_subsidies
 	}
 	add_to_variable_list = {
 		name = kog_metropolitan_actions_list
@@ -1870,11 +1862,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	
-	# Step 5, Set Up Country Modifiers
-	kog_update_canon_law_modifiers_effect = yes
-	kog_update_piety_modifier_effect = yes
-	
-	# Step 6, Calculate Starting Variables
+	# Step 5, Set Up Country Modifiers & Variables
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
@@ -1893,6 +1881,7 @@ kog_initialize_metropolis_effect = {
 			value = owner.kog_capacity_value
 		}
 	}
+	kog_update_piety_modifier_effect = yes
 }
 
 kog_specific_country_setups_effect = {
@@ -1903,32 +1892,32 @@ kog_specific_country_setups_effect = {
 	## Catholic Setup ##
 	c:PAP = {
 		je:je_kog_local = {
-			set_variable = kog_controls_rome
-			set_variable = kog_controls_santiago
-			set_variable = kog_controls_paris
-			set_variable = kog_controls_koln
-			set_variable = kog_controls_vienna
+			add_modifier = modifier_kog_controls_rome
+			add_modifier = modifier_kog_controls_santiago
+			add_modifier = modifier_kog_controls_paris
+			add_modifier = modifier_kog_controls_koln
+			add_modifier = modifier_kog_controls_vienna
 		}
 	}
 	
 	## Orthodox Setup ##
 	c:TUR = {
 		je:je_kog_local ?= {
-			set_variable = kog_controls_constantinople
-			set_variable = kog_controls_antioch
+			add_modifier = modifier_kog_controls_constantinople
+			add_modifier = modifier_kog_controls_antioch
 		}
 	}
 	c:TUR = {
 		je:je_kog_local ?= {
-			set_variable = kog_controls_jerusalem
-			set_variable = kog_controls_alexandria
+			add_modifier = modifier_kog_controls_jerusalem
+			add_modifier = modifier_kog_controls_alexandria
 		}
 	}
 	c:RUS = {
 		je:je_kog_local = {
 			add_modifier = modifier_kog_autocephalous
 			add_modifier = modifier_kog_reformed_synod
-			set_variable = kog_controls_moscow
+			add_modifier = modifier_kog_controls_moscow
 		}
 	}
 	c:GRE = {
@@ -1940,7 +1929,9 @@ kog_specific_country_setups_effect = {
 			set_variable = kog_ruler_conversion_considered
 		}
 	}
-	
+}
+
+kog_initialization_final_effect = {
 	## Update Communion Lists
 	global_var:je_kog_catholic = {
 		kog_update_schism_list_effect = {
@@ -1949,6 +1940,7 @@ kog_specific_country_setups_effect = {
 		kog_update_autocephaly_list_effect = {
 			type = je_kog_catholic
 		}
+		kog_add_canon_law_modifiers_effect = yes
 	}
 	global_var:je_kog_orthodox = {
 		kog_update_schism_list_effect = {
@@ -1957,19 +1949,10 @@ kog_specific_country_setups_effect = {
 		kog_update_autocephaly_list_effect = {
 			type = je_kog_orthodox
 		}
+		kog_add_canon_law_modifiers_effect = yes
 	}
 	
-	## Final Tidying Up ##
-	every_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-		}
-		kog_update_devout_member_traits_effect = yes
-		kog_update_holy_site_count_effect = yes
-	}
-}
-
-kog_initialization_final_effect = {
+	## Prepare Interorg Functionality
 	add_contextless_journal_entry = je_kog_ecyclical_mirari_vos
 	com_activate_interorg_sidebar = yes
 	com_add_journal_group_to_situations_list = {
@@ -1977,5 +1960,14 @@ kog_initialization_final_effect = {
 	}
 	com_add_journal_group_to_situations_list = {
 		name = je_group_kog_councils
+	}
+	
+	## Final Cleanup
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		kog_update_devout_member_traits_effect = yes
+		kog_update_episcopal_seat_count_effect = yes
 	}
 }
