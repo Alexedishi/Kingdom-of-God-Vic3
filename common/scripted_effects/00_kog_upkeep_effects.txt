@@ -115,55 +115,6 @@ kog_update_country_votes_effect = {
 }
 
 kog_validate_holy_site_methods_effect = {
-	s:STATE_EASTERN_THRACE = {
-		random_scope_state = {
-			limit = {
-				has_building = building_hagia_sophia
-			}
-			if = {
-				limit = {
-					owner = {
-						kog_content_scope_trigger = yes
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							is_production_method_active = {
-								building_type = building_hagia_sophia
-								production_method = pm_kog_holy_site
-							}
-						}
-					}
-					activate_production_method = {
-						building_type = building_hagia_sophia
-						production_method = pm_kog_holy_site
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					owner = {
-						kog_content_scope_trigger = no
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							is_production_method_active = {
-								building_type = building_hagia_sophia
-								production_method = pm_kog_patriarchate_occupied
-							}
-						}
-					}
-					activate_production_method = {
-						building_type = building_hagia_sophia
-						production_method = pm_kog_patriarchate_occupied
-					}
-				}
-			}
-		}
-	}
 	s:STATE_HEDJAZ = {
 		if = {
 			limit = {
@@ -196,7 +147,7 @@ kog_validate_holy_site_methods_effect = {
 }
 
 ## Metropolitan Effects
-kog_update_holy_site_count_effect = {
+kog_update_episcopal_seat_count_effect = {
 	je:je_kog_local = {
 		set_variable = {
 			name = kog_episcopal_seats_var
@@ -344,236 +295,228 @@ kog_update_canon_law_modifiers_effect = {
 }
 
 kog_clear_canon_law_modifiers_effect = {
-	var:je_kog_local = {
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_papal_primacy
-			}
-			remove_modifier = modifier_kog_canon_law_papal_primacy
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_papal_primacy
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_synodality
-			}
-			remove_modifier = modifier_kog_canon_law_synodality
+		remove_modifier = modifier_kog_canon_law_papal_primacy
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_synodality
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_congregationalism
-			}
-			remove_modifier = modifier_kog_canon_law_congregationalism
+		remove_modifier = modifier_kog_canon_law_synodality
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_congregationalism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_no_alms
-			}
-			remove_modifier = modifier_kog_canon_law_no_alms
+		remove_modifier = modifier_kog_canon_law_congregationalism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_no_alms
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_offertory
-			}
-			remove_modifier = modifier_kog_canon_law_offertory
+		remove_modifier = modifier_kog_canon_law_no_alms
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_offertory
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_tithing
-			}
-			remove_modifier = modifier_kog_canon_law_tithing
+		remove_modifier = modifier_kog_canon_law_offertory
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_tithing
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_hierocracy
-			}
-			remove_modifier = modifier_kog_canon_law_hierocracy
+		remove_modifier = modifier_kog_canon_law_tithing
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_hierocracy
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_ultramontanism
-			}
-			remove_modifier = modifier_kog_canon_law_ultramontanism
+		remove_modifier = modifier_kog_canon_law_hierocracy
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_ultramontanism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_gallicanism
-			}
-			remove_modifier = modifier_kog_canon_law_gallicanism
+		remove_modifier = modifier_kog_canon_law_ultramontanism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_gallicanism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_caesaropapism
-			}
-			remove_modifier = modifier_kog_canon_law_caesaropapism
+		remove_modifier = modifier_kog_canon_law_gallicanism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_caesaropapism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_uranopolitism
-			}
-			remove_modifier = modifier_kog_canon_law_uranopolitism
+		remove_modifier = modifier_kog_canon_law_caesaropapism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_uranopolitism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_ecclesial_communities
-			}
-			remove_modifier = modifier_kog_canon_law_ecclesial_communities
+		remove_modifier = modifier_kog_canon_law_uranopolitism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_ecclesial_communities
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_ethnophyletism
-			}
-			remove_modifier = modifier_kog_canon_law_ethnophyletism
+		remove_modifier = modifier_kog_canon_law_ecclesial_communities
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_ethnophyletism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_kinism
-			}
-			remove_modifier = modifier_kog_canon_law_kinism
+		remove_modifier = modifier_kog_canon_law_ethnophyletism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_kinism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_iconoclasm
-			}
-			remove_modifier = modifier_kog_canon_law_iconoclasm
+		remove_modifier = modifier_kog_canon_law_kinism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_iconoclasm
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_aniconism
-			}
-			remove_modifier = modifier_kog_canon_law_aniconism
+		remove_modifier = modifier_kog_canon_law_iconoclasm
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_aniconism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_iconodulism
-			}
-			remove_modifier = modifier_kog_canon_law_iconodulism
+		remove_modifier = modifier_kog_canon_law_aniconism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_iconodulism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_iconolatry
-			}
-			remove_modifier = modifier_kog_canon_law_iconolatry
+		remove_modifier = modifier_kog_canon_law_iconodulism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_iconolatry
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_priests_celibate
-			}
-			remove_modifier = modifier_kog_canon_law_priests_celibate
+		remove_modifier = modifier_kog_canon_law_iconolatry
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_priests_celibate
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_marriage_allowed
-			}
-			remove_modifier = modifier_kog_canon_law_marriage_allowed
+		remove_modifier = modifier_kog_canon_law_priests_celibate
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_marriage_allowed
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_moral_authority
-			}
-			remove_modifier = modifier_kog_canon_law_moral_authority
+		remove_modifier = modifier_kog_canon_law_marriage_allowed
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_moral_authority
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_moral_guidance
-			}
-			remove_modifier = modifier_kog_canon_law_moral_guidance
+		remove_modifier = modifier_kog_canon_law_moral_authority
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_moral_guidance
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_social_activism
-			}
-			remove_modifier = modifier_kog_canon_law_social_activism
+		remove_modifier = modifier_kog_canon_law_moral_guidance
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_social_activism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_modernizing_force
-			}
-			remove_modifier = modifier_kog_canon_law_modernizing_force
+		remove_modifier = modifier_kog_canon_law_social_activism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_modernizing_force
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_scriptural_supremacy
-			}
-			remove_modifier = modifier_kog_canon_law_scriptural_supremacy
+		remove_modifier = modifier_kog_canon_law_modernizing_force
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_scriptural_supremacy
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_scriptural_favoritism
-			}
-			remove_modifier = modifier_kog_canon_law_scriptural_favoritism
+		remove_modifier = modifier_kog_canon_law_scriptural_supremacy
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_scriptural_favoritism
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_scientific_disengagement
-			}
-			remove_modifier = modifier_kog_canon_law_scientific_disengagement
+		remove_modifier = modifier_kog_canon_law_scriptural_favoritism
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_scientific_disengagement
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_scientific_patronage
-			}
-			remove_modifier = modifier_kog_canon_law_scientific_patronage
+		remove_modifier = modifier_kog_canon_law_scientific_disengagement
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_scientific_patronage
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_scientific_crusade
-			}
-			remove_modifier = modifier_kog_canon_law_scientific_crusade
+		remove_modifier = modifier_kog_canon_law_scientific_patronage
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_scientific_crusade
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_no_crusades
-			}
-			remove_modifier = modifier_kog_canon_law_no_crusades
+		remove_modifier = modifier_kog_canon_law_scientific_crusade
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_no_crusades
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_heathen_crusades
-			}
-			remove_modifier = modifier_kog_canon_law_heathen_crusades
+		remove_modifier = modifier_kog_canon_law_no_crusades
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_heathen_crusades
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_heretic_crusades
-			}
-			remove_modifier = modifier_kog_canon_law_heretic_crusades
+		remove_modifier = modifier_kog_canon_law_heathen_crusades
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_heretic_crusades
 		}
-		if = {
-			limit = {
-				has_modifier = modifier_kog_canon_law_unlimited_crusades
-			}
-			remove_modifier = modifier_kog_canon_law_unlimited_crusades
+		remove_modifier = modifier_kog_canon_law_heretic_crusades
+	}
+	if = {
+		limit = {
+			has_modifier = modifier_kog_canon_law_unlimited_crusades
 		}
+		remove_modifier = modifier_kog_canon_law_unlimited_crusades
 	}
 }
 
 kog_add_canon_law_modifiers_effect = {
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_apostolic_succession_var = flag:kog_canon_law_papal_primacy
+			var:kog_canon_law_apostolic_succession_var = flag:kog_canon_law_papal_primacy
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_papal_primacy
-		}
+		add_modifier = modifier_kog_canon_law_papal_primacy
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_apostolic_succession_var = flag:kog_canon_law_synodality
+			var:kog_canon_law_apostolic_succession_var = flag:kog_canon_law_synodality
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_synodality
-		}
+		add_modifier = modifier_kog_canon_law_synodality
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_apostolic_succession_var = flag:kog_canon_law_congregationalism
+			var:kog_canon_law_apostolic_succession_var = flag:kog_canon_law_congregationalism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_congregationalism
-		}
+		add_modifier = modifier_kog_canon_law_congregationalism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_almsgiving_var = flag:kog_canon_law_no_alms
+			var:kog_canon_law_almsgiving_var = flag:kog_canon_law_no_alms
 		}
 		je:je_kog_local = {
 			add_modifier = modifier_kog_canon_law_no_alms
@@ -581,235 +524,177 @@ kog_add_canon_law_modifiers_effect = {
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_almsgiving_var = flag:kog_canon_law_offertory
+			var:kog_canon_law_almsgiving_var = flag:kog_canon_law_offertory
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_offertory
-		}
+		add_modifier = modifier_kog_canon_law_offertory
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_almsgiving_var = flag:kog_canon_law_tithing
+			var:kog_canon_law_almsgiving_var = flag:kog_canon_law_tithing
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_tithing
-		}
+		add_modifier = modifier_kog_canon_law_tithing
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_hierocracy
+			var:kog_canon_law_statism_var = flag:kog_canon_law_hierocracy
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_hierocracy
-		}
+		add_modifier = modifier_kog_canon_law_hierocracy
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_ultramontanism
+			var:kog_canon_law_statism_var = flag:kog_canon_law_ultramontanism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_ultramontanism
-		}
+		add_modifier = modifier_kog_canon_law_ultramontanism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_gallicanism
+			var:kog_canon_law_statism_var = flag:kog_canon_law_gallicanism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_gallicanism
-		}
+		add_modifier = modifier_kog_canon_law_gallicanism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_caesaropapism
+			var:kog_canon_law_statism_var = flag:kog_canon_law_caesaropapism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_caesaropapism
-		}
+		add_modifier = modifier_kog_canon_law_caesaropapism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_nationalism_var = flag:kog_canon_law_uranopolitism
+			var:kog_canon_law_nationalism_var = flag:kog_canon_law_uranopolitism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_uranopolitism
-		}
+		add_modifier = modifier_kog_canon_law_uranopolitism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_nationalism_var = flag:kog_canon_law_ecclesial_communities
+			var:kog_canon_law_nationalism_var = flag:kog_canon_law_ecclesial_communities
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_ecclesial_communities
-		}
+		add_modifier = modifier_kog_canon_law_ecclesial_communities
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_nationalism_var = flag:kog_canon_law_ethnophyletism
+			var:kog_canon_law_nationalism_var = flag:kog_canon_law_ethnophyletism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_ethnophyletism
-		}
+		add_modifier = modifier_kog_canon_law_ethnophyletism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_nationalism_var = flag:kog_canon_law_kinism
+			var:kog_canon_law_nationalism_var = flag:kog_canon_law_kinism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_kinism
-		}
+		add_modifier = modifier_kog_canon_law_kinism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_iconography_var = flag:kog_canon_law_iconoclasm
+			var:kog_canon_law_iconography_var = flag:kog_canon_law_iconoclasm
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_iconoclasm
-		}
+		add_modifier = modifier_kog_canon_law_iconoclasm
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_iconography_var = flag:kog_canon_law_aniconism
+			var:kog_canon_law_iconography_var = flag:kog_canon_law_aniconism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_aniconism
-		}
+		add_modifier = modifier_kog_canon_law_aniconism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_iconography_var = flag:kog_canon_law_iconodulism
+			var:kog_canon_law_iconography_var = flag:kog_canon_law_iconodulism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_iconodulism
-		}
+		add_modifier = modifier_kog_canon_law_iconodulism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_iconography_var = flag:kog_canon_law_iconolatry
+			var:kog_canon_law_iconography_var = flag:kog_canon_law_iconolatry
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_iconolatry
-		}
+		add_modifier = modifier_kog_canon_law_iconolatry
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_clerical_marriage_var = flag:kog_canon_law_priests_celibate
+			var:kog_canon_law_clerical_marriage_var = flag:kog_canon_law_priests_celibate
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_priests_celibate
-		}
+		add_modifier = modifier_kog_canon_law_priests_celibate
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_clerical_marriage_var = flag:kog_canon_law_marriage_allowed
+			var:kog_canon_law_clerical_marriage_var = flag:kog_canon_law_marriage_allowed
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_marriage_allowed
-		}
+		add_modifier = modifier_kog_canon_law_marriage_allowed
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+			var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_moral_authority
-		}
+		add_modifier = modifier_kog_canon_law_moral_authority
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_guidance
+			var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_guidance
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_moral_guidance
-		}
+		add_modifier = modifier_kog_canon_law_moral_guidance
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_social_activism
+			var:kog_canon_law_social_role_var = flag:kog_canon_law_social_activism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_social_activism
-		}
+		add_modifier = modifier_kog_canon_law_social_activism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+			var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_modernizing_force
-		}
+		add_modifier = modifier_kog_canon_law_modernizing_force
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scriptural_supremacy
+			var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scriptural_supremacy
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_scriptural_supremacy
-		}
+		add_modifier = modifier_kog_canon_law_scriptural_supremacy
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scriptural_favoritism
+			var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scriptural_favoritism
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_scriptural_favoritism
-		}
+		add_modifier = modifier_kog_canon_law_scriptural_favoritism
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_disengagement
+			var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_disengagement
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_scientific_disengagement
-		}
+		add_modifier = modifier_kog_canon_law_scientific_disengagement
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_patronage
+			var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_patronage
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_scientific_patronage
-		}
+		add_modifier = modifier_kog_canon_law_scientific_patronage
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_crusade
+			var:kog_canon_law_sciences_stance_var = flag:kog_canon_law_scientific_crusade
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_scientific_crusade
-		}
+		add_modifier = modifier_kog_canon_law_scientific_crusade
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_crusades_var = flag:kog_canon_law_no_crusades
+			var:kog_canon_law_crusades_var = flag:kog_canon_law_no_crusades
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_no_crusades
-		}
+		add_modifier = modifier_kog_canon_law_no_crusades
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_crusades_var = flag:kog_canon_law_heathen_crusades
+			var:kog_canon_law_crusades_var = flag:kog_canon_law_heathen_crusades
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_heathen_crusades
-		}
+		add_modifier = modifier_kog_canon_law_heathen_crusades
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_crusades_var = flag:kog_canon_law_heretic_crusades
+			var:kog_canon_law_crusades_var = flag:kog_canon_law_heretic_crusades
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_heretic_crusades
-		}
+		add_modifier = modifier_kog_canon_law_heretic_crusades
 	}
 	if = {
 		limit = {
-			var:kog_global_faith_journal_var.var:kog_canon_law_crusades_var = flag:kog_canon_law_unlimited_crusades
+			var:kog_canon_law_crusades_var = flag:kog_canon_law_unlimited_crusades
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_unlimited_crusades
-		}
+		add_modifier = modifier_kog_canon_law_unlimited_crusades
 	}
 }
 
@@ -2833,7 +2718,7 @@ kog_check_seat_controllers_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 		}
-		kog_update_holy_site_count_effect = yes
+		kog_update_episcopal_seat_count_effect = yes
 	}
 }
 
@@ -2860,7 +2745,7 @@ kog_check_rome_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_rome
+				has_modifier = modifier_kog_controls_rome
 			}
 		}
 		save_scope_as = kog_rome_controller
@@ -2901,7 +2786,7 @@ kog_check_santiago_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_santiago
+				has_modifier = modifier_kog_controls_santiago
 			}
 		}
 		save_scope_as = kog_santiago_controller
@@ -2942,7 +2827,7 @@ kog_check_paris_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_paris
+				has_modifier = modifier_kog_controls_paris
 			}
 		}
 		save_scope_as = kog_paris_controller
@@ -2983,7 +2868,7 @@ kog_check_koln_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_koln
+				has_modifier = modifier_kog_controls_koln
 			}
 		}
 		save_scope_as = kog_koln_controller
@@ -3024,7 +2909,7 @@ kog_check_vienna_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_vienna
+				has_modifier = modifier_kog_controls_vienna
 			}
 		}
 		save_scope_as = kog_vienna_controller
@@ -3065,7 +2950,7 @@ kog_check_constantinople_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_constantinople
+				has_modifier = modifier_kog_controls_constantinople
 			}
 		}
 		save_scope_as = kog_constantinople_controller
@@ -3106,7 +2991,7 @@ kog_check_antioch_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_antioch
+				has_modifier = modifier_kog_controls_antioch
 			}
 		}
 		save_scope_as = kog_antioch_controller
@@ -3147,7 +3032,7 @@ kog_check_jerusalem_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_jerusalem
 			}
 		}
 		save_scope_as = kog_jerusalem_controller
@@ -3188,7 +3073,7 @@ kog_check_alexandria_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_alexandria
+				has_modifier = modifier_kog_controls_alexandria
 			}
 		}
 		save_scope_as = kog_alexandria_controller
@@ -3229,7 +3114,7 @@ kog_check_moscow_controller_effect = {
 		limit = {
 			kog_content_scope_trigger = yes
 			je:je_kog_local = {
-				has_variable = kog_controls_moscow
+				has_modifier = modifier_kog_controls_moscow
 			}
 		}
 		save_scope_as = kog_moscow_controller

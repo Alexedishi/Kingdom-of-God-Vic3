@@ -9,7 +9,7 @@ kog_change_seat_relations_effect = {
 			name = kog_change_seat_relations_effect
 			value = $value$
 		}
-		je:je_kog_local = {
+		var:je_kog_local = {
 			set_variable = {
 				name = kog_$seat$_relations_var
 				value = {
@@ -644,7 +644,7 @@ kog_complete_seat_integration_effect = {
 		text = kog_usurped_$seat$
 		je:je_kog_local = {
 			remove_variable = kog_integrating_$seat$
-			set_variable = kog_controls_$seat$
+			add_modifier = modifier_kog_controls_$seat$
 		}
 		scope:kog_$seat$_controller_scope ?= {
 			change_relations = {
@@ -652,7 +652,7 @@ kog_complete_seat_integration_effect = {
 				value = -30
 			}
 			je:je_kog_local = {
-				remove_variable = kog_controls_$seat$
+				remove_modifier = modifier_kog_controls_$seat$
 			}
 		}
 		remove_from_global_variable_map = {
@@ -815,7 +815,7 @@ kog_select_random_orthodox_seat_effect = {
 		5 = {
 			trigger = { # Rome only participates if part of the Orthodox sphere
 				any_country = {
-					has_variable = kog_controls_rome
+					has_modifier = modifier_kog_controls_rome
 					kog_country_is_eastern_orthodox_trigger = yes
 				}
 			}
@@ -922,7 +922,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_rome
+					has_modifier = modifier_kog_controls_rome
 				}
 			}
 			set_variable = {
@@ -933,7 +933,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_santiago
+					has_modifier = modifier_kog_controls_santiago
 				}
 			}
 			set_variable = {
@@ -944,7 +944,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_paris
+					has_modifier = modifier_kog_controls_paris
 				}
 			}
 			set_variable = {
@@ -955,7 +955,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_koln
+					has_modifier = modifier_kog_controls_koln
 				}
 			}
 			set_variable = {
@@ -966,7 +966,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_vienna
+					has_modifier = modifier_kog_controls_vienna
 				}
 			}
 			set_variable = {
@@ -977,7 +977,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_constantinople
+					has_modifier = modifier_kog_controls_constantinople
 				}
 			}
 			set_variable = {
@@ -988,7 +988,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_antioch
+					has_modifier = modifier_kog_controls_antioch
 				}
 			}
 			set_variable = {
@@ -999,7 +999,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_jerusalem
+					has_modifier = modifier_kog_controls_jerusalem
 				}
 			}
 			set_variable = {
@@ -1010,7 +1010,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_alexandria
+					has_modifier = modifier_kog_controls_alexandria
 				}
 			}
 			set_variable = {
@@ -1021,7 +1021,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_moscow
+					has_modifier = modifier_kog_controls_moscow
 				}
 			}
 			set_variable = {
@@ -1032,7 +1032,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_coptic_alexandria
+					has_modifier = modifier_kog_controls_coptic_alexandria
 				}
 			}
 			set_variable = {
@@ -1043,7 +1043,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_syriac_antioch
+					has_modifier = modifier_kog_controls_syriac_antioch
 				}
 			}
 			set_variable = {
@@ -1054,7 +1054,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_etchmiadzin
+					has_modifier = modifier_kog_controls_etchmiadzin
 				}
 			}
 			set_variable = {
@@ -1065,7 +1065,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_addis_ababa
+					has_modifier = modifier_kog_controls_addis_ababa
 				}
 			}
 			set_variable = {
@@ -1076,7 +1076,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_konak
+					has_modifier = modifier_kog_controls_konak
 				}
 			}
 			set_variable = {
@@ -1087,7 +1087,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_elysium
+					has_modifier = modifier_kog_controls_elysium
 				}
 			}
 			set_variable = {
@@ -1098,7 +1098,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_mixtec
+					has_modifier = modifier_kog_controls_mixtec
 				}
 			}
 			set_variable = {
@@ -1109,7 +1109,7 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_variable = kog_controls_cahokia
+					has_modifier = modifier_kog_controls_cahokia
 				}
 			}
 			set_variable = {

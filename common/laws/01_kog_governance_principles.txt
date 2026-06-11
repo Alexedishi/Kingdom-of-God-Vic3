@@ -20,6 +20,8 @@
 	
 	on_activate = {
 		transition_off_of_monarchy_law_effects = yes # Reduced version of the effect that only removes Bakufu
+		set_variable = com_hide_law_theocracy
+		activate_law = law_type:law_theocratic_investiture
 	}
 	
 	on_deactivate = {
@@ -77,6 +79,7 @@
 				activate_law = law_type:law_national_supremacy
 			}
 		}
+		remove_variable = com_hide_law_theocracy
 	}
 	
 	modifier = {
