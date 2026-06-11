@@ -1,0 +1,50 @@
+amendment_kog_sunday_schools = {
+	parent = law_state_religion
+	
+	allowed_laws = {
+		law_religious_schools
+		law_private_schools
+		law_public_schools
+	}
+	
+	modifier = {
+		country_clergymen_pol_str_mult = 0.10
+		state_conversion_mult = 0.25
+		state_assimilation_mult = 0.05
+		state_education_access_add = 0.05
+		state_radicalism_increases_violent_hostility_mult = 0.05
+		state_radicalism_increases_cultural_erasure_mult = 0.05
+		country_expenses_add = 10000
+	}
+	
+	possible = {
+		has_law_or_variant = law_type:law_state_religion
+		has_institution = institution_schools
+	}
+	
+	would_sponsor = {
+		always = no
+	}
+	
+	on_activate = {
+		add_modifier = {
+			name = modifier_kog_established_sunday_schools
+			years = 5
+			is_decaying = yes
+		}
+	}
+	
+	on_deactivate = {
+		add_modifier = {
+			name = modifier_kog_disbanded_sunday_schools
+			years = 5
+			is_decaying = yes
+		}
+	}
+	
+	can_repeal = {
+		legitimacy >= legitimacy_to_repeal_amendment
+	}
+	
+	amendment_activism_multiplier = 0.25
+}

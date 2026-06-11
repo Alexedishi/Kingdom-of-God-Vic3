@@ -91,8 +91,9 @@ kog_gui_reform_synod = {
 	desc = "kog_gui_reform_synod_desc"
 	
 	visible = {
-		NOT = {
-			has_modifier = modifier_kog_reformed_synod
+		NOR = {
+			has_law = law_type:law_state_church
+			has_modifier = modifier_kog_restored_synod
 		}
 	}
 	possible = {
@@ -108,10 +109,15 @@ kog_gui_reform_synod = {
 		}
 	}
 	effect = {
-		add_modifier = modifier_kog_reformed_synod
+		activate_law = law_type:law_state_church
+		add_modifier = {
+			name = modifier_kog_reformed_synod
+			years = 10
+			is_decaying = yes
+		}
 		add_radicals = {
 			pop_type = clergymen
-			value = small_radicals
+			value = large_radicals
 		}
 	}
 	
@@ -125,24 +131,33 @@ kog_gui_restore_synod = {
 	desc = "kog_gui_restore_synod_desc"
 	
 	visible = {
-		has_modifier = modifier_kog_reformed_synod
+		has_law = law_type:law_state_church
+		NOR = {
+			has_modifier = modifier_kog_reformed_synod
+		}
 	}
 	possible = {
-		has_modifier = modifier_kog_reformed_synod
+		ig:ig_devout = {
+			is_insurrectionary = no
+			OR = {
+				is_marginal = no
+				is_in_government = yes
+			}
+		}
 		kog_capacity_trigger = {
-			value = 100
+			value = 500
 		}
 	}
 	effect = {
-		remove_modifier = modifier_kog_reformed_synod
+		activate_law = law_type:law_state_religion
 		add_modifier = {
 			name = modifier_kog_restored_synod
-			months = long_modifier_time
+			years = 5
 			is_decaying = yes
 		}
 		add_loyalists = {
 			pop_type = clergymen
-			value = small_radicals
+			value = medium_radicals
 		}
 		remove_variable = kog_caesaropapism_questioned
 	}
@@ -157,53 +172,71 @@ kog_gui_establish_schools = {
 	desc = "kog_gui_establish_schools_desc"
 	
 	visible = {
-		has_institution = institution_schools
-	}
-	selected = {
-		has_modifier = modifier_kog_sunday_schools
+		NOT = {
+			active_law:lawgroup_education_system = {
+				has_amendment = amendment_type:amendment_kog_sunday_schools
+			}
+		}
 	}
 	possible = {
-		trigger_if = {
-			limit = {
-				has_modifier = modifier_kog_sunday_schools
-			}
-			NOT = {
-				has_law = law_type:law_state_religion
-			}
-			ig:ig_devout = {
-				is_in_government = no
-			}
-		}
-		trigger_else = {
-			NOR = {
-				has_law = law_type:law_total_separation
-				has_law = law_type:law_state_atheism
-			}
-		}
-		custom_tooltip = {
-			text = kog_placeholder_text
-			NOT = {
-				has_variable = kog_sunday_schools_cooldown_var
-			}
+		has_law_or_variant = law_type:law_state_religion
+		has_institution = institution_schools
+		NOT = {
+			has_modifier = modifier_kog_disbanded_sunday_schools
 		}
 	}
 	effect = {
-		if = {
-			limit = {
-				has_modifier = modifier_kog_sunday_schools
+		active_law:lawgroup_education_system = {
+			add_amendment = {
+				type = amendment_kog_sunday_schools
+				sponsor = ig:ig_devout
 			}
-			remove_modifier = modifier_kog_sunday_schools
+		}
+		show_as_tooltip = {
+			add_modifier = {
+				name = modifier_kog_established_sunday_schools
+				years = 5
+				is_decaying = yes
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_disband_schools = {
+	name = kog_gui_disband_schools
+	desc = kog_gui_disband_schools_desc
+	
+	visible = {
+		active_law:lawgroup_education_system = {
+			has_amendment = amendment_type:amendment_kog_sunday_schools
+		}
+	}
+	possible = {
+		has_law_or_variant = law_type:law_state_religion
+		has_institution = institution_schools
+		NOT = {
+			has_modifier = modifier_kog_established_sunday_schools
+		}
+	}
+	effect = {
+		active_law:lawgroup_education_system = {
+			random_scope_amendment = {
+				limit = {
+					amendment_type:amendment_kog_sunday_schools ?= this.type
+				}
+				remove_amendment = yes
+			}
+		}
+		show_as_tooltip = {
 			add_modifier = {
 				name = modifier_kog_disbanded_sunday_schools
-				months = long_modifier_time
+				years = 5
+				is_decaying = yes
 			}
-		}
-		else = {
-			add_modifier = modifier_kog_sunday_schools
-		}
-		set_variable = {
-			name = kog_sunday_schools_cooldown_var
-			months = long_modifier_time
 		}
 	}
 	
