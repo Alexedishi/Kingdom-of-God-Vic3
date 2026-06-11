@@ -563,6 +563,14 @@ kog_owns_moscow_province_trigger = {
 	}
 }
 
+kog_owns_coptic_alexandria_province_trigger = {
+	always = no ## TODO
+}
+
+kog_owns_elysium_province_trigger = {
+	always = no ##TODO
+}
+
 ####----------- Episcopal Seat Control Triggers ----------####
 # THESE TRIGGERS EVALUATE FROM THE COUNTRY SCOPE!
 kog_controls_seat_trigger = {
@@ -573,7 +581,7 @@ kog_controls_rome_trigger = {
 	custom_description = {
 		text = kog_controls_rome_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_rome
+			has_modifier = modifier_kog_controls_rome
 		}
 	}
 }
@@ -582,7 +590,7 @@ kog_controls_santiago_trigger = {
 	custom_description = {
 		text = kog_controls_santiago_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_santiago
+			has_modifier = modifier_kog_controls_santiago
 		}
 	}
 }
@@ -591,7 +599,7 @@ kog_controls_paris_trigger = {
 	custom_description = {
 		text = kog_controls_paris_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_paris
+			has_modifier = modifier_kog_controls_paris
 		}
 	}
 }
@@ -600,7 +608,7 @@ kog_controls_koln_trigger = {
 	custom_description = {
 		text = kog_controls_koln_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_koln
+			has_modifier = modifier_kog_controls_koln
 		}
 	}
 }
@@ -609,7 +617,7 @@ kog_controls_vienna_trigger = {
 	custom_description = {
 		text = kog_controls_vienna_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_vienna
+			has_modifier = modifier_kog_controls_vienna
 		}
 	}
 }
@@ -618,17 +626,17 @@ kog_controls_constantinople_trigger = {
 	custom_description = {
 		text = kog_controls_constantinople_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_constantinople
+			has_modifier = modifier_kog_controls_constantinople
 		}
 	}
-	has_variable = kog_controls_constantinople
+	has_modifier = modifier_kog_controls_constantinople
 }
 
 kog_controls_antioch_trigger = {
 	custom_description = {
 		text = kog_controls_antioch_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_antioch
+			has_modifier = modifier_kog_controls_antioch
 		}
 	}
 }
@@ -637,7 +645,7 @@ kog_controls_jerusalem_trigger = {
 	custom_description = {
 		text = kog_controls_jerusalem_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_jerusalem
+			has_modifier = modifier_kog_controls_jerusalem
 		}
 	}
 }
@@ -646,7 +654,7 @@ kog_controls_alexandria_trigger = {
 	custom_description = {
 		text = kog_controls_alexandria_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_alexandria
+			has_modifier = modifier_kog_controls_alexandria
 		}
 	}
 }
@@ -655,7 +663,7 @@ kog_controls_moscow_trigger = {
 	custom_description = {
 		text = kog_controls_moscow_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_moscow
+			has_modifier = modifier_kog_controls_moscow
 		}
 	}
 }
@@ -664,7 +672,7 @@ kog_controls_coptic_alexandria_trigger = {
 	custom_description = {
 		text = kog_controls_coptic_alexandria_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_coptic_alexandria
+			has_modifier = modifier_kog_controls_coptic_alexandria
 		}
 	}
 }
@@ -673,7 +681,7 @@ kog_controls_syriac_antioch_trigger = {
 	custom_description = {
 		text = kog_controls_syriac_antioch_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_syriac_antioch
+			has_modifier = modifier_kog_controls_syriac_antioch
 		}
 	}
 }
@@ -682,7 +690,7 @@ kog_controls_etchmiadzin_trigger = {
 	custom_description = {
 		text = kog_controls_etchmiadzin_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_etchmiadzin
+			has_modifier = modifier_kog_controls_etchmiadzin
 		}
 	}
 }
@@ -691,7 +699,7 @@ kog_controls_addis_ababa_trigger = {
 	custom_description = {
 		text = kog_controls_addis_ababa_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_addis_ababa
+			has_modifier = modifier_kog_controls_addis_ababa
 		}
 	}
 }
@@ -700,7 +708,7 @@ kog_controls_konak_trigger = {
 	custom_description = {
 		text = kog_controls_konak_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_konak
+			has_modifier = modifier_kog_controls_konak
 		}
 	}
 }
@@ -709,7 +717,7 @@ kog_controls_elysium_trigger = {
 	custom_description = {
 		text = kog_controls_elysium_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_elysium
+			has_modifier = modifier_kog_controls_elysium
 		}
 	}
 }
@@ -718,7 +726,7 @@ kog_controls_mixtec_trigger = {
 	custom_description = {
 		text = kog_controls_mixtec_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_mixtec
+			has_modifier = modifier_kog_controls_mixtec
 		}
 	}
 }
@@ -727,7 +735,7 @@ kog_controls_cahokia_trigger = {
 	custom_description = {
 		text = kog_controls_cahokia_trigger
 		je:je_kog_local = {
-			has_variable = kog_controls_cahokia
+			has_modifier = modifier_kog_controls_cahokia
 		}
 	}
 }
@@ -768,24 +776,24 @@ kog_controls_any_seat_trigger = {
 		text = kog_controls_any_seat_trigger
 		je:je_kog_local = {
 			OR = {
-				has_variable = kog_controls_rome
-				has_variable = kog_controls_santiago
-				has_variable = kog_controls_paris
-				has_variable = kog_controls_koln
-				has_variable = kog_controls_vienna
-				has_variable = kog_controls_constantinople
-				has_variable = kog_controls_antioch
-				has_variable = kog_controls_alexandria
-				has_variable = kog_controls_jerusalem
-				has_variable = kog_controls_moscow
-				has_variable = kog_controls_coptic_alexandria
-				has_variable = kog_controls_syriac_antioch
-				has_variable = kog_controls_etchmiadzin
-				has_variable = kog_controls_addis_ababa
-				has_variable = kog_controls_konak
-				has_variable = kog_controls_elysium
-				has_variable = kog_controls_mixtec
-				has_variable = kog_controls_cahokia
+				has_modifier = modifier_kog_controls_rome
+				has_modifier = modifier_kog_controls_santiago
+				has_modifier = modifier_kog_controls_paris
+				has_modifier = modifier_kog_controls_koln
+				has_modifier = modifier_kog_controls_vienna
+				has_modifier = modifier_kog_controls_constantinople
+				has_modifier = modifier_kog_controls_antioch
+				has_modifier = modifier_kog_controls_alexandria
+				has_modifier = modifier_kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_moscow
+				has_modifier = modifier_kog_controls_coptic_alexandria
+				has_modifier = modifier_kog_controls_syriac_antioch
+				has_modifier = modifier_kog_controls_etchmiadzin
+				has_modifier = modifier_kog_controls_addis_ababa
+				has_modifier = modifier_kog_controls_konak
+				has_modifier = modifier_kog_controls_elysium
+				has_modifier = modifier_kog_controls_mixtec
+				has_modifier = modifier_kog_controls_cahokia
 			}
 		}
 	}
@@ -796,11 +804,11 @@ kog_controls_any_catholic_seat_trigger = {
 		text = kog_controls_any_catholic_seat_trigger
 		je:je_kog_local = {
 			OR = {
-				has_variable = kog_controls_rome
-				has_variable = kog_controls_santiago
-				has_variable = kog_controls_paris
-				has_variable = kog_controls_koln
-				has_variable = kog_controls_vienna
+				has_modifier = modifier_kog_controls_rome
+				has_modifier = modifier_kog_controls_santiago
+				has_modifier = modifier_kog_controls_paris
+				has_modifier = modifier_kog_controls_koln
+				has_modifier = modifier_kog_controls_vienna
 			}
 		}
 	}
@@ -811,11 +819,11 @@ kog_controls_any_orthodox_seat_trigger = {
 		text = kog_controls_any_orthodox_seat_trigger
 		je:je_kog_local = {
 			OR = {
-				has_variable = kog_controls_constantinople
-				has_variable = kog_controls_antioch
-				has_variable = kog_controls_alexandria
-				has_variable = kog_controls_jerusalem
-				has_variable = kog_controls_moscow
+				has_modifier = modifier_kog_controls_constantinople
+				has_modifier = modifier_kog_controls_antioch
+				has_modifier = modifier_kog_controls_alexandria
+				has_modifier = modifier_kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_moscow
 			}
 		}
 	}
@@ -826,10 +834,10 @@ kog_controls_any_ancient_seat_trigger = {
 		text = kog_controls_any_ancient_seat_trigger
 		je:je_kog_local = {
 			OR = {
-				has_variable = kog_controls_constantinople
-				has_variable = kog_controls_antioch
-				has_variable = kog_controls_alexandria
-				has_variable = kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_constantinople
+				has_modifier = modifier_kog_controls_antioch
+				has_modifier = modifier_kog_controls_alexandria
+				has_modifier = modifier_kog_controls_jerusalem
 			}
 		}
 	}
@@ -840,10 +848,10 @@ kog_controls_tetrarchy_trigger = {
 		text = kog_controls_tetrarchy_trigger
 		je:je_kog_local = {
 			AND = {
-				has_variable = kog_controls_constantinople
-				has_variable = kog_controls_antioch
-				has_variable = kog_controls_alexandria
-				has_variable = kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_constantinople
+				has_modifier = modifier_kog_controls_antioch
+				has_modifier = modifier_kog_controls_alexandria
+				has_modifier = modifier_kog_controls_jerusalem
 			}
 		}
 	}
@@ -854,10 +862,10 @@ kog_controls_pentarchy_trigger = {
 		text = kog_controls_pentarchy_trigger
 		je:je_kog_local = {
 			OR = {
-				has_variable = kog_controls_constantinople
-				has_variable = kog_controls_antioch
-				has_variable = kog_controls_alexandria
-				has_variable = kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_constantinople
+				has_modifier = modifier_kog_controls_antioch
+				has_modifier = modifier_kog_controls_alexandria
+				has_modifier = modifier_kog_controls_jerusalem
 			}
 		}
 	}
@@ -868,13 +876,13 @@ kog_controls_and_owns_tetrarchy_trigger = {
 		text = kog_controls_and_owns_tetrarchy
 		AND = {
 			owns_entire_state_region = STATE_EASTERN_THRACE
-			has_variable = kog_controls_constantinople
+			has_modifier = modifier_kog_controls_constantinople
 			owns_entire_state_region = STATE_SYRIA
-			has_variable = kog_controls_antioch
+			has_modifier = modifier_kog_controls_antioch
 			owns_entire_state_region = STATE_LOWER_EGYPT
-			has_variable = kog_controls_alexandria
+			has_modifier = modifier_kog_controls_alexandria
 			owns_entire_state_region = STATE_PALESTINE
-			has_variable = kog_controls_jerusalem
+			has_modifier = modifier_kog_controls_jerusalem
 		}
 	}
 }
@@ -884,17 +892,17 @@ kog_controls_and_owns_pentarchy_trigger = {
 		text = kog_controls_and_owns_pentarchy
 		AND = {
 			owns_entire_state_region = STATE_LAZIO
-			has_variable = kog_controls_rome
+			has_modifier = modifier_kog_controls_rome
 			owns_entire_state_region = STATE_EASTERN_THRACE
-			has_variable = kog_controls_constantinople
+			has_modifier = modifier_kog_controls_constantinople
 			owns_entire_state_region = STATE_SYRIA
-			has_variable = kog_controls_antioch
+			has_modifier = modifier_kog_controls_antioch
 			owns_entire_state_region = STATE_LOWER_EGYPT
-			has_variable = kog_controls_alexandria
+			has_modifier = modifier_kog_controls_alexandria
 			owns_entire_state_region = STATE_PALESTINE
-			has_variable = kog_controls_jerusalem
+			has_modifier = modifier_kog_controls_jerusalem
 			owns_entire_state_region = STATE_LAZIO
-			has_variable = kog_controls_rome
+			has_modifier = modifier_kog_controls_rome
 		}
 	}
 }
@@ -904,24 +912,24 @@ kog_controls_all_seats_trigger = {
 		text = kog_controls_all_seats_trigger
 		je:je_kog_local = {
 			OR = {
-				has_variable = kog_controls_rome
-				has_variable = kog_controls_santiago
-				has_variable = kog_controls_paris
-				has_variable = kog_controls_koln
-				has_variable = kog_controls_vienna
-				has_variable = kog_controls_constantinople
-				has_variable = kog_controls_antioch
-				has_variable = kog_controls_alexandria
-				has_variable = kog_controls_jerusalem
-				has_variable = kog_controls_moscow
-				has_variable = kog_controls_coptic_alexandria
-				has_variable = kog_controls_syriac_antioch
-				has_variable = kog_controls_etchmiadzin
-				has_variable = kog_controls_addis_ababa
-				has_variable = kog_controls_konak
-				has_variable = kog_controls_elysium
-				has_variable = kog_controls_mixtec
-				has_variable = kog_controls_cahokia
+				has_modifier = modifier_kog_controls_rome
+				has_modifier = modifier_kog_controls_santiago
+				has_modifier = modifier_kog_controls_paris
+				has_modifier = modifier_kog_controls_koln
+				has_modifier = modifier_kog_controls_vienna
+				has_modifier = modifier_kog_controls_constantinople
+				has_modifier = modifier_kog_controls_antioch
+				has_modifier = modifier_kog_controls_alexandria
+				has_modifier = modifier_kog_controls_jerusalem
+				has_modifier = modifier_kog_controls_moscow
+				has_modifier = modifier_kog_controls_coptic_alexandria
+				has_modifier = modifier_kog_controls_syriac_antioch
+				has_modifier = modifier_kog_controls_etchmiadzin
+				has_modifier = modifier_kog_controls_addis_ababa
+				has_modifier = modifier_kog_controls_konak
+				has_modifier = modifier_kog_controls_elysium
+				has_modifier = modifier_kog_controls_mixtec
+				has_modifier = modifier_kog_controls_cahokia
 			}
 		}
 	}
@@ -1016,6 +1024,14 @@ kog_integrating_moscow_trigger = {
 			has_variable = kog_integrating_moscow
 		}
 	}
+}
+
+kog_integrating_coptic_alexandria_trigger = {
+	always = no ##TODO
+}
+
+kog_integrating_elysium_trigger = {
+	always = no ##TODO
 }
 
 ####---------- Seat Enforcement Triggers ----------####
