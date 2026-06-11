@@ -74,7 +74,10 @@ kog_gui_commission_icon = {
 		}
 	}
 	effect = {
-		custom_tooltip = kog_placeholder_text # TODO add re-factored event
+		trigger_event = {
+			id = kog_orthodox_events.002
+			popup = yes
+		}
 		set_variable = {
 			name = kog_selecting_omen_var
 			months = 3
@@ -192,12 +195,10 @@ kog_gui_establish_schools = {
 				sponsor = ig:ig_devout
 			}
 		}
-		show_as_tooltip = {
-			add_modifier = {
-				name = modifier_kog_established_sunday_schools
-				years = 5
-				is_decaying = yes
-			}
+		add_modifier = {
+			name = modifier_kog_established_sunday_schools
+			years = 5
+			is_decaying = yes
 		}
 	}
 	
@@ -231,12 +232,10 @@ kog_gui_disband_schools = {
 				remove_amendment = yes
 			}
 		}
-		show_as_tooltip = {
-			add_modifier = {
-				name = modifier_kog_disbanded_sunday_schools
-				years = 5
-				is_decaying = yes
-			}
+		add_modifier = {
+			name = modifier_kog_disbanded_sunday_schools
+			years = 5
+			is_decaying = yes
 		}
 	}
 	
@@ -384,7 +383,6 @@ kog_gui_promote_ecumenism = {
 			}
 		}
 	}
-	
 	
 	ai_chance = {
 		value = 0

@@ -18,3 +18,35 @@ kog_on_theocracy_enacted = {
 		}
 	}
 }
+
+####---------- on_law_enactment_pass ----------####
+on_law_enactment_pass = {
+	on_actions = {
+		kog_education_law_enactment_pass
+	}
+}
+
+kog_education_law_enactment_pass = {
+	trigger = {
+		active_law:lawgroup_education_system ?= {
+			has_amendment = amendment_type:amendment_kog_sunday_schools
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				OR = {
+					ROOT.currently_enacting_law.type ?= law_type:law_religious_schools
+					ROOT.currently_enacting_law.type ?= law_type:law_public_schools
+					ROOT.currently_enacting_law.type ?= law_type:law_private_schools
+				}
+			}
+			currently_enacting_law = {
+				add_amendment = {
+					type = amendment_kog_sunday_schools
+					sponsor = prev.ig:ig_devout
+				}
+			}
+		}
+	}
+}

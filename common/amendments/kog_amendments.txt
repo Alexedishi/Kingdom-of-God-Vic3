@@ -26,22 +26,6 @@ amendment_kog_sunday_schools = {
 		always = no
 	}
 	
-	on_activate = {
-		add_modifier = {
-			name = modifier_kog_established_sunday_schools
-			years = 5
-			is_decaying = yes
-		}
-	}
-	
-	on_deactivate = {
-		add_modifier = {
-			name = modifier_kog_disbanded_sunday_schools
-			years = 5
-			is_decaying = yes
-		}
-	}
-	
 	can_repeal = {
 		legitimacy >= legitimacy_to_repeal_amendment
 	}

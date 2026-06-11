@@ -60,7 +60,7 @@
  modifier_kog_dissolved_monasteries: "Dissolved Monasteries"
  modifier_kog_restored_monasteries: "Restored the Monasteries"
  modifier_kog_subsidizing_church: "Subsidizing the Church"
- modifier_kog_sunday_schools: "Sunday Schools"
+ modifier_kog_established_sunday_schools: "Established Sunday Schools"
  modifier_kog_disbanded_sunday_schools: "Disbanded Sunday Schools"
  
  modifier_kog_canon_law_papal_primacy: "Papal Primacy"
@@ -301,10 +301,10 @@
  # Modifier Types
  country_modifier_no_effects: "No Effects"
  
- country_faith_capacity_add: "$kog_faith_capacity$"
- country_faith_capacity_add_desc: "$kog_faith_capacity$"
- country_faith_capacity_mult: "$kog_faith_capacity$"
- country_faith_capacity_mult_desc: "$kog_faith_capacity$"
+ country_faith_capacity_add: "@kog_faith_power! $kog_faith_capacity$"
+ country_faith_capacity_add_desc: "@kog_faith_power! $kog_faith_capacity$"
+ country_faith_capacity_mult: "@kog_faith_power! $kog_faith_capacity$"
+ country_faith_capacity_mult_desc: "@kog_faith_power! $kog_faith_capacity$"
  
  country_seat_relations_base_add: "Base $kog_episcopal_seat_relations$ Target"
  country_seat_relations_base_add_desc: "A flat increase or decrease to the target value for $kog_episcopal_seat_relations$ monthly decay."
@@ -317,9 +317,9 @@
  country_monthly_seat_relations_decay_mult: "Monthly $kog_episcopal_seat_relations$ Decay"
  country_monthly_seat_relations_decay_mult_desc: "A multiplicative increase or decrease to the monthly $kog_episcopal_seat_relations$ decay towards the target value"
  
- country_schism_threshold_add: "[concept_schism] Threshold"
+ country_schism_threshold_add: "@kog_schism! [concept_schism] Threshold"
  country_schism_threshold_add_desc: "A flat increase or decrease to the amount of [concept_faith_capacity] required to initiate a [concept_schism]"
- country_monthly_schism_progress_add: "Monthly [concept_autocephaly] Progress"
+ country_monthly_schism_progress_add: "@kog_schism! Monthly [concept_autocephaly] Progress"
  country_monthly_schism_progress_add_desc: "Monthly [concept_autocephaly] Progress"
  
  country_enable_collegium_bool: "Enable the [concept_collegium]"
