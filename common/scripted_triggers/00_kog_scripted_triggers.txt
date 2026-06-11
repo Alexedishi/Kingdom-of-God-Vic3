@@ -90,14 +90,6 @@ kog_capacity_trigger = {
 	}
 	custom_tooltip = {
 		text = kog_capacity_trigger
-		trigger_if = {
-			limit = {
-				is_player = yes
-			}
-			kog_capacity_value >= $value$
-		}
-		trigger_else = {
-			je:je_kog_local.var:kog_capacity_var >= $value$
-		}
+		kog_capacity_value >= $value$
 	}
 }

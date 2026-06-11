@@ -31,7 +31,6 @@ flowcontainer = {
 		kog_metropolis_panel = {}
 		kog_canon_laws_panel = {}
 		kog_collegium_panel = {}
-		kog_episcopal_seat_buttons = {}
 		kog_catholic_episcopal_seats_panel = {}
 		kog_orthodox_episcopal_seats_panel = {}
 	}
@@ -150,10 +149,16 @@ types kog_journal_widget_types {
 				text = "kog_gui_metropolis_header"
 			}
 			blockoverride "second_button_visibility_checked" {
-				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))]"
+				visible = "[And(
+					GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End),
+					Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))
+				)]"
 			}
 			blockoverride "second_button_visibility" {
-				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')]"
+				visible = "[And(
+					GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End),
+					GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')
+				)]"
 			}
 			blockoverride "second_button_click" {
 				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"

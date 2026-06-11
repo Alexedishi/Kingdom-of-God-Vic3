@@ -23,6 +23,7 @@ je_kog_orthodox = {
 	
 	# Orthodox Decision Buttons
 	scripted_button = kog_gui_reform_synod
+	scripted_button = kog_gui_restore_synod
 	scripted_button = kog_gui_establish_schools
 	
 	# Ecumenical Decision Buttons
@@ -85,6 +86,10 @@ je_kog_orthodox = {
 	
 	should_show_when_not_involved = {
 		kog_content_scope_trigger = yes
+	}
+	
+	modifiers_while_active = {
+		modifier_kog_orthodox
 	}
 	
 	immediate = {
