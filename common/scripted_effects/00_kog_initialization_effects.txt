@@ -1884,10 +1884,6 @@ kog_initialize_metropolis_effect = {
 			name = kog_votes_var
 			value = owner.kog_votes_value
 		}
-		set_variable = {
-			name = kog_capacity_var
-			value = owner.kog_capacity_value
-		}
 	}
 	kog_update_piety_modifier_effect = yes
 }
@@ -1896,6 +1892,7 @@ kog_specific_country_setups_effect = {
 	# Override this effect for mod-specific starting setups
 	# This is done this way to avoid having to integrate dummy country definitions into kog
 	# Unless you are making a TC or alt-history mod, probably leave this untouched
+	# Law setup is handled in COUNTRIES history
 	
 	## Catholic Setup ##
 	c:PAP = {
@@ -1977,5 +1974,17 @@ kog_initialization_final_effect = {
 		}
 		kog_update_devout_member_traits_effect = yes
 		kog_update_episcopal_seat_count_effect = yes
+		if = {
+			limit = {
+				kog_country_is_roman_catholic_trigger = yes
+			}
+			trigger_event = kog_catholic_events.001
+		}
+		else_if = {
+			limit = {
+				kog_country_is_eastern_orthodox_trigger = yes
+			}
+			trigger_event = kog_orthodox_events.001
+		}
 	}
 }

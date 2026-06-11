@@ -16,16 +16,20 @@ kog_holy_site_events.001 = {
 	event_image = {
 		video = "southamerica_christianity"
 	}
-	
-	
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
 	
 	trigger = {
-		# triggered by eocfm.2000
+		NOT = {
+			has_global_variable = kog_hagia_sophia_liberated
+		}
+		p:xF0A020 = {
+			owner = root
+		}
 	}
 	
 	immediate = {
+		set_global_variable = {  }
 	}
 	
 	option = {
