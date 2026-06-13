@@ -9,14 +9,14 @@
  
  
  ####---------- Canon Law Script Value Descriptions ----------####
- kog_value_from_investiture_compliance: "having [GetPlayer.GetActiveLawFromGroup('lawgroup_investiture').GetName] enacted in [GetPlayer.GetNameNoFlag] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_statism_var').GetFlagName] is an active [concept_canon_law]"
- kog_value_from_land_reform: "having [GetPlayer.GetActiveLawFromGroup('lawgroup_land_reform').GetName] enacted in [GetPlayer.GetNameNoFlag] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_social_role_var').GetFlagName] is an active [concept_canon_law]"
- kog_value_from_schooling: "the amount of [Concept('concept_investment_level', '$concept_investment_levels$')] into the [GetInstitutionType('institution_schools').GetName] [concept_institution] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_social_role_var').GetFlagName] is an active [concept_canon_law]"
- kog_value_from_labor_rights: "the amount of [Concept('concept_investment_level', '$concept_investment_levels$')] into the [GetInstitutionType('institution_workplace_safety').GetName] [concept_institution] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_social_role_var').GetFlagName] is an active [concept_canon_law]"
- kog_value_from_womens_rights: "having [GetPlayer.GetActiveLawFromGroup('lawgroup_rights_of_women').GetName] enacted in [GetPlayer.GetNameNoFlag] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_statism_var').GetFlagName] is an active [concept_canon_law]"
- kog_value_from_clerical_universities: "the number of [GetBuildingType('building_university').GetName] [Concept('concept_building_level', '$concept_building_levels$s')] in [GetPlayer.GetNameNoFlag] with the #bold $pm_religious_academia$#! [concept_production_method] active"
- kog_value_from_academic_universities: "the number of [GetBuildingType('building_university').GetName] [Concept('concept_building_level', '$concept_building_levels$s')] in [GetPlayer.GetNameNoFlag] with the #bold $pm_secular_academia$#! [concept_production_method] active"
- kog_value_from_literacy_rate: "the average [concept_literacy] rate in [GetPlayer.GetNameNoFlag]"
+ kog_value_from_investiture_compliance: "#indent_newline:3 having [GetPlayer.GetActiveLawFromGroup('lawgroup_investiture').GetName] enacted in [GetPlayer.GetNameNoFlag] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_statism_var').GetFlagName] is an active [concept_canon_law]#!"
+ kog_value_from_land_reform: "#indent_newline:3 having [GetPlayer.GetActiveLawFromGroup('lawgroup_land_reform').GetName] enacted in [GetPlayer.GetNameNoFlag] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_social_role_var').GetFlagName] is an active [concept_canon_law]#!"
+ kog_value_from_schooling: "#indent_newline:3 the amount of [Concept('concept_investment_level', '$concept_investment_levels$')] into the [GetInstitutionType('institution_schools').GetName] [concept_institution] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_social_role_var').GetFlagName] is an active [concept_canon_law]#!"
+ kog_value_from_labor_rights: "#indent_newline:3 the amount of [Concept('concept_investment_level', '$concept_investment_levels$')] into the [GetInstitutionType('institution_workplace_safety').GetName] [concept_institution] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_social_role_var').GetFlagName] is an active [concept_canon_law]#!"
+ kog_value_from_womens_rights: "#indent_newline:3 having [GetPlayer.GetActiveLawFromGroup('lawgroup_rights_of_women').GetName] enacted in [GetPlayer.GetNameNoFlag] while [GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_canon_law_statism_var').GetFlagName] is an active [concept_canon_law]#!"
+ kog_value_from_clerical_universities: "#indent_newline:3 the number of [GetBuildingType('building_university').GetName] [Concept('concept_building_level', '$concept_building_levels$s')] in [GetPlayer.GetNameNoFlag] with the #bold $pm_religious_academia$#! [concept_production_method] active#!"
+ kog_value_from_academic_universities: "#indent_newline:3 the number of [GetBuildingType('building_university').GetName] [Concept('concept_building_level', '$concept_building_levels$s')] in [GetPlayer.GetNameNoFlag] with the #bold $pm_secular_academia$#! [concept_production_method] active#!"
+ kog_value_from_literacy_rate: "#indent_newline:3 the average [concept_literacy] rate in [GetPlayer.GetNameNoFlag]#!"
  
  
  ####---------- Schism Script Value Descriptions ----------####
@@ -93,7 +93,7 @@
  kog_value_from_controls_konak: "$kog_controlling$ $kog_konak$"
  
  kog_value_from_controls_elysium: "$kog_controlling$ $kog_elysium$"
- kog_value_from_controls_mixtec: "$kog_controlling$ $kog_mixtec$"
+ kog_value_from_controls_tututepec: "$kog_controlling$ $kog_tututepec$"
  kog_value_from_controls_cahokia: "$kog_controlling$ $kog_cahokia$"
  
  kog_value_from_rome_opinion: "$kog_rome$'s opinion of [GetPlayer.GetNameNoFlag]"

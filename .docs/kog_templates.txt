@@ -92,6 +92,16 @@ kog_gui_enforce_temp: "Enforce Rite on $kog_temp$"
 kog_gui_enforce_temp_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_temp$"
 kog_gui_install_temp: "Install Bishop in $kog_temp$"
 
+kog_tempkey_sgui = {
+	scope = journal_entry
+	
+	is_shown = {
+		has_variable = kog_religion_var
+		has_global_variable_map = kog_tempkey
+		var:kog_religion_var = "global_variable_map(kog_tempkey|flag:kog_seat_religion)"
+	}
+}
+
 ####---------- Seat Patriarch Update Effect ----------####
 kog_update_tempkey_patriatch_effect = {
 	# Step 1, Ensure the relevant variable map exists

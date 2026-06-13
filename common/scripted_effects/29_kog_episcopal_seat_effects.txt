@@ -281,9 +281,9 @@ kog_evaluate_seat_endorsements_effect = {
 		}
 		if = {
 			limit = {
-				je:je_kog_local.var:kog_mixtec_relations_var >= kog_opinion_threshold_friendly
+				je:je_kog_local.var:kog_tututepec_relations_var >= kog_opinion_threshold_friendly
 			}
-			add_modifier = modifier_kog_endorsed_by_mixtec
+			add_modifier = modifier_kog_endorsed_by_tututepec
 		}
 		if = {
 			limit = {
@@ -398,9 +398,9 @@ kog_evaluate_seat_condemnations_effect = {
 		}
 		if = {
 			limit = {
-				je:je_kog_local.var:kog_mixtec_relations_var < kog_opinion_threshold_hostile
+				je:je_kog_local.var:kog_tututepec_relations_var < kog_opinion_threshold_hostile
 			}
-			add_modifier = modifier_kog_condemned_by_mixtec
+			add_modifier = modifier_kog_condemned_by_tututepec
 		}
 		if = {
 			limit = {
@@ -428,7 +428,7 @@ kog_clear_seat_endorsements_effect = {
 	remove_modifier = modifier_kog_endorsed_by_addis_ababa
 	remove_modifier = modifier_kog_endorsed_by_konak
 	remove_modifier = modifier_kog_endorsed_by_elysium
-	remove_modifier = modifier_kog_endorsed_by_mixtec
+	remove_modifier = modifier_kog_endorsed_by_tututepec
 	remove_modifier = modifier_kog_endorsed_by_cahokia
 }
 
@@ -453,7 +453,7 @@ kog_clear_seat_condemnations_effect = {
 			basileia_is_active = yes
 		}
 		remove_modifier = modifier_kog_condemned_by_elysium
-		remove_modifier = modifier_kog_condemned_by_mixtec
+		remove_modifier = modifier_kog_condemned_by_tututepec
 		remove_modifier = modifier_kog_condemned_by_cahokia
 	}
 }
@@ -620,10 +620,10 @@ kog_seat_integration_monthly_progress_effect = {
 		}
 		if = {
 			limit = {
-				has_variable = kog_integrating_mixtec
+				has_variable = kog_integrating_tututepec
 			}
 			change_variable = {
-				name = kog_integrating_mixtec
+				name = kog_integrating_tututepec
 				add = 1
 			}
 		}
@@ -906,7 +906,7 @@ kog_select_random_elysian_seat_effect = {
 		5 = {
 			set_variable = {
 				name = kog_seat_event_var
-				value = flag:kog_mixtec
+				value = flag:kog_tututepec
 			}
 		}
 		5 = {
@@ -1100,12 +1100,12 @@ kog_select_random_controlled_seat_effect = {
 		5 = {
 			trigger = {
 				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_mixtec
+					has_modifier = modifier_kog_controls_tututepec
 				}
 			}
 			set_variable = {
 				name = kog_seat_event_var
-				value = flag:kog_mixtec
+				value = flag:kog_tututepec
 			}
 		}
 		5 = {
@@ -1271,11 +1271,11 @@ kog_select_random_swayed_seat_effect = {
 		}
 		5 = {
 			trigger = {
-				has_modifier = modifier_kog_swaying_mixtec
+				has_modifier = modifier_kog_swaying_tututepec
 			}
 			set_variable = {
 				name = kog_seat_event_var
-				value = flag:kog_mixtec
+				value = flag:kog_tututepec
 			}
 		}
 		5 = {
@@ -1439,11 +1439,11 @@ kog_select_random_antagonized_seat_effect = {
 		}
 		5 = {
 			trigger = {
-				has_modifier = modifier_kog_antagonizing_mixtec
+				has_modifier = modifier_kog_antagonizing_tututepec
 			}
 			set_variable = {
 				name = kog_seat_event_var
-				value = flag:kog_mixtec
+				value = flag:kog_tututepec
 			}
 		}
 		5 = {
@@ -1566,7 +1566,7 @@ kog_select_random_seat_effect_old = {
 			}
 			set_variable = {
 				name = kog_seat_event_var
-				value = flag:kog_mixtec
+				value = flag:kog_tututepec
 			}
 		}
 		5 = {

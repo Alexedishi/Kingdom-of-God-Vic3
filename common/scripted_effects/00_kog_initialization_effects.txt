@@ -10,10 +10,23 @@
 #	kog_initialize_oriental_variables_effect = yes
 #	kog_initialize_lutheran_variables_effect = yes
 #	kog_initialize_anglican_variables_effect = yes
-#	kog_initialize_elysian_variables_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_initialize_elysian_variables_effect = yes
+	}
 	
 	#### Step 3, Create Patriarchs and Capture Heads of Faith
-	kog_initialize_patriarchs_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_initialize_1736_patriarchs_effect = yes
+	}
+	else = {
+		kog_initialize_1836_patriarchs_effect = yes
+	}
 	
 	#### Step 4, Create Seat Variable Maps
 	kog_initialize_rome_variable_map_effect = yes
@@ -26,6 +39,14 @@
 	kog_initialize_jerusalem_variable_map_effect = yes
 	kog_initialize_alexandria_variable_map_effect = yes
 	kog_initialize_moscow_variable_map_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_initialize_elysium_variable_map_effect = yes
+		kog_initialize_onondaga_variable_map_effect = yes
+		kog_initialize_tututepec_variable_map_effect = yes
+	}
 	
 	#### Step 5, Create the College of Cardinals
 	kog_initialize_collegium_effect = yes
@@ -45,7 +66,7 @@
 	kog_specific_country_setups_effect = yes
 	
 	#### Step 9, Any Final Effects
-	kog_initialization_final_effect = yes
+	kog_initialization_cleanup_effect = yes
 }
 
 ####---------- Journal and Denomination Variable Initialization ----------####
@@ -55,7 +76,12 @@ kog_activate_contextless_journals_effect = {
 #	add_contextless_journal_entry = je_kog_oriental
 #	add_contextless_journal_entry = je_kog_lutheran
 #	add_contextless_journal_entry = je_kog_anglican
-#	add_contextless_journal_entry = je_kog_elysian
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		add_contextless_journal_entry = je_kog_elysian
+	}
 }
 
 kog_initialize_catholic_variables_effect = {
@@ -194,13 +220,7 @@ kog_initialize_lutheran_variables_effect = {}
 
 kog_initialize_anglican_variables_effect = {}
 
-kog_initialize_elysian_variables_effect = {
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-	}
-}
+kog_initialize_elysian_variables_effect = {} # Override this in BR
 
 kog_initialize_catholic_button_lists_effect = {
 	## Ecumenical Decision List
@@ -521,7 +541,7 @@ kog_initialize_orthodox_button_lists_effect = {
 		target = flag:kog_gui_install_constantinople
 	}
 	
-	## antioch Action List
+	## Antioch Action List
 	add_to_variable_list = {
 		name = kog_antioch_actions_list
 		target = flag:kog_gui_sway_antioch
@@ -543,7 +563,7 @@ kog_initialize_orthodox_button_lists_effect = {
 		target = flag:kog_gui_install_antioch
 	}
 	
-	## jerusalem Action List
+	## Jerusalem Action List
 	add_to_variable_list = {
 		name = kog_jerusalem_actions_list
 		target = flag:kog_gui_sway_jerusalem
@@ -565,7 +585,7 @@ kog_initialize_orthodox_button_lists_effect = {
 		target = flag:kog_gui_install_jerusalem
 	}
 	
-	## alexandria Action List
+	## Alexandria Action List
 	add_to_variable_list = {
 		name = kog_alexandria_actions_list
 		target = flag:kog_gui_sway_alexandria
@@ -587,7 +607,7 @@ kog_initialize_orthodox_button_lists_effect = {
 		target = flag:kog_gui_install_alexandria
 	}
 	
-	## moscow Action List
+	## Moscow Action List
 	add_to_variable_list = {
 		name = kog_moscow_actions_list
 		target = flag:kog_gui_sway_moscow
@@ -607,6 +627,214 @@ kog_initialize_orthodox_button_lists_effect = {
 	add_to_variable_list = {
 		name = kog_moscow_actions_list
 		target = flag:kog_gui_install_moscow
+	}
+}
+
+kog_initialize_elysian_button_lists_effect = {
+	## Ecumenical Decision List
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_declare_autocephaly
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_convoke_council
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_tetrarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_secure_pentarchy
+	}
+	add_to_variable_list = {
+		name = kog_ecumenical_decisions_list
+		target = flag:kog_gui_mend_schism
+	}
+	
+	## Metropolitan Action List
+	add_to_variable_list = {
+		name = kog_focus_buttons_list
+		target = flag:kog_gui_emphasize_unity
+	}
+	add_to_variable_list = {
+		name = kog_focus_buttons_list
+		target = flag:kog_gui_enforce_attendance
+	}
+	add_to_variable_list = {
+		name = kog_focus_buttons_list
+		target = flag:kog_gui_theologize_dogma
+	}
+	add_to_variable_list = {
+		name = kog_focus_buttons_list
+		target = flag:kog_gui_promote_ecumenism
+	}
+	
+	## Denominational Decision List
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_commission_icon
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_reform_synod
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_restore_synod
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_establish_schools
+	}
+	add_to_variable_list = {
+		name = kog_metropolitan_actions_list
+		target = flag:kog_gui_disband_schools
+	}
+	
+	## Canon Law Lists
+	add_to_variable_list = {
+		name = kog_apostolic_succession_list
+		target = flag:kog_gui_debate_apostolic_succession
+	}
+	add_to_variable_list = {
+		name = kog_almsgiving_list
+		target = flag:kog_gui_debate_almsgiving
+	}
+	add_to_variable_list = {
+		name = kog_iconography_list
+		target = flag:kog_gui_debate_iconography
+	}
+	add_to_variable_list = {
+		name = kog_clerical_marriage_list
+		target = flag:kog_gui_debate_clerical_marriage
+	}
+	add_to_variable_list = {
+		name = kog_social_role_list
+		target = flag:kog_gui_debate_social_role
+	}
+	add_to_variable_list = {
+		name = kog_stance_on_sciences_list
+		target = flag:kog_gui_debate_stance_on_sciences
+	}
+	add_to_variable_list = {
+		name = kog_crusades_list
+		target = flag:kog_gui_debate_crusades
+	}
+	
+	## Elysium Action List
+	add_to_variable_list = {
+		name = kog_elysium_actions_list
+		target = flag:kog_gui_sway_elysium
+	}
+	add_to_variable_list = {
+		name = kog_elysium_actions_list
+		target = flag:kog_gui_antagonize_elysium
+	}
+	add_to_variable_list = {
+		name = kog_elysium_actions_list
+		target = flag:kog_gui_integrate_elysium
+	}
+	add_to_variable_list = {
+		name = kog_elysium_actions_list
+		target = flag:kog_gui_assert_elysium
+	}
+	add_to_variable_list = {
+		name = kog_elysium_actions_list
+		target = flag:kog_gui_enforce_elysium
+	}
+	add_to_variable_list = {
+		name = kog_elysium_actions_list
+		target = flag:kog_gui_install_elysium
+	}
+	
+	## Onondaga Action List
+	add_to_variable_list = {
+		name = kog_onondaga_actions_list
+		target = flag:kog_gui_sway_onondaga
+	}
+	add_to_variable_list = {
+		name = kog_onondaga_actions_list
+		target = flag:kog_gui_antagonize_onondaga
+	}
+	add_to_variable_list = {
+		name = kog_onondaga_actions_list
+		target = flag:kog_gui_integrate_onondaga
+	}
+	add_to_variable_list = {
+		name = kog_onondaga_actions_list
+		target = flag:kog_gui_enforce_onondaga
+	}
+	add_to_variable_list = {
+		name = kog_onondaga_actions_list
+		target = flag:kog_gui_install_onondaga
+	}
+	
+	## Tututepec Action List
+	add_to_variable_list = {
+		name = kog_tututepec_actions_list
+		target = flag:kog_gui_sway_tututepec
+	}
+	add_to_variable_list = {
+		name = kog_tututepec_actions_list
+		target = flag:kog_gui_antagonize_tututepec
+	}
+	add_to_variable_list = {
+		name = kog_tututepec_actions_list
+		target = flag:kog_gui_integrate_tututepec
+	}
+	add_to_variable_list = {
+		name = kog_tututepec_actions_list
+		target = flag:kog_gui_enforce_tututepec
+	}
+	add_to_variable_list = {
+		name = kog_tututepec_actions_list
+		target = flag:kog_gui_install_tututepec
+	}
+	
+	## Cahokia Action List
+	add_to_variable_list = {
+		name = kog_cahokia_actions_list
+		target = flag:kog_gui_sway_cahokia
+	}
+	add_to_variable_list = {
+		name = kog_cahokia_actions_list
+		target = flag:kog_gui_antagonize_cahokia
+	}
+	add_to_variable_list = {
+		name = kog_cahokia_actions_list
+		target = flag:kog_gui_integrate_cahokia
+	}
+	add_to_variable_list = {
+		name = kog_cahokia_actions_list
+		target = flag:kog_gui_enforce_cahokia
+	}
+	add_to_variable_list = {
+		name = kog_cahokia_actions_list
+		target = flag:kog_gui_install_cahokia
+	}
+	
+	## Cayacoa Action List
+	add_to_variable_list = {
+		name = kog_cayacoa_actions_list
+		target = flag:kog_gui_sway_cayacoa
+	}
+	add_to_variable_list = {
+		name = kog_cayacoa_actions_list
+		target = flag:kog_gui_antagonize_cayacoa
+	}
+	add_to_variable_list = {
+		name = kog_cayacoa_actions_list
+		target = flag:kog_gui_integrate_cayacoa
+	}
+	add_to_variable_list = {
+		name = kog_cayacoa_actions_list
+		target = flag:kog_gui_enforce_cayacoa
+	}
+	add_to_variable_list = {
+		name = kog_cayacoa_actions_list
+		target = flag:kog_gui_install_cayacoa
 	}
 }
 
@@ -1240,8 +1468,18 @@ kog_initialize_moscow_variable_map_effect = {
 	}
 }
 
+kog_initialize_elysium_variable_map_effect = {} # Override this in BR
+
+kog_initialize_onondaga_variable_map_effect = {} # Override this in BR
+
+kog_initialize_tututepec_variable_map_effect = {} # Override this in BR
+
+kog_initialize_cahokia_variable_map_effect = {} # Override this in BR
+
+kog_initialize_cayacoa_variable_map_effect = {} # Override this in BR
+
 ####---------- Other Content Initialization Effects ----------####
-kog_initialize_patriarchs_effect = {
+kog_initialize_1836_patriarchs_effect = {
 	# Override this effect for mod-specific starting Patriarchs
 	# These are specific to the 1836 start in Victoria 3
 	
@@ -1456,6 +1694,8 @@ kog_initialize_patriarchs_effect = {
 		}
 	}
 }
+
+kog_initialize_1736_patriarchs_effect = {} # Override this in BR
 
 kog_initialize_collegium_effect = {
 	# First, place extant Catholic Devout leaders into the Cardinal list
@@ -1783,7 +2023,7 @@ kog_initialize_metropolis_effect = {
 				value = kog_opinion_start_value
 			}
 			set_variable = {
-				name = kog_mixtec_relations_var
+				name = kog_tututepec_relations_var
 				value = kog_opinion_start_value
 			}
 		}
@@ -1860,7 +2100,7 @@ kog_initialize_metropolis_effect = {
 				value = kog_opinion_start_value
 			}
 			set_variable = {
-				name = kog_mixtec_opinion_var
+				name = kog_tututepec_opinion_var
 				value = kog_opinion_start_value
 			}
 			set_variable = {
@@ -1934,7 +2174,7 @@ kog_specific_country_setups_effect = {
 	}
 }
 
-kog_initialization_final_effect = {
+kog_initialization_cleanup_effect = {
 	## Update Communion Lists
 	global_var:je_kog_catholic = {
 		kog_update_schism_list_effect = {

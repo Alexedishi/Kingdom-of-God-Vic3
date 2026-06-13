@@ -1,1 +1,156 @@
-﻿
+﻿####---------- ELYSIAN ORTHODOX GLOBAL JOURNAL ----------####
+je_kog_elysian = {
+	group = je_group_com_religious_organizations
+	icon = "gfx/interface/icons/religion_icons/elysian_orthodox.dds"
+	weight = 0
+	
+	should_be_pinned_by_default_involved = yes
+	
+	widget = {
+		gui = "gui/journal_entry_widgets/kog_journal_widgets.gui"
+		name = "widget_kog_church_interorg"
+		container = "custom_widget_container_je_icon"
+	}
+	
+	# Omen Button
+	scripted_button = kog_gui_commission_icon
+	
+	# Metropolis Buttons
+	scripted_button = kog_gui_emphasize_unity
+	scripted_button = kog_gui_enforce_attendance
+	scripted_button = kog_gui_theologize_dogma
+	scripted_button = kog_gui_promote_ecumenism
+	
+	# Orthodox Decision Buttons
+	scripted_button = kog_gui_reform_synod
+	scripted_button = kog_gui_restore_synod
+	scripted_button = kog_gui_establish_schools
+	scripted_button = kog_gui_disband_schools
+	
+	# Ecumenical Decision Buttons
+	scripted_button = kog_gui_declare_autocephaly
+	scripted_button = kog_gui_convoke_council
+#	scripted_button = kog_gui_orthodox_communion
+#	scripted_button = kog_gui_secure_tetrarchy
+#	scripted_button = kog_gui_secure_pentarchy
+#	scripted_button = kog_gui_mend_schism
+#	scripted_button = kog_gui_found_cahokia
+#	scripted_button = kog_gui_found_cayacoa
+	
+	# Canon Law Debate Buttons
+	scripted_button = kog_gui_debate_apostolic_succession
+	scripted_button = kog_gui_debate_almsgiving
+	scripted_button = kog_gui_debate_iconography
+	scripted_button = kog_gui_debate_statism
+	scripted_button = kog_gui_debate_nationalism
+	scripted_button = kog_gui_debate_clerical_marriage
+	scripted_button = kog_gui_debate_social_role
+	scripted_button = kog_gui_debate_stance_on_sciences
+	scripted_button = kog_gui_debate_crusades
+	
+	# Episcopal Seat Buttons
+	scripted_button = kog_gui_sway_elysium
+	scripted_button = kog_gui_antagonize_elysium
+	scripted_button = kog_gui_integrate_elysium
+	scripted_button = kog_gui_assert_elysium
+	scripted_button = kog_gui_enforce_elysium
+	scripted_button = kog_gui_install_elysium
+	
+	scripted_button = kog_gui_sway_onondaga
+	scripted_button = kog_gui_antagonize_onondaga
+	scripted_button = kog_gui_integrate_onondaga
+	scripted_button = kog_gui_enforce_onondaga
+	scripted_button = kog_gui_install_onondaga
+	
+	scripted_button = kog_gui_sway_tututepec
+	scripted_button = kog_gui_antagonize_tututepec
+	scripted_button = kog_gui_integrate_tututepec
+	scripted_button = kog_gui_enforce_tututepec
+	scripted_button = kog_gui_install_tututepec
+	
+	scripted_button = kog_gui_sway_cahokia
+	scripted_button = kog_gui_antagonize_cahokia
+	scripted_button = kog_gui_integrate_cahokia
+	scripted_button = kog_gui_enforce_cahokia
+	scripted_button = kog_gui_install_cahokia
+	
+	scripted_button = kog_gui_sway_cayacoa
+	scripted_button = kog_gui_antagonize_cayacoa
+	scripted_button = kog_gui_integrate_cayacoa
+	scripted_button = kog_gui_enforce_cayacoa
+	scripted_button = kog_gui_install_cayacoa
+	
+	is_shown_in_lobby = {
+		basileia_is_active = yes
+		kog_country_is_elysian_orthodox_trigger = yes
+	}
+	
+	should_be_involved = {
+		basileia_is_active = yes
+		kog_country_is_elysian_orthodox_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	modifiers_while_active = {
+		modifier_kog_elysian
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			com_hide_all_journal_elements_for_interorg_effect = yes
+			com_set_international_organization_headquaters_effect = {
+				state_region = s:STATE_WASHINGTON
+			}
+			kog_initialize_elysian_button_lists_effect = yes
+			set_variable = kog_enable_encyclicals_panel
+			set_variable = kog_enable_councils_panel
+			save_scope_as = je_kog_elysian
+		}
+		set_global_variable = {
+			name = je_kog_elysian
+			value = scope:je_kog_elysian
+		}
+	}
+	
+	immediate_all_involved = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_elysian
+		}
+	}
+	
+	on_become_involved_after_activation = {
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_elysian
+		}
+	}
+	
+	complete = {
+		always = no
+	}
+	
+	invalid = {
+		basileia_is_active = no
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				kog_validate_global_journal_involvement_effect = {
+					type = je_kog_elysian
+					trigger = kog_country_is_elysian_orthodox_trigger
+				}
+				kog_update_schism_list_effect = {
+					type = je_kog_elysian
+				}
+				kog_update_autocephaly_list_effect = {
+					type = je_kog_elysian
+				}
+			}
+		}
+	}
+}

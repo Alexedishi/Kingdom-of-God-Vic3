@@ -1699,3 +1699,854 @@ kog_gui_install_moscow = {
 		value = 0
 	}
 }
+
+####---------- Elysian Orthodox Seat Buttons ----------####
+#### CONSTANTINOPLE
+kog_gui_sway_elysium = {
+	name = kog_gui_sway_elysium
+	desc = kog_gui_sway_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_elysium
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_elysium
+			}
+			remove_modifier = modifier_kog_swaying_elysium
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_elysium
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_antagonize_elysium = {
+	name = kog_gui_antagonize_elysium
+	desc = kog_gui_antagonize_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_elysium
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_elysium
+			}
+			remove_modifier = modifier_kog_antagonizing_elysium
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_elysium
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_integrate_elysium = {
+	name = kog_gui_integrate_elysium
+	desc = kog_gui_integrate_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_modifier = modifier_kog_controls_elysium
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_elysium
+		}
+	}
+	possible = {
+		kog_owns_elysium_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		kog_start_seat_integration_effect = {
+			seat = elysium
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_enforce_elysium = {
+	name = kog_gui_enforce_elysium
+	desc = kog_gui_enforce_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_elysium
+			var:kog_liturgical_rite_var != "global_variable_map(kog_elysium|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_elysium_enforcement_var
+		}
+	}
+	possible = {
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = elysium
+			}
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			seat = elysium
+			value = kog_opinion_threshold_friendly
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_elysium
+		custom_tooltip = {
+			text = kog_gui_enforce_elysium_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_elysium_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_install_elysium = {
+	name = kog_gui_install_elysium
+	desc = kog_gui_install_seat_desc
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_assert_elysium = {
+	name = kog_gui_assert_elysium
+	desc = kog_gui_assert_seat_desc
+	
+	visible = {
+		"global_variable_map(kog_elysium|flag:kog_seat_religion)" = root.religion
+		je:je_kog_local = {
+			NOR = {
+				has_modifier = modifier_kog_controls_elysium
+				has_modifier = modifier_kog_autocephalous
+			}
+		}
+	}
+	possible = {
+		kog_owns_elysium_province_trigger = yes
+		kog_capacity_trigger = {
+			value = 400
+		}
+		NOT = {
+			has_modifier = modifier_kog_asserted_seat
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = kog_episcopal_events.180
+			popup = yes
+		}
+		show_as_tooltip = {
+			kog_assert_seat_control_effect = {
+				seat = elysium
+			}
+		}
+	}
+}
+
+#### ANTIOCH
+kog_gui_sway_onondaga = {
+	name = kog_gui_sway_onondaga
+	desc = kog_gui_sway_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_onondaga
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_onondaga
+			}
+			remove_modifier = modifier_kog_swaying_onondaga
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_onondaga
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_antagonize_onondaga = {
+	name = kog_gui_antagonize_onondaga
+	desc = kog_gui_antagonize_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_onondaga
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_onondaga
+			}
+			remove_modifier = modifier_kog_antagonizing_onondaga
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_onondaga
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_integrate_onondaga = {
+	name = kog_gui_integrate_onondaga
+	desc = kog_gui_integrate_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_modifier = modifier_kog_controls_onondaga
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_onondaga
+		}
+	}
+	possible = {
+		kog_owns_onondaga_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		kog_start_seat_integration_effect = {
+			seat = onondaga
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_enforce_onondaga = {
+	name = kog_gui_enforce_onondaga
+	desc = kog_gui_enforce_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_onondaga
+			var:kog_liturgical_rite_var != "global_variable_map(kog_onondaga|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_onondaga_enforcement_var
+		}
+	}
+	possible = {
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = onondaga
+			}
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			seat = onondaga
+			value = kog_opinion_threshold_friendly
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_onondaga
+		custom_tooltip = {
+			text = kog_gui_enforce_onondaga_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_onondaga_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_install_onondaga = {
+	name = kog_gui_install_onondaga
+	desc = kog_gui_install_seat_desc
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### JERUSALEM
+kog_gui_sway_tututepec = {
+	name = kog_gui_sway_tututepec
+	desc = kog_gui_sway_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_tututepec
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_tututepec
+			}
+			remove_modifier = modifier_kog_swaying_tututepec
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_tututepec
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_antagonize_tututepec = {
+	name = kog_gui_antagonize_tututepec
+	desc = kog_gui_antagonize_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_tututepec
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_tututepec
+			}
+			remove_modifier = modifier_kog_antagonizing_tututepec
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_tututepec
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_integrate_tututepec = {
+	name = kog_gui_integrate_tututepec
+	desc = kog_gui_integrate_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_modifier = modifier_kog_controls_tututepec
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_tututepec
+		}
+	}
+	possible = {
+		kog_owns_tututepec_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		kog_start_seat_integration_effect = {
+			seat = tututepec
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_enforce_tututepec = {
+	name = kog_gui_enforce_tututepec
+	desc = kog_gui_enforce_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_tututepec
+			var:kog_liturgical_rite_var != "global_variable_map(kog_tututepec|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_tututepec_enforcement_var
+		}
+	}
+	possible = {
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = tututepec
+			}
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			seat = tututepec
+			value = kog_opinion_threshold_friendly
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_tututepec
+		custom_tooltip = {
+			text = kog_gui_enforce_tututepec_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_tututepec_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_install_tututepec = {
+	name = kog_gui_install_tututepec
+	desc = kog_gui_install_seat_desc
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+
+#### ALEXANDRIA
+kog_gui_sway_cahokia = {
+	name = kog_gui_sway_cahokia
+	desc = kog_gui_sway_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_cahokia
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_cahokia
+			}
+			remove_modifier = modifier_kog_swaying_cahokia
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_cahokia
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_antagonize_cahokia = {
+	name = kog_gui_antagonize_cahokia
+	desc = kog_gui_antagonize_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_cahokia
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_cahokia
+			}
+			remove_modifier = modifier_kog_antagonizing_cahokia
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_cahokia
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_integrate_cahokia = {
+	name = kog_gui_integrate_cahokia
+	desc = kog_gui_integrate_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_modifier = modifier_kog_controls_cahokia
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_cahokia
+		}
+	}
+	possible = {
+		kog_owns_cahokia_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		kog_start_seat_integration_effect = {
+			seat = cahokia
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_enforce_cahokia = {
+	name = kog_gui_enforce_cahokia
+	desc = kog_gui_enforce_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_cahokia
+			var:kog_liturgical_rite_var != "global_variable_map(kog_cahokia|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_cahokia_enforcement_var
+		}
+	}
+	possible = {
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = cahokia
+			}
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			seat = cahokia
+			value = kog_opinion_threshold_friendly
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_cahokia
+		custom_tooltip = {
+			text = kog_gui_enforce_cahokia_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_cahokia_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_install_cahokia = {
+	name = kog_gui_install_cahokia
+	desc = kog_gui_install_seat_desc
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
+#### MOSCOW
+kog_gui_sway_cayacoa = {
+	name = kog_gui_sway_cayacoa
+	desc = kog_gui_sway_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_swaying_cayacoa
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_swaying_cayacoa
+			}
+			remove_modifier = modifier_kog_swaying_cayacoa
+		}
+		else = {
+			add_modifier = modifier_kog_swaying_cayacoa
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_antagonize_cayacoa = {
+	name = kog_gui_antagonize_cayacoa
+	desc = kog_gui_antagonize_seat_desc
+	
+	visible = {
+		always = yes
+	}
+	selected = {
+		has_modifier = modifier_kog_antagonizing_cayacoa
+	}
+	possible = {
+		influence >= 50
+		kog_capacity_trigger = {
+			value = 100
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_antagonizing_cayacoa
+			}
+			remove_modifier = modifier_kog_antagonizing_cayacoa
+		}
+		else = {
+			add_modifier = modifier_kog_antagonizing_cayacoa
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_integrate_cayacoa = {
+	name = kog_gui_integrate_cayacoa
+	desc = kog_gui_integrate_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			NOT = {
+				has_modifier = modifier_kog_controls_cayacoa
+			}
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_integrating_cayacoa
+		}
+	}
+	possible = {
+		kog_owns_cayacoa_province_trigger = yes
+		bureaucracy >= 100
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		kog_start_seat_integration_effect = {
+			seat = cayacoa
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_enforce_cayacoa = {
+	name = kog_gui_enforce_cayacoa
+	desc = kog_gui_enforce_seat_desc
+	
+	visible = {
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_cayacoa
+			var:kog_liturgical_rite_var != "global_variable_map(kog_cayacoa|flag:kog_seat_liturgical_rite)"
+		}
+	}
+	selected = {
+		je:je_kog_local = {
+			has_variable = kog_cayacoa_enforcement_var
+		}
+	}
+	possible = {
+		NOT = {
+			kog_country_has_same_rite_as_seat_trigger = {
+				seat = cayacoa
+			}
+		}
+		kog_seat_opinion_greater_than_trigger = {
+			seat = cayacoa
+			value = kog_opinion_threshold_friendly
+		}
+		authority >= 50
+		kog_capacity_trigger = {
+			value = 200
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_integrating_cayacoa
+		custom_tooltip = {
+			text = kog_gui_enforce_cayacoa_effect
+			je:je_kog_local = {
+				set_variable = {
+					name = kog_cayacoa_enforcement_var
+					value = 0
+				}
+			}
+		}
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+kog_gui_install_cayacoa = {
+	name = kog_gui_install_cayacoa
+	desc = kog_gui_install_seat_desc
+	
+	visible = {
+	}
+	selected = {
+	}
+	possible = {
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}

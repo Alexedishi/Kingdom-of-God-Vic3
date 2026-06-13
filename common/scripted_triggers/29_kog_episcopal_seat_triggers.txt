@@ -17,7 +17,7 @@ kog_is_swaying_seat_trigger = {
 		has_modifier = modifier_kog_swaying_addis_ababa
 		has_modifier = modifier_kog_swaying_konak
 		has_modifier = modifier_kog_swaying_elysium
-		has_modifier = modifier_kog_swaying_mixtec
+		has_modifier = modifier_kog_swaying_tututepec
 		has_modifier = modifier_kog_swaying_cahokia
 	}
 }
@@ -40,7 +40,7 @@ kog_is_antagonizing_seat_trigger = {
 		has_modifier = modifier_kog_antagonizing_addis_ababa
 		has_modifier = modifier_kog_antagonizing_konak
 		has_modifier = modifier_kog_antagonizing_elysium
-		has_modifier = modifier_kog_antagonizing_mixtec
+		has_modifier = modifier_kog_antagonizing_tututepec
 		has_modifier = modifier_kog_antagonizing_cahokia
 	}
 }
@@ -125,7 +125,7 @@ kog_any_seat_opinion_friendly_trigger = {
 				}
 				OR = {
 					var:kog_elysium_opinion_var >= kog_opinion_threshold_friendly
-					var:kog_mixtec_opinion_var >= kog_opinion_threshold_friendly
+					var:kog_tututepec_opinion_var >= kog_opinion_threshold_friendly
 					var:kog_cahokia_opinion_var >= kog_opinion_threshold_friendly
 				}
 			}
@@ -157,7 +157,7 @@ kog_any_seat_opinion_hostile_trigger = {
 				}
 				OR = {
 					var:kog_elysium_opinion_var <= kog_opinion_threshold_hostile
-					var:kog_mixtec_opinion_var <= kog_opinion_threshold_hostile
+					var:kog_tututepec_opinion_var <= kog_opinion_threshold_hostile
 					var:kog_cahokia_opinion_var <= kog_opinion_threshold_hostile
 				}
 			}
@@ -183,7 +183,7 @@ kog_has_seat_endorsement_patriarch_trigger = {
 		has_modifier = modifier_kog_endorsed_by_addis_ababa
 		has_modifier = modifier_kog_endorsed_by_konak
 		has_modifier = modifier_kog_endorsed_by_elysium
-		has_modifier = modifier_kog_endorsed_by_mixtec
+		has_modifier = modifier_kog_endorsed_by_tututepec
 		has_modifier = modifier_kog_endorsed_by_cahokia
 	}
 }
@@ -206,7 +206,7 @@ kog_has_seat_condemnation_trigger = {
 		has_modifier = modifier_kog_condemned_by_addis_ababa
 		has_modifier = modifier_kog_condemned_by_konak
 		has_modifier = modifier_kog_condemned_by_elysium
-		has_modifier = modifier_kog_condemned_by_mixtec
+		has_modifier = modifier_kog_condemned_by_tututepec
 		has_modifier = modifier_kog_condemned_by_cahokia
 	}
 }
@@ -404,13 +404,13 @@ kog_can_integrate_seat_alert_trigger = {
 				basileia_is_active = yes
 			}
 			AND = {
-				kog_controls_mixtec_trigger = no
+				kog_controls_tututepec_trigger = no
 				NOT = {
-					has_modifier = modifier_kog_integrating_mixtec
+					has_modifier = modifier_kog_integrating_tututepec
 				}
 				custom_tooltip = {
-					text = kog_can_integrate_mixtec
-					je:je_kog_local.var:kog_mixtec_opinion_var >= kog_opinion_threshold_amicable
+					text = kog_can_integrate_tututepec
+					je:je_kog_local.var:kog_tututepec_opinion_var >= kog_opinion_threshold_amicable
 				}
 				owns_entire_state_region = STATE_OAXACA
 			}
@@ -460,7 +460,7 @@ kog_integrating_seat_trigger = {
 						basileia_is_active = yes
 					}
 					has_variable = kog_integrating_elysium
-					has_variable = kog_integrating_mixtec
+					has_variable = kog_integrating_tututepec
 					has_variable = kog_integrating_cahokia
 				}
 			}
@@ -568,7 +568,48 @@ kog_owns_coptic_alexandria_province_trigger = {
 }
 
 kog_owns_elysium_province_trigger = {
-	always = no ##TODO
+	custom_tooltip = {
+		text = kog_owns_elysium_province_trigger
+		p:x700080.state = {
+			owner ?= root
+		}
+	}
+}
+
+kog_owns_onondaga_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_onondaga_province_trigger
+		p:x01D042.state = {
+			owner ?= root
+		}
+	}
+}
+
+kog_owns_tututepec_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_tututepec_province_trigger
+		p:x1BC4D0.state = {
+			owner ?= root
+		}
+	}
+}
+
+kog_owns_cahokia_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_cahokia_province_trigger
+		p:x2938A5.state = {
+			owner ?= root
+		}
+	}
+}
+
+kog_owns_cayacoa_province_trigger = {
+	custom_tooltip = {
+		text = kog_owns_cayacoa_province_trigger
+		p:x7252EC.state = {
+			owner ?= root
+		}
+	}
 }
 
 ####----------- Episcopal Seat Control Triggers ----------####
@@ -722,11 +763,11 @@ kog_controls_elysium_trigger = {
 	}
 }
 
-kog_controls_mixtec_trigger = {
+kog_controls_tututepec_trigger = {
 	custom_description = {
-		text = kog_controls_mixtec_trigger
+		text = kog_controls_tututepec_trigger
 		je:je_kog_local = {
-			has_modifier = modifier_kog_controls_mixtec
+			has_modifier = modifier_kog_controls_tututepec
 		}
 	}
 }
@@ -792,7 +833,7 @@ kog_controls_any_seat_trigger = {
 				has_modifier = modifier_kog_controls_addis_ababa
 				has_modifier = modifier_kog_controls_konak
 				has_modifier = modifier_kog_controls_elysium
-				has_modifier = modifier_kog_controls_mixtec
+				has_modifier = modifier_kog_controls_tututepec
 				has_modifier = modifier_kog_controls_cahokia
 			}
 		}
@@ -928,7 +969,7 @@ kog_controls_all_seats_trigger = {
 				has_modifier = modifier_kog_controls_addis_ababa
 				has_modifier = modifier_kog_controls_konak
 				has_modifier = modifier_kog_controls_elysium
-				has_modifier = modifier_kog_controls_mixtec
+				has_modifier = modifier_kog_controls_tututepec
 				has_modifier = modifier_kog_controls_cahokia
 			}
 		}
