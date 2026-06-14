@@ -275,7 +275,27 @@ kog_update_devout_member_traits_effect = {
 	}
 }
 
-kog_update_piety_modifier_effect = {
+kog_update_national_piety_effect = {
+	je:je_kog_local = {
+		set_variable = {
+			name = kog_national_piety_target_var
+			value = owner.kog_national_piety_target_value
+		}
+		set_variable = {
+			name = kog_national_piety_progress_var
+			value = owner.kog_national_piety_progress_value
+		}
+		set_variable = {
+			name = kog_national_piety_var
+			value = {
+				add = var:kog_national_piety_var
+				add = var:kog_national_piety_progress_var
+				round = yes
+				max = 500
+				min = -500
+			}
+		}
+	}
 	if = {
 		limit = {
 			has_modifier = modifier_kog_national_piety

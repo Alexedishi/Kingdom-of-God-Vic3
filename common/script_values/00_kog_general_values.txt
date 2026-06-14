@@ -11,7 +11,7 @@ kog_capacity_multiplier_value = {
 	round_to = 1
 }
 
-kog_piety_target_value = {
+kog_national_piety_target_value = {
 	value = 0
 	
 	# Church and State Country Law; this is the largest single contributor and serves as a base
@@ -56,26 +56,20 @@ kog_piety_target_value = {
 	min = -500
 }
 
-kog_piety_progress_value = {
+kog_national_piety_progress_value = {
 	value = 0
 	if = {
 		limit = {
-			je:je_kog_local = {
-				has_variable = kog_national_piety_var
-				var:kog_national_piety_var > kog_piety_target_value
-			}
+			je:je_kog_local.var:kog_national_piety_var > kog_national_piety_target_value
 		}
-		add = kog_piety_target_value
+		add = kog_national_piety_target_value
 		subtract = je:je_kog_local.var:kog_national_piety_var
 	}
 	if = {
 		limit = {
-			je:je_kog_local = {
-				has_variable = kog_national_piety_var
-				var:kog_national_piety_var < kog_piety_target_value
-			}
+			je:je_kog_local.var:kog_national_piety_var < kog_national_piety_target_value
 		}
-		add = kog_piety_target_value
+		add = kog_national_piety_target_value
 		subtract = je:je_kog_local.var:kog_national_piety_var
 	}
 	round_to = 0.1
