@@ -290,6 +290,17 @@ je_kog_ecyclical_singulari_nos = {
 			every_country = {
 				limit = {
 					is_involved_in_journal_entry = je_kog_ecyclical_singulari_nos
+					calc_true_if = {
+						amount >= 3
+						country_has_voting_franchise = no
+						has_law_or_variant = law_type:law_subjecthood
+						has_law_or_variant = law_type:law_freedom_of_conscience
+						has_law_or_variant = law_type:law_religious_schools
+						OR = {
+							has_law_or_variant = law_type:law_censorship
+							has_law_or_variant = law_type:law_outlawed_dissent
+						}
+					}
 				}
 				global_var:je_kog_ecyclical_singulari_nos = {
 					add_to_variable_list = {
@@ -301,6 +312,17 @@ je_kog_ecyclical_singulari_nos = {
 			every_country = {
 				limit = {
 					is_involved_in_journal_entry = je_kog_ecyclical_singulari_nos
+					calc_true_if = {
+						amount < 3
+						country_has_voting_franchise = no
+						has_law_or_variant = law_type:law_subjecthood
+						has_law_or_variant = law_type:law_freedom_of_conscience
+						has_law_or_variant = law_type:law_religious_schools
+						OR = {
+							has_law_or_variant = law_type:law_censorship
+							has_law_or_variant = law_type:law_outlawed_dissent
+						}
+					}
 				}
 				global_var:je_kog_ecyclical_singulari_nos = {
 					add_to_variable_list = {
@@ -331,5 +353,37 @@ je_kog_commissum_divinitus = {
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	
 	immediate = {
+	}
+	
+	complete = {
+		has_law = law_type:law_total_separation
+		has_law = law_type:law_monastic_secularization
+		OR = {
+			has_law = law_type:law_concordat_of_investment
+			has_law = law_type:law_oath_of_supremacy
+		}
+		radical_fraction = {
+			religion = catholic
+			value < 0.25
+		}
+		NOR = {
+			has_revolution = yes
+			has_any_secessionists_broken_out = yes
+		}
+	}
+	
+	fail = {
+		any_political_movement = {
+			is_political_movement_type = movement_religious_minority
+			religion = rel:catholic
+			OR = {
+				is_revolutionary = yes
+				is_secessionist = yes
+			}
+		}
+	}
+	
+	invalid = {
+		has_law_or_variant = law_type:law_theocracy
 	}
 }
