@@ -65,7 +65,9 @@
 	#### Step 8, Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
 	
-	#### Step 9, Any Final Effects
+	#### Step 9, Create Mod Compatibility Maps & Apply Final Effects
+	kog_initialize_basielia_romaion_variable_map_effect = yes
+	kog_initialize_manaflow_variable_map_effect = yes
 	kog_initialization_cleanup_effect = yes
 }
 
@@ -2165,6 +2167,21 @@ kog_specific_country_setups_effect = {
 		}
 	}
 }
+
+kog_initialize_basielia_romaion_variable_map_effect = {
+	add_to_global_variable_map = {
+		name = kog_database
+		key = flag:kog_elysian_culture
+		value = cu:greek
+	}
+	add_to_global_variable_map = {
+		name = kog_database
+		key = flag:kog_elysian_religion
+		value = rel:orthodox
+	}
+}
+
+kog_initialize_manaflow_variable_map_effect = {}
 
 kog_initialization_cleanup_effect = {
 	## Update Communion Lists
