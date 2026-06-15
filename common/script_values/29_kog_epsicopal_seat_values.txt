@@ -2529,32 +2529,1700 @@ kog_moscow_opinion_value = {
 
 kog_coptic_alexandria_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_coptic_alexandria_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_coptic_alexandria_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_coptic_alexandria_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_coptic_alexandria|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_syriac_antioch_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_syriac_antioch_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_syriac_antioch_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_syriac_antioch_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_syriac_antioch|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_etchmiadzin_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_etchmiadzin_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_etchmiadzin_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_etchmiadzin_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_etchmiadzin|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_addis_ababa_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_addis_ababa_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_addis_ababa_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_addis_ababa_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_addis_ababa|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_konak_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_konak|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_konak_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_konak|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_konak_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_konak|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_konak|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_konak_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_konak|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_konak|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_elysium_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_elysium|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_elysium_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_elysium|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_elysium_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_elysium|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_elysium|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_elysium_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_elysium|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_elysium|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
+}
+
+kog_onondaga_opinion_value = {
+	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_onondaga|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_onondaga_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_onondaga|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_onondaga_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_onondaga|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_onondaga|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_onondaga_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_onondaga|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_onondaga|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_tututepec_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_tututepec|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_tututepec_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_tututepec|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_tututepec_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_tututepec|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_tututepec|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_tututepec_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_tututepec|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_tututepec|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
 
 kog_cahokia_opinion_value = {
 	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_cahokia|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_cahokia_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_cahokia|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_cahokia_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_cahokia|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_cahokia|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_cahokia_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_cahokia|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_cahokia|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
+}
+
+kog_cayacoa_opinion_value = {
+	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			"global_variable_map(kog_cayacoa|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = {
+			value = 20
+			desc = kog_value_from_state_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_freedom_of_conscience
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_freedom_of_conscience
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_charitable_health_system
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_religious_schools
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_controls_cayacoa_trigger = yes
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_seat_control
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_cayacoa|flag:kog_seat_liturgical_rite)" = {
+				this = root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_matching_liturgical_rite
+		}
+	}
+	
+	# Mixed
+	add = {
+		value = je:je_kog_local.var:kog_cayacoa_relations_var
+		desc = kog_value_from_relations
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			"global_variable_map(kog_cayacoa|flag:kog_seat_patriarch)" = {
+				religion != root.religion
+			}
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_different_religion
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_total_separation
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_total_separation
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_state_atheism
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_private_health_insurance
+				has_law = law_type:law_public_health_insurance
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_charity_hospitals
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_public_schools
+				has_law = law_type:law_private_schools
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_non_religious_schools
+		}
+	}
+	if = {
+		limit = {
+			kog_is_autocephalous_trigger = yes
+			"global_variable_map(kog_cayacoa|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_controls_cayacoa_trigger = no
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_autocephaly
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_cayacoa|flag:kog_seat_patriarch)" = {
+				religion = root.religion
+			}
+			kog_is_schismatic_trigger = yes
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_schismatic
+		}
+	}
+	if = {
+		limit = {
+			"global_variable_map(kog_cayacoa|flag:kog_seat_liturgical_rite)" = {
+				this != root.var:je_kog_local.var:kog_liturgical_rite_var
+			}
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
 }
