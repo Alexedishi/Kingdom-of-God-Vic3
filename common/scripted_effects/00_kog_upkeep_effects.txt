@@ -158,19 +158,70 @@ kog_update_episcopal_seat_count_effect = {
 
 kog_update_rite_modifiers_effect = {
 	hidden_effect = {
-		remove_modifier = modifier_kog_byzantine_rite
-		remove_modifier = modifier_kog_roman_rite
-		remove_modifier = modifier_kog_alexandrian_rite
-		remove_modifier = modifier_kog_armenian_rite
-		remove_modifier = modifier_kog_syro_antiochian_rite
-		remove_modifier = modifier_kog_russian_rite
-		remove_modifier = modifier_kog_nestorian_rite
-		remove_modifier = modifier_kog_elysian_rite
-		remove_modifier = modifier_kog_mixtec_rite
+		if = {
+			limit = {
+				has_modifier = modifier_kog_byzantine_rite
+			}
+			remove_modifier = modifier_kog_byzantine_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_roman_rite
+			}
+			remove_modifier = modifier_kog_roman_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_alexandrian_rite
+			}
+			remove_modifier = modifier_kog_alexandrian_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_armenian_rite
+			}
+			remove_modifier = modifier_kog_armenian_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_syro_antiochian_rite
+			}
+			remove_modifier = modifier_kog_syro_antiochian_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_russian_rite
+			}
+			remove_modifier = modifier_kog_russian_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_nestorian_rite
+			}
+			remove_modifier = modifier_kog_nestorian_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_elysian_rite
+			}
+			remove_modifier = modifier_kog_elysian_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_haudenosaunee_rite
+			}
+			remove_modifier = modifier_kog_haudenosaunee_rite
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_mixtec_rite
+			}
+			remove_modifier = modifier_kog_mixtec_rite
+		}
 	}
 	if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_roman_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_roman_rite
 		}
 		add_modifier = {
 			name = modifier_kog_roman_rite
@@ -179,7 +230,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_byzantine_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_byzantine_rite
 		}
 		add_modifier = {
 			name = modifier_kog_byzantine_rite
@@ -188,7 +239,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_alexandrian_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_alexandrian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_alexandrian_rite
@@ -197,7 +248,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_armenian_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_armenian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_armenian_rite
@@ -206,7 +257,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_syro_antiochian_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_syro_antiochian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_syro_antiochian_rite
@@ -215,7 +266,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_russian_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_russian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_russian_rite
@@ -224,7 +275,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit = {
-			var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_nestorian_rite
@@ -233,7 +284,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_elysian_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_elysian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_elysian_rite
@@ -242,7 +293,16 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			var:kog_liturgical_rite_var ?= flag:kog_mixtec_rite
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_haudenosaunee_rite
+		}
+		add_modifier = {
+			name = modifier_kog_haudenosaunee_rite
+			multiplier = kog_capacity_multiplier_value
+		}
+	}
+	else_if = {
+		limit =	{
+			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_mixtec_rite
 		}
 		add_modifier = {
 			name = modifier_kog_mixtec_rite

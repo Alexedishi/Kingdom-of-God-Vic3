@@ -46,15 +46,17 @@ kog_is_antagonizing_seat_trigger = {
 }
 
 kog_seat_opinion_greater_than_trigger = {
-	custom_tooltip = {
-		text = kog_seat_opinion_greater_than_trigger
+	hidden_trigger = {
 		save_temporary_scope_value_as = {
 			name = kog_seat_opinion_trigger_value
 			value = $value$
 		}
-		bt:kog_building_patriarchate_$seat$ = {
+		flag:kog_$seat$ = {
 			save_temporary_scope_as = kog_seat_opinion_trigger_type
 		}
+	}
+	custom_tooltip = {
+		text = kog_seat_opinion_greater_than_trigger
 		je:je_kog_local = {
 			var:kog_$seat$_opinion_var >= $value$
 		}
@@ -62,15 +64,17 @@ kog_seat_opinion_greater_than_trigger = {
 }
 
 kog_seat_opinion_less_than_trigger = {
-	custom_tooltip = {
-		text = kog_seat_opinion_greater_than_trigger
+	hidden_trigger = {
 		save_temporary_scope_value_as = {
 			name = kog_seat_opinion_trigger_value
 			value = $value$
 		}
-		bt:kog_building_patriarchate_$seat$ = {
+		flag:kog_$seat$ = {
 			save_temporary_scope_as = kog_seat_opinion_trigger_type
 		}
+	}
+	custom_tooltip = {
+		text = kog_seat_opinion_greater_than_trigger
 		je:je_kog_local = {
 			var:kog_$seat$_opinion_var < $value$
 		}
@@ -78,11 +82,13 @@ kog_seat_opinion_less_than_trigger = {
 }
 
 kog_seat_approval_trigger = {
-	custom_tooltip = {
-		text = kog_seat_approval_trigger
-		bt:kog_building_patriarchate_$seat$ = {
+	hidden_trigger = {
+		flag:kog_$seat$ = {
 			save_temporary_scope_as = kog_seat_opinion_trigger_type
 		}
+	}
+	custom_tooltip = {
+		text = kog_seat_approval_trigger
 		je:je_kog_local = {
 			var:kog_$seat$_opinion_var >= kog_opinion_threshold_friendly
 		}
@@ -90,11 +96,13 @@ kog_seat_approval_trigger = {
 }
 
 kog_seat_disapproval_trigger = {
-	custom_tooltip = {
-		text = kog_seat_disapproval_trigger
-		bt:kog_building_patriarchate_$seat$ = {
+	hidden_trigger = {
+		flag:kog_$seat$ = {
 			save_temporary_scope_as = kog_seat_opinion_trigger_type
 		}
+	}
+	custom_tooltip = {
+		text = kog_seat_disapproval_trigger
 		je:je_kog_local = {
 			var:kog_$seat$_opinion_var < kog_opinion_threshold_hostile
 		}
@@ -125,8 +133,10 @@ kog_any_seat_opinion_friendly_trigger = {
 				}
 				OR = {
 					var:kog_elysium_opinion_var >= kog_opinion_threshold_friendly
+					var:kog_onondaga_opinion_var >= kog_opinion_threshold_friendly
 					var:kog_tututepec_opinion_var >= kog_opinion_threshold_friendly
 					var:kog_cahokia_opinion_var >= kog_opinion_threshold_friendly
+					var:kog_cayacoa_opinion_var >= kog_opinion_threshold_friendly
 				}
 			}
 		}
@@ -157,8 +167,10 @@ kog_any_seat_opinion_hostile_trigger = {
 				}
 				OR = {
 					var:kog_elysium_opinion_var <= kog_opinion_threshold_hostile
+					var:kog_onondaga_opinion_var <= kog_opinion_threshold_hostile
 					var:kog_tututepec_opinion_var <= kog_opinion_threshold_hostile
 					var:kog_cahokia_opinion_var <= kog_opinion_threshold_hostile
+					var:kog_cayacoa_opinion_var <= kog_opinion_threshold_hostile
 				}
 			}
 		}
@@ -183,8 +195,10 @@ kog_has_seat_endorsement_patriarch_trigger = {
 		has_modifier = modifier_kog_endorsed_by_addis_ababa
 		has_modifier = modifier_kog_endorsed_by_konak
 		has_modifier = modifier_kog_endorsed_by_elysium
+		has_modifier = modifier_kog_endorsed_by_onondaga
 		has_modifier = modifier_kog_endorsed_by_tututepec
 		has_modifier = modifier_kog_endorsed_by_cahokia
+		has_modifier = modifier_kog_endorsed_by_cayacoa
 	}
 }
 
@@ -206,8 +220,10 @@ kog_has_seat_condemnation_trigger = {
 		has_modifier = modifier_kog_condemned_by_addis_ababa
 		has_modifier = modifier_kog_condemned_by_konak
 		has_modifier = modifier_kog_condemned_by_elysium
+		has_modifier = modifier_kog_condemned_by_onondaga
 		has_modifier = modifier_kog_condemned_by_tututepec
 		has_modifier = modifier_kog_condemned_by_cahokia
+		has_modifier = modifier_kog_condemned_by_cayacoa
 	}
 }
 
@@ -460,8 +476,10 @@ kog_integrating_seat_trigger = {
 						basileia_is_active = yes
 					}
 					has_variable = kog_integrating_elysium
+					has_variable = kog_integrating_onondaga
 					has_variable = kog_integrating_tututepec
 					has_variable = kog_integrating_cahokia
+					has_variable = kog_integrating_cayacoa
 				}
 			}
 		}
@@ -763,6 +781,15 @@ kog_controls_elysium_trigger = {
 	}
 }
 
+kog_controls_onondaga_trigger = {
+	custom_description = {
+		text = kog_controls_onondaga_trigger
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_onondaga
+		}
+	}
+}
+
 kog_controls_tututepec_trigger = {
 	custom_description = {
 		text = kog_controls_tututepec_trigger
@@ -777,6 +804,15 @@ kog_controls_cahokia_trigger = {
 		text = kog_controls_cahokia_trigger
 		je:je_kog_local = {
 			has_modifier = modifier_kog_controls_cahokia
+		}
+	}
+}
+
+kog_controls_cayacoa_trigger = {
+	custom_description = {
+		text = kog_controls_cayacoa_trigger
+		je:je_kog_local = {
+			has_modifier = modifier_kog_controls_cayacoa
 		}
 	}
 }
@@ -1075,6 +1111,22 @@ kog_integrating_elysium_trigger = {
 	always = no ##TODO
 }
 
+kog_integrating_onondaga_trigger = {
+	always = no ##TODO
+}
+
+kog_integrating_tututepec_trigger = {
+	always = no ##TODO
+}
+
+kog_integrating_cahokia_trigger = {
+	always = no ##TODO
+}
+
+kog_integrating_cayacoa_trigger = {
+	always = no ##TODO
+}
+
 ####---------- Seat Enforcement Triggers ----------####
 kog_country_has_same_rite_as_seat_trigger = {
 	custom_tooltip = {
@@ -1121,4 +1173,24 @@ kog_country_has_same_rite_as_alexandria_trigger = {
 
 kog_country_has_same_rite_as_moscow_trigger = {
 	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
+}
+
+kog_country_has_same_rite_as_elysium_trigger = {
+	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_elysium|flag:kog_seat_liturgical_rite)"
+}
+
+kog_country_has_same_rite_as_onondaga_trigger = {
+	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_onondaga|flag:kog_seat_liturgical_rite)"
+}
+
+kog_country_has_same_rite_as_tututepec_trigger = {
+	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_tututepec|flag:kog_seat_liturgical_rite)"
+}
+
+kog_country_has_same_rite_as_cahokia_trigger = {
+	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_cahokia|flag:kog_seat_liturgical_rite)"
+}
+
+kog_country_has_same_rite_as_cayacoa_trigger = {
+	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_cayacoa|flag:kog_seat_liturgical_rite)"
 }
