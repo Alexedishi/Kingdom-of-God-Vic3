@@ -91,8 +91,8 @@ kog_initialize_catholic_variables_effect = {
 			value = rel:catholic
 		}
 		set_variable = {
-			name = kog_top_church_var
-			value = bt:kog_building_patriarchate_rome
+			name = kog_ecumenical_seat_var
+			value = flag:kog_rome_header
 		}
 		set_variable = {
 			name = kog_location_var
@@ -101,10 +101,6 @@ kog_initialize_catholic_variables_effect = {
 		set_variable = {
 			name = kog_liturgical_language_var
 			value = flag:kog_language_latin
-		}
-		set_variable = {
-			name = kog_ecumenical_seat_var
-			value = flag:kog_building_patriarchate_rome
 		}
 		set_variable = {
 			name = kog_council_counter_var
@@ -156,8 +152,8 @@ kog_initialize_orthodox_variables_effect = {
 			value = rel:orthodox
 		}
 		set_variable = {
-			name = kog_top_church_var
-			value = bt:kog_building_patriarchate_constantinople
+			name = kog_ecumenical_seat_var
+			value = flag:kog_constantinople_header
 		}
 		set_variable = {
 			name = kog_location_var
@@ -166,10 +162,6 @@ kog_initialize_orthodox_variables_effect = {
 		set_variable = {
 			name = kog_liturgical_language_var
 			value = flag:kog_language_khoine
-		}
-		set_variable = {
-			name = kog_ecumenical_seat_var
-			value = flag:kog_building_patriarchate_constantinople
 		}
 		set_variable = {
 			name = kog_council_counter_var
@@ -855,6 +847,11 @@ kog_initialize_rome_variable_map_effect = {
 	}
 	add_to_global_variable_map = {
 		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_rome_header
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
 		key = flag:kog_seat_rank
 		value = flag:kog_major_seat
 	}
@@ -893,11 +890,6 @@ kog_initialize_rome_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_rome_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_rome
-	}
 }
 
 kog_initialize_santiago_variable_map_effect = {
@@ -913,6 +905,11 @@ kog_initialize_santiago_variable_map_effect = {
 		name = kog_santiago
 		key = flag:kog_seat_name
 		value = flag:kog_santiago_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_santiago_header
 	}
 	add_to_global_variable_map = {
 		name = kog_santiago
@@ -955,11 +952,6 @@ kog_initialize_santiago_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_santiago_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_santiago
-	}
 }
 
 kog_initialize_paris_variable_map_effect = {
@@ -975,6 +967,11 @@ kog_initialize_paris_variable_map_effect = {
 		name = kog_paris
 		key = flag:kog_seat_name
 		value = flag:kog_paris_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_santiago_header
 	}
 	add_to_global_variable_map = {
 		name = kog_paris
@@ -1017,11 +1014,6 @@ kog_initialize_paris_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_paris_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_paris
-	}
 }
 
 kog_initialize_koln_variable_map_effect = {
@@ -1037,6 +1029,11 @@ kog_initialize_koln_variable_map_effect = {
 		name = kog_koln
 		key = flag:kog_seat_name
 		value = flag:kog_koln_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_koln_header
 	}
 	add_to_global_variable_map = {
 		name = kog_koln
@@ -1079,11 +1076,6 @@ kog_initialize_koln_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_koln_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_koln
-	}
 }
 
 kog_initialize_vienna_variable_map_effect = {
@@ -1099,6 +1091,11 @@ kog_initialize_vienna_variable_map_effect = {
 		name = kog_vienna
 		key = flag:kog_seat_name
 		value = flag:kog_vienna_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_vienna_header
 	}
 	add_to_global_variable_map = {
 		name = kog_vienna
@@ -1141,11 +1138,6 @@ kog_initialize_vienna_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_vienna_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_vienna
-	}
 }
 
 kog_initialize_constantinople_variable_map_effect = {
@@ -1163,6 +1155,11 @@ kog_initialize_constantinople_variable_map_effect = {
 		name = kog_constantinople
 		key = flag:kog_seat_name
 		value = flag:kog_constantinople_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_constantinople_header
 	}
 	add_to_global_variable_map = {
 		name = kog_constantinople
@@ -1205,11 +1202,6 @@ kog_initialize_constantinople_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_constantinople_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_constantinople
-	}
 }
 
 kog_initialize_antioch_variable_map_effect = {
@@ -1227,6 +1219,11 @@ kog_initialize_antioch_variable_map_effect = {
 		name = kog_antioch
 		key = flag:kog_seat_name
 		value = flag:kog_antioch_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_antioch_header
 	}
 	add_to_global_variable_map = {
 		name = kog_antioch
@@ -1269,11 +1266,6 @@ kog_initialize_antioch_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_antioch_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_antioch
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_antioch
-	}
 }
 
 kog_initialize_jerusalem_variable_map_effect = {
@@ -1291,6 +1283,11 @@ kog_initialize_jerusalem_variable_map_effect = {
 		name = kog_jerusalem
 		key = flag:kog_seat_name
 		value = flag:kog_jerusalem_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_jerusalem_header
 	}
 	add_to_global_variable_map = {
 		name = kog_jerusalem
@@ -1333,11 +1330,6 @@ kog_initialize_jerusalem_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_jerusalem_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_jerusalem
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_jerusalem
-	}
 }
 
 kog_initialize_alexandria_variable_map_effect = {
@@ -1355,6 +1347,11 @@ kog_initialize_alexandria_variable_map_effect = {
 		name = kog_alexandria
 		key = flag:kog_seat_name
 		value = flag:kog_alexandria_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_alexandria_header
 	}
 	add_to_global_variable_map = {
 		name = kog_alexandria
@@ -1397,11 +1394,6 @@ kog_initialize_alexandria_variable_map_effect = {
 		key = flag:kog_seat_patriarch
 		value = scope:kog_alexandria_patriarch
 	}
-	add_to_global_variable_map = {
-		name = kog_alexandria
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_alexandria
-	}
 }
 
 kog_initialize_moscow_variable_map_effect = {
@@ -1419,6 +1411,11 @@ kog_initialize_moscow_variable_map_effect = {
 		name = kog_moscow
 		key = flag:kog_seat_name
 		value = flag:kog_moscow_name
+	}
+	add_to_global_variable_map = {
+		name = kog_rome
+		key = flag:kog_seat_header
+		value = flag:kog_moscow_header
 	}
 	add_to_global_variable_map = {
 		name = kog_moscow
@@ -1460,11 +1457,6 @@ kog_initialize_moscow_variable_map_effect = {
 		name = kog_moscow
 		key = flag:kog_seat_patriarch
 		value = scope:kog_moscow_patriarch
-	}
-	add_to_global_variable_map = {
-		name = kog_moscow
-		key = flag:kog_seat_building
-		value = bt:kog_building_patriarchate_moscow
 	}
 }
 
