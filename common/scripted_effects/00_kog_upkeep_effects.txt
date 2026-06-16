@@ -47,7 +47,7 @@ kog_validate_global_journal_involvement_effect = {
 }
 
 kog_update_denominational_leaders_effect = {
-	kog_update_rome_patriatch_effect = yes
+	kog_update_rome_patriarch_effect = yes
 	"global_variable_map(kog_rome|flag:kog_seat_patriarch)" = {
 		save_scope_as = kog_rome_patriarch
 	}
@@ -57,7 +57,7 @@ kog_update_denominational_leaders_effect = {
 			value = scope:kog_rome_patriarch
 		}
 	}
-	kog_update_constantinople_patriatch_effect = yes
+	kog_update_constantinople_patriarch_effect = yes
 	"global_variable_map(kog_constantinople|flag:kog_constantinople_patriarch)" = {
 		save_scope_as = kog_rome_patriarch
 	}
@@ -1117,40 +1117,40 @@ kog_validate_cahokia_variable_map_effect = {
 # Clear the dead character scope from the map and insert the new scope
 
 kog_update_patriarch_variables_effect = {
-	kog_update_rome_patriatch_effect = yes
-	kog_update_santiago_patriatch_effect = yes
-	kog_update_paris_patriatch_effect = yes
-	kog_update_koln_patriatch_effect = yes
-	kog_update_vienna_patriatch_effect = yes
-	kog_update_constantinople_patriatch_effect = yes
-	kog_update_antioch_patriatch_effect = yes
-	kog_update_jerusalem_patriatch_effect = yes
-	kog_update_alexandria_patriatch_effect = yes
-	kog_update_moscow_patriatch_effect = yes
-	kog_update_coptic_alexandria_patriatch_effect = yes
-	kog_update_syriac_antioch_patriatch_effect = yes
-	kog_update_etchmiadzin_patriatch_effect = yes
-	kog_update_addis_ababa_patriatch_effect = yes
-	kog_update_konak_patriatch_effect = yes
+	kog_update_rome_patriarch_effect = yes
+	kog_update_santiago_patriarch_effect = yes
+	kog_update_paris_patriarch_effect = yes
+	kog_update_koln_patriarch_effect = yes
+	kog_update_vienna_patriarch_effect = yes
+	kog_update_constantinople_patriarch_effect = yes
+	kog_update_antioch_patriarch_effect = yes
+	kog_update_jerusalem_patriarch_effect = yes
+	kog_update_alexandria_patriarch_effect = yes
+	kog_update_moscow_patriarch_effect = yes
+	kog_update_coptic_alexandria_patriarch_effect = yes
+	kog_update_syriac_antioch_patriarch_effect = yes
+	kog_update_etchmiadzin_patriarch_effect = yes
+	kog_update_addis_ababa_patriarch_effect = yes
+	kog_update_konak_patriarch_effect = yes
 	if = {
 		limit = {
 			basileia_is_active = yes
 		}
-		kog_update_elysium_patriatch_effect = yes
-		kog_update_onondaga_patriatch_effect = yes
-		kog_update_tututepec_patriatch_effect = yes
-		kog_update_cahokia_patriatch_effect = yes
-		kog_update_cayacoa_patriatch_effect = yes
+		kog_update_elysium_patriarch_effect = yes
+		kog_update_onondaga_patriarch_effect = yes
+		kog_update_tututepec_patriarch_effect = yes
+		kog_update_cahokia_patriarch_effect = yes
+		kog_update_cayacoa_patriarch_effect = yes
 	}
 	every_country = {
 		limit = {
 			kog_content_scope_trigger = yes
 		}
-		kog_update_metropolitan_bishop_patriatch_effect = yes
+		kog_update_metropolitan_bishop_patriarch_effect = yes
 	}
 }
 
-kog_update_metropolitan_bishop_patriatch_effect = {
+kog_update_metropolitan_bishop_patriarch_effect = {
 	# Local Metropolitan
 	ig:ig_devout = {
 		leader = {
@@ -1165,7 +1165,7 @@ kog_update_metropolitan_bishop_patriatch_effect = {
 	}
 }
 
-kog_update_rome_patriatch_effect = {
+kog_update_rome_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -1344,7 +1344,7 @@ kog_update_rome_patriatch_effect = {
 	}
 }
 
-kog_update_santiago_patriatch_effect = {
+kog_update_santiago_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -1499,7 +1499,7 @@ kog_update_santiago_patriatch_effect = {
 	}
 }
 
-kog_update_paris_patriatch_effect = {
+kog_update_paris_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -1654,7 +1654,7 @@ kog_update_paris_patriatch_effect = {
 	}
 }
 
-kog_update_koln_patriatch_effect = {
+kog_update_koln_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -1809,7 +1809,7 @@ kog_update_koln_patriatch_effect = {
 	}
 }
 
-kog_update_vienna_patriatch_effect = {
+kog_update_vienna_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -1964,7 +1964,7 @@ kog_update_vienna_patriatch_effect = {
 	}
 }
 
-kog_update_constantinople_patriatch_effect = {
+kog_update_constantinople_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -2119,7 +2119,7 @@ kog_update_constantinople_patriatch_effect = {
 	}
 }
 
-kog_update_antioch_patriatch_effect = {
+kog_update_antioch_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -2274,7 +2274,7 @@ kog_update_antioch_patriatch_effect = {
 	}
 }
 
-kog_update_jerusalem_patriatch_effect = {
+kog_update_jerusalem_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -2429,7 +2429,7 @@ kog_update_jerusalem_patriatch_effect = {
 	}
 }
 
-kog_update_alexandria_patriatch_effect = {
+kog_update_alexandria_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -2584,7 +2584,7 @@ kog_update_alexandria_patriatch_effect = {
 	}
 }
 
-kog_update_moscow_patriatch_effect = {
+kog_update_moscow_patriarch_effect = {
 	# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
 	if = {
 		limit = { # If this evaluates to true, proceed to patriarch regeneration
@@ -2739,27 +2739,27 @@ kog_update_moscow_patriatch_effect = {
 	}
 }
 
-kog_update_coptic_alexandria_patriatch_effect = {
+kog_update_coptic_alexandria_patriarch_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_update_syriac_antioch_patriatch_effect = {
+kog_update_syriac_antioch_patriarch_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_update_etchmiadzin_patriatch_effect = {
+kog_update_etchmiadzin_patriarch_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_update_addis_ababa_patriatch_effect = {
+kog_update_addis_ababa_patriarch_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_update_konak_patriatch_effect = {
+kog_update_konak_patriarch_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_update_elysium_patriatch_effect = {
+kog_update_elysium_patriarch_effect = {
 	if = {
 		limit = {
 			has_global_variable_map = kog_elysium
@@ -2825,13 +2825,13 @@ kog_update_elysium_patriatch_effect = {
 				# Attempt to generate using the Province owner
 				else_if = {
 					limit = {
-						p:x13D91C = {
+						p:x700080 = {
 							owner = {
 								kog_content_scope_trigger = yes
 							}
 						}
 					}
-					p:x13D91C = {
+					p:x700080 = {
 						owner = {
 							create_character = {
 								template = kog_patriarch_template
@@ -2846,7 +2846,7 @@ kog_update_elysium_patriatch_effect = {
 				}
 				# Fall back to an Elysian Orthodox; create from scope of province owner
 				else = {
-					p:x13D91C = {
+					p:x700080 = {
 						owner = {
 							create_character = {
 								template = kog_patriarch_template
@@ -2919,12 +2919,644 @@ kog_update_elysium_patriatch_effect = {
 	}
 }
 
-kog_update_tututepec_patriatch_effect = {
-	custom_tooltip = kog_nothing_happens
+kog_update_onondaga_patriarch_effect = {
+	if = {
+		limit = {
+			has_global_variable_map = kog_onondaga
+		}
+		# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
+		if = {
+			limit = { # If this evaluates to true, proceed to patriarch regeneration
+				OR = {
+					AND = {
+						is_key_in_global_variable_map = {
+							name = kog_onondaga
+							target = flag:kog_seat_patriarch
+						}
+						NOT = {
+							exists = "global_variable_map(kog_onondaga|flag:kog_seat_patriarch)"
+						}
+					}
+					NOT = {
+						is_key_in_global_variable_map = {
+							name = kog_onondaga
+							target = flag:kog_seat_patriarch
+						}
+					}
+				}
+			}
+			# First, attempt to find the character in the void
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_trait = kog_patriarch_of_onondaga
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_onondaga
+					}
+					save_scope_as = kog_onondaga_patriarch_scope
+				}
+			}
+			# Failing that, generate a new character
+			else = {
+				# Attempt to generate using the Seat controller
+				if = {
+					limit = {
+						AND = {
+							is_key_in_global_variable_map = {
+								name = kog_onondaga
+								target = flag:kog_seat_controller
+							}
+							exists = "global_variable_map(kog_onondaga|flag:kog_seat_controller)"
+						}
+					}
+					"global_variable_map(kog_onondaga|flag:kog_seat_controller)" = {
+						create_character = {
+							template = kog_patriarch_template
+							on_created = {
+								add_trait = kog_patriarch_of_onondaga
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Attempt to generate using the Province owner
+				else_if = {
+					limit = {
+						p:x01D042 = {
+							owner = {
+								kog_content_scope_trigger = yes
+							}
+						}
+					}
+					p:x01D042 = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								religion = rel:orthodox
+								on_created = {
+									add_trait = kog_patriarch_of_onondaga
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Fall back to an Elysian Orthodox; create from scope of province owner
+				else = {
+					p:x01D042 = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								culture = "global_variable_map(kog_database|flag:kog_elysian_culture)"
+								religion = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+								on_created = {
+									add_trait = kog_patriarch_of_onondaga
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Capture the new character
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_onondaga
+					}
+					save_scope_as = kog_onondaga_patriarch_scope
+				}
+			}
+			# Update Relations Variables
+			every_country = {
+				limit = {
+					kog_content_scope_trigger = yes
+				}
+				je:je_kog_local = {
+					# Sanity check in case initialization had a wobble
+					if = {
+						limit = {
+							NOT = {
+								has_variable = kog_onondaga_relations_var
+							}
+						}
+						set_variable = {
+							name = kog_onondaga_relations_var
+							value = 0
+						}
+					}
+					# Do not reduce relations if already at or below 0
+					else_if = {
+						limit = {
+							var:kog_onondaga_relations_var > 0
+						}
+						change_variable = {
+							name = kog_onondaga_relations_var
+							add = -25
+						}
+						clamp_variable = {
+							name = kog_onondaga_relations_var
+							min = 0
+							max = 50
+						}
+					}
+				}
+				# Notify all Christians of a new Pope
+				post_notification = kog_onondaga_replaced
+			}
+		}
+		# Step 2, Update the relevant variable map
+		remove_from_global_variable_map = {
+			name = kog_onondaga
+			key = flag:kog_seat_patriarch
+		}
+		add_to_global_variable_map = {
+			name = kog_onondaga
+			key = flag:kog_seat_patriarch
+			value = scope:kog_onondaga_patriarch_scope
+		}
+	}
 }
 
-kog_update_cahokia_patriatch_effect = {
-	custom_tooltip = kog_nothing_happens
+kog_update_tututepec_patriarch_effect = {
+	if = {
+		limit = {
+			has_global_variable_map = kog_tututepec
+		}
+		# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
+		if = {
+			limit = { # If this evaluates to true, proceed to patriarch regeneration
+				OR = {
+					AND = {
+						is_key_in_global_variable_map = {
+							name = kog_tututepec
+							target = flag:kog_seat_patriarch
+						}
+						NOT = {
+							exists = "global_variable_map(kog_tututepec|flag:kog_seat_patriarch)"
+						}
+					}
+					NOT = {
+						is_key_in_global_variable_map = {
+							name = kog_tututepec
+							target = flag:kog_seat_patriarch
+						}
+					}
+				}
+			}
+			# First, attempt to find the character in the void
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_trait = kog_patriarch_of_tututepec
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_tututepec
+					}
+					save_scope_as = kog_tututepec_patriarch_scope
+				}
+			}
+			# Failing that, generate a new character
+			else = {
+				# Attempt to generate using the Seat controller
+				if = {
+					limit = {
+						AND = {
+							is_key_in_global_variable_map = {
+								name = kog_tututepec
+								target = flag:kog_seat_controller
+							}
+							exists = "global_variable_map(kog_tututepec|flag:kog_seat_controller)"
+						}
+					}
+					"global_variable_map(kog_tututepec|flag:kog_seat_controller)" = {
+						create_character = {
+							template = kog_patriarch_template
+							on_created = {
+								add_trait = kog_patriarch_of_tututepec
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Attempt to generate using the Province owner
+				else_if = {
+					limit = {
+						p:x1BC4D0 = {
+							owner = {
+								kog_content_scope_trigger = yes
+							}
+						}
+					}
+					p:x1BC4D0 = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								religion = rel:orthodox
+								on_created = {
+									add_trait = kog_patriarch_of_tututepec
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Fall back to an Elysian Orthodox; create from scope of province owner
+				else = {
+					p:x1BC4D0 = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								culture = "global_variable_map(kog_database|flag:kog_elysian_culture)"
+								religion = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+								on_created = {
+									add_trait = kog_patriarch_of_tututepec
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Capture the new character
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_tututepec
+					}
+					save_scope_as = kog_tututepec_patriarch_scope
+				}
+			}
+			# Update Relations Variables
+			every_country = {
+				limit = {
+					kog_content_scope_trigger = yes
+				}
+				je:je_kog_local = {
+					# Sanity check in case initialization had a wobble
+					if = {
+						limit = {
+							NOT = {
+								has_variable = kog_tututepec_relations_var
+							}
+						}
+						set_variable = {
+							name = kog_tututepec_relations_var
+							value = 0
+						}
+					}
+					# Do not reduce relations if already at or below 0
+					else_if = {
+						limit = {
+							var:kog_tututepec_relations_var > 0
+						}
+						change_variable = {
+							name = kog_tututepec_relations_var
+							add = -25
+						}
+						clamp_variable = {
+							name = kog_tututepec_relations_var
+							min = 0
+							max = 50
+						}
+					}
+				}
+				# Notify all Christians of a new Pope
+				post_notification = kog_tututepec_replaced
+			}
+		}
+		# Step 2, Update the relevant variable map
+		remove_from_global_variable_map = {
+			name = kog_tututepec
+			key = flag:kog_seat_patriarch
+		}
+		add_to_global_variable_map = {
+			name = kog_tututepec
+			key = flag:kog_seat_patriarch
+			value = scope:kog_tututepec_patriarch_scope
+		}
+	}
+}
+
+kog_update_cahokia_patriarch_effect = {
+	if = {
+		limit = {
+			has_global_variable_map = kog_cahokia
+		}
+		# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
+		if = {
+			limit = { # If this evaluates to true, proceed to patriarch regeneration
+				OR = {
+					AND = {
+						is_key_in_global_variable_map = {
+							name = kog_cahokia
+							target = flag:kog_seat_patriarch
+						}
+						NOT = {
+							exists = "global_variable_map(kog_cahokia|flag:kog_seat_patriarch)"
+						}
+					}
+					NOT = {
+						is_key_in_global_variable_map = {
+							name = kog_cahokia
+							target = flag:kog_seat_patriarch
+						}
+					}
+				}
+			}
+			# First, attempt to find the character in the void
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_trait = kog_patriarch_of_cahokia
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_cahokia
+					}
+					save_scope_as = kog_cahokia_patriarch_scope
+				}
+			}
+			# Failing that, generate a new character
+			else = {
+				# Attempt to generate using the Seat controller
+				if = {
+					limit = {
+						AND = {
+							is_key_in_global_variable_map = {
+								name = kog_cahokia
+								target = flag:kog_seat_controller
+							}
+							exists = "global_variable_map(kog_cahokia|flag:kog_seat_controller)"
+						}
+					}
+					"global_variable_map(kog_cahokia|flag:kog_seat_controller)" = {
+						create_character = {
+							template = kog_patriarch_template
+							on_created = {
+								add_trait = kog_patriarch_of_cahokia
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Attempt to generate using the Province owner
+				else_if = {
+					limit = {
+						p:x2938A5 = {
+							owner = {
+								kog_content_scope_trigger = yes
+							}
+						}
+					}
+					p:x2938A5 = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								religion = rel:orthodox
+								on_created = {
+									add_trait = kog_patriarch_of_cahokia
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Fall back to an Elysian Orthodox; create from scope of province owner
+				else = {
+					p:x2938A5 = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								culture = "global_variable_map(kog_database|flag:kog_elysian_culture)"
+								religion = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+								on_created = {
+									add_trait = kog_patriarch_of_cahokia
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Capture the new character
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_cahokia
+					}
+					save_scope_as = kog_cahokia_patriarch_scope
+				}
+			}
+			# Update Relations Variables
+			every_country = {
+				limit = {
+					kog_content_scope_trigger = yes
+				}
+				je:je_kog_local = {
+					# Sanity check in case initialization had a wobble
+					if = {
+						limit = {
+							NOT = {
+								has_variable = kog_cahokia_relations_var
+							}
+						}
+						set_variable = {
+							name = kog_cahokia_relations_var
+							value = 0
+						}
+					}
+					# Do not reduce relations if already at or below 0
+					else_if = {
+						limit = {
+							var:kog_cahokia_relations_var > 0
+						}
+						change_variable = {
+							name = kog_cahokia_relations_var
+							add = -25
+						}
+						clamp_variable = {
+							name = kog_cahokia_relations_var
+							min = 0
+							max = 50
+						}
+					}
+				}
+				# Notify all Christians of a new Pope
+				post_notification = kog_cahokia_replaced
+			}
+		}
+		# Step 2, Update the relevant variable map
+		remove_from_global_variable_map = {
+			name = kog_cahokia
+			key = flag:kog_seat_patriarch
+		}
+		add_to_global_variable_map = {
+			name = kog_cahokia
+			key = flag:kog_seat_patriarch
+			value = scope:kog_cahokia_patriarch_scope
+		}
+	}
+}
+
+kog_update_cayacoa_patriarch_effect = {
+	if = {
+		limit = {
+			has_global_variable_map = kog_cayacoa
+		}
+		# Step 1, Ensure that there is a valid scope saved to the key flag:kog_seat_patriarch
+		if = {
+			limit = { # If this evaluates to true, proceed to patriarch regeneration
+				OR = {
+					AND = {
+						is_key_in_global_variable_map = {
+							name = kog_cayacoa
+							target = flag:kog_seat_patriarch
+						}
+						NOT = {
+							exists = "global_variable_map(kog_cayacoa|flag:kog_seat_patriarch)"
+						}
+					}
+					NOT = {
+						is_key_in_global_variable_map = {
+							name = kog_cayacoa
+							target = flag:kog_seat_patriarch
+						}
+					}
+				}
+			}
+			# First, attempt to find the character in the void
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_trait = kog_patriarch_of_cayacoa
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_cayacoa
+					}
+					save_scope_as = kog_cayacoa_patriarch_scope
+				}
+			}
+			# Failing that, generate a new character
+			else = {
+				# Attempt to generate using the Seat controller
+				if = {
+					limit = {
+						AND = {
+							is_key_in_global_variable_map = {
+								name = kog_cayacoa
+								target = flag:kog_seat_controller
+							}
+							exists = "global_variable_map(kog_cayacoa|flag:kog_seat_controller)"
+						}
+					}
+					"global_variable_map(kog_cayacoa|flag:kog_seat_controller)" = {
+						create_character = {
+							template = kog_patriarch_template
+							on_created = {
+								add_trait = kog_patriarch_of_cayacoa
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Attempt to generate using the Province owner
+				else_if = {
+					limit = {
+						p:x7252EC = {
+							owner = {
+								kog_content_scope_trigger = yes
+							}
+						}
+					}
+					p:x7252EC = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								religion = rel:orthodox
+								on_created = {
+									add_trait = kog_patriarch_of_cayacoa
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Fall back to an Elysian Orthodox; create from scope of province owner
+				else = {
+					p:x7252EC = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								culture = "global_variable_map(kog_database|flag:kog_elysian_culture)"
+								religion = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+								on_created = {
+									add_trait = kog_patriarch_of_cayacoa
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Capture the new character
+				random_character_in_void = {
+					limit = {
+						has_trait = kog_patriarch_of_cayacoa
+					}
+					save_scope_as = kog_cayacoa_patriarch_scope
+				}
+			}
+			# Update Relations Variables
+			every_country = {
+				limit = {
+					kog_content_scope_trigger = yes
+				}
+				je:je_kog_local = {
+					# Sanity check in case initialization had a wobble
+					if = {
+						limit = {
+							NOT = {
+								has_variable = kog_cayacoa_relations_var
+							}
+						}
+						set_variable = {
+							name = kog_cayacoa_relations_var
+							value = 0
+						}
+					}
+					# Do not reduce relations if already at or below 0
+					else_if = {
+						limit = {
+							var:kog_cayacoa_relations_var > 0
+						}
+						change_variable = {
+							name = kog_cayacoa_relations_var
+							add = -25
+						}
+						clamp_variable = {
+							name = kog_cayacoa_relations_var
+							min = 0
+							max = 50
+						}
+					}
+				}
+				# Notify all Christians of a new Pope
+				post_notification = kog_cayacoa_replaced
+			}
+		}
+		# Step 2, Update the relevant variable map
+		remove_from_global_variable_map = {
+			name = kog_cayacoa
+			key = flag:kog_seat_patriarch
+		}
+		add_to_global_variable_map = {
+			name = kog_cayacoa
+			key = flag:kog_seat_patriarch
+			value = scope:kog_cayacoa_patriarch_scope
+		}
+	}
 }
 
 ####---------- Seat Controller Upkeep Effects ---------- ####

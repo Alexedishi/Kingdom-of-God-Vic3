@@ -258,6 +258,12 @@
  kog_country_has_same_rite_as_alexandria_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_alexandria$"
  kog_country_has_same_rite_as_moscow_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_moscow$"
  
+ kog_country_has_same_rite_as_elysium_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_elysium$"
+ kog_country_has_same_rite_as_onondaga_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_onondaga$"
+ kog_country_has_same_rite_as_tututepec_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_tututepec$"
+ kog_country_has_same_rite_as_cahokia_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_cahokia$"
+ kog_country_has_same_rite_as_cayacoa_trigger: "[ROOT.GetCountry.GetNameNoFlag] has the same $kog_rite$ as $kog_cayacoa$"
+ 
  kog_can_enforce_rome: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #green 50#! or greater#!"
  kog_can_enforce_santiago: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_santiago$ of #bold #green 50#! or greater#!"
  kog_can_enforce_paris: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_paris$ of #bold #green 50#! or greater#!"
@@ -277,11 +283,11 @@
  kog_can_enforce_onondaga: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_onondaga$ of #bold #green 50#! or greater#!"
  kog_can_enforce_tututepec: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_tututepec$ of #bold #green 50#! or greater#!"
  kog_can_enforce_cahokia: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cahokia$ of #bold #green 50#! or greater#!"
- 
+ kog_can_enforce_cayacoa: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cayacoa$ of #bold #green 50#! or greater#!"
  
  ####---------- Episcopal Seat Relations Triggers  ----------####
- kog_seat_opinion_greater_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! #bold or greater#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
- kog_seat_opinion_less_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold less than#! #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
+ kog_seat_opinion_greater_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! #bold or greater#! with the $kog_seat$ of [SCOPE.GetFlagName('kog_seat_opinion_trigger_type')]"
+ kog_seat_opinion_less_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold less than#! #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! with the $kog_seat$ of [SCOPE.GetFlagName('kog_seat_opinion_trigger_type')]"
  
  kog_seat_approval_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold #green 75#! or greater#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"
  kog_seat_disapproval_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold #red 50#! or less#! with the $kog_seat$ of [SCOPE.GetBuildingType('kog_seat_opinion_trigger_type')]"

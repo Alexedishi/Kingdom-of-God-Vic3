@@ -19,6 +19,7 @@
  kog_value_from_literacy_rate: "#indent_newline:3 the average [concept_literacy] rate in [GetPlayer.GetNameNoFlag]#!"
  kog_value_from_schismatic: "being in [concept_schism]"
  kog_value_from_autocephaly: "having [concept_autocephaly]"
+ kog_value_from_episcopal_seats: "the number of $kog_controlled$ $kog_episcopal_seats$"
  
  ####---------- Schism Script Value Descriptions ----------####
  kog_value_from_ignoring_dissent: "Ignoring Dissenters"
@@ -31,9 +32,14 @@
  
  
  ####---------- Ecumenical Council Script Value Descriptions ----------####
- kog_value_from_italian_states: "[Concept('concept_state','$concept_states$')] in the [GetStrategicRegion('geographic_region_italy_old').GetName] [concept_strategic_region]"
- kog_value_from_european_states: "[Concept('concept_state','$concept_states$')] in the [GetStrategicRegion('geographic_region_england_old').GetName], [GetStrategicRegion('geographic_region_iberia_old').GetName], [GetStrategicRegion('geographic_region_france_old').GetName], [GetStrategicRegion('geographic_region_occitania_old').GetName], [GetStrategicRegion('geographic_region_rhine_old').GetName], [GetStrategicRegion('geographic_region_north_germany_old').GetName], [GetStrategicRegion('geographic_region_south_germany_old').GetName], or [GetStrategicRegion('geographic_region_poland_old').GetName], [concept_strategic_region]"
- kog_value_from_other_states: "non-European [Concept('concept_state','$concept_states$')]"
+ kog_value_from_being_PAP: "being the #bold Papacy#!"
+ kog_value_from_italian_states: "$kog_states$ in the [GetGeographicRegion('geographic_region_italy_old').GetName] [concept_strategic_region]"
+ kog_value_from_historically_catholic_states: "historically [GetReligion('catholic').GetName] $kog_states$"
+ kog_value_from_byzantine_states: "$kog_states$ that formed the core of the #bold Byzantine Empire#!"
+ kog_value_from_historically_orthodox_states: "historically [GetReligion('orthodox').GetName] $kog_states$"
+ kog_value_from_other_states: "non-European $kog_states$"
+ 
+ kog_value_from_european_states: "$kog_states$ in the [GetGeographicRegion('geographic_region_england_old').GetName], [GetGeographicRegion('geographic_region_iberia_old').GetName], [GetGeographicRegion('geographic_region_france_old').GetName], [GetGeographicRegion('geographic_region_occitania_old').GetName], [GetGeographicRegion('geographic_region_rhine_old').GetName], [GetGeographicRegion('geographic_region_north_germany_old').GetName], [GetGeographicRegion('geographic_region_south_germany_old').GetName], or [GetGeographicRegion('geographic_region_poland_old').GetName], [concept_strategic_region]"
  
  
  ####---------- Collegium Script Value Descriptions ----------####
