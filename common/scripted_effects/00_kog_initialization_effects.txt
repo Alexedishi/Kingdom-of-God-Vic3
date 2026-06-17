@@ -1857,15 +1857,350 @@ kog_initialize_konak_variable_map_effect = {
 	}
 }
 
-kog_initialize_elysium_variable_map_effect = {}
+kog_initialize_elysium_variable_map_effect = {
+	p:x700080 = {
+		owner = {
+			save_scope_as = kog_elysium_controller
+		}
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_id
+		value = flag:kog_elysium
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_name
+		value = flag:kog_elysium_name
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_header
+		value = flag:kog_elysium_header
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_rank
+		value = flag:kog_minor_seat
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_religion
+		value = rel:orthodox
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_liturgical_language
+		value = flag:kog_language_elysian
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_liturgical_rite
+		value = flag:kog_elysian_rite
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_location
+		value = s:STATE_DISTRICT_OF_COLUMBIA
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_foundation
+		value = 418 # Alt-history
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_controller
+		value = scope:kog_elysium_controller
+	}
+	random_character_in_void = {
+		limit = {
+			has_trait = kog_patriarch_of_elysium
+		}
+		save_scope_as = kog_elysium_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_elysium
+		key = flag:kog_seat_patriarch
+		value = scope:kog_elysium_patriarch
+	}
+}
 
-kog_initialize_onondaga_variable_map_effect = {}
+kog_initialize_onondaga_variable_map_effect = {
+	p:x01D042 = {
+		owner = {
+			save_scope_as = kog_onondaga_controller
+		}
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_id
+		value = flag:kog_onondaga
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_name
+		value = flag:kog_onondaga_name
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_header
+		value = flag:kog_onondaga_header
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_rank
+		value = flag:kog_minor_seat
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_religion
+		value = rel:orthodox
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_liturgical_language
+		value = flag:kog_language_haudenosaunee
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_liturgical_rite
+		value = flag:kog_haudenosaunee_rite
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_location
+		value = s:STATE_NEW_YORK
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_foundation
+		value = 522 # Alt-history
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_controller
+		value = scope:kog_onondaga_controller
+	}
+	random_character_in_void = {
+		limit = {
+			has_trait = kog_patriarch_of_onondaga
+		}
+		save_scope_as = kog_onondaga_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_onondaga
+		key = flag:kog_seat_patriarch
+		value = scope:kog_onondaga_patriarch
+	}
+}
 
-kog_initialize_tututepec_variable_map_effect = {}
+kog_initialize_tututepec_variable_map_effect = {
+	p:x1BC4D0 = {
+		owner = {
+			save_scope_as = kog_tututepec_controller
+		}
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_id
+		value = flag:kog_tututepec
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_name
+		value = flag:kog_tututepec_name
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_header
+		value = flag:kog_tututepec_header
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_rank
+		value = flag:kog_minor_seat
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_religion
+		value = rel:orthodox
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_liturgical_language
+		value = flag:kog_language_mixtec
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_liturgical_rite
+		value = flag:kog_mixtec_rite
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_location
+		value = s:STATE_OAXACA
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_foundation
+		value = 1137 # Alt-history
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_controller
+		value = scope:kog_tututepec_controller
+	}
+	random_character_in_void = {
+		limit = {
+			has_trait = kog_patriarch_of_tututepec
+		}
+		save_scope_as = kog_tututepec_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_tututepec
+		key = flag:kog_seat_patriarch
+		value = scope:kog_tututepec_patriarch
+	}
+}
 
-kog_initialize_cahokia_variable_map_effect = {}
+kog_initialize_cahokia_variable_map_effect = {
+	p:x2938A5 = {
+		owner = {
+			save_scope_as = kog_cahokia_controller
+		}
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_id
+		value = flag:kog_cahokia
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_name
+		value = flag:kog_cahokia_name
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_header
+		value = flag:kog_cahokia_header
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_rank
+		value = flag:kog_minor_seat
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_religion
+		value = rel:orthodox
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_liturgical_language
+		value = flag:kog_language_elysian
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_liturgical_rite
+		value = flag:kog_elysian_rite
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_location
+		value = s:STATE_ILLINOIS
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_foundation
+		value = year
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_controller
+		value = scope:kog_cahokia_controller
+	}
+	random_character_in_void = {
+		limit = {
+			has_trait = kog_patriarch_of_cahokia
+		}
+		save_scope_as = kog_cahokia_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_cahokia
+		key = flag:kog_seat_patriarch
+		value = scope:kog_cahokia_patriarch
+	}
+}
 
-kog_initialize_cayacoa_variable_map_effect = {}
+kog_initialize_cayacoa_variable_map_effect = {
+	p:x7252EC = {
+		owner = {
+			save_scope_as = kog_cayacoa_controller
+		}
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_id
+		value = flag:kog_cayacoa
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_name
+		value = flag:kog_cayacoa_name
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_header
+		value = flag:kog_cayacoa_header
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_rank
+		value = flag:kog_minor_seat
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_religion
+		value = rel:orthodox
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_liturgical_language
+		value = flag:kog_language_elysian
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_liturgical_rite
+		value = flag:kog_elysian_rite
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_location
+		value = s:STATE_SANTO_DOMINGO
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_foundation
+		value = year
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_controller
+		value = scope:kog_cayacoa_controller
+	}
+	random_character_in_void = {
+		limit = {
+			has_trait = kog_patriarch_of_cayacoa
+		}
+		save_scope_as = kog_cayacoa_patriarch
+	}
+	add_to_global_variable_map = {
+		name = kog_cayacoa
+		key = flag:kog_seat_patriarch
+		value = scope:kog_cayacoa_patriarch
+	}
+}
 
 ####---------- Other Content Initialization Effects ----------####
 kog_initialize_1836_patriarchs_effect = {
