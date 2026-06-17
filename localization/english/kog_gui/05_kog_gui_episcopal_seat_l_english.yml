@@ -383,6 +383,181 @@
  kog_gui_enforce_moscow_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_moscow$"
  kog_gui_install_moscow: "Install Bishop in $kog_moscow$"
  
+ ####---------- Episcopal Seat of Coptic Alexandria ----------####
+ # General Localization
+ kog_coptic_alexandria: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_coptic_alexandria_details $kog_coptic_alexandria_name$#!#!"
+ kog_coptic_alexandria_name: "Coptic Alexandria"
+ kog_coptic_alexandria_header: "Patriarchate of Coptic Alexandria"
+ kog_coptic_alexandria_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_coptic_alexandria_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+ kog_coptic_alexandria_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_coptic_alexandria_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_coptic_alexandria_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_coptic_alexandria_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_coptic_alexandria_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_coptic_alexandria_opinion_value')|+=]#"
+ kog_coptic_alexandria_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_coptic_alexandria_opinion_value')]"
+ kog_coptic_alexandria_modifier: "#bold Holding and $kog_controlling$ $kog_coptic_alexandria_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_coptic_alexandria').GetDesc]"
+ # Informational Tooltips
+ kog_coptic_alexandria_details: "@kog_seat! #header $kog_coptic_alexandria_header$#!$kog_linebreak$•#italic $kog_coptic_alexandria_location$#!\n•#white $kog_coptic_alexandria_patriarch$#!\n•#bold $kog_coptic_alexandria_controller$#!\n•#bold $kog_coptic_alexandria_opinion$#!"
+ kog_coptic_alexandria_details_with_modifier: "$kog_coptic_alexandria_details$$kog_linebreak$$kog_coptic_alexandria_modifier$"
+ # Journal Widget Localization
+ kog_gui_seat_name_coptic_alexandria: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria',MakeScopeFlag('kog_seat_header')).GetFlagName]"
+ kog_gui_seat_controller_coptic_alexandria: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_gui_seat_patriarch_coptic_alexandria: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+ kog_gui_seat_location_value_coptic_alexandria: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_gui_liturgical_language_value_coptic_alexandria: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_gui_liturgical_rite_value_coptic_alexandria: "[GetVariableFromGlobalVariableMap('kog_coptic_alexandria', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_gui_opinion_value_coptic_alexandria: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_coptic_alexandria_opinion_var').GetValue]"
+ # Scripted Buttons
+ kog_gui_sway_coptic_alexandria: "Sway $kog_coptic_alexandria$"
+ kog_gui_antagonize_coptic_alexandria: "Antagonize $kog_coptic_alexandria$"
+ kog_gui_integrate_coptic_alexandria: "Integrate $kog_coptic_alexandria$"
+ kog_gui_integrate_coptic_alexandria_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_coptic_alexandria$"
+ kog_gui_enforce_coptic_alexandria: "Enforce Rite on $kog_coptic_alexandria$"
+ kog_gui_enforce_coptic_alexandria_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_coptic_alexandria$"
+ kog_gui_install_coptic_alexandria: "Install Bishop in $kog_coptic_alexandria$"
+ kog_gui_assert_coptic_alexandria: "Seize Control of $kog_coptic_alexandria$"
+ 
+ ####---------- Episcopal Seat of Syriac Antioch ----------####
+ # General Localization
+ kog_syriac_antioch: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_syriac_antioch_details $kog_syriac_antioch_name$#!#!"
+ kog_syriac_antioch_name: "Syriac Antioch"
+ kog_syriac_antioch_header: "Patriarchate of Syriac Antioch"
+ kog_syriac_antioch_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_syriac_antioch_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+ kog_syriac_antioch_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_syriac_antioch_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_syriac_antioch_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_syriac_antioch_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_syriac_antioch_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_syriac_antioch_opinion_value')|+=]#"
+ kog_syriac_antioch_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_syriac_antioch_opinion_value')]"
+ kog_syriac_antioch_modifier: "#bold Holding and $kog_controlling$ $kog_syriac_antioch_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_rome').GetDesc]"
+ # Informational Tooltips
+ kog_syriac_antioch_details: "@kog_seat! #header $kog_syriac_antioch_header$#!$kog_linebreak$•#italic $kog_syriac_antioch_location$#!\n•#white $kog_syriac_antioch_patriarch$#!\n•#bold $kog_syriac_antioch_controller$#!\n•#bold $kog_syriac_antioch_opinion$#!"
+ kog_syriac_antioch_details_with_modifier: "$kog_syriac_antioch_details$$kog_linebreak$$kog_syriac_antioch_modifier$"
+ # Journal Widget Localization
+ kog_gui_seat_name_syriac_antioch: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch',MakeScopeFlag('kog_seat_header')).GetFlagName]"
+ kog_gui_seat_controller_syriac_antioch: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_gui_seat_patriarch_syriac_antioch: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+ kog_gui_seat_location_value_syriac_antioch: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_gui_liturgical_language_value_syriac_antioch: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_gui_liturgical_rite_value_syriac_antioch: "[GetVariableFromGlobalVariableMap('kog_syriac_antioch', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_gui_opinion_value_syriac_antioch: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_syriac_antioch_opinion_var').GetValue]"
+ # Scripted Buttons
+ kog_gui_sway_syriac_antioch: "Sway $kog_syriac_antioch$"
+ kog_gui_antagonize_syriac_antioch: "Antagonize $kog_syriac_antioch$"
+ kog_gui_integrate_syriac_antioch: "Integrate $kog_syriac_antioch$"
+ kog_gui_integrate_syriac_antioch_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_syriac_antioch$"
+ kog_gui_enforce_syriac_antioch: "Enforce Rite on $kog_syriac_antioch$"
+ kog_gui_enforce_syriac_antioch_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_syriac_antioch$"
+ kog_gui_install_syriac_antioch: "Install Bishop in $kog_syriac_antioch$"
+ 
+ ####---------- Episcopal Seat of Etchmiadzin ----------####
+ # General Localization
+ kog_etchmiadzin: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_etchmiadzin_details $kog_etchmiadzin_name$#!#!"
+ kog_etchmiadzin_name: "Etchmiadzin"
+ kog_etchmiadzin_header: "Patriarchate of Etchmiadzin"
+ kog_etchmiadzin_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_etchmiadzin_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+ kog_etchmiadzin_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_etchmiadzin_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_etchmiadzin_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_etchmiadzin_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_etchmiadzin_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_etchmiadzin_opinion_value')|+=]#"
+ kog_etchmiadzin_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_etchmiadzin_opinion_value')]"
+ kog_etchmiadzin_modifier: "#bold Holding and $kog_controlling$ $kog_etchmiadzin_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_rome').GetDesc]"
+ # Informational Tooltips
+ kog_etchmiadzin_details: "@kog_seat! #header $kog_etchmiadzin_header$#!$kog_linebreak$•#italic $kog_etchmiadzin_location$#!\n•#white $kog_etchmiadzin_patriarch$#!\n•#bold $kog_etchmiadzin_controller$#!\n•#bold $kog_etchmiadzin_opinion$#!"
+ kog_etchmiadzin_details_with_modifier: "$kog_etchmiadzin_details$$kog_linebreak$$kog_etchmiadzin_modifier$"
+ # Journal Widget Localization
+ kog_gui_seat_name_etchmiadzin: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin',MakeScopeFlag('kog_seat_header')).GetFlagName]"
+ kog_gui_seat_controller_etchmiadzin: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_gui_seat_patriarch_etchmiadzin: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+ kog_gui_seat_location_value_etchmiadzin: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_gui_liturgical_language_value_etchmiadzin: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_gui_liturgical_rite_value_etchmiadzin: "[GetVariableFromGlobalVariableMap('kog_etchmiadzin', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_gui_opinion_value_etchmiadzin: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_etchmiadzin_opinion_var').GetValue]"
+ # Scripted Buttons
+ kog_gui_sway_etchmiadzin: "Sway $kog_etchmiadzin$"
+ kog_gui_antagonize_etchmiadzin: "Antagonize $kog_etchmiadzin$"
+ kog_gui_integrate_etchmiadzin: "Integrate $kog_etchmiadzin$"
+ kog_gui_integrate_etchmiadzin_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_etchmiadzin$"
+ kog_gui_enforce_etchmiadzin: "Enforce Rite on $kog_etchmiadzin$"
+ kog_gui_enforce_etchmiadzin_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_etchmiadzin$"
+ kog_gui_install_etchmiadzin: "Install Bishop in $kog_etchmiadzin$"
+ 
+ ####---------- Episcopal Seat of Addis Ababa ----------####
+ # General Localization
+ kog_addis_ababa: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_addis_ababa_details $kog_addis_ababa_name$#!#!"
+ kog_addis_ababa_name: "Addis Ababa"
+ kog_addis_ababa_header: "Patriarchate of Addis Ababa"
+ kog_addis_ababa_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_addis_ababa_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+ kog_addis_ababa_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_addis_ababa_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_addis_ababa_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_addis_ababa_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_addis_ababa_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_addis_ababa_opinion_value')|+=]#"
+ kog_addis_ababa_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_addis_ababa_opinion_value')]"
+ kog_addis_ababa_modifier: "#bold Holding and $kog_controlling$ $kog_addis_ababa_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_rome').GetDesc]"
+ # Informational Tooltips
+ kog_addis_ababa_details: "@kog_seat! #header $kog_addis_ababa_header$#!$kog_linebreak$•#italic $kog_addis_ababa_location$#!\n•#white $kog_addis_ababa_patriarch$#!\n•#bold $kog_addis_ababa_controller$#!\n•#bold $kog_addis_ababa_opinion$#!"
+ kog_addis_ababa_details_with_modifier: "$kog_addis_ababa_details$$kog_linebreak$$kog_addis_ababa_modifier$"
+ # Journal Widget Localization
+ kog_gui_seat_name_addis_ababa: "[GetVariableFromGlobalVariableMap('kog_addis_ababa',MakeScopeFlag('kog_seat_header')).GetFlagName]"
+ kog_gui_seat_controller_addis_ababa: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_gui_seat_patriarch_addis_ababa: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+ kog_gui_seat_location_value_addis_ababa: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_gui_liturgical_language_value_addis_ababa: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_gui_liturgical_rite_value_addis_ababa: "[GetVariableFromGlobalVariableMap('kog_addis_ababa', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_gui_opinion_value_addis_ababa: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_addis_ababa_opinion_var').GetValue]"
+ # Scripted Buttons
+ kog_gui_sway_addis_ababa: "Sway $kog_addis_ababa$"
+ kog_gui_antagonize_addis_ababa: "Antagonize $kog_addis_ababa$"
+ kog_gui_integrate_addis_ababa: "Integrate $kog_addis_ababa$"
+ kog_gui_integrate_addis_ababa_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_addis_ababa$"
+ kog_gui_enforce_addis_ababa: "Enforce Rite on $kog_addis_ababa$"
+ kog_gui_enforce_addis_ababa_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_addis_ababa$"
+ kog_gui_install_addis_ababa: "Install Bishop in $kog_addis_ababa$"
+ 
+ ####---------- Episcopal Seat of Qudshanis ----------####
+ # General Localization
+ kog_konak: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_konak_details $kog_konak_name$#!#!"
+ kog_konak_name: "Konak"
+ kog_konak_header: "Patriarchate of Konak"
+ kog_konak_location: "Seated in: [GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_konak_patriarch: "Led By: Patriarch [GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_patriarch')).GetCharacter.GetFullName]"
+ kog_konak_controller: "Answers to: [GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_konak_liturigical_rite: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_konak_liturigical_language: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_konak_opinion: "#bold Opinion: #tooltippable;tooltip:[GetPlayer.GetTooltipTag],kog_konak_opinion_breakdown [GetPlayer.MakeScope.ScriptValue('kog_konak_opinion_value')|+=]#"
+ kog_konak_opinion_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_konak_opinion_value')]"
+ kog_konak_modifier: "#bold Holding and $kog_controlling$ $kog_konak_name$ will grant the following modifier:#!\n [GetStaticModifier('modifier_kog_controls_rome').GetDesc]"
+ # Informational Tooltips
+ kog_konak_details: "@kog_seat! #header $kog_konak_header$#!$kog_linebreak$•#italic $kog_konak_location$#!\n•#white $kog_konak_patriarch$#!\n•#bold $kog_konak_controller$#!\n•#bold $kog_konak_opinion$#!"
+ kog_konak_details_with_modifier: "$kog_konak_details$$kog_linebreak$$kog_konak_modifier$"
+ # Journal Widget Localization
+ kog_gui_seat_name_konak: "[GetVariableFromGlobalVariableMap('kog_konak',MakeScopeFlag('kog_seat_header')).GetFlagName]"
+ kog_gui_seat_controller_konak: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_controller')).GetCountry.GetName]"
+ kog_gui_seat_patriarch_konak: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_patriarch')).GetCharacter]"
+ kog_gui_seat_location_value_konak: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_location')).GetStateRegion.GetName]"
+ kog_gui_liturgical_language_value_konak: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_liturgical_language') ).GetFlagName]"
+ kog_gui_liturgical_rite_value_konak: "[GetVariableFromGlobalVariableMap('kog_konak', MakeScopeFlag('kog_seat_liturgical_rite') ).GetFlagName]"
+ kog_gui_opinion_value_konak: "[GetPlayer.MakeScope.Var('je_kog_local').Var('kog_konak_opinion_var').GetValue]"
+ # Scripted Buttons
+ kog_gui_sway_konak: "Sway $kog_konak$"
+ kog_gui_antagonize_konak: "Antagonize $kog_konak$"
+ kog_gui_integrate_konak: "Integrate $kog_konak$"
+ kog_gui_integrate_konak_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of seizing ecclesial control over $kog_konak$"
+ kog_gui_enforce_konak: "Enforce Rite on $kog_konak$"
+ kog_gui_enforce_konak_effect: "[ROOT.GetCountry.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon $kog_konak$"
+ kog_gui_install_konak: "Install Bishop in $kog_konak$"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  ####---------- Episcopal Seat of Elysium ----------####
  # General Localization
  kog_elysium: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_elysium_details $kog_elysium_name$#!#!"
