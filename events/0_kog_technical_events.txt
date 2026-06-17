@@ -99,6 +99,7 @@ kog_technical_events.001 = {
 		fix_variable_error = { variable = kog_seat }
 		fix_variable_error = { variable = kog_seat_id }
 		fix_variable_error = { variable = kog_seat_name }
+		fix_variable_error = { variable = kog_seat_header }
 		fix_variable_error = { variable = kog_seat_rank }
 		fix_variable_error = { variable = kog_major_seat }
 		fix_variable_error = { variable = kog_minor_seat }
@@ -109,6 +110,7 @@ kog_technical_events.001 = {
 		fix_variable_error = { variable = kog_seat_location }
 		fix_variable_error = { variable = kog_seat_controller }
 		fix_variable_error = { variable = kog_seat_patriarch }
+		fix_variable_error = { variable = kog_national_piety_target_var }
 		
 		fix_variable_error = { variable = kog_rome }
 		fix_variable_error = { variable = kog_santiago }
@@ -213,16 +215,6 @@ kog_technical_events.001 = {
 		fix_variable_error = { variable = kog_social_role_list }
 		fix_variable_error = { variable = kog_stance_on_sciences_list }
 		fix_variable_error = { variable = kog_crusades_list }
-		fix_variable_error = { variable = kog_rome_actions_list }
-		fix_variable_error = { variable = kog_santiago_actions_list }
-		fix_variable_error = { variable = kog_paris_actions_list }
-		fix_variable_error = { variable = kog_koln_actions_list }
-		fix_variable_error = { variable = kog_vienna_actions_list }
-		fix_variable_error = { variable = kog_constantinople_actions_list }
-		fix_variable_error = { variable = kog_antioch_actions_list }
-		fix_variable_error = { variable = kog_jerusalem_actions_list }
-		fix_variable_error = { variable = kog_alexandria_actions_list }
-		fix_variable_error = { variable = kog_moscow_actions_list }
 		
 		fix_variable_error = { variable = kog_mother_church_var }
 		fix_variable_error = { variable = kog_location_var }
@@ -264,91 +256,108 @@ kog_technical_events.001 = {
 		
 		fix_variable_error = { variable = kog_gui_assert_rome }
 		fix_variable_error = { variable = kog_gui_assert_constantinople }
+		fix_variable_error = { variable = kog_gui_assert_coptic_alexandria }
+		fix_variable_error = { variable = kog_gui_assert_elysium }
 		
+		fix_variable_error = { variable = kog_rome_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_rome }
 		fix_variable_error = { variable = kog_gui_antagonize_rome }
 		fix_variable_error = { variable = kog_gui_integrate_rome }
 		fix_variable_error = { variable = kog_gui_enforce_rome }
 		fix_variable_error = { variable = kog_gui_install_rome }
 		
+		fix_variable_error = { variable = kog_santiago_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_santiago }
 		fix_variable_error = { variable = kog_gui_antagonize_santiago }
 		fix_variable_error = { variable = kog_gui_integrate_santiago }
 		fix_variable_error = { variable = kog_gui_enforce_santiago }
 		fix_variable_error = { variable = kog_gui_install_santiago }
 		
+		fix_variable_error = { variable = kog_paris_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_paris }
 		fix_variable_error = { variable = kog_gui_antagonize_paris }
 		fix_variable_error = { variable = kog_gui_integrate_paris }
 		fix_variable_error = { variable = kog_gui_enforce_paris }
 		fix_variable_error = { variable = kog_gui_install_paris }
 		
+		fix_variable_error = { variable = kog_koln_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_koln }
 		fix_variable_error = { variable = kog_gui_antagonize_koln }
 		fix_variable_error = { variable = kog_gui_integrate_koln }
 		fix_variable_error = { variable = kog_gui_enforce_koln }
 		fix_variable_error = { variable = kog_gui_install_koln }
 		
+		fix_variable_error = { variable = kog_vienna_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_vienna }
 		fix_variable_error = { variable = kog_gui_antagonize_vienna }
 		fix_variable_error = { variable = kog_gui_integrate_vienna }
 		fix_variable_error = { variable = kog_gui_enforce_vienna }
 		fix_variable_error = { variable = kog_gui_install_vienna }
 		
+		fix_variable_error = { variable = kog_constantinople_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_constantinople }
 		fix_variable_error = { variable = kog_gui_antagonize_constantinople }
 		fix_variable_error = { variable = kog_gui_integrate_constantinople }
 		fix_variable_error = { variable = kog_gui_enforce_constantinople }
 		fix_variable_error = { variable = kog_gui_install_constantinople }
 		
+		fix_variable_error = { variable = kog_antioch_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_antioch }
 		fix_variable_error = { variable = kog_gui_antagonize_antioch }
 		fix_variable_error = { variable = kog_gui_integrate_antioch }
 		fix_variable_error = { variable = kog_gui_enforce_antioch }
 		fix_variable_error = { variable = kog_gui_install_antioch }
 		
-		fix_variable_error = { variable = kog_gui_sway_alexandria }
-		fix_variable_error = { variable = kog_gui_antagonize_alexandria }
-		fix_variable_error = { variable = kog_gui_integrate_alexandria }
-		fix_variable_error = { variable = kog_gui_enforce_alexandria }
-		fix_variable_error = { variable = kog_gui_install_alexandria }
-		
+		fix_variable_error = { variable = kog_jerusalem_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_jerusalem }
 		fix_variable_error = { variable = kog_gui_antagonize_jerusalem }
 		fix_variable_error = { variable = kog_gui_integrate_jerusalem }
 		fix_variable_error = { variable = kog_gui_enforce_jerusalem }
 		fix_variable_error = { variable = kog_gui_install_jerusalem }
 		
+		fix_variable_error = { variable = kog_alexandria_actions_list }
+		fix_variable_error = { variable = kog_gui_sway_alexandria }
+		fix_variable_error = { variable = kog_gui_antagonize_alexandria }
+		fix_variable_error = { variable = kog_gui_integrate_alexandria }
+		fix_variable_error = { variable = kog_gui_enforce_alexandria }
+		fix_variable_error = { variable = kog_gui_install_alexandria }
+		
+		fix_variable_error = { variable = kog_moscow_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_moscow }
 		fix_variable_error = { variable = kog_gui_antagonize_moscow }
 		fix_variable_error = { variable = kog_gui_integrate_moscow }
 		fix_variable_error = { variable = kog_gui_enforce_moscow }
 		fix_variable_error = { variable = kog_gui_install_moscow }
 		
+		fix_variable_error = { variable = kog_elysium_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_elysium }
 		fix_variable_error = { variable = kog_gui_antagonize_elysium }
 		fix_variable_error = { variable = kog_gui_integrate_elysium }
 		fix_variable_error = { variable = kog_gui_enforce_elysium }
 		fix_variable_error = { variable = kog_gui_install_elysium }
 		
+		fix_variable_error = { variable = kog_onondaga_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_onondaga }
 		fix_variable_error = { variable = kog_gui_antagonize_onondaga }
 		fix_variable_error = { variable = kog_gui_integrate_onondaga }
 		fix_variable_error = { variable = kog_gui_enforce_onondaga }
 		fix_variable_error = { variable = kog_gui_install_onondaga }
 		
+		fix_variable_error = { variable = kog_tututepec_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_tututepec }
 		fix_variable_error = { variable = kog_gui_antagonize_tututepec }
 		fix_variable_error = { variable = kog_gui_integrate_tututepec }
 		fix_variable_error = { variable = kog_gui_enforce_tututepec }
 		fix_variable_error = { variable = kog_gui_install_tututepec }
 		
+		fix_variable_error = { variable = kog_cahokia_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_cahokia }
 		fix_variable_error = { variable = kog_gui_antagonize_cahokia }
 		fix_variable_error = { variable = kog_gui_integrate_cahokia }
 		fix_variable_error = { variable = kog_gui_enforce_cahokia }
 		fix_variable_error = { variable = kog_gui_install_cahokia }
 		
+		fix_variable_error = { variable = kog_cayacoa_actions_list }
 		fix_variable_error = { variable = kog_gui_sway_cayacoa }
 		fix_variable_error = { variable = kog_gui_antagonize_cayacoa }
 		fix_variable_error = { variable = kog_gui_integrate_cayacoa }
