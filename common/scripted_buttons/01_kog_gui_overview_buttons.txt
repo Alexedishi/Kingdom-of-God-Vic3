@@ -72,7 +72,7 @@ kog_gui_convoke_council = {
 	desc = "kog_gui_convoke_council_desc"
 	
 	visible = {
-		always = yes
+		is_player = yes
 	}
 	selected = {
 		kog_has_ongoing_council_trigger = yes
@@ -85,19 +85,48 @@ kog_gui_convoke_council = {
 		}
 		kog_controls_any_seat_trigger = yes
 		is_subject = no
+		hidden_trigger = {
+			NOT = {
+				has_variable = kog_considering_council_var
+			}
+		}
 	}
 	effect = {
-		# TODO Add re-factored event
-		add_modifier = modifier_kog_hosting_council
-		global_var:je_kog_catholic = {
-			set_variable = {
-				name = kog_council_var
+		if = {
+			limit = {
+				kog_country_is_roman_catholic_trigger = yes
 			}
+			trigger_event = {
+				id = kog_council_events.001
+				popup = yes
+			}
+		}
+		else_if = {
+			limit = {
+				kog_country_is_eastern_orthodox_trigger = yes
+			}
+			trigger_event = {
+				id = kog_council_events.002
+				popup = yes
+			}
+		}
+		else_if = {
+			limit = {
+				kog_country_is_elysian_orthodox_trigger = yes
+			}
+			trigger_event = {
+				id = kog_council_events.010
+				popup = yes
+			}
+		}
+		set_variable = {
+			name = kog_considering_council_var
+			days = kog_3_months
 		}
 	}
 	
 	ai_chance = {
-		value = 0
+		value = -100
 	}
 }
 

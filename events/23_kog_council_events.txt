@@ -1,2 +1,215 @@
 ﻿namespace = kog_council_events
 
+# Convoking an Ecumenical Council (Catholic Variant)
+kog_council_events.001 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/generic_icons/kog_council.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_council_events.001.t
+	desc = kog_council_events.001.d
+	flavor = kog_council_events.001.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered by kog_gui_convoke_council
+	}
+	
+	cancellation_trigger = {
+		kog_has_catholic_council_trigger = yes
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = kog_council_events.001.1
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = apostolic_succession
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.2
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = almsgiving
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.3
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = statism
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.4
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = nationalism
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.5
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = iconography
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.6
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = clerical_marriage
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.7
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = social_role
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.8
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = stance_on_sciences
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.9
+		kog_convoke_council_effect = {
+			type = catholic
+			flag = crusades
+		}
+	}
+	
+	option = {
+		name = kog_council_events.001.a
+		default_option = yes
+		custom_tooltip = kog_nothing_happens
+	}
+}
+
+# Convoking an Ecumenical Council (Orthodox Variant)
+kog_council_events.002 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/generic_icons/kog_council.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_council_events.002.t
+	desc = kog_council_events.002.d
+	flavor = kog_council_events.002.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+		# triggered by kog_gui_convoke_council
+	}
+	
+	cancellation_trigger = {
+		kog_has_orthodox_council_trigger = yes
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = kog_council_events.002.1
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = apostolic_succession
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.2
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = almsgiving
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.3
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = statism
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.4
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = nationalism
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.5
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = iconography
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.6
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = clerical_marriage
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.7
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = social_role
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.8
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = stance_on_sciences
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.9
+		kog_convoke_council_effect = {
+			type = orthodox
+			flag = crusades
+		}
+	}
+	
+	option = {
+		name = kog_council_events.002.a
+		default_option = yes
+		custom_tooltip = kog_nothing_happens
+	}
+}

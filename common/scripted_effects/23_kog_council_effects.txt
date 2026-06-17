@@ -1,5 +1,24 @@
 ﻿####---------- Ecumenical Council Effects ---------- ####
-kog_convoke_council_effect = { }
+kog_convoke_council_effect = {
+	custom_tooltip = {
+		text = kog_convoke_council_effect
+		add_contextless_journal_entry = je_kog_$type$_council
+		global_var:je_kog_$type$_council = {
+			set_variable = {
+				name = kog_council_year_var
+				value = year
+			}
+			set_variable = {
+				name = kog_council_location_var
+				value = global_var:je_kog_$type$.var:kog_location_var
+			}
+		}
+		kog_add_council_matter_effect = {
+			type = $type$
+			flag = $flag$
+		}
+	}
+}
 
 kog_add_council_matter_effect = {
 	custom_tooltip = {
@@ -8,7 +27,7 @@ kog_add_council_matter_effect = {
 			name = kog_council_matter_var
 			value = flag:kog_canon_lawgroup_$flag$
 		}
-		var:kog_global_faith_journal_var ?= {
+		global_var:je_kog_$type$_council ?= {
 			if = {
 				limit = {
 					NOT = {
