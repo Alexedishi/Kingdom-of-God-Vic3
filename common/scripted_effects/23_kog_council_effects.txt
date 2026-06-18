@@ -18,6 +18,11 @@ kog_convoke_council_effect = {
 			flag = $flag$
 		}
 	}
+	add_modifier = {
+		name = modifier_kog_convoked_council
+		days = kog_5_years
+		is_decaying = yes
+	}
 }
 
 kog_add_council_matter_effect = {
@@ -32,13 +37,13 @@ kog_add_council_matter_effect = {
 				limit = {
 					NOT = {
 						is_key_in_variable_map = {
-							name = kog_ecumenical_council_map
+							name = kog_council_matters_varmap
 							target = flag:kog_canon_lawgroup_$flag$
 						}
 					}
 				}
 				add_to_variable_map = {
-					name = kog_ecumenical_council_map
+					name = kog_council_matters_varmap
 					key = flag:kog_canon_lawgroup_$flag$
 					value = 0
 				}
@@ -48,64 +53,110 @@ kog_add_council_matter_effect = {
 }
 
 kog_tally_council_votes_effect = {
-	# Set Timeout Variable
-	set_global_variable = {
-		name = kog_votes_timeout_var
-		days = 20
+	scope:journal_entry = {
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			kog_tally_canon_law_votes_effect = {
+				type = $type$
+				flag = kog_canon_law_papal_primacy
+			}
+			kog_tally_canon_law_votes_effect = {
+				type = $type$
+				flag = kog_canon_law_synodality
+			}
+			kog_tally_canon_law_votes_effect = {
+				type = $type$
+				flag = kog_canon_law_congregationalism
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_almsgiving
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_statism
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_nationalism
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_iconography
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_clerical_marriage
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_social_role
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_stance_on_sciences
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_crusades
+				}
+			}
+		}
 	}
-	
-	# Check Catholic Variables
-	if = {
-		limit = {
-			kog_has_catholic_council_trigger = yes
-		}
-		global_var:je_kog_catholic = {
-			set_variable = {
-				name = kog_council_support_var
-		#		value = kog_catholic_support_value
-			}
-			set_variable = {
-				name = kog_council_opposition_var
-		#		value = kog_catholic_opposition_value
-			}
-			set_variable = {
-				name = kog_council_tally_var
-		#		value = kog_catholic_council_value
-			}
-		}
-	}
-	
-	# Check Orthodox Variables
-	if = {
-		limit = {
-			kog_has_orthodox_council_trigger = yes
-		}
-		global_var:je_kog_orthodox = {
-			set_variable = {
-				name = kog_council_support_var
-		#		value = kog_catholic_support_value
-			}
-			set_variable = {
-				name = kog_council_opposition_var
-		#		value = kog_catholic_opposition_value
-			}
-			set_variable = {
-				name = kog_council_tally_var
-		#		value = kog_catholic_council_value
+}
+
+kog_tally_canon_law_votes_effect = {
+	set_variable = {
+		name = $flag$
+		value = {
+			value = 0
+			every_country = {
+				limit = {
+					is_involved_in_journal_entry = je_kog_$type$_council
+					var:kog_canon_lawgroup_apostolic_succession_var ?= flag:$flag$
+				}
+				add = var:kog_votes_var
 			}
 		}
 	}
 }
 
 kog_cleanup_council_effect = {
-	if = {
-		limit = {
-			has_modifier = modifier_kog_hosting_council
-		}
-		remove_modifier = modifier_kog_hosting_council
-		add_modifier = {
-			name = modifier_kog_hosted_council
-			days = kog_10_years
-		}
-	}
+
 }

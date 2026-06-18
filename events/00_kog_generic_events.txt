@@ -298,13 +298,13 @@ kog_generic_events.005 = { # Church-State Relations
 	
 	trigger = {
 		NOT = {
-			has_variable = kog_caesaropapism_questioned
+			has_variable = kog_constantinianism_questioned
 		}
 		has_modifier = modifier_kog_reformed_synod
 	}
 	
 	immediate = {
-		set_variable = kog_caesaropapism_questioned
+		set_variable = kog_constantinianism_questioned
 	}
 	
 	option = {
@@ -321,7 +321,7 @@ kog_generic_events.005 = { # Church-State Relations
 	option = {
 		name = kog_generic_events.005.b
 		add_modifier = {
-			name = modifier_kog_asserted_caesaropapism
+			name = modifier_kog_asserted_constantinianism
 			days = kog_5_years
 			is_decaying = yes
 		}

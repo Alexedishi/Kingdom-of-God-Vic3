@@ -172,14 +172,21 @@ je_kog_catholic_council = {
 	}
 	
 	immediate_all_involved = {
-		# TODO add council event
+		if = {
+			limit = {
+				NOT = {
+					has_modifier = modifier_kog_convoked_council
+				}
+			}
+			trigger_event = kog_council_events.100
+		}
 	}
 	
 	timeout = {
 		value = 356
 		scope:journal_entry = {
 			every_key_in_variable_map = {
-				variable = kog_ecumenical_council_map
+				variable = kog_council_matters_varmap
 				add = 356
 			}
 		}
@@ -189,10 +196,19 @@ je_kog_catholic_council = {
 		global_var:je_kog_catholic = {
 			remove_variable = kog_council_var
 		}
+		remove_global_variable = je_kog_catholic_council
 	}
 	
 	on_timeout_all_involved = {
+		kog_cleanup_council_effect = yes
+	}
 	
+	on_weekly_pulse = {
+		effect = {
+			kog_tally_council_votes_effect = {
+				type = catholic
+			}
+		}
 	}
 }
 

@@ -425,15 +425,21 @@ kog_clear_canon_law_modifiers_effect = {
 	}
 	if = {
 		limit = {
+			has_modifier = modifier_kog_canon_law_secularism
+		}
+		remove_modifier = modifier_kog_canon_law_secularism
+	}
+	if = {
+		limit = {
 			has_modifier = modifier_kog_canon_law_gallicanism
 		}
 		remove_modifier = modifier_kog_canon_law_gallicanism
 	}
 	if = {
 		limit = {
-			has_modifier = modifier_kog_canon_law_caesaropapism
+			has_modifier = modifier_kog_canon_law_constantinianism
 		}
-		remove_modifier = modifier_kog_canon_law_caesaropapism
+		remove_modifier = modifier_kog_canon_law_constantinianism
 	}
 	if = {
 		limit = {
@@ -628,15 +634,21 @@ kog_add_canon_law_modifiers_effect = {
 	}
 	if = {
 		limit = {
+			var:kog_canon_law_statism_var = flag:kog_canon_law_secularism
+		}
+		add_modifier = modifier_kog_canon_law_secularism
+	}
+	if = {
+		limit = {
 			var:kog_canon_law_statism_var = flag:kog_canon_law_gallicanism
 		}
 		add_modifier = modifier_kog_canon_law_gallicanism
 	}
 	if = {
 		limit = {
-			var:kog_canon_law_statism_var = flag:kog_canon_law_caesaropapism
+			var:kog_canon_law_statism_var = flag:kog_canon_law_constantinianism
 		}
-		add_modifier = modifier_kog_canon_law_caesaropapism
+		add_modifier = modifier_kog_canon_law_constantinianism
 	}
 	if = {
 		limit = {
