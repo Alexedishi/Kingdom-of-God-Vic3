@@ -12,8 +12,24 @@
 	}
 }
 
-
-
+kog_add_schism_progress_effect = {
+	custom_tooltip = {
+		text = kog_add_schism_progress_effect
+		set_local_variable = {
+			name = kog_schism_progress
+			value = $value$
+		}
+		set_variable = {
+			name = kog_schism_var
+			value = {
+				add = var:kog_schism_var
+				add = $value$
+				max = 120
+				min = 0
+			}
+		}
+	}
+}
 
 kog_schism_cleanup_effect = {
 	# This effect will not adjust the kog_schism_var or kog_is_autocephalous variables; those are explicitly handled by kog.107/balkfm.569

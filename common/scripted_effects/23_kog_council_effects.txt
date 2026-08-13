@@ -13,10 +13,6 @@ kog_convoke_council_effect = {
 				value = global_var:je_kog_$type$.var:kog_location_var
 			}
 		}
-		kog_add_council_matter_effect = {
-			type = $type$
-			flag = $flag$
-		}
 	}
 	add_modifier = {
 		name = modifier_kog_convoked_council
@@ -63,15 +59,22 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_papal_primacy
+				canon_lawgroup = kog_canon_lawgroup_apostolic_succession
+				canon_law = kog_canon_law_papal_primacy
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_synodality
+				canon_lawgroup = kog_canon_lawgroup_apostolic_succession
+				canon_law = kog_canon_law_synodality
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_congregationalism
+				canon_lawgroup = kog_canon_lawgroup_apostolic_succession
+				canon_law = kog_canon_law_congregationalism
+			}
+			sort_variable_list = {
+				name = kog_canon_lawgroup_apostolic_succession_votes_list
+				order = this
 			}
 		}
 		if = {
@@ -83,15 +86,18 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_no_alms
+				canon_lawgroup = kog_canon_lawgroup_almsgiving
+				canon_law = kog_canon_law_no_alms
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_offertory
+				canon_lawgroup = kog_canon_lawgroup_almsgiving
+				canon_law = kog_canon_law_offertory
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_tithing
+				canon_lawgroup = kog_canon_lawgroup_almsgiving
+				canon_law = kog_canon_law_tithing
 			}
 		}
 		if = {
@@ -103,23 +109,28 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_hierocracy
+				canon_lawgroup = kog_canon_lawgroup_statism
+				canon_law = kog_canon_law_hierocracy
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_ultramontanism
+				canon_lawgroup = kog_canon_lawgroup_statism
+				canon_law = kog_canon_law_ultramontanism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_secularism
+				canon_lawgroup = kog_canon_lawgroup_statism
+				canon_law = kog_canon_law_secularism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_gallicanism
+				canon_lawgroup = kog_canon_lawgroup_statism
+				canon_law = kog_canon_law_gallicanism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_constantinianism
+				canon_lawgroup = kog_canon_lawgroup_statism
+				canon_law = kog_canon_law_constantinianism
 			}
 		}
 		if = {
@@ -131,19 +142,23 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_uranopolitism
+				canon_lawgroup = kog_canon_lawgroup_nationalism
+				canon_law = kog_canon_law_uranopolitism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_ecclesial_communities
+				canon_lawgroup = kog_canon_lawgroup_nationalism
+				canon_law = kog_canon_law_ecclesial_communities
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_ethnophyletism
+				canon_lawgroup = kog_canon_lawgroup_nationalism
+				canon_law = kog_canon_law_ethnophyletism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_kinism
+				canon_lawgroup = kog_canon_lawgroup_nationalism
+				canon_law = kog_canon_law_kinism
 			}
 		}
 		if = {
@@ -155,19 +170,23 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_iconoclasm
+				canon_lawgroup = kog_canon_lawgroup_iconography
+				canon_law = kog_canon_law_iconoclasm
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_aniconism
+				canon_lawgroup = kog_canon_lawgroup_iconography
+				canon_law = kog_canon_law_aniconism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_iconodulism
+				canon_lawgroup = kog_canon_lawgroup_iconography
+				canon_law = kog_canon_law_iconodulism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_iconolatry
+				canon_lawgroup = kog_canon_lawgroup_iconography
+				canon_law = kog_canon_law_iconolatry
 			}
 		}
 		if = {
@@ -179,11 +198,13 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_priests_celibate
+				canon_lawgroup = kog_canon_lawgroup_clerical_marriage
+				canon_law = kog_canon_law_priests_celibate
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_marriage_allowed
+				canon_lawgroup = kog_canon_lawgroup_clerical_marriage
+				canon_law = kog_canon_law_marriage_allowed
 			}
 		}
 		if = {
@@ -195,19 +216,23 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_moral_authority
+				canon_lawgroup = kog_canon_lawgroup_social_role
+				canon_law = kog_canon_law_moral_authority
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_moral_guidance
+				canon_lawgroup = kog_canon_lawgroup_social_role
+				canon_law = kog_canon_law_moral_guidance
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_social_activism
+				canon_lawgroup = kog_canon_lawgroup_social_role
+				canon_law = kog_canon_law_social_activism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_modernizing_force
+				canon_lawgroup = kog_canon_lawgroup_social_role
+				canon_law = kog_canon_law_modernizing_force
 			}
 		}
 		if = {
@@ -219,23 +244,28 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_scriptural_supremacy
+				canon_lawgroup = kog_canon_lawgroup_stance_on_sciences
+				canon_law = kog_canon_law_scriptural_supremacy
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_scriptural_favoritism
+				canon_lawgroup = kog_canon_lawgroup_stance_on_sciences
+				canon_law = kog_canon_law_scriptural_favoritism
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_scientific_disengagement
+				canon_lawgroup = kog_canon_lawgroup_stance_on_sciences
+				canon_law = kog_canon_law_scientific_disengagement
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_scientific_patronage
+				canon_lawgroup = kog_canon_lawgroup_stance_on_sciences
+				canon_law = kog_canon_law_scientific_patronage
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_scientific_crusade
+				canon_lawgroup = kog_canon_lawgroup_stance_on_sciences
+				canon_law = kog_canon_law_scientific_crusade
 			}
 		}
 		if = {
@@ -247,19 +277,23 @@ kog_tally_council_votes_effect = {
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_no_crusades
+				canon_lawgroup = kog_canon_lawgroup_crusades
+				canon_law = kog_canon_law_no_crusades
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_heathen_crusades
+				canon_lawgroup = kog_canon_lawgroup_crusades
+				canon_law = kog_canon_law_heathen_crusades
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_heretic_crusades
+				canon_lawgroup = kog_canon_lawgroup_crusades
+				canon_law = kog_canon_law_heretic_crusades
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
-				flag = kog_canon_law_unlimited_crusades
+				canon_lawgroup = kog_canon_lawgroup_crusades
+				canon_law = kog_canon_law_unlimited_crusades
 			}
 		}
 	}
@@ -267,20 +301,117 @@ kog_tally_council_votes_effect = {
 
 kog_tally_canon_law_votes_effect = {
 	set_variable = {
-		name = $flag$
+		name = $canon_law$
 		value = {
 			value = 0
 			every_country = {
 				limit = {
 					is_involved_in_journal_entry = je_kog_$type$_council
-					var:kog_canon_lawgroup_apostolic_succession_var ?= flag:$flag$
+					var:$canon_lawgroup$ ?= flag:$canon_law$
 				}
 				add = var:kog_votes_var
 			}
 		}
 	}
+	add_to_variable_list = {
+		name = $canon_lawgroup$_votes_list
+		target = var:$canon_law$
+	}
 }
 
-kog_cleanup_council_effect = {
+kog_council_completion_effect = {
+	scope:journal_entry = {
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_apostolic_succession
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_almsgiving
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_statism
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_nationalism
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_iconography
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_clerical_marriage
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_social_role
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_stance_on_sciences
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				is_key_in_variable_map = {
+					name = kog_council_matters_varmap
+					target = flag:kog_canon_lawgroup_crusades
+				}
+			}
+			
+		}
+	}
+}
 
+kog_cleanup_council_votes_effect = {
+	remove_variable = kog_canon_lawgroup_apostolic_succession
+	remove_variable = kog_canon_lawgroup_almsgiving
+	remove_variable = kog_canon_lawgroup_statism
+	remove_variable = kog_canon_lawgroup_nationalism
+	remove_variable = kog_canon_lawgroup_iconography
+	remove_variable = kog_canon_lawgroup_clerical_marriage
+	remove_variable = kog_canon_lawgroup_social_role
+	remove_variable = kog_canon_lawgroup_stance_on_sciences
+	remove_variable = kog_canon_lawgroup_crusades
 }
