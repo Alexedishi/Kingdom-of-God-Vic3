@@ -4,18 +4,8 @@
 	#### Step 1, Activate Contextless Journals
 	kog_activate_contextless_journals_effect = yes
 	
-	#### Step 2, Initialize Denomination Variables
-	kog_initialize_catholic_variables_effect = yes
-	kog_initialize_orthodox_variables_effect = yes
-#	kog_initialize_oriental_variables_effect = yes
-#	kog_initialize_lutheran_variables_effect = yes
-#	kog_initialize_anglican_variables_effect = yes
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		kog_initialize_elysian_variables_effect = yes
-	}
+	#### Step 2, Initialize Denomination Script Containers
+	kog_initialize_religion_script_containers_effect = yes
 	
 	#### Step 3, Create Patriarchs and Capture Heads of Faith
 	if = {
@@ -86,135 +76,198 @@ kog_activate_contextless_journals_effect = {
 	}
 }
 
-kog_initialize_catholic_variables_effect = {
-	global_var:je_kog_catholic = {
-		set_variable = {
-			name = kog_religion_var
-			value = rel:catholic
+kog_initialize_religion_script_containers_effect = {
+	# Roman Catholic Church
+	create_container = {
+		name = flag:kog_catholic
+		tags = { denomination western_christian catholic }
+		parent = global_var:je_kog_catholic
+		save_scope_as = kog_catholic
+		on_created = {
+			set_global_variable = {
+				name = kog_catholic
+				value = scope:kog_catholic
+			}
+			set_variable = {
+				name = kog_religion_var
+				value = rel:catholic
+			}
+			set_variable = {
+				name = kog_ecumenical_seat_var
+				value = flag:kog_rome_header
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_LAZIO
+			}
+			set_variable = {
+				name = kog_liturgical_language_var
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_council_counter_var
+				value = 0
+			}
+			set_variable = {
+				name = kog_canon_law_apostolic_succession_var
+				value = flag:kog_canon_law_papal_primacy
+			}
+			set_variable = {
+				name = kog_canon_law_almsgiving_var
+				value = flag:kog_canon_law_offertory
+			}
+			set_variable = {
+				name = kog_canon_law_iconography_var
+				value = flag:kog_canon_law_iconodulism
+			}
+			set_variable = {
+				name = kog_canon_law_statism_var
+				value = flag:kog_canon_law_gallicanism
+			}
+			set_variable = {
+				name = kog_canon_law_nationalism_var
+				value = flag:kog_canon_law_uranopolitism
+			}
+			set_variable = {
+				name = kog_canon_law_clerical_marriage_var
+				value = flag:kog_canon_law_priests_celibate
+			}
+			set_variable = {
+				name = kog_canon_law_social_role_var
+				value = flag:kog_canon_law_moral_guidance
+			}
+			set_variable = {
+				name = kog_canon_law_sciences_stance_var
+				value = flag:kog_canon_law_scientific_disengagement
+			}
+			set_variable = {
+				name = kog_canon_law_crusades_var
+				value = flag:kog_canon_law_no_crusades
+			}
 		}
-		set_variable = {
-			name = kog_ecumenical_seat_var
-			value = flag:kog_rome_header
+	}
+	
+	# Eastern Orthodox Church
+	create_container = {
+		name = flag:kog_orthodox
+		tags = { denomination eastern_christian orthodox }
+		save_scope_as = kog_orthodox
+		on_created = {
+			set_global_variable = {
+				name = kog_orthodox
+				value = scope:kog_orthodox
+			}
+			set_variable = {
+				name = kog_religion_var
+				value = rel:orthodox
+			}
+			set_variable = {
+				name = kog_ecumenical_seat_var
+				value = flag:kog_constantinople_header
+			}
+			set_variable = {
+				name = kog_location_var
+				value = s:STATE_EASTERN_THRACE
+			}
+			set_variable = {
+				name = kog_liturgical_language_var
+				value = flag:kog_language_khoine
+			}
+			set_variable = {
+				name = kog_council_counter_var
+				value = 0
+			}
+			set_variable = {
+				name = kog_canon_law_apostolic_succession_var
+				value = flag:kog_canon_law_synodality
+			}
+			set_variable = {
+				name = kog_canon_law_almsgiving_var
+				value = flag:kog_canon_law_offertory
+			}
+			set_variable = {
+				name = kog_canon_law_iconography_var
+				value = flag:kog_canon_law_iconodulism
+			}
+			set_variable = {
+				name = kog_canon_law_statism_var
+				value = flag:kog_canon_law_ultramontanism
+			}
+			set_variable = {
+				name = kog_canon_law_nationalism_var
+				value = flag:kog_canon_law_ecclesial_communities
+			}
+			set_variable = {
+				name = kog_canon_law_clerical_marriage_var
+				value = flag:kog_canon_law_marriage_allowed
+			}
+			set_variable = {
+				name = kog_canon_law_social_role_var
+				value = flag:kog_canon_law_moral_guidance
+			}
+			set_variable = {
+				name = kog_canon_law_sciences_stance_var
+				value = flag:kog_canon_law_scientific_disengagement
+			}
+			set_variable = {
+				name = kog_canon_law_crusades_var
+				value = flag:kog_canon_law_no_crusades
+			}
 		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_LAZIO
+	}
+	
+	# Oriental Orthodox Church
+	create_container = {
+		name = flag:kog_oriental
+		tags = { denomination eastern_christian oriental }
+		save_scope_as = kog_oriental
+		on_created = {
+			set_global_variable = {
+				name = kog_oriental
+				value = scope:kog_oriental
+			}
 		}
-		set_variable = {
-			name = kog_liturgical_language_var
-			value = flag:kog_language_latin
+	}
+	
+	# Continental Lutheran Church
+	create_container = {
+		name = flag:kog_lutheran
+		tags = { denomination western_christian lutheran }
+		save_scope_as = kog_lutheran
+		on_created = {
+			set_global_variable = {
+				name = kog_lutheran
+				value = scope:kog_lutheran
+			}
 		}
-		set_variable = {
-			name = kog_council_counter_var
-			value = 0
+	}
+	
+	# Anglican Church
+	create_container = {
+		name = flag:kog_anglican
+		tags = { denomination western_christian anglican }
+		save_scope_as = kog_anglican
+		on_created = {
+			set_global_variable = {
+				name = kog_anglican
+				value = scope:kog_anglican
+			}
 		}
-		set_variable = {
-			name = kog_canon_law_apostolic_succession_var
-			value = flag:kog_canon_law_papal_primacy
-		}
-		set_variable = {
-			name = kog_canon_law_almsgiving_var
-			value = flag:kog_canon_law_offertory
-		}
-		set_variable = {
-			name = kog_canon_law_iconography_var
-			value = flag:kog_canon_law_iconodulism
-		}
-		set_variable = {
-			name = kog_canon_law_statism_var
-			value = flag:kog_canon_law_gallicanism
-		}
-		set_variable = {
-			name = kog_canon_law_nationalism_var
-			value = flag:kog_canon_law_uranopolitism
-		}
-		set_variable = {
-			name = kog_canon_law_clerical_marriage_var
-			value = flag:kog_canon_law_priests_celibate
-		}
-		set_variable = {
-			name = kog_canon_law_social_role_var
-			value = flag:kog_canon_law_moral_guidance
-		}
-		set_variable = {
-			name = kog_canon_law_sciences_stance_var
-			value = flag:kog_canon_law_scientific_disengagement
-		}
-		set_variable = {
-			name = kog_canon_law_crusades_var
-			value = flag:kog_canon_law_no_crusades
+	}
+	
+	# Elysian Orthodox Church
+	create_container = {
+		name = flag:kog_elysian
+		tags = { denomination new_world_christian elysian }
+		save_scope_as = kog_elysian
+		on_created = {
+			set_global_variable = {
+				name = kog_elysian
+				value = scope:kog_elysian
+			}
 		}
 	}
 }
-
-kog_initialize_orthodox_variables_effect = {
-	global_var:je_kog_orthodox = {
-		set_variable = {
-			name = kog_religion_var
-			value = rel:orthodox
-		}
-		set_variable = {
-			name = kog_ecumenical_seat_var
-			value = flag:kog_constantinople_header
-		}
-		set_variable = {
-			name = kog_location_var
-			value = s:STATE_EASTERN_THRACE
-		}
-		set_variable = {
-			name = kog_liturgical_language_var
-			value = flag:kog_language_khoine
-		}
-		set_variable = {
-			name = kog_council_counter_var
-			value = 0
-		}
-		set_variable = {
-			name = kog_canon_law_apostolic_succession_var
-			value = flag:kog_canon_law_synodality
-		}
-		set_variable = {
-			name = kog_canon_law_almsgiving_var
-			value = flag:kog_canon_law_offertory
-		}
-		set_variable = {
-			name = kog_canon_law_iconography_var
-			value = flag:kog_canon_law_iconodulism
-		}
-		set_variable = {
-			name = kog_canon_law_statism_var
-			value = flag:kog_canon_law_ultramontanism
-		}
-		set_variable = {
-			name = kog_canon_law_nationalism_var
-			value = flag:kog_canon_law_ecclesial_communities
-		}
-		set_variable = {
-			name = kog_canon_law_clerical_marriage_var
-			value = flag:kog_canon_law_marriage_allowed
-		}
-		set_variable = {
-			name = kog_canon_law_social_role_var
-			value = flag:kog_canon_law_moral_guidance
-		}
-		set_variable = {
-			name = kog_canon_law_sciences_stance_var
-			value = flag:kog_canon_law_scientific_disengagement
-		}
-		set_variable = {
-			name = kog_canon_law_crusades_var
-			value = flag:kog_canon_law_no_crusades
-		}
-	}
-}
-
-kog_initialize_oriental_variables_effect = {}
-
-kog_initialize_lutheran_variables_effect = {}
-
-kog_initialize_anglican_variables_effect = {}
-
-kog_initialize_elysian_variables_effect = {} # Override this in BR
 
 kog_initialize_catholic_button_lists_effect = {
 	## Ecumenical Decision List
@@ -833,406 +886,435 @@ kog_initialize_elysian_button_lists_effect = {
 }
 
 ####---------- Episcopal Seat Variable Map Initialization ----------####
-kog_initialize_rome_variable_map_effect = {
-	c:PAP = {
-		save_scope_as = kog_rome_controller
-	}
-	add_to_global_variable_map = {
+kog_initialize_rome_container_effect = {
+	create_container = {
 		name = kog_rome
-		key = flag:kog_seat_id
-		value = flag:kog_rome
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_name
-		value = flag:kog_rome_name
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_header
-		value = flag:kog_rome_header
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_rank
-		value = flag:kog_major_seat
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_religion
-		value = rel:catholic
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_liturgical_language
-		value = flag:kog_language_latin
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_liturgical_rite
-		value = flag:kog_roman_rite
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_location
-		value = s:STATE_LAZIO
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_foundation
-		value = 42 # This is a total shot in the dark
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_controller
-		value = scope:kog_rome_controller
-	}
-	scope:kog_rome_controller = {
-		ruler = {
-			save_scope_as = kog_rome_patriarch
+		tags = { seat western_christian catholic rome }
+		save_scope_as = kog_rome
+		on_created = {
+			container:kog_global = {
+				set_variable = {
+					name = kog_rome
+					value = scope:kog_rome
+				}
+			}
+			c:PAP = {
+				save_scope_as = kog_rome_controller
+			}
+			set_variable = {
+				name = kog_seat_id
+				value = flag:kog_rome
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_rome_name
+			}
+			set_variable = {
+				name = kog_seat_header
+				value = flag:kog_rome_header
+			}
+			set_variable = {
+				name = kog_seat_rank
+				value = flag:kog_major_seat
+			}
+			set_variable = {
+				name = kog_seat_religion
+				value = rel:catholic
+			}
+			set_variable = {
+				name = kog_seat_liturgical_language
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_seat_liturgical_rite
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_seat_location
+				value = s:STATE_LAZIO
+			}
+			set_variable = {
+				name = kog_seat_foundation
+				value = 42 # This is a total shot in the dark
+			}
+			set_variable = {
+				name = kog_seat_controller
+				value = scope:kog_rome_controller
+			}
+			scope:kog_rome_controller = {
+				ruler = {
+					save_scope_as = kog_rome_patriarch
+				}
+			}
+			set_variable = {
+				name = kog_seat_patriarch
+				value = scope:kog_rome_patriarch
+			}
 		}
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_patriarch
-		value = scope:kog_rome_patriarch
 	}
 }
 
-kog_initialize_santiago_variable_map_effect = {
-	c:PAP ?= {
-		save_scope_as = kog_santiago_controller
-	}
-	add_to_global_variable_map = {
+kog_initialize_santiago_container_effect = {
+	create_container = {
 		name = kog_santiago
-		key = flag:kog_seat_id
-		value = flag:kog_santiago
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_name
-		value = flag:kog_santiago_name
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_header
-		value = flag:kog_santiago_header
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_rank
-		value = flag:kog_minor_seat
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_religion
-		value = rel:catholic
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_liturgical_language
-		value = flag:kog_language_latin
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_liturgical_rite
-		value = flag:kog_roman_rite
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_location
-		value = s:STATE_GALICIA
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_foundation
-		value = 1095
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_controller
-		value = scope:kog_santiago_controller
-	}
-	random_character_in_void = {
-		limit = {
-			has_trait = kog_patriarch_of_santiago
+		tags = { seat western_christian catholic santiago }
+		save_scope_as = kog_santiago
+		on_created = {
+			container:kog_global = {
+				set_variable = {
+					name = kog_santiago
+					value = scope:kog_santiago
+				}
+			}
+			c:PAP = {
+				save_scope_as = kog_santiago_controller
+			}
+			set_variable = {
+				name = kog_seat_id
+				value = flag:kog_santiago
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_santiago_name
+			}
+			set_variable = {
+				name = kog_seat_header
+				value = flag:kog_santiago_header
+			}
+			set_variable = {
+				name = kog_seat_rank
+				value = flag:kog_minor_seat
+			}
+			set_variable = {
+				name = kog_seat_religion
+				value = rel:catholic
+			}
+			set_variable = {
+				name = kog_seat_liturgical_language
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_seat_liturgical_rite
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_seat_location
+				value = s:STATE_GALICIA
+			}
+			set_variable = {
+				name = kog_seat_foundation
+				value = 1095
+			}
+			set_variable = {
+				name = kog_seat_controller
+				value = scope:kog_santiago_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_trait = kog_patriarch_of_santiago
+				}
+				save_scope_as = kog_santiago_patriarch
+			}
+			set_variable = {
+				name = kog_seat_patriarch
+				value = scope:kog_santiago_patriarch
+			}
 		}
-		save_scope_as = kog_santiago_patriarch
-	}
-	add_to_global_variable_map = {
-		name = kog_santiago
-		key = flag:kog_seat_patriarch
-		value = scope:kog_santiago_patriarch
 	}
 }
 
-kog_initialize_paris_variable_map_effect = {
-	c:PAP = {
-		save_scope_as = kog_paris_controller
-	}
-	add_to_global_variable_map = {
+kog_initialize_paris_container_effect = {
+	create_container = {
 		name = kog_paris
-		key = flag:kog_seat_id
-		value = flag:kog_paris
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_name
-		value = flag:kog_paris_name
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_header
-		value = flag:kog_santiago_header
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_rank
-		value = flag:kog_minor_seat
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_religion
-		value = rel:catholic
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_liturgical_language
-		value = flag:kog_language_latin
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_liturgical_rite
-		value = flag:kog_roman_rite
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_location
-		value = s:STATE_ILE_DE_FRANCE
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_foundation
-		value = 245 # Drawn from Gregory of Tours, likely incorrect
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_controller
-		value = scope:kog_paris_controller
-	}
-	random_character_in_void = {
-		limit = {
-			has_trait = kog_patriarch_of_paris
+		tags = { seat western_christian catholic paris }
+		save_scope_as = kog_paris
+		on_created = {
+			container:kog_global = {
+				set_variable = {
+					name = kog_paris
+					value = scope:kog_paris
+				}
+			}
+			c:PAP = {
+				save_scope_as = kog_paris_controller
+			}
+			set_variable = {
+				name = kog_seat_id
+				value = flag:kog_paris
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_paris_name
+			}
+			set_variable = {
+				name = kog_seat_header
+				value = flag:kog_santiago_header
+			}
+			set_variable = {
+				name = kog_seat_rank
+				value = flag:kog_minor_seat
+			}
+			set_variable = {
+				name = kog_seat_religion
+				value = rel:catholic
+			}
+			set_variable = {
+				name = kog_seat_liturgical_language
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_seat_liturgical_rite
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_seat_location
+				value = s:STATE_ILE_DE_FRANCE
+			}
+			set_variable = {
+				name = kog_seat_foundation
+				value = 245 # Drawn from Gregory of Tours, likely incorrect
+			}
+			set_variable = {
+				name = kog_seat_controller
+				value = scope:kog_paris_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_trait = kog_patriarch_of_paris
+				}
+				save_scope_as = kog_paris_patriarch
+			}
+			set_variable = {
+				name = kog_seat_patriarch
+				value = scope:kog_paris_patriarch
+			}
+			container:kog_global = {
+				set_variable = {
+					name = kog_paris
+					value = scope:kog_paris
+				}
+			}
 		}
-		save_scope_as = kog_paris_patriarch
-	}
-	add_to_global_variable_map = {
-		name = kog_paris
-		key = flag:kog_seat_patriarch
-		value = scope:kog_paris_patriarch
 	}
 }
 
-kog_initialize_koln_variable_map_effect = {
-	c:PAP = {
-		save_scope_as = kog_koln_controller
-	}
-	add_to_global_variable_map = {
+kog_initialize_koln_container_effect = {
+	create_container = {
 		name = kog_koln
-		key = flag:kog_seat_id
-		value = flag:kog_koln
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_name
-		value = flag:kog_koln_name
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_header
-		value = flag:kog_koln_header
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_rank
-		value = flag:kog_minor_seat
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_religion
-		value = rel:catholic
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_liturgical_language
-		value = flag:kog_language_latin
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_liturgical_rite
-		value = flag:kog_roman_rite
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_location
-		value = s:STATE_NORTH_RHINE
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_foundation
-		value = 285 # First halfway believable bishop
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_controller
-		value = scope:kog_koln_controller
-	}
-	random_character_in_void = {
-		limit = {
-			has_trait = kog_patriarch_of_koln
+		tags = { seat western_christian catholic koln }
+		save_scope_as = kog_koln
+		on_created = {
+			container:kog_global = {
+				set_variable = {
+					name = kog_koln
+					value = scope:kog_koln
+				}
+			}
+			c:PAP = {
+				save_scope_as = kog_koln_controller
+			}
+			set_variable = {
+				name = kog_seat_id
+				value = flag:kog_koln
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_koln_name
+			}
+			set_variable = {
+				name = kog_seat_header
+				value = flag:kog_koln_header
+			}
+			set_variable = {
+				name = kog_seat_rank
+				value = flag:kog_minor_seat
+			}
+			set_variable = {
+				name = kog_seat_religion
+				value = rel:catholic
+			}
+			set_variable = {
+				name = kog_seat_liturgical_language
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_seat_liturgical_rite
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_seat_location
+				value = s:STATE_NORTH_RHINE
+			}
+			set_variable = {
+				name = kog_seat_foundation
+				value = 285 # First halfway believable bishop
+			}
+			set_variable = {
+				name = kog_seat_controller
+				value = scope:kog_koln_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_trait = kog_patriarch_of_koln
+				}
+				save_scope_as = kog_koln_patriarch
+			}
+			set_variable = {
+				name = kog_seat_patriarch
+				value = scope:kog_koln_patriarch
+			}
 		}
-		save_scope_as = kog_koln_patriarch
-	}
-	add_to_global_variable_map = {
-		name = kog_koln
-		key = flag:kog_seat_patriarch
-		value = scope:kog_koln_patriarch
 	}
 }
 
-kog_initialize_vienna_variable_map_effect = {
-	c:PAP = {
-		save_scope_as = kog_vienna_controller
-	}
-	add_to_global_variable_map = {
+kog_initialize_vienna_container_effect = {
+	create_container = {
 		name = kog_vienna
-		key = flag:kog_seat_id
-		value = flag:kog_vienna
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_name
-		value = flag:kog_vienna_name
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_header
-		value = flag:kog_vienna_header
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_rank
-		value = flag:kog_minor_seat
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_religion
-		value = rel:catholic
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_liturgical_language
-		value = flag:kog_language_latin
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_liturgical_rite
-		value = flag:kog_roman_rite
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_location
-		value = s:STATE_AUSTRIA
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_foundation
-		value = 1469
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_controller
-		value = scope:kog_vienna_controller
-	}
-	random_character_in_void = {
-		limit = {
-			has_trait = kog_patriarch_of_vienna
+		tags = { seat western_christian catholic rome }
+		save_scope_as = kog_vienna
+		on_created = {
+			container:kog_global = {
+				set_variable = {
+					name = kog_vienna
+					value = scope:kog_vienna
+				}
+			}
+			c:PAP = {
+				save_scope_as = kog_vienna_controller
+			}
+			set_variable = {
+				name = kog_seat_id
+				value = flag:kog_vienna
+			}
+			set_variable = {
+				name = kog_seat_name
+				value = flag:kog_vienna_name
+			}
+			set_variable = {
+				name = kog_seat_header
+				value = flag:kog_vienna_header
+			}
+			set_variable = {
+				name = kog_seat_rank
+				value = flag:kog_minor_seat
+			}
+			set_variable = {
+				name = kog_seat_religion
+				value = rel:catholic
+			}
+			set_variable = {
+				name = kog_seat_liturgical_language
+				value = flag:kog_language_latin
+			}
+			set_variable = {
+				name = kog_seat_liturgical_rite
+				value = flag:kog_roman_rite
+			}
+			set_variable = {
+				name = kog_seat_location
+				value = s:STATE_AUSTRIA
+			}
+			set_variable = {
+				name = kog_seat_foundation
+				value = 1469
+			}
+			set_variable = {
+				name = kog_seat_controller
+				value = scope:kog_vienna_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_trait = kog_patriarch_of_vienna
+				}
+				save_scope_as = kog_vienna_patriarch
+			}
+			set_variable = {
+				name = kog_seat_patriarch
+				value = scope:kog_vienna_patriarch
+			}
 		}
-		save_scope_as = kog_vienna_patriarch
-	}
-	add_to_global_variable_map = {
-		name = kog_vienna
-		key = flag:kog_seat_patriarch
-		value = scope:kog_vienna_patriarch
 	}
 }
 
-kog_initialize_constantinople_variable_map_effect = {
-	p:xF0A020 = {
-		owner = {
-			save_scope_as = kog_constantinople_controller
+kog_initialize_constantinople_container_effect = {
+	create_container = {
+		name = kog_constantinople
+		tags = { seat western_christian catholic rome }
+		save_scope_as = kog_constantinople
+		on_created = {
+			container:kog_global = {
+				set_variable = {
+					name = kog_constantinople
+					value = scope:kog_constantinople
+				}
+			}
+			p:xF0A020 = {
+				owner = {
+					save_scope_as = kog_constantinople_controller
+				}
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_id
+				value = flag:kog_constantinople
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_name
+				value = flag:kog_constantinople_name
+			}
+			set_variable = {
+				name = kog_rome
+				key = flag:kog_seat_header
+				value = flag:kog_constantinople_header
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_rank
+				value = flag:kog_major_seat
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_religion
+				value = rel:orthodox
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_liturgical_language
+				value = flag:kog_language_khoine
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_liturgical_rite
+				value = flag:kog_byzantine_rite
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_location
+				value = s:STATE_EASTERN_THRACE
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_foundation
+				value = 330
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_controller
+				value = scope:kog_constantinople_controller
+			}
+			random_character_in_void = {
+				limit = {
+					has_trait = kog_patriarch_of_constantinople
+				}
+				save_scope_as = kog_constantinople_patriarch
+			}
+			set_variable = {
+				name = kog_constantinople
+				key = flag:kog_seat_patriarch
+				value = scope:kog_constantinople_patriarch
+			}
 		}
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_id
-		value = flag:kog_constantinople
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_name
-		value = flag:kog_constantinople_name
-	}
-	add_to_global_variable_map = {
-		name = kog_rome
-		key = flag:kog_seat_header
-		value = flag:kog_constantinople_header
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_rank
-		value = flag:kog_major_seat
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_religion
-		value = rel:orthodox
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_liturgical_language
-		value = flag:kog_language_khoine
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_liturgical_rite
-		value = flag:kog_byzantine_rite
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_location
-		value = s:STATE_EASTERN_THRACE
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_foundation
-		value = 330
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_controller
-		value = scope:kog_constantinople_controller
-	}
-	random_character_in_void = {
-		limit = {
-			has_trait = kog_patriarch_of_constantinople
-		}
-		save_scope_as = kog_constantinople_patriarch
-	}
-	add_to_global_variable_map = {
-		name = kog_constantinople
-		key = flag:kog_seat_patriarch
-		value = scope:kog_constantinople_patriarch
 	}
 }
 
