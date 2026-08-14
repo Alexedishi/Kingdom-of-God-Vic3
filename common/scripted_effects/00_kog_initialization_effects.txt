@@ -2613,181 +2613,27 @@ kog_initialize_metropolis_effect = {
 	}
 	
 	# Step 3: Set Relations Variables
-	je:je_kog_local = {
-		## Catholic Seats
-		set_variable = {
-			name = kog_rome_relations_var
+	save_scope_as = kog_country_scope
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		add_to_variable_map = {
+			name = kog_relations_map
+			key = scope:kog_country_scope
 			value = kog_opinion_start_value
 		}
-		set_variable = {
-			name = kog_santiago_relations_var
+		add_to_variable_map = {
+			name = kog_opinions_map
+			key = scope:kog_country_scope
 			value = kog_opinion_start_value
 		}
-		set_variable = {
-			name = kog_paris_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_koln_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_vienna_relations_var
-			value = kog_opinion_start_value
-		}
-		
-		## Orthodox Seats
-		set_variable = {
-			name = kog_constantinople_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_antioch_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_jerusalem_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_alexandria_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_moscow_relations_var
-			value = kog_opinion_start_value
-		}
-		
-		## Oriental Orthodox Seats
-		set_variable = {
-			name = kog_coptic_alexandria_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_syriac_antioch_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_etchmiadzin_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_addis_ababa_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_konak_relations_var
-			value = kog_opinion_start_value
-		}
-		
-		## Basileia Romaion Seats
-		set_variable = {
-			name = kog_elysium_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_onondaga_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_tututepec_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_cahokia_relations_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_cayacoa_relations_var
-			value = kog_opinion_start_value
+		add_to_variable_map = {
+			name = kog_diplomacy_map
+			key = scope:kog_country_scope
+			value = 0
 		}
 	}
 	
-	# Step 4: Set Opinion Variables
-	je:je_kog_local = {
-		set_variable = {
-			name = kog_rome_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_santiago_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_paris_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_koln_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_vienna_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_constantinople_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_antioch_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_jerusalem_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_alexandria_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_moscow_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_coptic_alexandria_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_syriac_antioch_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_etchmiadzin_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_addis_ababa_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_konak_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_elysium_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_onondaga_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_tututepec_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_cahokia_opinion_var
-			value = kog_opinion_start_value
-		}
-		set_variable = {
-			name = kog_cayacoa_opinion_var
-			value = kog_opinion_start_value
-		}
-	}
-	
-	# Step 5, Set Up Country Modifiers & Variables
+	# Step 4, Set Up Country Modifiers & Variables
 	container:kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
@@ -2813,41 +2659,23 @@ kog_specific_country_setups_effect = {
 	
 	## Catholic Setup ##
 	c:PAP = {
-		je:je_kog_local = {
-			add_modifier = modifier_kog_controls_rome
-			add_modifier = modifier_kog_controls_santiago
-			add_modifier = modifier_kog_controls_paris
-			add_modifier = modifier_kog_controls_koln
-			add_modifier = modifier_kog_controls_vienna
-		}
+		add_modifier = modifier_kog_controls_rome
+		add_modifier = modifier_kog_controls_santiago
+		add_modifier = modifier_kog_controls_paris
+		add_modifier = modifier_kog_controls_koln
+		add_modifier = modifier_kog_controls_vienna
 	}
 	
 	## Orthodox Setup ##
-	c:TUR = {
-		je:je_kog_local ?= {
-			add_modifier = modifier_kog_controls_constantinople
-			add_modifier = modifier_kog_controls_antioch
-		}
-	}
-	c:TUR = {
-		je:je_kog_local ?= {
-			add_modifier = modifier_kog_controls_jerusalem
-			add_modifier = modifier_kog_controls_alexandria
-		}
-	}
 	c:RUS = {
-		je:je_kog_local = {
-			add_modifier = modifier_kog_autocephalous
-			add_modifier = modifier_kog_reformed_synod
-			add_modifier = modifier_kog_controls_moscow
-		}
+		add_modifier = modifier_kog_autocephalous
+		add_modifier = modifier_kog_reformed_synod
+		add_modifier = modifier_kog_controls_moscow
 	}
 	c:GRE = {
-		je:je_kog_local = {
-			add_modifier = modifier_kog_schismatic
-			add_modifier = modifier_kog_reformed_synod
-			set_variable = kog_ruler_conversion_considered
-		}
+		add_modifier = modifier_kog_schismatic
+		add_modifier = modifier_kog_reformed_synod
+		set_variable = kog_ruler_conversion_considered
 	}
 }
 
