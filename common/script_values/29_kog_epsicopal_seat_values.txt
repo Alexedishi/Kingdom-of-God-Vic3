@@ -1,4 +1,8 @@
 ﻿####---------- Episcopal Seat Static Values ----------####
+kog_relations_start_value = 0
+kog_relations_max_value = 50
+kog_relations_min_value = -50
+
 kog_opinion_max_value = 100
 kog_opinion_min_value = -100
 kog_opinion_start_value = 0
@@ -519,12 +523,12 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			desc = kog_value_from_state_religion
 			scope:kog_root_scope = {
 				has_law = law_type:law_state_religion
 			}
 		}
 		add = {
+			desc = kog_value_from_state_religion
 			value = 20
 		}
 	}

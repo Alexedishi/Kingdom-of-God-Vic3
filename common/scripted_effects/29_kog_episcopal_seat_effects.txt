@@ -4,26 +4,32 @@
 ####---------- Episcopal Seat Diplomacy Effects ---------- ####
 kog_change_seat_relations_effect = {
 	custom_tooltip = {
-		text = kog_change_$seat$_relations
+		text = kog_change_seat_relations
+		save_scope_as = kog_origin_scope
+		$seat$ = {
+			save_scope_as = kog_seat_scope
+		}
 		save_temporary_scope_value_as = {
-			name = kog_change_seat_relations_effect
+			name = kog_seat_relations_change_value
 			value = $value$
 		}
-		var:je_kog_local = {
-			set_variable = {
-				name = kog_$seat$_relations_var
-				value = {
-					add = kog_opinion_start_value # Fallback in case the variable was unset
-					if = {
-						limit = {
-							has_variable = kog_$seat$_relations_var
-						}
-						add = var:kog_$seat$_relations_var
-					}
-					add = $value$
-					max = kog_opinion_max_value
-					min = kog_opinion_min_value
+		save_temporary_scope_value_as = {
+			name = kog_seat_relations_math_value
+			value = {
+				value = kog_relations_start_value
+				scope:kog_episcopal_seat_scope = {
+					add = "variable_map(kog_relations_map|scope:kog_origin_scope)"
 				}
+				add = $value$
+				max = kog_relations_max_value
+				min = kog_relations_min_value
+			}
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = scope:kog_origin_scope
+				value = scope:kog_seat_relations_math_value
 			}
 		}
 	}
