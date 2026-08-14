@@ -70,7 +70,7 @@ kog_update_denominational_leaders_effect = {
 }
 
 kog_update_schism_list_effect = {
-	global_var:$type$ = {
+	container:$type$ = {
 		clear_variable_list = kog_schism_list
 	}
 	every_country = {
@@ -106,7 +106,7 @@ kog_update_autocephaly_list_effect = {
 }
 
 kog_update_country_votes_effect = {
-	je:je_kog_local = {
+	container:kog_local = {
 		set_variable = {
 			name = kog_votes_var
 			value = kog_votes_value
@@ -148,7 +148,7 @@ kog_validate_holy_site_methods_effect = {
 
 ## Metropolitan Effects
 kog_update_episcopal_seat_count_effect = {
-	je:je_kog_local = {
+	container:kog_local = {
 		set_variable = {
 			name = kog_episcopal_seats_var
 			value = owner.kog_episcopal_seats_value
@@ -230,7 +230,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_byzantine_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_byzantine_rite
 		}
 		add_modifier = {
 			name = modifier_kog_byzantine_rite
@@ -239,7 +239,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_alexandrian_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_alexandrian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_alexandrian_rite
@@ -248,7 +248,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_armenian_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_armenian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_armenian_rite
@@ -257,7 +257,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_syro_antiochian_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_syro_antiochian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_syro_antiochian_rite
@@ -266,7 +266,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_russian_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_russian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_russian_rite
@@ -275,7 +275,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit = {
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_nestorian_rite
@@ -284,7 +284,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_elysian_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_elysian_rite
 		}
 		add_modifier = {
 			name = modifier_kog_elysian_rite
@@ -293,7 +293,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_haudenosaunee_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_haudenosaunee_rite
 		}
 		add_modifier = {
 			name = modifier_kog_haudenosaunee_rite
@@ -302,7 +302,7 @@ kog_update_rite_modifiers_effect = {
 	}
 	else_if = {
 		limit =	{
-			je:je_kog_local.var:kog_liturgical_rite_var ?= flag:kog_mixtec_rite
+			container:kog_local.var:kog_liturgical_rite_var ?= flag:kog_mixtec_rite
 		}
 		add_modifier = {
 			name = modifier_kog_mixtec_rite
@@ -336,14 +336,14 @@ kog_update_devout_member_traits_effect = {
 }
 
 kog_update_national_piety_effect = {
-	je:je_kog_local = {
+	container:kog_local = {
 		set_variable = {
 			name = kog_national_piety_target_var
-			value = owner.kog_national_piety_target_value
+			value = prev.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_progress_var
-			value = owner.kog_national_piety_progress_value
+			value = prev.kog_national_piety_progress_value
 		}
 		set_variable = {
 			name = kog_national_piety_var
@@ -604,9 +604,7 @@ kog_add_canon_law_modifiers_effect = {
 		limit = {
 			var:kog_canon_law_almsgiving_var = flag:kog_canon_law_no_alms
 		}
-		je:je_kog_local = {
-			add_modifier = modifier_kog_canon_law_no_alms
-		}
+		add_modifier = modifier_kog_canon_law_no_alms
 	}
 	if = {
 		limit = {
@@ -794,7 +792,46 @@ kog_add_canon_law_modifiers_effect = {
 ## Collegium Effects
 # //
 
-## Episcopal Seat Effects
+
+####---------- Episcopal Seat Effects ----------####
+# These effects save the country scope just in case the desired country isn't root
+kog_update_relation_variable_maps_effect = {
+	save_scope_as = kog_root_scope
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_relations_math_value
+			value = kog_episcopal_seat_monthly_change_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_relations_map
+			key = scope:kog_root_scope
+			value = scope:kog_relations_math_value
+		}
+	}
+}
+
+kog_update_opinion_variable_maps_effect = {
+	save_scope_as = kog_root_scope
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_opinion_math_value
+			value = {
+				if =
+				}
+			}
+		}
+		
+		com_update_value_in_variable_map = {
+			name = kog_opinions_map
+			key = scope:kog_root_scope
+			value = scope:kog_opinion_math_value
+		}
+	}
+}
+
+
 kog_update_opinion_variables = {
 	je:je_kog_local = {
 		set_variable = {
