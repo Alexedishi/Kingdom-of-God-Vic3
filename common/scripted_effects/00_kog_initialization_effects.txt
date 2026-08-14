@@ -890,7 +890,7 @@ kog_initialize_elysian_button_lists_effect = {
 kog_initialize_rome_container_effect = {
 	create_container = {
 		name = kog_rome
-		tags = { episcopal_seat western_christian roman_catholic }
+		tags = { episcopal_seat western_christian roman_catholic papacy }
 		on_created = {
 			c:PAP = {
 				save_scope_as = kog_rome_controller
@@ -922,6 +922,14 @@ kog_initialize_rome_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_LAZIO
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:xB5726E
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:south_italian
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -981,6 +989,14 @@ kog_initialize_santiago_container_effect = {
 				value = s:STATE_GALICIA
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:xD0E040
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:spanish
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 1095
 			}
@@ -1037,6 +1053,14 @@ kog_initialize_paris_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_ILE_DE_FRANCE
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x71DA2E
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:french
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1103,6 +1127,14 @@ kog_initialize_koln_container_effect = {
 				value = s:STATE_NORTH_RHINE
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:x8001E0
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:north_german
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 285 # First halfway believable bishop
 			}
@@ -1159,6 +1191,14 @@ kog_initialize_vienna_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_AUSTRIA
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x316141
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:south_german
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1221,6 +1261,14 @@ kog_initialize_constantinople_container_effect = {
 				value = s:STATE_EASTERN_THRACE
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:xF0A020
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:greek
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 330
 			}
@@ -1279,6 +1327,14 @@ kog_initialize_antioch_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_SYRIA
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x186A43
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:greek
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1341,6 +1397,14 @@ kog_initialize_jerusalem_container_effect = {
 				value = s:STATE_PALESTINE
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:xC9CBC0
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:greek
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 451
 			}
@@ -1399,6 +1463,14 @@ kog_initialize_alexandria_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_LOWER_EGYPT
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:xA0D020
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:greek
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1461,6 +1533,14 @@ kog_initialize_moscow_container_effect = {
 				value = s:STATE_MOSCOW
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:x13D91C
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:russian
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 988
 			}
@@ -1519,6 +1599,14 @@ kog_initialize_coptic_alexandria_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_LOWER_EGYPT
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:xA0D020
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:greek
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1581,6 +1669,14 @@ kog_initialize_syriac_antioch_container_effect = {
 				value = s:STATE_ADANA
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:xE01160
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:greek
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 512
 			}
@@ -1639,6 +1735,14 @@ kog_initialize_etchmiadzin_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_ARMENIA
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:xC09080
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:armenian
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1701,6 +1805,14 @@ kog_initialize_addis_ababa_container_effect = {
 				value = s:STATE_OROMIA
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:x41E0D0
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:amhara
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 180 # Absolute guesswork
 			}
@@ -1761,6 +1873,14 @@ kog_initialize_konak_container_effect = {
 				value = s:STATE_DIYARBAKIR
 			}
 			set_variable = {
+				name = kog_seat_province
+				value = p:xC33C0F
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:assyrian
+			}
+			set_variable = {
 				name = kog_seat_foundation
 				value = 1672
 			}
@@ -1806,7 +1926,7 @@ kog_initialize_elysium_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = rel:orthodox
+				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -1819,6 +1939,14 @@ kog_initialize_elysium_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_DISTRICT_OF_COLUMBIA
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x700080
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = "global_variable_map(kog_database|flag:kog_elysian_culture)"
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1866,7 +1994,7 @@ kog_initialize_onondaga_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = rel:orthodox
+				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -1879,6 +2007,14 @@ kog_initialize_onondaga_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_NEW_YORK
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x01D042
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:iroquoian
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1926,7 +2062,7 @@ kog_initialize_tututepec_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = rel:orthodox
+				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -1939,6 +2075,14 @@ kog_initialize_tututepec_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_OAXACA
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x1BC4D0
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:mixtec
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1986,7 +2130,7 @@ kog_initialize_cahokia_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = rel:orthodox
+				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -1999,6 +2143,14 @@ kog_initialize_cahokia_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_ILLINOIS
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x2938A5
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:algonquian
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -2046,7 +2198,7 @@ kog_initialize_cayacoa_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = rel:orthodox
+				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -2059,6 +2211,14 @@ kog_initialize_cayacoa_container_effect = {
 			set_variable = {
 				name = kog_seat_location
 				value = s:STATE_SANTO_DOMINGO
+			}
+			set_variable = {
+				name = kog_seat_province
+				value = p:x7252EC
+			}
+			set_variable = {
+				name = kog_seat_culture
+				value = cu:cariban
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -2462,11 +2622,23 @@ kog_initialize_variable_lists_effect = {
 }
 
 kog_initialize_metropolis_effect = {
+	# Step 0: Save Country Scope; this might not always have the country as root
+	save_scope_as = kog_root_scope
+	
 	# Step 1: Create Script Container
 	create_container = {
 		name = kog_local
 		tags = { local_metropolis }
-		parent = root
+		parent = scope:kog_root_scope
+		save_scope_as = kog_local
+		on_created = {
+			scope:kog_root_scope = {
+				set_variable = {
+					name = kog_local
+					value = scope:kog_local
+				}
+			}
+		}
 	}
 	
 	# Step 2: Initialize Liturgical Rites & Languages
@@ -2474,7 +2646,7 @@ kog_initialize_metropolis_effect = {
 		limit = {
 			kog_country_is_eastern_orthodox_trigger = yes
 		}
-		container:kog_local = {
+		var:kog_local = {
 			set_variable = {
 				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
@@ -2488,7 +2660,7 @@ kog_initialize_metropolis_effect = {
 			limit = {
 				country_has_primary_culture = cu:russian
 			}
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_language_var
 					value = flag:kog_language_slavonic
@@ -2496,7 +2668,7 @@ kog_initialize_metropolis_effect = {
 			}
 		}
 		else = {
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_language_var
 					value = flag:kog_language_khoine
@@ -2508,7 +2680,7 @@ kog_initialize_metropolis_effect = {
 		limit = {
 			kog_country_is_oriental_orthodox_trigger = yes
 		}
-		container:kog_local = {
+		var:kog_local = {
 			set_variable = {
 				name = kog_liturgical_language_var
 				value = flag:kog_language_coptic # TODO replace this once Oriental Churches are added
@@ -2522,7 +2694,7 @@ kog_initialize_metropolis_effect = {
 			limit = {
 				country_has_primary_culture = cu:kurdish
 			}
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_syro_antiochian_rite
@@ -2533,7 +2705,7 @@ kog_initialize_metropolis_effect = {
 			limit = {
 				country_has_primary_culture = cu:assyrian
 			}
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_nestorian_rite
@@ -2544,7 +2716,7 @@ kog_initialize_metropolis_effect = {
 			limit = {
 				country_has_primary_culture = cu:armenian
 			}
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_armenian_rite
@@ -2552,7 +2724,7 @@ kog_initialize_metropolis_effect = {
 			}
 		}
 		else = {
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_alexandrian_rite
@@ -2569,7 +2741,7 @@ kog_initialize_metropolis_effect = {
 			limit = {
 				country_has_primary_culture = cu:mixtec
 			}
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_mixtec_rite
@@ -2581,14 +2753,14 @@ kog_initialize_metropolis_effect = {
 			}
 		}
 		else = {
-			container:kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_elysian_rite
 				}
 			}
 		}
-		container:kog_local = {
+		var:kog_local = {
 			set_variable = {
 				name = kog_liturgical_language_var
 				value = flag:kog_language_khoine # TODO replace this once Elysian Churches are added
@@ -2596,7 +2768,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	else = {
-		container:kog_local = {
+		var:kog_local = {
 			set_variable = {
 				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
@@ -2634,7 +2806,7 @@ kog_initialize_metropolis_effect = {
 	}
 	
 	# Step 4, Set Up Country Modifiers & Variables
-	container:kog_local = {
+	var:kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
 			value = root.kog_canon_law_compliance_value
