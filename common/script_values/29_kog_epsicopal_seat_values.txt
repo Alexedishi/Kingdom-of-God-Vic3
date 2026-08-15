@@ -474,13 +474,13 @@ kog_episcopal_seat_monthly_change_value = {
 	add = "variable_map(kog_relations_map|scope:kog_root_scope)"
 	if = {
 		limit = {
-			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = flag:kog_improving
+			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = 1
 		}
 		add = scope:kog_root_scope.modifier:country_monthly_seat_relations_progress_add
 	}
 	else_if = {
 		limit = {
-			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = flag:kog_antagonizing
+			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = -1
 		}
 		subtract = scope:kog_root_scope.modifier:country_monthly_seat_relations_progress_add
 	}
