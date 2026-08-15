@@ -7,7 +7,6 @@ on_monthly_pulse = {
 
 on_yearly_pulse = {
 	on_actions = {
-		kog_yearly_global_pulse
 	}
 }
 
@@ -22,12 +21,6 @@ kog_monthly_global_pulse = {
 		#kog_update_lutheran_list = yes
 		#kog_update_anglican_list = yes
 		#kog_update_elysian_list = yes
-	}
-}
-
-kog_yearly_global_pulse = {
-	effect = {
-		kog_validate_episcopal_seat_variable_maps_effect = yes
 	}
 }
 
@@ -66,7 +59,7 @@ kog_monthly_pulse = {
 	effect = {
 		kog_update_devout_member_traits_effect = yes
 		kog_monthly_seat_relations_effect = yes
-		kog_update_opinion_variables = yes
+		kog_update_opinion_variable_maps_effect = yes
 		kog_update_national_piety_effect = yes
 	}
 }
@@ -84,10 +77,8 @@ kog_orthodox_pulse = {
 }
 
 kog_schism_pulse = {
-	trigger = { 
-		je:je_kog_local ?= {
-			has_variable = kog_schism_var
-		}
+	trigger = {
+		has_variable = kog_schism_var
 	}
 	events = {
 		kog_schism_events.002
