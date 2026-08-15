@@ -3,11 +3,13 @@
 
 ####---------- Episcopal Seat Diplomacy Effects ---------- ####
 kog_change_seat_relations_effect = {
+	# NOTE: The $seat$ parameter MUST point to one of the seat container scopes!
 	custom_tooltip = {
 		text = kog_change_seat_relations
 		save_scope_as = kog_origin_scope
-		$seat$ = {
-			save_scope_as = kog_seat_scope
+		set_local_variable = {
+			name = kog_seat_scope
+			value = $seat$
 		}
 		save_temporary_scope_value_as = {
 			name = kog_seat_relations_change_value
@@ -17,7 +19,7 @@ kog_change_seat_relations_effect = {
 			name = kog_seat_relations_math_value
 			value = {
 				value = kog_relations_start_value
-				scope:kog_episcopal_seat_scope = {
+				local_var:kog_seat_scope = {
 					add = "variable_map(kog_relations_map|scope:kog_origin_scope)"
 				}
 				add = $value$
@@ -25,7 +27,7 @@ kog_change_seat_relations_effect = {
 				min = kog_relations_min_value
 			}
 		}
-		scope:kog_episcopal_seat_scope = {
+		local_var:kog_seat_scope = {
 			com_update_value_in_variable_map = {
 				name = kog_relations_map
 				key = scope:kog_origin_scope
@@ -35,151 +37,20 @@ kog_change_seat_relations_effect = {
 	}
 }
 
-kog_change_seat_relations_event_effect = {
-	# This effect is meant to be used in conjunction with kog_event_seat_var
-	if = {
-		limit = {
-			has_variable = kog_seat_event_var
-		}
-		if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_rome
-			}
-			kog_change_seat_relations_effect = {
-				seat = rome
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_santiago
-			}
-			kog_change_seat_relations_effect = {
-				seat = santiago
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_paris
-			}
-			kog_change_seat_relations_effect = {
-				seat = paris
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_koln
-			}
-			kog_change_seat_relations_effect = {
-				seat = koln
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_paris
-			}
-			kog_change_seat_relations_effect = {
-				seat = paris
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_constantinople
-			}
-			kog_change_seat_relations_effect = {
-				seat = constantinople
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_antioch
-			}
-			kog_change_seat_relations_effect = {
-				seat = antioch
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_jerusalem
-			}
-			kog_change_seat_relations_effect = {
-				seat = jerusalem
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_alexandria
-			}
-			kog_change_seat_relations_effect = {
-				seat = alexandria
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_moscow
-			}
-			kog_change_seat_relations_effect = {
-				seat = moscow
-				value = $value$
-			}
-		}
-		else = {
-			error_log = "Effect kog_change_seat_relations_event_effect was called, but no valid state was found for kog_seat_event_var"
-		}
-	}
-	else = {
-		error_log = "Effect kog_change_seat_relations_event_effect was called, but kog_seat_event_var was not set"
-	}
-}
-
+# This effect saves the country scope just in case the desired country isn't root
 kog_monthly_seat_relations_effect = {
-	kog_change_seat_relations_effect = {
-		seat = rome
-		value = kog_rome_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = santiago
-		value = kog_santiago_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = paris
-		value = kog_paris_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = koln
-		value = kog_koln_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = vienna
-		value = kog_vienna_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = constantinople
-		value = kog_constantinople_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = antioch
-		value = kog_antioch_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = jerusalem
-		value = kog_jerusalem_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = alexandria
-		value = kog_alexandria_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = moscow
-		value = kog_moscow_monthly_relations_change_value
+	save_scope_as = kog_root_scope
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_relations_math_value
+			value = kog_episcopal_seat_monthly_change_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_relations_map
+			key = scope:kog_root_scope
+			value = scope:kog_relations_math_value
+		}
 	}
 }
 

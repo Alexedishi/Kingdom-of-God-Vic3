@@ -2,7 +2,7 @@
 kog_gui_toogle_effect = {
 	kog_update_patriarch_variables_effect = yes
 	kog_check_seat_controllers_effect = yes
-	kog_update_opinion_variables = yes
+	kog_update_opinion_variable_maps_effect = yes
 }
 
 ####---------- General Maintenance Effects ---------- ####
@@ -339,11 +339,11 @@ kog_update_national_piety_effect = {
 	container:kog_local = {
 		set_variable = {
 			name = kog_national_piety_target_var
-			value = prev.kog_national_piety_target_value
+			value = parent.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_progress_var
-			value = prev.kog_national_piety_progress_value
+			value = parent.kog_national_piety_progress_value
 		}
 		set_variable = {
 			name = kog_national_piety_var
@@ -794,41 +794,22 @@ kog_add_canon_law_modifiers_effect = {
 
 
 ####---------- Episcopal Seat Effects ----------####
-# These effects save the country scope just in case the desired country isn't root
-kog_update_relation_variable_maps_effect = {
-	save_scope_as = kog_root_scope
-	every_in_global_list = {
-		variable = kog_global_seat_list
-		save_scope_value_as = {
-			name = kog_relations_math_value
-			value = kog_episcopal_seat_monthly_change_value
-		}
-		com_update_value_in_variable_map = {
-			name = kog_relations_map
-			key = scope:kog_root_scope
-			value = scope:kog_relations_math_value
-		}
-	}
-}
-
+# This effect saves the country scope just in case the desired country isn't root
 kog_update_opinion_variable_maps_effect = {
 	save_scope_as = kog_root_scope
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		save_scope_value_as = {
 			name = kog_opinion_math_value
-			value = {
-				if =
-				}
-			}
+			value = kog_episcopal_seat_opinion_value
 		}
-		
 		com_update_value_in_variable_map = {
 			name = kog_opinions_map
 			key = scope:kog_root_scope
 			value = scope:kog_opinion_math_value
 		}
 	}
+}
 
 kog_update_catholic_list = {
 	clear_global_variable_list = kog_catholic_ranking
@@ -900,176 +881,176 @@ kog_update_elysian_list = {
 
 
 ####---------- Variable Map Validation Effects ---------- ####
-kog_validate_episcopal_seat_variable_maps_effect = {
-	kog_validate_rome_variable_map_effect = yes
-	kog_validate_santiago_variable_map_effect = yes
-	kog_validate_paris_variable_map_effect = yes
-	kog_validate_koln_variable_map_effect = yes
-	kog_validate_vienna_variable_map_effect = yes
-	kog_validate_constantinople_variable_map_effect = yes
-	kog_validate_antioch_variable_map_effect = yes
-	kog_validate_jerusalem_variable_map_effect = yes
-	kog_validate_alexandria_variable_map_effect = yes
-	kog_validate_moscow_variable_map_effect = yes
-	kog_validate_coptic_alexandria_variable_map_effect = yes
-	kog_validate_syriac_antioch_variable_map_effect = yes
-	kog_validate_etchmiadzin_variable_map_effect = yes
-	kog_validate_addis_ababa_variable_map_effect = yes
-	kog_validate_konak_variable_map_effect = yes
+kog_validate_episcopal_seat_containers_effect = {
+	kog_validate_rome_container_effect = yes
+	kog_validate_santiago_container_effect = yes
+	kog_validate_paris_container_effect = yes
+	kog_validate_koln_container_effect = yes
+	kog_validate_vienna_container_effect = yes
+	kog_validate_constantinople_container_effect = yes
+	kog_validate_antioch_container_effect = yes
+	kog_validate_jerusalem_container_effect = yes
+	kog_validate_alexandria_container_effect = yes
+	kog_validate_moscow_container_effect = yes
+	kog_validate_coptic_alexandria_container_effect = yes
+	kog_validate_syriac_antioch_container_effect = yes
+	kog_validate_etchmiadzin_container_effect = yes
+	kog_validate_addis_ababa_container_effect = yes
+	kog_validate_konak_container_effect = yes
 	if = {
 		limit = {
 			basileia_is_active = yes
 		}
-		kog_validate_elysium_variable_map_effect = yes
-		kog_validate_tututepec_variable_map_effect = yes
+		kog_validate_elysium_container_effect = yes
+		kog_validate_tututepec_container_effect = yes
 		if = {
 			limit = {
-				has_global_variable_map = kog_cahokia
+				has_global_container = kog_cahokia
 			}
-			kog_validate_cahokia_variable_map_effect = yes
+			kog_validate_cahokia_container_effect = yes
 		}
 	}
 }
 
-kog_validate_rome_variable_map_effect = {
+kog_validate_rome_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_rome
+				container_exists = kog_rome
 			}
 		}
-		kog_initialize_rome_variable_map_effect = yes
+		kog_initialize_rome_container_effect = yes
 	}
 }
 
-kog_validate_santiago_variable_map_effect = {
+kog_validate_santiago_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_santiago
+				container_exists = kog_santiago
 			}
 		}
-		kog_initialize_santiago_variable_map_effect = yes
+		kog_initialize_santiago_container_effect = yes
 	}
 }
 
-kog_validate_paris_variable_map_effect = {
+kog_validate_paris_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_paris
+				container_exists = kog_paris
 			}
 		}
-		kog_initialize_paris_variable_map_effect = yes
+		kog_initialize_paris_container_effect = yes
 	}
 }
 
-kog_validate_koln_variable_map_effect = {
+kog_validate_koln_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_koln
+				container_exists = kog_koln
 			}
 		}
-		kog_initialize_koln_variable_map_effect = yes
+		kog_initialize_koln_container_effect = yes
 	}
 }
 
-kog_validate_vienna_variable_map_effect = {
+kog_validate_vienna_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_vienna
+				container_exists = kog_vienna
 			}
 		}
-		kog_initialize_vienna_variable_map_effect = yes
+		kog_initialize_vienna_container_effect = yes
 	}
 }
 
-kog_validate_constantinople_variable_map_effect = {
+kog_validate_constantinople_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_constantinople
+				container_exists = kog_constantinople
 			}
 		}
-		kog_initialize_constantinople_variable_map_effect = yes
+		kog_initialize_constantinople_container_effect = yes
 	}
 }
 
-kog_validate_antioch_variable_map_effect = {
+kog_validate_antioch_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_antioch
+				container_exists = kog_antioch
 			}
 		}
-		kog_initialize_antioch_variable_map_effect = yes
+		kog_initialize_antioch_container_effect = yes
 	}
 }
 
-kog_validate_jerusalem_variable_map_effect = {
+kog_validate_jerusalem_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_jerusalem
+				container_exists = kog_jerusalem
 			}
 		}
-		kog_initialize_jerusalem_variable_map_effect = yes
+		kog_initialize_jerusalem_container_effect = yes
 	}
 }
 
-kog_validate_alexandria_variable_map_effect = {
+kog_validate_alexandria_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_alexandria
+				container_exists = kog_alexandria
 			}
 		}
-		kog_initialize_alexandria_variable_map_effect = yes
+		kog_initialize_alexandria_container_effect = yes
 	}
 }
 
-kog_validate_moscow_variable_map_effect = {
+kog_validate_moscow_container_effect = {
 	if = {
 		limit = {
 			NOT = {
-				has_global_variable_map = kog_moscow
+				container_exists = kog_moscow
 			}
 		}
-		kog_initialize_moscow_variable_map_effect = yes
+		kog_initialize_moscow_container_effect = yes
 	}
 }
 
-kog_validate_coptic_alexandria_variable_map_effect = {
+kog_validate_coptic_alexandria_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_syriac_antioch_variable_map_effect = {
+kog_validate_syriac_antioch_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_etchmiadzin_variable_map_effect = {
+kog_validate_etchmiadzin_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_addis_ababa_variable_map_effect = {
+kog_validate_addis_ababa_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_konak_variable_map_effect = {
+kog_validate_konak_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_elysium_variable_map_effect = {
+kog_validate_elysium_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_tututepec_variable_map_effect = {
+kog_validate_tututepec_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
-kog_validate_cahokia_variable_map_effect = {
+kog_validate_cahokia_container_effect = {
 	custom_tooltip = kog_nothing_happens
 }
 
@@ -1273,30 +1254,19 @@ kog_update_seat_patriarchs_effect = {
 	}
 }
 
+
 ####---------- Seat Controller Upkeep Effects ---------- ####
 kog_check_seat_controllers_effect = {
-	kog_check_rome_controller_effect = yes
-	kog_check_santiago_controller_effect = yes
-	kog_check_paris_controller_effect = yes
-	kog_check_koln_controller_effect = yes
-	kog_check_vienna_controller_effect = yes
-	kog_check_constantinople_controller_effect = yes
-	kog_check_antioch_controller_effect = yes
-	kog_check_jerusalem_controller_effect = yes
-	kog_check_alexandria_controller_effect = yes
-	kog_check_moscow_controller_effect = yes
-	kog_check_coptic_alexandria_controller_effect = yes
-	kog_check_syriac_antioch_controller_effect = yes
-	kog_check_etchmiadzin_controller_effect = yes
-	kog_check_addis_ababa_controller_effect = yes
-	kog_check_konak_controller_effect = yes
-	if = {
-		limit = {
-			basileia_is_active = yes
+	every_in_global_list = { 
+		variable = kog_global_seat_list
+		if = {
+			limit = {
+				NOT = {
+					exists = var:kog_seat_controller
+				}
+			}
+			remove_variable = kog_seat_controller
 		}
-		kog_check_elysium_controller_effect = yes
-		kog_check_tututepec_controller_effect = yes
-		kog_check_cahokia_controller_effect = yes
 	}
 	every_country = {
 		limit = {
@@ -1304,426 +1274,4 @@ kog_check_seat_controllers_effect = {
 		}
 		kog_update_episcopal_seat_count_effect = yes
 	}
-}
-
-kog_check_rome_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_rome
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_rome|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_rome
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_rome
-		}
-		save_scope_as = kog_rome_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_rome_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_rome
-			key = flag:kog_seat_controller
-			value = scope:kog_rome_controller
-		}
-	}
-}
-
-kog_check_santiago_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_santiago
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_santiago|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_santiago
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_santiago
-		}
-		save_scope_as = kog_santiago_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_santiago_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_santiago
-			key = flag:kog_seat_controller
-			value = scope:kog_santiago_controller
-		}
-	}
-}
-
-kog_check_paris_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_paris
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_paris|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_paris
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_paris
-		}
-		save_scope_as = kog_paris_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_paris_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_paris
-			key = flag:kog_seat_controller
-			value = scope:kog_paris_controller
-		}
-	}
-}
-
-kog_check_koln_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_koln
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_koln|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_koln
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_koln
-		}
-		save_scope_as = kog_koln_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_koln_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_koln
-			key = flag:kog_seat_controller
-			value = scope:kog_koln_controller
-		}
-	}
-}
-
-kog_check_vienna_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_vienna
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_vienna|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_vienna
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_vienna
-		}
-		save_scope_as = kog_vienna_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_vienna_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_vienna
-			key = flag:kog_seat_controller
-			value = scope:kog_vienna_controller
-		}
-	}
-}
-
-kog_check_constantinople_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_constantinople
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_constantinople|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_constantinople
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_constantinople
-		}
-		save_scope_as = kog_constantinople_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_constantinople_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_constantinople
-			key = flag:kog_seat_controller
-			value = scope:kog_constantinople_controller
-		}
-	}
-}
-
-kog_check_antioch_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_antioch
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_antioch|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_antioch
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_antioch
-		}
-		save_scope_as = kog_antioch_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_antioch_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_antioch
-			key = flag:kog_seat_controller
-			value = scope:kog_antioch_controller
-		}
-	}
-}
-
-kog_check_jerusalem_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_jerusalem
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_jerusalem|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_jerusalem
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_jerusalem
-		}
-		save_scope_as = kog_jerusalem_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_jerusalem_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_jerusalem
-			key = flag:kog_seat_controller
-			value = scope:kog_jerusalem_controller
-		}
-	}
-}
-
-kog_check_alexandria_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_alexandria
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_alexandria|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_alexandria
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_alexandria
-		}
-		save_scope_as = kog_alexandria_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_alexandria_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_alexandria
-			key = flag:kog_seat_controller
-			value = scope:kog_alexandria_controller
-		}
-	}
-}
-
-kog_check_moscow_controller_effect = {
-	# First, check if a controller is present in the variable map and check for existence
-	if = {
-		limit = {
-			is_key_in_global_variable_map = {
-				name = kog_moscow
-				target = flag:kog_seat_controller
-			}
-			NOT = {
-				exists = "global_variable_map(kog_moscow|flag:kog_seat_controller)"
-			}
-		}
-		# Clear key if the controller does not exist
-		remove_from_global_variable_map = {
-			name = kog_moscow
-			key = flag:kog_seat_controller
-		}
-	}
-	# Attempt to find the controller with this terrible iterator
-	random_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-			has_modifier = modifier_kog_controls_moscow
-		}
-		save_scope_as = kog_moscow_controller
-	}
-	# If the controller exists, save them to the map; overwise, LEAVE OUT the controller key
-	if = {
-		limit = {
-			exists = scope:kog_moscow_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_moscow
-			key = flag:kog_seat_controller
-			value = scope:kog_moscow_controller
-		}
-	}
-}
-
-kog_check_coptic_alexandria_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_syriac_antioch_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_etchmiadzin_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_addis_ababa_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_konak_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_elysium_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_tututepec_controller_effect = {
-	custom_tooltip = kog_nothing_happens
-}
-
-kog_check_cahokia_controller_effect = {
-	custom_tooltip = kog_nothing_happens
 }
