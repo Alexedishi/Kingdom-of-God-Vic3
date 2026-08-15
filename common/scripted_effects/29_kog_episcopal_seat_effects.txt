@@ -157,7 +157,7 @@ kog_seat_integration_monthly_progress_effect = {
 			}
 			com_change_variable = {
 				name = kog_integration_var
-				add = 1
+				value = 1
 			}
 		}
 		else = {
@@ -382,7 +382,7 @@ kog_update_seat_patriarchs_effect = {
 						has_tag = papacy
 						c:PAP ?= {
 							has_law_or_variant = law_type:law_papal_see
-							has_modifier = modifier_kog_controls_rome
+							container:kog_rome.var:kog_seat_controller ?= c:PAP
 						}
 					}
 					c:PAP = {

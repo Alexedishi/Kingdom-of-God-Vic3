@@ -17,446 +17,60 @@ kog_opinion_threshold_hostile = -80
 ####---------- Episcopal Seat General Values ----------####
 kog_seat_diplomacy_value = {
 	value = 0
-	
-	# Relations Improvement Modifiers
-	if = {
+	every_in_global_list = {
+		variable = kog_global_seat_list
 		limit = {
-			has_modifier = modifier_kog_swaying_rome
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_santiago
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_paris
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_koln
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_vienna
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_constantinople
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_antioch
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_jerusalem
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_alexandria
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_moscow
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_coptic_alexandria
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_syriac_antioch
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_etchmiadzin
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_addis_ababa
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_konak
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_elysium
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_tututepec
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_swaying_cahokia
-		}
-		add = 100
-	}
-	
-	# Relations Reduction Modifiers
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_rome
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_santiago
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_paris
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_koln
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_vienna
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_constantinople
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_antioch
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_jerusalem
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_alexandria
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_moscow
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_coptic_alexandria
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_syriac_antioch
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_etchmiadzin
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_addis_ababa
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_konak
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_elysium
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_tututepec
-		}
-		add = 100
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_antagonizing_cahokia
+			OR = {
+				"variable_map(kog_diplomacy_map|root)" = 1
+				"variable_map(kog_diplomacy_map|root)" = -1
+			}
+			
 		}
 		add = 100
 	}
 }
 
-kog_seat_integration_value = {
-	if = {
+kog_seat_integrations_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
 		limit = {
-			has_modifier = modifier_kog_integrating_rome
+			var:kog_integrator_var ?= root
+			
 		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_santiago
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_paris
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_koln
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_vienna
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_constantinople
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_antioch
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_jerusalem
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_alexandria
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_moscow
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_coptic_alexandria
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_syriac_antioch
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_etchmiadzin
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_addis_ababa
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_konak
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_elysium
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_tututepec
-		}
-		add = 200
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_cahokia
-		}
-		add = 200
+		add = 100
 	}
 }
 
 kog_episcopal_seats_value = {
 	value = 0
-	if = {
+	every_in_global_list = {
+		variable = kog_global_seat_list
 		limit = {
-			kog_controls_rome_trigger = yes
+			var:kog_seat_controller ?= root
+			
+		}
+		add = 100
+	}
+}
+
+kog_seat_endorsements_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_friendly
 		}
 		add = 1
 	}
-	if = {
+}
+
+kog_seat_condemnations_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
 		limit = {
-			kog_controls_santiago_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_paris_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_koln_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_vienna_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_constantinople_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_antioch_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_jerusalem_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_alexandria_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_moscow_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_coptic_alexandria_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_syriac_antioch_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_etchmiadzin_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_addis_ababa_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_konak_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_elysium_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_tututepec_trigger = yes
-		}
-		add = 1
-	}
-	if = {
-		limit = {
-			kog_controls_cahokia_trigger = yes
+			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_hostile
 		}
 		add = 1
 	}
