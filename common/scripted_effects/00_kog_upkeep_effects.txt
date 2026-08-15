@@ -1098,15 +1098,10 @@ kog_update_patriarch_variables_effect = {
 
 kog_update_metropolitan_bishop_patriarch_effect = {
 	# Local Metropolitan
-	ig:ig_devout = {
-		leader = {
-			save_scope_as = kog_devout_leader_scope
-		}
-	}
 	var:kog_local = {
 		set_variable = {
 			name = kog_metropolitan_var
-			value = scope:kog_devout_leader_scope
+			value = parent.ig:ig_devout.leader
 		}
 	}
 }
