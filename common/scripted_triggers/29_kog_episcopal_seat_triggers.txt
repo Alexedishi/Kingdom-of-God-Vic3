@@ -1,109 +1,130 @@
 ﻿####----------- Seat Relations Triggers ----------####
-kog_is_swaying_seat_trigger = {
-	custom_tooltip = {
-		text = kog_is_swaying_seat_trigger
+kog_is_swaying_any_seat_trigger = {
+	custom_description = {
+		text = kog_is_swaying_any_seat_trigger
+		subject = this
 		has_modifier = modifier_kog_swaying_seats
 	}
 }
 
-kog_is_antagonizing_seat_trigger = {
-	custom_tooltip = {
-		text = kog_is_antagonizing_seat_trigger
+kog_is_swaying_seat_trigger = {
+	custom_description = {
+		text = kog_is_swaying_seat_trigger
+		subject = this
+		object = container:$seat$
+		container:$seat$ = {
+			"variable_map(kog_diplomacy_map|prev)" = 1
+		}
+	}
+}
+
+kog_is_antagonizing_any_seat_trigger = {
+	custom_description = {
+		text = kog_is_antagonizing_any_seat_trigger
+		subject = this
 		has_modifier = modifier_kog_antagonizing_seats
 	}
 }
 
-kog_seat_opinion_greater_than_trigger = {
-	custom_tooltip = {
-		text = kog_seat_opinion_greater_than_trigger
-		save_temporary_scope_as = kog_root_scope
-		save_temporary_scope_value_as = {
-			name = kog_opinion_value
-			value = $value$
+kog_is_antagonizing_seat_trigger = {
+	custom_description = {
+		text = kog_is_antagonizing_seat_trigger
+		subject = this
+		object = container:$seat$
+		container:$seat$ = {
+			"variable_map(kog_diplomacy_map|prev)" = -1
 		}
-		$seat$ = {
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" > $value$
+	}
+}
+
+kog_seat_opinion_greater_than_trigger = {
+	custom_description = {
+		text = kog_seat_opinion_greater_than_trigger
+		subject = this
+		object = container:$seat$
+		value = $value$
+		container:$seat$ = {
+			"variable_map(kog_opinion_map|prev)" > $value$
 		}
 	}
 }
 
 kog_seat_opinion_less_than_trigger = {
-	custom_tooltip = {
+	custom_description = {
 		text = kog_seat_opinion_less_than_trigger
-		save_temporary_scope_as = kog_root_scope
-		save_temporary_scope_value_as = {
-			name = kog_opinion_value
-			value = $value$
-		}
-		$seat$ = {
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" < $value$
+		subject = this
+		object = container:$seat$
+		value = $value$
+		container:$seat$ = {
+			"variable_map(kog_opinion_map|prev)" < $value$
 		}
 	}
 }
 
 kog_has_seat_endorsement_trigger = {
-	custom_tooltip = {
+	custom_description = {
 		text = kog_has_seat_endorsement_trigger
-		save_temporary_scope_as = kog_root_scope
-		save_temporary_scope_value_as = {
-			name = kog_opinion_value
-			value = kog_opinion_threshold_friendly
-		}
-		$seat$ = {
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" >= kog_opinion_threshold_friendly
+		subject = this
+		object = container:$seat$
+		value = kog_opinion_threshold_friendly
+		container:$seat$ = {
+			"variable_map(kog_opinion_map|prev)" >= kog_opinion_threshold_friendly
 		}
 	}
 }
 
 kog_has_seat_disapproval_trigger = {
-	custom_tooltip = {
+	custom_description = {
 		text = kog_has_seat_disapproval_trigger
-		save_temporary_scope_as = kog_root_scope
-		save_temporary_scope_value_as = {
-			name = kog_opinion_value
-			value = kog_opinion_threshold_hostile
-		}
-		$seat$ = {
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" <= kog_opinion_threshold_hostile
+		subject = this
+		object = container:$seat$
+		value = kog_opinion_threshold_hostile
+		container:$seat$ = {
+			"variable_map(kog_opinion_map|prev)" <= kog_opinion_threshold_hostile
 		}
 	}
 }
 
 kog_any_seat_opinion_friendly_trigger = {
-	custom_tooltip = {
+	custom_description = {
 		text = kog_any_seat_opinion_friendly_trigger
-		save_temporary_scope_as = kog_root_scope
+		subject = this
+		value = kog_opinion_threshold_friendly
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" >= kog_opinion_threshold_friendly
+			"variable_map(kog_opinion_map|scope:kog_root_scope)" <= kog_opinion_threshold_friendly
 		}
 	}
 }
 
 kog_any_seat_opinion_hostile_trigger = {
-	custom_tooltip = {
+	custom_description = {
 		text = kog_any_seat_opinion_hostile_trigger
-		save_temporary_scope_as = kog_root_scope
+		subject = this
+		value = kog_opinion_threshold_hostile
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" <= kog_opinion_threshold_hostile
+			"variable_map(kog_opinion_map|scope:kog_root_scope)" >= kog_opinion_threshold_hostile
 		}
 	}
 }
 
-kog_has_any_seat_endorsement_patriarch_trigger = {
-	custom_tooltip = {
-		text = kog_has_seat_endorsement_patriarch_trigger
+kog_has_any_seat_endorsement_trigger = {
+	custom_description = {
+		text = kog_has_any_seat_endorsement_trigger
+		subject = this
 		has_modifier = modifier_kog_endorsements
 	}
 }
 
 kog_has_any_seat_condemnation_trigger = {
-	custom_tooltip = {
-		text = kog_has_seat_condemnation_trigger
+	custom_description = {
+		text = kog_has_any_seat_condemnation_trigger
+		subject = this
 		has_modifier = modifier_kog_condemnations
 	}
 }
+
 
 ####----------- Seat Integration Triggers ----------####
 kog_can_integrate_seat_alert_trigger = {
@@ -111,243 +132,53 @@ kog_can_integrate_seat_alert_trigger = {
 	kog_capacity_trigger = {
 		value = 200
 	}
-	OR = {
-		AND = {
-			kog_controls_rome_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_rome
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_rome
-				je:je_kog_local.var:kog_rome_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_LAZIO
-		}
-		AND = {
-			kog_controls_santiago_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_santiago
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_santiago
-				je:je_kog_local.var:kog_santiago_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_GALICIA
-		}
-		AND = {
-			kog_controls_paris_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_paris
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_paris
-				je:je_kog_local.var:kog_paris_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_ILE_DE_FRANCE
-		}
-		AND = {
-			kog_controls_koln_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_koln
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_koln
-				je:je_kog_local.var:kog_koln_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_NORTH_RHINE
-		}
-		AND = {
-			kog_controls_vienna_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_vienna
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_vienna
-				je:je_kog_local.var:kog_vienna_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_AUSTRIA
-		}
-		AND = {
-			kog_controls_constantinople_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_constantinople
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_constantinople
-				je:je_kog_local.var:kog_constantinople_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_EASTERN_THRACE
-		}
-		AND = {
-			kog_controls_antioch_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_antioch
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_antioch
-				je:je_kog_local.var:kog_antioch_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_SYRIA
-		}
-		AND = {
-			kog_controls_jerusalem_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_jerusalem
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_jerusalem
-				je:je_kog_local.var:kog_jerusalem_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_PALESTINE
-		}
-		AND = {
-			kog_controls_alexandria_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_alexandria
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_alexandria
-				je:je_kog_local.var:kog_alexandria_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_LOWER_EGYPT
-		}
-		AND = {
-			kog_controls_moscow_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_moscow
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_moscow
-				je:je_kog_local.var:kog_moscow_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_MOSCOW
-		}
-		AND = {
-			kog_controls_coptic_alexandria_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_coptic_alexandria
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_coptic_alexandria
-				je:je_kog_local.var:kog_coptic_alexandria_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_LOWER_EGYPT
-		}
-		AND = {
-			kog_controls_syriac_antioch_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_syriac_antioch
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_syriac_antioch
-				je:je_kog_local.var:kog_syriac_antioch_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_SYRIA
-		}
-		AND = {
-			kog_controls_etchmiadzin_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_etchmiadzin
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_etchmiadzin
-				je:je_kog_local.var:kog_etchmiadzin_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_ARMENIA
-		}
-		AND = {
-			kog_controls_addis_ababa_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_addis_ababa
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_addis_ababa
-				je:je_kog_local.var:kog_addis_ababa_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_OROMIA
-		}
-		AND = {
-			kog_controls_konak_trigger = no
-			NOT = {
-				has_modifier = modifier_kog_integrating_konak
-			}
-			custom_tooltip = {
-				text = kog_can_integrate_konak
-				je:je_kog_local.var:kog_konak_opinion_var >= kog_opinion_threshold_amicable
-			}
-			owns_entire_state_region = STATE_DIYARBAKIR
-		}
-		trigger_if = {
-			limit = {
-				basileia_is_active = yes
-			}
-			AND = {
-				kog_controls_elysium_trigger = no
-				NOT = {
-					has_modifier = modifier_kog_integrating_elysium
-				}
-				custom_tooltip = {
-					text = kog_can_integrate_elysium
-					je:je_kog_local.var:kog_elysium_opinion_var >= kog_opinion_threshold_amicable
-				}
-				owns_entire_state_region = STATE_DISTRICT_OF_COLUMBIA
-			}
-		}
-		trigger_if = {
-			limit = {
-				basileia_is_active = yes
-			}
-			AND = {
-				kog_controls_tututepec_trigger = no
-				NOT = {
-					has_modifier = modifier_kog_integrating_tututepec
-				}
-				custom_tooltip = {
-					text = kog_can_integrate_tututepec
-					je:je_kog_local.var:kog_tututepec_opinion_var >= kog_opinion_threshold_amicable
-				}
-				owns_entire_state_region = STATE_OAXACA
-			}
-		}
-		trigger_if = {
-			limit = {
-				basileia_is_active = yes
-				has_global_variable_map = kog_cahokia
-			}
-			AND = {
-				kog_controls_cahokia_trigger = no
-				NOT = {
-					has_modifier = modifier_kog_integrating_cahokia
-				}
-				custom_tooltip = {
-					text = kog_can_integrate_cahokia
-					je:je_kog_local.var:kog_cahokia_opinion_var >= kog_opinion_threshold_amicable
-				}
-				owns_entire_state_region = STATE_ILLINOIS
+	any_in_global_list = {
+		variable = kog_global_seat_list
+		var:kog_seat_controller != root
+		var:kog_seat_location = {
+			any_scope_state = {
+				count = all
+				owner = root
 			}
 		}
 	}
 }
 
-kog_integrating_seat_trigger = {
-	custom_tooltip = {
-		text = kog_integrating_seat
-		any_in_global_list = {
-			variable = kog_global_seat_list
-			var:kog_integrator_var ?= this
+kog_is_integrating_seat_trigger = {
+	custom_description = {
+		text = kog_is_integrating_seat_trigger
+		subject = this
+		object = container:$seat$
+		container:$seat$ = {
+			var:kog_seat_integrator ?= prev.prev
 		}
 	}
 }
+
+kog_is_integrating_any_seat_trigger = {
+	custom_description = {
+		text = kog_is_integrating_any_seat_trigger
+		subject = this
+		any_in_global_list = {
+			variable = kog_global_seat_list
+			var:kog_seat_integrator ?= prev.prev
+		}
+	}
+}
+
 
 ####----------- Seat Province Ownership Triggers ----------####
 kog_owns_seat_province_trigger = {
-	custom_tooltip = {
+	custom_description = {
 		text = kog_owns_seat_province_trigger
+		subject = this
+		object = container:$seat$
 		container:$seat$ = {
-			var:kog_seat_province.owner ?= root
+			var:kog_seat_province.owner ?= prev.prev.prev
 		}
 	}
 }
+
 
 ####----------- Episcopal Seat Control Triggers ----------####
 # THESE TRIGGERS EVALUATE FROM THE COUNTRY SCOPE!
@@ -355,6 +186,10 @@ kog_controls_seat_trigger = {
 	custom_tooltip = {
 		text = kog_controls_seat_trigger
 		container:$seat$ = {
+			save_temporary_scope_value_as = {
+				name = kog_seat_name
+				value = name
+			}
 			var:kog_seat_controller ?= root
 		}
 	}
@@ -400,6 +235,7 @@ kog_controls_mother_seat_trigger = {
 		}
 	}
 }
+
 
 ####----------- Seat Group Control Triggers ----------####
 kog_controls_any_seat_trigger = {
@@ -458,8 +294,9 @@ kog_controls_pentarchy_trigger = {
 		text = kog_controls_pentarchy_trigger
 		any_in_global_list = {
 			variable = kog_global_seat_list
+			count = all
 			has_tag = pentarchy
-			var:kog_seat_controller ?= root
+			var:kog_seat_controller = root
 		}
 	}
 }
@@ -467,15 +304,17 @@ kog_controls_pentarchy_trigger = {
 kog_controls_and_owns_tetrarchy_trigger = {
 	custom_tooltip = {
 		text = kog_controls_and_owns_tetrarchy
-		AND = {
-			owns_entire_state_region = STATE_EASTERN_THRACE
-			has_modifier = modifier_kog_controls_constantinople
-			owns_entire_state_region = STATE_SYRIA
-			has_modifier = modifier_kog_controls_antioch
-			owns_entire_state_region = STATE_LOWER_EGYPT
-			has_modifier = modifier_kog_controls_alexandria
-			owns_entire_state_region = STATE_PALESTINE
-			has_modifier = modifier_kog_controls_jerusalem
+		any_in_global_list = {
+			variable = kog_global_seat_list
+			count = all
+			has_tag = tetrarchy
+			var:kog_seat_controller = root
+			var:kog_seat_location = {
+				any_scope_state = {
+					count = all
+					owner = root
+				}
+			}
 		}
 	}
 }
@@ -483,19 +322,17 @@ kog_controls_and_owns_tetrarchy_trigger = {
 kog_controls_and_owns_pentarchy_trigger = {
 	custom_tooltip = {
 		text = kog_controls_and_owns_pentarchy
-		AND = {
-			owns_entire_state_region = STATE_LAZIO
-			has_modifier = modifier_kog_controls_rome
-			owns_entire_state_region = STATE_EASTERN_THRACE
-			has_modifier = modifier_kog_controls_constantinople
-			owns_entire_state_region = STATE_SYRIA
-			has_modifier = modifier_kog_controls_antioch
-			owns_entire_state_region = STATE_LOWER_EGYPT
-			has_modifier = modifier_kog_controls_alexandria
-			owns_entire_state_region = STATE_PALESTINE
-			has_modifier = modifier_kog_controls_jerusalem
-			owns_entire_state_region = STATE_LAZIO
-			has_modifier = modifier_kog_controls_rome
+		any_in_global_list = {
+			variable = kog_global_seat_list
+			count = all
+			has_tag = pentarchy
+			var:kog_seat_controller = root
+			var:kog_seat_location = {
+				any_scope_state = {
+					count = all
+					owner = root
+				}
+			}
 		}
 	}
 }
@@ -511,120 +348,6 @@ kog_controls_all_seats_trigger = {
 	}
 }
 
-####----------- Seat Integration Triggers ----------####
-kog_integrating_rome_trigger = {
-	custom_description = {
-		text = kog_integrating_rome_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_rome
-		}
-	}
-}
-
-kog_integrating_santiago_trigger = {
-	custom_description = {
-		text = kog_integrating_santiago_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_santiago
-		}
-	}
-}
-
-kog_integrating_paris_trigger = {
-	custom_description = {
-		text = kog_integrating_paris_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_paris
-		}
-	}
-}
-
-kog_integrating_koln_trigger = {
-	custom_description = {
-		text = kog_integrating_koln_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_koln
-		}
-	}
-}
-
-kog_integrating_vienna_trigger = {
-	custom_description = {
-		text = kog_integrating_vienna_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_vienna
-		}
-	}
-}
-
-kog_integrating_constantinople_trigger = {
-	custom_description = {
-		text = kog_integrating_constantinople_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_constantinople
-		}
-	}
-}
-
-kog_integrating_antioch_trigger = {
-	custom_description = {
-		text = kog_integrating_antioch_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_antioch
-		}
-	}
-}
-
-kog_integrating_jerusalem_trigger = {
-	custom_description = {
-		text = kog_integrating_jerusalem_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_jerusalem
-		}
-	}
-}
-
-kog_integrating_alexandria_trigger = {
-	custom_description = {
-		text = kog_integrating_alexandria_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_alexandria
-		}
-	}
-}
-
-kog_integrating_moscow_trigger = {
-	custom_description = {
-		text = kog_integrating_moscow_trigger
-		je:je_kog_local = {
-			has_variable = kog_integrating_moscow
-		}
-	}
-}
-
-kog_integrating_coptic_alexandria_trigger = {
-	always = no ##TODO
-}
-
-kog_integrating_elysium_trigger = {
-	always = no ##TODO
-}
-
-kog_integrating_onondaga_trigger = {
-	always = no ##TODO
-}
-
-kog_integrating_tututepec_trigger = {
-	always = no ##TODO
-}
-
-kog_integrating_cahokia_trigger = {
-	always = no ##TODO
-}
-
-kog_integrating_cayacoa_trigger = {
-	always = no ##TODO
-}
 
 ####---------- Seat Enforcement Triggers ----------####
 kog_country_has_same_rite_as_seat_trigger = {
@@ -632,64 +355,4 @@ kog_country_has_same_rite_as_seat_trigger = {
 		text = kog_country_has_same_rite_as_$seat$_trigger
 		kog_country_has_same_rite_as_$seat$_trigger = yes
 	}
-}
-
-kog_country_has_same_rite_as_rome_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_rome|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_santiago_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_santiago|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_paris_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_paris|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_koln_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_koln|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_vienna_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_vienna|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_constantinople_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_constantinople|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_antioch_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_antioch|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_jerusalem_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_jerusalem|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_alexandria_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_alexandria|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_moscow_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_elysium_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_elysium|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_onondaga_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_onondaga|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_tututepec_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_tututepec|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_cahokia_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_cahokia|flag:kog_seat_liturgical_rite)"
-}
-
-kog_country_has_same_rite_as_cayacoa_trigger = {
-	je:je_kog_local.var:kog_liturgical_rite_var != "global_variable_map(kog_cayacoa|flag:kog_seat_liturgical_rite)"
 }
