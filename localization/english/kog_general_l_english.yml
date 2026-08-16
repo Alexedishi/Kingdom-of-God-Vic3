@@ -61,14 +61,15 @@
  kog_integrating: "#o #tooltip:[GetRawTextTooltipTag('kog_integrate_desc')] Integrating#!#!"
  kog_integrate_desc: "The act of integration involves the systematic replacement of the clerical administration of an [concept_episcopal_seat] with one more favorable to the state."
  
- kog_all_patriarchal_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
- kog_ancient_seats: "The following are the #bold Ancient#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
- kog_eastern_seats: "The following are the #bold Eastern#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
- kog_tetrarchy_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
- kog_pentarchy_seats: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
- kog_senior_seats: "The following are the #bold senior#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$"
- kog_junior_seats: "The following are the #bold junior#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$\n•$kog_moscow$"
- kog_oriental_seats: "The following are the Oriental [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n•$kog_coptic_alexandria$\n•$kog_syriac_antioch$\n•$kog_konak$\n•$kog_etchmiadzin$"
+ kog_ancient_seat: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_ancient_seat_list Ancient Seat#!#!"
+ kog_ancient_seats: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_ancient_seat_list Ancient Seats#!#!"
+ kog_ancient_seat_list: "The following are the #bold Ancient#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ 
+ kog_tetrarchy: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_tetrarchy_seat_list Tetrarchy#!#!"
+ kog_tetrarchy_seat_list: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ 
+ kog_pentarchy: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_pentarchy_seat_list Pentarchy#!#!"
+ kog_pentarchy_seat_list: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
  
  kog_needs_controller: "A [concept_country] must have $kog_control$ of $kog_constantinople$"
  kog_rome_reclaimed: "$kog_rome$ is controlled by an [GetReligion('orthodox').GetName] [concept_country]"
@@ -78,6 +79,7 @@
  kog_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
  kog_romania_united: "We have #bold United the Principalities#!"
  kog_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!, they will be able to form the #bold Orthodox Commonwealth#!"
+ 
  
  # Technical
  kog_topbar_element_capacity: "kog_topbar_element_capacity"

@@ -1,4 +1,86 @@
 ﻿l_english:
+ ####----------- Seat Diplomacy Triggers ----------####
+ kog_is_swaying_any_seat_trigger: "[COUNTRY.GetNameNoFlag] is improving $kog_relations$ with any $kog_episcopal_seat$"
+ kog_is_swaying_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! improving $kog_relations$ with any $kog_episcopal_seat$"
+ 
+ kog_is_swaying_seat_trigger: "[COUNTRY.GetNameNoFlag] is improving $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_is_swaying_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! improving $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_is_antagonizing_any_seat_trigger: "[COUNTRY.GetNameNoFlag] is harming $kog_relations$ with any $kog_episcopal_seat$"
+ kog_is_antagonizing_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! harming $kog_relations$ with any $kog_episcopal_seat$"
+ 
+ kog_is_antagonizing_seat_trigger: "[COUNTRY.GetNameNoFlag] is harming $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_is_antagonizing_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! harming $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_seat_opinion_greater_than_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_greater_than_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_seat_opinion_less_than_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_less_than_trigger_NOT: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_seat_opinion_friendly_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_friendly_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_seat_opinion_hostile_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_hostile_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_any_seat_opinion_friendly_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with #bold any#! $kog_episcopal_seat$"
+ kog_any_seat_opinion_friendly_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with #bold any#! $kog_episcopal_seat$"
+ 
+ kog_any_seat_opinion_hostile_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with #bold any#! $kog_episcopal_seat$"
+ kog_any_seat_opinion_hostile_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with #bold any#! $kog_episcopal_seat$"
+ 
+ 
+ ####----------- Seat Integration Triggers ----------####
+ kog_is_integrating_seat_trigger: "[COUNTRY.GetNameNoFlag] is $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_is_integrating_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_is_integrating_any_seat_trigger: "[COUNTRY.GetNameNoFlag] is $kog_integrating$ #bold any#! $kog_episcopal_seat$"
+ kog_is_integrating_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! $kog_integrating$ #bold any#! $kog_episcopal_seat$"
+ 
+ 
+ ####----------- Seat Province Ownership Triggers ----------####
+ kog_owns_seat_province_trigger: "[COUNTRY.GetNameNoFlag] owns the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_owns_seat_province_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! own the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ 
+ ####----------- Episcopal Seat Control Triggers ----------####
+ kog_controls_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_controls_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ kog_controls_any_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ #bold any#! $kog_episcopal_seat$"
+ kog_controls_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ #bold any#! $kog_episcopal_seat$"
+ 
+ kog_controls_mother_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_mother_church$ of the [COUNTRY.Var('kog_local').Var('kog_mother_church_var').GetReligion.GetName] [concept_religion]"
+ kog_controls_mother_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_mother_church$ of the [COUNTRY.Var('kog_local').Var('kog_mother_church_var').GetReligion.GetName] [concept_religion]"
+ 
+ kog_controls_seat_of_specific_religion_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ #bold any#! $kog_episcopal_seat$ of the [TARGET_RELIGION.GetName] [concept_religion]"
+ kog_controls_seat_of_specific_religion_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ #bold any#! $kog_episcopal_seat$ of the [TARGET_RELIGION.GetName] [concept_religion]"
+ 
+ kog_controls_any_ancient_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ any $kog_ancient_seat$"
+ kog_controls_any_ancient_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ any $kog_ancient_seat$"
+ 
+ kog_controls_tetrarchy_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_tetrarchy$"
+ kog_controls_tetrarchy_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_tetrarchy$"
+ 
+ kog_controls_pentarchy_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_pentarchy$"
+ kog_controls_pentarchy_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_pentarchy$"
+ 
+ kog_controls_and_owns_tetrarchy: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_seats$ of the $kog_tetrarchy$ and their associated $kog_state_regions$"
+ kog_controls_and_owns_tetrarchy_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_seats$ of the $kog_tetrarchy$ and their associated $kog_state_regions$"
+ 
+ kog_controls_and_owns_pentarchy: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_seats$ of the $kog_pentarchy$ and their associated $kog_state_regions$"
+ kog_controls_and_owns_pentarchy_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_seats$ of the $kog_pentarchy$ and their associated $kog_state_regions$"
+ 
+ kog_controls_all_seats_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ #bold all#! $kog_episcopal_seats$"
+ kog_controls_all_seats_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ all $kog_episcopal_seats$"
+ 
+ ####---------- Episcopal Seat Enforcement Triggers ----------####
+ kog_country_has_same_rite_as_seat_trigger: "[COUNTRY.GetNameNoFlag] has the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_country_has_same_rite_as_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
+ 
+ 
  ####---------- Liturgical Rite Triggers  ----------####
  kog_has_same_rite: "[GetPlayer.GetNameNoFlag] practices the same [concept_liturgical_rite] as this [concept_country]"
  kog_has_roman_rite_trigger: "[GetPlayer.GetNameNoFlag] practices the $kog_roman_rite$"
@@ -21,7 +103,6 @@
  kog_has_tututepec_rite_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! practice the $kog_mixtec_rite$"
  kog_has_haudenosaunee_rite_trigger: "[GetPlayer.GetNameNoFlag] practices the $kog_haudenosaunee_rite$"
  kog_has_haudenosaunee_rite_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! practice the $kog_haudenosaunee_rite$"
- 
  
  ####---------- Metropolitan Triggers  ----------####
  kog_has_apparation_trigger: "[GetPlayer.GetNameNoFlag] is actively venerating a #bold Marian Apparition#!"
@@ -93,156 +174,7 @@
  kog_ongoing_crusade_NOT: "There is not an ongoing $kog_crusade$"
  
  
- ####---------- Cardinal / Collegium Triggers  ----------####
- # //
- 
- 
- ####----------- Seat Province Ownership Triggers ----------####
- kog_owns_rome_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_LAZIO').GetCityHubName] in [GetStateRegion('STATE_LAZIO').GetName]"
- kog_owns_santiago_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_GALICIA').GetCityHubName] in [GetStateRegion('STATE_GALICIA').GetName]"
- kog_owns_paris_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_ILE_DE_FRANCE').GetCityHubName] in [GetStateRegion('STATE_ILE_DE_FRANCE').GetName]"
- kog_owns_koln_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_NORTH_RHINE').GetCityHubName] in [GetStateRegion('STATE_NORTH_RHINE').GetName]"
- kog_owns_vienna_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_AUSTRIA').GetCityHubName] in [GetStateRegion('STATE_AUSTRIA').GetName]"
- kog_owns_constantinople_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_EASTERN_THRACE').GetCityHubName] in [GetStateRegion('STATE_EASTERN_THRACE').GetName]"
- kog_owns_antioch_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_SYRIA').GetCityHubName] in [GetStateRegion('STATE_SYRIA').GetName]"
- kog_owns_jerusalem_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_PALESTINE').GetCityHubName] in [GetStateRegion('STATE_PALESTINE').GetName]"
- kog_owns_alexandria_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_LOWER_EGYPT').GetCityHubName] in [GetStateRegion('STATE_LOWER_EGYPT').GetName]"
- kog_owns_moscow_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_MOSCOW').GetCityHubName] in [GetStateRegion('STATE_MOSCOW').GetName]"
- 
- kog_owns_elysium_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_DISTRICT_OF_COLUMBIA').GetCityHubName] in [GetStateRegion('STATE_DISTRICT_OF_COLUMBIA').GetName]"
- kog_owns_onondaga_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_DISTRICT_OF_COLUMBIA').GetFarmHubName] in [GetStateRegion('STATE_NEW_YORK').GetName]"
- kog_owns_tututepec_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of Tututepec in [GetStateRegion('STATE_OAXACA').GetName]"
- kog_owns_cahokia_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of Cahokia in [GetStateRegion('STATE_ILLINOIS').GetName]"
- kog_owns_cayacoa_province_trigger: "[ROOT.GetCountry.GetNameNoFlag] owns the [concept_province] of [GetStateRegion('STATE_SANTO_DOMINGO').GetCityHubName] in [GetStateRegion('STATE_SANTO_DOMINGO').GetName]"
- 
- ####---------- Episcopal Seat Control Triggers  ----------####
- kog_controls_rome_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_rome$"
- kog_controls_santiago_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_santiago$"
- kog_controls_paris_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_paris$"
- kog_controls_koln_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_koln$"
- kog_controls_vienna_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_vienna$"
- kog_controls_constantinople_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_constantinople$"
- kog_controls_antioch_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_antioch$"
- kog_controls_jerusalem_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_jerusalem$"
- kog_controls_alexandria_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_alexandria$"
- kog_controls_moscow_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_moscow$"
- kog_controls_coptic_alexandria_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_coptic_alexandria$"
- kog_controls_syriac_antioch_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_syriac_antioch$"
- kog_controls_etchmiadzin_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_etchmiadzin$"
- kog_controls_addis_ababa_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_addis_ababa$"
- kog_controls_konak_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_konak$"
- kog_controls_elysium_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_elysium$"
- kog_controls_onondaga_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_onondaga$"
- kog_controls_tututepec_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_tututepec$"
- kog_controls_cahokia_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_cahokia$"
- kog_controls_cayacoa_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [concept_episcopal_seat] of $kog_cayacoa$"
- 
- kog_controls_rome_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_rome$"
- kog_controls_santiago_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_santiago$"
- kog_controls_paris_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_paris$"
- kog_controls_koln_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_koln$"
- kog_controls_vienna_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_vienna$"
- kog_controls_constantinople_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_constantinople$"
- kog_controls_antioch_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_antioch$"
- kog_controls_jerusalem_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_jerusalem$"
- kog_controls_alexandria_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_alexandria$"
- kog_controls_moscow_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_moscow$"
- kog_controls_coptic_alexandria_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_coptic_alexandria$"
- kog_controls_syriac_antioch_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_syriac_antioch$"
- kog_controls_etchmiadzin_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_etchmiadzin$"
- kog_controls_addis_ababa_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_addis_ababa$"
- kog_controls_konak_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_konak$"
- kog_controls_elysium_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_elysium$"
- kog_controls_onondaga_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_onondaga$"
- kog_controls_tututepec_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_tututepec$"
- kog_controls_cahokia_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_cahokia$"
- kog_controls_cayacoa_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [concept_episcopal_seat] of $kog_cayacoa$"
- 
- kog_controls_any_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] any#!#! [concept_episcopal_seat]"
- kog_controls_any_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] any#!#! [concept_episcopal_seat]"
- kog_controls_any_catholic_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ a #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('catholic').GetName]#!#! [concept_episcopal_seat]"
- kog_controls_any_catholic_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ a #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('catholic').GetName]#!#! [concept_episcopal_seat]"
- kog_controls_any_orthodox_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('orthodox').GetName]#!#! [concept_episcopal_seat]"
- kog_controls_any_orthodox_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] [GetReligion('orthodox').GetName]#!#! [concept_episcopal_seat]"
- kog_controls_any_ancient_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_ancient_seats')] Ancient#!#! [concept_episcopal_seat]"
- kog_controls_any_ancient_seat_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_ancient_seats')] Ancient#!#! [concept_episcopal_seat]"
- kog_controls_tetrarchy_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#!"
- kog_controls_tetrarchy_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#!"
- kog_controls_pentarchy_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#!"
- kog_controls_pentarchy_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#!"
- kog_controls_and_owns_tetrarchy: "[GetPlayer.GetNameNoFlag]  $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_tetrarchy_seats')] Tetrarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
- kog_controls_and_owns_pentarchy: "[GetPlayer.GetNameNoFlag] $kog_controls$ the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_pentarchy_seats')] Pentarchy#!#! and owns their entire associated [concept_state_region]#o s#!"
- kog_controls_all_seats_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat]"
- kog_controls_all_seats_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! $kog_control$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat]"
- kog_controls_and_owns_all_seats: "[GetPlayer.GetNameNoFlag] $kog_controls$ #bold #tooltippable #tooltip:[GetRawTextTooltipTag('kog_all_patriarchal_seats')] all#!#!#! [concept_episcopal_seat] and owns their entire associated [concept_state_region]#o s#!"
- 
- 
- ####---------- Episcopal Seat Integration Triggers  ----------####
- kog_integrating_rome_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_rome$"
- kog_integrating_santiago_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_santiago$"
- kog_integrating_paris_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_paris$"
- kog_integrating_koln_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_koln$"
- kog_integrating_vienna_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_vienna$"
- kog_integrating_constantinople_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_constantinople$"
- kog_integrating_antioch_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_antioch$"
- kog_integrating_jerusalem_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_jerusalem$"
- kog_integrating_alexandria_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_alexandria$"
- kog_integrating_moscow_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_moscow$"
- kog_integrating_coptic_alexandria_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_coptic_alexandria$"
- kog_integrating_syriac_antioch_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_syriac_antioch$"
- kog_integrating_etchmiadzin_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_etchmiadzin$"
- kog_integrating_addis_ababa_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_addis_ababa$"
- kog_integrating_konak_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_konak$"
- kog_integrating_elysium_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_elysium$"
- kog_integrating_onondaga_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_onondaga$"
- kog_integrating_tututepec_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_tututepec$"
- kog_integrating_cahokia_trigger: "[GetPlayer.GetNameNoFlag] is $kog_integrating$ the [concept_episcopal_seat] of $kog_cahokia$"
- 
- kog_integrating_rome_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_rome$"
- kog_integrating_santiago_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_santiago$"
- kog_integrating_paris_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_paris$"
- kog_integrating_koln_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_koln$"
- kog_integrating_vienna_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_vienna$"
- kog_integrating_constantinople_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_constantinople$"
- kog_integrating_antioch_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_antioch$"
- kog_integrating_jerusalem_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_jerusalem$"
- kog_integrating_alexandria_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_alexandria$"
- kog_integrating_moscow_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_moscow$"
- kog_integrating_coptic_alexandria_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_coptic_alexandria$"
- kog_integrating_syriac_antioch_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_syriac_antioch$"
- kog_integrating_etchmiadzin_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_etchmiadzin$"
- kog_integrating_addis_ababa_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_addis_ababa$"
- kog_integrating_konak_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_konak$"
- kog_integrating_elysium_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_elysium$"
- kog_integrating_onondaga_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_onondaga$"
- kog_integrating_tututepec_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_tututepec$"
- kog_integrating_cahokia_trigger_NOT: "[GetPlayer.GetNameNoFlag] is #bold not#! $kog_integrating$ the [concept_episcopal_seat] of $kog_cahokia$"
- 
- kog_integrating_seat: "[GetPlayer.GetNameNoFlag] is currently integrating a [concept_episcopal_seat]"
- kog_integrating_seat_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! currently integrating a [concept_episcopal_seat]"
- kog_integration_lose_6: "[GetPlayer.GetNameNoFlag] will lose #variable 6#! months of progress."
- kog_integration_gain_2: "[GetPlayer.GetNameNoFlag] will gain #variable 2#! months of progress."
- kog_integration_gain_4: "[GetPlayer.GetNameNoFlag] will gain #variable 4#! months of progress."
- 
- kog_can_integrate_rome: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_rome$ of #bold #green 25#! or greater#!"
- kog_can_integrate_santiago: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_santiago$ of #bold #green 25#! or greater#!"
- kog_can_integrate_paris: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_paris$ of #bold #green 25#! or greater#!"
- kog_can_integrate_koln: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_koln$ of #bold #green 25#! or greater#!"
- kog_can_integrate_vienna: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_vienna$ of #bold #green 25#! or greater#!"
- kog_can_integrate_constantinople: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_constantinople$ of #bold #green 25#! or greater#!"
- kog_can_integrate_antioch: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_antioch$ of #bold #green 25#! or greater#!"
- kog_can_integrate_jerusalem: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_jerusalem$ of #bold #green 25#! or greater#!"
- kog_can_integrate_alexandria: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_alexandria$ of #bold #green 25#! or greater#!"
- kog_can_integrate_moscow: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_moscow$ of #bold #green 25#! or greater#!"
- kog_can_integrate_coptic_alexandria: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_coptic_alexandria$ of #bold #green 25#! or greater#!"
- kog_can_integrate_syriac_antioch: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_syriac_antioch$ of #bold #green 25#! or greater#!"
- kog_can_integrate_etchmiadzin: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_etchmiadzin$ of #bold #green 25#! or greater#!"
- kog_can_integrate_addis_ababa: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_addis_ababa$ of #bold #green 25#! or greater#!"
- kog_can_integrate_konak: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_konak$ of #bold #green 25#! or greater#!"
- kog_can_integrate_elysium: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_elysium$ of #bold #green 25#! or greater#!"
- kog_can_integrate_onondaga: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_onondaga$ of #bold #green 25#! or greater#!"
- kog_can_integrate_tututepec: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_tututepec$ of #bold #green 25#! or greater#!"
- kog_can_integrate_cahokia: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cahokia$ of #bold #green 25#! or greater#!"
+
  
  
  ####---------- Episcopal Seat Enforcement Triggers  ----------####
@@ -288,8 +220,7 @@
  kog_can_enforce_cayacoa: "[GetPlayer.GetNameNoFlag] has $kog_relations$ with $kog_cayacoa$ of #bold #green 50#! or greater#!"
  
  ####---------- Episcopal Seat Relations Triggers  ----------####
- kog_seat_opinion_greater_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! #bold or greater#! with the $kog_seat$ of [SCOPE.GetFlagName('kog_seat_opinion_trigger_type')]"
- kog_seat_opinion_less_than_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold less than#! #v [SCOPE.GetValue('kog_seat_opinion_trigger_value')]#! with the $kog_seat$ of [SCOPE.GetFlagName('kog_seat_opinion_trigger_type')]"
+
  
  kog_seat_approval_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold #green 75#! or greater#! with the $kog_seat$ of [SCOPE.GetFlagName('kog_seat_opinion_trigger_type')]"
  kog_seat_disapproval_trigger: "[GetPlayer.GetNameNoFlag] has $kog_relations$ of #bold #red 50#! or less#! with the $kog_seat$ of [SCOPE.GetFlagName('kog_seat_opinion_trigger_type')]"
