@@ -35,7 +35,7 @@ kog_seat_integrations_value = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		limit = {
-			var:kog_integrator_var ?= root
+			var:kog_integrator_var ?= prev
 			
 		}
 		add = 100
@@ -47,7 +47,7 @@ kog_episcopal_seats_value = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		limit = {
-			var:kog_seat_controller ?= root
+			var:kog_seat_controller ?= prev
 			
 		}
 		add = 100
