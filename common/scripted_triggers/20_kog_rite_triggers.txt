@@ -1,4 +1,27 @@
-﻿kog_country_has_liturgical_rite_trigger = {
+﻿####---------- Liturgical Rite Triggers ----------####
+# This is intentional named differently from the seat comparisons to avoid confusion
+kog_country_shares_liturgical_rite_with_trigger = {
+	custom_description = {
+		text = kog_country_shares_liturgical_rite_with_trigger
+		subject = this
+		object = $country$
+		$country$ = {
+			kog_content_trigger = yes # sanity check
+		}
+		var:kog_local.var:kog_liturgical_language_var = $country$.var:kog_local.var:kog_liturgical_rite_var
+	}
+}
+
+kog_country_has_same_liturgical_rite_as_seat_trigger = {
+	custom_description = {
+		text = kog_country_has_same_liturgical_rite_as_seat_trigger
+		subject = this
+		object = container:$seat$
+		var:kog_local.var:kog_liturgical_language_var = container:$seat$.var:kog_liturgical_rite_var
+	}
+}
+
+kog_country_has_liturgical_rite_trigger = {
 	kog_has_$rite$_trigger = yes
 }
 

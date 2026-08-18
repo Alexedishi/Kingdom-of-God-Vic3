@@ -1,12 +1,8 @@
 ﻿kog_country_schism_threshold_trigger = {
-	hidden_trigger = {
-		save_temporary_scope_value_as = {
-			name = kog_schism_threshold_value
-			value = modifier:country_schism_threshold_add
-		}
-	}
-	custom_tooltip = {
+	custom_description = {
 		text = kog_country_schism_threshold_trigger
+		subject = this
+		value = modifier:country_schism_threshold_add
 		kog_capacity_value >= modifier:country_schism_threshold_add
 	}
 }
@@ -14,6 +10,7 @@
 kog_is_schismatic_trigger = {
 	custom_description = {
 		text = kog_is_schismatic_trigger
+		subject = this
 		has_modifier = modifier_kog_schismatic
 	}
 }
@@ -21,6 +18,7 @@ kog_is_schismatic_trigger = {
 kog_is_autocephalous_trigger = {
 	custom_description = {
 		text = kog_is_autocephalous_trigger
+		subject = this
 		has_modifier = modifier_kog_autocephalous
 	}
 }

@@ -10,10 +10,18 @@ kog_capacity_trigger = {
 }
 
 ####---------- Religious Omen Selection Trigger ----------####
-kog_is_selecting_omen_trigger = {
+kog_country_is_selecting_omen_trigger = {
 	custom_description = {
-		text = kog_is_selecting_omen_trigger
+		text = kog_country_is_selecting_omen_trigger
 		subject = this
 		has_variable = kog_selecting_omen_var
+	}
+}
+
+kog_country_has_omen_cooldown_trigger = {
+	custom_description = {
+		text = kog_country_has_omen_cooldown_trigger
+		subject = this
+		has_variable = kog_focus_cooldown_var
 	}
 }
