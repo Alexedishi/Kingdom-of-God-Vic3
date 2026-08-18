@@ -1,24 +1,16 @@
 ﻿kog_initialize_content_effect = {
 	# If you are making a sub-mod: DO NOT override anything in this effect- override the individual effects downstream
 	
-	#### Step 1, Activate Contextless Journals
+	#### Activate Contextless Journals
 	kog_activate_contextless_journals_effect = yes
 	
-	#### Step 2, Initialize Denomination Script Containers
+	#### Initialize Compatibility Variable Map
+	kog_initialize_database_variable_map_effect = yes
+	
+	#### Initialize Denomination Script Containers
 	kog_initialize_religion_script_containers_effect = yes
 	
-	#### Step 3, Create Patriarchs and Capture Heads of Faith
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		kog_initialize_1736_patriarchs_effect = yes
-	}
-	else = {
-		kog_initialize_1836_patriarchs_effect = yes
-	}
-	
-	#### Step 4, Create Script Containers
+	#### Create Script Containers
 	kog_initialize_rome_container_effect = yes
 	kog_initialize_santiago_container_effect = yes
 	kog_initialize_paris_container_effect = yes
@@ -36,16 +28,28 @@
 		kog_initialize_elysium_container_effect = yes
 		kog_initialize_onondaga_container_effect = yes
 		kog_initialize_tututepec_container_effect = yes
+		kog_initialize_cahokia_container_effect = yes
 	}
 	kog_initialize_container_lists_effect = yes
 	
-	#### Step 5, Create the College of Cardinals
+	#### Create Patriarchs and Capture Heads of Faith
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_initialize_1736_patriarchs_effect = yes
+	}
+	else = {
+		kog_initialize_1836_patriarchs_effect = yes
+	}
+	
+	#### Create the College of Cardinals
 	kog_initialize_collegium_effect = yes
 	
-	#### Step 6, Initialize the Ranking Lists
+	#### Initialize the Ranking Lists
 	kog_initialize_variable_lists_effect = yes
 	
-	#### Step 7, Initialize Journal and Variables
+	#### Initialize Journal and Variables
 	every_country = {
 		limit = {
 			kog_content_scope_trigger = yes
@@ -53,12 +57,10 @@
 		kog_initialize_metropolis_effect = yes
 	}
 	
-	#### Step 8, Apply Any Country-specific details
+	#### Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
 	
-	#### Step 9, Create Mod Compatibility Maps & Apply Final Effects
-	kog_initialize_basielia_romaion_variable_map_effect = yes
-	kog_initialize_manaflow_variable_map_effect = yes
+	#### Apply Final Effects
 	kog_initialization_cleanup_effect = yes
 }
 
@@ -884,6 +886,13 @@ kog_initialize_elysian_button_lists_effect = {
 		name = kog_cayacoa_actions_list
 		target = flag:kog_gui_install_cayacoa
 	}
+}
+
+kog_initialize_database_variable_map_effect = {
+	kog_add_rhomaios_culture_to_database_effect = yes
+	kog_add_elysian_culture_to_database_effect = yes
+	kog_add_elysian_orthodox_religion_to_database_effect = yes
+	kog_add_russian_orthodox_religion_to_database_effect = yes
 }
 
 ####---------- Episcopal Seat Script Container Initialization ----------####
@@ -1926,7 +1935,7 @@ kog_initialize_elysium_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -1946,7 +1955,7 @@ kog_initialize_elysium_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_culture
-				value = "global_variable_map(kog_database|flag:kog_elysian_culture)"
+				value = "global_variable_map(kog_database|flag:kog_elysian)"
 			}
 			set_variable = {
 				name = kog_seat_foundation
@@ -1994,7 +2003,7 @@ kog_initialize_onondaga_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -2062,7 +2071,7 @@ kog_initialize_tututepec_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -2130,7 +2139,7 @@ kog_initialize_cahokia_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -2198,7 +2207,7 @@ kog_initialize_cayacoa_container_effect = {
 			}
 			set_variable = {
 				name = kog_seat_religion
-				value = "global_variable_map(kog_database|flag:kog_elysian_religion)"
+				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
 				name = kog_seat_liturgical_language
@@ -2327,7 +2336,7 @@ kog_initialize_1836_patriarchs_effect = {
 				imperious
 			}
 			on_created = {
-				add_trait = kog_patriarch_of_rome
+				add_trait = kog_patriarch
 			}
 		}
 		# Prominent Italian Cardinals
@@ -2376,7 +2385,7 @@ kog_initialize_1836_patriarchs_effect = {
 			religion = rel:catholic
 			age = 60 # birth date unknown, position vacated in 1850
 			on_created = {
-				add_trait = kog_patriarch_of_santiago
+				add_trait = kog_patriarch
 				place_character_in_void = 190
 			}
 		}
@@ -2392,7 +2401,7 @@ kog_initialize_1836_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1778.10.8
 			on_created = {
-				add_trait = kog_patriarch_of_paris
+				add_trait = kog_patriarch
 				place_character_in_void = 210
 			}
 		}
@@ -2408,7 +2417,7 @@ kog_initialize_1836_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1773.1.21
 			on_created = {
-				add_trait = kog_patriarch_of_koln
+				add_trait = kog_patriarch
 				place_character_in_void = 170
 			}
 		}
@@ -2424,7 +2433,7 @@ kog_initialize_1836_patriarchs_effect = {
 			religion = rel:catholic
 			birth_date = 1777.5.11
 			on_created = {
-				add_trait = kog_patriarch_of_vienna
+				add_trait = kog_patriarch
 				place_character_in_void = 210
 			}
 		}
@@ -2441,13 +2450,13 @@ kog_initialize_1836_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_trait = kog_patriarch_of_constantinople
+				add_trait = kog_patriarch
 				place_character_in_void = 140
 			}
 		}
 		random_character_in_void = {
 			limit = {
-				has_trait = kog_patriarch_of_constantinople
+				has_trait = kog_patriarch
 			}
 			save_scope_as = kog_constantinople_patriarch
 		}
@@ -2468,7 +2477,7 @@ kog_initialize_1836_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_trait = kog_patriarch_of_antioch
+				add_trait = kog_patriarch
 				place_character_in_void = 110
 			}
 		}
@@ -2483,7 +2492,7 @@ kog_initialize_1836_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_trait = kog_patriarch_of_jerusalem
+				add_trait = kog_patriarch
 				place_character_in_void = 200
 			}
 		}
@@ -2498,7 +2507,7 @@ kog_initialize_1836_patriarchs_effect = {
 			culture = cu:greek
 			religion = rel:orthodox
 			on_created = {
-				add_trait = kog_patriarch_of_alexandria
+				add_trait = kog_patriarch
 				place_character_in_void = 205
 			}
 		}
@@ -2513,7 +2522,7 @@ kog_initialize_1836_patriarchs_effect = {
 			culture = cu:russian
 			religion = rel:orthodox
 			on_created = {
-				add_trait = kog_patriarch_of_moscow
+				add_trait = kog_patriarch
 				place_character_in_void = 250
 			}
 		}
@@ -2851,21 +2860,6 @@ kog_specific_country_setups_effect = {
 	}
 }
 
-kog_initialize_basielia_romaion_variable_map_effect = {
-	add_to_global_variable_map = {
-		name = kog_database
-		key = flag:kog_elysian_culture
-		value = cu:greek
-	}
-	add_to_global_variable_map = {
-		name = kog_database
-		key = flag:kog_elysian_religion
-		value = rel:orthodox
-	}
-}
-
-kog_initialize_manaflow_variable_map_effect = {}
-
 kog_initialization_cleanup_effect = {
 	## Update Communion Lists
 	global_var:je_kog_catholic = {
@@ -2917,5 +2911,39 @@ kog_initialization_cleanup_effect = {
 			}
 			trigger_event = kog_orthodox_events.001
 		}
+	}
+}
+
+####---------- Compatibility Database Effects ----------####
+# These effects are here to be overridden by GotB/BR for their custom cultures and religions
+kog_add_rhomaios_culture_to_database_effect = {
+	add_to_global_variable_map = {
+		name = kog_database
+		key = flag:kog_rhomaios
+		value = cu:greek
+	}
+}
+
+kog_add_elysian_culture_to_database_effect = {
+	add_to_global_variable_map = {
+		name = kog_database
+		key = flag:kog_elysian
+		value = cu:greek
+	}
+}
+
+kog_add_elysian_orthodox_religion_to_database_effect = {
+	add_to_global_variable_map = {
+		name = kog_database
+		key = flag:kog_elysian_orthodox
+		value = rel:orthodox
+	}
+}
+
+kog_add_russian_orthodox_religion_to_database_effect = {
+	add_to_global_variable_map = {
+		name = kog_database
+		key = flag:kog_russian_orthodox
+		value = rel:orthodox
 	}
 }
