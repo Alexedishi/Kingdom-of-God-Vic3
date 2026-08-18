@@ -317,11 +317,10 @@ je_kog_encyclical_orthodox_fraternity = {
 					limit = {
 						calc_true_if = {
 							amount >= 3
-							var:je_kog_local.var:kog_constantinople_opinion_var >= 75
-							var:je_kog_local.var:kog_antioch_opinion_var >= 75
-							var:je_kog_local.var:kog_jerusalem_opinion_var >= 75
-							var:je_kog_local.var:kog_alexandria_opinion_var >= 75
-							var:je_kog_local.var:kog_moscow_opinion_var >= 75
+							any_in_global_list = {
+								variable = kog_orthodox_seat_list
+								"variable_map(kog_opinion_map|root)" >= 75
+							}
 						}
 					}
 					set_variable = kog_encyclical_orthodox_fraternity_compliance_var

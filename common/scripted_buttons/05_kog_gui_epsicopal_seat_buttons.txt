@@ -69,14 +69,14 @@ kog_gui_integrate_rome = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_rome
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_rome
 		}
 	}
@@ -102,13 +102,13 @@ kog_gui_enforce_rome = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_rome
 			var:kog_liturgical_rite_var != "global_variable_map(kog_rome|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_rome_enforcement_var
 		}
 	}
@@ -131,7 +131,7 @@ kog_gui_enforce_rome = {
 		add_modifier = modifier_kog_integrating_rome
 		custom_tooltip = {
 			text = kog_gui_enforce_rome_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_rome_enforcement_var
 					value = 0
@@ -167,7 +167,7 @@ kog_gui_assert_rome = {
 	
 	visible = {
 		"global_variable_map(kog_rome|flag:kog_seat_religion)" = root.religion
-		je:je_kog_local = {
+		var:kog_local = {
 			NOR = {
 				has_modifier = modifier_kog_controls_rome
 				has_modifier = modifier_kog_autocephalous
@@ -266,14 +266,14 @@ kog_gui_integrate_santiago = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_santiago
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_santiago
 		}
 	}
@@ -299,13 +299,13 @@ kog_gui_enforce_santiago = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_santiago
 			var:kog_liturgical_rite_var != "global_variable_map(kog_santiago|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_santiago_enforcement_var
 		}
 	}
@@ -328,7 +328,7 @@ kog_gui_enforce_santiago = {
 		add_modifier = modifier_kog_integrating_santiago
 		custom_tooltip = {
 			text = kog_gui_enforce_santiago_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_santiago_enforcement_var
 					value = 0
@@ -429,14 +429,14 @@ kog_gui_integrate_paris = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_paris
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_paris
 		}
 	}
@@ -462,13 +462,13 @@ kog_gui_enforce_paris = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_paris
 			var:kog_liturgical_rite_var != "global_variable_map(kog_paris|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_paris_enforcement_var
 		}
 	}
@@ -491,7 +491,7 @@ kog_gui_enforce_paris = {
 		add_modifier = modifier_kog_integrating_paris
 		custom_tooltip = {
 			text = kog_gui_enforce_paris_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_paris_enforcement_var
 					value = 0
@@ -592,14 +592,14 @@ kog_gui_integrate_koln = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_koln
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_koln
 		}
 	}
@@ -625,13 +625,13 @@ kog_gui_enforce_koln = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_koln
 			var:kog_liturgical_rite_var != "global_variable_map(kog_koln|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_koln_enforcement_var
 		}
 	}
@@ -654,7 +654,7 @@ kog_gui_enforce_koln = {
 		add_modifier = modifier_kog_integrating_koln
 		custom_tooltip = {
 			text = kog_gui_enforce_koln_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_koln_enforcement_var
 					value = 0
@@ -755,14 +755,14 @@ kog_gui_integrate_vienna = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_vienna
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_vienna
 		}
 	}
@@ -788,13 +788,13 @@ kog_gui_enforce_vienna = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_vienna
 			var:kog_liturgical_rite_var != "global_variable_map(kog_vienna|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_vienna_enforcement_var
 		}
 	}
@@ -817,7 +817,7 @@ kog_gui_enforce_vienna = {
 		add_modifier = modifier_kog_integrating_vienna
 		custom_tooltip = {
 			text = kog_gui_enforce_vienna_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_vienna_enforcement_var
 					value = 0
@@ -920,14 +920,14 @@ kog_gui_integrate_constantinople = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_constantinople
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_constantinople
 		}
 	}
@@ -953,13 +953,13 @@ kog_gui_enforce_constantinople = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_constantinople
 			var:kog_liturgical_rite_var != "global_variable_map(kog_constantinople|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_constantinople_enforcement_var
 		}
 	}
@@ -982,7 +982,7 @@ kog_gui_enforce_constantinople = {
 		add_modifier = modifier_kog_integrating_constantinople
 		custom_tooltip = {
 			text = kog_gui_enforce_constantinople_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_constantinople_enforcement_var
 					value = 0
@@ -1018,7 +1018,7 @@ kog_gui_assert_constantinople = {
 	
 	visible = {
 		"global_variable_map(kog_constantinople|flag:kog_seat_religion)" = root.religion
-		je:je_kog_local = {
+		var:kog_local = {
 			NOR = {
 				has_modifier = modifier_kog_controls_constantinople
 				has_modifier = modifier_kog_autocephalous
@@ -1117,14 +1117,14 @@ kog_gui_integrate_antioch = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_antioch
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_antioch
 		}
 	}
@@ -1150,13 +1150,13 @@ kog_gui_enforce_antioch = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_antioch
 			var:kog_liturgical_rite_var != "global_variable_map(kog_antioch|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_antioch_enforcement_var
 		}
 	}
@@ -1179,7 +1179,7 @@ kog_gui_enforce_antioch = {
 		add_modifier = modifier_kog_integrating_antioch
 		custom_tooltip = {
 			text = kog_gui_enforce_antioch_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_antioch_enforcement_var
 					value = 0
@@ -1280,14 +1280,14 @@ kog_gui_integrate_jerusalem = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_jerusalem
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_jerusalem
 		}
 	}
@@ -1313,13 +1313,13 @@ kog_gui_enforce_jerusalem = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_jerusalem
 			var:kog_liturgical_rite_var != "global_variable_map(kog_jerusalem|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_jerusalem_enforcement_var
 		}
 	}
@@ -1342,7 +1342,7 @@ kog_gui_enforce_jerusalem = {
 		add_modifier = modifier_kog_integrating_jerusalem
 		custom_tooltip = {
 			text = kog_gui_enforce_jerusalem_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_jerusalem_enforcement_var
 					value = 0
@@ -1444,14 +1444,14 @@ kog_gui_integrate_alexandria = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_alexandria
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_alexandria
 		}
 	}
@@ -1477,13 +1477,13 @@ kog_gui_enforce_alexandria = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_alexandria
 			var:kog_liturgical_rite_var != "global_variable_map(kog_alexandria|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_alexandria_enforcement_var
 		}
 	}
@@ -1506,7 +1506,7 @@ kog_gui_enforce_alexandria = {
 		add_modifier = modifier_kog_integrating_alexandria
 		custom_tooltip = {
 			text = kog_gui_enforce_alexandria_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_alexandria_enforcement_var
 					value = 0
@@ -1607,14 +1607,14 @@ kog_gui_integrate_moscow = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_moscow
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_moscow
 		}
 	}
@@ -1640,13 +1640,13 @@ kog_gui_enforce_moscow = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_moscow
 			var:kog_liturgical_rite_var != "global_variable_map(kog_moscow|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_moscow_enforcement_var
 		}
 	}
@@ -1669,7 +1669,7 @@ kog_gui_enforce_moscow = {
 		add_modifier = modifier_kog_integrating_moscow
 		custom_tooltip = {
 			text = kog_gui_enforce_moscow_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_moscow_enforcement_var
 					value = 0
@@ -1771,14 +1771,14 @@ kog_gui_integrate_elysium = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_elysium
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_elysium
 		}
 	}
@@ -1804,13 +1804,13 @@ kog_gui_enforce_elysium = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_elysium
 			var:kog_liturgical_rite_var != "global_variable_map(kog_elysium|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_elysium_enforcement_var
 		}
 	}
@@ -1833,7 +1833,7 @@ kog_gui_enforce_elysium = {
 		add_modifier = modifier_kog_integrating_elysium
 		custom_tooltip = {
 			text = kog_gui_enforce_elysium_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_elysium_enforcement_var
 					value = 0
@@ -1869,7 +1869,7 @@ kog_gui_assert_elysium = {
 	
 	visible = {
 		"global_variable_map(kog_elysium|flag:kog_seat_religion)" = root.religion
-		je:je_kog_local = {
+		var:kog_local = {
 			NOR = {
 				has_modifier = modifier_kog_controls_elysium
 				has_modifier = modifier_kog_autocephalous
@@ -1968,14 +1968,14 @@ kog_gui_integrate_onondaga = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_onondaga
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_onondaga
 		}
 	}
@@ -2001,13 +2001,13 @@ kog_gui_enforce_onondaga = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_onondaga
 			var:kog_liturgical_rite_var != "global_variable_map(kog_onondaga|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_onondaga_enforcement_var
 		}
 	}
@@ -2030,7 +2030,7 @@ kog_gui_enforce_onondaga = {
 		add_modifier = modifier_kog_integrating_onondaga
 		custom_tooltip = {
 			text = kog_gui_enforce_onondaga_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_onondaga_enforcement_var
 					value = 0
@@ -2131,14 +2131,14 @@ kog_gui_integrate_tututepec = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_tututepec
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_tututepec
 		}
 	}
@@ -2164,13 +2164,13 @@ kog_gui_enforce_tututepec = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_tututepec
 			var:kog_liturgical_rite_var != "global_variable_map(kog_tututepec|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_tututepec_enforcement_var
 		}
 	}
@@ -2193,7 +2193,7 @@ kog_gui_enforce_tututepec = {
 		add_modifier = modifier_kog_integrating_tututepec
 		custom_tooltip = {
 			text = kog_gui_enforce_tututepec_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_tututepec_enforcement_var
 					value = 0
@@ -2294,14 +2294,14 @@ kog_gui_integrate_cahokia = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_cahokia
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_cahokia
 		}
 	}
@@ -2327,13 +2327,13 @@ kog_gui_enforce_cahokia = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_cahokia
 			var:kog_liturgical_rite_var != "global_variable_map(kog_cahokia|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_cahokia_enforcement_var
 		}
 	}
@@ -2356,7 +2356,7 @@ kog_gui_enforce_cahokia = {
 		add_modifier = modifier_kog_integrating_cahokia
 		custom_tooltip = {
 			text = kog_gui_enforce_cahokia_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_cahokia_enforcement_var
 					value = 0
@@ -2457,14 +2457,14 @@ kog_gui_integrate_cayacoa = {
 	desc = kog_gui_integrate_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			NOT = {
 				has_modifier = modifier_kog_controls_cayacoa
 			}
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_integrating_cayacoa
 		}
 	}
@@ -2490,13 +2490,13 @@ kog_gui_enforce_cayacoa = {
 	desc = kog_gui_enforce_seat_desc
 	
 	visible = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_modifier = modifier_kog_controls_cayacoa
 			var:kog_liturgical_rite_var != "global_variable_map(kog_cayacoa|flag:kog_seat_liturgical_rite)"
 		}
 	}
 	selected = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_cayacoa_enforcement_var
 		}
 	}
@@ -2519,7 +2519,7 @@ kog_gui_enforce_cayacoa = {
 		add_modifier = modifier_kog_integrating_cayacoa
 		custom_tooltip = {
 			text = kog_gui_enforce_cayacoa_effect
-			je:je_kog_local = {
+			var:kog_local = {
 				set_variable = {
 					name = kog_cayacoa_enforcement_var
 					value = 0

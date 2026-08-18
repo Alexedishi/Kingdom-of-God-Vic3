@@ -231,7 +231,7 @@ kog_update_tempkey_patriarch_effect = {
 			limit = {
 				kog_content_scope_trigger = yes
 			}
-			je:je_kog_local = {
+			var:kog_local = {
 				# Sanity check in case initialization had a wobble
 				if = {
 					limit = {
@@ -299,7 +299,7 @@ kog_validate_tempkey_controller_effect = {
 	random_country = {
 		limit = {
 			kog_content_scope_trigger = yes
-			je:je_kog_local = {
+			var:kog_local = {
 				has_modifier = modifier_kog_controls_tempkey
 			}
 		}

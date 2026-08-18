@@ -48,7 +48,7 @@ kog_national_piety_target_value = {
 	# Canon Law Compliance
 	add = {
 		desc = kog_value_from_canon_law_compliance
-		value = je:je_kog_local.var:kog_canon_law_compliance_var
+		value = var:kog_local.var:kog_canon_law_compliance_var
 	}
 	
 	round_to = 0.01
@@ -60,17 +60,17 @@ kog_national_piety_progress_value = {
 	value = 0
 	if = {
 		limit = {
-			je:je_kog_local.var:kog_national_piety_var > kog_national_piety_target_value
+			var:kog_local.var:kog_national_piety_var > kog_national_piety_target_value
 		}
 		add = kog_national_piety_target_value
-		subtract = je:je_kog_local.var:kog_national_piety_var
+		subtract = var:kog_local.var:kog_national_piety_var
 	}
 	if = {
 		limit = {
-			je:je_kog_local.var:kog_national_piety_var < kog_national_piety_target_value
+			var:kog_local.var:kog_national_piety_var < kog_national_piety_target_value
 		}
 		add = kog_national_piety_target_value
-		subtract = je:je_kog_local.var:kog_national_piety_var
+		subtract = var:kog_local.var:kog_national_piety_var
 	}
 	round_to = 0.1
 	max = 0.5
@@ -79,7 +79,7 @@ kog_national_piety_progress_value = {
 
 kog_piety_multiplier_value = {
 	value = 0
-	add = je:je_kog_local.var:kog_national_piety_var
+	add = var:kog_local.var:kog_national_piety_var
 	divide = 500
 	round_to = 0.01
 	max = 1
