@@ -1,124 +1,96 @@
-﻿####---------- Catholic Seat SGUIs ----------####
-kog_rome_sgui = {
+﻿####---------- Episcopal Seat Opinion SGUIs ----------####
+kog_opinion_friendly_sgui = {
 	scope = country
+	saved_scopes = {
+		seat
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_rome
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_friendly
+		}
 	}
 }
 
-kog_santiago_sgui = {
+kog_opinion_amicable_sgui = {
 	scope = country
+	saved_scopes = {
+		seat
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_santiago
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_friendly
+			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_amicable
+		}
 	}
 }
 
-kog_paris_sgui = {
+kog_opinion_cordial_sgui = {
 	scope = country
+	saved_scopes = {
+		seat
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_paris
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_amicable
+			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_cordial
+		}
 	}
 }
 
-kog_koln_sgui = {
+kog_opinion_neutral_sgui = {
 	scope = country
+	saved_scopes = {
+		seat
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_koln
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_cordial
+			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_poor
+		}
 	}
 }
 
-kog_vienna_sgui = {
+kog_opinion_poor_sgui = {
 	scope = country
+	saved_scopes = {
+		seat
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_vienna
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_poor
+			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_cold
+		}
 	}
 }
 
-
-####---------- Orthodox Seat SGUIs ----------####
-kog_constantinople_sgui = {
+kog_opinion_poor_sgui = {
 	scope = country
+	saved_scopes = {
+		seat
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_constantinople
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_cold
+			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_hostile
+		}
 	}
 }
 
-kog_antioch_sgui = {
+kog_opinion_hostile_sgui = {
 	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_antioch
+	saved_scopes = {
+		seat
 	}
-}
-
-kog_jerusalem_sgui = {
-	scope = country
 	
 	is_shown = {
-		has_global_variable_map = kog_jerusalem
-	}
-}
-
-kog_alexandria_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_alexandria
-	}
-}
-
-kog_moscow_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_moscow
-	}
-}
-
-
-####---------- Elysian Orthodox Seat SGUIs ----------####
-kog_elysium_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_elysium
-	}
-}
-
-kog_onondaga_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_onondaga
-	}
-}
-
-kog_tututepec_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_tututepec
-	}
-}
-
-kog_cahokia_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_cahokia
-	}
-}
-
-kog_cayacoa_sgui = {
-	scope = country
-	
-	is_shown = {
-		has_global_variable_map = kog_cayacoa
+		scope:seat = {
+			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_hostile
+		}
 	}
 }

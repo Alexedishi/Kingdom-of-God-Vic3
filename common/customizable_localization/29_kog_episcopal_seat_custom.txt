@@ -1,5 +1,4 @@
-﻿####--------- EPISCOPAL SEAT GENERAL ----------##
-kog_patriarch_title_type = {
+﻿kog_patriarch_title_type = {
 	type = character
 	
 	text = {
@@ -13,60 +12,5 @@ kog_patriarch_title_type = {
 			var:kog_religion_var = rel:orthodox
 		}
 		localization_key = kog_title_patriarch
-	}
-}
-
-####--------- EPISCOPAL SEAT OPINIONS ----------####
-kog_opinion_type = {
-	type = country
-	
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_friendly
-
-		}
-		localization_key = kog_friendly
-	}
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_friendly
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_amicable
-		}
-		localization_key = kog_amicable
-	}
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_amicable
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_cordial
-		}
-		localization_key = kog_cordial
-	}
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_cordial
-			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_poor
-			
-		}
-		localization_key = kog_neutral
-	}
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_poor
-			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_cold
-		}
-		localization_key = kog_poor
-	}
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_cold
-			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_hostile
-		}
-		localization_key = kog_cold
-	}
-	text = {
-		trigger = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_hostile
-		}
-		localization_key = kog_hostile
 	}
 }
