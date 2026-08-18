@@ -1,16 +1,17 @@
 ﻿kog_initialize_content_effect = {
+	# Executed in kog_game_start via on_game_started
 	# If you are making a sub-mod: DO NOT override anything in this effect- override the individual effects downstream
 	
-	#### Activate Contextless Journals
+	#### Step 1, Activate Contextless Journals
 	kog_activate_contextless_journals_effect = yes
 	
-	#### Initialize Compatibility Variable Map
+	#### Step 2, Initialize Compatibility Variable Map
 	kog_initialize_database_variable_map_effect = yes
 	
-	#### Initialize Denomination Script Containers
+	#### Step 3, Initialize Denomination Script Containers
 	kog_initialize_religion_script_containers_effect = yes
 	
-	#### Create Script Containers
+	#### Step 4, Create Script Containers
 	kog_initialize_rome_container_effect = yes
 	kog_initialize_santiago_container_effect = yes
 	kog_initialize_paris_container_effect = yes
@@ -32,7 +33,7 @@
 	}
 	kog_initialize_container_lists_effect = yes
 	
-	#### Create Patriarchs and Capture Heads of Faith
+	#### Step 5, Create Patriarchs and Capture Heads of Faith
 	if = {
 		limit = {
 			basileia_is_active = yes
@@ -43,13 +44,13 @@
 		kog_initialize_1836_patriarchs_effect = yes
 	}
 	
-	#### Create the College of Cardinals
+	#### Step 6, Create the College of Cardinals
 	kog_initialize_collegium_effect = yes
 	
-	#### Initialize the Ranking Lists
+	#### Step 7, Initialize the Faith Ranking Lists
 	kog_initialize_variable_lists_effect = yes
 	
-	#### Initialize Journal and Variables
+	#### Step 8, Initialize Local Script Container and Variables
 	every_country = {
 		limit = {
 			kog_content_scope_trigger = yes
@@ -57,10 +58,10 @@
 		kog_initialize_metropolis_effect = yes
 	}
 	
-	#### Apply Any Country-specific details
+	#### Step 9, Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
 	
-	#### Apply Final Effects
+	#### Step 10, Apply Final Effects
 	kog_initialization_cleanup_effect = yes
 }
 
@@ -2273,6 +2274,12 @@ kog_initialize_container_lists_effect = {
 			name = kog_catholic_seat_list
 			target = this
 		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_seats_list
+				target = prev
+			}
+		}
 	}
 	
 	# Build Orthodox Seat List
@@ -2284,6 +2291,12 @@ kog_initialize_container_lists_effect = {
 		add_to_global_variable_list = {
 			name = kog_orthodox_seat_list
 			target = this
+		}
+		global_var:je_kog_orthodox = {
+			add_to_variable_list = {
+				name = kog_seats_list
+				target = prev
+			}
 		}
 	}
 	
@@ -2297,6 +2310,12 @@ kog_initialize_container_lists_effect = {
 			name = kog_oriental_seat_list
 			target = this
 		}
+		global_var:je_kog_oriental = {
+			add_to_variable_list = {
+				name = kog_seats_list
+				target = prev
+			}
+		}
 	}
 	
 	# Build Elysian Seat List
@@ -2308,6 +2327,12 @@ kog_initialize_container_lists_effect = {
 		add_to_global_variable_list = {
 			name = kog_elysian_seat_list
 			target = this
+		}
+		global_var:je_kog_elysian = {
+			add_to_variable_list = {
+				name = kog_seats_list
+				target = prev
+			}
 		}
 	}
 }

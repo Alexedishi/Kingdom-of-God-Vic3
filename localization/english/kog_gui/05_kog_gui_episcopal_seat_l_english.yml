@@ -26,15 +26,18 @@
  kog_elysian_seats_filter: "#todo Replace kog_elysian_seats_filter!#!"
  
  ####---------- Common & Placeholder Episcopal Seat Localization ----------####
- kog_gui_seat_name: "#dummy override kog_seat_name"
- kog_gui_seat_controller: "#dummy override episcopal_seat_controller!"
+ kog_gui_seat_name: "[Container.GetName.GetFlagName]"
+ kog_gui_seat_controller: "#bold #yellow Answers to: [SelectLocalization(Container.MakeScope.Var('kog_seat_controller').IsSet, 'kog_gui_controller_name', 'kog_gui_no_controller')]#!#!"
+ kog_gui_controller_name: "[Container.MakeScope.Var('kog_seat_controller').GetName]"
+ kog_gui_no_controller: "@kog! #blue God Alone#!"
+ 
  kog_gui_patriarch_name: "[Character.GetFullName]"
  kog_gui_seat_location_header: "Seated in:"
- kog_gui_seat_location_value: "#dummy override episcopal_seat_location!"
+ kog_gui_seat_location_value: "[Container.MakeScope.Var('kog_seat_location').GetFlagName]"
  kog_gui_liturgical_language_header: "[concept_liturgical_rite]:"
- kog_gui_liturgical_language_value: "#dummy override episcopal_seat_liturgical_language!"
+ kog_gui_liturgical_language_value: "[Container.MakeScope.Var('kog_seat_liturgical_rite').GetFlagName]"
  kog_gui_liturgical_rite_header: "[concept_liturgical_language]:"
- kog_gui_liturgical_rite_value: "#dummy override episcopal_seat_liturgical_rite!"
+ kog_gui_liturgical_rite_value: "[Container.MakeScope.Var('kog_seat_liturgical_language').GetFlagName]"
  kog_gui_opinion_header: "Opinion of [GetPlayer.GetNameNoFlag]:"
  kog_gui_opinion_value: "#dummy override episcopal_seat_opinion!"
  # Scripted Buttons
