@@ -1,1 +1,13 @@
-﻿
+﻿kog_faith_has_canon_law_trigger = {
+	custom_tooltip = {
+		text = kog_faith_has_$canon_law$
+		var:kog_global_faith_journal_var.var:$kog_canon_law_group$_var = flag:$canon_law$
+	}
+}
+
+kog_faith_has_canon_law_trigger_NOT = {
+	custom_tooltip = {
+		text = kog_faith_has_$canon_law$_NOT
+		var:kog_global_faith_journal_var.var:$kog_canon_law_group$_var != flag:$canon_law$
+	}
+}

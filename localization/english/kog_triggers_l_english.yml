@@ -77,12 +77,23 @@
  
  
  ####---------- Canon Law Triggers  ----------####
- kog_has_catholic_council_trigger: "The [GetReligion('catholic').GetName] Church is holding an [concept_ecumenical_council]"
- kog_has_catholic_council_trigger_NOT: "The [GetReligion('catholic').GetName] Church is #bold not#! holding an [concept_ecumenical_council]"
- kog_has_orthodox_council_trigger: "The [GetReligion('orthodox').GetName] Church is holding an [concept_ecumenical_council]"
- kog_has_orthodox_council_trigger_NOT: "The [GetReligion('orthodox').GetName] Church is #bold not#! holding an [concept_ecumenical_council]"
- kog_has_elysian_council_trigger: "The [GetReligion('elysian').GetName] Church is holding an [concept_ecumenical_council]" #TODO implement database varmap
- kog_has_elysian_council_trigger_NOT: "The [GetReligion('elysian').GetName] Church is #bold not#! holding an [concept_ecumenical_council]"
+ 
+ 
+ 
+ ####---------- Schism and Autocephaly Triggers  ----------####
+ kog_country_schism_threshold_trigger: "[COUNTRY.GetNameNoFlag] has #bold at least#! #v $VALUE$#! $kog_faith_capacity$"
+ kog_country_schism_threshold_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have at least #v $VALUE$#! $kog_faith_capacity$"
+ 
+ kog_is_schismatic_trigger: "The Church of [COUNTRY.GetNameNoFlag] is in [concept_schism] from its Mother Church"
+ kog_is_schismatic_trigger_NOT: "The Church of [COUNTRY.GetNameNoFlag] is #bold not#! in [concept_schism] from its Mother Church"
+ 
+ kog_is_autocephalous_trigger: "The Church of [COUNTRY.GetNameNoFlag] has gained [concept_autocephaly] from its Mother Church"
+ kog_is_autocephalous_trigger_NOT: "The Church of [COUNTRY.GetNameNoFlag] has #bold not#! gained [concept_autocephaly] from its Mother Church"
+ 
+ 
+ ####---------- Ecumenical Council Triggers ----------####
+ kog_has_ongoing_council_trigger: "[COUNTRY.MakeScope.Var('kog_local').Var('kog_global_faith_journal_var').GetName] has an ongoing [concept_ecumenical_council]"
+ kog_has_ongoing_council_trigger_NOT: "[COUNTRY.MakeScope.Var('kog_local').Var('kog_global_faith_journal_var').GetName] does #bold not#! have an ongoing [concept_ecumenical_council]"
  
  kog_canon_lawgroup_apostolic_succession_debate_trigger: "$kog_canon_lawgroup_apostolic_succession$ is a matter of debate in the current [concept_ecumenical_council]"
  kog_canon_lawgroup_apostolic_succession_debate_trigger_NOT: "$kog_canon_lawgroup_apostolic_succession$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
@@ -110,22 +121,6 @@
  
  kog_canon_lawgroup_crusades_debate_trigger: "$kog_canon_lawgroup_crusades$ is a matter of debate in the current [concept_ecumenical_council]"
  kog_canon_lawgroup_crusades_debate_trigger_NOT: "$kog_canon_lawgroup_crusades$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
- 
- 
- ####---------- Schism $ Autocephaly Triggers  ----------####
- kog_country_schism_threshold_trigger: "[COUNTRY.GetNameNoFlag] has #bold at least#! #v $VALUE$#! $kog_faith_capacity$"
- kog_country_schism_threshold_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have at least #v $VALUE$#! $kog_faith_capacity$"
- 
- kog_is_schismatic_trigger: "The Church of [COUNTRY.GetNameNoFlag] is in [concept_schism] from its Mother Church"
- kog_is_schismatic_trigger_NOT: "The Church of [COUNTRY.GetNameNoFlag] is #bold not#! in [concept_schism] from its Mother Church"
- 
- kog_is_autocephalous_trigger: "The Church of [COUNTRY.GetNameNoFlag] has gained [concept_autocephaly] from its Mother Church"
- kog_is_autocephalous_trigger_NOT: "The Church of [COUNTRY.GetNameNoFlag] has #bold not#! gained [concept_autocephaly] from its Mother Church"
- 
- 
- ####---------- Ecumenical Council Triggers ----------####
- kog_has_ongoing_council_trigger: "[COUNTRY.MakeScope.Var('kog_local').Var('kog_global_faith_journal_var').GetName] has an ongoing [concept_ecumenical_council]"
- kog_has_ongoing_council_trigger_NOT: "[COUNTRY.MakeScope.Var('kog_local').Var('kog_global_faith_journal_var').GetName] does #bold not#! have an ongoing [concept_ecumenical_council]"
  
  
  ####----------- Seat Diplomacy Triggers ----------####
