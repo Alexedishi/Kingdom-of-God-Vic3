@@ -3,10 +3,10 @@ kog_content_scope_trigger = {
 	OR = {
 		kog_country_is_roman_catholic_trigger = yes
 		kog_country_is_eastern_orthodox_trigger = yes
-#		kog_country_is_oriental_orthodox_trigger = yes
-#		kog_country_is_protestant_trigger = yes
-#		kog_country_is_rus_orthodox_trigger = yes
-#		kog_country_is_elysian_orthodox_trigger = yes
+		#		kog_country_is_oriental_orthodox_trigger = yes
+		#		kog_country_is_protestant_trigger = yes
+		#		kog_country_is_rus_orthodox_trigger = yes
+		#		kog_country_is_elysian_orthodox_trigger = yes
 	}
 }
 
@@ -75,21 +75,4 @@ kog_country_is_tututepec_orthodox_trigger = {
 kog_country_is_haudenosaunee_orthodox_trigger = {
 	kog_country_is_elysian_orthodox_trigger = yes
 	var:kog_local.var:kog_liturgical_rite_var = flag:kog_haudenosaunee_rite
-}
-
-
-####---------- Religious Capacity Trigger ----------####
-# Be careful invoking this trigger, it calls the script value directly
-# This is gated behind the is_player trigger for performance- kog_capacity_value is very complicated
-kog_capacity_trigger = {
-	hidden_trigger = {
-		save_temporary_scope_value_as = {
-			name = kog_trigger_value
-			value = $value$
-		}
-	}
-	custom_tooltip = {
-		text = kog_capacity_trigger
-		kog_capacity_value >= $value$
-	}
 }

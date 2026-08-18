@@ -22,13 +22,14 @@
  kog_placeholder_text: "#dummy Placeholder Text#!"
  kog_welcome_text: "Content from $kog$ can be accessed via the [concept_com_international_organization] panel"
  
- kog_faith_capacity_type: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_type')]"
+ 
+ kog_capacity: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_type')]"
  kog_catholic_power: "@kog_catholic_power! [Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
  kog_orthodox_power: "@kog_orthodox_power! [Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
  kog_oriental_power: "@kog_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
  kog_elysian_power: "@kog_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
  
- kog_faith_capacity_no_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_no_icon_type')]"
+ kog_capacity_no_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_no_icon_type')]"
  kog_catholic_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
  kog_orthodox_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
  kog_oriental_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
@@ -111,6 +112,7 @@
  
  # [Concept('','$$')]
  kog_countries: "[Concept('concept_country','$concept_countries$')]"
+ kog_state_regions: "[Concept('concept_state_region','$concept_state_regions$')]"
  kog_faith: "[Concept('concept_religion','$concept_faith$')]"
  kog_faiths: "[Concept('concept_religion','$concept_faiths$')]"
  kog_states: "[Concept('concept_state','$concept_states$')]"
