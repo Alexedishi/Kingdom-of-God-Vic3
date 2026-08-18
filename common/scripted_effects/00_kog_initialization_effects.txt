@@ -2640,15 +2640,12 @@ kog_initialize_metropolis_effect = {
 		tags = { local_metropolis }
 		parent = scope:kog_root_scope
 		save_scope_as = kog_local
-		on_created = {
-			scope:kog_root_scope = {
-				set_variable = {
-					name = kog_local
-					value = scope:kog_local
-				}
-			}
-		}
 	}
+	set_variable = {
+		name = kog_local
+		value = scope:kog_local
+	}
+	
 	
 	# Step 2: Initialize Liturgical Rites & Languages
 	if = {
