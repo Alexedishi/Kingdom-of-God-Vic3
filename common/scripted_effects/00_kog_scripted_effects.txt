@@ -197,105 +197,14 @@ kog_set_omen_modifier_effect = {
 }
 
 kog_save_event_patriarch_effect = {
-	if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_rome
-		}
-		kog_update_rome_patriarch_effect = yes
-		"global_variable_map(kog_rome|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_santiago
-		}
-		kog_update_santiago_patriarch_effect = yes
-		"global_variable_map(kog_santiago|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_paris
-		}
-		kog_update_paris_patriarch_effect = yes
-		"global_variable_map(kog_paris|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_koln
-		}
-		kog_update_koln_patriarch_effect = yes
-		"global_variable_map(kog_koln|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_vienna
-		}
-		kog_update_vienna_patriarch_effect = yes
-		"global_variable_map(kog_vienna|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_constantinople
-		}
-		kog_update_constantinople_patriarch_effect = yes
-		"global_variable_map(kog_constantinople|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_antioch
-		}
-		kog_update_antioch_patriarch_effect = yes
-		"global_variable_map(kog_antioch|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_jerusalem
-		}
-		kog_update_jerusalem_patriarch_effect = yes
-		"global_variable_map(kog_jerusalem|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_alexandria
-		}
-		kog_update_alexandria_patriarch_effect = yes
-		"global_variable_map(kog_alexandria|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else_if = {
-		limit = {
-			var:kog_seat_event_var = flag:kog_moscow
-		}
-		kog_update_moscow_patriarch_effect = yes
-		"global_variable_map(kog_moscow|flag:kog_patriarch_var)" = {
-			save_scope_as = kog_patriarch_event_scope
-		}
-	}
-	else = {
-		error_log = "Effect kog_save_event_patriarch_effect was called, but no valid state was found for kog_seat_event_var"
+	scope:kog_episcopal_seat_scope.var:kog_patriarch_var = {
+		save_scope_as = kog_patriarch_event_scope
 	}
 }
 
-kog_save_pope_scope_effect = {
-	kog_update_rome_patriarch_effect = yes
-	"global_variable_map(kog_rome|flag:kog_patriarch_var)" = {
-		save_scope_as = kog_pope_scope
+kog_save_head_of_faith_scope_effect = {
+	var:kog_local.var:kog_global_faith_journal_var.var:kog_head_of_faith_var = {
+		save_scope_as = kog_patriarch_event_scope
 	}
 }
 
