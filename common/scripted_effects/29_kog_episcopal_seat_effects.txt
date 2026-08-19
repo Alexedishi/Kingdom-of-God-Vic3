@@ -191,10 +191,10 @@ kog_check_seat_controllers_effect = {
 		if = {
 			limit = {
 				NOT = {
-					exists = var:kog_seat_controller
+					exists = var:kog_controller_var
 				}
 			}
-			remove_variable = kog_seat_controller
+			remove_variable = kog_controller_var
 		}
 	}
 	every_country = {
@@ -300,7 +300,7 @@ kog_select_random_controlled_seat_effect = {
 	random_in_global_list = {
 		variable = kog_global_seat_list
 		limit = {
-			var:kog_seat_controller = root
+			var:kog_controller_var = root
 		}
 		save_scope_as = kog_episcopal_seat_scope
 	}
@@ -352,12 +352,12 @@ kog_update_seat_patriarchs_effect = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		save_scope_as = kog_episcopal_seat_scope
-		# Step 1, Ensure there is a valid scope saved to kog_seat_patriarch
+		# Step 1, Ensure there is a valid scope saved to kog_patriarch_var
 		if = {
 			limit = {
 				NOT = {
 					# If this variable is unset, heavens help us all
-					exists = var:kog_seat_patriarch
+					exists = var:kog_patriarch_var
 				}
 			}
 			# First, sweep the void for the Patriarch
@@ -382,7 +382,7 @@ kog_update_seat_patriarchs_effect = {
 						has_tag = papacy
 						c:PAP ?= {
 							has_law_or_variant = law_type:law_papal_see
-							container:kog_rome.var:kog_seat_controller ?= c:PAP
+							container:kog_rome.var:kog_controller_var ?= c:PAP
 						}
 					}
 					c:PAP = {
@@ -405,12 +405,12 @@ kog_update_seat_patriarchs_effect = {
 				# Next try using the seat controller
 				else_if = {
 					limit = {
-						exists = var:kog_seat_controller
+						exists = var:kog_controller_var
 					}
-					var:kog_seat_controller = {
+					var:kog_controller_var = {
 						create_character = {
 							template = kog_patriarch_template
-							religion = scope:kog_episcopal_seat_scope.var:kog_seat_religion
+							religion = scope:kog_episcopal_seat_scope.var:kog_religion_var
 							culture = culture
 							on_created = {
 								set_variable = {
@@ -425,18 +425,18 @@ kog_update_seat_patriarchs_effect = {
 				# Next try using the home province
 				else_if = {
 					limit = {
-						var:kog_seat_province = {
+						var:kog_seat_province_var = {
 							owner = {
 								kog_content_scope_trigger = yes
 							}
 						}
 					}
-					var:kog_seat_province = {
+					var:kog_seat_province_var = {
 						owner = {
 							create_character = {
 								template = kog_patriarch_template
 								religion = religion
-								culture = scope:kog_episcopal_seat_scope.var:kog_seat_culture
+								culture = scope:kog_episcopal_seat_scope.var:kog_culture_var
 								on_created = {
 									set_variable = {
 										name = kog_patriarch_var
@@ -450,12 +450,12 @@ kog_update_seat_patriarchs_effect = {
 				}
 				# Lastly fall back to default settings
 				else = {
-					var:kog_seat_province = {
+					var:kog_seat_province_var = {
 						owner = {
 							create_character = {
 								template = kog_patriarch_template
-								religion = scope:kog_episcopal_seat_scope.var:kog_seat_religion
-								culture = scope:kog_episcopal_seat_scope.var:kog_seat_culture
+								religion = scope:kog_episcopal_seat_scope.var:kog_religion_var
+								culture = scope:kog_episcopal_seat_scope.var:kog_culture_var
 								on_created = {
 									set_variable = {
 										name = kog_patriarch_var
@@ -484,8 +484,8 @@ kog_update_seat_patriarchs_effect = {
 			}
 			# Update the Patriarch Variable
 			set_variable = {
-				name = kog_seat_patriarch
-				value = scope:kog_seat_patriarch
+				name = kog_patriarch_var
+				value = scope:kog_patriarch_var
 			}
 		}
 	}

@@ -47,8 +47,7 @@ kog_episcopal_seats_value = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		limit = {
-			var:kog_seat_controller ?= prev
-			
+			var:kog_controller_var ?= prev
 		}
 		add = 100
 	}
@@ -128,7 +127,7 @@ kog_episcopal_seat_opinion_value = {
 	# Sources
 	if = {
 		limit = {
-			var:kog_seat_religion = scope:kog_root_scope.religion
+			var:kog_religion_var = scope:kog_root_scope.religion
 		}
 		add = {
 			desc = kog_value_from_matching_religion
@@ -189,7 +188,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			var:kog_seat_controller = scope:kog_root_scope
+			var:kog_controller_var = scope:kog_root_scope
 		}
 		add = {
 			desc = kog_value_from_seat_control
@@ -198,7 +197,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			var:kog_seat_liturgical_rite = scope:kog_root_scope.container:kog_local.var:kog_seat_liturgical_rite
+			var:kog_liturgical_rite_var = scope:kog_root_scope.var:kog_local.var:kog_liturgical_rite_var
 		}
 		add = {
 			desc = kog_value_from_matching_liturgical_rite
@@ -215,7 +214,7 @@ kog_episcopal_seat_opinion_value = {
 	#Penalities
 	if = {
 		limit = {
-			var:kog_seat_religion != scope:kog_root_scope.religion
+			var:kog_religion_var != scope:kog_root_scope.religion
 		}
 		add = {
 			desc = kog_value_from_different_religion
@@ -265,8 +264,8 @@ kog_episcopal_seat_opinion_value = {
 	if = {
 		limit = {
 			kog_is_autocephalous_trigger = yes
-			var:kog_seat_controller != scope:kog_root_scope
-			var:kog_seat_religion != scope:kog_root_scope.religion
+			var:kog_controller_var != scope:kog_root_scope
+			var:kog_religion_var != scope:kog_root_scope.religion
 		}
 		add = {
 			desc = kog_value_from_autocephaly
@@ -276,7 +275,7 @@ kog_episcopal_seat_opinion_value = {
 	if = {
 		limit = {
 			kog_is_schismatic_trigger = yes
-			var:kog_seat_religion = scope:kog_root_scope.religion
+			var:kog_religion_var = scope:kog_root_scope.religion
 		}
 		add = {
 			desc = kog_value_from_schismatic
@@ -285,7 +284,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			var:kog_seat_liturgical_rite != scope:kog_root_scope.container:kog_local.var:kog_seat_liturgical_rite
+			var:kog_liturgical_rite_var != scope:kog_root_scope.container:kog_local.var:kog_liturgical_rite_var
 		}
 		add = {
 			value = -10

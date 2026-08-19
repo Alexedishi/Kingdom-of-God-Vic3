@@ -906,47 +906,43 @@ kog_initialize_rome_container_effect = {
 				save_scope_as = kog_rome_controller
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_rome_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_rome_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_major_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:catholic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_latin
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_LAZIO
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xB5726E
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:south_italian
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 42 # This is a total shot in the dark
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_rome_controller
 			}
 			scope:kog_rome_controller = {
@@ -955,7 +951,7 @@ kog_initialize_rome_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_rome_patriarch
 			}
 		}
@@ -971,47 +967,43 @@ kog_initialize_santiago_container_effect = {
 				save_scope_as = kog_santiago_controller
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_santiago_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_santiago_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:catholic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_latin
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_GALICIA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xD0E040
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:spanish
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 1095
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_santiago_controller
 			}
 			random_character_in_void = {
@@ -1021,7 +1013,7 @@ kog_initialize_santiago_container_effect = {
 				save_scope_as = kog_santiago_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_santiago_patriarch
 			}
 		}
@@ -1037,47 +1029,43 @@ kog_initialize_paris_container_effect = {
 				save_scope_as = kog_paris_controller
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_paris_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_santiago_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:catholic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_latin
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_ILE_DE_FRANCE
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x71DA2E
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:french
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 245 # Drawn from Gregory of Tours, likely incorrect
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_paris_controller
 			}
 			random_character_in_void = {
@@ -1087,7 +1075,7 @@ kog_initialize_paris_container_effect = {
 				save_scope_as = kog_paris_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_paris_patriarch
 			}
 			container:kog_global = {
@@ -1109,47 +1097,43 @@ kog_initialize_koln_container_effect = {
 				save_scope_as = kog_koln_controller
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_koln_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_koln_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:catholic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_latin
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_NORTH_RHINE
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x8001E0
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:north_german
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 285 # First halfway believable bishop
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_koln_controller
 			}
 			random_character_in_void = {
@@ -1159,7 +1143,7 @@ kog_initialize_koln_container_effect = {
 				save_scope_as = kog_koln_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_koln_patriarch
 			}
 		}
@@ -1175,47 +1159,43 @@ kog_initialize_vienna_container_effect = {
 				save_scope_as = kog_vienna_controller
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_vienna_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_vienna_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:catholic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_latin
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_roman_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_AUSTRIA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x316141
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:south_german
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 1469
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_vienna_controller
 			}
 			random_character_in_void = {
@@ -1225,7 +1205,7 @@ kog_initialize_vienna_container_effect = {
 				save_scope_as = kog_vienna_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_vienna_patriarch
 			}
 		}
@@ -1243,47 +1223,47 @@ kog_initialize_constantinople_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_constantinople_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_constantinople_header
 			}
 			set_variable = {
-				name = kog_seat_rank
+				name = kog_seat_rank_var
 				value = flag:kog_major_seat
 			}
 			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_khoine
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_EASTERN_THRACE
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xF0A020
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:greek
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 330
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_constantinople_controller
 			}
 			random_character_in_void = {
@@ -1293,7 +1273,7 @@ kog_initialize_constantinople_container_effect = {
 				save_scope_as = kog_constantinople_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_constantinople_patriarch
 			}
 		}
@@ -1311,47 +1291,43 @@ kog_initialize_antioch_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_antioch_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_antioch_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_khoine
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_SYRIA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x186A43
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:greek
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 34
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_antioch_controller
 			}
 			random_character_in_void = {
@@ -1361,7 +1337,7 @@ kog_initialize_antioch_container_effect = {
 				save_scope_as = kog_antioch_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_antioch_patriarch
 			}
 		}
@@ -1379,47 +1355,43 @@ kog_initialize_jerusalem_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_jerusalem_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_jerusalem_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_khoine
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_PALESTINE
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xC9CBC0
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:greek
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 451
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_jerusalem_controller
 			}
 			random_character_in_void = {
@@ -1429,7 +1401,7 @@ kog_initialize_jerusalem_container_effect = {
 				save_scope_as = kog_jerusalem_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_jerusalem_patriarch
 			}
 		}
@@ -1447,47 +1419,43 @@ kog_initialize_alexandria_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_alexandria_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_alexandria_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_khoine
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_byzantine_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_LOWER_EGYPT
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xA0D020
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:greek
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 43 # Likely just myth
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_alexandria_controller
 			}
 			random_character_in_void = {
@@ -1497,7 +1465,7 @@ kog_initialize_alexandria_container_effect = {
 				save_scope_as = kog_alexandria_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_alexandria_patriarch
 			}
 		}
@@ -1515,47 +1483,43 @@ kog_initialize_moscow_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_moscow_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_moscow_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_slavonic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_russian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_MOSCOW
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x13D91C
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:russian
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 988
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_moscow_controller
 			}
 			random_character_in_void = {
@@ -1565,7 +1529,7 @@ kog_initialize_moscow_container_effect = {
 				save_scope_as = kog_moscow_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_moscow_patriarch
 			}
 		}
@@ -1583,47 +1547,43 @@ kog_initialize_coptic_alexandria_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_coptic_alexandria_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_coptic_alexandria_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_arabic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_russian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_LOWER_EGYPT
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xA0D020
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:greek
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 451
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_coptic_alexandria_controller
 			}
 			random_character_in_void = {
@@ -1633,7 +1593,7 @@ kog_initialize_coptic_alexandria_container_effect = {
 				save_scope_as = kog_coptic_alexandria_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_coptic_alexandria_patriarch
 			}
 		}
@@ -1651,47 +1611,43 @@ kog_initialize_syriac_antioch_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_syriac_antioch_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_syriac_antioch_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_arabic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_russian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_ADANA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xE01160
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:greek
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 512
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_syriac_antioch_controller
 			}
 			random_character_in_void = {
@@ -1701,7 +1657,7 @@ kog_initialize_syriac_antioch_container_effect = {
 				save_scope_as = kog_syriac_antioch_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_syriac_antioch_patriarch
 			}
 		}
@@ -1719,47 +1675,43 @@ kog_initialize_etchmiadzin_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_etchmiadzin_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_etchmiadzin_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_armenian
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_russian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_ARMENIA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xC09080
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:armenian
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 301
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_etchmiadzin_controller
 			}
 			random_character_in_void = {
@@ -1769,7 +1721,7 @@ kog_initialize_etchmiadzin_container_effect = {
 				save_scope_as = kog_etchmiadzin_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_etchmiadzin_patriarch
 			}
 		}
@@ -1787,47 +1739,43 @@ kog_initialize_addis_ababa_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_addis_ababa_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_addis_ababa_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_slavonic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_russian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_OROMIA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x41E0D0
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:amhara
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 180 # Absolute guesswork
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_addis_ababa_controller
 			}
 			random_character_in_void = {
@@ -1837,7 +1785,7 @@ kog_initialize_addis_ababa_container_effect = {
 				save_scope_as = kog_addis_ababa_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_addis_ababa_patriarch
 			}
 		}
@@ -1855,47 +1803,43 @@ kog_initialize_konak_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_konak_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_konak_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = rel:orthodox
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_arabic
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_russian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_DIYARBAKIR
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:xC33C0F
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:assyrian
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 1672
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_konak_controller
 			}
 			random_character_in_void = {
@@ -1905,7 +1849,7 @@ kog_initialize_konak_container_effect = {
 				save_scope_as = kog_konak_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_konak_patriarch
 			}
 		}
@@ -1923,47 +1867,43 @@ kog_initialize_elysium_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_elysium_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_elysium_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_elysian
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_elysian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_DISTRICT_OF_COLUMBIA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x700080
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = "global_variable_map(kog_database|flag:kog_elysian)"
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 418 # Alt-history
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_elysium_controller
 			}
 			random_character_in_void = {
@@ -1973,7 +1913,7 @@ kog_initialize_elysium_container_effect = {
 				save_scope_as = kog_elysium_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_elysium_patriarch
 			}
 		}
@@ -1991,47 +1931,43 @@ kog_initialize_onondaga_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_onondaga_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_onondaga_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_haudenosaunee
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_haudenosaunee_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_NEW_YORK
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x01D042
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:iroquoian
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 522 # Alt-history
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_onondaga_controller
 			}
 			random_character_in_void = {
@@ -2041,7 +1977,7 @@ kog_initialize_onondaga_container_effect = {
 				save_scope_as = kog_onondaga_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_onondaga_patriarch
 			}
 		}
@@ -2059,47 +1995,43 @@ kog_initialize_tututepec_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_tututepec_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_tututepec_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_mixtec
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_mixtec_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_OAXACA
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x1BC4D0
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:mixtec
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = 1137 # Alt-history
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_tututepec_controller
 			}
 			random_character_in_void = {
@@ -2109,7 +2041,7 @@ kog_initialize_tututepec_container_effect = {
 				save_scope_as = kog_tututepec_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_tututepec_patriarch
 			}
 		}
@@ -2127,47 +2059,43 @@ kog_initialize_cahokia_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_cahokia_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_cahokia_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_elysian
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_elysian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_ILLINOIS
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x2938A5
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:algonquian
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = year
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_cahokia_controller
 			}
 			random_character_in_void = {
@@ -2177,7 +2105,7 @@ kog_initialize_cahokia_container_effect = {
 				save_scope_as = kog_cahokia_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_cahokia_patriarch
 			}
 		}
@@ -2195,47 +2123,43 @@ kog_initialize_cayacoa_container_effect = {
 				}
 			}
 			set_variable = {
-				name = kog_seat_name
+				name = kog_name_var
 				value = flag:kog_cayacoa_name
 			}
 			set_variable = {
-				name = kog_seat_header
+				name = kog_header_var
 				value = flag:kog_cayacoa_header
 			}
 			set_variable = {
-				name = kog_seat_rank
-				value = flag:kog_minor_seat
-			}
-			set_variable = {
-				name = kog_seat_religion
+				name = kog_religion_var
 				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 			}
 			set_variable = {
-				name = kog_seat_liturgical_language
+				name = kog_liturgical_language_var
 				value = flag:kog_language_elysian
 			}
 			set_variable = {
-				name = kog_seat_liturgical_rite
+				name = kog_liturgical_rite_var
 				value = flag:kog_elysian_rite
 			}
 			set_variable = {
-				name = kog_seat_location
+				name = kog_seat_state_region_var
 				value = s:STATE_SANTO_DOMINGO
 			}
 			set_variable = {
-				name = kog_seat_province
+				name = kog_seat_province_var
 				value = p:x7252EC
 			}
 			set_variable = {
-				name = kog_seat_culture
+				name = kog_culture_var
 				value = cu:cariban
 			}
 			set_variable = {
-				name = kog_seat_foundation
+				name = kog_foundation_var
 				value = year
 			}
 			set_variable = {
-				name = kog_seat_controller
+				name = kog_controller_var
 				value = scope:kog_cayacoa_controller
 			}
 			random_character_in_void = {
@@ -2245,7 +2169,7 @@ kog_initialize_cayacoa_container_effect = {
 				save_scope_as = kog_cayacoa_patriarch
 			}
 			set_variable = {
-				name = kog_seat_patriarch
+				name = kog_patriarch_var
 				value = scope:kog_cayacoa_patriarch
 			}
 		}

@@ -118,8 +118,8 @@ kog_can_integrate_seat_alert_trigger = {
 	}
 	any_in_global_list = {
 		variable = kog_global_seat_list
-		var:kog_seat_controller != root
-		var:kog_seat_location = {
+		var:kog_controller_var != root
+		var:kog_seat_state_region_var = {
 			any_scope_state = {
 				count = all
 				owner = root
@@ -158,7 +158,7 @@ kog_owns_seat_province_trigger = {
 		subject = this
 		object = container:$seat$
 		container:$seat$ = {
-			var:kog_seat_province.owner ?= prev.prev.prev
+			var:kog_seat_province_var.owner ?= prev.prev.prev
 		}
 	}
 }
@@ -172,7 +172,7 @@ kog_controls_seat_trigger = {
 		subject = this
 		object = container:$seat$
 		container:$seat$ = {
-			var:kog_seat_controller ?= root
+			var:kog_controller_var ?= root
 		}
 	}
 }
@@ -189,7 +189,7 @@ kog_controls_mother_seat_trigger = {
 	custom_description = {
 		text = kog_controls_mother_seat_trigger
 		subject = this
-		var:kog_local.var:kog_mother_church_var.var:kog_seat_controller = prev.prev.prev
+		var:kog_local.var:kog_mother_church_var.var:kog_controller_var = prev.prev.prev
 	}
 }
 
@@ -200,8 +200,8 @@ kog_controls_seat_of_specific_religion_trigger = {
 		object = $religion$
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			var:kog_seat_religion = $religion$
-			var:kog_seat_controller ?= root
+			var:kog_religion_var = $religion$
+			var:kog_controller_var ?= root
 		}
 	}
 }
@@ -213,7 +213,7 @@ kog_controls_any_ancient_seat_trigger = {
 		any_in_global_list = {
 			variable = kog_global_seat_list
 			has_tag = ancient_seat
-			var:kog_seat_controller ?= root
+			var:kog_controller_var ?= root
 		}
 	}
 }
@@ -225,7 +225,7 @@ kog_controls_tetrarchy_trigger = {
 		any_in_global_list = {
 			variable = kog_global_seat_list
 			has_tag = tetrarchy
-			var:kog_seat_controller ?= root
+			var:kog_controller_var ?= root
 		}
 	}
 }
@@ -238,7 +238,7 @@ kog_controls_pentarchy_trigger = {
 			variable = kog_global_seat_list
 			count = all
 			has_tag = pentarchy
-			var:kog_seat_controller = root
+			var:kog_controller_var = root
 		}
 	}
 }
@@ -251,8 +251,8 @@ kog_controls_and_owns_tetrarchy_trigger = {
 			variable = kog_global_seat_list
 			count = all
 			has_tag = tetrarchy
-			var:kog_seat_controller = root
-			var:kog_seat_location = {
+			var:kog_controller_var = root
+			var:kog_seat_state_region_var = {
 				any_scope_state = {
 					count = all
 					owner = root
@@ -270,8 +270,8 @@ kog_controls_and_owns_pentarchy_trigger = {
 			variable = kog_global_seat_list
 			count = all
 			has_tag = pentarchy
-			var:kog_seat_controller = root
-			var:kog_seat_location = {
+			var:kog_controller_var = root
+			var:kog_seat_state_region_var = {
 				any_scope_state = {
 					count = all
 					owner = root
@@ -288,7 +288,7 @@ kog_controls_all_seats_trigger = {
 		any_in_global_list = {
 			variable = kog_global_seat_list
 			count = all
-			var:kog_seat_controller ?= root
+			var:kog_controller_var ?= root
 		}
 	}
 }
@@ -301,7 +301,7 @@ kog_country_has_same_rite_as_seat_trigger = {
 		subject = this
 		object = container:$seat$
 		container:$seat$ = {
-			var:kog_seat_liturgical_rite ?= prev.prev.var:kog_liturgical_rite_var
+			var:kog_liturgical_rite_var ?= prev.prev.var:kog_liturgical_rite_var
 		}
 	}
 }
