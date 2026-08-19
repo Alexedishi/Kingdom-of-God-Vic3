@@ -8,8 +8,18 @@
 	#### Step 2, Initialize Compatibility Variable Map
 	kog_initialize_database_variable_map_effect = yes
 	
-	#### Step 3, Initialize Denomination Script Containers
-	kog_initialize_religion_script_containers_effect = yes
+	#### Step 3, Initialize Denomination Journal Variables
+	kog_initialize_roman_catholic_variables_effect = yes
+	kog_initialize_eastern_orthodox_variables_effect = yes
+	#	kog_initialize_oriental_orthodox_variables_effect = yes
+	#	kog_initialize_lutheran_protestant_variables_effect = yes
+	#	kog_initialize_anglican_protestant_variables_effect = yes
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_initialize_elysian_orthodox_variables_effect = yes
+	}
 	
 	#### Step 4, Create Script Containers
 	kog_initialize_rome_container_effect = yes
@@ -66,7 +76,7 @@
 	kog_initialization_cleanup_effect = yes
 }
 
-####---------- Journal and Denomination Variable Initialization ----------####
+####---------- Journal and Variable Initialization ----------####
 kog_activate_contextless_journals_effect = {
 	add_contextless_journal_entry = je_kog_catholic
 	add_contextless_journal_entry = je_kog_orthodox
@@ -81,198 +91,129 @@ kog_activate_contextless_journals_effect = {
 	}
 }
 
-kog_initialize_religion_script_containers_effect = {
-	# Roman Catholic Church
-	create_container = {
-		name = flag:kog_catholic
-		tags = { denomination western_christian catholic }
-		parent = global_var:je_kog_catholic
-		save_scope_as = kog_catholic
-		on_created = {
-			set_global_variable = {
-				name = kog_catholic
-				value = scope:kog_catholic
-			}
-			set_variable = {
-				name = kog_religion_var
-				value = rel:catholic
-			}
-			set_variable = {
-				name = kog_ecumenical_seat_var
-				value = flag:kog_rome_header
-			}
-			set_variable = {
-				name = kog_location_var
-				value = s:STATE_LAZIO
-			}
-			set_variable = {
-				name = kog_liturgical_language_var
-				value = flag:kog_language_latin
-			}
-			set_variable = {
-				name = kog_council_counter_var
-				value = 0
-			}
-			set_variable = {
-				name = kog_canon_law_apostolic_succession_var
-				value = flag:kog_canon_law_papal_primacy
-			}
-			set_variable = {
-				name = kog_canon_law_almsgiving_var
-				value = flag:kog_canon_law_offertory
-			}
-			set_variable = {
-				name = kog_canon_law_iconography_var
-				value = flag:kog_canon_law_iconodulism
-			}
-			set_variable = {
-				name = kog_canon_law_statism_var
-				value = flag:kog_canon_law_gallicanism
-			}
-			set_variable = {
-				name = kog_canon_law_nationalism_var
-				value = flag:kog_canon_law_uranopolitism
-			}
-			set_variable = {
-				name = kog_canon_law_clerical_marriage_var
-				value = flag:kog_canon_law_priests_celibate
-			}
-			set_variable = {
-				name = kog_canon_law_social_role_var
-				value = flag:kog_canon_law_moral_guidance
-			}
-			set_variable = {
-				name = kog_canon_law_sciences_stance_var
-				value = flag:kog_canon_law_scientific_disengagement
-			}
-			set_variable = {
-				name = kog_canon_law_crusades_var
-				value = flag:kog_canon_law_no_crusades
-			}
+kog_initialize_roman_catholic_variables_effect = {
+	global_var:je_kog_catholic = {
+		set_variable = {
+			name = kog_religion_var
+			value = rel:catholic
 		}
-	}
-	
-	# Eastern Orthodox Church
-	create_container = {
-		name = flag:kog_orthodox
-		tags = { denomination eastern_christian orthodox }
-		save_scope_as = kog_orthodox
-		on_created = {
-			set_global_variable = {
-				name = kog_orthodox
-				value = scope:kog_orthodox
-			}
-			set_variable = {
-				name = kog_religion_var
-				value = rel:orthodox
-			}
-			set_variable = {
-				name = kog_ecumenical_seat_var
-				value = flag:kog_constantinople_header
-			}
-			set_variable = {
-				name = kog_location_var
-				value = s:STATE_EASTERN_THRACE
-			}
-			set_variable = {
-				name = kog_liturgical_language_var
-				value = flag:kog_language_khoine
-			}
-			set_variable = {
-				name = kog_council_counter_var
-				value = 0
-			}
-			set_variable = {
-				name = kog_canon_law_apostolic_succession_var
-				value = flag:kog_canon_law_synodality
-			}
-			set_variable = {
-				name = kog_canon_law_almsgiving_var
-				value = flag:kog_canon_law_offertory
-			}
-			set_variable = {
-				name = kog_canon_law_iconography_var
-				value = flag:kog_canon_law_iconodulism
-			}
-			set_variable = {
-				name = kog_canon_law_statism_var
-				value = flag:kog_canon_law_ultramontanism
-			}
-			set_variable = {
-				name = kog_canon_law_nationalism_var
-				value = flag:kog_canon_law_ecclesial_communities
-			}
-			set_variable = {
-				name = kog_canon_law_clerical_marriage_var
-				value = flag:kog_canon_law_marriage_allowed
-			}
-			set_variable = {
-				name = kog_canon_law_social_role_var
-				value = flag:kog_canon_law_moral_guidance
-			}
-			set_variable = {
-				name = kog_canon_law_sciences_stance_var
-				value = flag:kog_canon_law_scientific_disengagement
-			}
-			set_variable = {
-				name = kog_canon_law_crusades_var
-				value = flag:kog_canon_law_no_crusades
-			}
+		set_variable = {
+			name = kog_ecumenical_seat_var
+			value = flag:kog_rome_header
 		}
-	}
-	
-	# Oriental Orthodox Church
-	create_container = {
-		name = flag:kog_oriental
-		tags = { denomination eastern_christian oriental }
-		save_scope_as = kog_oriental
-		on_created = {
-			set_global_variable = {
-				name = kog_oriental
-				value = scope:kog_oriental
-			}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_LAZIO
 		}
-	}
-	
-	# Continental Lutheran Church
-	create_container = {
-		name = flag:kog_lutheran
-		tags = { denomination western_christian lutheran }
-		save_scope_as = kog_lutheran
-		on_created = {
-			set_global_variable = {
-				name = kog_lutheran
-				value = scope:kog_lutheran
-			}
+		set_variable = {
+			name = kog_liturgical_language_var
+			value = flag:kog_language_latin
 		}
-	}
-	
-	# Anglican Church
-	create_container = {
-		name = flag:kog_anglican
-		tags = { denomination western_christian anglican }
-		save_scope_as = kog_anglican
-		on_created = {
-			set_global_variable = {
-				name = kog_anglican
-				value = scope:kog_anglican
-			}
+		set_variable = {
+			name = kog_council_counter_var
+			value = 0
 		}
-	}
-	
-	# Elysian Orthodox Church
-	create_container = {
-		name = flag:kog_elysian
-		tags = { denomination new_world_christian elysian }
-		save_scope_as = kog_elysian
-		on_created = {
-			set_global_variable = {
-				name = kog_elysian
-				value = scope:kog_elysian
-			}
+		set_variable = {
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_papal_primacy
+		}
+		set_variable = {
+			name = kog_canon_law_almsgiving_var
+			value = flag:kog_canon_law_offertory
+		}
+		set_variable = {
+			name = kog_canon_law_iconography_var
+			value = flag:kog_canon_law_iconodulism
+		}
+		set_variable = {
+			name = kog_canon_law_statism_var
+			value = flag:kog_canon_law_gallicanism
+		}
+		set_variable = {
+			name = kog_canon_law_nationalism_var
+			value = flag:kog_canon_law_uranopolitism
+		}
+		set_variable = {
+			name = kog_canon_law_clerical_marriage_var
+			value = flag:kog_canon_law_priests_celibate
+		}
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+		set_variable = {
+			name = kog_canon_law_crusades_var
+			value = flag:kog_canon_law_no_crusades
 		}
 	}
 }
+
+kog_initialize_eastern_orthodox_variables_effect = {
+	global_var:je_kog_orthodox = {
+		set_variable = {
+			name = kog_religion_var
+			value = rel:orthodox
+		}
+		set_variable = {
+			name = kog_ecumenical_seat_var
+			value = flag:kog_constantinople_header
+		}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_EASTERN_THRACE
+		}
+		set_variable = {
+			name = kog_liturgical_language_var
+			value = flag:kog_language_khoine
+		}
+		set_variable = {
+			name = kog_council_counter_var
+			value = 0
+		}
+		set_variable = {
+			name = kog_canon_law_apostolic_succession_var
+			value = flag:kog_canon_law_synodality
+		}
+		set_variable = {
+			name = kog_canon_law_almsgiving_var
+			value = flag:kog_canon_law_offertory
+		}
+		set_variable = {
+			name = kog_canon_law_iconography_var
+			value = flag:kog_canon_law_iconodulism
+		}
+		set_variable = {
+			name = kog_canon_law_statism_var
+			value = flag:kog_canon_law_ultramontanism
+		}
+		set_variable = {
+			name = kog_canon_law_nationalism_var
+			value = flag:kog_canon_law_ecclesial_communities
+		}
+		set_variable = {
+			name = kog_canon_law_clerical_marriage_var
+			value = flag:kog_canon_law_marriage_allowed
+		}
+		set_variable = {
+			name = kog_canon_law_social_role_var
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_law_sciences_stance_var
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+		set_variable = {
+			name = kog_canon_law_crusades_var
+			value = flag:kog_canon_law_no_crusades
+		}
+	}
+}
+
+kog_initialize_elysian_orthodox_variables_effect = {}
 
 kog_initialize_catholic_button_lists_effect = {
 	## Ecumenical Decision List
@@ -561,7 +502,7 @@ kog_initialize_rome_container_effect = {
 		name = kog_rome
 		tags = { episcopal_seat western_christian roman_catholic papacy }
 		on_created = {
-			variable = {
+			set_variable = {
 				name = kog_name_var
 				value = flag:kog_rome_name
 			}
@@ -797,10 +738,6 @@ kog_initialize_constantinople_container_effect = {
 			set_variable = {
 				name = kog_header_var
 				value = flag:kog_constantinople_header
-			}
-			set_variable = {
-				name = kog_seat_rank_var
-				value = flag:kog_major_seat
 			}
 			set_variable = {
 				name = kog_religion_var
@@ -1558,44 +1495,66 @@ kog_initialize_container_lists_effect = {
 kog_initialize_seat_controllers_effect = {
 	# Override this in BR
 	container:kog_rome = {
-		set_variable = kog_controller_var
-		value = c:PAP
+		set_variable = {
+			name = kog_controller_var
+			value = c:PAP
+		}
 	}
 	container:kog_santiago = {
-		set_variable = kog_controller_var
-		value = c:PAP
+		set_variable = {
+			name = kog_controller_var
+			value = c:PAP
+		}
 	}
 	container:kog_paris = {
-		set_variable = kog_controller_var
-		value = c:PAP
+		set_variable = {
+			name = kog_controller_var
+			value = c:PAP
+		}
 	}
 	container:kog_koln = {
-		set_variable = kog_controller_var
-		value = c:PAP
+		set_variable = {
+			name = kog_controller_var
+			value = c:PAP
+		}
 	}
 	container:kog_vienna = {
-		set_variable = kog_controller_var
-		value = c:PAP
+		set_variable = {
+			name = kog_controller_var
+			value = c:PAP
+		}
 	}
 	container:kog_constantinople = {
-		set_variable = kog_controller_var
-		value = c:TUR
+		set_variable = {
+			name = kog_controller_var
+			value = c:TUR
+		}
 	}
 	container:kog_antioch = {
-		set_variable = kog_controller_var
-		value = c:TUR
+		set_variable = {
+			name = kog_controller_var
+			value = c:TUR
+		}
 	}
 	container:kog_jerusalem = {
-		set_variable = kog_controller_var
-		value = c:EGY
+		set_variable = {
+			name = kog_controller_var
+			value = c:EGY
+		}
 	}
 	container:kog_alexandria = {
-		set_variable = kog_controller_var
-		value = c:EGY
+		set_variable = {
+			name = kog_controller_var
+			value = c:EGY
+		}
 	}
 	container:kog_moscow = {
-		set_variable = kog_controller_var
-		value = c:RUS
+		set_variable = {
+			name = {
+				name = kog_controller_var
+				value = c:RUS
+			}
+		}
 	}
 }
 
@@ -1631,8 +1590,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_rome = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_rome_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_rome_patriarch
+			}
 		}
 		global_var:je_kog_catholic = {
 			set_variable = {
@@ -1688,8 +1649,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_santiago = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_santiago_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_santiago_patriarch
+			}
 		}
 	}
 	c:FRA = {
@@ -1713,8 +1676,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_paris = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_paris_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_paris_patriarch
+			}
 		}
 	}
 	c:PRU = {
@@ -1738,8 +1703,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_koln = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_koln_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_koln_patriarch
+			}
 		}
 	}
 	c:AUS = {
@@ -1789,8 +1756,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_constantinople = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_constantinople_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_constantinople_patriarch
+			}
 		}
 		global_var:je_kog_orthodox = {
 			set_variable = {
@@ -1819,8 +1788,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_antioch = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_antioch_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_antioch_patriarch
+			}
 		}
 	}
 	c:EGY = {
@@ -1867,8 +1838,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_alexandria = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_alexandria_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_alexandria_patriarch
+			}
 		}
 	}
 	c:RUS = {
@@ -1891,8 +1864,10 @@ kog_initialize_1836_patriarchs_effect = {
 			}
 		}
 		container:kog_moscow = {
-			set_variable = kog_patriarch_var
-			value = scope:kog_moscow_patriarch
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_moscow_patriarch
+			}
 		}
 	}
 }

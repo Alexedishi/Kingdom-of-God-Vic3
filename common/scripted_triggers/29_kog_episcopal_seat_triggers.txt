@@ -145,7 +145,7 @@ kog_is_integrating_any_seat_trigger = {
 		subject = this
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			var:kog_seat_integrator ?= prev.prev
+			var:kog_seat_integrator ?= prev
 		}
 	}
 }
@@ -300,8 +300,6 @@ kog_country_has_same_rite_as_seat_trigger = {
 		text = kog_country_has_same_rite_as_seat_trigger
 		subject = this
 		object = container:$seat$
-		container:$seat$ = {
-			var:kog_liturgical_rite_var ?= prev.prev.var:kog_liturgical_rite_var
-		}
+		var:kog_local.var:kog_liturgical_rite_var = container:$seat$.var:kog_liturgical_rite_var
 	}
 }

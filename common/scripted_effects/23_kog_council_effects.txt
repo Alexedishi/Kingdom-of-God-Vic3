@@ -2,15 +2,33 @@
 kog_convoke_council_effect = {
 	custom_tooltip = {
 		text = kog_convoke_council_effect
-		add_contextless_journal_entry = je_kog_$type$_council
-		global_var:je_kog_$type$_council = {
-			set_variable = {
-				name = kog_council_year_var
+		save_scope_as = kog_council_caller
+		var:kog_global_faith_journal_var = {
+			add_to_variable_map = {
+				name = kog_ecumenical_council_map
+				key = flag:kog_council_year_var
 				value = year
 			}
-			set_variable = {
-				name = kog_council_location_var
-				value = global_var:je_kog_$type$.var:kog_location_var
+		}
+		if = {
+			limit = {
+				kog_is_autocephalous_trigger = yes
+			}
+			var:kog_global_faith_journal_var = {
+				add_to_variable_map = {
+					name = kog_ecumenical_council_map
+					key = flag:kog_council_location_var
+					value = scope:kog_council_caller.capital
+				}
+			}
+		}
+		else = {
+			var:kog_global_faith_journal_var = {
+				add_to_variable_map = {
+					name = kog_ecumenical_council_map
+					key = flag:kog_council_location_var
+					value = var:kog_mother_church_var.var:kog_seat_state_region_var
+				}
 			}
 		}
 	}
@@ -28,18 +46,18 @@ kog_add_council_matter_effect = {
 			name = kog_council_matter_var
 			value = flag:kog_canon_lawgroup_$flag$
 		}
-		global_var:je_kog_$type$_council ?= {
+		var:kog_global_faith_journal_var = {
 			if = {
 				limit = {
 					NOT = {
 						is_key_in_variable_map = {
-							name = kog_council_matters_varmap
+							name = kog_ecumenical_council_map
 							target = flag:kog_canon_lawgroup_$flag$
 						}
 					}
 				}
 				add_to_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					key = flag:kog_canon_lawgroup_$flag$
 					value = 0
 				}
@@ -53,7 +71,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_apostolic_succession
 				}
 			}
@@ -80,7 +98,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_almsgiving
 				}
 			}
@@ -103,7 +121,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_statism
 				}
 			}
@@ -136,7 +154,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_nationalism
 				}
 			}
@@ -164,7 +182,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_iconography
 				}
 			}
@@ -192,7 +210,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_clerical_marriage
 				}
 			}
@@ -210,7 +228,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_social_role
 				}
 			}
@@ -238,7 +256,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_stance_on_sciences
 				}
 			}
@@ -271,7 +289,7 @@ kog_tally_council_votes_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_crusades
 				}
 			}
@@ -324,7 +342,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_apostolic_succession
 				}
 			}
@@ -332,7 +350,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_almsgiving
 				}
 			}
@@ -341,7 +359,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_statism
 				}
 			}
@@ -350,7 +368,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_nationalism
 				}
 			}
@@ -359,7 +377,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_iconography
 				}
 			}
@@ -368,7 +386,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_clerical_marriage
 				}
 			}
@@ -377,7 +395,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_social_role
 				}
 			}
@@ -386,7 +404,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_stance_on_sciences
 				}
 			}
@@ -395,7 +413,7 @@ kog_council_completion_effect = {
 		if = {
 			limit = {
 				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
+					name = kog_ecumenical_council_map
 					target = flag:kog_canon_lawgroup_crusades
 				}
 			}

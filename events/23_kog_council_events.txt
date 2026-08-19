@@ -30,99 +30,72 @@ kog_council_events.001 = {
 	
 	option = {
 		name = kog_council_events.000.1
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = apostolic_succession
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.2
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = almsgiving
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.3
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = statism
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.4
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = nationalism
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.5
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = iconography
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.6
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = clerical_marriage
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.7
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = social_role
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.8
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = stance_on_sciences
 		}
 	}
 	
 	option = {
 		name = kog_council_events.000.9
-		kog_convoke_council_effect = {
-			type = catholic
-		}
+		kog_convoke_council_effect = yes
 		kog_add_council_matter_effect = {
-			type = catholic
 			flag = crusades
 		}
 	}
@@ -131,391 +104,5 @@ kog_council_events.001 = {
 		name = kog_council_events.000.a
 		default_option = yes
 		custom_tooltip = kog_nothing_happens
-	}
-}
-
-# Convoking an Ecumenical Council (Orthodox Variant)
-kog_council_events.002 = {
-	type = country_event
-	placement = root
-	icon = gfx/interface/icons/generic_icons/kog_council.dds
-	duration = 3
-	dlc = dlc_kog
-	
-	title = kog_council_events.000.t
-	desc = kog_council_events.000.d
-	flavor = kog_council_events.002.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	trigger = {
-		# triggered by kog_gui_convoke_council
-	}
-	
-	cancellation_trigger = {
-		kog_has_ongoing_council_trigger = yes
-	}
-	
-	immediate = {
-	}
-	
-	option = {
-		name = kog_council_events.000.1
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = apostolic_succession
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.2
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = almsgiving
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.3
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = statism
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.4
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = nationalism
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.5
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = iconography
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.6
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = clerical_marriage
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.7
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = social_role
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.8
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = stance_on_sciences
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.9
-		kog_convoke_council_effect = {
-			type = orthodox
-		}
-		kog_add_council_matter_effect = {
-			type = orthodox
-			flag = crusades
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.a
-		default_option = yes
-		custom_tooltip = kog_nothing_happens
-	}
-}
-
-# Convoking an Ecumenical Council (Elysian Variant)
-kog_council_events.010 = {
-	type = country_event
-	placement = root
-	icon = gfx/interface/icons/generic_icons/kog_council.dds
-	duration = 3
-	dlc = dlc_kog
-	
-	title = kog_council_events.000.t
-	desc = kog_council_events.000.d
-	flavor = kog_council_events.002.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	trigger = {
-		# triggered by kog_gui_convoke_council
-	}
-	
-	cancellation_trigger = {
-		kog_has_ongoing_council_trigger = yes
-	}
-	
-	immediate = {
-	}
-	
-	option = {
-		name = kog_council_events.000.1
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = apostolic_succession
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.2
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = almsgiving
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.3
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = statism
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.4
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = nationalism
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.5
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = iconography
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.6
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = clerical_marriage
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.7
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = social_role
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.8
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = stance_on_sciences
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.9
-		kog_convoke_council_effect = {
-			type = elysian
-		}
-		kog_add_council_matter_effect = {
-			type = elysian
-			flag = crusades
-		}
-	}
-	
-	option = {
-		name = kog_council_events.000.a
-		default_option = yes
-		custom_tooltip = kog_nothing_happens
-	}
-}
-
-# Ecumenical Council Convoked (Catholic Variant)
-kog_council_events.021 = {
-	type = country_event
-	placement = scope:kog_council_location_scope
-	icon = "gfx/interface/icons/generic_icons/kog_council.dds"
-	duration = 1
-	
-	title = kog_council_events.020.t
-	desc = kog_council_events.020.d
-	flavor = kog_council_events.020.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	trigger = {
-		# triggered by je_kog_catholic_council
-	}
-	
-	immediate = {
-		random_country = { 
-			limit = { 
-				kog_country_is_roman_catholic_trigger = yes
-				has_modifier = modifier_kog_convoked_council
-			}
-			save_scope_as = kog_council_caller
-		}
-		if = {
-			limit = { 
-				scope:kog_council_caller = {
-					kog_is_autocephalous_trigger = yes
-				}
-			}
-			scope:kog_council_caller = {
-				capital = {
-					save_scope_as = kog_council_location_scope
-				}
-			}
-		}
-		else = {
-			global_var:je_kog_catholic = {
-				var:kog_location_var = {
-					save_scope_as = kog_council_location_scope
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = kog_council_events.020.a
-		default_option = yes
-	}
-	
-	option = {
-		name = kog_council_events.020.b
-	}
-}
-
-# Ecumenical Council Convoked (Orthodox Variant)
-kog_council_events.022 = {
-	type = country_event
-	placement = scope:kog_council_location_scope
-	icon = "gfx/interface/icons/generic_icons/kog_council.dds"
-	duration = 1
-	
-	title = kog_council_events.020.t
-	desc = kog_council_events.020.d
-	flavor = kog_council_events.020.f
-	
-	event_image = {
-		video = "southamerica_christianity"
-	}
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-	
-	trigger = {
-		# triggered by je_kog_orthodox_council
-	}
-	
-	immediate = {
-		random_country = {
-			limit = {
-				kog_country_is_eastern_orthodox_trigger = yes
-				has_modifier = modifier_kog_convoked_council
-			}
-			save_scope_as = kog_council_caller
-		}
-		if = {
-			limit = {
-				scope:kog_council_caller = {
-					kog_is_autocephalous_trigger = yes
-				}
-			}
-			scope:kog_council_caller = {
-				capital = {
-					save_scope_as = kog_council_location_scope
-				}
-			}
-		}
-		else = {
-			global_var:je_kog_orthodox = {
-				var:kog_location_var = {
-					save_scope_as = kog_council_location_scope
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = kog_council_events.020.a
-		default_option = yes
-	}
-	
-	option = {
-		name = kog_council_events.020.b
 	}
 }

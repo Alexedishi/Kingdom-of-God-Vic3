@@ -92,33 +92,7 @@ kog_gui_convoke_council = {
 		}
 	}
 	effect = {
-		if = {
-			limit = {
-				kog_country_is_roman_catholic_trigger = yes
-			}
-			trigger_event = {
-				id = kog_council_events.001
-				popup = yes
-			}
-		}
-		else_if = {
-			limit = {
-				kog_country_is_eastern_orthodox_trigger = yes
-			}
-			trigger_event = {
-				id = kog_council_events.002
-				popup = yes
-			}
-		}
-		else_if = {
-			limit = {
-				kog_country_is_elysian_orthodox_trigger = yes
-			}
-			trigger_event = {
-				id = kog_council_events.010
-				popup = yes
-			}
-		}
+		trigger_event = kog_council_events.001
 		set_variable = {
 			name = kog_considering_council_var
 			days = kog_3_months
@@ -127,52 +101,6 @@ kog_gui_convoke_council = {
 	
 	ai_chance = {
 		value = -100
-	}
-}
-
-kog_gui_found_cahokia_button = {
-	name = "kog_gui_found_cahokia_name"
-	desc = "kog_gui_found_cahokia_desc"
-	
-	visible = {
-		basileia_is_active = yes
-		NOT = {
-			has_global_variable_map = kog_cahokia
-		}
-		has_strategic_region_interest_tier = {
-			strategic_region = sr:region_great_plains
-			value >= 1
-		}
-	}
-	possible = {
-		kog_owns_cahokia_province_trigger = yes
-		kog_capacity_trigger = {
-			value = 500
-		}
-		has_strategic_region_interest_tier = {
-			strategic_region = sr:region_great_plains
-			value >= 3
-		}
-	}
-	effect = {
-		custom_tooltip = {
-			text = kog_gui_found_cahokia_effect
-			kog_initialize_cahokia_variable_map_effect = yes
-			add_to_global_variable_map = {
-				name = kog_cahokia
-				key = flag:kog_foundation_var
-				value = year
-			}
-			every_country = {
-				limit = {
-					kog_content_scope_trigger = yes
-				}
-				# trigger_event = # TODO add foundation event
-			}
-		}
-	}
-	ai_chance = {
-		value = 100
 	}
 }
 
@@ -191,7 +119,10 @@ kog_gui_found_cayacoa_button = {
 		}
 	}
 	possible = {
-		kog_owns_cayacoa_province_trigger = yes
+		custom_tooltip = {
+			text = kog_gui_found_cayacoa_possible
+			p:x7252EC.owner = root
+		}
 		kog_capacity_trigger = {
 			value = 500
 		}
@@ -203,12 +134,7 @@ kog_gui_found_cayacoa_button = {
 	effect = {
 		custom_tooltip = {
 			text = kog_gui_found_cayacoa_effect
-			kog_initialize_cayacoa_variable_map_effect = yes
-			add_to_global_variable_map = { 
-				name = kog_cayacoa
-				key = flag:kog_foundation_var
-				value = year
-			}
+			kog_initialize_cayacoa_container_effect = yes
 			every_country = { 
 				limit = { 
 					kog_content_scope_trigger = yes

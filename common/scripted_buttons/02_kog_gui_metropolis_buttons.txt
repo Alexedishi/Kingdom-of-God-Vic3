@@ -20,14 +20,7 @@ kog_gui_venerate_apparition = {
 				value = 200
 			}
 		}
-		custom_tooltip = {
-			text = kog_is_selecting_apparition_NOT
-			hidden_trigger = {
-				NOT = {
-					has_variable = kog_selecting_omen_var
-				}
-			}
-		}
+		kog_country_is_selecting_omen_trigger = no
 	}
 	effect = {
 		trigger_event = kog_catholic_events.002
@@ -64,7 +57,7 @@ kog_gui_commission_icon = {
 				value = 200
 			}
 		}
-		kog_is_selecting_apparation_trigger = no
+		kog_country_is_selecting_omen_trigger = no
 	}
 	effect = {
 		trigger_event = {
@@ -251,10 +244,7 @@ kog_gui_emphasize_unity = {
 	possible = {
 		NOR = {
 			has_modifier = modifier_kog_emphasize_unity
-			custom_tooltip = {
-				text = kog_focus_timeout_NOT
-				has_variable = kog_focus_cooldown_var
-			}
+			kog_country_has_metropolitan_focus_cooldown_trigger = yes
 		}
 	}
 	effect = {
@@ -287,10 +277,7 @@ kog_gui_enforce_attendance = {
 	possible = {
 		NOR	= {
 			has_modifier = modifier_kog_enforce_attendance
-			custom_tooltip = {
-				text = kog_focus_timeout_NOT
-				has_variable = kog_focus_cooldown_var
-			}
+			kog_country_has_metropolitan_focus_cooldown_trigger = yes
 		}
 	}
 	effect = {
@@ -323,10 +310,7 @@ kog_gui_theologize_dogma = {
 	possible = {
 		NOR = {
 			has_modifier = modifier_kog_theologize_dogma
-			custom_tooltip = {
-				text = kog_focus_timeout_NOT
-				has_variable = kog_focus_cooldown_var
-			}
+			kog_country_has_metropolitan_focus_cooldown_trigger = yes
 		}
 	}
 	effect = {
@@ -359,10 +343,7 @@ kog_gui_promote_ecumenism = {
 	possible = {
 		NOR = {
 			has_modifier = modifier_kog_promote_ecumenism
-			custom_tooltip = {
-				text = kog_focus_timeout_NOT
-				has_variable = kog_focus_cooldown_var
-			}
+			kog_country_has_metropolitan_focus_cooldown_trigger = yes
 		}
 	}
 	effect = {
