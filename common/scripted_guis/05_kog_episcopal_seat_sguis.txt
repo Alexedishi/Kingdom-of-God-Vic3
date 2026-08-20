@@ -7,7 +7,7 @@ kog_start_sway_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_diplomacy_map|root)" = 0
+			"variable_map(kog_diplomacy_map|root)" != 1
 		}
 	}
 	is_valid = {
@@ -44,10 +44,24 @@ kog_stop_sway_sgui = {
 	}
 	
 	is_shown = {
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" = 1
+		}
 	}
 	is_valid = {
+		always = yes
 	}
 	effect = {
+		show_as_tooltip = {
+			remove_modifier = modifier_kog_swaying_seat_placeholder
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = root
+				value = 0
+			}
+		}
 	}
 }
 
@@ -58,10 +72,34 @@ kog_start_antagonize_sgui = {
 	}
 	
 	is_shown = {
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" != -1
+		}
 	}
 	is_valid = {
+		kog_capacity_trigger = {
+			value = 100
+		}
+		custom_description = {
+			text = kog_can_antagonize_seat_SGUI_trigger
+			subject = this
+			object = scope:kog_episcopal_seat_scope
+			scope:kog_episcopal_seat_scope = {
+				"variable_map(kog_relations_map|root)" > -50
+			}
+		}
 	}
 	effect = {
+		show_as_tooltip = {
+			add_modifier = modifier_kog_antagonizing_seats
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = root
+				value = -1
+			}
+		}
 	}
 }
 
@@ -72,10 +110,24 @@ kog_stop_antagonize_sgui = {
 	}
 	
 	is_shown = {
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" = -1
+		}
 	}
 	is_valid = {
+		always = yes
 	}
 	effect = {
+		show_as_tooltip = {
+			remove_modifier = modifier_kog_antagonizing_seat_placeholder
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = root
+				value = 0
+			}
+		}
 	}
 }
 
@@ -121,6 +173,9 @@ kog_integrate_seat_sgui = {
 				value = root
 			}
 		}
+		show_as_tooltip = {
+			add_modifier = modifier_kog_integrating_seat_placeholder
+		}
 	}
 }
 
@@ -131,10 +186,31 @@ kog_enforce_seat_sgui = {
 	}
 	
 	is_shown = {
+		var:kog_local.var:kog_liturgical_rite_var != scope:kog_episcopal_seat_scope.var:kog_liturgical_rite_var
 	}
 	is_valid = {
+		custom_tooltip = {
+			text = kog_enforce_seat_sgui_trigger
+			scope:kog_episcopal_seat_scope.var:kog_controller_var ?= root
+		}
+		kog_capacity_trigger = {
+			value = 200
+		}
+		bureaucracy >= 50
 	}
 	effect = {
+		custom_tooltip = {
+			text = kog_enforce_seat_sgui_effect
+			scope:kog_episcopal_seat_scope = {
+				set_variable = {
+					name = kog_enforcement_var
+					value = 0
+				}
+			}
+		}
+		show_as_tooltip = {
+			add_modifier = modifier_kog_enforcing_seat_placeholder
+		}
 	}
 }
 
@@ -145,10 +221,31 @@ kog_assert_seat_sgui = {
 	}
 	
 	is_shown = {
+		kog_is_autocephalous_trigger = no
+		var:kog_local.var:kog_mother_church_var = scope:kog_episcopal_seat_scope
 	}
 	is_valid = {
+		custom_tooltip = {
+			text = kog_assert_seat_sgui_trigger
+			scope:kog_episcopal_seat_scope.var:kog_seat_province_var.owner = root
+		}
 	}
 	effect = {
+		custom_tooltip = {
+			text = kog_assert_seat_sgui_effect
+			scope:kog_episcopal_seat_scope = {
+				set_variable = {
+					name = kog_controller_var
+					value = root
+				}
+				remove_variable = kog_integrator_var
+				remove_variable = kog_integration_var
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_asserted_seat
+			days = kog_5_years
+		}
 	}
 }
 
@@ -156,11 +253,11 @@ kog_assert_seat_sgui = {
 kog_opinion_friendly_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_friendly
 		}
 	}
@@ -169,11 +266,11 @@ kog_opinion_friendly_sgui = {
 kog_opinion_amicable_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_friendly
 			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_amicable
 		}
@@ -183,11 +280,11 @@ kog_opinion_amicable_sgui = {
 kog_opinion_cordial_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_amicable
 			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_cordial
 		}
@@ -197,11 +294,11 @@ kog_opinion_cordial_sgui = {
 kog_opinion_neutral_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_cordial
 			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_poor
 		}
@@ -211,11 +308,11 @@ kog_opinion_neutral_sgui = {
 kog_opinion_poor_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_poor
 			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_cold
 		}
@@ -225,11 +322,11 @@ kog_opinion_poor_sgui = {
 kog_opinion_cold_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_cold
 			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_hostile
 		}
@@ -239,11 +336,11 @@ kog_opinion_cold_sgui = {
 kog_opinion_hostile_sgui = {
 	scope = country
 	saved_scopes = {
-		seat
+		kog_episcopal_seat_scope
 	}
 	
 	is_shown = {
-		scope:seat = {
+		scope:kog_episcopal_seat_scope = {
 			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_hostile
 		}
 	}

@@ -8,19 +8,6 @@ modifier_kog_controlled_seats = {
 }
 
 ####----------- Episcopal Seat Diplomacy Modifiers ----------####
-modifier_kog_asserted_seat = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
-	country_faith_capacity_add = -400
-	country_authority_mult = -0.05
-}
-
-modifier_kog_integrating_seats = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
-	country_faith_capacity_add = -200
-	country_bureaucracy_add = -50
-	state_conversion_mult = -0.10
-}
-
 modifier_kog_swaying_seats = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	country_faith_capacity_add = -100
@@ -31,6 +18,25 @@ modifier_kog_antagonizing_seats = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
 	country_faith_capacity_add = -100
 	country_influence_add = -50
+}
+
+modifier_kog_integrating_seats = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_faith_capacity_add = -200
+	country_bureaucracy_add = -50
+	state_conversion_mult = -0.10
+}
+
+modifier_kog_asserted_seat = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_faith_capacity_add = -400
+	country_authority_mult = -0.05
+}
+
+modifier_kog_enforcing_seats = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_authority_add = -50
+	state_conversion_mult = -0.05
 }
 
 modifier_kog_endorsements = {
@@ -45,4 +51,30 @@ modifier_kog_condemnations = {
 	country_prestige_mult = -0.01
 	state_radicals_from_political_movements_mult = 0.05
 	country_faith_capacity_add = 50
+}
+
+####---------- Episcopal Seat Placeholder Modifiers ----------####
+modifier_kog_swaying_seat_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_faith_capacity_add = -100
+	country_influence_add = -50
+}
+
+modifier_kog_antagonizing_seat_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_faith_capacity_add = -100
+	country_influence_add = -50
+}
+
+modifier_kog_integrating_seat_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_faith_capacity_add = -200
+	country_bureaucracy_add = -50
+	state_conversion_mult = -0.10
+}
+
+modifier_kog_enforcing_seat_placeholder = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_mitre_negative.dds
+	country_authority_add = -50
+	state_conversion_mult = -0.05
 }
