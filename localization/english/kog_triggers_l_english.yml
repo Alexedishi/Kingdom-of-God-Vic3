@@ -154,8 +154,14 @@
  kog_any_seat_opinion_hostile_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with #bold any#! $kog_episcopal_seat$"
  kog_any_seat_opinion_hostile_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with #bold any#! $kog_episcopal_seat$"
  
+ kog_can_sway_seat_SGUI_trigger: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName] and [COUNTRY.GetNameNoFlag] are less than [COUNTRY.MakeScope.ScriptValue('kog_relations_max_value')]"
+ kog_can_sway_seat_SGUI_trigger_NOT: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName] and [COUNTRY.GetNameNoFlag] are greater than [COUNTRY.MakeScope.ScriptValue('kog_relations_max_value')]"
+ 
  
  ####----------- Seat Integration Triggers ----------####
+ kog_can_integrate_seat_trigger: "[COUNTRY.GetNameNoFlag] is able to $kog_integrate$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_can_integrate_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! able to $kog_integrate$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ 
  kog_is_integrating_seat_trigger: "[COUNTRY.GetNameNoFlag] is $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
  kog_is_integrating_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
  
@@ -166,7 +172,7 @@
  ####----------- Seat Province Ownership Triggers ----------####
  kog_owns_seat_province_trigger: "[COUNTRY.GetNameNoFlag] owns the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
  kog_owns_seat_province_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! own the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- 
+ kog_owns_seat_province_SGUI_trigger: "[GetPlayer.GetNameNoFlag] owns the $kog_home_province$ of this $kog_episcopal_seat$"
  
  ####----------- Episcopal Seat Control Triggers ----------####
  kog_controls_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"

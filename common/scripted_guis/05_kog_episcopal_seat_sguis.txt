@@ -1,4 +1,158 @@
-﻿####---------- Episcopal Seat Opinion SGUIs ----------####
+﻿####---------- Episcopal Seat Action SGUIs ----------####
+kog_start_sway_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" = 0
+		}
+	}
+	is_valid = {
+		kog_capacity_trigger = {
+			value = 100
+		}
+		custom_description = {
+			text = kog_can_sway_seat_SGUI_trigger
+			subject = this
+			object = scope:kog_episcopal_seat_scope
+			scope:kog_episcopal_seat_scope = {
+				"variable_map(kog_relations_map|root)" < 50
+			}
+		}
+	}
+	effect = {
+		show_as_tooltip = {
+			add_modifier = modifier_kog_swaying_seats
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = root
+				value = 1
+			}
+		}
+	}
+}
+
+kog_stop_sway_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+kog_start_antagonize_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+kog_stop_antagonize_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+kog_integrate_seat_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+		scope:kog_episcopal_seat_scope = {
+			OR = {
+				NOT = {
+					has_variable = kog_controller_var
+				}
+				AND = {
+					has_variable = kog_controller_var
+					var:kog_controller_var != root
+				}
+			}
+		}
+	}
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_capacity_trigger = {
+			value = 200
+		}
+		custom_tooltip = {
+			text = "kog_owns_seat_province_SGUI_trigger"
+			scope:kog_episcopal_seat_scope = {
+				var:kog_seat_province_var.owner = root
+			}
+		}
+	}
+	effect = {
+		scope:kog_episcopal_seat_scope = {
+			set_variable = {
+				name = kog_integration_var
+				value = 0
+			}
+			set_variable = {
+				name = kog_integrator_var
+				value = root
+			}
+		}
+	}
+}
+
+kog_enforce_seat_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+kog_assert_seat_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+####---------- Episcopal Seat Opinion SGUIs ----------####
 kog_opinion_friendly_sgui = {
 	scope = country
 	saved_scopes = {

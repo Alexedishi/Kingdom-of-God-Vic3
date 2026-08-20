@@ -128,6 +128,25 @@ kog_can_integrate_seat_alert_trigger = {
 	}
 }
 
+kog_can_integrate_seat_trigger = {
+	custom_description = {
+		text = kog_can_integrate_seat_trigger
+		kog_is_autocephalous_trigger = yes
+		kog_capacity_trigger = {
+			value = 200
+		}
+		container:$seat$ = {
+			var:kog_controller_var != root
+			var:kog_seat_state_region_var = {
+				any_scope_state = {
+					count = all
+					owner = root
+				}
+			}
+		}
+	}
+}
+
 kog_is_integrating_seat_trigger = {
 	custom_description = {
 		text = kog_is_integrating_seat_trigger
@@ -160,6 +179,13 @@ kog_owns_seat_province_trigger = {
 		container:$seat$ = {
 			var:kog_seat_province_var.owner ?= prev.prev.prev
 		}
+	}
+}
+
+kog_owns_seat_province_SGUI_trigger = {
+	custom_tooltip = {
+		text = kog_owns_seat_province_SGUI_trigger
+
 	}
 }
 
