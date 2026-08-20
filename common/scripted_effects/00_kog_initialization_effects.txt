@@ -98,7 +98,7 @@ kog_initialize_roman_catholic_variables_effect = {
 			value = rel:catholic
 		}
 		set_variable = {
-			name = kog_ecumenical_seat_var
+			name = kog_mother_church_var
 			value = flag:kog_rome_header
 		}
 		set_variable = {
@@ -159,7 +159,7 @@ kog_initialize_eastern_orthodox_variables_effect = {
 			value = rel:orthodox
 		}
 		set_variable = {
-			name = kog_ecumenical_seat_var
+			name = kog_mother_church_var
 			value = flag:kog_constantinople_header
 		}
 		set_variable = {
@@ -2006,7 +2006,7 @@ kog_initialize_metropolis_effect = {
 			}
 			set_variable = {
 				name = kog_mother_church_var
-				value = flag:kog_constantinople
+				value = container:kog_constantinople
 			}
 		}
 		if = {
@@ -2040,7 +2040,7 @@ kog_initialize_metropolis_effect = {
 			}
 			set_variable = {
 				name = kog_mother_church_var
-				value = flag:kog_coptic_alexandria
+				value = container:kog_coptic_alexandria
 			}
 		}
 		if = {
@@ -2101,7 +2101,7 @@ kog_initialize_metropolis_effect = {
 				}
 				set_variable = {
 					name = kog_mother_church_var
-					value = flag:kog_elysium
+					value = container:kog_elysium
 				}
 			}
 		}
@@ -2121,6 +2121,7 @@ kog_initialize_metropolis_effect = {
 		}
 	}
 	else = {
+		# Default to Roman Catholic
 		var:kog_local = {
 			set_variable = {
 				name = kog_liturgical_rite_var
@@ -2132,7 +2133,7 @@ kog_initialize_metropolis_effect = {
 			}
 			set_variable = {
 				name = kog_mother_church_var
-				value = flag:kog_rome
+				value = container:kog_rome
 			}
 		}
 	}
