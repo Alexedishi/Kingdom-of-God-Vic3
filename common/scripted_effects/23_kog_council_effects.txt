@@ -79,10 +79,32 @@ kog_tally_council_votes_effect = {
 					target = flag:kog_canon_lawgroup_apostolic_succession
 				}
 			}
+			com_update_value_in_variable_map = {
+				name = kog_apostolic_succession_votes_map
+				key = flag:kog_canon_law_papal_primacy
+				value = kog_canon_law_papal_primacy_value
+			}
+			com_update_value_in_variable_map = {
+				name = kog_apostolic_succession_votes_map
+				key = flag:kog_canon_law_synodality
+				value = kog_canon_law_synodality_value
+			}
+			com_update_value_in_variable_map = {
+				name = kog_apostolic_succession_votes_map
+				key = flag:kog_canon_law_congregationalism
+				value = kog_canon_law_congregationalism_value
+			}
+			ordered_key_in_variable_map = {
+				order_by = {
+					value = this
+				}
+			}
+			
+			
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
 				canon_lawgroup = kog_canon_lawgroup_apostolic_succession
-				canon_law = kog_canon_law_papal_primacy
+				canon_law =
 			}
 			kog_tally_canon_law_votes_effect = {
 				type = $type$
@@ -320,26 +342,6 @@ kog_tally_council_votes_effect = {
 				canon_law = kog_canon_law_unlimited_crusades
 			}
 		}
-	}
-}
-
-kog_tally_canon_law_votes_effect = {
-	set_variable = {
-		name = $canon_law$
-		value = {
-			value = 0
-			every_country = {
-				limit = {
-					is_involved_in_journal_entry = je_kog_$type$_council
-					var:$canon_lawgroup$ ?= flag:$canon_law$
-				}
-				add = var:kog_votes_var
-			}
-		}
-	}
-	add_to_variable_list = {
-		name = $canon_lawgroup$_votes_list
-		target = var:$canon_law$
 	}
 }
 
