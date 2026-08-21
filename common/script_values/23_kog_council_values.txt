@@ -168,7 +168,6 @@ kog_canon_law_papal_primacy_value = {
 		add = var:kog_local.var:kog_votes_var
 	}
 }
-
 kog_canon_law_synodality_value = {
 	value = 0
 	every_scope_je_involved = {
@@ -178,12 +177,306 @@ kog_canon_law_synodality_value = {
 		add = var:kog_local.var:kog_votes_var
 	}
 }
-
 kog_canon_law_congregationalism_value = {
 	value = 0
 	every_scope_je_involved = {
 		limit = {
 			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_congregationalism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Almsgiving
+kog_canon_law_no_alms_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_no_alms
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_offertory_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_offertory
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_tithing_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_tithing
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Church and State
+kog_canon_law_hierocracy_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_statism)" ?= flag:kog_canon_law_hierocracy
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_ultramontanism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_statism)" ?= flag:kog_canon_law_ultramontanism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_secularism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_statism)" ?= flag:kog_canon_law_secularism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_gallicanism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_statism)" ?= flag:kog_canon_law_gallicanism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_constantinianism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_statism)" ?= flag:kog_canon_law_constantinianism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Church and Nation
+kog_canon_law_uranopolitism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_nationalism)" ?= flag:kog_canon_law_uranopolitism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_ecclesial_communities_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_nationalism)" ?= flag:kog_canon_law_ecclesial_communities
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_ethnophyletism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_nationalism)" ?= flag:kog_canon_law_ethnophyletism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_kinism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_nationalism)" ?= flag:kog_canon_law_kinism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Iconography
+kog_canon_law_iconoclasm_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_iconography)" ?= flag:kog_canon_law_iconoclasm
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_aniconism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_iconography)" ?= flag:kog_canon_law_aniconism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_iconodulism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_iconography)" ?= flag:kog_canon_law_iconodulism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_iconolatry_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_iconography)" ?= flag:kog_canon_law_iconolatry
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Clerical Marriage
+kog_canon_law_priests_celibate_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_clerical_marriage)" ?= flag:kog_canon_law_priests_celibate
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_marriage_allowed_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_clerical_marriage)" ?= flag:kog_canon_law_marriage_allowed
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Social Role
+kog_canon_law_moral_authority_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_social_role)" ?= flag:kog_canon_law_moral_authority
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_moral_guidance_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_social_role)" ?= flag:kog_canon_law_moral_guidance
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_social_activism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_social_role)" ?= flag:kog_canon_law_social_activism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_modernizing_force_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_social_role)" ?= flag:kog_canon_law_modernizing_force
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Stance on Sciences
+kog_canon_law_scriptural_supremacy_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_stance_on_sciences)" ?= flag:kog_canon_law_scriptural_supremacy
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_scriptural_favoritism_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_stance_on_sciences)" ?= flag:kog_canon_law_scriptural_favoritism
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_scientific_disengagement_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_stance_on_sciences)" ?= flag:kog_canon_law_scientific_disengagement
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_scientific_patronage_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_stance_on_sciences)" ?= flag:kog_canon_law_scientific_patronage
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_scientific_crusade_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_stance_on_sciences)" ?= flag:kog_canon_law_scientific_crusade
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
+## Crusades
+kog_canon_law_no_crusades_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_crusades)" ?= flag:kog_canon_law_no_crusades
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_heathen_crusades_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_crusades)" ?= flag:kog_canon_law_heathen_crusades
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_heretic_crusades_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_crusades)" ?= flag:kog_canon_law_heretic_crusades
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_canon_law_unlimited_crusades_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_crusades)" ?= flag:kog_canon_law_unlimited_crusades
 		}
 		add = var:kog_local.var:kog_votes_var
 	}
