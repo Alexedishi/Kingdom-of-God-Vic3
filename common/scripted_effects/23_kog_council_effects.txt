@@ -43,12 +43,12 @@ kog_convoke_council_effect = {
 	}
 }
 
-kog_add_council_matter_effect = {
+kog_add_canon_law_group_to_council_effect = {
 	custom_tooltip = {
-		text = kog_add_council_matter_effect
+		text = kog_add_canon_law_group_to_council_effect
 		set_local_variable = {
 			name = kog_council_matter_var
-			value = flag:kog_canon_lawgroup_$flag$
+			value = flag:$canon_law_group$
 		}
 		var:kog_global_faith_journal_var = {
 			if = {
@@ -56,13 +56,13 @@ kog_add_council_matter_effect = {
 					NOT = {
 						is_key_in_variable_map = {
 							name = kog_ecumenical_council_map
-							target = flag:kog_canon_lawgroup_$flag$
+							target = flag:$canon_law_group$
 						}
 					}
 				}
 				add_to_variable_map = {
 					name = kog_ecumenical_council_map
-					key = flag:kog_canon_lawgroup_$flag$
+					key = flag:$canon_law_group$
 					value = 0
 				}
 			}
