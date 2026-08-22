@@ -63,9 +63,24 @@ kog_add_canon_law_group_to_council_effect = {
 				add_to_variable_map = {
 					name = kog_ecumenical_council_map
 					key = flag:$canon_law_group$
-					value = var:kog_$canon_law_group$_var
+					value = var:$canon_law_group$_var
 				}
 			}
+		}
+	}
+}
+
+kog_set_support_for_canon_law_effect = {
+	custom_tooltip = {
+		text = kog_gui_support_canon_law_effect
+		set_local_variable = {
+			name = kog_canon_law_loc
+			value = flag:$canon_law$
+		}
+		com_update_value_in_variable_map = {
+			name = kog_ecumenical_council_map
+			key = flag:$canon_law_group$
+			value = flag:$canon_law$
 		}
 	}
 }
@@ -346,6 +361,7 @@ kog_determine_leading_council_positions_effect = {
 		if = {
 			limit = {
 				any_key_in_variable_map = {
+					variable = kog_apostolic_succession_votes_map
 					prev.var:kog_canon_law_apostolic_succession_var != this
 					"prev.variable_map(kog_apostolic_succession_votes_map|this)" = "prev.variable_map(kog_apostolic_succession_votes_map|scope:kog_canon_lawgroup_apostolic_succession_leader)"
 				}

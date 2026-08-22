@@ -1,1 +1,111 @@
-﻿
+﻿####---------- ORIENTAL ORTHODOX GLOBAL JOURNAL ----------#####
+je_kog_oriental = {
+	group = je_group_com_religious_organizations
+	icon = "gfx/interface/icons/religion_icons/orthodox.dds"
+	weight = 0
+	
+	should_be_pinned_by_default_involved = yes
+	
+	widget = {
+		gui = "gui/journal_entry_widgets/kog_journal_widgets.gui"
+		name = "widget_kog_church_interorg"
+		container = "custom_widget_container_je_icon"
+	}
+	
+	# Omen Button
+	scripted_button = kog_gui_commission_icon
+	
+	# Metropolis Buttons
+	scripted_button = kog_gui_emphasize_unity
+	scripted_button = kog_gui_enforce_attendance
+	scripted_button = kog_gui_theologize_dogma
+	scripted_button = kog_gui_promote_ecumenism
+	
+	# Orthodox Decision Buttons
+	scripted_button = kog_gui_reform_synod
+	scripted_button = kog_gui_restore_synod
+	scripted_button = kog_gui_establish_schools
+	scripted_button = kog_gui_disband_schools
+	
+	# Ecumenical Decision Buttons
+	scripted_button = kog_gui_declare_autocephaly
+	scripted_button = kog_gui_convoke_council
+	scripted_button = kog_gui_secure_tetrarchy
+	scripted_button = kog_gui_secure_pentarchy
+	scripted_button = kog_gui_mend_schism
+	
+	# Canon Law Debate Buttons
+	scripted_button = kog_gui_debate_apostolic_succession
+	scripted_button = kog_gui_debate_almsgiving
+	scripted_button = kog_gui_debate_iconography
+	scripted_button = kog_gui_debate_statism
+	scripted_button = kog_gui_debate_nationalism
+	scripted_button = kog_gui_debate_clerical_marriage
+	scripted_button = kog_gui_debate_social_role
+	scripted_button = kog_gui_debate_stance_on_sciences
+	scripted_button = kog_gui_debate_crusades
+	
+	is_shown_in_lobby = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	
+	should_be_involved = {
+		kog_country_is_eastern_orthodox_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	modifiers_while_active = {
+		modifier_kog_oriental
+	}
+	
+	immediate = {
+		scope:journal_entry = {
+			com_hide_all_journal_elements_for_interorg_effect = yes
+			com_set_international_organization_headquaters_effect = {
+				state_region = s:STATE_LOWER_EGYPT
+			}
+			kog_initialize_orthodox_button_lists_effect = yes
+			set_variable = kog_enable_encyclicals_panel
+			set_variable = kog_enable_councils_panel
+		}
+		com_save_journal_to_global_variable = {
+			name = je_kog_oriental
+		}
+	}
+	
+	immediate_all_involved = {
+		com_save_journal_to_variable = {
+			name = je_kog_oriental
+		}
+	}
+	
+	on_become_involved_after_activation = {
+		com_save_journal_to_variable = {
+			name = je_kog_oriental
+		}
+	}
+	
+	complete = {
+		always = no
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				kog_validate_global_journal_involvement_effect = {
+					type = je_kog_oriental
+					trigger = kog_country_is_oriental_orthodox_trigger
+				}
+				kog_update_schism_list_effect = {
+					type = je_kog_oriental
+				}
+				kog_update_autocephaly_list_effect = {
+					type = je_kog_oriental
+				}
+			}
+		}
+	}
+}

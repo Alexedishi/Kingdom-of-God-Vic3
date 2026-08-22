@@ -25,7 +25,6 @@ kog_gui_debate_apostolic_succession = {
 			canon_law_group = kog_canon_lawgroup_apostolic_succession
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -38,7 +37,7 @@ kog_gui_support_papal_primacy = {
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
 		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = apostolic_succession
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
 		}
 	}
 	selected = {
@@ -46,22 +45,20 @@ kog_gui_support_papal_primacy = {
 	}
 	possible = {
 		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_tooltip = { 
-			text = kog_gui_support_papal_primacy_trigger
+		hidden_trigger = {
 			NOT = {
 				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_papal_primacy
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = {
-			text = kog_gui_support_papal_primacy_effect
-			com_update_value_in_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_canon_lawgroup_apostolic_succession
-				value = flag:kog_canon_law_papal_primacy
-			}
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+			canon_law = kog_canon_law_papal_primacy
 		}
+	}
+	ai_chance = {
+		value = 0
 	}
 }
 
@@ -80,22 +77,20 @@ kog_gui_support_synodality = {
 	}
 	possible = {
 		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_tooltip = {
-			text = kog_gui_support_synodality_trigger
+		hidden_trigger = {
 			NOT = {
 				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_synodality
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = {
-			text = kog_gui_support_synodality_effect
-			com_update_value_in_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_canon_lawgroup_apostolic_succession
-				value = flag:kog_canon_law_synodality
-			}
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+			canon_law = kog_canon_law_synodality
 		}
+	}
+	ai_chance = {
+		value = 0
 	}
 }
 
@@ -114,22 +109,20 @@ kog_gui_support_congregationalism = {
 	}
 	possible = {
 		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_tooltip = {
-			text = kog_gui_support_congregationalism_trigger
+		hidden_trigger = {
 			NOT = {
 				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_congregationalism
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = {
-			text = kog_gui_support_congregationalism_effect
-			com_update_value_in_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_canon_lawgroup_apostolic_succession
-				value = flag:kog_canon_law_congregationalism
-			}
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+			canon_law = kog_canon_law_congregationalism
 		}
+	}
+	ai_chance = {
+		value = 0
 	}
 }
 
@@ -159,7 +152,6 @@ kog_gui_debate_almsgiving = {
 			canon_law_group = kog_canon_lawgroup_almsgiving
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -180,22 +172,20 @@ kog_gui_support_no_alms = {
 	}
 	possible = {
 		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_tooltip = {
-			text = kog_gui_support_no_alms_trigger
+		hidden_trigger = {
 			NOT = {
 				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_no_alms
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = {
-			text = kog_gui_support_no_alms_effect
-			com_update_value_in_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_canon_lawgroup_almsgiving
-				value = flag:kog_canon_law_no_alms
-			}
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+			canon_law = kog_canon_law_no_alms
 		}
+	}
+	ai_chance = {
+		value = 0
 	}
 }
 
@@ -214,22 +204,20 @@ kog_gui_support_offertory = {
 	}
 	possible = {
 		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_tooltip = {
-			text = kog_gui_support_offertory_trigger
+		hidden_trigger = {
 			NOT = {
 				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_offertory
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = {
-			text = kog_gui_support_offertory_effect
-			com_update_value_in_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_canon_lawgroup_almsgiving
-				value = flag:kog_canon_law_offertory
-			}
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+			canon_law = kog_canon_law_offertory
 		}
+	}
+	ai_chance = {
+		value = 0
 	}
 }
 
@@ -248,22 +236,20 @@ kog_gui_support_tithing = {
 	}
 	possible = {
 		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_tooltip = {
-			text = kog_gui_support_tithing_trigger
+		hidden_trigger = {
 			NOT = {
 				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_tithing
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = {
-			text = kog_gui_support_tithing_effect
-			com_update_value_in_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_canon_lawgroup_almsgiving
-				value = flag:kog_canon_law_tithing
-			}
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+			canon_law = kog_canon_law_tithing
 		}
+	}
+	ai_chance = {
+		value = 0
 	}
 }
 
@@ -293,7 +279,6 @@ kog_gui_debate_iconography = {
 			canon_law_group = kog_canon_lawgroup_iconography
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -326,7 +311,6 @@ kog_gui_debate_statism = {
 			canon_law_group = kog_canon_lawgroup_statism
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -359,7 +343,6 @@ kog_gui_debate_nationalism = {
 			canon_law_group = kog_canon_lawgroup_nationalism
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -392,7 +375,6 @@ kog_gui_debate_clerical_marriage = {
 			canon_law_group = kog_canon_lawgroup_clerical_marriage
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -425,7 +407,6 @@ kog_gui_debate_social_role = {
 			canon_law_group = kog_canon_lawgroup_social_role
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -458,7 +439,6 @@ kog_gui_debate_stance_on_sciences = {
 			canon_law_group = kog_canon_lawgroup_stance_on_sciences
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
@@ -491,7 +471,6 @@ kog_gui_debate_crusades = {
 			canon_law_group = kog_canon_lawgroup_crusades
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
