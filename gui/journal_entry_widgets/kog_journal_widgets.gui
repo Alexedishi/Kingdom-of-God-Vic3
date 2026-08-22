@@ -229,9 +229,66 @@ types kog_journal_widget_types {
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
 		com_international_organization_modifiers = { }
+		# kog_encyclicals_container = {}
 		kog_denominational_actions_container = { }
 		kog_membership_panel = { }
 		# kog_holy_sites_panel = { } # TODO enable holy sites when ready
+	}
+	
+	type kog_encyclicals_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "kog_gui_encyclical_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+			autoresize = yes
+			text = "kog_placeholder_text"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[And(
+				GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End),
+				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
+			)]"
+			autoresize = yes
+			text = "kog_placeholder_text"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[Not(
+				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
+			)]"
+			datamodel = "[JournalEntry.MakeScope.GetList('kog_encyclicals_list')]"
+			autoresize = yes
+			text = "kog_placeholder_text"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
 	}
 	
 	type kog_denominational_actions_container = flowcontainer {

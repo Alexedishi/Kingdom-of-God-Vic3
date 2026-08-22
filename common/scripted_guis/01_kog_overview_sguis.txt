@@ -11,6 +11,17 @@
 	}
 }
 
+kog_encyclicals_sgui = {
+	scope = journal_entry
+	
+	is_shown = {
+		OR = {
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_papal_primacy
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_synodality
+		}
+	}
+}
+
 # GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)
 
 je_kog_catholic_involvement_sgui = {
