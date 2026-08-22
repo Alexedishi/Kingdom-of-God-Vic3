@@ -228,18 +228,19 @@ kog_update_seat_enforcements_modifier_effect = {
 	}
 }
 
-
 kog_seat_enforcement_monthly_progress_effect = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
-		limit = {
-			has_variable = kog_enforcement_var
-			exists = var:kog_enforcer_var
-			
-		}
-		com_change_variable = {
-			name = kog_controller_var
-			value = 1
+		if = {
+			limit = {
+				has_variable = kog_enforcement_var
+				exists = var:kog_enforcer_var
+				
+			}
+			com_change_variable = {
+				name = kog_controller_var
+				value = 1
+			}
 		}
 		else = {
 			remove_variable = kog_enforcement_var
