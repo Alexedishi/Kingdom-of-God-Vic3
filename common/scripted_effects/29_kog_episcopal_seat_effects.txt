@@ -209,6 +209,44 @@ kog_check_seat_controllers_effect = {
 	}
 }
 
+####---------- Episcopal Seat Liturgical Rite Enforcement Effects ----------####
+kog_update_seat_integrations_modifier_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_enforcing_seats
+		}
+		remove_modifier = modifier_kog_enforcing_seats
+	}
+	if = {
+		limit = {
+			kog_seat_enforcements_value > 0
+		}
+		add_modifier = {
+			name = modifier_kog_enforcing_seats
+			multiplier = kog_seat_enforcements_value
+		}
+	}
+}
+
+
+kog_seat_integration_monthly_progress_effect = {
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			has_variable = kog_enforcement_var
+			exists = var:kog_enforcer_var
+			
+		}
+		com_change_variable = {
+			name = kog_controller_var
+			value = 1
+		}
+		else = {
+			remove_variable = kog_enforcement_var
+			remove_variable = kog_enforcer_var
+		}
+	}
+}
 
 ####---------- Episcopal Seat Selection Effects ----------####
 kog_select_random_seat_in_faith_effect = {

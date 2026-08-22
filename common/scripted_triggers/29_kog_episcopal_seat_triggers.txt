@@ -44,7 +44,7 @@ kog_seat_opinion_greater_than_trigger = {
 		object = container:$seat$
 		value = $value$
 		container:$seat$ = {
-			"variable_map(kog_opinion_map|prev)" >= $value$
+			"variable_map(kog_opinions_map|prev)" >= $value$
 		}
 	}
 }
@@ -56,7 +56,7 @@ kog_seat_opinion_less_than_trigger = {
 		object = container:$seat$
 		value = $value$
 		container:$seat$ = {
-			"variable_map(kog_opinion_map|prev)" <= $value$
+			"variable_map(kog_opinions_map|prev)" <= $value$
 		}
 	}
 }
@@ -68,7 +68,7 @@ kog_seat_opinion_friendly_trigger = {
 		object = container:$seat$
 		value = kog_opinion_threshold_friendly
 		container:$seat$ = {
-			"variable_map(kog_opinion_map|prev)" >= kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|prev)" >= kog_opinion_threshold_friendly
 		}
 	}
 }
@@ -80,7 +80,7 @@ kog_seat_opinion_hostile_trigger = {
 		object = container:$seat$
 		value = kog_opinion_threshold_hostile
 		container:$seat$ = {
-			"variable_map(kog_opinion_map|prev)" <= kog_opinion_threshold_hostile
+			"variable_map(kog_opinions_map|prev)" <= kog_opinion_threshold_hostile
 		}
 	}
 }
@@ -92,7 +92,7 @@ kog_any_seat_opinion_friendly_trigger = {
 		value = kog_opinion_threshold_friendly
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" <= kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|scope:kog_root_scope)" <= kog_opinion_threshold_friendly
 		}
 	}
 }
@@ -104,7 +104,7 @@ kog_any_seat_opinion_hostile_trigger = {
 		value = kog_opinion_threshold_hostile
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			"variable_map(kog_opinion_map|scope:kog_root_scope)" >= kog_opinion_threshold_hostile
+			"variable_map(kog_opinions_map|scope:kog_root_scope)" >= kog_opinion_threshold_hostile
 		}
 	}
 }
@@ -215,7 +215,7 @@ kog_controls_mother_seat_trigger = {
 	custom_description = {
 		text = kog_controls_mother_seat_trigger
 		subject = this
-		var:kog_local.var:kog_mother_church_var.var:kog_controller_var = prev.prev.prev
+		var:kog_local.var:kog_mother_church_var.var:kog_controller_var ?= prev.prev.prev
 	}
 }
 

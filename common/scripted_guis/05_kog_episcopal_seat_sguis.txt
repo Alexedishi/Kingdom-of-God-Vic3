@@ -210,6 +210,10 @@ kog_enforce_seat_sgui = {
 					name = kog_enforcement_var
 					value = 0
 				}
+				set_variable = {
+					name = kog_enforcer_var
+					value = root
+				}
 			}
 		}
 		show_as_tooltip = {
@@ -262,7 +266,7 @@ kog_opinion_friendly_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_friendly
 		}
 	}
 }
@@ -275,8 +279,8 @@ kog_opinion_amicable_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_friendly
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_amicable
+			"variable_map(kog_opinions_map|root)" < kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_amicable
 		}
 	}
 }
@@ -289,8 +293,8 @@ kog_opinion_cordial_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_amicable
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_cordial
+			"variable_map(kog_opinions_map|root)" < kog_opinion_threshold_amicable
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_cordial
 		}
 	}
 }
@@ -303,8 +307,8 @@ kog_opinion_neutral_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" < kog_opinion_threshold_cordial
-			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_poor
+			"variable_map(kog_opinions_map|root)" < kog_opinion_threshold_cordial
+			"variable_map(kog_opinions_map|root)" > kog_opinion_threshold_poor
 		}
 	}
 }
@@ -317,8 +321,8 @@ kog_opinion_poor_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_poor
-			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_cold
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_poor
+			"variable_map(kog_opinions_map|root)" > kog_opinion_threshold_cold
 		}
 	}
 }
@@ -331,8 +335,8 @@ kog_opinion_cold_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_cold
-			"variable_map(kog_opinion_map|root)" > kog_opinion_threshold_hostile
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_cold
+			"variable_map(kog_opinions_map|root)" > kog_opinion_threshold_hostile
 		}
 	}
 }
@@ -345,7 +349,7 @@ kog_opinion_hostile_sgui = {
 	
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_hostile
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_hostile
 		}
 	}
 }

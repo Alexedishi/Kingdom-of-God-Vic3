@@ -128,12 +128,8 @@ je_kog_encyclical_orthodox_easterners = {
 	should_show_when_not_involved = {}
 	
 	immediate = {
-		scope:journal_entry = {
-			save_scope_as = je_kog_encyclical_orthodox_easterners
-		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_encyclical_orthodox_easterners
-			value = scope:je_kog_encyclical_orthodox_easterners
 		}
 	}
 	
@@ -142,12 +138,12 @@ je_kog_encyclical_orthodox_easterners = {
 	on_timeout = {
 		if = {
 			limit = {
-				global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_rejected_epistle
+				global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_rejected_epistle
 			}
 		}
 		else_if = {
 			limit = {
-				global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_accepted_epistle
+				global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_accepted_epistle
 			}
 		}
 		remove_global_variable = je_kog_encyclical_orthodox_easterners
@@ -161,7 +157,7 @@ je_kog_encyclical_orthodox_easterners = {
 	
 	invalid = {
 		NOT = {
-			has_global_variable = kog_encyclical_orthodox_easterners_var
+			has_global_variable = je_kog_encyclical_orthodox_easterners
 		}
 	}
 	
@@ -173,7 +169,7 @@ je_kog_encyclical_orthodox_easterners = {
 		effect = {
 			if = {
 				limit = {
-					global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_rejected_epistle
+					global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_rejected_epistle
 				}
 				every_country = {
 					limit = {
@@ -197,7 +193,7 @@ je_kog_encyclical_orthodox_easterners = {
 			}
 			else_if = {
 				limit = {
-					global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_accepted_epistle
+					global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_accepted_epistle
 				}
 				every_country = {
 					limit = {
@@ -288,7 +284,7 @@ je_kog_encyclical_orthodox_fraternity = {
 							any_in_global_list = {
 								variable = kog_global_seat_list
 								var:kog_religion_var = rel:orthodox
-								"variable_map(kog_opinion_map|root)" >= 75
+								"variable_map(kog_opinions_map|root)" >= 75
 							}
 						}
 					}

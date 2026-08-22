@@ -62,27 +62,8 @@ kog_national_piety_target_value = {
 
 kog_national_piety_progress_value = {
 	value = 0
-	if = {
-		limit = {
-			var:kog_local ?= {
-				has_variable = kog_national_piety_var
-			}
-		}
-		if = {
-			limit = {
-				var:kog_local.var:kog_national_piety_var > kog_national_piety_target_value
-			}
-			add = kog_national_piety_target_value
-			subtract = var:kog_local.var:kog_national_piety_var
-		}
-		else_if = {
-			limit = {
-				var:kog_local.var:kog_national_piety_var < kog_national_piety_target_value
-			}
-			add = kog_national_piety_target_value
-			subtract = var:kog_local.var:kog_national_piety_var
-		}
-	}
+	add = var:kog_local.var:kog_national_piety_target_var
+	subtract = var:kog_local.var:kog_national_piety_var
 	round_to = 0.1
 	max = 0.5
 	min = -0.5

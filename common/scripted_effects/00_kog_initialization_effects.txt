@@ -2147,18 +2147,25 @@ kog_initialize_metropolis_effect = {
 	var:kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
-			value = root.kog_canon_law_compliance_value
+			value = parent.kog_canon_law_compliance_value
 		}
 		set_variable = {
 			name = kog_national_piety_var
-			value = root.kog_national_piety_target_value
+			value = parent.kog_national_piety_target_value
+		}
+		set_variable = {
+			name = kog_national_piety_target_var
+			value = parent.kog_national_piety_target_value
+		}
+		set_variable = {
+			name = kog_national_piety_progress_var
+			value = parent.kog_national_piety_progress_value
 		}
 		set_variable = {
 			name = kog_votes_var
 			value = parent.kog_votes_value
 		}
 	}
-	kog_update_national_piety_effect = yes
 }
 
 kog_specific_country_setups_effect = {

@@ -42,6 +42,18 @@ kog_seat_integrations_value = {
 	}
 }
 
+kog_seat_enforcements_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_enforcer_var ?= prev
+			
+		}
+		add = 100
+	}
+}
+
 kog_episcopal_seats_value = {
 	value = 0
 	every_in_global_list = {
@@ -58,7 +70,7 @@ kog_seat_endorsements_value = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		limit = {
-			"variable_map(kog_opinion_map|root)" >= kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_friendly
 		}
 		add = 1
 	}
@@ -69,7 +81,7 @@ kog_seat_condemnations_value = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		limit = {
-			"variable_map(kog_opinion_map|root)" <= kog_opinion_threshold_hostile
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_hostile
 		}
 		add = 1
 	}
