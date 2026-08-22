@@ -2003,9 +2003,13 @@ types kog_journal_widget_types {
 			DataModelHasItems(JournalEntry.MakeScope.GetList('kog_seats_list')),
 			GetVariableSystem.HasValue('kog_denominational_tab', 'seats')
 		)]"
+		
 		datamodel = "[JournalEntry.MakeScope.GetList('kog_seats_list')]"
 		
-		kog_episcopal_seat_item = {}
+		item = {
+			kog_episcopal_seat_item = {}
+		}
+		
 	}
 	
 	type kog_episcopal_seat_item = flowcontainer {
