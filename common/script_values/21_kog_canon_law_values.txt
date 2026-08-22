@@ -8,7 +8,7 @@
 		value = {
 			if = {
 				limit = {
-					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_hierocracy
+					var:kog_global_faith_journal_var.var:kog_canon_lawgroup_statism = flag:kog_canon_law_hierocracy
 				}
 				if = {
 					limit = {
@@ -37,7 +37,7 @@
 			}
 			else_if = {
 				limit = {
-					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_ultramontanism
+					var:kog_global_faith_journal_var.var:kog_canon_lawgroup_statism = flag:kog_canon_law_ultramontanism
 				}
 				if = {
 					limit = {
@@ -66,7 +66,7 @@
 			}
 			else_if = {
 				limit = {
-					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_gallicanism
+					var:kog_global_faith_journal_var.var:kog_canon_lawgroup_statism = flag:kog_canon_law_gallicanism
 				}
 				if = {
 					limit = {
@@ -95,7 +95,7 @@
 			}
 			else_if = {
 				limit = {
-					var:kog_global_faith_journal_var.var:kog_canon_law_statism_var = flag:kog_canon_law_constantinianism
+					var:kog_global_faith_journal_var.var:kog_canon_lawgroup_statism = flag:kog_canon_law_constantinianism
 				}
 				if = {
 					limit = {
@@ -127,8 +127,8 @@
 	if = {
 		limit = {
 			OR = {
-				var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
-				var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_guidance
+				var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_moral_authority
+				var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_moral_guidance
 			}
 		}
 		add = {
@@ -154,7 +154,7 @@
 				}
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_moral_authority
 					}
 					multiply = 2
 				}
@@ -183,7 +183,7 @@
 				multiply = 1.5 # Schooling is a bigger deal for the Church
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_moral_authority
 					}
 					multiply = 2
 				}
@@ -200,7 +200,7 @@
 				}
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_moral_authority
 					}
 					multiply = 2
 				}
@@ -235,7 +235,7 @@
 				}
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_moral_authority
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_moral_authority
 					}
 					multiply = 2
 				}
@@ -266,7 +266,7 @@
 				}
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_modernizing_force
 					}
 					multiply = 2
 				}
@@ -295,7 +295,7 @@
 				multiply = 1.5 # Schooling is a bigger deal for the Church
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_modernizing_force
 					}
 					multiply = 2
 				}
@@ -312,7 +312,7 @@
 				}
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_modernizing_force
 					}
 					multiply = 2
 				}
@@ -347,7 +347,7 @@
 				}
 				if = {
 					limit = {
-						var:kog_global_faith_journal_var.var:kog_canon_law_social_role_var = flag:kog_canon_law_modernizing_force
+						var:kog_global_faith_journal_var.var:kog_canon_lawgroup_social_role = flag:kog_canon_law_modernizing_force
 					}
 					multiply = 2
 				}

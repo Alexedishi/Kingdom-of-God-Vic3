@@ -286,7 +286,8 @@ je_kog_encyclical_orthodox_fraternity = {
 						calc_true_if = {
 							amount >= 3
 							any_in_global_list = {
-								variable = kog_orthodox_seat_list
+								variable = kog_global_seat_list
+								var:kog_religion_var = rel:orthodox
 								"variable_map(kog_opinion_map|root)" >= 75
 							}
 						}
