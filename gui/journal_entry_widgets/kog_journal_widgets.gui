@@ -323,7 +323,7 @@ types kog_journal_widget_types {
 					widget = {
 						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
 						size = { 400 40 }
-						com_journal_scripted_buttons = { }
+						com_journal_scripted_button_item = { }
 					}
 				}
 			}
@@ -1040,7 +1040,7 @@ types kog_journal_widget_types {
 					widget = {
 						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
 						size = { 400 40 }
-						com_journal_scripted_buttons = { }
+						com_journal_scripted_button_item = { }
 					}
 				}
 			}
@@ -1999,7 +1999,10 @@ types kog_journal_widget_types {
 		spacing = 10
 		margin = { 0 10 }
 		
-		visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_seats_list')))]"
+		visible = "[And(
+			DataModelHasItems(JournalEntry.MakeScope.GetList('kog_seats_list')),
+			GetVariableSystem.HasValue('kog_denominational_tab', 'seats')
+		)]"
 		datamodel = "[JournalEntry.MakeScope.GetList('kog_seats_list')]"
 		
 		kog_episcopal_seat_item = {}
