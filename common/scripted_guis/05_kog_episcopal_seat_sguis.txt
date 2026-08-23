@@ -257,6 +257,26 @@ kog_assert_seat_sgui = {
 	}
 }
 
+kog_install_seat_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+		scope:kog_episcopal_seat_scope.var:kog_patriarch_var.culture != root.culture
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = kog_placeholder_text
+			scope:kog_episcopal_seat_scope.var:kog_seat_province_var.owner = root
+		}
+	}
+	effect = {
+		custom_tooltip = kog_placeholder_text
+	}
+}
+
 ####---------- Episcopal Seat Opinion SGUIs ----------####
 kog_opinion_friendly_sgui = {
 	scope = country
