@@ -1108,7 +1108,7 @@ types kog_journal_widget_types {
 						tooltip = "kog_placeholder_text"
 					}
 					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End )]"
+						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
 					}
 				}
 				kog_canon_law_type_entry = {
@@ -2198,10 +2198,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_start_sway_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_sway_seat_desc"
 			
 			textbox = {
 				parentanchor = center
@@ -2219,10 +2220,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_stop_sway_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_sway_seat_desc"
 			
 			widget = {
 				size = { 100% 100% }
@@ -2251,10 +2253,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_start_antagonize_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_antagonize_seat_desc"
 			
 			textbox = {
 				parentanchor = center
@@ -2272,10 +2275,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_stop_antagonize_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_antagonize_seat_desc"
 			
 			widget = {
 				size = { 100% 100% }
@@ -2304,10 +2308,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_integrate_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_integrate_seat_desc"
 			
 			textbox = {
 				parentanchor = center
@@ -2325,10 +2330,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_enforce_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_enforce_seat_desc"
 			
 			textbox = {
 				parentanchor = center
@@ -2346,10 +2352,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_assert_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_assert_seat_desc"
 			
 			textbox = {
 				parentanchor = center
@@ -2367,10 +2374,11 @@ types kog_journal_widget_types {
 		button = {
 			size = { 174 38 }
 			using = default_button_action
-			# datacontext =
-			# enabled =
-			# onclick =
-			# tooltip =
+			datacontext = "[GetScriptedGui('kog_install_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_install_seat_desc"
 			
 			textbox = {
 				parentanchor = center
@@ -2383,30 +2391,5 @@ types kog_journal_widget_types {
 				text = "kog_gui_install_seat"
 			}
 		}
-		
-	}
-	
-	type kog_seat_scripted_button_item = button {
-		parentanchor = center
-		size = { 174 38 }
-		using = default_button_action
-		
-		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
-		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
-		tooltip = "SCRIPTED_ACTION_TOOLTIP"
-		
-		
-		
-		textbox = {
-			parentanchor = center
-			align = nobaseline
-			autoresize = yes
-			max_width = 165
-			elide = right
-			using = fontsize_small
-			text = "[ScriptedButton.GetName]"
-		}
-		
-		
 	}
 }
