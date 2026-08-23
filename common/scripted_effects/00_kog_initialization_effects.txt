@@ -99,7 +99,7 @@ kog_initialize_roman_catholic_variables_effect = {
 		}
 		set_variable = {
 			name = kog_mother_church_var
-			value = flag:kog_rome_header
+			value = container:kog_rome
 		}
 		set_variable = {
 			name = kog_location_var
@@ -160,7 +160,7 @@ kog_initialize_eastern_orthodox_variables_effect = {
 		}
 		set_variable = {
 			name = kog_mother_church_var
-			value = flag:kog_constantinople_header
+			value = container:kog_constantinople
 		}
 		set_variable = {
 			name = kog_location_var
@@ -2186,12 +2186,8 @@ kog_specific_country_setups_effect = {
 
 kog_initialization_cleanup_effect = {
 	## Update Communion Lists
-	global_var:je_kog_catholic = {
-		kog_update_journal_lists_effect = yes
-	}
-	global_var:je_kog_orthodox = {
-		kog_update_journal_lists_effect = yes
-	}
+	kog_update_faith_journal_lists_effect = yes
+	kog_update_heads_of_faith_effect = yes
 	
 	## Prepare Interorg Functionality
 	add_contextless_journal_entry = je_kog_ecyclical_mirari_vos
