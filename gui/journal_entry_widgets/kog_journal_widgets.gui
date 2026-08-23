@@ -2369,27 +2369,5 @@ types kog_journal_widget_types {
 				text = "kog_gui_assert_seat"
 			}
 		}
-		
-		# Install Bishop
-		button = {
-			size = { 174 38 }
-			using = default_button_action
-			datacontext = "[GetScriptedGui('kog_install_seat_sgui')]"
-			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
-			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
-			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
-			tooltip = "kog_gui_install_seat_desc"
-			
-			textbox = {
-				parentanchor = center
-				align = nobaseline
-				autoresize = yes
-				max_width = 165
-				elide = right
-				fontsize = 13
-				using = tooltip_font
-				text = "kog_gui_install_seat"
-			}
-		}
 	}
 }

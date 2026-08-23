@@ -1887,13 +1887,13 @@ kog_initialize_ranking_lists_effect = {
 		every_scope_je_involved = {
 			scope:kog_global_faith_journal_scope = {
 				add_to_variable_list = {
-					name = kog_ranking_list
+					name = kog_members_list
 					target = prev
 				}
 			}
 		}
 		sort_variable_list = {
-			name = kog_ranking_list
+			name = kog_members_list
 			order = prestige
 		}
 	}
@@ -2124,7 +2124,7 @@ kog_initialize_mother_church_variables = {
 			value = container:kog_constantinople
 		}
 	}
-	global_var:je_kog_elysium ?= {
+	global_var:je_kog_elysian ?= {
 		set_variable = {
 			name = kog_mother_church_var
 			value = container:kog_constantinople
@@ -2157,7 +2157,6 @@ kog_specific_country_setups_effect = {
 
 kog_initialization_cleanup_effect = {
 	## Update Communion Lists
-	kog_update_faith_journal_lists_effect = yes
 	kog_update_heads_of_faith_effect = yes
 	
 	## Prepare Interorg Functionality

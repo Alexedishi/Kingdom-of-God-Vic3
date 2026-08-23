@@ -266,9 +266,9 @@ kog_install_seat_sgui = {
 	is_shown = {
 		scope:kog_episcopal_seat_scope = {
 			var:kog_controller_var ?= root
-			var:kog_patriarch_var ?= {
-				culture != root.primary_culture
-			}
+		}
+		any_primary_culture = {
+			scope:kog_episcopal_seat_scope.var:kog_patriarch_var.culture = this
 		}
 	}
 	is_valid = {

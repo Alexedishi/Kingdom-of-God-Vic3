@@ -47,8 +47,9 @@ kog_validate_global_journal_involvement_effect = {
 	}
 }
 
-kog_update_journal_lists_effect = {
-	scope:journal_entry = {
+kog_update_faith_journal_lists_effect = {
+	every_in_global_list = {
+		variable = kog_global_journals_list
 		save_scope_as = kog_global_faith_journal_scope
 		clear_variable_list = kog_members_list
 		clear_variable_list = kog_communion_list
@@ -57,7 +58,7 @@ kog_update_journal_lists_effect = {
 		every_scope_je_involved = {
 			scope:kog_global_faith_journal_scope = {
 				add_to_variable_list = {
-					name = kog_ranking_list
+					name = kog_members_list
 					target = prev
 				}
 			}
@@ -99,7 +100,7 @@ kog_update_journal_lists_effect = {
 			}
 		}
 		sort_variable_list = {
-			name = kog_ranking_list
+			name = kog_members_list
 			order = prestige
 		}
 		sort_variable_list = {
@@ -113,51 +114,6 @@ kog_update_journal_lists_effect = {
 		sort_variable_list = {
 			name = kog_autocephalous_list
 			order = prestige
-		}
-	}
-}
-
-kog_update_faith_journal_lists_effect = {
-	var:kog_local.var:kog_global_faith_journal_var = {
-		save_scope_as = kog_global_faith_journal_scope
-		clear_variable_list = kog_communion_list
-		clear_variable_list = kog_schism_list
-		clear_variable_list = kog_autocephalous_list
-		every_scope_je_involved = {
-			limit = {
-				NOR = {
-					kog_is_schismatic_trigger = yes
-					kog_is_autocephalous_trigger = yes
-				}
-			}
-			scope:kog_global_faith_journal_scope = {
-				add_to_variable_list = {
-					name = kog_communion_list
-					target = prev
-				}
-			}
-		}
-		every_scope_je_involved = {
-			limit = {
-				kog_is_schismatic_trigger = yes
-			}
-			scope:kog_global_faith_journal_scope = {
-				add_to_variable_list = {
-					name = kog_schism_list
-					target = prev
-				}
-			}
-		}
-		every_scope_je_involved = {
-			limit = {
-				kog_is_autocephalous_trigger = yes
-			}
-			scope:kog_global_faith_journal_scope = {
-				add_to_variable_list = {
-					name = kog_autocephalous_list
-					target = prev
-				}
-			}
 		}
 	}
 }
