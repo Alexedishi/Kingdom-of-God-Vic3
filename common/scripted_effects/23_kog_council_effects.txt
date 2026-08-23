@@ -35,6 +35,12 @@ kog_convoke_council_effect = {
 				}
 			}
 		}
+		var:kog_global_faith_journal_var = {
+			add_to_variable_list = {
+				name = kog_ecumenical_council_list
+				target = scope:kog_council_caller
+			}
+		}
 	}
 	add_modifier = {
 		name = modifier_kog_convoked_council
