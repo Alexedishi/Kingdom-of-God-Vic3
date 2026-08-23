@@ -94,18 +94,7 @@ je_kog_oriental = {
 	
 	on_monthly_pulse = {
 		effect = {
-			scope:journal_entry = {
-				kog_validate_global_journal_involvement_effect = {
-					type = je_kog_oriental
-					trigger = kog_country_is_oriental_orthodox_trigger
-				}
-				kog_update_schism_list_effect = {
-					type = je_kog_oriental
-				}
-				kog_update_autocephaly_list_effect = {
-					type = je_kog_oriental
-				}
-			}
+			kog_update_journal_lists_effect = yes
 		}
 	}
 }

@@ -95,18 +95,7 @@ je_kog_catholic = {
 	
 	on_monthly_pulse = {
 		effect = {
-			scope:journal_entry = {
-				kog_validate_global_journal_involvement_effect = {
-					type = je_kog_catholic
-					trigger = kog_country_is_roman_catholic_trigger
-				}
-				kog_update_schism_list_effect = {
-					type = je_kog_catholic
-				}
-				kog_update_autocephaly_list_effect = {
-					type = je_kog_catholic
-				}
-			}
+			kog_update_journal_lists_effect = yes
 		}
 	}
 }

@@ -1,16 +1,4 @@
 ﻿l_english:
- ####---------- Variable Map Keys ----------####
- kog_seat_id: "kog_seat_id"
- kog_name_var: "kog_name_var"
- kog_header_var: "kog_name_var"
- kog_religion_var: "kog_religion_var"
- kog_liturgical_language_var: "kog_liturgical_language_var"
- kog_liturgical_rite_var: "kog_liturgical_rite_var"
- kog_seat_state_region_var: "kog_seat_state_region_var"
- kog_controller_var: "kog_controller_var"
- kog_patriarch_var: "kog_patriarch_var"
- kog_foundation_var: "kog_foundation_var"
- 
  ####---------- General Seat Localization ----------####
  kog_title_bishop: "Bishop"
  kog_title_patriarch: "Patriarch"
@@ -23,7 +11,7 @@
  kog_elysian_seats_filter: "#todo Replace kog_elysian_seats_filter!#!"
  
  ####---------- Episcopal Seat Localization ----------####
- kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_header_var').GetFlagName]"
+ kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_seat_header_var').GetFlagName]"
  kog_gui_seat_controller: "#bold #yellow Answers to: [SelectLocalization(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet, 'kog_gui_controller_name', 'kog_gui_no_controller')]#!#!"
  kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.GetName]"
  kog_gui_no_controller: "@kog! #blue God Alone#!"

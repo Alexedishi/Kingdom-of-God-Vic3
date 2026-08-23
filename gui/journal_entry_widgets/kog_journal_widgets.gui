@@ -348,6 +348,7 @@ types kog_journal_widget_types {
 			}
 		}
 		
+		# MEMBERS IN COMMUNION CONTAINER
 		flowcontainer = {
 			parentanchor = top|hcenter
 			direction = vertical
@@ -360,6 +361,8 @@ types kog_journal_widget_types {
 			background = {
 				using = entry_bg_simple
 			}
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_communion_list')))]"
 			
 			textbox = {
 				parentanchor = top|hcenter
@@ -376,13 +379,14 @@ types kog_journal_widget_types {
 			
 			dynamicgridbox = {
 				parentanchor = top|hcenter
-				datamodel = "[JournalEntry.GetInvolvedCountries]"
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_communion_list')]"
 				datamodel_wrap = 8
 				flipdirection = yes
+				ignoreinvisible = yes
 				
 				item = {
 					widget = {
-						visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(Country.MakeScope ).End)]"
+						datacontext = "[Scope.GetCountry]"
 						size = { 60 40 }
 						small_flag = { }
 					}
