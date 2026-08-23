@@ -67,25 +67,25 @@ je_kog_catholic = {
 			kog_initialize_catholic_button_lists_effect = yes
 			set_variable = kog_enable_encyclicals_panel
 			set_variable = kog_enable_councils_panel
-			save_scope_as = je_kog_catholic
 		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_catholic
-			value = scope:je_kog_catholic
+		}
+		add_to_global_variable_list = {
+			name = kog_global_journals_list
+			target = scope:journal_entry
 		}
 	}
 	
 	immediate_all_involved = {
-		set_variable = {
+		com_save_journal_to_variable = {
 			name = kog_global_faith_journal_var
-			value = global_var:je_kog_catholic
 		}
 	}
 	
 	on_become_involved_after_activation = {
-		set_variable = {
+		com_save_journal_to_variable = {
 			name = kog_global_faith_journal_var
-			value = global_var:je_kog_catholic
 		}
 	}
 	

@@ -47,28 +47,6 @@ kog_validate_global_journal_involvement_effect = {
 	}
 }
 
-kog_update_denominational_leaders_effect = {
-	kog_update_patriarch_variables_effect = yes
-	container:kog_rome.var:kog_patriarch_var = {
-		save_scope_as = kog_rome_patriarch
-	}
-	container:kog_constantinople.var:kog_patriarch_var = {
-		save_scope_as = kog_constantinople_patriarch
-	}
-	global_var:je_kog_catholic = {
-		set_variable = {
-			name = com_interorg_chair_var
-			value = scope:kog_rome_patriarch
-		}
-	}
-	global_var:je_kog_orthodox = {
-		set_variable = {
-			name = com_interorg_chair_var
-			value = scope:kog_constantinople_patriarch
-		}
-	}
-}
-
 kog_update_journal_lists_effect = {
 	scope:journal_entry = {
 		save_scope_as = kog_global_faith_journal_scope

@@ -77,23 +77,24 @@ je_kog_elysian = {
 			set_variable = kog_enable_councils_panel
 			save_scope_as = je_kog_elysian
 		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_elysian
-			value = scope:je_kog_elysian
+		}
+		add_to_global_variable_list = {
+			name = kog_global_journals_list
+			target = scope:journal_entry
 		}
 	}
 	
 	immediate_all_involved = {
-		set_variable = {
+		com_save_journal_to_variable = {
 			name = kog_global_faith_journal_var
-			value = global_var:je_kog_elysian
 		}
 	}
 	
 	on_become_involved_after_activation = {
-		set_variable = {
+		com_save_journal_to_variable = {
 			name = kog_global_faith_journal_var
-			value = global_var:je_kog_elysian
 		}
 	}
 	

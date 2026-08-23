@@ -379,6 +379,7 @@ kog_update_patriarch_variables_effect = {
 		}
 		kog_update_metropolitan_bishop_patriarch_effect = yes
 	}
+	kog_update_heads_of_faith_effect = yes
 }
 
 kog_update_metropolitan_bishop_patriarch_effect = {
@@ -535,6 +536,22 @@ kog_update_seat_patriarchs_effect = {
 	}
 }
 
+kog_update_heads_of_faith_effect = {
+	every_in_global_list = {
+		variable = kog_global_journals_list
+		var:kog_mother_church_var.var:kog_patriarch_var = {
+			save_scope_as = kog_head_of_faith_scope
+		}
+		set_variable = {
+			name = kog_head_of_faith_var
+			value = scope:kog_head_of_faith_scope
+		}
+		set_variable = {
+			name = com_interorg_chair_var
+			value = scope:kog_head_of_faith_scope
+		}
+	}
+}
 
 ####---------- Episcopal Seat Container List Effects ----------####
 kog_update_catholic_list = {
