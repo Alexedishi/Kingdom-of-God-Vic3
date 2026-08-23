@@ -149,6 +149,12 @@ kog_integrate_seat_sgui = {
 				}
 			}
 		}
+		trigger_if = {
+			limit = {
+				kog_is_autocephalous_trigger = yes
+			}
+			var:kog_local.var:kog_mother_church_var != scope:kog_episcopal_seat_scope
+		}
 	}
 	is_valid = {
 		kog_is_autocephalous_trigger = yes
@@ -229,7 +235,7 @@ kog_assert_seat_sgui = {
 	}
 	
 	is_shown = {
-		kog_is_autocephalous_trigger = no
+		kog_is_autocephalous_trigger = yes
 		var:kog_local.var:kog_mother_church_var = scope:kog_episcopal_seat_scope
 	}
 	is_valid = {
