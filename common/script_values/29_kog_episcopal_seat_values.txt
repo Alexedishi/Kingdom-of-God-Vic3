@@ -275,7 +275,9 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			kog_is_autocephalous_trigger = yes
+			scope:kog_root_scope = {
+				kog_is_autocephalous_trigger = yes
+			}
 			var:kog_controller_var != scope:kog_root_scope
 			var:kog_religion_var != scope:kog_root_scope.religion
 		}
@@ -286,7 +288,9 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			kog_is_schismatic_trigger = yes
+			scope:kog_root_scope = {
+				kog_is_schismatic_trigger = yes
+			}
 			var:kog_religion_var = scope:kog_root_scope.religion
 		}
 		add = {
