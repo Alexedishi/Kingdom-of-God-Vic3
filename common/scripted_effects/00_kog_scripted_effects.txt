@@ -50,9 +50,18 @@ kog_validate_global_journal_involvement_effect = {
 kog_update_journal_lists_effect = {
 	scope:journal_entry = {
 		save_scope_as = kog_global_faith_journal_scope
+		clear_variable_list = kog_members_list
 		clear_variable_list = kog_communion_list
 		clear_variable_list = kog_schism_list
 		clear_variable_list = kog_autocephalous_list
+		every_scope_je_involved = {
+			scope:kog_global_faith_journal_scope = {
+				add_to_variable_list = {
+					name = kog_ranking_list
+					target = prev
+				}
+			}
+		}
 		every_scope_je_involved = {
 			limit = {
 				NOR = {
@@ -88,6 +97,22 @@ kog_update_journal_lists_effect = {
 					target = prev
 				}
 			}
+		}
+		sort_variable_list = {
+			name = kog_ranking_list
+			order = prestige
+		}
+		sort_variable_list = {
+			name = kog_communion_list
+			order = prestige
+		}
+		sort_variable_list = {
+			name = kog_schism_list
+			order = prestige
+		}
+		sort_variable_list = {
+			name = kog_autocephalous_list
+			order = prestige
 		}
 	}
 }

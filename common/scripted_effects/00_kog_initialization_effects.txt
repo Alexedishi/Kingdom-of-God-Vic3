@@ -1881,67 +1881,19 @@ kog_initialize_collegium_effect = {
 }
 
 kog_initialize_ranking_lists_effect = {
-	# Build & Sort Catholic List
-	every_country = {
-		limit = {
-			kog_country_is_roman_catholic_trigger = yes
-		}
-		add_to_global_variable_list = {
-			name = kog_catholic_ranking
-			target = this
-		}
-	}
-	sort_global_variable_list = {
-		name = kog_catholic_ranking
-		order = prestige
-	}
-	
-	# Build & Sort Orthodox List
-	every_country = {
-		limit = {
-			kog_country_is_eastern_orthodox_trigger = yes
-		}
-		add_to_global_variable_list = {
-			name = kog_orthodox_ranking
-			target = this
-		}
-	}
-	sort_global_variable_list = {
-		name = kog_orthodox_ranking
-		order = prestige
-	}
-	
-	# Build & Sort Oriental List
-	every_country = {
-		limit = {
-			kog_country_is_oriental_orthodox_trigger = yes
-		}
-		add_to_global_variable_list = {
-			name = kog_oriental_ranking
-			target = this
-		}
-	}
-	sort_global_variable_list = {
-		name = kog_oriental_ranking
-		order = prestige
-	}
-	
-	# Build & Sort Elysian List
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		every_country = {
-			limit = {
-				kog_country_is_elysian_orthodox_trigger = yes
-			}
-			add_to_global_variable_list = {
-				name = kog_elysian_ranking
-				target = this
+	every_in_global_list = {
+		variable = kog_global_journals_list
+		save_scope_as = kog_global_faith_journal_scope
+		every_scope_je_involved = {
+			scope:kog_global_faith_journal_scope = {
+				add_to_variable_list = {
+					name = kog_ranking_list
+					target = prev
+				}
 			}
 		}
-		sort_global_variable_list = {
-			name = kog_elysian_ranking
+		sort_variable_list = {
+			name = kog_ranking_list
 			order = prestige
 		}
 	}
