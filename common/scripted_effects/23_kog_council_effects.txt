@@ -76,6 +76,18 @@ kog_add_canon_law_group_to_council_effect = {
 	}
 }
 
+kog_join_ecumenical_council_effect = {
+	custom_tooltip = {
+		text = kog_join_ecumenical_council_effect
+		var:kog_global_faith_journal_var = {
+			add_to_variable_list = {
+				name = kog_ecumenical_council_list
+				target = root
+			}
+		}
+	}
+}
+
 kog_set_support_for_canon_law_effect = {
 	custom_tooltip = {
 		text = kog_gui_support_canon_law_effect
