@@ -54,12 +54,13 @@
 		kog_initialize_1836_patriarchs_effect = yes
 	}
 	kog_initialize_seat_controllers_effect = yes
+	kog_initialize_mother_church_variables = yes
 	
 	#### Step 6, Create the College of Cardinals
 	kog_initialize_collegium_effect = yes
 	
 	#### Step 7, Initialize the Faith Ranking Lists
-	kog_initialize_variable_lists_effect = yes
+	kog_initialize_ranking_lists_effect = yes
 	
 	#### Step 8, Initialize Local Script Container and Variables
 	every_country = {
@@ -96,10 +97,6 @@ kog_initialize_roman_catholic_variables_effect = {
 		set_variable = {
 			name = kog_religion_var
 			value = rel:catholic
-		}
-		set_variable = {
-			name = kog_mother_church_var
-			value = container:kog_rome
 		}
 		set_variable = {
 			name = kog_location_var
@@ -157,10 +154,6 @@ kog_initialize_eastern_orthodox_variables_effect = {
 		set_variable = {
 			name = kog_religion_var
 			value = rel:orthodox
-		}
-		set_variable = {
-			name = kog_mother_church_var
-			value = container:kog_constantinople
 		}
 		set_variable = {
 			name = kog_location_var
@@ -1471,7 +1464,6 @@ kog_initialize_container_lists_effect = {
 }
 
 ####---------- Other Content Initialization Effects ----------####
-
 kog_initialize_seat_controllers_effect = {
 	# Override this in BR
 	container:kog_rome = {
@@ -1888,7 +1880,7 @@ kog_initialize_collegium_effect = {
 	}
 }
 
-kog_initialize_variable_lists_effect = {
+kog_initialize_ranking_lists_effect = {
 	# Build & Sort Catholic List
 	every_country = {
 		limit = {
@@ -2157,6 +2149,33 @@ kog_initialize_metropolis_effect = {
 		set_variable = {
 			name = kog_votes_var
 			value = parent.kog_votes_value
+		}
+	}
+}
+
+kog_initialize_mother_church_variables = {
+	global_var:je_kog_catholic ?= {
+		set_variable = {
+			name = kog_mother_church_var
+			value = container:kog_rome
+		}
+	}
+	global_var:je_kog_orthodox ?= {
+		set_variable = {
+			name = kog_mother_church_var
+			value = container:kog_constantinople
+		}
+	}
+	global_var:je_kog_oriental ?= {
+		set_variable = {
+			name = kog_mother_church_var
+			value = container:kog_constantinople
+		}
+	}
+	global_var:je_kog_elysium ?= {
+		set_variable = {
+			name = kog_mother_church_var
+			value = container:kog_constantinople
 		}
 	}
 }
