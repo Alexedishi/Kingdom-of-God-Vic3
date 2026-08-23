@@ -7,6 +7,7 @@ on_monthly_pulse = {
 
 on_yearly_pulse = {
 	on_actions = {
+		kog_yearly_global_pulse
 	}
 }
 
@@ -16,6 +17,12 @@ kog_monthly_global_pulse = {
 		kog_update_patriarch_variables_effect = yes
 		kog_check_seat_controllers_effect = yes
 		kog_update_faith_journal_lists_effect = yes
+	}
+}
+
+kog_yearly_global_pulse = {
+	effect = {
+		kog_update_controlled_seats_modifier_effect = yes
 	}
 }
 
@@ -125,7 +132,6 @@ kog_yearly_country_pulse = {
 		kog_content_scope_trigger = yes
 	}
 	effect = {
-		kog_update_episcopal_seat_count_effect = yes
 		kog_update_rite_modifiers_effect = yes
 		kog_update_country_votes_effect = yes
 	}

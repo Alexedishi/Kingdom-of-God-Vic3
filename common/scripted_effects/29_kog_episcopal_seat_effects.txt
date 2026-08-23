@@ -1,15 +1,4 @@
-﻿####---------- Episcopal Seat General Effects ---------- ####
-kog_update_episcopal_seat_count_effect = {
-	var:kog_local = {
-		set_variable = {
-			name = kog_episcopal_seats_var
-			value = parent.kog_episcopal_seats_value
-		}
-	}
-}
-
-
-####---------- Episcopal Seat Diplomacy Effects ---------- ####
+﻿####---------- Episcopal Seat Diplomacy Effects ---------- ####
 kog_change_seat_relations_effect = {
 	# NOTE: The $seat$ parameter MUST point to one of the seat container scopes!
 	custom_tooltip = {
@@ -201,11 +190,38 @@ kog_check_seat_controllers_effect = {
 			remove_variable = kog_controller_var
 		}
 	}
+}
+
+kog_update_controlled_seats_modifier_effect = {
 	every_country = {
 		limit = {
 			kog_content_scope_trigger = yes
 		}
-		kog_update_episcopal_seat_count_effect = yes
+		save_scope_value_as = {
+			name = kog_episcopal_seats_count
+			value = kog_episcopal_seats_value
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_episcopal_seats_var
+				value = scope:kog_episcopal_seats_count
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_controlled_seats
+			}
+			remove_modifier = modifier_kog_controlled_seats
+		}
+		if = {
+			limit = {
+				scope:kog_episcopal_seats_count > 0
+			}
+			add_modifier = {
+				name = modifier_kog_controlled_seats
+				multiplier = scope:kog_episcopal_seats_count
+			}
+		}
 	}
 }
 

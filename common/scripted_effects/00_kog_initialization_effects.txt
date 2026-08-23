@@ -70,7 +70,11 @@
 		kog_initialize_metropolis_effect = yes
 	}
 	
-	#### Step 9, Apply Any Country-specific details
+	#### Step 9, Apply Seat Control and Canon Law Modifiers
+	kog_update_canon_law_modifiers_effect = yes
+	kog_update_controlled_seats_modifier_effect = yes
+	
+	#### Step 10, Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
 	
 	#### Step 10, Apply Final Effects
@@ -2064,23 +2068,23 @@ kog_initialize_metropolis_effect = {
 	var:kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
-			value = parent.kog_canon_law_compliance_value
+			value = scope:kog_country_scope.kog_canon_law_compliance_value
 		}
 		set_variable = {
 			name = kog_national_piety_var
-			value = parent.kog_national_piety_target_value
+			value = scope:kog_country_scope.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_target_var
-			value = parent.kog_national_piety_target_value
+			value = scope:kog_country_scope.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_progress_var
-			value = parent.kog_national_piety_progress_value
+			value = scope:kog_country_scope.kog_national_piety_progress_value
 		}
 		set_variable = {
 			name = kog_votes_var
-			value = parent.kog_votes_value
+			value = scope:kog_country_scope.kog_votes_value
 		}
 	}
 }
@@ -2156,7 +2160,6 @@ kog_initialization_cleanup_effect = {
 			kog_content_scope_trigger = yes
 		}
 		kog_update_devout_member_traits_effect = yes
-		kog_update_episcopal_seat_count_effect = yes
 		if = {
 			limit = {
 				kog_country_is_roman_catholic_trigger = yes

@@ -1,7 +1,10 @@
 ﻿####---------- Canon Law Upkeep Effects ----------####
 kog_update_canon_law_modifiers_effect = {
-	kog_clear_canon_law_modifiers_effect = yes
-	kog_add_canon_law_modifiers_effect = yes
+	every_in_global_list = {
+		variable = kog_global_journals_list
+		kog_clear_canon_law_modifiers_effect = yes
+		kog_add_canon_law_modifiers_effect = yes
+	}
 }
 
 kog_clear_canon_law_modifiers_effect = {
