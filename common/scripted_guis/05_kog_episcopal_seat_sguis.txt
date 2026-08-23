@@ -264,7 +264,12 @@ kog_install_seat_sgui = {
 	}
 	
 	is_shown = {
-		scope:kog_episcopal_seat_scope.var:kog_patriarch_var.culture != root.culture
+		scope:kog_episcopal_seat_scope = {
+			var:kog_controller_var ?= root
+			var:kog_patriarch_var ?= {
+				culture != root.primary_culture
+			}
+		}
 	}
 	is_valid = {
 		custom_tooltip = {

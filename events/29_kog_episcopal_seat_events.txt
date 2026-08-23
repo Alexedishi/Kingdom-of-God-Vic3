@@ -42,13 +42,16 @@ kog_episcopal_events.100 = {
 			
 		}
 		scope:kog_episcopal_seat_scope = {
-			remove_from_list = kog_seat_integration_list
 			remove_variable = kog_integrator_var
 			remove_variable = kog_integration_var
 			set_variable = {
 				name = kog_controller_var
 				value = scope:kog_seat_integrator_scope
 			}
+		}
+		remove_list_variable = {
+			name = kog_seat_integration_list
+			target = scope:kog_episcopal_seat_scope
 		}
 		set_variable = {
 			name = kog_seat_var
