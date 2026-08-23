@@ -23,14 +23,14 @@
  kog_elysian_seats_filter: "#todo Replace kog_elysian_seats_filter!#!"
  
  ####---------- Episcopal Seat Localization ----------####
- kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_name_var').GetFlagName]"
+ kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_header_var').GetFlagName]"
  kog_gui_seat_controller: "#bold #yellow Answers to: [SelectLocalization(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet, 'kog_gui_controller_name', 'kog_gui_no_controller')]#!#!"
  kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.GetName]"
  kog_gui_no_controller: "@kog! #blue God Alone#!"
  
  kog_gui_patriarch_name: "[Character.GetFullName]"
  kog_gui_seat_location_header: "Seated in:"
- kog_gui_seat_location_value: "[ScriptContainer.MakeScope.Var('kog_seat_state_region_var').GetFlagName]"
+ kog_gui_seat_location_value: "[ScriptContainer.MakeScope.Var('kog_seat_state_region_var').GetStateRegion.GetName]"
  kog_gui_liturgical_language_header: "[concept_liturgical_rite]:"
  kog_gui_liturgical_language_value: "[ScriptContainer.MakeScope.Var('kog_liturgical_rite_var').GetFlagName]"
  kog_gui_liturgical_rite_header: "[concept_liturgical_language]:"
@@ -53,10 +53,10 @@
  kog_gui_enforce_seat: "@kog_integrate_seat! #bold Enforce Rites#!"
  kog_gui_enforce_seat_desc: "In the centuries since the collapse of the Roman Empire, the many churches have deviated from each other in their chosen [concept_liturgical_rite]. Should the location of this seat come under our control, we could enforce their compliance with our [concept_liturgical_rite]."
  kog_gui_enforce_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon [Container.GetName.GetFlagName]"
- kog_gui_install_seat: "Install Bishop"
- kog_gui_install_seat_desc: "Despite the church nominally serving only to spread the word of faith, politics penetrates deep into the administration of the church. Should a state have sufficient leverage over a seat, they could strong arm the installment of a friendlier bishop."
  kog_gui_assert_seat: "Assert Seat Control"
  kog_gui_assert_seat_desc: ""
+ kog_gui_install_seat: "Install Bishop"
+ kog_gui_install_seat_desc: "Despite the church nominally serving only to spread the word of faith, politics penetrates deep into the administration of the church. Should a state have sufficient leverage over a seat, they could strong arm the installment of a friendlier bishop."
  
  # Tooltips
  kog_enforce_seat_sgui_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ this $concept_episcopal_seat$"

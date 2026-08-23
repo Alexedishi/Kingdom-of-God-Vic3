@@ -2057,47 +2057,329 @@ types kog_journal_widget_types {
 				}
 			}
 		}
-	}
-	
-	type kog_seat_scripted_button_container = widget {
-		parentanchor = top|hcenter
-		size = { 190 240 }
 		
 		flowcontainer = {
-			parentanchor = center
-			direction = vertical
-			ignoreinvisible = yes
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 540 40 }
+			margin = { 15 0 }
 			spacing = 5
-			margin_top = 5
 			
-			background = {
-				using = entry_bg
-				margin = { 15 10 }
-			}
-			
-			block "episcopal_seat_buttons_datamodel" {
-				visible = "no"
-			}
-			
-			item = {
-				flowcontainer = {
-					datamodel = "[JournalEntry.GetScriptedButtons]"
-					direction = vertical
-					ignoreinvisible = yes
+			widget = {
+				parentanchor = left|vcenter
+				size = { 145 160 }
+				
+				character_portrait_medium_torso = {
+					parentanchor = center
+					datacontext = "[GetPlayer.GetRuler]"
+					blockoverride "show_hat" { }
+					blockoverride "tooltip" { } # Error Suppression
+					blockoverride "portrait_icons" { } # Error Suppression
+					blockoverride "portrait_button" { } # Error Suppression
 					
-					item = {
-						widget = {
-							visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
-							size = { 154 38 }
-							
-							kog_seat_scripted_button_item = {
-								parentanchor = center
-							}
+					default_header_clean_faded = {
+						size = { 150 35 }
+						position = { 0 80 }
+						parentanchor = center
+						blockoverride "text" {}
+						textbox = {
+							text = "kog_gui_patriarch_name"
+							parentanchor = center
+							position = { 0 -2 }
+							autoresize = yes
+							max_width = 190
+							elide = right
+							using = fontsize_medium
 						}
 					}
 				}
 			}
+			
+			flowcontainer = {
+				parentanchor = center
+				direction = vertical
+				minimumsize = { 180 220 }
+				spacing = 5
+				margin = { 5 0 }
+				
+				background = {
+					using = entry_bg_simple
+				}
+				
+				# Seat Location
+				textbox = {
+					text = "kog_gui_seat_location_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					block "episcopal_seat_location" {
+						text = "kog_gui_seat_location_value"
+						using = look_at_me_text_animation
+					}
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				
+				# Liturgical Language
+				textbox = {
+					text = "kog_gui_liturgical_language_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					block "episcopal_seat_liturgical_language" {
+						text = "kog_gui_liturgical_language_value"
+						using = look_at_me_text_animation
+					}
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				
+				# Liturgical Rite
+				textbox = {
+					text = "kog_gui_liturgical_rite_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					block "episcopal_seat_liturgical_rite" {
+						text = "kog_gui_liturgical_rite_value"
+						using = look_at_me_text_animation
+					}
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				
+				# Opinion
+				textbox = {
+					text = "kog_gui_opinion_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_opinion_value"
+					using = look_at_me_text_animation
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			
+			kog_seat_scripted_button_container = {}
 		}
+	}
+	
+	type kog_seat_scripted_button_container = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 180 -1 }
+		margin = { 5 5 }
+		
+		background = {
+			using = entry_bg
+		}
+		
+		# Start Swaying
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_sway_seat"
+			}
+		}
+		
+		# Stop Swaying
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			widget = {
+				size = { 100% 100% }
+				background = {
+					using = paper_bg
+				}
+			}
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_sway_seat"
+			}
+			
+			icon = {
+				using = highlighted_square_selection
+			}
+		}
+		
+		# Start Antagonizing
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_antagonize_seat"
+			}
+		}
+		
+		# Stop Antagonizing
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			widget = {
+				size = { 100% 100% }
+				background = {
+					using = paper_bg
+				}
+			}
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_antagonize_seat"
+			}
+			
+			icon = {
+				using = highlighted_square_selection
+			}
+		}
+		
+		# Integrate Seat
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_integrate_seat"
+			}
+		}
+		
+		# Enforce Seat
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_enforce_seat"
+			}
+		}
+		
+		# Assert Seat
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_assert_seat"
+			}
+		}
+		
+		# Install Bishop
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			# datacontext =
+			# enabled =
+			# onclick =
+			# tooltip =
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_install_seat"
+			}
+		}
+		
 	}
 	
 	type kog_seat_scripted_button_item = button {
@@ -2109,14 +2391,7 @@ types kog_journal_widget_types {
 		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
 		tooltip = "SCRIPTED_ACTION_TOOLTIP"
 		
-		widget = {
-			visible = "[ScriptedButton.IsSelected]"
-			size = { 100% 100% }
-			
-			background = {
-				using = paper_bg
-			}
-		}
+		
 		
 		textbox = {
 			parentanchor = center
@@ -2128,9 +2403,6 @@ types kog_journal_widget_types {
 			text = "[ScriptedButton.GetName]"
 		}
 		
-		icon = {
-			visible = "[ScriptedButton.IsSelected]"
-			using = highlighted_square_selection
-		}
+		
 	}
 }

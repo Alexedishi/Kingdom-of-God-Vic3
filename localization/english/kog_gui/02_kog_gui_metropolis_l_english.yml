@@ -12,10 +12,10 @@
  kog_gui_communion_status: "[GetPlayer.GetCustom('kog_communion_type')]"
  kog_gui_capacity_amount: "[GetPlayer.GetCustom('kog_faith_capacity_type')]: #bold #khoine [GetPlayer.GetModifier.GetValueWithBreakdownFor('country_faith_capacity_add')]#!#!"
  kog_gui_capacity_breakdown: "[GetPlayer.GetModifier.GetFullEntryDescFor('country_faith_capacity_add')]"
- kog_gui_in_communion: "[GetPlayer.GetName] is #green #bold $kog_in_communion$#!#! with $kog_rome_name$"
- kog_gui_in_schism: "[GetPlayer.GetName] is #red #bold $kog_in_schism$#!#! with $kog_rome_name$"
- kog_gui_is_autocephalous: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by $kog_rome_name$"
- kog_gui_has_supremacy: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').GetFlagName]"
+ kog_gui_in_communion: "[GetPlayer.GetName] is #green #bold $kog_in_communion$#!#! with [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_name_var').GetFlagName]"
+ kog_gui_in_schism: "[GetPlayer.GetName] is #red #bold $kog_in_schism$#!#! with [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_name_var').GetFlagName]"
+ kog_gui_is_autocephalous: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_name_var').GetFlagName]"
+ kog_gui_has_supremacy: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_name_var').GetFlagName]"
  
  # Metropolitan Focus Scripted Buttons
  kog_gui_focus_button_tooltip: "[ConcatIfNeitherEmpty('\n', ScriptedButton.GetDesc)]$kog_linebreak$[ConcatIfNeitherEmpty(ScriptedButton.GetPossibleDesc, '\n\n')]#title Effects:#!\n[ScriptedButton.GetEffectDesc]"
