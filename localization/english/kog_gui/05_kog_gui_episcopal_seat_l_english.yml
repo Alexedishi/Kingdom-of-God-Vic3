@@ -24,7 +24,7 @@
  kog_gui_liturgical_rite_header: "[concept_liturgical_language]:"
  kog_gui_liturgical_rite_value: "[ScriptContainer.MakeScope.Var('kog_liturgical_language_var').GetFlagName]"
  kog_gui_opinion_header: "Opinion of [GetPlayer.GetNameNoFlag]:"
- kog_gui_opinion_value: "#dummy episcopal_seat_opinion!"
+ kog_gui_opinion_value: "[Scope.GetVariableFromVariableMap('kog_opinions_map', GetPlayer.MakeScope).GetValue|+=]"
  
  kog_seat_details: ""
  
