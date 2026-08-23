@@ -60,7 +60,7 @@
 	kog_initialize_collegium_effect = yes
 	
 	#### Step 7, Initialize the Faith Ranking Lists
-	kog_initialize_ranking_lists_effect = yes
+	kog_update_faith_journal_lists_effect = yes
 	
 	#### Step 8, Initialize Local Script Container and Variables
 	every_country = {
@@ -1877,25 +1877,6 @@ kog_initialize_collegium_effect = {
 	sort_global_variable_list = {
 		name = kog_cardinals_list
 		order = kog_character_gravitas_value
-	}
-}
-
-kog_initialize_ranking_lists_effect = {
-	every_in_global_list = {
-		variable = kog_global_journals_list
-		save_scope_as = kog_global_faith_journal_scope
-		every_scope_je_involved = {
-			scope:kog_global_faith_journal_scope = {
-				add_to_variable_list = {
-					name = kog_members_list
-					target = prev
-				}
-			}
-		}
-		sort_variable_list = {
-			name = kog_members_list
-			order = prestige
-		}
 	}
 }
 
