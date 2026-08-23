@@ -23,9 +23,9 @@
  kog_elysian_seats_filter: "#todo Replace kog_elysian_seats_filter!#!"
  
  ####---------- Episcopal Seat Localization ----------####
- kog_gui_seat_name: "[ScriptContainer.GetName.GetFlagName]"
+ kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_name_var').GetFlagName]"
  kog_gui_seat_controller: "#bold #yellow Answers to: [SelectLocalization(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet, 'kog_gui_controller_name', 'kog_gui_no_controller')]#!#!"
- kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetName]"
+ kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.GetName]"
  kog_gui_no_controller: "@kog! #blue God Alone#!"
  
  kog_gui_patriarch_name: "[Character.GetFullName]"

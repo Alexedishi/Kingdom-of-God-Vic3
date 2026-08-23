@@ -2018,6 +2018,8 @@ types kog_journal_widget_types {
 		minimumsize = { 540 -1 }
 		margin = { 0 5 }
 		
+		datacontext = "[Scope.GetScriptContainer]"
+		
 		using = entry_bg_fancy
 		
 		flowcontainer = {
@@ -2054,129 +2056,6 @@ types kog_journal_widget_types {
 					using = fontsize_medium
 				}
 			}
-		}
-		
-		flowcontainer = {
-			parentanchor = top|hcenter
-			direction = horizontal
-			spacing = 5
-			minimumsize = { 540 -1 }
-			
-			widget = {
-				parentanchor = left|vcenter
-				size = { 145 160 }
-				
-				character_portrait_medium_torso = {
-					parentanchor = center
-					datacontext = "[GetPlayer.GetRuler]"
-					blockoverride "show_hat" { }
-					blockoverride "tooltip" { } # Error Suppression
-					blockoverride "portrait_icons" { } # Error Suppression
-					blockoverride "portrait_button" { } # Error Suppression
-					
-					default_header_clean_faded = {
-						size = { 150 35 }
-						position = { 0 80 }
-						parentanchor = center
-						blockoverride "text" {}
-						textbox = {
-							text = "kog_gui_patriarch_name"
-							parentanchor = center
-							position = { 0 -2 }
-							autoresize = yes
-							max_width = 190
-							elide = right
-							using = fontsize_medium
-						}
-					}
-				}
-			}
-			
-			widget = {
-				parentanchor = center
-				size = { 180 220 }
-				
-				vbox = {
-					spacing = 5
-					margin_left = 5
-					
-					background = {
-						using = entry_bg_simple
-						margin = { 0 5 }
-					}
-					
-					# Seat Location
-					textbox = {
-						text = "kog_gui_seat_location_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_location" {
-							text = "kog_gui_seat_location_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					divider_clean = {}
-					
-					# Liturgical Language
-					textbox = {
-						text = "kog_gui_liturgical_language_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_liturgical_language" {
-							text = "kog_gui_liturgical_language_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					divider_clean = {}
-					
-					# Liturgical Rite
-					textbox = {
-						text = "kog_gui_liturgical_rite_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_liturgical_rite" {
-							text = "kog_gui_liturgical_rite_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					divider_clean = {}
-					
-					# Opinion
-					textbox = {
-						text = "kog_gui_opinion_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						text = "kog_gui_opinion_value"
-						using = look_at_me_text_animation
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-				}
-			}
-			
-			#kog_seat_scripted_button_container = {}
 		}
 	}
 	
