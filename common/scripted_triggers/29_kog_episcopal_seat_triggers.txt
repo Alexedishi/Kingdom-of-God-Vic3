@@ -11,8 +11,8 @@ kog_is_swaying_seat_trigger = {
 	custom_description = {
 		text = kog_is_swaying_seat_trigger
 		subject = this
-		object = container:$seat$
-		container:$seat$ = {
+		object = $seat$
+		$seat$ = {
 			"variable_map(kog_diplomacy_map|prev)" = 1
 		}
 	}
@@ -30,8 +30,8 @@ kog_is_antagonizing_seat_trigger = {
 	custom_description = {
 		text = kog_is_antagonizing_seat_trigger
 		subject = this
-		object = container:$seat$
-		container:$seat$ = {
+		object = $seat$
+		$seat$ = {
 			"variable_map(kog_diplomacy_map|prev)" = -1
 		}
 	}
@@ -41,9 +41,9 @@ kog_seat_opinion_greater_than_trigger = {
 	custom_description = {
 		text = kog_seat_opinion_greater_than_trigger
 		subject = this
-		object = container:$seat$
+		object = $seat$
 		value = $value$
-		container:$seat$ = {
+		$seat$ = {
 			"variable_map(kog_opinions_map|prev)" >= $value$
 		}
 	}
@@ -53,9 +53,9 @@ kog_seat_opinion_less_than_trigger = {
 	custom_description = {
 		text = kog_seat_opinion_less_than_trigger
 		subject = this
-		object = container:$seat$
+		object = $seat$
 		value = $value$
-		container:$seat$ = {
+		$seat$ = {
 			"variable_map(kog_opinions_map|prev)" <= $value$
 		}
 	}
@@ -65,9 +65,9 @@ kog_seat_opinion_friendly_trigger = {
 	custom_description = {
 		text = kog_seat_opinion_friendly_trigger
 		subject = this
-		object = container:$seat$
+		object = $seat$
 		value = kog_opinion_threshold_friendly
-		container:$seat$ = {
+		$seat$ = {
 			"variable_map(kog_opinions_map|prev)" >= kog_opinion_threshold_friendly
 		}
 	}
@@ -77,9 +77,9 @@ kog_seat_opinion_hostile_trigger = {
 	custom_description = {
 		text = kog_seat_opinion_hostile_trigger
 		subject = this
-		object = container:$seat$
+		object = $seat$
 		value = kog_opinion_threshold_hostile
-		container:$seat$ = {
+		$seat$ = {
 			"variable_map(kog_opinions_map|prev)" <= kog_opinion_threshold_hostile
 		}
 	}
@@ -131,11 +131,13 @@ kog_can_integrate_seat_alert_trigger = {
 kog_can_integrate_seat_trigger = {
 	custom_description = {
 		text = kog_can_integrate_seat_trigger
+		subject = this
+		object = $seat$
 		kog_is_autocephalous_trigger = yes
 		kog_capacity_trigger = {
 			value = 200
 		}
-		container:$seat$ = {
+		$seat$ = {
 			var:kog_controller_var != root
 			var:kog_seat_state_region_var = {
 				any_scope_state = {
@@ -151,10 +153,8 @@ kog_is_integrating_seat_trigger = {
 	custom_description = {
 		text = kog_is_integrating_seat_trigger
 		subject = this
-		object = container:$seat$
-		container:$seat$ = {
-			var:kog_integrator_var ?= prev.prev
-		}
+		object = $seat$
+		$seat$.var:kog_integrator_var ?= this
 	}
 }
 
@@ -175,10 +175,8 @@ kog_owns_seat_province_trigger = {
 	custom_description = {
 		text = kog_owns_seat_province_trigger
 		subject = this
-		object = container:$seat$
-		container:$seat$ = {
-			var:kog_seat_province_var.owner ?= prev.prev.prev
-		}
+		object = $seat$
+		$seat$.var:kog_seat_province_var.owner ?= this
 	}
 }
 
@@ -196,10 +194,8 @@ kog_controls_seat_trigger = {
 	custom_description = {
 		text = kog_controls_seat_trigger
 		subject = this
-		object = container:$seat$
-		container:$seat$ = {
-			var:kog_controller_var ?= root
-		}
+		object = $seat$
+		$seat$.var:kog_controller_var ?= this
 	}
 }
 
@@ -325,7 +321,7 @@ kog_country_has_same_rite_as_seat_trigger = {
 	custom_description = {
 		text = kog_country_has_same_rite_as_seat_trigger
 		subject = this
-		object = container:$seat$
-		var:kog_local.var:kog_liturgical_rite_var = container:$seat$.var:kog_liturgical_rite_var
+		object = $seat$
+		var:kog_local.var:kog_liturgical_rite_var = $seat$.var:kog_liturgical_rite_var
 	}
 }

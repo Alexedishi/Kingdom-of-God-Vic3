@@ -1,7 +1,7 @@
 ﻿l_english:
  ####---------- General Scripted Triggers ----------####
- kog_capacity_trigger: "[COUNTRY.GetNameNoFlag] has #bold #blue $VALUE$#! or greater#! $kog_capacity$"
- kog_capacity_trigger_NOT: "[COUNTRY.GetNameNoFlag] has #bold #blue $VALUE$#! or greater#! $kog_capacity$"
+ kog_capacity_trigger: "[COUNTRY.GetNameNoFlag] has #bold #blue [SCOPE.GetValue('kog_capacity_temp_scope')]#! or greater#! $kog_capacity$"
+ kog_capacity_trigger_NOT: "[COUNTRY.GetNameNoFlag] has #bold #blue [SCOPE.GetValue('kog_capacity_temp_scope')]#! or greater#! $kog_capacity$"
  
  kog_country_has_metropolitan_focus_cooldown_trigger: "[COUNTRY.GetNameNoFlag] has changed Metropolitan Focus within the past 5 years"
  kog_country_has_metropolitan_focus_cooldown_trigger_NOT: "[COUNTRY.GetNameNoFlag] has #bold not#! changed Metropolitan Focus within the past 5 years"
@@ -179,9 +179,10 @@
  kog_owns_seat_province_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! own the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
  kog_owns_seat_province_SGUI_trigger: "[GetPlayer.GetNameNoFlag] owns the $kog_home_province$ of this $kog_episcopal_seat$"
  
+ 
  ####----------- Episcopal Seat Control Triggers ----------####
- kog_controls_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_controls_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_controls_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_controls_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
  kog_controls_any_seat_trigger: "[COUNTRY.GetNameNoFlag] $kog_controls$ #bold any#! $kog_episcopal_seat$"
  kog_controls_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! $kog_control$ #bold any#! $kog_episcopal_seat$"
