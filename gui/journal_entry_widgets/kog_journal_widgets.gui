@@ -286,15 +286,145 @@ types kog_journal_widget_types {
 			datamodel = "[JournalEntry.MakeScope.GetList('kog_encyclicals_list')]"
 			spacing = 2
 			item = {
-				journal_entry = {
-					datacontext = "[Scope.GetJournalEntry]"
-				}
+				kog_encyclical_item = {}
 			}
 		}
 	}
 	
-	type kog_encyclical_item = button {
-	
+	type kog_encyclical_item = flowcontainer {
+		direction = vertical
+		minimumsize = { @panel_width_minus_30 -1 }
+		margin_bottom = 10
+		
+		datacontext = "[Scope.GetJournalEntry]"
+		
+		background = {
+			using = dark_area
+			alpha = 0.25
+			margin = { -5 -5 }
+		}
+		
+		button = {
+			minimumsize = { @panel_width_minus_30 40 }
+			using = com_international_organization_entry_properties
+			onclick = "[InformationPanelBar.OpenJournalEntryPanel(JournalEntry.AccessSelf)]"
+			enabled = "[JournalEntry.IsActive]"
+			
+			background = {
+				using = default_header_bg
+				margin = { -5 0 }
+			}
+			
+			widget = {
+				size = { 100% 100% }
+				using = entry_bg_fancy
+			}
+			
+			tooltipwidget = {
+				FancyTooltip_JournalEntry = { }
+			}
+			
+			onmousehierarchyenter = "[PdxGuiWidget.FindChild('journal_pin_button').InterruptThenTriggerAnimation('hide_journal_pin_button','show_journal_pin_button')]"
+			onmousehierarchyleave = "[PdxGuiWidget.FindChild('journal_pin_button').InterruptThenTriggerAnimation('show_journal_pin_button','hide_journal_pin_button')]"
+			
+			## UPPER ROW
+			flowcontainer = {
+				resizeparent = yes
+				direction = horizontal
+				minimumsize = { @panel_width_minus_30 -1 }
+				spacing = 5
+				
+				widget = {
+					size = { 50 40 }
+					icon = {
+						parentanchor = top|left
+						position = { -7 -7 }
+						size = { 60 60 }
+						texture = "gfx/interface/backgrounds/round_button_bg.dds"
+						
+						icon = {
+							parentanchor = center
+							size = { 40 40 }
+							texture = "[JournalEntry.GetIcon]"
+						}
+					}
+				}
+				
+				widget = {
+					size = { 23 23 }
+					parentanchor = center
+					visible = "[JournalEntry.IsActive]"
+					
+					button = {
+						name = "journal_pin_button"
+						texture = "gfx/interface/outliner/unpinned_icon.dds"
+						using = check_button_sound
+						size = { 100% 100% }
+						visible = "[Not(JournalEntry.IsPinnedInOutliner)]"
+						onclick = "[JournalEntry.TogglePinInOutliner]"
+						tooltip = "PIN"
+						parentanchor = center
+					}
+					button = {
+						using = check_button_sound
+						texture = "gfx/interface/outliner/pinned_icon.dds"
+						size = { 100% 100% }
+						visible = "[JournalEntry.IsPinnedInOutliner]"
+						onclick = "[JournalEntry.TogglePinInOutliner]"
+						tooltip = "UNPIN"
+						parentanchor = center
+					}
+				}
+				
+				widget = {
+					parentanchor = center
+					size = { 390 30 }
+					textbox = {
+						position = { 0 1 }
+						text = "[JournalEntry.GetName]"
+						autoresize = yes
+						align = left|nobaseline
+						multiline = yes
+						default_format = "#header"
+						using = fontsize_large
+					}
+				}
+			}
+		}
+		
+		## MIDDLE ROW
+		flowcontainer = {
+			direction = vertical
+			spacing = 5
+			margin_top = 4
+			margin_left = 40
+			minimumsize = { @panel_width_minus_30 40 }
+			
+			flowcontainer = {
+				visible = "[And(JournalEntry.CanTimeOut, JournalEntry.IsActive)]"
+				spacing = 5
+				
+				icon = {
+					size = { 18 18 }
+					texture = "gfx/interface/icons/generic_icons/clock.dds"
+					parentanchor = vcenter
+				}
+				textbox = {
+					text = "[JournalEntry.GetTimeoutTooltip]"
+					autoresize = yes
+					align = left|nobaseline
+					parentanchor = vcenter
+				}
+			}
+			
+			textbox = {
+				text = "[JournalEntry.GetStatusDesc]"
+				visible = "[Not(StringIsEmpty(JournalEntry.GetStatusDesc))]"
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+			}
+		}
 	}
 	
 	type kog_denominational_actions_container = flowcontainer {
