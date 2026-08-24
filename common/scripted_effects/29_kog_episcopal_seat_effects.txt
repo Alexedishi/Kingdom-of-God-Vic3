@@ -1,700 +1,175 @@
-﻿####---------- Episcopal Seat General Effects ---------- ####
-
-
-####---------- Episcopal Seat Diplomacy Effects ---------- ####
+﻿####---------- Episcopal Seat Diplomacy Effects ---------- ####
 kog_change_seat_relations_effect = {
+	# NOTE: The $seat$ parameter MUST point to one of the seat container scopes!
 	custom_tooltip = {
-		text = kog_change_$seat$_relations
+		text = kog_change_seat_relations
+		save_scope_as = kog_origin_scope
+		set_local_variable = {
+			name = kog_seat_scope
+			value = $seat$
+		}
 		save_temporary_scope_value_as = {
-			name = kog_change_seat_relations_effect
+			name = kog_seat_relations_change_value
 			value = $value$
 		}
-		var:je_kog_local = {
-			set_variable = {
-				name = kog_$seat$_relations_var
-				value = {
-					add = kog_opinion_start_value # Fallback in case the variable was unset
-					if = {
-						limit = {
-							has_variable = kog_$seat$_relations_var
-						}
-						add = var:kog_$seat$_relations_var
-					}
-					add = $value$
-					max = kog_opinion_max_value
-					min = kog_opinion_min_value
+		save_temporary_scope_value_as = {
+			name = kog_seat_relations_math_value
+			value = {
+				value = kog_relations_start_value
+				local_var:kog_seat_scope = {
+					add = "variable_map(kog_relations_map|scope:kog_origin_scope)"
 				}
+				add = $value$
+				max = kog_relations_max_value
+				min = kog_relations_min_value
+			}
+		}
+		local_var:kog_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = scope:kog_origin_scope
+				value = scope:kog_seat_relations_math_value
 			}
 		}
 	}
 }
 
-kog_change_seat_relations_event_effect = {
-	# This effect is meant to be used in conjunction with kog_event_seat_var
-	if = {
-		limit = {
-			has_variable = kog_seat_event_var
-		}
-		if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_rome
-			}
-			kog_change_seat_relations_effect = {
-				seat = rome
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_santiago
-			}
-			kog_change_seat_relations_effect = {
-				seat = santiago
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_paris
-			}
-			kog_change_seat_relations_effect = {
-				seat = paris
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_koln
-			}
-			kog_change_seat_relations_effect = {
-				seat = koln
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_paris
-			}
-			kog_change_seat_relations_effect = {
-				seat = paris
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_constantinople
-			}
-			kog_change_seat_relations_effect = {
-				seat = constantinople
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_antioch
-			}
-			kog_change_seat_relations_effect = {
-				seat = antioch
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_jerusalem
-			}
-			kog_change_seat_relations_effect = {
-				seat = jerusalem
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_alexandria
-			}
-			kog_change_seat_relations_effect = {
-				seat = alexandria
-				value = $value$
-			}
-		}
-		else_if = {
-			limit = {
-				var:kog_seat_event_var = flag:kog_moscow
-			}
-			kog_change_seat_relations_effect = {
-				seat = moscow
-				value = $value$
-			}
-		}
-		else = {
-			error_log = "Effect kog_change_seat_relations_event_effect was called, but no valid state was found for kog_seat_event_var"
-		}
-	}
-	else = {
-		error_log = "Effect kog_change_seat_relations_event_effect was called, but kog_seat_event_var was not set"
-	}
-}
-
+# This effect saves the country scope just in case the desired country isn't root
 kog_monthly_seat_relations_effect = {
-	kog_change_seat_relations_effect = {
-		seat = rome
-		value = kog_rome_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = santiago
-		value = kog_santiago_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = paris
-		value = kog_paris_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = koln
-		value = kog_koln_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = vienna
-		value = kog_vienna_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = constantinople
-		value = kog_constantinople_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = antioch
-		value = kog_antioch_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = jerusalem
-		value = kog_jerusalem_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = alexandria
-		value = kog_alexandria_monthly_relations_change_value
-	}
-	kog_change_seat_relations_effect = {
-		seat = moscow
-		value = kog_moscow_monthly_relations_change_value
+	save_scope_as = kog_root_scope
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_relations_math_value
+			value = kog_episcopal_seat_monthly_change_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_relations_map
+			key = scope:kog_root_scope
+			value = scope:kog_relations_math_value
+		}
 	}
 }
 
-kog_evaluate_seat_endorsements_effect = {
+# This effect saves the country scope just in case the desired country isn't root
+kog_update_opinion_variable_maps_effect = {
+	save_scope_as = kog_root_scope
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_opinion_math_value
+			value = kog_episcopal_seat_opinion_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_opinions_map
+			key = scope:kog_root_scope
+			value = scope:kog_opinion_math_value
+		}
+	}
+}
+
+kog_update_seat_endorsements_modifier_effect = {
 	kog_clear_seat_endorsements_effect = yes
 	if = {
 		limit = {
-			je:je_kog_local.var:kog_rome_relations_var >= kog_opinion_threshold_friendly
+			kog_seat_endorsements_value > 0
 		}
-		add_modifier = modifier_kog_endorsed_by_rome
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_santiago_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_santiago
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_paris_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_paris
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_koln_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_koln
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_vienna_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_vienna
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_constantinople_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_constantinople
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_antioch_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_antioch
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_jerusalem_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_jerusalem
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_alexandria_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_alexandria
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_moscow_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_moscow
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_coptic_alexandria_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_coptic_alexandria
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_syriac_antioch_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_syriac_antioch
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_etchmiadzin_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_etchmiadzin
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_addis_ababa_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_addis_ababa
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_konak_relations_var >= kog_opinion_threshold_friendly
-		}
-		add_modifier = modifier_kog_endorsed_by_konak
-	}
-	if = {
-		limit = { 
-			basileia_is_active = yes
-		}
-		if = {
-			limit = {
-				je:je_kog_local.var:kog_elysium_relations_var >= kog_opinion_threshold_friendly
-			}
-			add_modifier = modifier_kog_endorsed_by_elysium
-		}
-		if = {
-			limit = {
-				je:je_kog_local.var:kog_tututepec_relations_var >= kog_opinion_threshold_friendly
-			}
-			add_modifier = modifier_kog_endorsed_by_tututepec
-		}
-		if = {
-			limit = {
-				je:je_kog_local.var:kog_cahokia_relations_var >= kog_opinion_threshold_friendly
-			}
-			add_modifier = modifier_kog_endorsed_by_cahokia
+		add_modifier = {
+			name = modifier_kog_endorsements
+			multiplier = kog_seat_endorsements_value
 		}
 	}
 }
 
-kog_evaluate_seat_condemnations_effect = {
+kog_update_seat_condemnations_modifier_effect = {
 	kog_clear_seat_condemnations_effect = yes
 	if = {
 		limit = {
-			je:je_kog_local.var:kog_rome_relations_var < kog_opinion_threshold_hostile
+			kog_seat_condemnations_value > 0
 		}
-		add_modifier = modifier_kog_condemned_by_rome
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_santiago_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_santiago
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_paris_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_paris
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_koln_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_koln
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_vienna_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_vienna
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_constantinople_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_constantinople
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_antioch_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_antioch
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_jerusalem_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_jerusalem
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_alexandria_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_alexandria
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_moscow_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_moscow
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_coptic_alexandria_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_coptic_alexandria
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_syriac_antioch_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_syriac_antioch
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_etchmiadzin_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_etchmiadzin
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_addis_ababa_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_addis_ababa
-	}
-	if = {
-		limit = {
-			je:je_kog_local.var:kog_konak_relations_var < kog_opinion_threshold_hostile
-		}
-		add_modifier = modifier_kog_condemned_by_konak
-	}
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		if = {
-			limit = {
-				je:je_kog_local.var:kog_elysium_relations_var < kog_opinion_threshold_hostile
-			}
-			add_modifier = modifier_kog_condemned_by_elysium
-		}
-		if = {
-			limit = {
-				je:je_kog_local.var:kog_tututepec_relations_var < kog_opinion_threshold_hostile
-			}
-			add_modifier = modifier_kog_condemned_by_tututepec
-		}
-		if = {
-			limit = {
-				je:je_kog_local.var:kog_cahokia_relations_var < kog_opinion_threshold_hostile
-			}
-			add_modifier = modifier_kog_condemned_by_cahokia
+		add_modifier = {
+			name = modifier_kog_condemnations
+			multiplier = kog_seat_condemnations_value
 		}
 	}
 }
 
 kog_clear_seat_endorsements_effect = {
-	remove_modifier = modifier_kog_endorsed_by_rome
-	remove_modifier = modifier_kog_endorsed_by_santiago
-	remove_modifier = modifier_kog_endorsed_by_paris
-	remove_modifier = modifier_kog_endorsed_by_koln
-	remove_modifier = modifier_kog_endorsed_by_vienna
-	remove_modifier = modifier_kog_endorsed_by_constantinople
-	remove_modifier = modifier_kog_endorsed_by_antioch
-	remove_modifier = modifier_kog_endorsed_by_jerusalem
-	remove_modifier = modifier_kog_endorsed_by_alexandria
-	remove_modifier = modifier_kog_endorsed_by_moscow
-	remove_modifier = modifier_kog_endorsed_by_coptic_alexandria
-	remove_modifier = modifier_kog_endorsed_by_syriac_antioch
-	remove_modifier = modifier_kog_endorsed_by_etchmiadzin
-	remove_modifier = modifier_kog_endorsed_by_addis_ababa
-	remove_modifier = modifier_kog_endorsed_by_konak
-	remove_modifier = modifier_kog_endorsed_by_elysium
-	remove_modifier = modifier_kog_endorsed_by_tututepec
-	remove_modifier = modifier_kog_endorsed_by_cahokia
+	if = {
+		limit = {
+			has_modifier = modifier_kog_endorsements
+		}
+	}
+	remove_modifier = modifier_kog_endorsements
 }
 
 kog_clear_seat_condemnations_effect = {
-	remove_modifier = modifier_kog_condemned_by_rome
-	remove_modifier = modifier_kog_condemned_by_santiago
-	remove_modifier = modifier_kog_condemned_by_paris
-	remove_modifier = modifier_kog_condemned_by_koln
-	remove_modifier = modifier_kog_condemned_by_vienna
-	remove_modifier = modifier_kog_condemned_by_constantinople
-	remove_modifier = modifier_kog_condemned_by_antioch
-	remove_modifier = modifier_kog_condemned_by_jerusalem
-	remove_modifier = modifier_kog_condemned_by_alexandria
-	remove_modifier = modifier_kog_condemned_by_moscow
-	remove_modifier = modifier_kog_condemned_by_coptic_alexandria
-	remove_modifier = modifier_kog_condemned_by_syriac_antioch
-	remove_modifier = modifier_kog_condemned_by_etchmiadzin
-	remove_modifier = modifier_kog_condemned_by_addis_ababa
-	remove_modifier = modifier_kog_condemned_by_konak
 	if = {
-		limit = { 
-			basileia_is_active = yes
+		limit = {
+			has_modifier = modifier_kog_condemnations
 		}
-		remove_modifier = modifier_kog_condemned_by_elysium
-		remove_modifier = modifier_kog_condemned_by_tututepec
-		remove_modifier = modifier_kog_condemned_by_cahokia
 	}
+	remove_modifier = modifier_kog_condemnations
 }
 
+
 ####---------- Episcopal Seat Control Effects ---------- ####
-kog_start_seat_integration_effect = {
-	add_modifier = modifier_kog_integrating_$seat$
-	custom_tooltip = {
-		text = kog_gui_integrate_$seat$_effect
-		je:je_kog_local = {
-			set_variable = {
-				name = kog_integrating_$seat$
-				value = 0
-			}
+kog_update_seat_integrations_modifier_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_integrating_seats
+		}
+		remove_modifier = modifier_kog_integrating_seats
+	}
+	if = {
+		limit = {
+			kog_seat_integrations_value > 0
+		}
+		add_modifier = {
+			name = modifier_kog_integrating_seats
+			multiplier = kog_seat_integrations_value
 		}
 	}
 }
 
 kog_seat_integration_monthly_progress_effect = {
-	je:je_kog_local = {
-		if = {
-			limit = {
-				has_variable = kog_integrating_rome
-			}
-			change_variable = {
-				name = kog_integrating_rome
-				add = 1
-			}
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			has_variable = kog_integration_var
+			has_variable = kog_integrator_var
+			
 		}
 		if = {
 			limit = {
-				has_variable = kog_integrating_santiago
+				exists = var:kog_integrator_var
 			}
-			change_variable = {
-				name = kog_integrating_santiago
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_paris
-			}
-			change_variable = {
-				name = kog_integrating_paris
-				add = 1
+			com_change_variable = {
+				name = kog_integration_var
+				value = 1
 			}
 		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_koln
-			}
-			change_variable = {
-				name = kog_integrating_koln
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_vienna
-			}
-			change_variable = {
-				name = kog_integrating_vienna
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_constantinople
-			}
-			change_variable = {
-				name = kog_integrating_constantinople
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_antioch
-			}
-			change_variable = {
-				name = kog_integrating_antioch
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_jerusalem
-			}
-			change_variable = {
-				name = kog_integrating_jerusalem
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_alexandria
-			}
-			change_variable = {
-				name = kog_integrating_alexandria
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_moscow
-			}
-			change_variable = {
-				name = kog_integrating_moscow
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_coptic_alexandria
-			}
-			change_variable = {
-				name = kog_integrating_coptic_alexandria
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_syriac_antioch
-			}
-			change_variable = {
-				name = kog_integrating_syriac_antioch
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_etchmiadzin
-			}
-			change_variable = {
-				name = kog_integrating_etchmiadzin
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_addis_ababa
-			}
-			change_variable = {
-				name = kog_integrating_addis_ababa
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_konak
-			}
-			change_variable = {
-				name = kog_integrating_konak
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_elysium
-			}
-			change_variable = {
-				name = kog_integrating_elysium
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_tututepec
-			}
-			change_variable = {
-				name = kog_integrating_tututepec
-				add = 1
-			}
-		}
-		if = {
-			limit = {
-				has_variable = kog_integrating_cahokia
-			}
-			change_variable = {
-				name = kog_integrating_cahokia
-				add = 1
-			}
+		else = {
+			remove_variable = kog_integration_var
+			remove_variable = kog_integrator_var
 		}
 	}
 }
 
 kog_complete_seat_integration_effect = {
-	custom_tooltip = {
-		text = kog_usurped_$seat$
-		save_scope_as = kog_usurper_scope
-		je:je_kog_local = {
-			remove_variable = kog_integrating_$seat$
-			add_modifier = modifier_kog_controls_$seat$
-		}
-		scope:kog_$seat$_controller_scope ?= {
-			change_relations = {
-				country = root
-				value = -30
-			}
-			je:je_kog_local = {
-				remove_modifier = modifier_kog_controls_$seat$
-			}
-		}
-		remove_from_global_variable_map = {
-			name = kog_$seat$
-			key = flag:kog_seat_controller
-		}
-		add_to_global_variable_map = {
-			name = kog_$seat$
-			key = flag:kog_seat_controller
-			value = scope:kog_usurper_scope
-		}
-	}
-	if = {
-		limit = {
-			has_modifier = modifier_kog_integrating_$seat$
-		}
-		remove_modifier =  modifier_kog_integrating_$seat$
-	}
-	every_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-		}
-		post_notification = kog_$seat$_usurped
-	}
+	custom_tooltip = kog_placeholder_text # TODO figure this out lol
 }
 
 kog_assert_seat_control_effect = {
-	je:je_kog_local = {
-		remove_variable = kog_schism_var
-		remove_modifier = modifier_kog_schismatic
-		if = {
-			limit = {
-				NOT = {
-					has_modifier = modifier_kog_autocephalous
-				}
+	remove_variable = kog_schism_var
+	remove_modifier = modifier_kog_schismatic
+	if = {
+		limit = {
+			NOT = {
+				has_modifier = modifier_kog_autocephalous
 			}
-			add_modifier = modifier_kog_autocephalous
 		}
-	}
-	kog_complete_seat_integration_effect = {
-		seat = $seat$
+		add_modifier = modifier_kog_autocephalous
 	}
 	add_modifier = {
 		name = modifier_kog_asserted_seat
@@ -703,884 +178,393 @@ kog_assert_seat_control_effect = {
 	}
 }
 
+kog_check_seat_controllers_effect = {
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		if = {
+			limit = {
+				NOT = {
+					exists = var:kog_controller_var
+				}
+			}
+			remove_variable = kog_controller_var
+		}
+	}
+}
+
+kog_update_controlled_seats_modifier_effect = {
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		save_scope_value_as = {
+			name = kog_episcopal_seats_count
+			value = kog_episcopal_seats_value
+		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_episcopal_seats_var
+				value = scope:kog_episcopal_seats_count
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = modifier_kog_controlled_seats
+			}
+			remove_modifier = modifier_kog_controlled_seats
+		}
+		if = {
+			limit = {
+				scope:kog_episcopal_seats_count > 0
+			}
+			add_modifier = {
+				name = modifier_kog_controlled_seats
+				multiplier = scope:kog_episcopal_seats_count
+			}
+		}
+	}
+}
+
+####---------- Episcopal Seat Liturgical Rite Enforcement Effects ----------####
+kog_update_seat_enforcements_modifier_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_enforcing_seats
+		}
+		remove_modifier = modifier_kog_enforcing_seats
+	}
+	if = {
+		limit = {
+			kog_seat_enforcements_value > 0
+		}
+		add_modifier = {
+			name = modifier_kog_enforcing_seats
+			multiplier = kog_seat_enforcements_value
+		}
+	}
+}
+
+kog_seat_enforcement_monthly_progress_effect = {
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		if = {
+			limit = {
+				has_variable = kog_enforcement_var
+				exists = var:kog_enforcer_var
+				
+			}
+			com_change_variable = {
+				name = kog_controller_var
+				value = 1
+			}
+		}
+		else = {
+			remove_variable = kog_enforcement_var
+			remove_variable = kog_enforcer_var
+		}
+	}
+}
+
 ####---------- Episcopal Seat Selection Effects ----------####
-kog_select_random_seat_in_faith_effect = {}
+kog_select_random_seat_in_faith_effect = {
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_religion_var = root.religion
+		}
+		save_scope_as = kog_episcopal_seat_scope
+	}
+}
 
-kog_select_random_seat_in_faith_different_rite_effect = {}
+kog_select_random_seat_in_faith_different_rite_effect = {
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_religion_var = root.religion
+			var:kog_liturgical_rite_var != var:kog_local.var:kog_liturgical_rite_var
+		}
+		save_scope_as = kog_episcopal_seat_scope
+	}
+}
 
-kog_select_random_seat_in_different_faith_effect = {}
+kog_select_random_seat_in_different_faith_effect = {
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_religion_var != root.religion
+		}
+		save_scope_as = kog_episcopal_seat_scope
+	}
+}
 
-kog_select_random_seat_in_different_faith_same_rite_effect = {  }
+kog_select_random_seat_in_different_faith_same_rite_effect = {
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_religion_var != root.religion
+			var:kog_liturgical_rite_var != var:kog_local.var:kog_liturgical_rite_var
+		}
+		save_scope_as = kog_episcopal_seat_scope
+	}
+}
 
 kog_select_random_seat_effect = {
-	random_list = {
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_santiago
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_paris
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_koln
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_vienna
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_constantinople
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_antioch
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_jerusalem
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_alexandria
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_moscow
-			}
-		}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_catholic_seat_effect = {
-	random_list = {
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			has_tag = roman_catholic
 		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_santiago
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_paris
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_koln
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_vienna
-			}
-		}
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_orthodox_seat_effect = {
-	random_list = {
-		5 = {
-			trigger = { # Rome only participates if part of the Orthodox sphere
-				any_country = {
-					has_modifier = modifier_kog_controls_rome
-					kog_country_is_eastern_orthodox_trigger = yes
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			has_tag = eastern_orthodox
 		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_constantinople
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_antioch
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_jerusalem
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_alexandria
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_moscow
-			}
-		}
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_oriental_seat_effect = {
-	random_list = {
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_coptic_alexandria
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			has_tag = oriental_orthodox
 		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_syriac_antioch
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_etchmiadzin
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_addis_ababa
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_konak
-			}
-		}
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_elysian_seat_effect = {
-	# This effect does NOT check for BR to be active; be aware when calling this effect
-	random_list = {
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_elysium
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			has_tag = elysian_orthodox
 		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_tututepec
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_cahokia
-			}
-		}
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_controlled_seat_effect = {
-	# This effect does NOT check for BR to be active; be aware when calling this effect
-	random_list = {
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_rome
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_controller_var = root
 		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_santiago
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_santiago
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_paris
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_paris
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_koln
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_koln
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_vienna
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_vienna
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_constantinople
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_constantinople
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_antioch
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_antioch
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_jerusalem
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_jerusalem
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_alexandria
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_alexandria
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_moscow
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_moscow
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_coptic_alexandria
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_coptic_alexandria
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_syriac_antioch
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_syriac_antioch
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_etchmiadzin
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_etchmiadzin
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_addis_ababa
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_addis_ababa
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_konak
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_konak
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_elysium
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_elysium
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_tututepec
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_tututepec
-			}
-		}
-		5 = {
-			trigger = {
-				je:je_kog_local = {
-					has_modifier = modifier_kog_controls_cahokia
-				}
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_cahokia
-			}
-		}
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_swayed_seat_effect = {
-	# This effect does NOT check for BR to be active; be aware when calling this effect
-	random_list = {
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_rome
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			"variable_map(kog_diplomacy_map|root)" = 1
 		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_santiago
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_santiago
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_paris
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_paris
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_koln
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_koln
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_vienna
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_vienna
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_constantinople
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_constantinople
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_antioch
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_antioch
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_jerusalem
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_jerusalem
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_alexandria
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_alexandria
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_moscow
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_moscow
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_coptic_alexandria
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_coptic_alexandria
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_syriac_antioch
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_syriac_antioch
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_etchmiadzin
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_etchmiadzin
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_addis_ababa
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_addis_ababa
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_konak
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_konak
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_elysium
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_elysium
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_tututepec
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_tututepec
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_swaying_cahokia
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_cahokia
-			}
-		}
+		save_scope_as = kog_episcopal_seat_scope
 	}
 }
 
 kog_select_random_antagonized_seat_effect = {
-	# This effect does NOT check for BR to be active; be aware when calling this effect
-	random_list = {
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_rome
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
+	random_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			"variable_map(kog_diplomacy_map|root)" = -1
 		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_santiago
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_santiago
-			}
+		save_scope_as = kog_episcopal_seat_scope
+	}
+}
+
+
+####---------- Patriarch Upkeep Effects ---------- ####
+kog_update_patriarch_variables_effect = {
+	kog_update_seat_patriarchs_effect = yes
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
 		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_paris
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_paris
-			}
+		kog_update_metropolitan_bishop_patriarch_effect = yes
+	}
+	kog_update_heads_of_faith_effect = yes
+}
+
+kog_update_metropolitan_bishop_patriarch_effect = {
+	# Local Metropolitan
+	var:kog_local = {
+		set_variable = {
+			name = kog_metropolitan_var
+			value = parent.ig:ig_devout.leader
 		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_koln
+	}
+}
+
+kog_update_seat_patriarchs_effect = {
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		save_scope_as = kog_episcopal_seat_scope
+		# Step 1, Ensure there is a valid scope saved to kog_patriarch_var
+		if = {
+			limit = {
+				NOT = {
+					# If this variable is unset, heavens help us all
+					# This is intentionally left unasserted because we NEED the error to point here if there's an issue
+					exists = var:kog_patriarch_var
+				}
 			}
+			# First, sweep the void for the Patriarch
+			if = {
+				limit = {
+					any_character_in_void = {
+						var:kog_seat_var ?= scope:kog_episcopal_seat_scope
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						var:kog_seat_var ?= scope:kog_episcopal_seat_scope
+					}
+					save_scope_as = kog_patriarch_scope
+				}
+			}
+			# Regenerate the Patriarch if no character is found
+			else = {
+				# Special handling for the Papacy
+				if = {
+					limit = {
+						has_tag = papacy
+						c:PAP ?= {
+							has_law_or_variant = law_type:law_papal_see
+							container:kog_rome.var:kog_controller_var ?= c:PAP
+						}
+					}
+					c:PAP = {
+						ruler = {
+							if = {
+								limit = {
+									NOT = {
+										has_trait = kog_patriarch
+									}
+								}
+								add_trait = kog_patriarch
+							}
+							set_variable = {
+								name = kog_seat_var
+								value = scope:kog_episcopal_seat_scope
+							}
+						}
+					}
+				}
+				# Next try using the seat controller
+				else_if = {
+					limit = {
+						exists = var:kog_controller_var
+					}
+					var:kog_controller_var = {
+						create_character = {
+							template = kog_patriarch_template
+							religion = scope:kog_episcopal_seat_scope.var:kog_religion_var
+							culture = culture
+							on_created = {
+								set_variable = {
+									name = kog_seat_var
+									value = scope:kog_episcopal_seat_scope
+								}
+								place_character_in_void = 180 # 15 year shelf life
+							}
+						}
+					}
+				}
+				# Next try using the home province
+				else_if = {
+					limit = {
+						var:kog_seat_province_var = {
+							owner = {
+								kog_content_scope_trigger = yes
+							}
+						}
+					}
+					var:kog_seat_province_var = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								religion = religion
+								culture = scope:kog_episcopal_seat_scope.var:kog_culture_var
+								on_created = {
+									set_variable = {
+										name = kog_seat_var
+										value = scope:kog_episcopal_seat_scope
+									}
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				# Lastly fall back to default settings
+				else = {
+					var:kog_seat_province_var = {
+						owner = {
+							create_character = {
+								template = kog_patriarch_template
+								religion = scope:kog_episcopal_seat_scope.var:kog_religion_var
+								culture = scope:kog_episcopal_seat_scope.var:kog_culture_var
+								on_created = {
+									set_variable = {
+										name = kog_seat_var
+										value = scope:kog_episcopal_seat_scope
+									}
+									place_character_in_void = 180 # 15 year shelf life
+								}
+							}
+						}
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						var:kog_seat_var ?= scope:kog_episcopal_seat_scope
+					}
+					save_scope_as = kog_patriarch_scope
+				}
+				every_key_in_variable_map = {
+					variable = kog_relations_map
+					kog_change_seat_relations_effect = {
+						seat = scope:kog_episcopal_seat_scope
+						value = -25
+					}
+					post_notification = kog_new_patriarch_same_religion
+				}
+			}
+			# Update the Patriarch Variable
 			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_koln
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_vienna
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_vienna
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_constantinople
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_constantinople
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_antioch
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_antioch
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_jerusalem
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_jerusalem
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_alexandria
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_alexandria
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_moscow
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_moscow
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_coptic_alexandria
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_coptic_alexandria
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_syriac_antioch
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_syriac_antioch
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_etchmiadzin
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_etchmiadzin
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_addis_ababa
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_addis_ababa
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_konak
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_konak
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_elysium
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_elysium
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_tututepec
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_tututepec
-			}
-		}
-		5 = {
-			trigger = {
-				has_modifier = modifier_kog_antagonizing_cahokia
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_cahokia
+				name = kog_patriarch_var
+				value = scope:kog_patriarch_scope
 			}
 		}
 	}
 }
 
-####---------- Old Effects ----------####
-kog_select_random_seat_effect_old = {
-	random_list = {
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_rome
-			}
+kog_update_heads_of_faith_effect = {
+	every_in_global_list = {
+		variable = kog_global_journals_list
+		var:kog_mother_church_var.var:kog_patriarch_var = {
+			save_scope_as = kog_head_of_faith_scope
 		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_santiago
-			}
+		set_variable = {
+			name = kog_head_of_faith_var
+			value = scope:kog_head_of_faith_scope
 		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_paris
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_koln
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_vienna
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_constantinople
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_antioch
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_jerusalem
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_alexandria
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_moscow
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_coptic_alexandria
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_syriac_antioch
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_etchmiadzin
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_addis_ababa
-			}
-		}
-		5 = {
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_konak
-			}
-		}
-		5 = {
-			trigger = {
-				basileia_is_active = yes
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_elysium
-			}
-		}
-		5 = {
-			trigger = {
-				basileia_is_active = yes
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_tututepec
-			}
-		}
-		5 = {
-			trigger = {
-				basileia_is_active = yes
-			}
-			set_variable = {
-				name = kog_seat_event_var
-				value = flag:kog_cahokia
-			}
+		set_variable = {
+			name = com_interorg_chair_var
+			value = scope:kog_head_of_faith_scope
 		}
 	}
-}
-
-kog_remove_seat_event_variables_effect = {
-	remove_variable = kog_seat_event_var
 }

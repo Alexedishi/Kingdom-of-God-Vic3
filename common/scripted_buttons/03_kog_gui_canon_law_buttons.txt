@@ -1,277 +1,476 @@
-﻿kog_gui_debate_apostolic_succession = {
+﻿####---------- Apostolic Succession Law Group Debate Buttons ----------####
+kog_gui_debate_apostolic_succession = {
 	name = "kog_gui_debate_apostolic_succession"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = apostolic_succession
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = apostolic_succession
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_apostolic_succession
+			}
 		}
+		
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = apostolic_succession
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+kog_gui_support_papal_primacy = {
+	name = "kog_gui_support_papal_primacy"
+	desc = "kog_gui_support_papal_primacy_desc"
+	
+	visible = {
+		kog_country_matches_journal_religion_trigger = yes
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+		}
+	}
+	selected = {
+		"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_papal_primacy
+	}
+	possible = {
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		hidden_trigger = {
+			NOT = {
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_papal_primacy
+			}
+		}
+	}
+	effect = {
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+			canon_law = kog_canon_law_papal_primacy
+		}
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_support_synodality = {
+	name = "kog_gui_support_synodality"
+	desc = "kog_gui_support_synodality_desc"
+	
+	visible = {
+		kog_country_matches_journal_religion_trigger = yes
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+		}
+	}
+	selected = {
+		"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_synodality
+	}
+	possible = {
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		hidden_trigger = {
+			NOT = {
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_synodality
+			}
+		}
+	}
+	effect = {
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+			canon_law = kog_canon_law_synodality
+		}
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_support_congregationalism = {
+	name = "kog_gui_support_congregationalism"
+	desc = "kog_gui_support_congregationalism_desc"
+	
+	visible = {
+		kog_country_matches_journal_religion_trigger = yes
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+		}
+	}
+	selected = {
+		"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_congregationalism
+	}
+	possible = {
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		hidden_trigger = {
+			NOT = {
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_congregationalism
+			}
+		}
+	}
+	effect = {
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_apostolic_succession
+			canon_law = kog_canon_law_congregationalism
+		}
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+####---------- Almsgiving Law Group Debate Buttons ----------####
 kog_gui_debate_almsgiving = {
 	name = "kog_gui_debate_almsgiving"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = almsgiving
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = almsgiving
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_almsgiving
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = almsgiving
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+kog_gui_support_no_alms = {
+	name = "kog_gui_support_no_alms"
+	desc = "kog_gui_support_no_alms_desc"
+	
+	visible = {
+		kog_country_matches_journal_religion_trigger = yes
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+		}
+	}
+	selected = {
+		"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_no_alms
+	}
+	possible = {
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		hidden_trigger = {
+			NOT = {
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_no_alms
+			}
+		}
+	}
+	effect = {
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+			canon_law = kog_canon_law_no_alms
+		}
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_support_offertory = {
+	name = "kog_gui_support_offertory"
+	desc = "kog_gui_support_offertory_desc"
+	
+	visible = {
+		kog_country_matches_journal_religion_trigger = yes
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+		}
+	}
+	selected = {
+		"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_offertory
+	}
+	possible = {
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		hidden_trigger = {
+			NOT = {
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_offertory
+			}
+		}
+	}
+	effect = {
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+			canon_law = kog_canon_law_offertory
+		}
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_gui_support_tithing = {
+	name = "kog_gui_support_tithing"
+	desc = "kog_gui_support_tithing_desc"
+	
+	visible = {
+		kog_country_matches_journal_religion_trigger = yes
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+		}
+	}
+	selected = {
+		"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_tithing
+	}
+	possible = {
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		hidden_trigger = {
+			NOT = {
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_tithing
+			}
+		}
+	}
+	effect = {
+		kog_set_support_for_canon_law_effect = {
+			canon_law_group = kog_canon_lawgroup_almsgiving
+			canon_law = kog_canon_law_tithing
+		}
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+####---------- Iconography Law Group Debate Buttons ----------####
 kog_gui_debate_iconography = {
 	name = "kog_gui_debate_iconography"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = iconography
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_iconography
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = iconography
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_iconography
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = iconography
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_iconography
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+
+####---------- Church and State Law Group Debate Buttons ----------####
 kog_gui_debate_statism = {
 	name = "kog_gui_debate_statism"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = statism
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_statism
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = statism
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_statism
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = statism
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_statism
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+
+####---------- Church and Nation Law Group Debate Buttons ----------####
 kog_gui_debate_nationalism = {
 	name = "kog_gui_debate_nationalism"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = nationalism
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_nationalism
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = nationalism
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_nationalism
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = nationalism
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_nationalism
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+
+####---------- Clerical Marriage Law Group Debate Buttons ----------####
 kog_gui_debate_clerical_marriage = {
 	name = "kog_gui_debate_clerical_marriage"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = clerical_marriage
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_clerical_marriage
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = clerical_marriage
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_clerical_marriage
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = clerical_marriage
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_clerical_marriage
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+
+####---------- Social Role Law Group Debate Buttons ----------####
 kog_gui_debate_social_role = {
 	name = "kog_gui_debate_social_role"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = social_role
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_social_role
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = social_role
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_social_role
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = social_role
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_social_role
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+
+####---------- Stance on Sciences Law Group Debate Buttons ----------####
 kog_gui_debate_stance_on_sciences = {
 	name = "kog_gui_debate_stance_on_sciences"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = stance_on_sciences
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_stance_on_sciences
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = stance_on_sciences
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_stance_on_sciences
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = stance_on_sciences
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_stance_on_sciences
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}
 }
 
+
+####---------- Crusades Law Group Debate Buttons ----------####
 kog_gui_debate_crusades = {
 	name = "kog_gui_debate_crusades"
 	desc = "kog_gui_debate_canon_law_desc"
 	
 	visible = {
-		scope:journal_entry = {
-			var:kog_religion_var ?= root.religion
-		}
+		kog_council_button_validity_trigger = yes
 	}
 	selected = {
-		kog_canon_lawgroup_debate_trigger = {
-			flag = crusades
+		kog_council_is_debating_canon_lawgroup_trigger = {
+			canon_law_group = kog_canon_lawgroup_crusades
 		}
 	}
 	possible = {
-		kog_has_ongoing_council_trigger = yes
-		kog_canon_lawgroup_debate_trigger_NOT = {
-			flag = crusades
+		kog_country_is_ecumenical_council_participant_trigger = yes
+		NOT = {
+			kog_council_is_debating_canon_lawgroup_trigger = {
+				canon_law_group = kog_canon_lawgroup_crusades
+			}
 		}
 	}
 	effect = {
-		kog_add_council_matter_effect = {
-			flag = crusades
+		kog_add_canon_law_group_to_council_effect = {
+			canon_law_group = kog_canon_lawgroup_crusades
 		}
 	}
-	
 	ai_chance = {
 		value = 0
 	}

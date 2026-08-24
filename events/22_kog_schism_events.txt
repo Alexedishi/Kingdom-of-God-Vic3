@@ -25,7 +25,7 @@ kog_schism_events.001 = {
 	
 	cancellation_trigger = {
 		NOT = {
-			je:je_kog_local = {
+			var:kog_local = {
 				has_variable = kog_schism_var
 			}
 		}
@@ -59,7 +59,7 @@ kog_schism_events.002 = {
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 	
 	trigger = {
-		je:je_kog_local = {
+		var:kog_local = {
 			has_variable = kog_schism_var
 			var:kog_schism_var >= 120
 		}
@@ -103,13 +103,13 @@ kog_schism_events.010 = {
 		NOT = {
 			has_variable = kog_schism_event_cooldown_var
 		}
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			var:kog_schism_var > 30
 		}
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -180,13 +180,13 @@ kog_schism_events.011 = {
 			has_modifier = modifier_kog_nationalist_church
 			has_modifier = modifier_kog_sidelined_church
 		}
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			var:kog_schism_var > 90
 		}
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -248,7 +248,7 @@ kog_schism_events.012 = {
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -329,13 +329,13 @@ kog_schism_events.013 = {
 			# kog_has_low_opinion_with_any_patriarch_trigger = yes #TODO replace with no trigger
 			has_variable = kog_schism_var
 		}
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			var:kog_schism_var > 30
 		}
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -386,10 +386,6 @@ kog_schism_events.013 = {
 			}
 		}
 	}
-	
-	after = {
-		kog_remove_seat_event_variables_effect = yes
-	}
 }
 
 kog_schism_events.014 = {
@@ -420,7 +416,7 @@ kog_schism_events.014 = {
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -505,7 +501,7 @@ kog_schism_events.015 = {
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -584,7 +580,7 @@ kog_schism_events.016 = {
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -647,7 +643,7 @@ kog_schism_events.017 = {
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}
@@ -735,7 +731,7 @@ kog_schism_events.018 = {
 	
 	cancellation_trigger = {
 		OR = {
-			je:je_kog_local ?= {
+			var:kog_local ?= {
 				has_modifier = modifier_kog_autocephalous
 			}
 			scope:kog_denouncing_agitator_scope = {
@@ -838,7 +834,7 @@ kog_schism_events.019 = {
 	}
 	
 	cancellation_trigger = {
-		je:je_kog_local ?= {
+		var:kog_local ?= {
 			has_modifier = modifier_kog_autocephalous
 		}
 	}

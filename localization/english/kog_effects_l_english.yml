@@ -1,5 +1,6 @@
 ﻿l_english:
  ####---------- Schism Effects ----------####
+ kog_add_schism_progress_effect: "Progress towards [concept_autocephaly] will change by [SCOPE.GetValue('kog_schism_progress')|+=]"
  kog_schism_gain_6: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 6#!"
  kog_schism_lose_6: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 6#!"
  kog_schism_gain_12: "[concept_autocephaly] progress will #bold #green advance#!#! by #bold 12#!"
@@ -8,8 +9,9 @@
  kog_schism_lose_24: "[concept_autocephaly] progress will #bold #red regress#!#! by #bold 24#!"
  
  ####---------- Ecumenical Council Effects ----------####
- kog_convoke_council_effect: ""
- kog_add_council_matter_effect: "[SCOPE.GetLocalVariable('kog_council_matter_var').GetFlagName] will be raised as an issue of debate in this $kog_ecumenical_council$"
+ kog_convoke_council_effect: "The $kog_devout$ of [ROOT.GetCountry.GetNameNoFlag] will convene an [concept_ecumenical_council]"
+ kog_add_canon_law_group_to_council_effect: "[SCOPE.GetLocalVariable('kog_council_matter_var').GetFlagName] will be raised as an issue of debate in this $kog_ecumenical_council$"
+ kog_join_ecumenical_council_effect: "The $kog_devout$ of [ROOT.GetCountry.GetNameNoFlag] will participate in the [concept_ecumenical_council]"
  
  ####---------- Encyclical Effects ----------####
  kog_encyclical_reformist_loyalists: "#todo kog_encyclical_reformist_loyalists#!"
@@ -18,16 +20,7 @@
  kog_encyclical_conservative_radicals: "#todo kog_encyclical_conservative_radicals#!"
  
  ####---------- Episcopal Seat Effects ----------####
- kog_change_rome_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_rome$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_santiago_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_santiago$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_paris_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_paris$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_koln_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_koln$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_vienna_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_vienna$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_constantinople_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_constantinople$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_antioch_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_antioch$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_jerusalem_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_jerusalem$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_alexandria_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_alexandria$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
- kog_change_moscow_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_moscow$ will change by #v [SCOPE.GetValue('kog_change_seat_relations_effect')]#!"
+ kog_change_seat_relations: "[ROOT.GetCountry.GetNameNoFlag]'s $kog_ecumenical_relations$ with $kog_rome$ will change by #v [SCOPE.GetValue('kog_seat_relations_change_value')]#!"
  
  kog_usurped_rome: "[GetPlayer.GetNameNoFlag] now $kog_controls$ the [concept_episcopal_seat] of $kog_rome$"
  kog_usurped_santiago: "[GetPlayer.GetNameNoFlag] now $kog_controls$ the [concept_episcopal_seat] of $kog_santiago$"

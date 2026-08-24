@@ -1,49 +1,76 @@
-﻿kog_has_roman_rite_trigger = {
+﻿####---------- Liturgical Rite Triggers ----------####
+# This is intentional named differently from the seat comparisons to avoid confusion
+kog_country_shares_liturgical_rite_with_trigger = {
+	custom_description = {
+		text = kog_country_shares_liturgical_rite_with_trigger
+		subject = this
+		object = $country$
+		$country$ = {
+			kog_content_trigger = yes # sanity check
+		}
+		var:kog_local.var:kog_liturgical_language_var = $country$.var:kog_local.var:kog_liturgical_rite_var
+	}
+}
+
+kog_country_has_same_liturgical_rite_as_seat_trigger = {
+	custom_description = {
+		text = kog_country_has_same_liturgical_rite_as_seat_trigger
+		subject = this
+		object = container:$seat$
+		var:kog_local.var:kog_liturgical_language_var = container:$seat$.var:kog_liturgical_rite_var
+	}
+}
+
+kog_country_has_liturgical_rite_trigger = {
+	kog_has_$rite$_trigger = yes
+}
+
+kog_has_roman_rite_trigger = {
 	custom_description = {
 		text = kog_has_roman_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_roman_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_roman_rite
 	}
 }
 
 kog_has_byzantine_rite_trigger = {
 	custom_description = {
 		text = kog_has_byzantine_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_byzantine_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_byzantine_rite
 	}
 }
 
 kog_has_alexandrian_rite_trigger = {
 	custom_description = {
 		text = kog_has_alexandrian_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_alexandrian_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_alexandrian_rite
 	}
 }
 
 kog_has_armenian_rite_trigger = {
 	custom_description = {
 		text = kog_has_armenian_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_armenian_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_armenian_rite
 	}
 }
 
 kog_has_syro_antiochian_rite_trigger = {
 	custom_description = {
 		text = kog_has_syro_antiochian_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_syro_antiochian_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_syro_antiochian_rite
 	}
 }
 
 kog_has_russian_rite_trigger = {
 	custom_description = {
 		text = kog_has_russian_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_russian_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_russian_rite
 	}
 }
 
 kog_has_nestorian_rite_trigger = {
 	custom_description = {
 		text = kog_has_nestorian_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_nestorian_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_nestorian_rite
 	}
 }
 
@@ -51,20 +78,20 @@ kog_has_nestorian_rite_trigger = {
 kog_has_elysian_rite_trigger = {
 	custom_description = {
 		text = kog_has_elysian_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_elysian_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_elysian_rite
 	}
 }
 
 kog_has_tututepec_rite_trigger = {
 	custom_description = {
 		text = kog_has_tututepec_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_mixtec_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_mixtec_rite
 	}
 }
 
 kog_has_haudenosaunee_rite_trigger = {
 	custom_description = {
 		text = kog_has_haudenosaunee_rite_trigger
-		je:je_kog_local.var:kog_liturgical_rite_var = flag:kog_haudenosaunee_rite
+		var:kog_local.var:kog_liturgical_rite_var = flag:kog_haudenosaunee_rite
 	}
 }

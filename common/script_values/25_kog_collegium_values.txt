@@ -1,0 +1,270 @@
+﻿kog_character_gravitas_value = {
+	value = 0
+	if = {
+		limit = {
+			is_in_void = no
+		}
+		add = {
+			value = owner.prestige
+			multiply = 0.1
+			round_to = 0.1
+			desc = kog_value_from_home_prestige
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_culture = cu:north_italian
+				has_culture = cu:south_italian
+			}
+		}
+		add = {
+			value = 200
+			desc = kog_value_from_italian_culture
+		}
+	}
+	add = {
+		value = prominence
+		desc = kog_value_from_prominence
+	}
+	add = {
+		value = kog_character_piety_value
+		desc = kog_value_from_piety
+	}
+	add = {
+		value = age
+		multiply = 2
+		desc = kog_value_from_age
+	}
+	if = {
+		limit = {
+			has_trait = trait_child
+		}
+		add = {
+			value = -500
+			desc = kog_value_from_being_underage
+		}
+	}
+	round_to = 0.01
+	min = 0
+}
+
+kog_character_piety_value = {
+	value = 0
+	if = {
+		limit = {
+			has_trait = persistent
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_persistent_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = arrogant
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_arrogant_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = bigoted
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_bigoted_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = tactful
+		}
+		add = {
+			value = 10
+			desc = kog_value_from_tactful_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = ambitious
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_ambitious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = wrathful
+		}
+		add = {
+			value = -25
+			desc = kog_value_from_wrathful_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = reserved
+		}
+		add = {
+			value = 25
+			desc = kog_value_from_reserved_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = cruel
+		}
+		add = {
+			value = -30
+			desc = kog_value_from_cruel_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = meticulous
+		}
+		add = {
+			value = 15
+			desc = kog_value_from_meticulous_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = charismatic
+		}
+		add = {
+			value = 25
+			desc = kog_value_from_charismatic_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = brave
+		}
+		add = {
+			value = 25
+			desc = kog_value_from_brave_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = innovative
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_innovative_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = hedonist
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_hedonist_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = pious
+		}
+		add = {
+			value = 50
+			desc = kog_value_from_pious_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = honorable
+		}
+		add = {
+			value = 25
+			desc = kog_value_from_honorable_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = ruthless
+		}
+		add = {
+			value = -15
+			desc = kog_value_from_ruthless_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = compliant
+		}
+		add = {
+			value = -20
+			desc = kog_value_from_compliant_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = alcoholic
+		}
+		add = {
+			value = -15
+			desc = kog_value_from_alcoholic_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = opium_addiction
+		}
+		add = {
+			value = -15
+			desc = kog_value_from_opium_addiction_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = grifter
+		}
+		add = {
+			value = -20
+			desc = kog_value_from_grifter_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = expensive_tastes
+		}
+		add = {
+			value = -50
+			desc = kog_value_from_expensive_tastes_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = war_criminal
+		}
+		add = {
+			value = -100
+			desc = kog_value_from_war_criminal_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = political_appointee
+		}
+		add = {
+			value = -200
+			desc = kog_value_from_political_appointee_trait
+		}
+	}
+	if = {
+		limit = {
+			has_trait = inept
+		}
+		add = {
+			value = -100
+			desc = kog_value_from_inept_trait
+		}
+	}
+}

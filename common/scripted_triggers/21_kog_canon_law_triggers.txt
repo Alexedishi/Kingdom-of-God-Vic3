@@ -1,27 +1,13 @@
-﻿kog_canon_lawgroup_debate_trigger = {
+﻿kog_faith_has_canon_law_trigger = {
 	custom_tooltip = {
-		text = kog_canon_lawgroup_$flag$_debate_trigger
-		scope:journal_entry = {
-			has_variable_map = kog_council_matters_varmap
-			is_key_in_variable_map = {
-				name = kog_council_matters_varmap
-				target = flag:kog_canon_lawgroup_$flag$
-			}
-		}
+		text = kog_faith_has_$canon_law$
+		var:kog_global_faith_journal_var.var:$kog_canon_law_group$ = flag:$canon_law$
 	}
 }
 
-kog_canon_lawgroup_debate_trigger_NOT = {
+kog_faith_has_canon_law_trigger_NOT = {
 	custom_tooltip = {
-		text = kog_canon_lawgroup_$flag$_debate_trigger_NOT
-		scope:journal_entry = {
-			has_variable_map = kog_council_matters_varmap
-			NOR = {
-				is_key_in_variable_map = {
-					name = kog_council_matters_varmap
-					target = flag:kog_canon_lawgroup_$flag$
-				}
-			}
-		}
+		text = kog_faith_has_$canon_law$_NOT
+		var:kog_global_faith_journal_var.var:$kog_canon_law_group$ != flag:$canon_law$
 	}
 }

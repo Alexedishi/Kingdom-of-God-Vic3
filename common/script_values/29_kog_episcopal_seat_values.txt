@@ -1,0 +1,311 @@
+﻿####---------- Episcopal Seat Static Values ----------####
+kog_relations_start_value = 0
+kog_relations_max_value = 50
+kog_relations_min_value = -50
+
+kog_opinion_max_value = 100
+kog_opinion_min_value = -100
+kog_opinion_start_value = 0
+kog_opinion_threshold_friendly = 80
+kog_opinion_threshold_amicable = 50
+kog_opinion_threshold_cordial = 20
+kog_opinion_threshold_poor = -20
+kog_opinion_threshold_cold = -50
+kog_opinion_threshold_hostile = -80
+
+
+####---------- Episcopal Seat General Values ----------####
+kog_seat_diplomacy_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			OR = {
+				"variable_map(kog_diplomacy_map|root)" = 1
+				"variable_map(kog_diplomacy_map|root)" = -1
+			}
+			
+		}
+		add = 100
+	}
+}
+
+kog_seat_integrations_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_integrator_var ?= prev
+			
+		}
+		add = 100
+	}
+}
+
+kog_seat_enforcements_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_enforcer_var ?= prev
+			
+		}
+		add = 100
+	}
+}
+
+kog_episcopal_seats_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			var:kog_controller_var ?= prev
+		}
+		add = 100
+	}
+}
+
+kog_seat_endorsements_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_friendly
+		}
+		add = 1
+	}
+}
+
+kog_seat_condemnations_value = {
+	value = 0
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		limit = {
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_hostile
+		}
+		add = 1
+	}
+}
+
+
+####---------- Episcopal Seat Relations Values ----------####
+kog_seat_relations_decay_target_value = {
+	value = 0
+	add = modifier:country_seat_relations_base_add
+}
+
+kog_episcopal_seat_monthly_change_value = {
+	value = 0
+	add = "variable_map(kog_relations_map|scope:kog_root_scope)"
+	if = {
+		limit = {
+			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = 1
+		}
+		add = scope:kog_root_scope.modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = -1
+		}
+		subtract = scope:kog_root_scope.modifier:country_monthly_seat_relations_progress_add
+	}
+	else_if = {
+		limit = {
+			"variable_map(kog_relations_map|scope:kog_root_scope)" > scope:kog_root_scope.modifier:country_seat_relations_base_add
+		}
+		subtract = scope:kog_root_scope.modifier:country_monthly_seat_relations_decay_add
+	}
+	else_if = {
+		limit = {
+			"variable_map(kog_relations_map|scope:kog_root_scope)" < scope:kog_root_scope.modifier:country_seat_relations_base_add
+		}
+		add = scope:kog_root_scope.modifier:country_monthly_seat_relations_decay_add
+	}
+	multiply = {
+		add = 1
+		add = modifier:country_monthly_seat_relations_progress_mult
+		min = 0.01
+	}
+	max = 50
+	min = -50
+	round_to = 0.01
+}
+
+
+####---------- Episcopal Seat Opinion Values ----------####
+kog_episcopal_seat_opinion_value = {
+	value = 0
+	
+	# Sources
+	if = {
+		limit = {
+			var:kog_religion_var = scope:kog_root_scope.religion
+		}
+		add = {
+			desc = kog_value_from_matching_religion
+			value = 10
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				has_law = law_type:law_state_religion
+			}
+		}
+		add = {
+			desc = kog_value_from_state_religion
+			value = 20
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				has_law = law_type:law_freedom_of_conscience
+			}
+		}
+		add = {
+			desc = kog_value_from_freedom_of_conscience
+			value = 10
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				has_law = law_type:law_charitable_health_system
+			}
+		}
+		add = {
+			desc = kog_value_from_charity_hospitals
+			value = {
+				add = 2
+				multiply = scope:kog_root_scope.institution_investment_level:institution_health_system
+				max = 10
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				has_law = law_type:law_religious_schools
+			}
+		}
+		add = {
+			desc = kog_value_from_religious_schools
+			value = {
+				add = 2
+				multiply = scope:kog_root_scope.institution_investment_level:institution_schools
+				max = 10
+			}
+		}
+	}
+	if = {
+		limit = {
+			var:kog_controller_var = scope:kog_root_scope
+		}
+		add = {
+			desc = kog_value_from_seat_control
+			value = 10
+		}
+	}
+	if = {
+		limit = {
+			var:kog_liturgical_rite_var = scope:kog_root_scope.var:kog_local.var:kog_liturgical_rite_var
+		}
+		add = {
+			desc = kog_value_from_matching_liturgical_rite
+			value = 10
+		}
+	}
+	
+	# Mixed
+	add = {
+		desc = kog_value_from_relations
+		value = "global_variable_map(kog_relations_map|scope:kog_root_scope)"
+	}
+	
+	#Penalities
+	if = {
+		limit = {
+			var:kog_religion_var != scope:kog_root_scope.religion
+		}
+		add = {
+			desc = kog_value_from_different_religion
+			value = -25
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				has_law = law_type:law_total_separation
+			}
+		}
+		add = {
+			desc = kog_value_from_total_separation
+			value = -10
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				has_law = law_type:law_state_atheism
+			}
+		}
+		add = {
+			desc = kog_value_from_state_atheism
+			value = -50
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				OR = {
+					has_law = law_type:law_public_schools
+					has_law = law_type:law_private_schools
+				}
+			}
+		}
+		add = {
+			desc = kog_value_from_non_religious_schools
+			value = {
+				add = 2
+				multiply = scope:kog_root_scope.institution_investment_level:institution_schools
+				max = 10
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				kog_is_autocephalous_trigger = yes
+			}
+			var:kog_controller_var != scope:kog_root_scope
+			var:kog_religion_var != scope:kog_root_scope.religion
+		}
+		add = {
+			desc = kog_value_from_autocephaly
+			value = -10
+		}
+	}
+	if = {
+		limit = {
+			scope:kog_root_scope = {
+				kog_is_schismatic_trigger = yes
+			}
+			var:kog_religion_var = scope:kog_root_scope.religion
+		}
+		add = {
+			desc = kog_value_from_schismatic
+			value = -25
+		}
+	}
+	if = {
+		limit = {
+			var:kog_liturgical_rite_var != scope:kog_root_scope.var:kog_local.var:kog_liturgical_rite_var
+		}
+		add = {
+			value = -10
+			desc = kog_value_from_differing_liturgical_rite
+		}
+	}
+	
+}

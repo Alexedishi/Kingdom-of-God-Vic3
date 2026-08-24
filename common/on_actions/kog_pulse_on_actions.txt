@@ -16,18 +16,13 @@ kog_monthly_global_pulse = {
 		kog_validate_holy_site_methods_effect = yes
 		kog_update_patriarch_variables_effect = yes
 		kog_check_seat_controllers_effect = yes
-		kog_update_catholic_list = yes
-		kog_update_orthodox_list = yes
-		#kog_update_oriental_list = yes
-		#kog_update_lutheran_list = yes
-		#kog_update_anglican_list = yes
-		#kog_update_elysian_list = yes
+		kog_update_faith_journal_lists_effect = yes
 	}
 }
 
 kog_yearly_global_pulse = {
 	effect = {
-		kog_validate_episcopal_seat_variable_maps_effect = yes
+		kog_update_controlled_seats_modifier_effect = yes
 	}
 }
 
@@ -66,7 +61,7 @@ kog_monthly_pulse = {
 	effect = {
 		kog_update_devout_member_traits_effect = yes
 		kog_monthly_seat_relations_effect = yes
-		kog_update_opinion_variables = yes
+		kog_update_opinion_variable_maps_effect = yes
 		kog_update_national_piety_effect = yes
 	}
 }
@@ -84,10 +79,8 @@ kog_orthodox_pulse = {
 }
 
 kog_schism_pulse = {
-	trigger = { 
-		je:je_kog_local ?= {
-			has_variable = kog_schism_var
-		}
+	trigger = {
+		has_variable = kog_schism_var
 	}
 	events = {
 		kog_schism_events.002
@@ -112,27 +105,11 @@ kog_schism_pulse = {
 
 kog_integration_pulse = {
 	trigger = {
-		kog_integrating_seat_trigger = yes
+		kog_is_integrating_any_seat_trigger = yes
 	}
 	events = {
 		kog_episcopal_events.100
-		kog_episcopal_events.101
-		kog_episcopal_events.102
-		kog_episcopal_events.103
-		kog_episcopal_events.104
-		kog_episcopal_events.105
-		kog_episcopal_events.106
-		kog_episcopal_events.107
-		kog_episcopal_events.108
-		kog_episcopal_events.109
-		kog_episcopal_events.110
-		kog_episcopal_events.111
-		kog_episcopal_events.112
-		kog_episcopal_events.113
-		kog_episcopal_events.114
-		kog_episcopal_events.140
-		kog_episcopal_events.141
-		kog_episcopal_events.142
+
 	}
 	random_events = {
 		chance_of_no_event = 95
@@ -155,7 +132,6 @@ kog_yearly_country_pulse = {
 		kog_content_scope_trigger = yes
 	}
 	effect = {
-		kog_update_episcopal_seat_count_effect = yes
 		kog_update_rite_modifiers_effect = yes
 		kog_update_country_votes_effect = yes
 	}

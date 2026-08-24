@@ -1,0 +1,30 @@
+﻿####---------- Religious Capacity Trigger ----------####
+kog_capacity_trigger = {
+	custom_description = {
+		text = kog_capacity_trigger
+		subject = this
+		value = $value$
+	}
+	save_temporary_scope_value_as = {
+		name = kog_capacity_temp_scope
+		value = $value$
+	}
+	kog_capacity_value >= $value$
+}
+
+kog_country_has_metropolitan_focus_cooldown_trigger = {
+	custom_description = {
+		text = kog_country_has_metropolitan_focus_cooldown_trigger
+		subject = this
+		has_variable = kog_focus_cooldown_var
+	}
+}
+
+####---------- Religious Omen Selection Trigger ----------####
+kog_country_is_selecting_omen_trigger = {
+	custom_description = {
+		text = kog_country_is_selecting_omen_trigger
+		subject = this
+		has_variable = kog_selecting_omen_var
+	}
+}

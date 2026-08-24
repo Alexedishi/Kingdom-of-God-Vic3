@@ -1,67 +1,54 @@
-﻿kog_has_ongoing_council_trigger = {
-	trigger_if = {
-		limit = {
-			kog_country_is_roman_catholic_trigger = yes
-		}
-		kog_has_catholic_council_trigger = yes
-	}
-	trigger_else_if = {
-		limit = {
-			kog_country_is_eastern_orthodox_trigger = yes
-		}
-		kog_has_orthodox_council_trigger = yes
+﻿kog_journal_has_council_map_trigger = {
+	scope:journal_entry = {
+		has_variable_map = kog_ecumenical_council_map
 	}
 }
 
-kog_has_catholic_council_trigger = {
-	custom_description = { 
-		text = kog_has_catholic_council_trigger
-		global_var:je_kog_catholic = {
-			has_variable_map = kog_council_matters_varmap
-		}
+kog_country_matches_journal_religion_trigger = {
+	scope:journal_entry = {
+		var:kog_religion_var ?= root.religion
 	}
 }
 
-kog_has_orthodox_council_trigger = {
+kog_council_button_validity_trigger = {
+	kog_country_matches_journal_religion_trigger = yes
+	kog_journal_has_council_map_trigger = yes
+}
+
+kog_has_ongoing_council_trigger = {
 	custom_description = {
-		text = kog_has_orthodox_council_trigger
-		global_var:je_kog_orthodox = {
-			has_variable = kog_council_matters_varmap
+		text = kog_has_ongoing_council_trigger
+		subject = this
+		object = var:kog_global_faith_journal_var
+		var:kog_global_faith_journal_var = {
+			has_variable_map = kog_ecumenical_council_map
 		}
 	}
 }
 
-kog_has_elysian_council_trigger = {
+kog_council_is_debating_canon_lawgroup_trigger = {
 	custom_description = {
-		text = kog_has_elysian_council_trigger
-		global_var:je_kog_elysian = {
-			has_variable = kog_council_matters_varmap
+		text = $canon_law_group$_debate_trigger
+		scope:journal_entry = {
+			has_variable_map = kog_ecumenical_council_map
+			is_key_in_variable_map = {
+				name = kog_ecumenical_council_map
+				target = flag:$canon_law_group$
+			}
 		}
 	}
 }
 
-kog_can_host_council_trigger = {
-	OR = {
-		AND = {
-			NOT = { has_global_variable = kog_epistle_considered }
-			has_technology_researched = mass_communication
-		}
-		AND = {
-			NOT = { has_global_variable = kog_phyletism_considered }
-			has_technology_researched = nationalism
-		}
-		AND = {
-			NOT = { has_global_variable = kog_calendar_considered }
-			has_technology_researched = central_planning
-		}
-		AND = {
-			NOT = { has_global_variable = kog_schism_mended }
-			kog_controls_and_owns_pentarchy_trigger = yes
-		}
-	}
-	NOT = {
-		any_country = {
-			has_modifier = modifier_kog_hosting_council
+kog_country_is_ecumenical_council_participant_trigger = {
+	custom_description = {
+		subject = this
+		object = var:kog_mother_church_var
+		text = kog_country_is_ecumenical_council_participant_trigger
+		var:kog_mother_church_var = {
+			any_in_list = {
+				variable = kog_ecumenical_council_list
+				root = this
+			}
 		}
 	}
 }

@@ -2,11 +2,20 @@
 	scope = country
 	
 	is_shown = {
-		je:je_kog_local ?= {
-			NOR = {
-				has_modifier = modifier_kog_schismatic
-				has_modifier = modifier_kog_autocephalous
-			}
+		NOR = {
+			kog_is_schismatic_trigger = yes
+			kog_is_autocephalous_trigger = yes
+		}
+	}
+}
+
+kog_encyclicals_sgui = {
+	scope = journal_entry
+	
+	is_shown = {
+		OR = {
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_papal_primacy
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_synodality
 		}
 	}
 }

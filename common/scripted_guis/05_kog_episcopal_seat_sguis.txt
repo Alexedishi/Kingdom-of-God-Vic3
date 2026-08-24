@@ -1,124 +1,386 @@
-﻿####---------- Catholic Seat SGUIs ----------####
-kog_rome_sgui = {
+﻿####---------- Episcopal Seat Action SGUIs ----------####
+kog_start_sway_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_rome
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" != 1
+		}
+	}
+	is_valid = {
+		kog_capacity_trigger = {
+			value = 100
+		}
+		custom_description = {
+			text = kog_can_sway_seat_SGUI_trigger
+			subject = this
+			object = scope:kog_episcopal_seat_scope
+			scope:kog_episcopal_seat_scope = {
+				"variable_map(kog_relations_map|root)" < 50
+			}
+		}
+	}
+	effect = {
+		show_as_tooltip = {
+			add_modifier = modifier_kog_swaying_seats
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_diplomacy_map
+				key = root
+				value = 1
+			}
+		}
 	}
 }
 
-kog_santiago_sgui = {
+kog_stop_sway_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_santiago
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" = 1
+		}
+	}
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		show_as_tooltip = {
+			remove_modifier = modifier_kog_swaying_seat_placeholder
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_diplomacy_map
+				key = root
+				value = 0
+			}
+		}
 	}
 }
 
-kog_paris_sgui = {
+kog_start_antagonize_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_paris
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" != -1
+		}
+	}
+	is_valid = {
+		kog_capacity_trigger = {
+			value = 100
+		}
+		custom_description = {
+			text = kog_can_antagonize_seat_SGUI_trigger
+			subject = this
+			object = scope:kog_episcopal_seat_scope
+			scope:kog_episcopal_seat_scope = {
+				"variable_map(kog_relations_map|root)" > -50
+			}
+		}
+	}
+	effect = {
+		show_as_tooltip = {
+			add_modifier = modifier_kog_antagonizing_seats
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_diplomacy_map
+				key = root
+				value = -1
+			}
+		}
 	}
 }
 
-kog_koln_sgui = {
+kog_stop_antagonize_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_koln
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_diplomacy_map|root)" = -1
+		}
+	}
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		show_as_tooltip = {
+			remove_modifier = modifier_kog_antagonizing_seat_placeholder
+		}
+		scope:kog_episcopal_seat_scope = {
+			com_update_value_in_variable_map = {
+				name = kog_diplomacy_map
+				key = root
+				value = 0
+			}
+		}
 	}
 }
 
-kog_vienna_sgui = {
+kog_integrate_seat_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_vienna
+		scope:kog_episcopal_seat_scope = {
+			OR = {
+				NOT = {
+					has_variable = kog_controller_var
+				}
+				AND = {
+					has_variable = kog_controller_var
+					var:kog_controller_var != root
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				kog_is_autocephalous_trigger = yes
+			}
+			var:kog_local.var:kog_mother_church_var != scope:kog_episcopal_seat_scope
+		}
+	}
+	is_valid = {
+		kog_is_autocephalous_trigger = yes
+		kog_capacity_trigger = {
+			value = 200
+		}
+		custom_tooltip = {
+			text = "kog_owns_seat_province_SGUI_trigger"
+			scope:kog_episcopal_seat_scope = {
+				var:kog_seat_province_var.owner = root
+			}
+		}
+	}
+	effect = {
+		scope:kog_episcopal_seat_scope = {
+			set_variable = {
+				name = kog_integration_var
+				value = 0
+			}
+			set_variable = {
+				name = kog_integrator_var
+				value = root
+			}
+		}
+		show_as_tooltip = {
+			add_modifier = modifier_kog_integrating_seat_placeholder
+		}
+		add_to_variable_list = {
+			name = kog_seat_integration_list
+			target = scope:kog_episcopal_seat_scope
+		}
 	}
 }
 
-
-####---------- Orthodox Seat SGUIs ----------####
-kog_constantinople_sgui = {
+kog_enforce_seat_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_constantinople
+		var:kog_local.var:kog_liturgical_rite_var != scope:kog_episcopal_seat_scope.var:kog_liturgical_rite_var
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = kog_enforce_seat_sgui_trigger
+			scope:kog_episcopal_seat_scope.var:kog_controller_var ?= root
+		}
+		kog_capacity_trigger = {
+			value = 200
+		}
+		bureaucracy >= 50
+	}
+	effect = {
+		custom_tooltip = {
+			text = kog_enforce_seat_sgui_effect
+			scope:kog_episcopal_seat_scope = {
+				set_variable = {
+					name = kog_enforcement_var
+					value = 0
+				}
+				set_variable = {
+					name = kog_enforcer_var
+					value = root
+				}
+			}
+		}
+		show_as_tooltip = {
+			add_modifier = modifier_kog_enforcing_seat_placeholder
+		}
 	}
 }
 
-kog_antioch_sgui = {
+kog_assert_seat_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_antioch
+		kog_is_autocephalous_trigger = yes
+		var:kog_local.var:kog_mother_church_var = scope:kog_episcopal_seat_scope
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = kog_assert_seat_sgui_trigger
+			scope:kog_episcopal_seat_scope.var:kog_seat_province_var.owner = root
+		}
+	}
+	effect = {
+		custom_tooltip = {
+			text = kog_assert_seat_sgui_effect
+			scope:kog_episcopal_seat_scope = {
+				set_variable = {
+					name = kog_controller_var
+					value = root
+				}
+				remove_variable = kog_integrator_var
+				remove_variable = kog_integration_var
+			}
+		}
+		add_modifier = {
+			name = modifier_kog_asserted_seat
+			days = kog_5_years
+		}
 	}
 }
 
-kog_jerusalem_sgui = {
+kog_install_seat_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_jerusalem
+		scope:kog_episcopal_seat_scope = {
+			var:kog_controller_var ?= root
+		}
+		any_primary_culture = {
+			scope:kog_episcopal_seat_scope.var:kog_patriarch_var.culture = this
+		}
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = kog_placeholder_text
+			scope:kog_episcopal_seat_scope.var:kog_seat_province_var.owner = root
+		}
+	}
+	effect = {
+		custom_tooltip = kog_placeholder_text
 	}
 }
 
-kog_alexandria_sgui = {
+####---------- Episcopal Seat Opinion SGUIs ----------####
+kog_opinion_friendly_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_alexandria
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_friendly
+		}
 	}
 }
 
-kog_moscow_sgui = {
+kog_opinion_amicable_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_moscow
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" < kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_amicable
+		}
 	}
 }
 
-
-####---------- Elysian Orthodox Seat SGUIs ----------####
-kog_elysium_sgui = {
+kog_opinion_cordial_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_elysium
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" < kog_opinion_threshold_amicable
+			"variable_map(kog_opinions_map|root)" >= kog_opinion_threshold_cordial
+		}
 	}
 }
 
-kog_onondaga_sgui = {
+kog_opinion_neutral_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_onondaga
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" < kog_opinion_threshold_cordial
+			"variable_map(kog_opinions_map|root)" > kog_opinion_threshold_poor
+		}
 	}
 }
 
-kog_tututepec_sgui = {
+kog_opinion_poor_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_tututepec
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_poor
+			"variable_map(kog_opinions_map|root)" > kog_opinion_threshold_cold
+		}
 	}
 }
 
-kog_cahokia_sgui = {
+kog_opinion_cold_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_cahokia
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_cold
+			"variable_map(kog_opinions_map|root)" > kog_opinion_threshold_hostile
+		}
 	}
 }
 
-kog_cayacoa_sgui = {
+kog_opinion_hostile_sgui = {
 	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
 	
 	is_shown = {
-		has_global_variable_map = kog_cayacoa
+		scope:kog_episcopal_seat_scope = {
+			"variable_map(kog_opinions_map|root)" <= kog_opinion_threshold_hostile
+		}
 	}
 }

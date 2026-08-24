@@ -31,8 +31,7 @@ flowcontainer = {
 		kog_metropolis_panel = {}
 		kog_canon_laws_panel = {}
 		kog_collegium_panel = {}
-		kog_catholic_episcopal_seats_panel = {}
-		kog_orthodox_episcopal_seats_panel = {}
+		kog_episcopal_seats_panel = {}
 	}
 }
 
@@ -74,7 +73,7 @@ types kog_journal_widget_types {
 			texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
 		}
 		blockoverride "interorg_detail_1_visibility" {
-			visible = "[ComJournalVar('kog_ecumenical_seat_var').IsSet]"
+			visible = "[ComJournalVar('kog_mother_church_var').IsSet]"
 		}
 		blockoverride "interorg_detail_1_name" {
 			text = "kog_gui_mother_church_header"
@@ -230,9 +229,66 @@ types kog_journal_widget_types {
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
 		com_international_organization_modifiers = { }
+		# kog_encyclicals_container = {}
 		kog_denominational_actions_container = { }
 		kog_membership_panel = { }
 		# kog_holy_sites_panel = { } # TODO enable holy sites when ready
+	}
+	
+	type kog_encyclicals_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "kog_gui_encyclical_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+			autoresize = yes
+			text = "kog_placeholder_text"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[And(
+				GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End),
+				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
+			)]"
+			autoresize = yes
+			text = "kog_placeholder_text"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[Not(
+				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
+			)]"
+			datamodel = "[JournalEntry.MakeScope.GetList('kog_encyclicals_list')]"
+			autoresize = yes
+			text = "kog_placeholder_text"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
 	}
 	
 	type kog_denominational_actions_container = flowcontainer {
@@ -267,7 +323,7 @@ types kog_journal_widget_types {
 					widget = {
 						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
 						size = { 400 40 }
-						com_international_organization_scripted_button = { }
+						com_journal_scripted_button_item = { }
 					}
 				}
 			}
@@ -292,6 +348,7 @@ types kog_journal_widget_types {
 			}
 		}
 		
+		# MEMBERS IN COMMUNION CONTAINER
 		flowcontainer = {
 			parentanchor = top|hcenter
 			direction = vertical
@@ -304,6 +361,8 @@ types kog_journal_widget_types {
 			background = {
 				using = entry_bg_simple
 			}
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_communion_list')))]"
 			
 			textbox = {
 				parentanchor = top|hcenter
@@ -320,13 +379,14 @@ types kog_journal_widget_types {
 			
 			dynamicgridbox = {
 				parentanchor = top|hcenter
-				datamodel = "[JournalEntry.GetInvolvedCountries]"
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_communion_list')]"
 				datamodel_wrap = 8
 				flipdirection = yes
+				ignoreinvisible = yes
 				
 				item = {
 					widget = {
-						visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(Country.MakeScope ).End)]"
+						datacontext = "[Scope.GetCountry]"
 						size = { 60 40 }
 						small_flag = { }
 					}
@@ -841,7 +901,7 @@ types kog_journal_widget_types {
 						parentanchor = center
 						position = { 0 1 }
 						autoresize = yes
-						max_width = 250
+						max_width = 300
 						elide = right
 						using = fontsize_medium
 					}
@@ -984,7 +1044,7 @@ types kog_journal_widget_types {
 					widget = {
 						visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
 						size = { 400 40 }
-						com_international_organization_scripted_button = { }
+						com_journal_scripted_button_item = { }
 					}
 				}
 			}
@@ -1048,7 +1108,7 @@ types kog_journal_widget_types {
 						tooltip = "kog_placeholder_text"
 					}
 					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End )]"
+						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
 					}
 				}
 				kog_canon_law_type_entry = {
@@ -1936,7 +1996,7 @@ types kog_journal_widget_types {
 		}
 	}
 	
-	type kog_catholic_episcopal_seats_panel = flowcontainer {
+	type kog_episcopal_seats_panel = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
 		minimumsize = { 540 -1 }
@@ -1944,291 +2004,25 @@ types kog_journal_widget_types {
 		margin = { 0 10 }
 		
 		visible = "[And(
-			GetVariableSystem.HasValue('kog_denominational_tab', 'seats'),
-			GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_religion_sgui')).IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)
+			DataModelHasItems(JournalEntry.MakeScope.GetList('kog_seats_list')),
+			GetVariableSystem.HasValue('kog_denominational_tab', 'seats')
 		)]"
 		
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_rome', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_rome_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_rome"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_rome"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_rome"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_rome"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_rome"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_rome_actions_list')]"
-			}
+		datamodel = "[JournalEntry.MakeScope.GetList('kog_seats_list')]"
+		
+		item = {
+			kog_episcopal_seat_item = {}
 		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_santiago', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_santiago_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_santiago"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_santiago"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_santiago"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_santiago"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_santiago"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_santiago_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_paris', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_paris_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_paris"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_paris"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_paris"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_paris"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_paris"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_paris_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_koln', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_koln_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_koln"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_koln"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_koln"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_koln"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_koln"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_koln_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_vienna', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_vienna_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_vienna"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_vienna"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_vienna"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_vienna"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_vienna"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_vienna_actions_list')]"
-			}
-		}
+		
 	}
 	
-	type kog_orthodox_episcopal_seats_panel = flowcontainer {
-		parentanchor = top|hcenter
-		direction = vertical
-		minimumsize = { 540 -1 }
-		spacing = 10
-		margin = { 0 10 }
-		
-		visible = "[And(
-			GetVariableSystem.HasValue('kog_denominational_tab', 'seats'),
-			GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_religion_sgui')).IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)
-		)]"
-		
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_constantinople', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_constantinople_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_constantinople"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_constantinople"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_constantinople"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_constantinople"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_constantinople"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_constantinople_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_antioch', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_antioch_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_antioch"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_antioch"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_antioch"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_antioch"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_antioch"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_antioch_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_jerusalem', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_jerusalem_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_jerusalem"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_jerusalem"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_jerusalem"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_jerusalem"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_jerusalem"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_jerusalem_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_alexandria', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_alexandria_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_alexandria"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_alexandria"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_alexandria"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_alexandria"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_alexandria"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_alexandria_actions_list')]"
-			}
-		}
-		kog_episcopal_seat = {
-			blockoverride "episcopal_seat_patriarch_datacontext" {
-				datacontext = "[GetVariableFromGlobalVariableMap('kog_moscow', MakeScopeFlag('kog_seat_patriarch') ).GetCharacter]"
-			}
-			blockoverride "kog_seat_name" {
-				text = "kog_moscow_header"
-			}
-			blockoverride "episcopal_seat_controller" {
-				text = "kog_gui_seat_controller_moscow"
-			}
-			blockoverride "episcopal_seat_location" {
-				text = "kog_gui_seat_location_value_moscow"
-			}
-			blockoverride "episcopal_seat_liturgical_rite" {
-				text = "kog_gui_liturgical_rite_value_moscow"
-			}
-			blockoverride "episcopal_seat_liturgical_language" {
-				text = "kog_gui_liturgical_language_value_moscow"
-			}
-			blockoverride "episcopal_seat_opinion" {
-				text = "kog_gui_opinion_value_moscow"
-			}
-			blockoverride "episcopal_seat_buttons_datamodel" {
-				datamodel = "[JournalEntry.MakeScope.GetList('kog_moscow_actions_list')]"
-			}
-		}
-	}
-	
-	type kog_episcopal_seat = flowcontainer {
+	type kog_episcopal_seat_item = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
 		minimumsize = { 540 -1 }
 		margin = { 0 5 }
+		
+		datacontext = "[Scope.GetScriptContainer]"
 		
 		using = entry_bg_fancy
 		
@@ -2248,10 +2042,7 @@ types kog_journal_widget_types {
 				
 				textbox = {
 					parentanchor = left|vcenter
-					block "kog_seat_name" {
-						text = "kog_gui_seat_name"
-						using = look_at_me_text_animation
-					}
+					text = "kog_gui_seat_name"
 					autoresize = yes
 					elide = right
 					using = fontsize_large
@@ -2263,10 +2054,7 @@ types kog_journal_widget_types {
 				
 				textbox = {
 					parentanchor = right|vcenter
-					block "episcopal_seat_controller" {
-						text = "kog_gui_seat_controller"
-						using = look_at_me_text_animation
-					}
+					text = "kog_gui_seat_controller"
 					autoresize = yes
 					elide = right
 					using = fontsize_medium
@@ -2277,8 +2065,9 @@ types kog_journal_widget_types {
 		flowcontainer = {
 			parentanchor = top|hcenter
 			direction = horizontal
+			minimumsize = { 540 40 }
+			margin = { 15 0 }
 			spacing = 5
-			minimumsize = { 540 -1 }
 			
 			widget = {
 				parentanchor = left|vcenter
@@ -2286,9 +2075,7 @@ types kog_journal_widget_types {
 				
 				character_portrait_medium_torso = {
 					parentanchor = center
-					block "episcopal_seat_patriarch_datacontext" {
-						datacontext = "[GetPlayer.GetRuler]"
-					}
+					datacontext = "[ScriptContainer.MakeScope.Var('kog_patriarch_var').GetCharacter]"
 					blockoverride "show_hat" { }
 					blockoverride "tooltip" { } # Error Suppression
 					blockoverride "portrait_icons" { } # Error Suppression
@@ -2300,11 +2087,9 @@ types kog_journal_widget_types {
 						parentanchor = center
 						blockoverride "text" {}
 						textbox = {
-							block "episcopal_seat_patriarch_name" {
-								text = "kog_gui_patriarch_name"
-							}
+							text = "kog_gui_patriarch_name"
 							parentanchor = center
-							position = { 0 -2 }
+							position = { 0 0 }
 							autoresize = yes
 							max_width = 190
 							elide = right
@@ -2314,170 +2099,265 @@ types kog_journal_widget_types {
 				}
 			}
 			
-			widget = {
+			flowcontainer = {
 				parentanchor = center
-				size = { 180 220 }
+				direction = vertical
+				minimumsize = { 180 220 }
+				spacing = 5
+				margin = { 5 0 }
 				
-				vbox = {
-					spacing = 5
-					margin_left = 5
-					
-					background = {
-						using = entry_bg_simple
-						margin = { 0 5 }
-					}
-					
-					# Seat Location
-					textbox = {
-						text = "kog_gui_seat_location_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_location" {
-							text = "kog_gui_seat_location_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					divider_clean = {}
-					
-					# Liturgical Language
-					textbox = {
-						text = "kog_gui_liturgical_language_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_liturgical_language" {
-							text = "kog_gui_liturgical_language_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					divider_clean = {}
-					
-					# Liturgical Rite
-					textbox = {
-						text = "kog_gui_liturgical_rite_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_liturgical_rite" {
-							text = "kog_gui_liturgical_rite_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					divider_clean = {}
-					
-					# Opinion
-					textbox = {
-						text = "kog_gui_opinion_header"
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
-					textbox = {
-						block "episcopal_seat_opinion" {
-							text = "kog_gui_opinion_value"
-							using = look_at_me_text_animation
-						}
-						size = { 170 20 }
-						elide = right
-						using = fontsize_medium
-					}
+				background = {
+					using = entry_bg_simple
+				}
+				
+				# Seat Location
+				textbox = {
+					text = "kog_gui_seat_location_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_seat_location_value"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				
+				# Liturgical Language
+				textbox = {
+					text = "kog_gui_liturgical_language_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_liturgical_language_value"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				
+				# Liturgical Rite
+				textbox = {
+					text = "kog_gui_liturgical_rite_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_liturgical_rite_value"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {}
+				
+				# Opinion
+				textbox = {
+					text = "kog_gui_opinion_header"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
+				}
+				textbox = {
+					text = "kog_gui_opinion_value"
+					size = { 170 20 }
+					elide = right
+					using = fontsize_medium
 				}
 			}
 			
-			kog_seat_scripted_button_container = {
-				blockoverride "kog_scripted_button_visibility" {}
-			}
+			kog_seat_scripted_button_container = {}
 		}
 	}
 	
-	type kog_seat_scripted_button_container = widget {
+	type kog_seat_scripted_button_container = flowcontainer {
 		parentanchor = top|hcenter
-		size = { 190 240 }
+		direction = vertical
+		minimumsize = { 180 -1 }
+		margin = { 5 5 }
 		
-		flowcontainer = {
-			parentanchor = center
-			direction = vertical
-			ignoreinvisible = yes
-			spacing = 5
-			margin_top = 5
+		background = {
+			using = entry_bg
+		}
+		
+		# Start Swaying
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_start_sway_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_sway_seat_desc"
 			
-			background = {
-				using = entry_bg
-				margin = { 15 10 }
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_sway_seat"
 			}
+		}
+		
+		# Stop Swaying
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_stop_sway_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_sway_seat_desc"
 			
-			block "episcopal_seat_buttons_datamodel" {
-				visible = "no"
-			}
-			
-			item = {
-				flowcontainer = {
-					datamodel = "[JournalEntry.GetScriptedButtons]"
-					direction = vertical
-					ignoreinvisible = yes
-					
-					item = {
-						widget = {
-							visible = "[EqualTo_string(ScriptedButton.GetName, Scope.GetFlagName)]"
-							size = { 154 38 }
-							
-							kog_seat_scripted_button_item = {
-								parentanchor = center
-							}
-						}
-					}
+			widget = {
+				size = { 100% 100% }
+				background = {
+					using = paper_bg
 				}
 			}
-		}
-	}
-	
-	type kog_seat_scripted_button_item = button {
-		parentanchor = center
-		size = { 174 38 }
-		using = default_button_action
-		
-		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
-		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
-		tooltip = "SCRIPTED_ACTION_TOOLTIP"
-		
-		widget = {
-			visible = "[ScriptedButton.IsSelected]"
-			size = { 100% 100% }
 			
-			background = {
-				using = paper_bg
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_sway_seat"
+			}
+			
+			icon = {
+				using = highlighted_square_selection
 			}
 		}
 		
-		textbox = {
-			parentanchor = center
-			align = nobaseline
-			autoresize = yes
-			max_width = 165
-			elide = right
-			using = fontsize_small
-			text = "[ScriptedButton.GetName]"
+		# Start Antagonizing
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_start_antagonize_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_antagonize_seat_desc"
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_antagonize_seat"
+			}
 		}
 		
-		icon = {
-			visible = "[ScriptedButton.IsSelected]"
-			using = highlighted_square_selection
+		# Stop Antagonizing
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_stop_antagonize_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_antagonize_seat_desc"
+			
+			widget = {
+				size = { 100% 100% }
+				background = {
+					using = paper_bg
+				}
+			}
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_antagonize_seat"
+			}
+			
+			icon = {
+				using = highlighted_square_selection
+			}
+		}
+		
+		# Integrate Seat
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_integrate_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_integrate_seat_desc"
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_integrate_seat"
+			}
+		}
+		
+		# Enforce Seat
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_enforce_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_enforce_seat_desc"
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_enforce_seat"
+			}
+		}
+		
+		# Assert Seat
+		button = {
+			size = { 174 38 }
+			using = default_button_action
+			datacontext = "[GetScriptedGui('kog_assert_seat_sgui')]"
+			visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('kog_episcopal_seat_scope', ScriptContainer.MakeScope).End)]"
+			tooltip = "kog_gui_assert_seat_desc"
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 165
+				elide = right
+				fontsize = 13
+				using = tooltip_font
+				text = "kog_gui_assert_seat"
+			}
 		}
 	}
 }

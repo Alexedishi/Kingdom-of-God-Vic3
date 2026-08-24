@@ -1,20 +1,20 @@
 ﻿l_english:
  # Compliance Panel!
- kog_gui_canon_law_compliance: "[concept_canon_law_compliance] in [GetPlayer.GetNameNoFlag]: [GetPlayer.MakeScope.Var('je_kog_local').Var('kog_canon_law_compliance_var').GetValue|+=0]"
+ kog_gui_canon_law_compliance: "[concept_canon_law_compliance] in [GetPlayer.GetNameNoFlag]: [GetPlayer.MakeScope.Var('kog_local').Var('kog_canon_law_compliance_var').GetValue|+=0]"
  kog_gui_canon_law_compliance_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_canon_law_compliance_value')]"
  
  # Canon Law Panel
  kog_gui_canon_law_header: "Canon Laws"
  kog_gui_law_type_header: "Active Law:"
- kog_gui_canon_law_apostolic_succession: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_apostolic_succession_var').GetFlagName]#!"
- kog_gui_canon_law_almsgiving: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_almsgiving_var').GetFlagName]#!"
- kog_gui_canon_law_iconography: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_iconography_var').GetFlagName]#!"
- kog_gui_canon_law_statism: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_statism_var').GetFlagName]#!"
- kog_gui_canon_law_nationalism: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_nationalism_var').GetFlagName]#!"
- kog_gui_canon_law_clerical_marriage: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_clerical_marriage_var').GetFlagName]#!"
- kog_gui_canon_law_social_role: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_social_role_var').GetFlagName]#!"
- kog_gui_canon_law_sciences_stance: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_sciences_stance_var').GetFlagName]#!"
- kog_gui_canon_law_crusades: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_law_crusades_var').GetFlagName]#!"
+ kog_gui_canon_law_apostolic_succession: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_apostolic_succession').GetFlagName]#!"
+ kog_gui_canon_law_almsgiving: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_almsgiving').GetFlagName]#!"
+ kog_gui_canon_law_iconography: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_iconography').GetFlagName]#!"
+ kog_gui_canon_law_statism: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_statism').GetFlagName]#!"
+ kog_gui_canon_law_nationalism: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_nationalism').GetFlagName]#!"
+ kog_gui_canon_law_clerical_marriage: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_clerical_marriage').GetFlagName]#!"
+ kog_gui_canon_law_social_role: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_social_role').GetFlagName]#!"
+ kog_gui_canon_law_sciences_stance: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_stance_on_sciences').GetFlagName]#!"
+ kog_gui_canon_law_crusades: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_crusades').GetFlagName]#!"
  
  ## Canon Laws
  kog_canon_law_none: "#bold None#!"
@@ -120,16 +120,39 @@
 ####---------- Canon Law Scripted Buttons ----------####
  kog_gui_debate_canon_law: "Debate Canon Law"
  kog_gui_debate_canon_law_desc: "During an [concept_ecumenical_council] bishops of all stripes have the chance to raise issues they believe are afflicting the church."
+ kog_gui_support_canon_law_effect: "The $kog_devout$ of [ROOT.GetCountry.GetNameNoFlag] will support the enactment of [TopScope.GetLocalVariable('kog_canon_law_loc').GetFlagName]"
+ 
  kog_gui_debate_apostolic_succession: "Debate Apostolic Succession"
+ kog_gui_support_papal_primacy: ""
+ kog_gui_support_papal_primacy_desc: ""
+ kog_gui_support_synodality: ""
+ kog_gui_support_synodality_desc: ""
+ kog_gui_support_congregationalism: ""
+ kog_gui_support_congregationalism_desc: ""
+ 
  kog_gui_debate_almsgiving: "Debate Almsgiving"
- kog_gui_debate_iconography: "Debate Iconography"
- kog_gui_debate_statism: "Debate Church and State"
- kog_gui_debate_nationalism: "Debate Church and Nation"
- kog_gui_debate_clerical_marriage: "Debate Clerical Marriage"
- kog_gui_debate_social_role: "Debate Social Role"
- kog_gui_debate_stance_on_sciences: "Debate the Sciences"
- kog_gui_debate_crusades: "Debate Renewed Crusading"
+ kog_gui_support_no_alms: ""
+ kog_gui_support_no_alms_desc: ""
+ kog_gui_support_offertory: ""
+ kog_gui_support_offertory_desc: ""
+ kog_gui_support_tithing: ""
+ kog_gui_support_tithing_desc: ""
 
+ kog_gui_debate_iconography: "Debate Iconography"
+ 
+ kog_gui_debate_statism: "Debate Church and State"
+ 
+ kog_gui_debate_nationalism: "Debate Church and Nation"
+ 
+ kog_gui_debate_clerical_marriage: "Debate Clerical Marriage"
+ 
+ kog_gui_debate_social_role: "Debate Social Role"
+ 
+ kog_gui_debate_stance_on_sciences: "Debate the Sciences"
+ 
+ kog_gui_debate_crusades: "Debate Renewed Crusading"
+ 
+ 
 ####---------- Placeholder Localization ----------####
  kog_block_canon_law_group: "#dummy Override canon_law_group!"
  kog_block_canon_law_flag: "#dummy Override canon_law_flag!"

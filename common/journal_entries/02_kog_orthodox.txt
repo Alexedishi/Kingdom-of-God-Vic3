@@ -45,38 +45,6 @@ je_kog_orthodox = {
 	scripted_button = kog_gui_debate_stance_on_sciences
 	scripted_button = kog_gui_debate_crusades
 	
-	# Episcopal Seat Buttons
-	scripted_button = kog_gui_sway_constantinople
-	scripted_button = kog_gui_antagonize_constantinople
-	scripted_button = kog_gui_integrate_constantinople
-	scripted_button = kog_gui_assert_constantinople
-	scripted_button = kog_gui_enforce_constantinople
-	scripted_button = kog_gui_install_constantinople
-	
-	scripted_button = kog_gui_sway_antioch
-	scripted_button = kog_gui_antagonize_antioch
-	scripted_button = kog_gui_integrate_antioch
-	scripted_button = kog_gui_enforce_antioch
-	scripted_button = kog_gui_install_antioch
-	
-	scripted_button = kog_gui_sway_jerusalem
-	scripted_button = kog_gui_antagonize_jerusalem
-	scripted_button = kog_gui_integrate_jerusalem
-	scripted_button = kog_gui_enforce_jerusalem
-	scripted_button = kog_gui_install_jerusalem
-	
-	scripted_button = kog_gui_sway_alexandria
-	scripted_button = kog_gui_antagonize_alexandria
-	scripted_button = kog_gui_integrate_alexandria
-	scripted_button = kog_gui_enforce_alexandria
-	scripted_button = kog_gui_install_alexandria
-	
-	scripted_button = kog_gui_sway_moscow
-	scripted_button = kog_gui_antagonize_moscow
-	scripted_button = kog_gui_integrate_moscow
-	scripted_button = kog_gui_enforce_moscow
-	scripted_button = kog_gui_install_moscow
-	
 	is_shown_in_lobby = {
 		kog_country_is_eastern_orthodox_trigger = yes
 	}
@@ -102,47 +70,30 @@ je_kog_orthodox = {
 			kog_initialize_orthodox_button_lists_effect = yes
 			set_variable = kog_enable_encyclicals_panel
 			set_variable = kog_enable_councils_panel
-			save_scope_as = je_kog_orthodox
 		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_orthodox
-			value = scope:je_kog_orthodox
+		}
+		add_to_global_variable_list = {
+			name = kog_global_journals_list
+			target = scope:journal_entry
 		}
 	}
 	
 	immediate_all_involved = {
-		set_variable = {
+		com_save_journal_to_variable = {
 			name = kog_global_faith_journal_var
-			value = global_var:je_kog_catholic
 		}
 	}
 	
 	on_become_involved_after_activation = {
-		set_variable = {
+		com_save_journal_to_variable = {
 			name = kog_global_faith_journal_var
-			value = global_var:je_kog_catholic
 		}
 	}
 	
 	complete = {
 		always = no
-	}
-	
-	on_monthly_pulse = {
-		effect = {
-			scope:journal_entry = {
-				kog_validate_global_journal_involvement_effect = {
-					type = je_kog_orthodox
-					trigger = kog_country_is_eastern_orthodox_trigger
-				}
-				kog_update_schism_list_effect = {
-					type = je_kog_orthodox
-				}
-				kog_update_autocephaly_list_effect = {
-					type = je_kog_orthodox
-				}
-			}
-		}
 	}
 }
 
@@ -160,12 +111,8 @@ je_kog_encyclical_orthodox_easterners = {
 	should_show_when_not_involved = {}
 	
 	immediate = {
-		scope:journal_entry = {
-			save_scope_as = je_kog_encyclical_orthodox_easterners
-		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_encyclical_orthodox_easterners
-			value = scope:je_kog_encyclical_orthodox_easterners
 		}
 	}
 	
@@ -174,12 +121,12 @@ je_kog_encyclical_orthodox_easterners = {
 	on_timeout = {
 		if = {
 			limit = {
-				global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_rejected_epistle
+				global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_rejected_epistle
 			}
 		}
 		else_if = {
 			limit = {
-				global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_accepted_epistle
+				global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_accepted_epistle
 			}
 		}
 		remove_global_variable = je_kog_encyclical_orthodox_easterners
@@ -193,7 +140,7 @@ je_kog_encyclical_orthodox_easterners = {
 	
 	invalid = {
 		NOT = {
-			has_global_variable = kog_encyclical_orthodox_easterners_var
+			has_global_variable = je_kog_encyclical_orthodox_easterners
 		}
 	}
 	
@@ -205,7 +152,7 @@ je_kog_encyclical_orthodox_easterners = {
 		effect = {
 			if = {
 				limit = {
-					global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_rejected_epistle
+					global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_rejected_epistle
 				}
 				every_country = {
 					limit = {
@@ -229,7 +176,7 @@ je_kog_encyclical_orthodox_easterners = {
 			}
 			else_if = {
 				limit = {
-					global_var:kog_encyclical_orthodox_easterners_var ?= flag:modifier_kog_accepted_epistle
+					global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_accepted_epistle
 				}
 				every_country = {
 					limit = {
@@ -317,11 +264,11 @@ je_kog_encyclical_orthodox_fraternity = {
 					limit = {
 						calc_true_if = {
 							amount >= 3
-							var:je_kog_local.var:kog_constantinople_opinion_var >= 75
-							var:je_kog_local.var:kog_antioch_opinion_var >= 75
-							var:je_kog_local.var:kog_jerusalem_opinion_var >= 75
-							var:je_kog_local.var:kog_alexandria_opinion_var >= 75
-							var:je_kog_local.var:kog_moscow_opinion_var >= 75
+							any_in_global_list = {
+								variable = kog_global_seat_list
+								var:kog_religion_var = rel:orthodox
+								"variable_map(kog_opinions_map|root)" >= 75
+							}
 						}
 					}
 					set_variable = kog_encyclical_orthodox_fraternity_compliance_var
