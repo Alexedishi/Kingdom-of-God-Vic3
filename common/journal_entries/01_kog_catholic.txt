@@ -111,12 +111,14 @@ je_kog_ecyclical_mirari_vos = {
 	}
 	
 	immediate = {
-		scope:journal_entry = {
-			save_scope_as = je_kog_ecyclical_mirari_vos
-		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_ecyclical_mirari_vos
-			value = scope:je_kog_ecyclical_mirari_vos
+		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
 		}
 	}
 	
@@ -203,12 +205,14 @@ je_kog_ecyclical_singulari_nos = {
 	}
 	
 	immediate = {
-		scope:journal_entry = {
-			save_scope_as = je_kog_ecyclical_singulari_nos
-		}
-		set_global_variable = {
+		com_save_journal_to_global_variable = {
 			name = je_kog_ecyclical_singulari_nos
-			value = scope:je_kog_ecyclical_singulari_nos
+		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
 		}
 	}
 	
