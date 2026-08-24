@@ -228,9 +228,9 @@ types kog_journal_widget_types {
 		
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
-		com_international_organization_modifiers = { }
-		# kog_encyclicals_container = {}
+		kog_encyclicals_container = {}
 		kog_denominational_actions_container = { }
+		com_international_organization_modifiers = { }
 		kog_membership_panel = { }
 		# kog_holy_sites_panel = { } # TODO enable holy sites when ready
 	}
@@ -256,9 +256,9 @@ types kog_journal_widget_types {
 		
 		textbox = {
 			parentanchor = top|hcenter
-			visible = "[GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
+			visible = "[Not(GetScriptedGui('kog_encyclicals_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End))]"
 			autoresize = yes
-			text = "kog_placeholder_text"
+			text = "kog_gui_encyclicals_disabled"
 			align = center|nobaseline
 			elide = right
 			using = fontsize_large
@@ -267,27 +267,29 @@ types kog_journal_widget_types {
 		textbox = {
 			parentanchor = top|hcenter
 			visible = "[And(
-				GetScriptedGui('kog_communion_list_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End),
+				GetScriptedGui('kog_encyclicals_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End),
 				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
 			)]"
 			autoresize = yes
-			text = "kog_placeholder_text"
+			text = "kog_gui_no_encyclical"
 			align = center|nobaseline
 			elide = right
 			using = fontsize_large
 		}
 		
-		textbox = {
+		flowcontainer = {
 			parentanchor = top|hcenter
+			direction = vertical
 			visible = "[Not(
 				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
 			)]"
 			datamodel = "[JournalEntry.MakeScope.GetList('kog_encyclicals_list')]"
-			autoresize = yes
-			text = "kog_placeholder_text"
-			align = center|nobaseline
-			elide = right
-			using = fontsize_large
+			spacing = 2
+			item = {
+				journal_entry = {
+					datacontext = "[GetJournalEntry]"
+				}
+			}
 		}
 	}
 	
