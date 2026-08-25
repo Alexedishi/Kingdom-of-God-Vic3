@@ -130,6 +130,10 @@ je_kog_catholic_council = {
 			com_set_situation_illustration_background_effect = {
 				texture = kog_situation_background_catholic_council
 			}
+			set_variable = {
+				name = kog_council_location_var
+				value = s:STATE_LAZIO
+			}
 		}
 		com_save_journal_to_global_variable = {
 			name = je_kog_catholic_council
@@ -143,6 +147,7 @@ je_kog_catholic_council = {
 	timeout = 1000
 	
 	on_timeout = {
+		remove_global_variable = je_kog_catholic_council
 	}
 	
 	status_desc = {
