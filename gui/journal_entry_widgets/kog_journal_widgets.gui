@@ -2567,7 +2567,7 @@ types kog_ecumenical_council_types {
 				visible = "[JournalEntry.MakeScope.Var('kog_theological_debate_3_var').IsSet]"
 			}
 			blockoverride "canon_law_3_icon" {
-				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_.dds"
+				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_fundamentalist.dds"
 			}
 			blockoverride "canon_law_3_name" {
 				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_debate_3_var').GetFlagName]"
@@ -3262,26 +3262,27 @@ types kog_ecumenical_council_types {
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				tooltip = "kog_placeholder_text"
 				
-				textbox = {
-					visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Status Quo"
-				}
-				
-				textbox = {
-					visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Legal Reform"
+				block "canon_law_1_button_text" {
+					textbox = {
+						visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Status Quo"
+					}
+					textbox = {
+						visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Legal Reform"
+					}
 				}
 			}
 		}
@@ -3352,26 +3353,27 @@ types kog_ecumenical_council_types {
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				tooltip = "kog_placeholder_text"
 				
-				textbox = {
-					visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Status Quo"
-				}
-				
-				textbox = {
-					visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Legal Reform"
+				block "canon_law_2_button_text" {
+					textbox = {
+						visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Status Quo"
+					}
+					textbox = {
+						visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Legal Reform"
+					}
 				}
 			}
 		}
@@ -3442,26 +3444,27 @@ types kog_ecumenical_council_types {
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				tooltip = "kog_placeholder_text"
 				
-				textbox = {
-					visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Status Quo"
-				}
-				
-				textbox = {
-					visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Legal Reform"
+				block "canon_law_3_button_text" {
+					textbox = {
+						visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Status Quo"
+					}
+					textbox = {
+						visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Legal Reform"
+					}
 				}
 			}
 		}
@@ -3532,26 +3535,27 @@ types kog_ecumenical_council_types {
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				tooltip = "kog_placeholder_text"
 				
-				textbox = {
-					visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Status Quo"
-				}
-				
-				textbox = {
-					visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Legal Reform"
+				block "canon_law_4_button_text" {
+					textbox = {
+						visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Status Quo"
+					}
+					textbox = {
+						visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Legal Reform"
+					}
 				}
 			}
 		}
@@ -3622,26 +3626,27 @@ types kog_ecumenical_council_types {
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				tooltip = "kog_placeholder_text"
 				
-				textbox = {
-					visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Status Quo"
-				}
-				
-				textbox = {
-					visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
-					parentanchor = center
-					align = nobaseline
-					autoresize = yes
-					max_width = 165
-					elide = right
-					fontsize = 13
-					raw_text = "Support Legal Reform"
+				block "canon_law_5_button_text" {
+					textbox = {
+						visible = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Status Quo"
+					}
+					textbox = {
+						visible = "[Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+						parentanchor = center
+						align = nobaseline
+						autoresize = yes
+						max_width = 165
+						elide = right
+						fontsize = 13
+						raw_text = "Support Legal Reform"
+					}
 				}
 			}
 		}
