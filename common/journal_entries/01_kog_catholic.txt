@@ -126,6 +126,7 @@ je_kog_catholic_council = {
 		scope:journal_entry = {
 			set_variable = com_hide_scripted_buttons
 			set_variable = com_hide_timeout
+			set_variable = com_hide_journal_reason
 			com_situation_start_date_today_effect = yes
 			com_set_situation_illustration_background_effect = {
 				texture = kog_situation_background_catholic_council
@@ -148,10 +149,6 @@ je_kog_catholic_council = {
 	
 	on_timeout = {
 		remove_global_variable = je_kog_catholic_council
-	}
-	
-	status_desc = {
-		desc = kog_placeholder_text
 	}
 }
 

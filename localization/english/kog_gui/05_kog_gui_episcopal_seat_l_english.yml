@@ -12,9 +12,10 @@
  
  ####---------- Episcopal Seat Localization ----------####
  kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_seat_header_var').GetFlagName]"
- kog_gui_seat_controller: "#bold #yellow Answers to: [SelectLocalization(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet, 'kog_gui_controller_name', 'kog_gui_no_controller')]#!#!"
+ kog_gui_seat_controller: "#bold Answers to: [ScriptContainer.GetCustom('kog_seat_controller_type')]#!"
  kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.GetName]"
- kog_gui_no_controller: "@kog! #blue God Alone#!"
+ kog_gui_no_controller: "@kog! #yellow God Alone#!"
+ kog_gui_religious_union_name: "[ScriptContainer.MakeScope.Var('kog_religious_union_var').GetFlagName]"
  
  kog_gui_patriarch_name: "[Character.GetFullName]"
  kog_gui_seat_location_header: "Seated in:"

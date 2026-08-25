@@ -14,3 +14,29 @@
 		localization_key = kog_title_patriarch
 	}
 }
+
+kog_seat_controller_type = {
+	type = script_container
+	
+	text = {
+		trigger = {
+			NOT = {
+				has_variable = kog_controller_var
+			}
+		}
+		localization_key = kog_gui_no_controller
+	}
+	text = {
+		trigger = {
+			has_variable = kog_controller_var
+			exists = var:kog_controller_var
+		}
+		localization_key = kog_gui_controller_name
+	}
+	text = {
+		trigger = {
+			var:kog_controller_var ?= flag:kog_religious_union
+		}
+		localization_key = kog_gui_religious_union_name
+	}
+}
