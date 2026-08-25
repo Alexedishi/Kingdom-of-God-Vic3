@@ -44,8 +44,10 @@ flowcontainer = {
 		spacing = 10
 		
 		com_international_situation_debug_info = {}
-		com_international_situation_illustration = {}
-		com_journal_timeout_info = {}
+		com_international_situation_illustration = {		}
+		com_journal_timeout_info = {
+			parentanchor = top|hcenter
+		}
 		kog_ecumenical_council_panel = {}
 	}
 }
@@ -3049,6 +3051,7 @@ types kog_ecumenical_council_types {
 		parentanchor = top|hcenter
 		direction = vertical
 		margin_left = 10
+		spacing = 5
 		
 		block "council_debate_item_visibility" {
 			visible = no
@@ -3067,153 +3070,254 @@ types kog_ecumenical_council_types {
 			}
 		}
 		
-		block "council_debate_item_contents" {
-			kog_ecumenical_council_canon_law_votes_item = {
-				block "canon_law_1_visibility" {
-					visible = no
-				}
-				block "canon_law_icon" {
-					block "canon_law_1_icon" {
-						texture = "/gfx/interface/error_frog.dds"
-					}
-				}
-				blockoverride "canon_law_name" {
-					block "canon_law_1_name" {
-						raw_text = "#todo canon_law_1_name"
-					}
-				}
-				blockoverride "canon_law_votes" {
-					block "canon_law_1_votes" {
-						raw_text = "#todo canon_law_1_votes"
-					}
-				}
+		flowcontainer = {
+			parentanchor = top|left
+			minimumsize = { 520 50 }
+			spacing = 10
+			
+			block "canon_law_1_visibility" {
+				visible = no
 			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				block "canon_law_2_visibility" {
-					visible = no
-				}
-				block "canon_law_icon" {
-					block "canon_law_2_icon" {
-						texture = "/gfx/interface/error_frog.dds"
-					}
-				}
-				blockoverride "canon_law_name" {
-					block "canon_law_2_name" {
-						raw_text = "#todo canon_law_2_name"
-					}
-				}
-				blockoverride "canon_law_votes" {
-					block "canon_law_2_votes" {
-						raw_text = "#todo canon_law_2_votes"
-					}
-				}
+			
+			background = {
+				using = entry_bg_simple
 			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				block "canon_law_3_visibility" {
-					visible = no
-				}
-				block "canon_law_icon" {
-					block "canon_law_3_icon" {
-						texture = "/gfx/interface/error_frog.dds"
-					}
-				}
-				blockoverride "canon_law_name" {
-					block "canon_law_3_name" {
-						raw_text = "#todo canon_law_3_name"
-					}
-				}
-				blockoverride "canon_law_votes" {
-					block "canon_law_3_votes" {
-						raw_text = "#todo canon_law_3_votes"
-					}
-				}
-			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				block "canon_law_4_visibility" {
-					visible = no
-				}
-				block "canon_law_icon" {
-					block "canon_law_4_icon" {
-						texture = "/gfx/interface/error_frog.dds"
-					}
-				}
-				blockoverride "canon_law_name" {
-					block "canon_law_4_name" {
-						raw_text = "#todo canon_law_4_name"
-					}
-				}
-				blockoverride "canon_law_votes" {
-					block "canon_law_4_votes" {
-						raw_text = "#todo canon_law_4_votes"
-					}
-				}
-			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				block "canon_law_5_visibility" {
-					visible = no
-				}
-				block "canon_law_icon" {
-					block "canon_law_5_icon" {
-						texture = "/gfx/interface/error_frog.dds"
-					}
-				}
-				blockoverride "canon_law_name" {
-					block "canon_law_5_name" {
-						raw_text = "#todo canon_law_5_name"
-					}
-				}
-				blockoverride "canon_law_votes" {
-					block "canon_law_5_votes" {
-						raw_text = "#todo canon_law_5_votes"
-					}
-				}
-			}
-		}
-	}
-	
-	type kog_ecumenical_council_canon_law_votes_item = flowcontainer {
-		parentanchor = top|left
-		minimumsize = { 520 50 }
-		spacing = 10
-		
-		background = {
-			using = entry_bg_simple
-		}
-		
-		icon = {
-			parentanchor = left|vcenter
-			size = { 50 50 }
-			texture = "/gfx/interface/backgrounds/round_button_bg.dds"
 			
 			icon = {
-				parentanchor = center
-				size = { 40 40 }
-				block "canon_law_icon" {
-					texture = "/gfx/interface/error_deer.dds"
+				parentanchor = left|vcenter
+				size = { 50 50 }
+				texture = "/gfx/interface/backgrounds/round_button_bg.dds"
+				
+				icon = {
+					parentanchor = center
+					size = { 40 40 }
+					block "canon_law_1_icon" {
+						texture = "/gfx/interface/error_deer.dds"
+					}
 				}
 			}
-		}
-		textbox = {
-			parentanchor = left|vcenter
-			block "canon_law_name" {
-				raw_text = "#todo canon_law_name"
-				using = look_at_me_text_animation
+			textbox = {
+				parentanchor = left|vcenter
+				block "canon_law_1_name" {
+					raw_text = "#todo canon_law_1_name"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = left|nobaseline
+				multiline = yes
+				using = fontsize_medium
 			}
-			autoresize = yes
-			align = left|nobaseline
-			multiline = yes
-			using = fontsize_large
-		}
-		textbox = {
-			parentanchor = right|vcenter
-			block "canon_law_votes" {
-				raw_text = "#todo canon_law_votes"
-				using = look_at_me_text_animation
+			textbox = {
+				parentanchor = right|vcenter
+				block "canon_law_1_votes" {
+					raw_text = "#todo canon_law_1_votes"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+				using = fontsize_medium
 			}
-			autoresize = yes
-			align = right|nobaseline
-			multiline = yes
-			using = fontsize_medium
+		}
+		
+		flowcontainer = {
+			parentanchor = top|left
+			minimumsize = { 520 50 }
+			spacing = 10
+			
+			block "canon_law_2_visibility" {
+				visible = no
+			}
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			icon = {
+				parentanchor = left|vcenter
+				size = { 50 50 }
+				texture = "/gfx/interface/backgrounds/round_button_bg.dds"
+				
+				icon = {
+					parentanchor = center
+					size = { 40 40 }
+					block "canon_law_2_icon" {
+						texture = "/gfx/interface/error_deer.dds"
+					}
+				}
+			}
+			textbox = {
+				parentanchor = left|vcenter
+				block "canon_law_2_name" {
+					raw_text = "#todo canon_law_2_name"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = left|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+			textbox = {
+				parentanchor = right|vcenter
+				block "canon_law_2_votes" {
+					raw_text = "#todo canon_law_2_votes"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|left
+			minimumsize = { 520 50 }
+			spacing = 10
+			
+			block "canon_law_3_visibility" {
+				visible = no
+			}
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			icon = {
+				parentanchor = left|vcenter
+				size = { 50 50 }
+				texture = "/gfx/interface/backgrounds/round_button_bg.dds"
+				
+				icon = {
+					parentanchor = center
+					size = { 40 40 }
+					block "canon_law_3_icon" {
+						texture = "/gfx/interface/error_deer.dds"
+					}
+				}
+			}
+			textbox = {
+				parentanchor = left|vcenter
+				block "canon_law_3_name" {
+					raw_text = "#todo canon_law_3_name"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = left|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+			textbox = {
+				parentanchor = right|vcenter
+				block "canon_law_3_votes" {
+					raw_text = "#todo canon_law_3_votes"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|left
+			minimumsize = { 520 50 }
+			spacing = 10
+			
+			block "canon_law_4_visibility" {
+				visible = no
+			}
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			icon = {
+				parentanchor = left|vcenter
+				size = { 50 50 }
+				texture = "/gfx/interface/backgrounds/round_button_bg.dds"
+				
+				icon = {
+					parentanchor = center
+					size = { 40 40 }
+					block "canon_law_4_icon" {
+						texture = "/gfx/interface/error_deer.dds"
+					}
+				}
+			}
+			textbox = {
+				parentanchor = left|vcenter
+				block "canon_law_4_name" {
+					raw_text = "#todo canon_law_4_name"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = left|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+			textbox = {
+				parentanchor = right|vcenter
+				block "canon_law_4_votes" {
+					raw_text = "#todo canon_law_4_votes"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|left
+			minimumsize = { 520 50 }
+			spacing = 10
+			
+			block "canon_law_5_visibility" {
+				visible = no
+			}
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			icon = {
+				parentanchor = left|vcenter
+				size = { 50 50 }
+				texture = "/gfx/interface/backgrounds/round_button_bg.dds"
+				
+				icon = {
+					parentanchor = center
+					size = { 40 40 }
+					block "canon_law_5_icon" {
+						texture = "/gfx/interface/error_deer.dds"
+					}
+				}
+			}
+			textbox = {
+				parentanchor = left|vcenter
+				block "canon_law_5_name" {
+					raw_text = "#todo canon_law_5_name"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = left|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
+			textbox = {
+				parentanchor = right|vcenter
+				block "canon_law_5_votes" {
+					raw_text = "#todo canon_law_5_votes"
+					using = look_at_me_text_animation
+				}
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+				using = fontsize_medium
+			}
 		}
 	}
 }

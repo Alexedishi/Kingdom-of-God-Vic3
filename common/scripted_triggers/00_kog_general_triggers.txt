@@ -4,12 +4,12 @@ kog_capacity_trigger = {
 		text = kog_capacity_trigger
 		subject = this
 		value = $value$
+		save_temporary_scope_value_as = {
+			name = kog_capacity_temp_scope
+			value = $value$
+		}
+		kog_capacity_value >= $value$
 	}
-	save_temporary_scope_value_as = {
-		name = kog_capacity_temp_scope
-		value = $value$
-	}
-	kog_capacity_value >= $value$
 }
 
 kog_country_has_metropolitan_focus_cooldown_trigger = {
