@@ -107,7 +107,12 @@ je_kog_catholic_council = {
 		container = "custom_widget_container_je_icon"
 	}
 	
-#	scripted_button =
+	scripted_button = kog_gui_support_papal_primacy
+	scripted_button = kog_gui_support_synodality
+	scripted_button = kog_gui_support_congregationalism
+	scripted_button = kog_gui_support_no_alms
+	scripted_button = kog_gui_support_offertory
+	scripted_button = kog_gui_support_tithing
 	
 	should_be_involved = {
 		is_involved_in_journal_entry = je_kog_catholic
@@ -118,6 +123,10 @@ je_kog_catholic_council = {
 	}
 	
 	immediate = {
+		scope:journal_entry = {
+			set_variable = com_hide_scripted_buttons
+			set_variable = com_hide_timeout
+		}
 		com_situation_start_date_today_effect = yes
 		com_set_situation_illustration_background_effect = {
 			texture = kog_situation_background_catholic_council
