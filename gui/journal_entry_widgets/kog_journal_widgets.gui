@@ -53,7 +53,7 @@ flowcontainer = {
 }
 
 ####---------- KOG JOURNAL ENTRY TYPES ----------####
-types kog_journal_widget_types {
+types kog_church_interorg_widget_types {
 	
 	type kog_journal_icon = widget {
 		parentanchor = top|hcenter
@@ -245,7 +245,7 @@ types kog_journal_widget_types {
 		
 		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
 		
-		kog_encyclicals_container = {}
+		kog_encyclicals_container = { }
 		kog_denominational_actions_container = { }
 		com_international_organization_modifiers = { }
 		kog_membership_panel = { }
@@ -303,7 +303,7 @@ types kog_journal_widget_types {
 			datamodel = "[JournalEntry.MakeScope.GetList('kog_encyclicals_list')]"
 			spacing = 2
 			item = {
-				kog_encyclical_item = {}
+				kog_encyclical_item = { }
 			}
 		}
 	}
@@ -1956,7 +1956,7 @@ types kog_journal_widget_types {
 				size = { 80% 80% }
 			}
 		}
-		block "kog_canon_law_icon_tooltip" {}
+		block "kog_canon_law_icon_tooltip" { }
 	}
 	
 	type kog_collegium_panel = flowcontainer {
@@ -2164,7 +2164,7 @@ types kog_journal_widget_types {
 		datamodel = "[JournalEntry.MakeScope.GetList('kog_seats_list')]"
 		
 		item = {
-			kog_episcopal_seat_item = {}
+			kog_episcopal_seat_item = { }
 		}
 		
 	}
@@ -2238,7 +2238,7 @@ types kog_journal_widget_types {
 						size = { 150 35 }
 						position = { 0 80 }
 						parentanchor = center
-						blockoverride "text" {}
+						blockoverride "text" { }
 						textbox = {
 							text = "kog_gui_patriarch_name"
 							parentanchor = center
@@ -2276,7 +2276,7 @@ types kog_journal_widget_types {
 					elide = right
 					using = fontsize_medium
 				}
-				divider_clean = {}
+				divider_clean = { }
 				
 				# Liturgical Language
 				textbox = {
@@ -2291,7 +2291,7 @@ types kog_journal_widget_types {
 					elide = right
 					using = fontsize_medium
 				}
-				divider_clean = {}
+				divider_clean = { }
 				
 				# Liturgical Rite
 				textbox = {
@@ -2306,7 +2306,7 @@ types kog_journal_widget_types {
 					elide = right
 					using = fontsize_medium
 				}
-				divider_clean = {}
+				divider_clean = { }
 				
 				# Opinion
 				textbox = {
@@ -2323,7 +2323,7 @@ types kog_journal_widget_types {
 				}
 			}
 			
-			kog_seat_scripted_button_container = {}
+			kog_seat_scripted_button_container = { }
 		}
 	}
 	
@@ -2513,6 +2513,9 @@ types kog_journal_widget_types {
 			}
 		}
 	}
+}
+
+types kog_ecumenical_council_types {
 	
 	type kog_ecumenical_council_panel = flowcontainer {
 		direction = vertical
