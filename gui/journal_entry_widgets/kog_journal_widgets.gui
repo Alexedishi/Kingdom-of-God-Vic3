@@ -35,6 +35,23 @@ flowcontainer = {
 	}
 }
 
+flowcontainer = {
+	name = "widget_kog_ecumenical_council"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+		kog_ecumenical_council_panel = {}
+	}
+}
+
 ####---------- KOG JOURNAL ENTRY TYPES ----------####
 types kog_journal_widget_types {
 	
@@ -2494,6 +2511,115 @@ types kog_journal_widget_types {
 				using = tooltip_font
 				text = "kog_gui_assert_seat"
 			}
+		}
+	}
+	
+	type kog_ecumenical_council_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		
+		kog_ecumenical_council_debate_item = {
+			blockoverride "canon_law_group_name" {
+				text = "kog_placeholder_text"
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				blockoverride "canon_law_name" {
+					text = "kog_placeholder_text"
+				}
+				blockoverride "canon_law_votes" {
+					text = "kog_placeholder_text"
+				}
+			}
+		}
+		
+		kog_ecumenical_council_debate_item = {
+			blockoverride "canon_law_group_name" {
+				text = "kog_placeholder_text"
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				blockoverride "canon_law_name" {
+					text = "kog_placeholder_text"
+				}
+				blockoverride "canon_law_votes" {
+					text = "kog_placeholder_text"
+				}
+			}
+		}
+		
+		kog_ecumenical_council_debate_item = {
+			blockoverride "canon_law_group_name" {
+				text = "kog_placeholder_text"
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				blockoverride "canon_law_name" {
+					text = "kog_placeholder_text"
+				}
+				blockoverride "canon_law_votes" {
+					text = "kog_placeholder_text"
+				}
+			}
+		}
+	}
+	
+	type kog_ecumenical_council_debate_item = flowcontainer {
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			block "canon_law_group_name" {
+				raw_text = "#todo canon_law_group_name"
+				using = look_at_me_text_animation
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+	}
+	
+	type kog_ecumenical_council_canon_law_votes_item = flowcontainer {
+		parentanchor = top|hcenter
+		minimumsize = { 400 50 }
+		spacing = 10
+		
+		background = {
+			using = entry_bg_simple
+		}
+		
+		icon = {
+			parentanchor = left|vcenter
+			size = { 50 50 }
+			texture = "/gfx/interface/backgrounds/round_button_bg.dds"
+			
+			icon = {
+				parentanchor = center
+				size = { 40 40 }
+				block "canon_law_icon" {
+					texture = "/gfx/interface/backgrounds/error_deer.dds"
+				}
+			}
+		}
+		textbox = {
+			parentanchor = left|vcenter
+			block "canon_law_name" {
+				raw_text = "#todo canon_law_name"
+				using = look_at_me_text_animation
+			}
+			autoresize = yes
+			align = left|nobaseline
+			multiline = yes
+			using = fontsize_large
+		}
+		textbox = {
+			parentanchor = left|vcenter
+			block "canon_law_votes" {
+				raw_text = "#todo canon_law_votes"
+				using = look_at_me_text_animation
+			}
+			autoresize = yes
+			align = right|nobaseline
+			multiline = yes
+			using = fontsize_medium
 		}
 	}
 }
