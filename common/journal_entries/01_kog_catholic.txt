@@ -200,6 +200,12 @@ je_kog_ecyclical_mirari_vos = {
 				variable = kog_ecyclical_non_compliant_list
 			}
 		}
+		global_var:je_kog_catholic = {
+			remove_list_variable = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
+		}
 	}
 	
 	on_weekly_pulse = {
@@ -296,6 +302,12 @@ je_kog_ecyclical_singulari_nos = {
 			text = je_kog_ecyclical_singulari_nos_failure_effect
 			every_in_list = {
 				variable = kog_ecyclical_non_compliant_list
+			}
+		}
+		global_var:je_kog_catholic = {
+			remove_list_variable = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
 			}
 		}
 	}
