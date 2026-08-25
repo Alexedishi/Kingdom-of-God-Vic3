@@ -43,11 +43,9 @@ flowcontainer = {
 		direction = vertical
 		spacing = 10
 		
-		com_international_organization_header = {
-			blockoverride "spacer_size" {
-				size = { 540 60 }
-			}
-		}
+		com_international_situation_debug_info = {}
+		com_international_situation_header = {}
+		com_international_situation_illustration = {}
 		kog_ecumenical_council_panel = {}
 	}
 }
@@ -2523,66 +2521,326 @@ types kog_ecumenical_council_types {
 		minimumsize = { 540 -1 }
 		using = entry_bg_fancy
 		spacing = 10
+		margin_bottom = 10
 		
+		# Theological Matters
+		kog_ecumenical_council_debate_item = {}
+		
+		# Apostolic Succession
 		kog_ecumenical_council_debate_item = {
 			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_apostolic_succession"
+			}
+			blockoverride "council_debate_item_visibility" {
+				visible = yes
+				#visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_apostolic_succession').IsSet]"
+			}
+			blockoverride "canon_law_1_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_1_name" {
+				text = "kog_canon_law_papal_primacy"
+			}
+			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				blockoverride "canon_law_name" {
-					text = "kog_placeholder_text"
-				}
-				blockoverride "canon_law_votes" {
-					text = "kog_placeholder_text"
-				}
+			blockoverride "canon_law_2_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_2_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_2_name" {
+				text = "kog_canon_law_synodality"
+			}
+			blockoverride "canon_law_2_votes" {
+				text = "kog_placeholder_text"
+			}
+			blockoverride "canon_law_3_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_3_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_3_name" {
+				text = "kog_canon_law_congregationalism"
+			}
+			blockoverride "canon_law_3_votes" {
+				text = "kog_placeholder_text"
 			}
 		}
 		
+		# Almsgiving
 		kog_ecumenical_council_debate_item = {
 			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_almsgiving"
+			}
+			blockoverride "council_debate_item_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_1_name" {
+				text = "kog_canon_law_no_alms"
+			}
+			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				blockoverride "canon_law_name" {
-					text = "kog_placeholder_text"
-				}
-				blockoverride "canon_law_votes" {
-					text = "kog_placeholder_text"
-				}
+			blockoverride "canon_law_2_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_2_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_2_name" {
+				text = "kog_canon_law_offertory"
+			}
+			blockoverride "canon_law_2_votes" {
+				text = "kog_placeholder_text"
+			}
+			blockoverride "canon_law_3_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_3_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_3_name" {
+				text = "kog_canon_law_tithing"
+			}
+			blockoverride "canon_law_3_votes" {
+				text = "kog_placeholder_text"
 			}
 		}
 		
+		# Statism
 		kog_ecumenical_council_debate_item = {
 			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_statism"
+			}
+			blockoverride "council_debate_item_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_1_name" {
+				text = "kog_canon_law_hierocracy"
+			}
+			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
-			kog_ecumenical_council_canon_law_votes_item = {
-				blockoverride "canon_law_name" {
-					text = "kog_placeholder_text"
-				}
-				blockoverride "canon_law_votes" {
-					text = "kog_placeholder_text"
-				}
+			blockoverride "canon_law_2_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_2_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_2_name" {
+				text = "kog_canon_law_ultramontanism"
+			}
+			blockoverride "canon_law_2_votes" {
+				text = "kog_placeholder_text"
+			}
+			blockoverride "canon_law_3_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_3_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_3_name" {
+				text = "kog_canon_law_secularism"
+			}
+			blockoverride "canon_law_3_votes" {
+				text = "kog_placeholder_text"
+			}
+			blockoverride "canon_law_4_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_4_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_4_name" {
+				text = "kog_canon_law_ultramontanism"
+			}
+			blockoverride "canon_law_4_votes" {
+				text = "kog_placeholder_text"
+			}
+			blockoverride "canon_law_5_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_5_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_5_name" {
+				text = "kog_canon_law_constantinianism"
+			}
+			blockoverride "canon_law_5_votes" {
+				text = "kog_placeholder_text"
+			}
+		}
+		
+		# Nationalism
+		kog_ecumenical_council_debate_item = {
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_nationalism"
+			}
+			blockoverride "council_debate_item_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_visibility" {
+				visible = yes
+			}
+			blockoverride "canon_law_1_icon" {
+				texture = "/gfx/interface/error_frog.dds"
+			}
+			blockoverride "canon_law_1_name" {
+				text = "kog_canon_law_uranopolitism"
+			}
+			blockoverride "canon_law_1_votes" {
+				text = "kog_placeholder_text"
 			}
 		}
 	}
 	
 	type kog_ecumenical_council_debate_item = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		margin_left = 10
+		
+		block "council_debate_item_visibility" {
+			visible = no
+		}
+		
 		default_header_clean_faded = {
 			parentanchor = hcenter
-			block "canon_law_group_name" {
-				raw_text = "#todo canon_law_group_name"
-				using = look_at_me_text_animation
+			blockoverride "text" {
+				block "canon_law_group_name" {
+					raw_text = "#todo canon_law_group_name"
+					using = look_at_me_text_animation
+				}
 			}
 			blockoverride "size" {
 				size = { 532 45 }
 			}
 		}
+		
+		block "council_debate_item_contents" {
+			kog_ecumenical_council_canon_law_votes_item = {
+				block "canon_law_1_visibility" {
+					visible = no
+				}
+				block "canon_law_icon" {
+					block "canon_law_1_icon" {
+						texture = "/gfx/interface/error_frog.dds"
+					}
+				}
+				blockoverride "canon_law_name" {
+					block "canon_law_1_name" {
+						raw_text = "#todo canon_law_1_name"
+					}
+				}
+				blockoverride "canon_law_votes" {
+					block "canon_law_1_votes" {
+						raw_text = "#todo canon_law_1_votes"
+					}
+				}
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				block "canon_law_2_visibility" {
+					visible = no
+				}
+				block "canon_law_icon" {
+					block "canon_law_2_icon" {
+						texture = "/gfx/interface/error_frog.dds"
+					}
+				}
+				blockoverride "canon_law_name" {
+					block "canon_law_2_name" {
+						raw_text = "#todo canon_law_2_name"
+					}
+				}
+				blockoverride "canon_law_votes" {
+					block "canon_law_2_votes" {
+						raw_text = "#todo canon_law_2_votes"
+					}
+				}
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				block "canon_law_3_visibility" {
+					visible = no
+				}
+				block "canon_law_icon" {
+					block "canon_law_3_icon" {
+						texture = "/gfx/interface/error_frog.dds"
+					}
+				}
+				blockoverride "canon_law_name" {
+					block "canon_law_3_name" {
+						raw_text = "#todo canon_law_3_name"
+					}
+				}
+				blockoverride "canon_law_votes" {
+					block "canon_law_3_votes" {
+						raw_text = "#todo canon_law_3_votes"
+					}
+				}
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				block "canon_law_4_visibility" {
+					visible = no
+				}
+				block "canon_law_icon" {
+					block "canon_law_4_icon" {
+						texture = "/gfx/interface/error_frog.dds"
+					}
+				}
+				blockoverride "canon_law_name" {
+					block "canon_law_4_name" {
+						raw_text = "#todo canon_law_4_name"
+					}
+				}
+				blockoverride "canon_law_votes" {
+					block "canon_law_4_votes" {
+						raw_text = "#todo canon_law_4_votes"
+					}
+				}
+			}
+			kog_ecumenical_council_canon_law_votes_item = {
+				block "canon_law_5_visibility" {
+					visible = no
+				}
+				block "canon_law_icon" {
+					block "canon_law_5_icon" {
+						texture = "/gfx/interface/error_frog.dds"
+					}
+				}
+				blockoverride "canon_law_name" {
+					block "canon_law_5_name" {
+						raw_text = "#todo canon_law_5_name"
+					}
+				}
+				blockoverride "canon_law_votes" {
+					block "canon_law_5_votes" {
+						raw_text = "#todo canon_law_5_votes"
+					}
+				}
+			}
+		}
 	}
 	
 	type kog_ecumenical_council_canon_law_votes_item = flowcontainer {
-		parentanchor = top|hcenter
-		minimumsize = { 400 50 }
+		parentanchor = top|left
+		minimumsize = { 520 50 }
 		spacing = 10
 		
 		background = {
@@ -2598,7 +2856,7 @@ types kog_ecumenical_council_types {
 				parentanchor = center
 				size = { 40 40 }
 				block "canon_law_icon" {
-					texture = "/gfx/interface/backgrounds/error_deer.dds"
+					texture = "/gfx/interface/error_deer.dds"
 				}
 			}
 		}
@@ -2614,7 +2872,7 @@ types kog_ecumenical_council_types {
 			using = fontsize_large
 		}
 		textbox = {
-			parentanchor = left|vcenter
+			parentanchor = right|vcenter
 			block "canon_law_votes" {
 				raw_text = "#todo canon_law_votes"
 				using = look_at_me_text_animation
