@@ -2533,16 +2533,74 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = "[JournalEntry.MakeScope.Var('kog_theological_matter_var').IsSet]"
 			}
+			
+			# Conservative Stance
 			blockoverride "canon_law_1_visibility" {
 				visible = "[JournalEntry.MakeScope.Var('kog_theological_debate_1_var').IsSet]"
 			}
 			blockoverride "canon_law_1_icon" {
-				texture = "/gfx/interface/error_frog.dds"
+				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_conservative.dds"
 			}
 			blockoverride "canon_law_1_name" {
 				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_debate_1_var').GetFlagName]"
 			}
 			blockoverride "canon_law_1_votes" {
+				text = "kog_placeholder_text"
+			}
+			
+			# Reformer Stance
+			blockoverride "canon_law_2_visibility" {
+				visible = "[JournalEntry.MakeScope.Var('kog_theological_debate_2_var').IsSet]"
+			}
+			blockoverride "canon_law_2_icon" {
+				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_reformer.dds"
+			}
+			blockoverride "canon_law_2_name" {
+				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_debate_2_var').GetFlagName]"
+			}
+			blockoverride "canon_law_2_votes" {
+				text = "kog_placeholder_text"
+			}
+			
+			# Fundamentalist Stance
+			blockoverride "canon_law_3_visibility" {
+				visible = "[JournalEntry.MakeScope.Var('kog_theological_debate_3_var').IsSet]"
+			}
+			blockoverride "canon_law_3_icon" {
+				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_.dds"
+			}
+			blockoverride "canon_law_3_name" {
+				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_debate_3_var').GetFlagName]"
+			}
+			blockoverride "canon_law_3_votes" {
+				text = "kog_placeholder_text"
+			}
+			
+			# Modernizer Stance
+			blockoverride "canon_law_4_visibility" {
+				visible = "[JournalEntry.MakeScope.Var('kog_theological_debate_4_var').IsSet]"
+			}
+			blockoverride "canon_law_4_icon" {
+				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_modernizer.dds"
+			}
+			blockoverride "canon_law_4_name" {
+				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_debate_4_var').GetFlagName]"
+			}
+			blockoverride "canon_law_4_votes" {
+				text = "kog_placeholder_text"
+			}
+			
+			# Legalistic Stance
+			blockoverride "canon_law_5_visibility" {
+				visible = "[JournalEntry.MakeScope.Var('kog_theological_debate_5_var').IsSet]"
+			}
+			blockoverride "canon_law_5_icon" {
+				texture = "/gfx/interface/icons/theological_debate_icons/kog_debate_stance_conservative.dds"
+			}
+			blockoverride "canon_law_5_name" {
+				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_debate_5_var').GetFlagName]"
+			}
+			blockoverride "canon_law_5_votes" {
 				text = "kog_placeholder_text"
 			}
 		}
@@ -2556,6 +2614,8 @@ types kog_ecumenical_council_types {
 				visible = yes
 				#visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_apostolic_succession').IsSet]"
 			}
+			
+			# Papal Primacy
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2568,6 +2628,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Synodality
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2580,6 +2642,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Congregationalism
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2602,6 +2666,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# No Alms
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2614,6 +2680,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Offertory
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2626,6 +2694,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Tithing
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2648,6 +2718,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# Iconoclasm
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2660,6 +2732,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Aniconism
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2672,6 +2746,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Iconodulism
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2684,6 +2760,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_3_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Iconolatry
 			blockoverride "canon_law_4_visibility" {
 				visible = yes
 			}
@@ -2706,6 +2784,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# Hierocracy
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2718,6 +2798,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Ultramontanism
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2730,6 +2812,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Secularism
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2742,6 +2826,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_3_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Gallicanism
 			blockoverride "canon_law_4_visibility" {
 				visible = yes
 			}
@@ -2754,6 +2840,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_4_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Constantinianism
 			blockoverride "canon_law_5_visibility" {
 				visible = yes
 			}
@@ -2776,6 +2864,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# Uranopolitism
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2788,6 +2878,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Ecclesial Communities
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2800,6 +2892,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Ethnophyletism
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2812,6 +2906,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_3_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Kinism
 			blockoverride "canon_law_4_visibility" {
 				visible = yes
 			}
@@ -2834,6 +2930,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# Priests Celibate
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2846,6 +2944,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Marriage Allowed
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2868,6 +2968,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# Moral Authority
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2880,6 +2982,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Moral Guidance
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2892,6 +2996,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Social Activism
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2904,6 +3010,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_3_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Modernizing Force
 			blockoverride "canon_law_4_visibility" {
 				visible = yes
 			}
@@ -2926,6 +3034,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# Scriptural Supremacy
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -2938,6 +3048,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Scriptural Favoritism
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -2950,6 +3062,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Scientific Disengagement
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -2962,6 +3076,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_3_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Scientific Patronage
 			blockoverride "canon_law_4_visibility" {
 				visible = yes
 			}
@@ -2974,6 +3090,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_4_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Scientific Crusade
 			blockoverride "canon_law_5_visibility" {
 				visible = yes
 			}
@@ -2996,6 +3114,8 @@ types kog_ecumenical_council_types {
 			blockoverride "council_debate_item_visibility" {
 				visible = yes
 			}
+			
+			# No Crusades
 			blockoverride "canon_law_1_visibility" {
 				visible = yes
 			}
@@ -3008,6 +3128,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_1_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Heathen Crusades
 			blockoverride "canon_law_2_visibility" {
 				visible = yes
 			}
@@ -3020,6 +3142,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_2_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Heretic Crusades
 			blockoverride "canon_law_3_visibility" {
 				visible = yes
 			}
@@ -3032,6 +3156,8 @@ types kog_ecumenical_council_types {
 			blockoverride "canon_law_3_votes" {
 				text = "kog_placeholder_text"
 			}
+			
+			# Unlimited Crusades
 			blockoverride "canon_law_4_visibility" {
 				visible = yes
 			}
