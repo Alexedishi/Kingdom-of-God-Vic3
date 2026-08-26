@@ -1,43 +1,4 @@
-﻿kog_denomination_type = {
-	type = country
-
-	text = {
-		trigger = {
-			kog_country_is_roman_catholic_trigger = yes
-		}
-		localization_key = kog_roman_catholic
-	}
-	text = {
-		trigger = {
-			kog_country_is_eastern_orthodox_trigger = yes
-		}
-		localization_key = kog_eastern_orthodox
-	}
-	text = {
-		trigger = {
-			kog_country_is_oriental_orthodox_trigger = yes
-			NOT = {
-				var:kog_local.var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
-			}
-		}
-		localization_key = kog_oriental_orthodox
-	}
-	text = {
-		trigger = {
-			kog_country_is_oriental_orthodox_trigger = yes
-			var:kog_local.var:kog_liturgical_rite_var ?= flag:kog_nestorian_rite
-		}
-		localization_key = kog_ancient_east
-	}
-	text = {
-		trigger = {
-			kog_country_is_elysian_orthodox_trigger = yes
-		}
-		localization_key = kog_elysian_orthodox
-	}
-}
-
-kog_faith_capacity_type = {
+﻿kog_faith_capacity_type = {
 	type = country
 
 	text = {
