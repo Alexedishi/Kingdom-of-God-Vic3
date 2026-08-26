@@ -1,5 +1,5 @@
 ﻿l_english:
- # Compliance Panel!
+ # Compliance Panel
  kog_gui_canon_law_compliance: "[concept_canon_law_compliance] in [GetPlayer.GetNameNoFlag]: [GetPlayer.MakeScope.Var('kog_local').Var('kog_canon_law_compliance_var').GetValue|+=0]"
  kog_gui_canon_law_compliance_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_canon_law_compliance_value')]"
  
@@ -16,106 +16,7 @@
  kog_gui_canon_law_sciences_stance: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_stance_on_sciences').GetFlagName]#!"
  kog_gui_canon_law_crusades: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_crusades').GetFlagName]#!"
  
- ## Canon Laws
- kog_canon_law_none: "#bold None#!"
- kog_canon_law_temp: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_temp_desc')]#!#!#!"
- kog_canon_law_temp_desc: "#filler kog_canon_law_temp_desc#!"
- kog_canon_law_detail: "Adopting this [concept_canon_law] will confer the following effects (modified by [concept_canon_law_compliance]):\n"
  
- kog_canon_lawgroup_apostolic_succession: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_apostolic_succession_desc')] Apostolic Succession#!#!#!"
- kog_canon_lawgroup_apostolic_succession_desc: "#bold Apostolic Succession#! is the belief by which a church traces the transmission of grace and ministerial authority from the disciples of Christ to the modern day. More ancient denominations, such as the [GetReligion('catholic').GetName] and [GetReligion('orthodox').GetName] Churches, assert that the consecration of Bishops by other Bishops is the only way to maintain the validity of priestly orders, while many [GetReligion('protestant').GetName] denominations assert this continuity is unnecessary and rooting in fundamental misunderstandings of scripture."
- kog_canon_law_papal_primacy: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_papal_primacy_desc')] Papal Primacy#!#!#!"
- kog_canon_law_papal_primacy_desc: "A single Bishop is elevated above the all others and wields sovereign and absolute authority over all other Bishops. In such a system, deviation from the mother church is tantamount to [concept_schism].$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_papal_primacy').GetDesc]"
- kog_canon_law_synodality: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_synodality_desc')] Synodality#!#!#!"
- kog_canon_law_synodality_desc: "Churches are lead by group of elected bishops who cooperate in administering the church. While specific Bishops may be recognized as more senior or prestigious, no church hold authority over any other.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_synodality').GetDesc]"
- kog_canon_law_congregationalism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_congregationalism_desc')] Congregationalism#!#!#!"
- kog_canon_law_congregationalism_desc: "Every local church, or congregation, operates with full independence as has full rights to interpret and preach scripture. In such a system, any central authority is hypothetical at best and fundamental theological disagreements are commonplace.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_congregationalism').GetDesc]"
- 
- kog_canon_lawgroup_almsgiving: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_almsgiving_desc')] Almsgiving#!#!#!"
- kog_canon_lawgroup_almsgiving_desc: ""
- kog_canon_law_no_alms: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_no_alms_desc')] No Alms#!#!#!"
- kog_canon_law_no_alms_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_no_alms').GetDesc]"
- kog_canon_law_offertory: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_offertory_desc')] Offertory#!#!#"
- kog_canon_law_offertory_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_offertory').GetDesc]"
- kog_canon_law_tithing: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_tithing_desc')] Tithing#!#!#"
- kog_canon_law_tithing_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_tithing').GetDesc]"
- 
- kog_canon_lawgroup_statism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_statism_desc')] Church and State#!#!#!"
- kog_canon_lawgroup_statism_desc: ""
- kog_canon_law_hierocracy: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_hierocracy_desc')] Hierocracy#!#!#!"
- kog_canon_law_hierocracy_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_hierocracy').GetDesc]"
- kog_canon_law_ultramontanism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_ultramontanism_desc')] Ultramontanism#!#!#!"
- kog_canon_law_ultramontanism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_ultramontanism').GetDesc]"
- kog_canon_law_secularism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_secularism_desc')] Secularism#!#!#!"
- kog_canon_law_secularism_desc: ""
- kog_canon_law_gallicanism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_gallicanism_desc')] Gallicanism#!#!#!"
- kog_canon_law_gallicanism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_gallicanism').GetDesc]"
- kog_canon_law_constantinianism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_constantinianism_desc')] Constantinianism#!#!#!"
- kog_canon_law_constantinianism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_constantinianism').GetDesc]"
- 
- kog_canon_lawgroup_nationalism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_nationalism_desc')] Church and Nation#!#!#!"
- kog_canon_lawgroup_nationalism_desc: ""
- kog_canon_law_uranopolitism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_uranopolitism_desc')] Uranopolitism#!#!#!"
- kog_canon_law_uranopolitism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_uranopolitism').GetDesc]"
- kog_canon_law_ecclesial_communities: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_ecclesial_communities_desc')] Ecclesial Communities#!#!#!"
- kog_canon_law_ecclesial_communities_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_ecclesial_communities').GetDesc]"
- kog_canon_law_ethnophyletism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_ethnophyletism_desc')] Ethnophyletism#!#!#!"
- kog_canon_law_ethnophyletism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_ethnophyletism').GetDesc]"
- kog_canon_law_kinism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_kinism_desc')] Kinism#!#!#!"
- kog_canon_law_kinism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_kinism').GetDesc]"
- 
- kog_canon_lawgroup_iconography: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_iconography_desc')] Stance Towards Icons#!#!#!"
- kog_canon_lawgroup_iconography_desc: ""
- kog_canon_law_iconoclasm: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_iconoclasm_desc')] Iconoclasm#!#!#!"
- kog_canon_law_iconoclasm_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_iconoclasm').GetDesc]"
- kog_canon_law_aniconism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_aniconism_desc')] Aniconism#!#!#!"
- kog_canon_law_aniconism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_aniconism').GetDesc]"
- kog_canon_law_iconodulism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_iconodulism_desc')] Iconodulism#!#!#!"
- kog_canon_law_iconodulism_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_iconodulism').GetDesc]"
- kog_canon_law_iconolatry: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_iconolatry_desc')] Iconolatry#!#!#!"
- kog_canon_law_iconolatry_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_iconolatry').GetDesc]"
- 
- kog_canon_lawgroup_clerical_marriage: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_clerical_marriage_desc')] Marriage of Priests#!#!#!"
- kog_canon_lawgroup_clerical_marriage_desc: ""
- kog_canon_law_priests_celibate: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_priests_celibate_desc')] Clerical Celibacy#!#!#!"
- kog_canon_law_priests_celibate_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_priests_celibate').GetDesc]"
- kog_canon_law_marriage_allowed: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_marriage_allowed_desc')] Marriage Permitted#!#!#!"
- kog_canon_law_marriage_allowed_desc: "$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_marriage_allowed').GetDesc]"
- 
- kog_canon_lawgroup_social_role: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_social_role_desc')] Social Role#!#!#!"
- kog_canon_lawgroup_social_role_desc: "The #bold Social Role#! of the church guides the methodology by which the church engages with society. In more conservative churches, the clergy will act to uphold the "traditional values of society," while more activist churches will aim to fight for the well-being of society, even when it brings the clergy into conflict with entrenched interests."
- kog_canon_law_moral_authority: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_moral_authority_desc')] Moral Authority#!#!#!"
- kog_canon_law_moral_authority_desc: "The clergy are not only the foundation of society, but their interpretation of what is moral behavior and not is considered essential in society, regardless of any impingement personal freedoms.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_moral_authority').GetDesc]"
- kog_canon_law_moral_guidance: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_moral_guidance_desc')] Moral Guidance#!#!#!"
- kog_canon_law_moral_guidance_desc: "The clergy are expected to provide social counsel and live as beacons of morality. However, they are limited their ability to interfere in personal affairs.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_moral_guidance').GetDesc]"
- kog_canon_law_social_activism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_social_activism_desc')] Social Activism#!#!#!"
- kog_canon_law_social_activism_desc: "The clergy encourage the laity to engage in social causes, such as tolerance of minorities or the rights of women, both during liturgy and in their role as social counsel.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_social_activism').GetDesc]"
- kog_canon_law_modernizing_force: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_modernizing_force_desc')] Modernizing Force#!#!#!"
- kog_canon_law_modernizing_force_desc: "The clergy are commanded to directly engage in social causes, directly participating in marches and strikes, even when this puts them at risk of person harm or the church at risk of retaliation.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_modernizing_force').GetDesc]"
- 
- kog_canon_lawgroup_stance_on_sciences: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_stance_on_sciences_desc')] Stance on the Sciences#!#!#!"
- kog_canon_lawgroup_stance_on_sciences_desc: "Christianity has a complicated relationship with the church, ranging from promoting scientific innovation to resisting findings that contradict scripture. A church's #bold Stance on the Sciences#! provides the framework by which the church administration interacts with innovation and discovery."
- kog_canon_law_scriptural_supremacy: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_scriptural_supremacy_desc')] Scriptural Supremacy#!#!#!"
- kog_canon_law_scriptural_supremacy_desc: "The church holds that the only truth is that which can be gleaned from scripture. Any contradiction with scripture is condemned as heresy and, where possible, prosecuted as criminal.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_scriptural_supremacy').GetDesc]"
- kog_canon_law_scriptural_favoritism: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_scriptural_favoritism_desc')] Scriptural Favoritism#!#!#!"
- kog_canon_law_scriptural_favoritism_desc: "The church favors rationalizing scientific discoveries with the scripture. While not denying the validity of scientific findings, the church asserts many phenomena to be divine in nature.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_scriptural_favoritism').GetDesc]"
- kog_canon_law_scientific_disengagement: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_scientific_disengagement_desc')] Scientific Disengagement#!#!#!"
- kog_canon_law_scientific_disengagement_desc: "The church takes no particular stance on the sciences and hold no specific stances on the validity or merit of scientific discovery.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_scientific_disengagement').GetDesc]"
- kog_canon_law_scientific_patronage: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_scientific_patronage_desc')] Scientific Patronage#!#!#!"
- kog_canon_law_scientific_patronage_desc: "The church takes an active role in promoting the sciences, by patronizing academic institutions and funding private initiatives.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_scientific_patronage').GetDesc]"
- kog_canon_law_scientific_crusade: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_scientific_crusade_desc')] Scientific Crusade#!#!#!"
- kog_canon_law_scientific_crusade_desc: "The church is committed to the cause of scientific discovery, with the clergy preaching innovation as the means to understand the mystery of God's creation.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_scientific_crusade').GetDesc]"
-
- kog_canon_lawgroup_crusades: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_lawgroup_crusades_desc')] Crusades#!#!#!"
- kog_canon_lawgroup_crusades_desc: ""
- kog_canon_law_no_crusades: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_no_crusades_desc')] No Crusades#!#!#!"
- kog_canon_law_no_crusades_desc: "The church holds that crusades are a relic of a bygone era and unfit as a theological justification for conflict.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_no_crusades').GetDesc]"
- kog_canon_law_heathen_crusades: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_heathen_crusades_desc')] Crusades Against Heathens#!#!#!"
- kog_canon_law_heathen_crusades_desc: "The church holds that crusades are justified as a means of uniting Christendom in spreading the Word of God to those that have either rejected evangelization or have yet to hear the Word.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_heathen_crusades').GetDesc]"
- kog_canon_law_heretic_crusades: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_heretic_crusades_desc')] Crusades Against Heretics#!#!#!"
- kog_canon_law_heretic_crusades_desc: "The church holds that crusades are justified as a means of both spreading the Word of God to foreign lands, and also as a means to suppress deviant doctrines and schismatics.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_heretic_crusades').GetDesc]"
- kog_canon_law_unlimited_crusades: "#bold #yellow #tooltip:[GetRawTextTooltipTag('kog_canon_law_unlimited_crusades_desc')] Unlimited Crusades#!#!#!"
- kog_canon_law_unlimited_crusades_desc: "The church holds that crusades are a justified form of warfare, so long as the target is of poor faith or has rejected the Word of God.$kog_linebreak$$kog_canon_law_detail$[GetStaticModifier('modifier_kog_canon_law_unlimited_crusades').GetDesc]"
  
 ####---------- Canon Law Scripted Buttons ----------####
  kog_gui_debate_canon_law: "Debate Canon Law"
@@ -151,19 +52,6 @@
  kog_gui_debate_stance_on_sciences: "Debate the Sciences"
  
  kog_gui_debate_crusades: "Debate Renewed Crusading"
- 
- ####---------- Theological Matters ----------####
- kog_theological_matter_calendrical_reform: "#yellow Calendrical Reforms#!"
- kog_theological_matter_calendrical_reform_desc: ""
- kog_theological_stance_retain_julian_calender: "#yellow Retain Julian Calendar#!"
- kog_theological_stance_retain_julian_calender_desc: ""
- kog_theological_stance_revise_julian_calendar: "#yellow Revise Julian Calendar#!"
- kog_theological_stance_revise_julian_calendar_desc: ""
- kog_theological_stance_adopt_gregorian_calendar: "#yellow Adopt Gregorian Calendar#!"
- kog_theological_stance_adopt_gregorian_calendar_desc: ""
- 
- 
- 
  
 ####---------- Placeholder Localization ----------####
  kog_block_canon_law_group: "#dummy Override canon_law_group!"

@@ -20,23 +20,22 @@ kog_seat_controller_type = {
 	
 	text = {
 		trigger = {
-			NOT = {
-				has_variable = kog_controller_var
-			}
+			var:kog_controller_var ?= flag:kog_religious_union
 		}
-		localization_key = kog_gui_no_controller
+		localization_key = kog_gui_religious_union_name
 	}
 	text = {
 		trigger = {
-			has_variable = kog_controller_var
-			exists = var:kog_controller_var
+			var:kog_controller_var ?= {
+				is_country_alive = yes
+			}
 		}
 		localization_key = kog_gui_controller_name
 	}
 	text = {
 		trigger = {
-			var:kog_controller_var ?= flag:kog_religious_union
+			always = yes
 		}
-		localization_key = kog_gui_religious_union_name
+		localization_key = kog_gui_no_controller
 	}
 }
