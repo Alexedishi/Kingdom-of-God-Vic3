@@ -112,7 +112,7 @@ kog_initialize_roman_catholic_variables_effect = {
 		}
 		set_variable = {
 			name = kog_council_counter_var
-			value = 0
+			value = 19
 		}
 		set_variable = {
 			name = kog_canon_lawgroup_apostolic_succession
@@ -150,6 +150,10 @@ kog_initialize_roman_catholic_variables_effect = {
 			name = kog_canon_lawgroup_crusades
 			value = flag:kog_canon_law_no_crusades
 		}
+		set_variable = {
+			name = kog_theological_matter_debate
+			value = flag:kog_canon_law_none
+		}
 	}
 }
 
@@ -169,7 +173,7 @@ kog_initialize_eastern_orthodox_variables_effect = {
 		}
 		set_variable = {
 			name = kog_council_counter_var
-			value = 0
+			value = 11
 		}
 		set_variable = {
 			name = kog_canon_lawgroup_apostolic_succession
@@ -207,10 +211,73 @@ kog_initialize_eastern_orthodox_variables_effect = {
 			name = kog_canon_lawgroup_crusades
 			value = flag:kog_canon_law_no_crusades
 		}
+		set_variable = {
+			name = kog_theological_matter_debate
+			value = flag:kog_canon_law_none
+		}
 	}
 }
 
-kog_initialize_elysian_orthodox_variables_effect = {}
+kog_initialize_elysian_orthodox_variables_effect = {
+	global_var:je_kog_orthodox = {
+		set_variable = {
+			name = kog_religion_var
+			value = "global_variable_map(kog_global|flag:kog_elysian_orthodox)"
+		}
+		set_variable = {
+			name = kog_location_var
+			value = s:STATE_DISTRICT_OF_COLUMBIA
+		}
+		set_variable = {
+			name = kog_liturgical_language_var
+			value = flag:kog_language_khoine
+		}
+		set_variable = {
+			name = kog_council_counter_var
+			value = 7
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_apostolic_succession
+			value = flag:kog_canon_law_synodality
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_almsgiving
+			value = flag:kog_canon_law_offertory
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_iconography
+			value = flag:kog_canon_law_iconodulism
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_statism
+			value = flag:kog_canon_law_ultramontanism
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_nationalism
+			value = flag:kog_canon_law_ecclesial_communities
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_clerical_marriage
+			value = flag:kog_canon_law_marriage_allowed
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_social_role
+			value = flag:kog_canon_law_moral_guidance
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_stance_on_sciences
+			value = flag:kog_canon_law_scientific_disengagement
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_crusades
+			value = flag:kog_canon_law_no_crusades
+		}
+		set_variable = {
+			name = kog_theological_matter_debate
+			value = flag:kog_canon_law_none
+		}
+	}
+}
 
 kog_initialize_catholic_button_lists_effect = {
 	## Ecumenical Decision List

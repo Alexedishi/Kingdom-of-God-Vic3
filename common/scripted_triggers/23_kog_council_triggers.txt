@@ -21,7 +21,8 @@ kog_has_ongoing_council_trigger = {
 		subject = this
 		object = var:kog_global_faith_journal_var
 		var:kog_global_faith_journal_var = {
-			has_variable_map = kog_ecumenical_council_map
+			has_variable = kog_ecumenical_council_var
+			exists = var:kog_ecumenical_council_var
 		}
 	}
 }
@@ -30,11 +31,7 @@ kog_council_is_debating_canon_lawgroup_trigger = {
 	custom_description = {
 		text = $canon_law_group$_debate_trigger
 		scope:journal_entry = {
-			has_variable_map = kog_ecumenical_council_map
-			is_key_in_variable_map = {
-				name = kog_ecumenical_council_map
-				target = flag:$canon_law_group$
-			}
+			has_variable = $canon_law_group$
 		}
 	}
 }
@@ -42,9 +39,9 @@ kog_council_is_debating_canon_lawgroup_trigger = {
 kog_country_is_ecumenical_council_participant_trigger = {
 	custom_description = {
 		subject = this
-		object = var:kog_mother_church_var
+		object = var:kog_mother_church_var.var:kog_ecumenical_council_var
 		text = kog_country_is_ecumenical_council_participant_trigger
-		var:kog_mother_church_var = {
+		var:kog_mother_church_var.var:kog_ecumenical_council_var = {
 			any_in_list = {
 				variable = kog_ecumenical_council_list
 				root = this

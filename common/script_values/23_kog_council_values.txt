@@ -158,6 +158,53 @@ kog_votes_value = {
 }
 
 ####---------- Ecumenical Council Debate Tally Values ----------####
+# Theological Matters
+kog_theological_debate_1_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_theological_matter_debate)" ?= flag:kog_theological_debate_1_var
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_theological_debate_2_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_theological_matter_debate)" ?= flag:kog_theological_debate_2_var
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_theological_debate_3_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_theological_matter_debate)" ?= flag:kog_theological_debate_3_var
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_theological_debate_4_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_theological_matter_debate)" ?= flag:kog_theological_debate_4_var
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+kog_theological_debate_5_value = {
+	value = 0
+	every_scope_je_involved = {
+		limit = {
+			"variable_map(kog_ecumenical_council_map|flag:kog_theological_matter_debate)" ?= flag:kog_theological_debate_5_var
+		}
+		add = var:kog_local.var:kog_votes_var
+	}
+}
+
 ## Apostolic Succession
 kog_canon_law_papal_primacy_value = {
 	value = 0

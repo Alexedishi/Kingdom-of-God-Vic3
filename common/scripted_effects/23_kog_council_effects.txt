@@ -3,12 +3,8 @@ kog_convoke_council_effect = {
 	custom_tooltip = {
 		text = kog_convoke_council_effect
 		save_scope_as = kog_council_caller
+		add_contextless_journal_entry = je_kog_$type$_council
 		var:kog_global_faith_journal_var = {
-			add_to_variable_map = {
-				name = kog_ecumenical_council_map
-				key = flag:kog_council_year_var
-				value = year
-			}
 			com_change_variable = {
 				name = kog_council_counter_var
 				value = 1
@@ -18,24 +14,22 @@ kog_convoke_council_effect = {
 			limit = {
 				kog_is_autocephalous_trigger = yes
 			}
-			var:kog_global_faith_journal_var = {
-				add_to_variable_map = {
-					name = kog_ecumenical_council_map
-					key = flag:kog_council_location_var
-					value = scope:kog_council_caller.capital
+			var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+				set_variable = { 
+					name = kog_council_location_var
+					value = scope:kog_council_caller.capital.state_region
 				}
 			}
 		}
 		else = {
-			var:kog_global_faith_journal_var = {
-				add_to_variable_map = {
-					name = kog_ecumenical_council_map
-					key = flag:kog_council_location_var
+			var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+				set_variable = {
+					name = kog_council_location_var
 					value = var:kog_mother_church_var.var:kog_seat_state_region_var
 				}
 			}
 		}
-		var:kog_global_faith_journal_var = {
+		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
 			add_to_variable_list = {
 				name = kog_ecumenical_council_list
 				target = scope:kog_council_caller
@@ -49,37 +43,10 @@ kog_convoke_council_effect = {
 	}
 }
 
-kog_add_canon_law_group_to_council_effect = {
-	custom_tooltip = {
-		text = kog_add_canon_law_group_to_council_effect
-		set_local_variable = {
-			name = kog_council_matter_var
-			value = flag:$canon_law_group$
-		}
-		var:kog_global_faith_journal_var = {
-			if = {
-				limit = {
-					NOT = {
-						is_key_in_variable_map = {
-							name = kog_ecumenical_council_map
-							target = flag:$canon_law_group$
-						}
-					}
-				}
-				add_to_variable_map = {
-					name = kog_ecumenical_council_map
-					key = flag:$canon_law_group$
-					value = var:$canon_law_group$
-				}
-			}
-		}
-	}
-}
-
 kog_join_ecumenical_council_effect = {
 	custom_tooltip = {
 		text = kog_join_ecumenical_council_effect
-		var:kog_global_faith_journal_var = {
+		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
 			add_to_variable_list = {
 				name = kog_ecumenical_council_list
 				target = root
@@ -88,268 +55,378 @@ kog_join_ecumenical_council_effect = {
 	}
 }
 
-kog_set_support_for_canon_law_effect = {
+kog_raise_council_debate_matter_effect = {
 	custom_tooltip = {
-		text = kog_gui_support_canon_law_effect
+		text = kog_raise_council_debate_matter_effect
 		set_local_variable = {
-			name = kog_canon_law_loc
-			value = flag:$canon_law$
+			name = kog_theological_matter_loc
+			value = flag:$theological_matter$
+		}
+		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+			if = {
+				limit = {
+					NOT = {
+						has_variable = $theological_matter$
+					}
+				}
+				set_variable = {
+					name = $theological_matter$
+					value = var:kog_global_faith_journal_var.var:$theological_matter$
+				}
+			}
+			else = {
+				error_log = "Effect kog_raise_council_debate_matter_effect was called, but the specified variable is already present."
+			}
+			kog_tally_council_votes_effect = yes
+		}
+	}
+	add_modifier = {
+		name = modifier_kog_raised_theological_debate
+		months = long_modifier_time
+		is_decaying = yes
+	}
+}
+
+kog_add_conservative_theological_debate_stance_effect = {
+	set_variable = {
+		name = kog_theological_debate_1_var
+		value = flag:$stance$
+	}
+}
+
+kog_add_reformer_theological_debate_stance_effect = {
+	set_variable = {
+		name = kog_theological_debate_2_var
+		value = flag:$stance$
+	}
+}
+
+kog_add_fundamentalist_theological_debate_stance_effect = {
+	set_variable = {
+		name = kog_theological_debate_3_var
+		value = flag:$stance$
+	}
+}
+
+kog_add_modernizer_theological_debate_stance_effect = {
+	set_variable = {
+		name = kog_theological_debate_4_var
+		value = flag:$stance$
+	}
+}
+
+kog_add_legalistic_theological_debate_stance_effect = {
+	set_variable = {
+		name = kog_theological_debate_5_var
+		value = flag:$stance$
+	}
+}
+
+kog_set_support_for_council_stance_effect = {
+	custom_tooltip = {
+		text = kog_set_support_for_council_stance_effect
+		set_local_variable = {
+			name = kog_debate_stance_loc
+			value = flag:$stance$
 		}
 		com_update_value_in_variable_map = {
 			name = kog_ecumenical_council_map
-			key = flag:$canon_law_group$
-			value = flag:$canon_law$
+			key = flag:$debate_matter$
+			value = flag:$stance$
+		}
+		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+			kog_tally_council_votes_effect = yes
 		}
 	}
 }
 
 kog_tally_council_votes_effect = {
-	# These effects are a mixed of parameterized effects and hardcoding since parameterizing the variable_map link is jank at best
-	# Step 1, Check if the canon law group is present in the *global journal* council map
-	# Step 2, Tally the votes for each participating country. These are drawn from script values that add kog_votes_var to the total if the *country* council map shows the country is voting for that specific canon law
+	# Step 1, Check if the canon law group variable is present in the *global journal*
+	# Step 2, Tally the votes for each participating country. These are drawn from script values that add kog_votes_var to the total if the *country* container council map shows the country is voting for that specific canon law
 	# Step 3, Determine the highest scoring canon law via kog_determine_leading_council_positions_effect
-	scope:journal_entry = {
+	if = {
+		limit = {
+			has_variable = kog_theological_matter_debate
+		}
 		if = {
 			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_apostolic_succession
-				}
+				has_variable = kog_theological_debate_1_var
+			}
+			var:kog_theological_debate_1_var = {
+				save_scope_as = kog_theological_debate_1_var
 			}
 			com_update_value_in_variable_map = {
-				name = kog_apostolic_succession_votes_map
-				key = flag:kog_canon_law_papal_primacy
-				value = kog_canon_law_papal_primacy_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_apostolic_succession_votes_map
-				key = flag:kog_canon_law_synodality
-				value = kog_canon_law_synodality_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_apostolic_succession_votes_map
-				key = flag:kog_canon_law_congregationalism
-				value = kog_canon_law_congregationalism_value
+				name = kog_theological_matter_debate_votes_map
+				key = scope:kog_theological_debate_1_var
+				value = kog_theological_debate_1_value
 			}
 		}
 		if = {
 			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_almsgiving
-				}
+				has_variable = kog_theological_debate_2_var
+			}
+			var:kog_theological_debate_2_var = {
+				save_scope_as = kog_theological_debate_2_var
 			}
 			com_update_value_in_variable_map = {
-				name = kog_almsgiving_votes_map
-				key = flag:kog_canon_law_no_alms
-				value = kog_canon_law_no_alms_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_almsgiving_votes_map
-				key = flag:kog_canon_law_offertory
-				value = kog_canon_law_offertory_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_almsgiving_votes_map
-				key = flag:kog_canon_law_tithing
-				value = kog_canon_law_tithing_value
+				name = kog_theological_matter_debate_votes_map
+				key = scope:kog_theological_debate_2_var
+				value = kog_theological_debate_2_value
 			}
 		}
 		if = {
 			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_statism
-				}
+				has_variable = kog_theological_debate_3_var
+			}
+			var:kog_theological_debate_3_var = {
+				save_scope_as = kog_theological_debate_3_var
 			}
 			com_update_value_in_variable_map = {
-				name = kog_statism_votes_map
-				key = flag:kog_canon_law_hierocracy
-				value = kog_canon_law_hierocracy_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_statism_votes_map
-				key = flag:kog_canon_law_ultramontanism
-				value = kog_canon_law_ultramontanism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_statism_votes_map
-				key = flag:kog_canon_law_secularism
-				value = kog_canon_law_secularism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_statism_votes_map
-				key = flag:kog_canon_law_gallicanism
-				value = kog_canon_law_gallicanism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_statism_votes_map
-				key = flag:kog_canon_law_constantinianism
-				value = kog_canon_law_constantinianism_value
+				name = kog_theological_matter_debate_votes_map
+				key = scope:kog_theological_debate_3_var
+				value = kog_theological_debate_3_value
 			}
 		}
 		if = {
 			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_nationalism
-				}
+				has_variable = kog_theological_debate_4_var
+			}
+			var:kog_theological_debate_4_var = {
+				save_scope_as = kog_theological_debate_4_var
 			}
 			com_update_value_in_variable_map = {
-				name = kog_nationalism_votes_map
-				key = flag:kog_canon_law_uranopolitism
-				value = kog_canon_law_uranopolitism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_nationalism_votes_map
-				key = flag:kog_canon_law_ecclesial_communities
-				value = kog_canon_law_ecclesial_communities_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_nationalism_votes_map
-				key = flag:kog_canon_law_ethnophyletism
-				value = kog_canon_law_ethnophyletism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_nationalism_votes_map
-				key = flag:kog_canon_law_kinism
-				value = kog_canon_law_kinism_value
+				name = kog_theological_matter_debate_votes_map
+				key = scope:kog_theological_debate_4_var
+				value = kog_theological_debate_4_value
 			}
 		}
 		if = {
 			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_iconography
-				}
+				has_variable = kog_theological_debate_5_var
+			}
+			var:kog_theological_debate_5_var = {
+				save_scope_as = kog_theological_debate_5_var
 			}
 			com_update_value_in_variable_map = {
-				name = kog_iconography_votes_map
-				key = flag:kog_canon_law_iconoclasm
-				value = kog_canon_law_iconoclasm_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_iconography_votes_map
-				key = flag:kog_canon_law_aniconism
-				value = kog_canon_law_aniconism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_iconography_votes_map
-				key = flag:kog_canon_law_iconodulism
-				value = kog_canon_law_iconodulism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_iconography_votes_map
-				key = flag:kog_canon_law_iconolatry
-				value = kog_canon_law_iconolatry_value
+				name = kog_theological_matter_debate_votes_map
+				key = scope:kog_theological_debate_5_var
+				value = kog_theological_debate_5_value
 			}
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_clerical_marriage
-				}
-			}
-			com_update_value_in_variable_map = {
-				name = kog_clerical_marriage_votes_map
-				key = flag:kog_canon_law_priests_celibate
-				value = kog_canon_law_priests_celibate_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_clerical_marriage_votes_map
-				key = flag:kog_canon_law_marriage_allowed
-				value = kog_canon_law_marriage_allowed_value
-			}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_apostolic_succession
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_social_role
-				}
-			}
-			com_update_value_in_variable_map = {
-				name = kog_social_role_votes_map
-				key = flag:kog_canon_law_moral_authority
-				value = kog_canon_law_moral_authority_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_social_role_votes_map
-				key = flag:kog_canon_law_moral_guidance
-				value = kog_canon_law_moral_guidance_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_social_role_votes_map
-				key = flag:kog_canon_law_social_activism
-				value = kog_canon_law_social_activism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_social_role_votes_map
-				key = flag:kog_canon_law_modernizing_force
-				value = kog_canon_law_modernizing_force_value
-			}
+		com_update_value_in_variable_map = {
+			name = kog_apostolic_succession_votes_map
+			key = flag:kog_canon_law_papal_primacy
+			value = kog_canon_law_papal_primacy_value
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_stance_on_sciences
-				}
-			}
-			com_update_value_in_variable_map = {
-				name = kog_stance_on_sciences_votes_map
-				key = flag:kog_canon_law_scriptural_supremacy
-				value = kog_canon_law_scriptural_supremacy_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_stance_on_sciences_votes_map
-				key = flag:kog_canon_law_scriptural_favoritism
-				value = kog_canon_law_scriptural_favoritism_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_stance_on_sciences_votes_map
-				key = flag:kog_canon_law_scientific_disengagement
-				value = kog_canon_law_scientific_disengagement_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_stance_on_sciences_votes_map
-				key = flag:kog_canon_law_scientific_patronage
-				value = kog_canon_law_scientific_patronage_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_stance_on_sciences_votes_map
-				key = flag:kog_canon_law_scientific_crusade
-				value = kog_canon_law_scientific_crusade_value
-			}
+		com_update_value_in_variable_map = {
+			name = kog_apostolic_succession_votes_map
+			key = flag:kog_canon_law_synodality
+			value = kog_canon_law_synodality_value
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_crusades
-				}
-			}
-			com_update_value_in_variable_map = {
-				name = kog_crusades_votes_map
-				key = flag:kog_canon_law_no_crusades
-				value = kog_canon_law_no_crusades_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_crusades_votes_map
-				key = flag:kog_canon_law_heathen_crusades
-				value = kog_canon_law_heathen_crusades_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_crusades_votes_map
-				key = flag:kog_canon_law_heretic_crusades
-				value = kog_canon_law_heretic_crusades_value
-			}
-			com_update_value_in_variable_map = {
-				name = kog_crusades_votes_map
-				key = flag:kog_canon_law_unlimited_crusades
-				value = kog_canon_law_unlimited_crusades_value
-			}
+		com_update_value_in_variable_map = {
+			name = kog_apostolic_succession_votes_map
+			key = flag:kog_canon_law_congregationalism
+			value = kog_canon_law_congregationalism_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_almsgiving
+		}
+		com_update_value_in_variable_map = {
+			name = kog_almsgiving_votes_map
+			key = flag:kog_canon_law_no_alms
+			value = kog_canon_law_no_alms_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_almsgiving_votes_map
+			key = flag:kog_canon_law_offertory
+			value = kog_canon_law_offertory_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_almsgiving_votes_map
+			key = flag:kog_canon_law_tithing
+			value = kog_canon_law_tithing_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_statism
+		}
+		com_update_value_in_variable_map = {
+			name = kog_statism_votes_map
+			key = flag:kog_canon_law_hierocracy
+			value = kog_canon_law_hierocracy_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_statism_votes_map
+			key = flag:kog_canon_law_ultramontanism
+			value = kog_canon_law_ultramontanism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_statism_votes_map
+			key = flag:kog_canon_law_secularism
+			value = kog_canon_law_secularism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_statism_votes_map
+			key = flag:kog_canon_law_gallicanism
+			value = kog_canon_law_gallicanism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_statism_votes_map
+			key = flag:kog_canon_law_constantinianism
+			value = kog_canon_law_constantinianism_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_nationalism
+		}
+		com_update_value_in_variable_map = {
+			name = kog_nationalism_votes_map
+			key = flag:kog_canon_law_uranopolitism
+			value = kog_canon_law_uranopolitism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_nationalism_votes_map
+			key = flag:kog_canon_law_ecclesial_communities
+			value = kog_canon_law_ecclesial_communities_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_nationalism_votes_map
+			key = flag:kog_canon_law_ethnophyletism
+			value = kog_canon_law_ethnophyletism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_nationalism_votes_map
+			key = flag:kog_canon_law_kinism
+			value = kog_canon_law_kinism_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_iconography
+		}
+		com_update_value_in_variable_map = {
+			name = kog_iconography_votes_map
+			key = flag:kog_canon_law_iconoclasm
+			value = kog_canon_law_iconoclasm_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_iconography_votes_map
+			key = flag:kog_canon_law_aniconism
+			value = kog_canon_law_aniconism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_iconography_votes_map
+			key = flag:kog_canon_law_iconodulism
+			value = kog_canon_law_iconodulism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_iconography_votes_map
+			key = flag:kog_canon_law_iconolatry
+			value = kog_canon_law_iconolatry_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_clerical_marriage
+		}
+		com_update_value_in_variable_map = {
+			name = kog_clerical_marriage_votes_map
+			key = flag:kog_canon_law_priests_celibate
+			value = kog_canon_law_priests_celibate_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_clerical_marriage_votes_map
+			key = flag:kog_canon_law_marriage_allowed
+			value = kog_canon_law_marriage_allowed_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_social_role
+		}
+		com_update_value_in_variable_map = {
+			name = kog_social_role_votes_map
+			key = flag:kog_canon_law_moral_authority
+			value = kog_canon_law_moral_authority_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_social_role_votes_map
+			key = flag:kog_canon_law_moral_guidance
+			value = kog_canon_law_moral_guidance_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_social_role_votes_map
+			key = flag:kog_canon_law_social_activism
+			value = kog_canon_law_social_activism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_social_role_votes_map
+			key = flag:kog_canon_law_modernizing_force
+			value = kog_canon_law_modernizing_force_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_stance_on_sciences
+		}
+		com_update_value_in_variable_map = {
+			name = kog_stance_on_sciences_votes_map
+			key = flag:kog_canon_law_scriptural_supremacy
+			value = kog_canon_law_scriptural_supremacy_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_stance_on_sciences_votes_map
+			key = flag:kog_canon_law_scriptural_favoritism
+			value = kog_canon_law_scriptural_favoritism_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_stance_on_sciences_votes_map
+			key = flag:kog_canon_law_scientific_disengagement
+			value = kog_canon_law_scientific_disengagement_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_stance_on_sciences_votes_map
+			key = flag:kog_canon_law_scientific_patronage
+			value = kog_canon_law_scientific_patronage_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_stance_on_sciences_votes_map
+			key = flag:kog_canon_law_scientific_crusade
+			value = kog_canon_law_scientific_crusade_value
+		}
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_crusades
+		}
+		com_update_value_in_variable_map = {
+			name = kog_crusades_votes_map
+			key = flag:kog_canon_law_no_crusades
+			value = kog_canon_law_no_crusades_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_crusades_votes_map
+			key = flag:kog_canon_law_heathen_crusades
+			value = kog_canon_law_heathen_crusades_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_crusades_votes_map
+			key = flag:kog_canon_law_heretic_crusades
+			value = kog_canon_law_heretic_crusades_value
+		}
+		com_update_value_in_variable_map = {
+			name = kog_crusades_votes_map
+			key = flag:kog_canon_law_unlimited_crusades
+			value = kog_canon_law_unlimited_crusades_value
 		}
 	}
 }
@@ -362,10 +439,13 @@ kog_determine_leading_council_positions_effect = {
 	# Step 4, Update the leading canon law in the council map; *any* tie means the active canon law will not change
 	if = {
 		limit = {
-			is_key_in_variable_map = {
-				name = kog_ecumenical_council_map
-				target = flag:kog_canon_lawgroup_apostolic_succession
-			}
+			has_variable = kog_theological_matter_debate
+		}
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_apostolic_succession
 		}
 		ordered_key_in_variable_map = {
 			variable = kog_apostolic_succession_votes_map
@@ -388,100 +468,57 @@ kog_determine_leading_council_positions_effect = {
 				save_scope_as = kog_canon_lawgroup_apostolic_succession_leader
 			}
 		}
-		com_update_value_in_variable_map = {
-			name = kog_ecumenical_council_map
-			key = flag:kog_canon_lawgroup_apostolic_succession
+		set_variable = {
+			name = kog_canon_lawgroup_apostolic_succession
 			value = scope:kog_canon_lawgroup_apostolic_succession_leader
 		}
 	}
-}
-
-kog_council_completion_effect = {
-	scope:journal_entry = {
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_apostolic_succession
-				}
-			}
-			clear_variable_map = kog_apostolic_succession_votes_map
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_almsgiving
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_almsgiving
-				}
-			}
-			clear_variable_map = kog_almsgiving_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_statism
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_statism
-				}
-			}
-			clear_variable_map = kog_statism_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_nationalism
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_nationalism
-				}
-			}
-			clear_variable_map = kog_nationalism_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_iconography
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_iconography
-				}
-			}
-			clear_variable_map = kog_iconography_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_clerical_marriage
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_clerical_marriage
-				}
-			}
-			clear_variable_map = kog_clerical_marriage_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_social_role
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_social_role
-				}
-			}
-			clear_variable_map = kog_social_role_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_stance_on_sciences
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_stance_on_sciences
-				}
-			}
-			clear_variable_map = kog_stance_on_sciences_votes_map
+		
+	}
+	if = {
+		limit = {
+			has_variable = kog_canon_lawgroup_crusades
 		}
-		if = {
-			limit = {
-				is_key_in_variable_map = {
-					name = kog_ecumenical_council_map
-					target = flag:kog_canon_lawgroup_crusades
-				}
-			}
-			clear_variable_map = kog_crusades_votes_map
-		}
-		every_scope_je_involved = {
-			clear_variable_map = kog_ecumenical_council_map
-		}
-		clear_variable_map = kog_ecumenical_council_map
+		
 	}
 }

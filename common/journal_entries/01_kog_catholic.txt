@@ -107,13 +107,6 @@ je_kog_catholic_council = {
 		container = "custom_widget_container_je_icon"
 	}
 	
-	scripted_button = kog_gui_support_papal_primacy
-	scripted_button = kog_gui_support_synodality
-	scripted_button = kog_gui_support_congregationalism
-	scripted_button = kog_gui_support_no_alms
-	scripted_button = kog_gui_support_offertory
-	scripted_button = kog_gui_support_tithing
-	
 	should_be_involved = {
 		is_involved_in_journal_entry = je_kog_catholic
 	}
@@ -131,24 +124,61 @@ je_kog_catholic_council = {
 			com_set_situation_illustration_background_effect = {
 				texture = kog_situation_background_catholic_council
 			}
-			set_variable = {
-				name = kog_council_location_var
-				value = s:STATE_LAZIO
-			}
 		}
 		com_save_journal_to_global_variable = {
 			name = je_kog_catholic_council
 		}
+		set_variable = {
+			name = kog_global_faith_journal_var
+			value = global_var:je_kog_catholic
+		}
+		global_var:je_kog_catholic = {
+			set_variable = {
+				name = kog_ecumenical_council_var
+				value = scope:journal_entry
+			}
+		}
 	}
 	
 	immediate_all_involved = {
-		# trigger_event
+		if = {
+			limit = {
+				NOT = {
+					has_modifier = modifier_kog_convoked_council
+				}
+			}
+			# trigger event
+		}
 	}
 	
 	timeout = 1000
 	
 	on_timeout = {
+		scope:journal_entry = {
+			every_scope_je_involved = {
+				kog_AI_evaluate_council_debate_stances_effect = yes
+			}
+		}
 		remove_global_variable = je_kog_catholic_council
+		var:kog_global_faith_journal_var = {
+			remove_variable = kog_ecumenical_council_var
+		}
+	}
+	
+	on_timeout_all_involved = {
+		clear_variable_map = kog_ecumenical_council_map
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				every_scope_je_involved = {
+					kog_AI_evaluate_council_debate_stances_effect = yes
+				}
+				kog_tally_council_votes_effect = yes
+				kog_determine_leading_council_positions_effect = yes
+			}
+		}
 	}
 }
 

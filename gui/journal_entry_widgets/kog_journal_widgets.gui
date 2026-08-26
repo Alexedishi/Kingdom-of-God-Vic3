@@ -2528,10 +2528,10 @@ types kog_ecumenical_council_types {
 		# Theological Matters
 		kog_ecumenical_council_debate_item = {
 			blockoverride "canon_law_group_name" {
-				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_matter_var').GetFlagName]"
+				raw_text = "[JournalEntry.MakeScope.Var('kog_theological_matter_debate').GetFlagName]"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = "[JournalEntry.MakeScope.Var('kog_theological_matter_var').IsSet]"
+				visible = "[JournalEntry.MakeScope.Var('kog_theological_matter_debate').IsSet]"
 			}
 			
 			# Conservative Stance
@@ -2611,8 +2611,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_apostolic_succession"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
-				#visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_apostolic_succession').IsSet]"
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_apostolic_succession').IsSet]"
 			}
 			
 			# Papal Primacy
@@ -2664,7 +2663,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_almsgiving"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_almsgiving').IsSet]"
 			}
 			
 			# No Alms
@@ -2716,7 +2715,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_iconography"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_iconography').IsSet]"
 			}
 			
 			# Iconoclasm
@@ -2782,7 +2781,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_statism"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_statism').IsSet]"
 			}
 			
 			# Hierocracy
@@ -2862,7 +2861,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_nationalism"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_nationalism').IsSet]"
 			}
 			
 			# Uranopolitism
@@ -2928,7 +2927,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_clerical_marriage"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_clerical_marriage').IsSet]"
 			}
 			
 			# Priests Celibate
@@ -2966,7 +2965,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_social_role"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_social_role').IsSet]"
 			}
 			
 			# Moral Authority
@@ -3032,7 +3031,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_stance_on_sciences"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_stance_on_sciences').IsSet]"
 			}
 			
 			# Scriptural Supremacy
@@ -3112,7 +3111,7 @@ types kog_ecumenical_council_types {
 				text = "kog_canon_lawgroup_crusades"
 			}
 			blockoverride "council_debate_item_visibility" {
-				visible = yes
+				visible = "[JournalEntry.MakeScope.Var('kog_canon_lawgroup_crusades').IsSet]"
 			}
 			
 			# No Crusades
