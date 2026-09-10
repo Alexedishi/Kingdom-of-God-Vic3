@@ -91,10 +91,6 @@ je_kog_orthodox = {
 			name = kog_global_faith_journal_var
 		}
 	}
-	
-	complete = {
-		always = no
-	}
 }
 
 ####---------- ORTHODOX ENCYCLICAL JOURNALS ----------#####
@@ -116,36 +112,44 @@ je_kog_encyclical_orthodox_easterners = {
 		}
 	}
 	
-	timeout = 3650
-	
-	on_timeout = {
-		if = {
-			limit = {
-				global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_rejected_epistle
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		
+		flags = { timeout }
+		
+		effect = {
+			if = {
+				limit = {
+					global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_rejected_epistle
+				}
 			}
-		}
-		else_if = {
-			limit = {
-				global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_accepted_epistle
+			else_if = {
+				limit = {
+					global_var:je_kog_encyclical_orthodox_easterners ?= flag:modifier_kog_accepted_epistle
+				}
 			}
+			remove_global_variable = je_kog_encyclical_orthodox_easterners
 		}
-		remove_global_variable = je_kog_encyclical_orthodox_easterners
-	}
-	
-	on_timeout_all_involved = {
-		hidden_effect = {
+		effect_all_involved = {
 			custom_tooltip = kog_nothing_happens # TODO put real effect here
 		}
 	}
+	timeout = 3650
 	
-	invalid = {
-		NOT = {
-			has_global_variable = je_kog_encyclical_orthodox_easterners
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { invalid_outcome hidden }
+		
+		trigger = {
+			NOT = {
+				has_global_variable = je_kog_encyclical_orthodox_easterners
+			}
 		}
-	}
-	
-	on_invalid = {
-		remove_global_variable = je_kog_encyclical_orthodox_easterners
+		effect = {
+			remove_global_variable = je_kog_encyclical_orthodox_easterners
+		}
 	}
 	
 	on_weekly_pulse = {
@@ -226,33 +230,39 @@ je_kog_encyclical_orthodox_fraternity = {
 		}
 	}
 	
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		
+		flags = { timeout }
+		
+		effect = {
+			remove_global_variable = je_kog_encyclical_orthodox_fraternity
+		}
+		effect_all_involved = {
+			if = {
+				limit = {
+					has_variable = kog_encyclical_orthodox_fraternity_compliance_var
+				}
+				add_modifier = {
+					name = modifier_kog_rejected_epistle
+					days = kog_10_years
+				}
+				kog_add_conservative_loyalists_effect = yes
+				kog_add_reformist_radicals_effect = yes
+			}
+			else = {
+				add_modifier = {
+					name = modifier_kog_failed_encyclical
+					days = kog_10_years
+				}
+				kog_add_reformist_loyalists_effect = yes
+				kog_add_conservative_radicals_effect = yes
+			}
+		}
+	}
 	timeout = 3650
-	
-	on_timeout = {
-		remove_global_variable = je_kog_encyclical_orthodox_fraternity
-	}
-	
-	on_timeout_all_involved = {
-		if = {
-			limit = {
-				has_variable = kog_encyclical_orthodox_fraternity_compliance_var
-			}
-			add_modifier = {
-				name = modifier_kog_rejected_epistle
-				days = kog_10_years
-			}
-			kog_add_conservative_loyalists_effect = yes
-			kog_add_reformist_radicals_effect = yes
-		}
-		else = {
-			add_modifier = {
-				name = modifier_kog_failed_encyclical
-				days = kog_10_years
-			}
-			kog_add_reformist_loyalists_effect = yes
-			kog_add_conservative_radicals_effect = yes
-		}
-	}
 	
 	on_weekly_pulse = {
 		effect = {

@@ -98,11 +98,13 @@ je_kog_elysian = {
 		}
 	}
 	
-	complete = {
-		always = no
-	}
-	
-	invalid = {
-		basileia_is_active = no
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { invalid_outcome hidden }
+		
+		trigger = {
+			basileia_is_active = no
+		}
+		effect = { }
 	}
 }
