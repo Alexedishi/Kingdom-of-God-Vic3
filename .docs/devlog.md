@@ -1,51 +1,100 @@
-# Kingdom of God - Development Log
+##################
+# KINGDOM OF GOD #
+##################
+Mod Version: Initial Release
+Game Version: 1.15.0
 
-####---------- Episcopal Seat Provinces ----------####
-## CATHOLIC SEATS:
-- Rome: xB5726E
-- Santiago: xD0E040
-- Paris: x71DA2E
-- Koln: x8001E0
-- Vienna: x316141
-- Gniezno: xF962B2 ## NOT IMPLEMENTED
-- Dublin: xA0E040 ## NOT IMPLEMENTED
-- Esztergom: x906A5F ## NOT IMPLEMENTED
-- Mechelen: x800060 ## NOT IMPLEMENTED
+Mod Author: Alexedishi
+Special Thanks: RationaLess, Bahmut|Chris
 
-## ORTHODOX SEATS:
-- Constantinople: xF0A020
-- Antioch: x186A43 <- Moved to Damascus in 1342
-- Jerusalem: xC9CBC0
-- Alexandria: xA0D020
-- Moscow: x13D91C
 
-## ORIENTAL ORTHODOX SEATS:
-- Coptic Alexandria: xA0D020 ## NOT IMPLEMENTED
-- Syriac Antioch: xE01160 ## NOT IMPLEMENTED
-- Etchmiadzin: xC09080 ## NOT IMPLEMENTED
-- Addis Ababa: x41E0D0 ## NOT IMPLEMENTED
-- Qudshanis: xC33C0F ## NOT IMPLEMENTED <- This is a lie, I know; might replace this with Kottayam/Malankara
+####---------- Mod Dependencies ----------####
+- Community Mod Framework: https://steamcommunity.com/sharedfiles/filedetails/?id=3385002128
 
-## LUTHERAN / CALVINIST SEATS:
-- Trondheim: xD31959 ## NOT IMPLEMENTED
-- Uppsala: xE9B084 ## NOT IMPLEMENTED
-- Helsinki: xCC9AA7 ## NOT IMPLEMENTED
-- Revel: xD737E2 ## NOT IMPLEMENTED
-- Riga: x00A0A0 ## NOT IMPLEMENTED
-- Vilna: x0161A0 ## NOT IMPLEMENTED
-- Copenhagen: x7F0BF0 ## NOT IMPLEMENTED
-- Amsterdam: x777732 ## NOT IMPLEMENTED // CALVINIST
 
-## ANGLICAN SEATS:
-- Canterbury: x39F45B ## NOT IMPLEMENTED
-- York: xB5BF4E ## NOT IMPLEMENTED
-- Edinburgh: xA0E080 ## NOT IMPLEMENTED
-- St Davids: xA0A040 ## NOT IMPLEMENTED
-- Armagh: x20E040 ## NOT IMPLEMENTED
+####---------- Version Compatibility ----------####
+#		KoG Patch	....	Victoria 3 Patch
+#		Release		....	1.15.0
 
-## ELYSIAN ORTHODOX SEATS:
-- Elysium: x700080 ## NOT IMPLEMENTED
-- Onondaga: x01D042 ## NOT IMPLEMENTED
-- Tututepec: x1BC4D0 ## NOT IMPLEMENTED
-- Cahokia: x2938A5 ## NOT IMPLEMENTED
-- Cayacoa: x7252EC ## NOT IMPLEMENTED
+
+####---------- Current Content Scope ----------####
+++ Scripted Content Scope: ++
+The following faiths are in-scope:
+- Roman Catholicism
+- Eastern Orthodoxy
+
+The following faiths will eventually come into scope:
+- Oriental Orthodoxy
+- European Lutheranism (this will include content for Calvinism)
+- Anglicanism
+
+**Notes:
+- American Protestantism is OUT OF SCOPE
+
+++ Mechanical Scope: ++
+The current mechanics are in-scope:
+- Local metropolitan / national church content
+- Subdivision of faiths via liturgical rites and languages on a per-country basis
+- Canon laws managed on a per-faith basis
+- Schism mechanics managed on a per-country basis
+- Encyclicals as contextless journal entries on a per-faith basis
+- Ecumenical councils as contextless journal entries on a per-faith basis
+- College of Cardinals (or equivalent body) on a per-faith basis include Papal elections as appropriate
+- Episcopal Seats as minor political entities separate from the overall church body
+
+The following mechanics will eventually come into scope:
+- The role of priests in colonization (particularly relevant for Russia)
+- Mechanics for the preservation and veneration of Holy Sites by the state
+
+
+####---------- Mod Structure and Organization ----------####
+Scripted content is broadly divided into the following "modules" which can be identified by their prefixes:
+- kog_general_: Framework content shared between multiple other modules
+- kog_catholic_: Content relating to the Roman Catholic Church
+- kog_orthodox_: Content relating to the Eastern Orthodox Churches
+- kog_oriental_: Content relating to the Oriental Orthodox Churches
+- kog_lutheran_: Content relating to the Lutheran Churches
+- kog_anglican_: Content relating to the Anglican Communion
+- kog_elysian_: Content relating to the Elysian Orthodox Churches (Basielia Romaion)
+- kog_rite_: Content relating to Liturgical Rites
+- kog_canon_law_: Content relating to Canon Laws
+- kog_schism_: Content relating to Schism and Autocephaly
+- kog_council_: Content relating to Ecumenical Councils
+- kog_ecumenical_: Content relating to Ecumenism and Mending Schisms
+- kog_collegium_: Content relating to the College of Cardinals
+- kog_encyclical_: Content relating to Encyclicals
+- kog_holy_site_: Content relating to Holy Sites
+- kog_religious_communion_: Content relating to Religious Communions
+- kog_epsicopal_seat_: Content relating to Episcopal Seats
+- kog_pagan_: Content relating to Christian-Pagan Relations
+- kog_event_: Content not otherwise specified or grouped into an existing module
+
+GUI-specific script and frameworks are broadly divided into the following "modules" which can be identified by their prefixes:
+- kog_technical_: Script implementing background and framework features
+- kog_overview_: Script implementing the "Overview" tab of InterOrg journals
+- kog_metropolis_: Script implementing the "Metropolis" tab of InterOrg journals
+- kog_canon_law_: Script implementing the "Canon Laws" tab of InterOrg Journals
+- kog_collegium_: Script implementing the "Collegium" tab of InterOrg Journals
+- kog_episcopal_seat_: Script implementing the "Episcopal Seats" tab of InterOrg journals
+- kog_ecumenical_council_: Script implementing the journal widgets for Ecumenical Council journals
+
+
+####---------- Planned Updates ----------####
+--Update 1.0.1--
+- TBD
+
+
+####---------- Published Updates ----------####
+--Release 1.0.0-- **Initial Release**
+- Released Mod "Kingdom of God" aiming to add flavor to the Christian faiths in Victoria 3
+- Mod is dependent on Community Mod Framework
+- Additional content is available when used in conjunction with Gates of the Bosphorus or Basielia Romaion
+
+Initial Content:
+- Contextless journal entries providing mechanics for the Catholic and Eastern Orthodox base game faiths, and the Elysian Orthodox faith of Basielia Romaion; These use the "Internation Organizations Framework" provided by CMF
+- "Local Metropolis" mechanics to simulate the relationship between the state and church
+- "Denomination"-level mechanics simulating intra-faith politics, canon laws, encyclicals, and ecclesial administration as appropriate per-faith
+- "Collegium" mechanics simulating a "College of Cardinals" and election of a Pontifex as appropriate for each faith
+- "Episcopal Seat" mechanics simulating specifical prominent archdiocese-level churches as minor political entities unto themselves
+- Three new law groups: "Investiture", "Church Holdings", and "Church Tax"
+- "Schism" mechanic to separate your national church from the larger church body
