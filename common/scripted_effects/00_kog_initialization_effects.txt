@@ -222,7 +222,7 @@ kog_initialize_elysian_orthodox_variables_effect = {
 	global_var:je_kog_orthodox = {
 		set_variable = {
 			name = kog_religion_var
-			value = "global_variable_map(kog_global|flag:kog_elysian_orthodox)"
+			value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
 		}
 		set_variable = {
 			name = kog_location_var
@@ -2111,22 +2111,21 @@ kog_initialize_metropolis_effect = {
 	}
 	
 	# Step 3: Set Relations Variables
-	save_scope_as = kog_country_scope
 	every_in_global_list = {
 		variable = kog_global_seat_list
 		add_to_variable_map = {
 			name = kog_relations_map
-			key = scope:kog_country_scope
+			key = scope:kog_root_scope
 			value = kog_opinion_start_value
 		}
 		add_to_variable_map = {
 			name = kog_opinions_map
-			key = scope:kog_country_scope
+			key = scope:kog_root_scope
 			value = kog_opinion_start_value
 		}
 		add_to_variable_map = {
 			name = kog_diplomacy_map
-			key = scope:kog_country_scope
+			key = scope:kog_root_scope
 			value = 0
 		}
 	}
@@ -2135,23 +2134,23 @@ kog_initialize_metropolis_effect = {
 	var:kog_local = {
 		set_variable = {
 			name = kog_canon_law_compliance_var
-			value = scope:kog_country_scope.kog_canon_law_compliance_value
+			value = scope:kog_root_scope.kog_canon_law_compliance_value
 		}
 		set_variable = {
 			name = kog_national_piety_var
-			value = scope:kog_country_scope.kog_national_piety_target_value
+			value = scope:kog_root_scope.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_target_var
-			value = scope:kog_country_scope.kog_national_piety_target_value
+			value = scope:kog_root_scope.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_progress_var
-			value = scope:kog_country_scope.kog_national_piety_progress_value
+			value = scope:kog_root_scope.kog_national_piety_progress_value
 		}
 		set_variable = {
 			name = kog_votes_var
-			value = scope:kog_country_scope.kog_votes_value
+			value = scope:kog_root_scope.kog_votes_value
 		}
 	}
 }

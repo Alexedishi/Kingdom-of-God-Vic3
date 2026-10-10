@@ -3,6 +3,10 @@ je_kog_catholic = {
 	group = je_group_com_religious_organizations
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 	weight = 0
+
+	activation_description = {
+		always = yes
+	}
 	
 	should_be_pinned_by_default_involved = yes
 	
@@ -94,6 +98,10 @@ je_kog_catholic_council = {
 	group = je_group_global_international_situations
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
 	weight = 100
+
+	activation_description = {
+        always = yes
+    }
 	
 	should_be_pinned_by_default_involved = yes
 	
@@ -150,7 +158,7 @@ je_kog_catholic_council = {
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
 		
 		flags = { timeout }
 		
@@ -191,6 +199,10 @@ je_kog_ecyclical_mirari_vos = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
 	weight = 100
+
+	activation_description = {
+        always = yes
+    }
 	
 	should_be_pinned_by_default_involved = yes
 	
@@ -217,7 +229,7 @@ je_kog_ecyclical_mirari_vos = {
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
 		
 		flags = { timeout }
 		
@@ -302,6 +314,10 @@ je_kog_ecyclical_singulari_nos = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
 	weight = 100
+
+	activation_description = {
+        always = yes
+    }
 	
 	should_be_pinned_by_default_involved = yes
 	
@@ -327,7 +343,7 @@ je_kog_ecyclical_singulari_nos = {
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
 		
 		flags = { timeout }
 		
@@ -428,27 +444,39 @@ je_kog_commissum_divinitus = {
 	group = je_group_kog_content
 	icon = gfx/interface/icons/event_icons/event_catholic.dds
 	weight = 500
-	
+
+	activation_description = {
+        always = yes
+    }
+
 	should_be_pinned_by_default_uninvolved_or_context = yes
 	
 	immediate = {
 	}
-	
-	complete = {
-		has_law = law_type:law_total_separation
-		has_law = law_type:law_monastic_secularization
-		OR = {
-			has_law = law_type:law_concordat_of_investment
-			has_law = law_type:law_oath_of_supremacy
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_standard_completion_conclusion_desc
+        color = gold_positive
+
+		trigger = {
+			has_law = law_type:law_total_separation
+            has_law = law_type:law_monastic_secularization
+            OR = {
+                has_law = law_type:law_concordat_of_investment
+                has_law = law_type:law_oath_of_supremacy
+            }
+            radical_fraction = {
+                religion = rel:catholic
+                value < 0.25
+            }
+            NOR = {
+                has_revolution = yes
+                has_any_secessionists_broken_out = yes
+            }
 		}
-		radical_fraction = {
-			religion = rel:catholic
-			value < 0.25
-		}
-		NOR = {
-			has_revolution = yes
-			has_any_secessionists_broken_out = yes
-		}
+		effect = { }
 	}
 	
 	outcome = {

@@ -1,0 +1,15 @@
+GLOBAL = {
+	# This is some stupid error suppression for a collision between GotB and KoG
+	s:STATE_ARAUCANIA = {
+		every_scope_state = {
+			limit = {
+				owner = {
+					kog_content_scope_trigger = yes
+				}
+			}
+			activate_law = law_type:law_oath_of_supremacy
+            activate_law = law_type:law_monastic_secularization
+            activate_law = law_type:law_church_grants
+		}
+	}
+}

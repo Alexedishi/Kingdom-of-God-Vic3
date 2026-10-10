@@ -3,6 +3,10 @@ je_kog_orthodox = {
 	group = je_group_com_religious_organizations
 	icon = "gfx/interface/icons/religion_icons/orthodox.dds"
 	weight = 0
+
+	activation_description = {
+        always = yes
+    }
 	
 	should_be_pinned_by_default_involved = yes
 	
@@ -98,6 +102,11 @@ je_kog_encyclical_orthodox_easterners = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 	weight = 100
+
+	activation_description = {
+        always = yes
+    }
+
 	should_be_pinned_by_default_involved = yes
 	
 	should_be_involved = {
@@ -115,7 +124,7 @@ je_kog_encyclical_orthodox_easterners = {
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
 		
 		flags = { timeout }
 		
@@ -214,6 +223,11 @@ je_kog_encyclical_orthodox_fraternity = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_orthodox.dds"
 	weight = 100
+
+	activation_description = {
+        always = yes
+    }
+
 	should_be_pinned_by_default_involved = yes
 	
 	should_be_involved = {
@@ -233,7 +247,7 @@ je_kog_encyclical_orthodox_fraternity = {
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = je_standard_failure_completion_desc/je_standard_failure_conclusion_desc
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
 		
 		flags = { timeout }
 		

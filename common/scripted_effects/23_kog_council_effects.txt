@@ -55,9 +55,9 @@ kog_join_ecumenical_council_effect = {
 	}
 }
 
-kog_raise_council_debate_matter_effect = {
+kog_add_canon_law_group_to_council_effect = {
 	custom_tooltip = {
-		text = kog_raise_council_debate_matter_effect
+		text = kog_add_canon_law_group_to_council_effect
 		set_local_variable = {
 			name = kog_theological_matter_loc
 			value = flag:$theological_matter$
@@ -75,7 +75,7 @@ kog_raise_council_debate_matter_effect = {
 				}
 			}
 			else = {
-				error_log = "Effect kog_raise_council_debate_matter_effect was called, but the specified variable is already present."
+				error_log = "Effect kog_add_canon_law_group_to_council_effect was called, but the specified variable is already present."
 			}
 			kog_tally_council_votes_effect = yes
 		}
