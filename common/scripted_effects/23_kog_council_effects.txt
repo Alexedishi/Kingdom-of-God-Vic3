@@ -60,18 +60,18 @@ kog_add_canon_law_group_to_council_effect = {
 		text = kog_add_canon_law_group_to_council_effect
 		set_local_variable = {
 			name = kog_theological_matter_loc
-			value = flag:$theological_matter$
+			value = flag:$canon_law_group$
 		}
 		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
 			if = {
 				limit = {
 					NOT = {
-						has_variable = $theological_matter$
+						has_variable = $canon_law_group$
 					}
 				}
 				set_variable = {
-					name = $theological_matter$
-					value = var:kog_global_faith_journal_var.var:$theological_matter$
+					name = $canon_law_group$
+					value = var:kog_global_faith_journal_var.var:$canon_law_group$
 				}
 			}
 			else = {
