@@ -3,6 +3,8 @@ kog_gui_declare_autocephaly = {
 	name = "kog_gui_declare_autocephaly"
 	desc = "kog_gui_declare_autocephaly_desc"
 	
+	tags = { major_decision }
+	
 	visible = {
 		kog_is_schismatic_trigger = no
 		kog_is_autocephalous_trigger = no
@@ -71,6 +73,8 @@ kog_gui_convoke_council = {
 	name = "kog_gui_convoke_council"
 	desc = "kog_gui_convoke_council_desc"
 	
+	tags = { major_decision }
+	
 	visible = {
 		is_player = yes
 	}
@@ -107,6 +111,8 @@ kog_gui_convoke_council = {
 kog_gui_found_cayacoa_button = {
 	name = "kog_gui_found_cayacoa_name"
 	desc = "kog_gui_found_cayacoa_desc"
+	
+	tags = { major_decision }
 	
 	visible = {
 		basileia_is_active = yes
@@ -152,6 +158,8 @@ kog_gui_secure_tetrarchy = {
 	name = "kog_gui_secure_tetrarchy"
 	desc = "kog_gui_secure_tetrarchy_desc"
 	
+	tags = { major_decision }
+	
 	visible = {
 		kog_country_is_eastern_christian_trigger = yes
 		NOR = {
@@ -186,6 +194,8 @@ kog_gui_secure_tetrarchy = {
 kog_gui_secure_pentarchy = {
 	name = "kog_gui_secure_pentarchy"
 	desc = "kog_gui_secure_pentarchy_desc"
+	
+	tags = { major_decision }
 	
 	visible = {
 		NOR = {
@@ -230,6 +240,8 @@ kog_gui_secure_pentarchy = {
 kog_gui_mend_schism = {
 	name = "kog_gui_mend_schism"
 	desc = "kog_gui_mend_schism_desc"
+	
+	tags = { major_decision }
 	
 	visible = {
 		has_global_variable = kog_pentarchy_secured_var

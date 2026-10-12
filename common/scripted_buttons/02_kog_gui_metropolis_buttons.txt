@@ -3,6 +3,8 @@ kog_gui_venerate_apparition = {
 	name = "kog_gui_venerate_apparition"
 	desc = "kog_gui_venerate_apparation_desc"
 	
+	tags = { omen }
+	
 	visible = {
 		kog_country_is_roman_catholic_trigger = yes
 	}
@@ -39,6 +41,8 @@ kog_gui_venerate_apparition = {
 kog_gui_commission_icon = {
 	name = "kog_gui_commission_icon"
 	desc = "kog_gui_commission_icon_desc"
+	
+	tags = { omen }
 	
 	visible = {
 		kog_country_is_eastern_orthodox_trigger = yes
@@ -79,6 +83,8 @@ kog_gui_reform_synod = {
 	name = "kog_gui_reform_synod"
 	desc = "kog_gui_reform_synod_desc"
 	
+	tags = { minor_decision }
+	
 	visible = {
 		NOR = {
 			has_law = law_type:law_state_church
@@ -118,6 +124,8 @@ kog_gui_reform_synod = {
 kog_gui_restore_synod = {
 	name = "kog_gui_restore_synod"
 	desc = "kog_gui_restore_synod_desc"
+	
+	tags = { minor_decision }
 	
 	visible = {
 		has_law = law_type:law_state_church
@@ -160,6 +168,8 @@ kog_gui_establish_schools = {
 	name = "kog_gui_establish_schools"
 	desc = "kog_gui_establish_schools_desc"
 	
+	tags = { minor_decision }
+	
 	visible = {
 		NOT = {
 			active_law:lawgroup_education_system = {
@@ -196,6 +206,8 @@ kog_gui_establish_schools = {
 kog_gui_disband_schools = {
 	name = kog_gui_disband_schools
 	desc = kog_gui_disband_schools_desc
+	
+	tags = { minor_decision }
 	
 	visible = {
 		active_law:lawgroup_education_system = {
@@ -235,6 +247,8 @@ kog_gui_emphasize_unity = {
 	name = "kog_gui_emphasize_unity"
 	desc = "kog_gui_emphasize_unity_desc"
 	
+	tags = { focus }
+	
 	visible = {
 		always = yes
 	}
@@ -267,6 +281,8 @@ kog_gui_emphasize_unity = {
 kog_gui_enforce_attendance = {
 	name = "kog_gui_enforce_attendance"
 	desc = "kog_gui_enforce_attendance_desc"
+	
+	tags = { focus }
 	
 	visible = {
 		always = yes
@@ -301,6 +317,8 @@ kog_gui_theologize_dogma = {
 	name = "kog_gui_theologize_dogma"
 	desc = "kog_gui_theologize_dogma_desc"
 	
+	tags = { focus }
+	
 	visible = {
 		always = yes
 	}
@@ -333,6 +351,8 @@ kog_gui_theologize_dogma = {
 kog_gui_promote_ecumenism = {
 	name = "kog_gui_promote_ecumenism"
 	desc = "kog_gui_promote_ecumenism_desc"
+	
+	tags = { focus }
 	
 	visible = {
 		always = yes
