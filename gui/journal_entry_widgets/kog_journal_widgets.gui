@@ -52,9 +52,18 @@ flowcontainer = {
 	}
 }
 
+flowcontainer = {
+	name = "widget_kog_crusade"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+	}
+}
+
 ####---------- KOG JOURNAL ENTRY TYPES ----------####
 types kog_church_interorg_widget_types {
-	
 	type kog_journal_icon = widget {
 		parentanchor = top|hcenter
 		size = { 150 150 }
@@ -2502,7 +2511,6 @@ types kog_church_interorg_widget_types {
 }
 
 types kog_ecumenical_council_types {
-	
 	type kog_ecumenical_council_panel = flowcontainer {
 		direction = vertical
 		parentanchor = top|hcenter
@@ -3635,5 +3643,12 @@ types kog_ecumenical_council_types {
 				}
 			}
 		}
+	}
+}
+
+types kog_crusade_types {
+	type kog_crusade_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
 	}
 }
