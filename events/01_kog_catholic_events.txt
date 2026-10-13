@@ -80,10 +80,22 @@ kog_catholic_events.001 = {
 			}
 		}
 	}
-	desc = kog_catholic_events.001.d
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = kog_catholic_events.001.d.PAP
+				trigger = {
+					c:PAP ?= this
+				}
+			}
+			triggered_desc = {
+				desc = kog_catholic_events.001.d
+			}
+		}
+	}
 	flavor = kog_catholic_events.001.f
 	
-	gui_window = event_window_com_base
+	gui_window = event_window_com_introduction_victoria
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -108,6 +120,8 @@ kog_catholic_events.001 = {
 		name = kog_catholic_events.001.a
 		default_option = yes
 		custom_tooltip = kog_welcome_text
+		custom_tooltip = je_kog_ecyclical_mirari_vos_tt
+		custom_tooltip = je_kog_ecyclical_singulari_nos_tt
 	}
 }
 
