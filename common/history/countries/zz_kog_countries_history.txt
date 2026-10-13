@@ -364,11 +364,17 @@
 		activate_law = law_type:law_monastic_secularization
 		activate_law = law_type:law_church_grants
 	}
-	c:GRE_SAM = {
-		## TODO validate law config
-		activate_law = law_type:law_oath_of_supremacy
-		activate_law = law_type:law_monastic_secularization
-		activate_law = law_type:law_church_grants
+	# Sneaky support for Samos in GotB
+	s:STATE_EAST_AEGEAN_ISLANDS = {
+		every_scope_country = {
+			limit = {
+				kog_content_scope_trigger = yes
+			}
+			
+			activate_law = law_type:law_oath_of_supremacy
+			activate_law = law_type:law_monastic_secularization
+			activate_law = law_type:law_church_grants
+		}
 	}
 	c:ION = {
 		## TODO validate law config
