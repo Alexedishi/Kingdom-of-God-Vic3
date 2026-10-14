@@ -10,3 +10,45 @@ kog_game_start = {
 		kog_initialize_content_effect = yes
 	}
 }
+
+on_game_started_after_lobby = {
+	on_actions = {
+		kog_after_lobby
+	}
+}
+
+kog_after_lobby = {
+	effect = {
+		every_country = {
+			limit = {
+				kog_content_scope_trigger = yes
+			}
+			save_scope_value_as = {
+				name = kog_national_piety_value
+				value = kog_national_piety_target_value
+			}
+			save_scope_value_as = {
+				name = kog_national_piety_target_value
+				value = kog_national_piety_target_value
+			}
+			save_scope_value_as = {
+				name = kog_national_piety_progress_value
+				value = kog_national_piety_progress_value
+			}
+			var:kog_local = {
+				set_variable = {
+					name = kog_national_piety_var
+					value = scope:kog_national_piety_value
+				}
+				set_variable = {
+					name = kog_national_piety_target_var
+					value = scope:kog_national_piety_target_value
+				}
+				set_variable = {
+					name = kog_national_piety_progress_var
+					value = scope:kog_root_scope.kog_national_piety_progress_value
+				}
+			}
+		}
+	}
+}
