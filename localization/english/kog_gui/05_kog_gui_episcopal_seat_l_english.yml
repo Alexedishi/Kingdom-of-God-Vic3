@@ -17,15 +17,11 @@
  kog_gui_no_controller: "@kog! #yellow God Alone#!"
  kog_gui_religious_union_name: "[ScriptContainer.MakeScope.Var('kog_religious_union_var').GetFlagName]"
  
- kog_gui_patriarch_name: "[Character.GetFullName]"
- kog_gui_seat_location_header: "Seated in:"
- kog_gui_seat_location_value: "[ScriptContainer.MakeScope.Var('kog_seat_state_region_var').GetStateRegion.GetName]"
- kog_gui_liturgical_language_header: "[concept_liturgical_rite]:"
- kog_gui_liturgical_language_value: "[ScriptContainer.MakeScope.Var('kog_liturgical_rite_var').GetFlagName]"
- kog_gui_liturgical_rite_header: "[concept_liturgical_language]:"
- kog_gui_liturgical_rite_value: "[ScriptContainer.MakeScope.Var('kog_liturgical_language_var').GetFlagName]"
- kog_gui_opinion_header: "Opinion of [GetPlayer.GetNameNoFlag]:"
- kog_gui_opinion_value: "[Scope.GetVariableFromVariableMap('kog_opinions_map', GetPlayer.MakeScope).GetValue|+=]"
+ kog_gui_opinion: "Opinion:\n[Scope.GetVariableFromVariableMap('kog_opinions_map', GetPlayer.MakeScope).GetValue|+=]"
+ kog_gui_patriarch: "[concept_bishop]: [Character.GetFullName]"
+ kog_gui_seat_location: "Seated in: [ScriptContainer.MakeScope.Var('kog_seat_state_region_var').GetStateRegion.GetName]"
+ kog_gui_liturgical_language: "[concept_liturgical_rite]: [ScriptContainer.MakeScope.Var('kog_liturgical_rite_var').GetFlagName]"
+ kog_gui_liturgical_rite: "[concept_liturgical_language]: [ScriptContainer.MakeScope.Var('kog_liturgical_language_var').GetFlagName]"
  
  kog_seat_details: ""
  
@@ -39,12 +35,12 @@
  kog_gui_integrate_seat: "@kog_integrate_seat! #bold Integrate Seat#!"
  kog_gui_integrate_seat_desc: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large."
  kog_gui_integrate_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of seizing ecclesial control over [Container.GetName.GetFlagName]"
- kog_gui_enforce_seat: "@kog_integrate_seat! #bold Enforce Rites#!"
+ kog_gui_enforce_seat: "@kog_enforce_rite! #bold Enforce Rites#!"
  kog_gui_enforce_seat_desc: "In the centuries since the collapse of the Roman Empire, the many churches have deviated from each other in their chosen [concept_liturgical_rite]. Should the location of this seat come under our control, we could enforce their compliance with our [concept_liturgical_rite]."
  kog_gui_enforce_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon [Container.GetName.GetFlagName]"
- kog_gui_assert_seat: "Assert Seat Control"
+ kog_gui_assert_seat: "@kog_integrate_seat! #bold Assert Seat Control#!"
  kog_gui_assert_seat_desc: ""
- kog_gui_install_seat: "Install Bishop"
+ kog_gui_install_seat: "@kog_install_bishop! #bold Install Bishop#!"
  kog_gui_install_seat_desc: "Despite the church nominally serving only to spread the word of faith, politics penetrates deep into the administration of the church. Should a state have sufficient leverage over a seat, they could strong arm the installment of a friendlier bishop."
  
  # Tooltips
