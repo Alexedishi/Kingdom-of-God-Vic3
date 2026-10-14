@@ -8,16 +8,16 @@
  kog_welcome_text: "Content from $kog$ can be accessed via the [concept_com_international_organization] panel"
  
  kog_capacity: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_type')]"
- kog_catholic_power: "@kog_catholic_power! [Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
- kog_orthodox_power: "@kog_orthodox_power! [Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
- kog_oriental_power: "@kog_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
- kog_elysian_power: "@kog_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
+ kog_catholic_power: "@kog_catholic_power! [Concept('concept_faith_capacity','$concept_faith_capacity_catholic|q$')]"
+ kog_orthodox_power: "@kog_orthodox_power! [Concept('concept_faith_capacity','$concept_faith_capacity_orthodox|q$')]"
+ kog_oriental_power: "@kog_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental|q$')]"
+ kog_elysian_power: "@kog_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian|q$')]"
  
  kog_capacity_no_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_no_icon_type')]"
- kog_catholic_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_catholic$')]"
- kog_orthodox_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_orthodox$')]"
- kog_oriental_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_oriental$')]"
- kog_elysian_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_elysian$')]"
+ kog_catholic_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_catholic|q$')]"
+ kog_orthodox_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_orthodox|q$')]"
+ kog_oriental_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_oriental|q$')]"
+ kog_elysian_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_elysian|q$')]"
  
  kog_sinful: "@kog_piety_sinful! #red #bold Sinful#!#!"
  kog_dutiful: "@kog_piety_dutiful! #bold Dutiful#!"
@@ -51,19 +51,19 @@
  
  kog_ancient_seat: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_ancient_seat_list Ancient Seat#!#!"
  kog_ancient_seats: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_ancient_seat_list Ancient Seats#!#!"
- kog_ancient_seat_list: "The following are the #bold Ancient#! [Concept('concept_episcopal_seat','$concept_episcopal_seats$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ kog_ancient_seat_list: "The following are the #bold Ancient#! [Concept('concept_episcopal_seat','$concept_episcopal_seats|q$')]:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
  
  kog_tetrarchy: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_tetrarchy_seat_list Tetrarchy#!#!"
- kog_tetrarchy_seat_list: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ kog_tetrarchy_seat_list: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats|q$')] of the #bold Tetrarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
  
  kog_pentarchy: "#yellow #tooltip:[GetPlayer.GetTooltipTag],kog_pentarchy_seat_list Pentarchy#!#!"
- kog_pentarchy_seat_list: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
+ kog_pentarchy_seat_list: "The following are the [Concept('concept_episcopal_seat','$concept_episcopal_seats|q$')] of the #bold Pentarchy#!:\n$TOOLTIP_DELIMITER$\n•$kog_rome$\n•$kog_constantinople$\n•$kog_antioch$\n•$kog_jerusalem$\n•$kog_alexandria$"
  
  kog_needs_controller: "A [concept_country] must have $kog_control$ of $kog_constantinople$"
  kog_rome_reclaimed: "$kog_rome$ is controlled by an [GetReligion('orthodox').GetName] [concept_country]"
  kog_turk_relations_cordial: "[GetPlayer.GetNameNoFlag] has #bold #green cordial#!#! relations or better with the #yellow Ottoman Empire#!"
  kog_constantinople_controller_relations_cordial: "We have #green #bold Cordial#! or better#! [concept_relations] with the [concept_country] that controls $kog_constantinople$"
  
- kog_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
+ kog_declare_commonwealth_possible: "To declare the Orthodox Commonwealth:\n•Must be [Concept('concept_autocephaly','$concept_autocephalous|q$')]\n•Must control one of the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!\n•Must be a [concept_great_power]"
  kog_romania_united: "We have #bold United the Principalities#!"
  kog_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!, they will be able to form the #bold Orthodox Commonwealth#!"
