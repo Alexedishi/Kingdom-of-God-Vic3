@@ -35,6 +35,10 @@ kog_after_lobby = {
 				name = kog_national_piety_progress_value
 				value = kog_national_piety_progress_value
 			}
+			save_scope_value_as = {
+				name = kog_canon_law_compliance_value
+				value = kog_canon_law_compliance_value
+			}
 			var:kog_local = {
 				set_variable = {
 					name = kog_national_piety_var
@@ -47,6 +51,10 @@ kog_after_lobby = {
 				set_variable = {
 					name = kog_national_piety_progress_var
 					value = scope:kog_root_scope.kog_national_piety_progress_value
+				}
+				set_variable = {
+					name = kog_canon_law_compliance_var
+					value = scope:kog_canon_law_compliance_value
 				}
 			}
 		}

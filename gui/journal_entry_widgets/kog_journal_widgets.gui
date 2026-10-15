@@ -466,7 +466,7 @@ types kog_church_interorg_widget_types {
 		default_header_clean_faded = {
 			parentanchor = hcenter
 			blockoverride "text" {
-				text = "com_gui_main_actions"
+				text = "kog_gui_major_actions"
 			}
 			blockoverride "size" {
 				size = { 532 45 }
@@ -483,7 +483,7 @@ types kog_church_interorg_widget_types {
 				widget = {
 					visible = "[ScriptedButton.HasTag('major_decision')]"
 					size = { 400 40 }
-					com_journal_scripted_button_item = { }
+					kog_scripted_button_item = { }
 				}
 			}
 		}
@@ -1169,13 +1169,6 @@ types kog_church_interorg_widget_types {
 		spacing = 10
 		margin_bottom = 20
 		
-		visible = "[Not(
-			IsDataModelEmpty(
-				JournalEntry.MakeScope.GetList('kog_metropolitan_actions_list')
-			)
-		)]"
-		datamodel = "[JournalEntry.MakeScope.GetList('kog_metropolitan_actions_list')]"
-		
 		default_header_clean_faded = {
 			parentanchor = hcenter
 			blockoverride "text" {
@@ -1193,9 +1186,9 @@ types kog_church_interorg_widget_types {
 			
 			item = {
 				widget = {
-					visible = "[ScriptedButton.HasTag('minor_decision')]"
+					visible = "[ScriptedButton.HasTag('major_decision')]"
 					size = { 400 40 }
-					com_journal_scripted_button_item = { }
+					kog_scripted_button_item = {}
 				}
 			}
 		}
@@ -2172,7 +2165,7 @@ types kog_church_interorg_widget_types {
 		datacontext = "[Scope.GetScriptContainer]"
 		
 		background = {
-			texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
+			texture = "gfx/interface/illustrations/holy_sites/ck3_temple_generic_grass.dds"
 			fittype = centercrop
 			using = frame_small_mask
 			alpha = 0.5
@@ -2304,7 +2297,7 @@ types kog_church_interorg_widget_types {
 				textbox = {
 					datacontext = "[ScriptContainer.MakeScope.Var('kog_patriarch_var').GetCharacter]"
 					parentanchor = left|vcenter
-					text = "kog_gui_patriarch"
+					text = "kog_gui_patriarch_name"
 					size = { 170 20 }
 					elide = right
 					using = fontsize_medium
@@ -2350,8 +2343,6 @@ types kog_church_interorg_widget_types {
 			## SCRIPTED BUTTONS
 			kog_seat_scripted_button_container = {}
 		}
-		
-		
 	}
 	
 	type kog_episcopal_seat_portrait = character_portrait_base_head {
@@ -3707,5 +3698,41 @@ types kog_crusade_types {
 	type kog_crusade_panel = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
+	}
+}
+
+types kog_shared_types {
+	type kog_scripted_button_item = button {
+		parentanchor = center
+		using = default_button_action
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		size = { 460 38 }
+		margin = { 20 20 }
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 300
+			elide = right
+			fontsize_min = 14
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
+		}
 	}
 }
