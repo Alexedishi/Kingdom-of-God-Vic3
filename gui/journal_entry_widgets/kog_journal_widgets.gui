@@ -2019,6 +2019,7 @@ types kog_church_interorg_widget_types {
 						blend_mode = alphamultiply
 						alpha = 0.75
 					}
+					
 				}
 				
 				## RANK 2
@@ -2042,6 +2043,9 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 1
 				kog_collegium_papabili_widget = {
+					blockoverride "papabile_title_text" {
+						raw_text = "#bold #o Preferatus"
+					}
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
@@ -2065,29 +2069,6 @@ types kog_church_interorg_widget_types {
 							'idle',
 							GetPortraitRenderSize(PdxGuiWidget.Self))
 						]"
-					}
-					widget = {
-						parentanchor = top|right
-						size = { 50 50 }
-						position = { -5 0 }
-						
-						icon = {
-							texture = "gfx/interface/backgrounds/round_button_bg.dds"
-							parentanchor = center
-							size = { 110% 110% }
-						}
-						icon = {
-							using = rotate_glow_animation_02
-							size = { 200% 200% }
-							parentanchor = center
-						}
-						icon = {
-							texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
-							parentanchor = center
-							size = { 100% 100% }
-							position = { 4 4 }
-						}
-						tooltip = "kog_placeholder_text"
 					}
 				}
 				
@@ -2181,7 +2162,6 @@ types kog_church_interorg_widget_types {
 			block "papabile_datacontext" {
 				datacontext = "[GetPlayer.GetRuler]"
 			}
-			
 			blockoverride "portrait_size" {
 				size = { 220 220 }
 			}
@@ -2228,7 +2208,9 @@ types kog_church_interorg_widget_types {
 					}
 					textbox = {
 						parentanchor = top|hcenter
-						raw_text = "#bold [Character.GetPrimaryRole.GetName]"
+						block "papabile_title_text" {
+							raw_text = "#bold [Character.GetPrimaryRole.GetName]"
+						}
 						autoresize = yes
 						elide = right
 						using = fontsize_medium
