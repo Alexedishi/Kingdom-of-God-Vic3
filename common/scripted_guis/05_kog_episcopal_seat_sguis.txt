@@ -11,8 +11,11 @@ kog_start_sway_sgui = {
 		}
 	}
 	is_valid = {
-		kog_capacity_trigger = {
-			value = 100
+		custom_description = {
+			text = kog_capacity_trigger
+			subject = this
+			value = kog_seat_diplomacy_base_cost
+			kog_capacity_value >= kog_seat_diplomacy_base_cost
 		}
 		custom_description = {
 			text = kog_can_sway_seat_SGUI_trigger
@@ -77,8 +80,11 @@ kog_start_antagonize_sgui = {
 		}
 	}
 	is_valid = {
-		kog_capacity_trigger = {
-			value = 100
+		custom_description = {
+			text = kog_capacity_trigger
+			subject = this
+			value = kog_seat_diplomacy_base_cost
+			kog_capacity_value >= kog_seat_diplomacy_base_cost
 		}
 		custom_description = {
 			text = kog_can_antagonize_seat_SGUI_trigger
@@ -158,8 +164,11 @@ kog_integrate_seat_sgui = {
 	}
 	is_valid = {
 		kog_is_autocephalous_trigger = yes
-		kog_capacity_trigger = {
-			value = 200
+		custom_description = {
+			text = kog_capacity_trigger
+			subject = this
+			value = kog_integrate_seat_base_cost
+			kog_capacity_value >= kog_integrate_seat_base_cost
 		}
 		custom_tooltip = {
 			text = "kog_owns_seat_province_SGUI_trigger"
@@ -203,8 +212,11 @@ kog_enforce_seat_sgui = {
 			text = kog_enforce_seat_sgui_trigger
 			scope:kog_episcopal_seat_scope.var:kog_controller_var ?= root
 		}
-		kog_capacity_trigger = {
-			value = 200
+		custom_description = {
+			text = kog_capacity_trigger
+			subject = this
+			value = kog_enforce_seat_base_cost
+			kog_capacity_value >= kog_enforce_seat_base_cost
 		}
 		bureaucracy >= 50
 	}
