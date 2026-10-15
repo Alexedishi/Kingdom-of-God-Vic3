@@ -141,6 +141,13 @@ types kog_church_interorg_widget_types {
 				soundeffect = "event:/SFX/kog/kog_bell"
 			}
 		}
+		state = {
+			name = _hide
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+			on_start = "[GetVariableSystem.Clear('kog_minor_decisions_view')]"
+		}
 	}
 	
 	type kog_tab_buttons = widget {
@@ -1164,12 +1171,14 @@ types kog_church_interorg_widget_types {
 		direction = vertical
 		minimumsize = { 540 -1 }
 		spacing = 10
-		margin_bottom = 15
 		
 		using = entry_bg_fancy
 		
 		default_header_clean_faded = {
 			parentanchor = hcenter
+			
+			visible = "[GetVariableSystem.Exists('kog_minor_decisions_view')]"
+			
 			blockoverride "text" {
 				text = "kog_gui_metropolitan_buttons"
 			}
@@ -1187,6 +1196,14 @@ types kog_church_interorg_widget_types {
 			item = {
 				kog_scripted_button_item = {
 					visible = "[ScriptedButton.HasTag('minor_decision')]"
+					margin_bottom = 5
+					state = {
+						name = _show
+						alpha = 1
+						duration = 0.1
+						using = Animation_Curve_Default
+						on_start = "[GetVariableSystem.Set('kog_minor_decisions_view', '0',)]"
+					}
 				}
 			}
 		}
@@ -1984,7 +2001,7 @@ types kog_church_interorg_widget_types {
 					texture = "gfx/interface/illustrations/journal_backgrounds/kog_church_hallway_illus.dds"
 					fittype = centercrop
 					alpha = 0.75
-					margin = { 0 5}
+					margin = { 0 5 }
 					
 					modify_texture = {
 						texture = "gfx/interface/backgrounds/default_bg_shading.dds"
@@ -2211,7 +2228,7 @@ types kog_church_interorg_widget_types {
 					}
 					textbox = {
 						parentanchor = top|hcenter
-						raw_text = "[Character.GetPrimaryRoleTitle]"
+						raw_text = "#bold [Character.GetPrimaryRole.GetName]"
 						autoresize = yes
 						elide = right
 						using = fontsize_medium
@@ -2381,7 +2398,7 @@ types kog_church_interorg_widget_types {
 					parentanchor = center
 					position = { 0 0 }
 					autoresize = yes
-					max_width = 250
+					max_width = 240
 					elide = right
 					using = fontsize_medium
 				}

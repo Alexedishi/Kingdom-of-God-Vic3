@@ -1401,7 +1401,7 @@ kog_initialize_1836_patriarchs_effect = {
 	c:SPA = {
 		# Santiago
 		create_character = {
-			template = kog_patriarch_template
+			template = kog_cardinal_template
 			first_name = "Rafael"
 			last_name = "Velez"
 			historical = yes
@@ -1428,7 +1428,7 @@ kog_initialize_1836_patriarchs_effect = {
 	c:FRA = {
 		# Paris
 		create_character = {
-			template = kog_patriarch_template
+			template = kog_cardinal_template
 			first_name = "Hyacinthe"
 			last_name = "De_Quelen"
 			historical = yes
@@ -1455,7 +1455,7 @@ kog_initialize_1836_patriarchs_effect = {
 	c:PRU = {
 		# Koln
 		create_character = {
-			template = kog_patriarch_template
+			template = kog_cardinal_template
 			first_name = "Clemens"
 			last_name = "Droste_zu_Vischering"
 			historical = yes
@@ -1482,7 +1482,7 @@ kog_initialize_1836_patriarchs_effect = {
 	c:AUS = {
 		# Vienna
 		create_character = {
-			template = kog_patriarch_template
+			template = kog_cardinal_template
 			first_name = "Vinzenz"
 			last_name = "Milde"
 			historical = yes
@@ -1955,7 +1955,7 @@ kog_initialization_cleanup_effect = {
 		}
 		every_scope_character = {
 			limit = {
-				interest_group = ig:ig_devout
+				is_interest_group_type = ig_devout
 			}
 			add_character_role = character_role_kog_bishop
 		}

@@ -4,19 +4,21 @@
 # These are meant to be barebones; the heavy lifting is done by creating these characters within country scopes before sending the character to the void
 
 # Catholic Patriarchs
+kog_bishop_template = {
+	role = character_role_kog_bishop
+	interest_group = ig_devout
+}
+
+kog_cardinal_template = {
+	role = character_role_kog_bishop
+	role = character_role_kog_cardinal
+	interest_group = ig_devout
+}
+
 kog_patriarch_template = {
 	role = character_role_kog_bishop
 	interest_group = ig_devout
 	traits = {
 		kog_patriarch
-	}
-}
-
-kog_cardinal_template = {
-	role = character_role_kog_bishop
-	religion = rel:catholic
-	interest_group = ig_devout
-	traits = {
-		kog_cardinal
 	}
 }
