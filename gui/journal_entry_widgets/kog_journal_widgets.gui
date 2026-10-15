@@ -2024,6 +2024,9 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 2
 				kog_collegium_papabili_widget = {
+					blockoverride "test_block" {
+						texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_conservative.dds"
+					}
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
@@ -2043,8 +2046,14 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 1
 				kog_collegium_papabili_widget = {
+					blockoverride "test_block" {
+						texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_legalistic.dds"
+					}
 					blockoverride "papabile_title_text" {
-						raw_text = "#bold #o Preferatus"
+						raw_text = "#bold [concept_preferatus]"
+					}
+					blockoverride "papabile_chad_factor" {
+						size = { 230 230 }
 					}
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
@@ -2074,6 +2083,9 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 3
 				kog_collegium_papabili_widget = {
+					blockoverride "test_block" {
+						texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_reformer.dds"
+					}
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
@@ -2163,7 +2175,9 @@ types kog_church_interorg_widget_types {
 				datacontext = "[GetPlayer.GetRuler]"
 			}
 			blockoverride "portrait_size" {
-				size = { 220 220 }
+				block "papabile_chad_factor" {
+					size = { 210 210 }
+				}
 			}
 			blockoverride "portrait_texture" {
 				block "pababile_pose" {
@@ -2265,6 +2279,26 @@ types kog_church_interorg_widget_types {
 					tooltip = "kog_cardinal_gravitas_breakdown"
 				}
 			}
+		}
+		
+		widget = {
+			parentanchor = top|right
+			size = { 40 40 }
+			position = { -16 20 }
+			
+			icon = {
+				texture = "gfx/interface/backgrounds/round_button_bg.dds"
+				parentanchor = center
+				size = { 110% 110% }
+			}
+			icon = {
+				block "test_block" {
+					texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
+				}
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			tooltip = "kog_placeholder_text"
 		}
 	}
 	
@@ -2372,6 +2406,22 @@ types kog_church_interorg_widget_types {
 			}
 			
 			default_header_clean_faded = {
+				visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+				size = { 220 30 }
+				parentanchor = top|hcenter
+				blockoverride "text" { }
+				textbox = {
+					text = "kog_gui_perferatus_statline_name"
+					parentanchor = center
+					position = { 0 0 }
+					autoresize = yes
+					max_width = 240
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			default_header_clean_faded = {
+				visible = "[Not(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0'))]"
 				size = { 220 30 }
 				parentanchor = top|hcenter
 				blockoverride "text" { }
