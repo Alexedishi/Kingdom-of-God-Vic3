@@ -1953,10 +1953,164 @@ types kog_church_interorg_widget_types {
 			DataModelHasItems(GetGlobalList('kog_cardinals_list')),
 			GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
 		)]"
-		datamodel = "[GetGlobalList('kog_cardinals_list')]"
 		
-		item = {
-			kog_collegium_cardinal_widget = { }
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			minimumsize = { 520 -1 }
+			spacing = 5
+			margin_bottom = 15
+			
+			using = entry_bg_fancy
+			
+			default_header_clean_faded = {
+				parentanchor = top|hcenter
+				blockoverride "text" {
+					text = "kog_gui_papabili_header"
+				}
+				blockoverride "size" {
+					size = { 532 45 }
+				}
+			}
+			
+			flowcontainer = {
+				parentanchor = top|hcenter
+				direction = horizontal
+				minimumsize = { 520 -1 }
+				spacing = 5
+				margin_left = 8
+				
+				kog_collegium_papabili_widget = {}
+				kog_collegium_papabili_widget = {}
+				kog_collegium_papabili_widget = {}
+			}
+		}
+		
+		section_header_button = {
+			blockoverride "layout" {
+				size = { 520 38 }
+			}
+			blockoverride "left_text" {
+				text = "kog_gui_cardinals_list"
+			}
+			blockoverride "onclick" {
+				onclick = "[GetVariableSystem.Toggle('kog_collegium_toggle')]"
+			}
+			blockoverride "onclick_showmore" {
+				visible = "[Not(GetVariableSystem.Exists('kog_collegium_toggle'))]"
+			}
+			blockoverride "onclick_showless" {
+				visible = "[GetVariableSystem.Exists('kog_collegium_toggle')]"
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			visible = "[GetVariableSystem.Exists('kog_collegium_toggle')]"
+			
+			datamodel = "[GetGlobalList('kog_cardinals_list')]"
+			
+			item = {
+				kog_collegium_cardinal_widget = { }
+			}
+		}
+	}
+	
+	type kog_collegium_papabili_widget = widget {
+		parentanchor = top|hcenter
+		size = { 165 165 }
+		
+		character_portrait_base_no_mask = {
+			parentanchor = center
+			ignore_in_debug_draw = yes
+			size = { 180 180 }
+			position = { 0 0 }
+			datacontext = "[GetPlayer.GetRuler]"
+			
+			blockoverride "portrait_size" {
+				size = { 220 220 }
+			}
+			blockoverride "portrait_texture" {
+					portrait_texture = "[Character.GetAnimatedPortrait(
+					'ruler_environment',
+					'camera_leader',
+					'idle',
+					GetPortraitRenderSize(PdxGuiWidget.Self))
+				]"
+			}
+			
+			flowcontainer = {
+				direction = vertical
+				parentanchor = bottom|hcenter
+				position = { 0 -20 }
+				spacing = 10
+				
+				textbox = {
+					parentanchor = center
+					text = "kog_cardinal_gravitas"
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+					multiline = yes
+					max_width = 160
+					
+					background = {
+						using = dark_area
+						alpha = 0.7
+						margin = { 20 5 }
+						
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_horizontal_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+						}
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_vertical_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+							alpha = 0.5
+						}
+					}
+					
+					tooltip = "kog_cardinal_gravitas_breakdown"
+				}
+				
+				textbox = {
+					parentanchor = center
+					raw_text = "Cardinal [Character.GetLastName]"
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+					multiline = yes
+					max_width = 160
+					
+					background = {
+						using = dark_area
+						alpha = 0.7
+						margin = { 20 5 }
+						
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_horizontal_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+						}
+						
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_vertical_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+							alpha = 0.5
+						}
+					}
+					
+					tooltip = "kog_cardinal_gravitas_breakdown"
+				}
+			}
 		}
 	}
 	
@@ -2068,7 +2222,7 @@ types kog_church_interorg_widget_types {
 				parentanchor = top|hcenter
 				blockoverride "text" { }
 				textbox = {
-					text = "kog_gui_name"
+					text = "kog_gui_cardinal_statline_name"
 					parentanchor = center
 					position = { 0 0 }
 					autoresize = yes
@@ -2078,7 +2232,7 @@ types kog_church_interorg_widget_types {
 				}
 			}
 			textbox = {
-				text = "kog_gui_title"
+				text = "kog_gui_cardinal_statline_title"
 				parentanchor = left|vcenter
 				position = { 0 0 }
 				autoresize = yes
@@ -2087,7 +2241,7 @@ types kog_church_interorg_widget_types {
 				using = fontsize_medium
 			}
 			textbox = {
-				text = "kog_cardinal_gravitas"
+				text = "kog_gui_cardinal_statline_gravitas"
 				parentanchor = left|vcenter
 				position = { 0 0 }
 				autoresize = yes
@@ -2096,7 +2250,7 @@ types kog_church_interorg_widget_types {
 				using = fontsize_medium
 			}
 			textbox = {
-				text = "kog_gui_homeland"
+				text = "kog_gui_cardinal_statline_homeland"
 				parentanchor = left|vcenter
 				position = { 0 0 }
 				autoresize = yes
