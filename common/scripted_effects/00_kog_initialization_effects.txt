@@ -1948,6 +1948,31 @@ kog_initialization_cleanup_effect = {
 		name = je_group_kog_councils
 	}
 	
+	## Assign Character Roles
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		every_scope_character = {
+			limit = {
+				interest_group = ig:ig_devout
+			}
+			add_character_role = character_role_kog_bishop
+		}
+	}
+	## TODO refactor this to be a list on je_kog_catholic
+	every_in_global_list = {
+		variable = kog_cardinals_list
+		if = {
+			limit = {
+				NOT = {
+					has_role = character_role_kog_cardinal
+				}
+			}
+			add_character_role = character_role_kog_cardinal
+		}
+	}
+	
 	## Final Cleanup
 	every_country = {
 		limit = {

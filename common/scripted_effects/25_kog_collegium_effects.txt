@@ -13,6 +13,14 @@
 					name = kog_cardinals_list
 					target = this
 				}
+				if = {
+					limit = {
+						NOT = {
+							has_role = character_role_kog_cardinal
+						}
+					}
+					add_character_role = character_role_kog_cardinal
+				}
 			}
 		}
 	}

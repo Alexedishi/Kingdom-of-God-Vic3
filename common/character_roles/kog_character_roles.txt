@@ -1,6 +1,19 @@
 ﻿character_role_kog_bishop = {
 	texture = gfx/interface/icons/character_role_icons/kog_patriarch.dds
-	priority = 10
+	priority = 50
+	spawn_characters_to_pool = no
+	
+	title_format = custom
+	title_preposition = PREP_IN
+	
+	character_modifier = {
+		character_prominence_add = 25
+	}
+}
+
+character_role_kog_cardinal = {
+	texture = gfx/interface/icons/character_role_icons/kog_patriarch.dds
+	priority = 100
 	spawn_characters_to_pool = no
 	
 	title_format = custom
