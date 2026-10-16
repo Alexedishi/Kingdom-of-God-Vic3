@@ -55,13 +55,13 @@ Scripted content is broadly divided into the following "modules" which can be id
 - kog_oriental_: Content relating to the Oriental Orthodox Churches
 - kog_lutheran_: Content relating to the Lutheran Churches
 - kog_anglican_: Content relating to the Anglican Communion
-- kog_elysian_: Content relating to the Elysian Orthodox Churches (Basielia Romaion)
+- kog_elysian_: Content relating to the Elysian Orthodox Churches (Basileia Romaion)
 - kog_rite_: Content relating to Liturgical Rites
 - kog_canon_law_: Content relating to Canon Laws
 - kog_schism_: Content relating to Schism and Autocephaly
 - kog_council_: Content relating to Ecumenical Councils
 - kog_ecumenical_: Content relating to Ecumenism and Mending Schisms
-- kog_collegium_: Content relating to the College of Cardinals
+- kog_collegium_: Content relating to the College of Cardinals & Papal Conclaves
 - kog_encyclical_: Content relating to Encyclicals
 - kog_holy_site_: Content relating to Holy Sites
 - kog_religious_communion_: Content relating to Religious Communions
@@ -76,7 +76,9 @@ GUI-specific script and frameworks are broadly divided into the following "modul
 - kog_canon_law_: Script implementing the "Canon Laws" tab of InterOrg Journals
 - kog_collegium_: Script implementing the "Collegium" tab of InterOrg Journals
 - kog_episcopal_seat_: Script implementing the "Episcopal Seats" tab of InterOrg journals
-- kog_ecumenical_council_: Script implementing the journal widgets for Ecumenical Council journals
+- kog_council_: Script implementing the journal widgets for Ecumenical Council journals
+- kog_conclave_: Script implementing the journal widgets for Papal Conclave journals
+- kog_crusade_: Script implementing the journal widgets for Crusade journals
 
 
 ####---------- Planned Updates ----------####
