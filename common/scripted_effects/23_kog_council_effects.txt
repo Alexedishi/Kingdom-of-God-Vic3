@@ -14,7 +14,7 @@ kog_convoke_council_effect = {
 			limit = {
 				kog_is_autocephalous_trigger = yes
 			}
-			var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+			var:kog_global_faith_journal_var = {
 				set_variable = { 
 					name = kog_council_location_var
 					value = scope:kog_council_caller.capital.state_region
@@ -22,14 +22,14 @@ kog_convoke_council_effect = {
 			}
 		}
 		else = {
-			var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+			var:kog_global_faith_journal_var = {
 				set_variable = {
 					name = kog_council_location_var
 					value = var:kog_mother_church_var.var:kog_seat_state_region_var
 				}
 			}
 		}
-		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+		var:kog_global_faith_journal_var = {
 			add_to_variable_list = {
 				name = kog_ecumenical_council_list
 				target = scope:kog_council_caller
@@ -46,12 +46,7 @@ kog_convoke_council_effect = {
 kog_join_ecumenical_council_effect = {
 	custom_tooltip = {
 		text = kog_join_ecumenical_council_effect
-		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
-			add_to_variable_list = {
-				name = kog_ecumenical_council_list
-				target = root
-			}
-		}
+		add_modifier = modifier_kog_participated_in_council
 	}
 }
 
@@ -62,7 +57,7 @@ kog_add_canon_law_group_to_council_effect = {
 			name = kog_theological_matter_loc
 			value = flag:$canon_law_group$
 		}
-		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+		var:kog_global_faith_journal_var = {
 			if = {
 				limit = {
 					NOT = {
@@ -134,7 +129,7 @@ kog_set_support_for_council_stance_effect = {
 			key = flag:$debate_matter$
 			value = flag:$stance$
 		}
-		var:kog_global_faith_journal_var.var:kog_ecumenical_council_var = {
+		var:kog_global_faith_journal_var = {
 			kog_tally_council_votes_effect = yes
 		}
 	}
