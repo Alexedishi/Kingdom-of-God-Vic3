@@ -1210,9 +1210,113 @@ types kog_canon_laws_panel_types {
 		
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
 		
+		kog_canon_law_compliance_widget = {}
+		kog_ecumenical_council_inactive_container = {}
+		kog_ecumenical_council_active_container = {}
+		divider_decorative = {}
+		kog_canon_laws_container = {}
+	}
+	
+	type kog_ecumenical_council_inactive_container = flowcontainer {
+		parentanchor = top|hcenter
+		minimumsize = { 520 100 }
+		visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list'))]"
+		
+		background = {
+			texture = "gfx/interface/illustrations/window_backgrounds/kog_no_council_background.dds"
+			size = { 100% 100% }
+			fittype = centercrop
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		using = entry_bg_fancy
+		
 		textbox = {
-			parentanchor = top|hcenter
-			size = { 520 60 }
+			parentanchor = center
+			visible = no
+			size = { 100% 100% }
+			text = "kog_gui_ecumenical_council_none"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+			
+			background = {
+				using = dark_area
+				alpha = 0.4
+				margin = { -5 -5 }
+				
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_horizontal_center.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+				}
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_vertical_center.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+					alpha = 0.5
+				}
+			}
+		}
+	}
+	
+	type kog_ecumenical_council_active_container = flowcontainer {
+		parentanchor = top|hcenter
+		minimumsize = { 520 -1 }
+		visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list')))]"
+		
+		background = {
+			texture = "gfx/interface/illustrations/window_backgrounds/kog_council_background.dds"
+			size = { 100% 100% }
+			fittype = centercrop
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		using = entry_bg_fancy
+		
+		default_header_clean_faded = {
+			position = { 0 0 }
+			size = { 500 35 }
+			
+			blockoverride "text" {
+			}
+			textbox = {
+				raw_text = "The Ecumenical Council"
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 520
+				elide = right
+				using = fontsize_large
+			}
+		}
+	}
+	
+	type kog_canon_law_compliance_widget = widget {
+		parentanchor = top|hcenter
+		size = { 520 60 }
+		
+		textbox = {
+			parentanchor = center
+			size = { 100% 100% }
 			text = "kog_gui_canon_law_compliance"
 			align = center|nobaseline
 			elide = right
@@ -1225,6 +1329,12 @@ types kog_canon_laws_panel_types {
 			
 			tooltip = "kog_gui_canon_law_compliance_breakdown"
 		}
+	}
+	
+	type kog_canon_laws_container = flowcontainer {
+		parentanchor = top|hcenter
+		spacing = 10
+		direction = vertical
 		
 		# Apostolic Succession
 		kog_canon_lawgroup_entry = {
@@ -3091,7 +3201,7 @@ types kog_canon_laws_panel_types {
 	}
 }
 
-types_kog_collegium_panel_types {
+types kog_collegium_panel_types {
 	type kog_collegium_panel = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
@@ -3407,6 +3517,10 @@ types_kog_collegium_panel_types {
 			size = { 40 40 }
 			position = { -16 20 }
 			
+			block "papabile_datacontext" {
+				datacontext = "[GetPlayer.GetRuler]"
+			}
+			
 			icon = {
 				texture = "gfx/interface/backgrounds/round_button_bg.dds"
 				parentanchor = center
@@ -3420,25 +3534,25 @@ types_kog_collegium_panel_types {
 			}
 			icon = {
 				visible = "[GetScriptedGui('kog_reformer_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_reformer.dds"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_reformer.dds"
 				parentanchor = center
 				size = { 75% 75% }
 			}
 			icon = {
 				visible = "[GetScriptedGui('kog_conservative_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_conservative.dds"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_conservative.dds"
 				parentanchor = center
 				size = { 75% 75% }
 			}
 			icon = {
 				visible = "[GetScriptedGui('kog_reactionary_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_fundamentalist.dds"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_fundamentalist.dds"
 				parentanchor = center
 				size = { 75% 75% }
 			}
 			icon = {
 				visible = "[GetScriptedGui('kog_reactionary_moderate_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_legalistic.dds"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_legalistic.dds"
 				parentanchor = center
 				size = { 75% 75% }
 			}
