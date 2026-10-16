@@ -91,7 +91,7 @@ kog_seat_condemnations_value = {
 ####---------- Episcopal Seat Relations Values ----------####
 kog_seat_relations_decay_target_value = {
 	value = 0
-	add = modifier:country_seat_relations_base_add
+	add = modifier:country_kog_seat_relations_base_add
 }
 
 kog_episcopal_seat_monthly_change_value = {
@@ -101,29 +101,29 @@ kog_episcopal_seat_monthly_change_value = {
 		limit = {
 			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = 1
 		}
-		add = scope:kog_root_scope.modifier:country_monthly_seat_relations_progress_add
+		add = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_progress_add
 	}
 	else_if = {
 		limit = {
 			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = -1
 		}
-		subtract = scope:kog_root_scope.modifier:country_monthly_seat_relations_progress_add
+		subtract = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_progress_add
 	}
 	else_if = {
 		limit = {
-			"variable_map(kog_relations_map|scope:kog_root_scope)" > scope:kog_root_scope.modifier:country_seat_relations_base_add
+			"variable_map(kog_relations_map|scope:kog_root_scope)" > scope:kog_root_scope.modifier:country_kog_seat_relations_base_add
 		}
-		subtract = scope:kog_root_scope.modifier:country_monthly_seat_relations_decay_add
+		subtract = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_decay_add
 	}
 	else_if = {
 		limit = {
-			"variable_map(kog_relations_map|scope:kog_root_scope)" < scope:kog_root_scope.modifier:country_seat_relations_base_add
+			"variable_map(kog_relations_map|scope:kog_root_scope)" < scope:kog_root_scope.modifier:country_kog_seat_relations_base_add
 		}
-		add = scope:kog_root_scope.modifier:country_monthly_seat_relations_decay_add
+		add = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_decay_add
 	}
 	multiply = {
 		add = 1
-		add = modifier:country_monthly_seat_relations_progress_mult
+		add = modifier:country_kog_monthly_seat_relations_progress_mult
 		min = 0.01
 	}
 	max = 50
