@@ -87,6 +87,31 @@ kog_piety_multiplier_value = {
 	min = -1
 }
 
+kog_church_tax_payments_value = {
+	value = 0
+	every_scope_pop = {
+		limit = {
+			NOT = {
+				is_pop_type = peasants
+			}
+		}
+		add = total_size
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_general_church_tax
+		}
+		
+		every_scope_pop = {
+			limit = {
+				is_pop_type = peasants
+			}
+			add = total_size
+		}
+	}
+	min = 0
+}
+
 ####---------- Static Values ----------####
 kog_omen_base_cost = 200
 kog_schism_base_cost = 500
