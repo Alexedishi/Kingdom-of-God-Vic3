@@ -2024,9 +2024,6 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 2
 				kog_collegium_papabili_widget = {
-					blockoverride "test_block" {
-						texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_conservative.dds"
-					}
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
@@ -2046,9 +2043,6 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 1
 				kog_collegium_papabili_widget = {
-					blockoverride "test_block" {
-						texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_legalistic.dds"
-					}
 					blockoverride "papabile_title_text" {
 						raw_text = "#bold [concept_preferatus]"
 					}
@@ -2083,9 +2077,6 @@ types kog_church_interorg_widget_types {
 				
 				## RANK 3
 				kog_collegium_papabili_widget = {
-					blockoverride "test_block" {
-						texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_reformer.dds"
-					}
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
@@ -2292,13 +2283,36 @@ types kog_church_interorg_widget_types {
 				size = { 110% 110% }
 			}
 			icon = {
-				block "test_block" {
-					texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
-				}
+				visible = "[GetScriptedGui('kog_revolutionary_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_modernizer.dds"
 				parentanchor = center
 				size = { 75% 75% }
 			}
-			tooltip = "kog_placeholder_text"
+			icon = {
+				visible = "[GetScriptedGui('kog_reformer_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_reformer.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_conservative_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_conservative.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_reactionary_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_fundamentalist.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_reactionary_moderate_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/generic_icons/kog_debate_stance_legalistic.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			tooltip = "kog_gui_papabili_tooltip"
 		}
 	}
 	

@@ -1,1 +1,45 @@
-﻿
+﻿kog_revolutionary_intent_sgui = {
+	scope = character
+	is_shown = {
+		has_socialist_ideology = yes
+	}
+}
+
+kog_reformer_intent_sgui = {
+	scope = character
+	is_shown = {
+		OR = {
+			has_progressive_ideology = yes
+			has_liberal_ideology = yes
+		}
+	}
+}
+
+kog_conservative_intent_sgui = {
+	scope = character
+	is_shown = {
+		has_conservative_ideology = yes
+		has_reactionary_ideology = no
+	}
+}
+
+kog_reactionary_intent_sgui = {
+	scope = character
+	is_shown = {
+		has_conservative_ideology = no
+		has_reactionary_ideology = yes
+	}
+}
+
+kog_reactionary_moderate_sgui = {
+	scope = character
+	is_shown = {
+		NOR = {
+			has_socialist_ideology = yes
+			has_progressive_ideology = yes
+			has_liberal_ideology = yes
+			has_conservative_ideology = no
+			has_reactionary_ideology = yes
+		}
+	}
+}
