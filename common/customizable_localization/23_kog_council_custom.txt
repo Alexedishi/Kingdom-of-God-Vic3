@@ -1,11 +1,46 @@
-﻿# Catholic Council Types
-kog_catholic_matter_type = {
-	type = country
+﻿####---------- Ecumenical Council Custom Loc ----------####
+kog_character_ideological_intent_type = {
+	type = character
 
 	text = {
 		trigger = {
-			always = yes
+			has_socialist_ideology = yes
 		}
-		localization_key = kog_no_effects
+		localization_key = kog_gui_revolutionary
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_progressive_ideology = yes
+				has_liberal_ideology = yes
+			}
+		}
+		localization_key = kog_gui_reformist
+	}
+	text = {
+		trigger = {
+			has_conservative_ideology = yes
+			has_reactionary_ideology = no
+		}
+		localization_key = kog_gui_conservative
+	}
+	text = {
+		trigger = {
+			has_conservative_ideology = no
+			has_reactionary_ideology = yes
+		}
+		localization_key = kog_gui_reactionary
+	}
+	text = {
+		trigger = {
+			NOR = {
+				has_socialist_ideology = yes
+				has_progressive_ideology = yes
+				has_liberal_ideology = yes
+				has_conservative_ideology = no
+				has_reactionary_ideology = yes
+			}
+		}
+		localization_key = kog_gui_moderate
 	}
 }
