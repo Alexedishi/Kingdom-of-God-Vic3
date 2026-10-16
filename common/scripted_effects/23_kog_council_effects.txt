@@ -522,3 +522,10 @@ kog_determine_leading_council_positions_effect = {
 		
 	}
 }
+
+kog_finish_council_effect = {
+	every_scope_je_involved = {
+		kog_AI_evaluate_council_debate_stances_effect = yes
+	}
+	clear_variable_map = kog_ecumenical_council_map
+}

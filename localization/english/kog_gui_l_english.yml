@@ -1,0 +1,372 @@
+﻿l_english:
+ ####---------- Interorg Illustration Panel ----------####
+ ## Head of Faith
+ kog_gui_overview_header: "Overview"
+ kog_gui_head_of_faith: "[concept_head_of_faith]"
+ kog_gui_mother_church_header: "Head Church"
+ kog_gui_top_church_name: "[JournalEntry.MakeScope.Var('kog_mother_church_var').Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_location_header: "Location"
+ kog_gui_location_name: "[JournalEntry.MakeScope.Var('kog_location_var').GetStateRegion.GetName]"
+ kog_gui_membership_header: "Membership"
+
+ 
+ ####---------- Church Overview Panel ----------####
+ ## Encyclicals Panel
+ kog_gui_encyclical_header: "Circulating Encyclicals"
+ kog_gui_encyclicals_disabled: "#italic #lore [JournalEntry.GetName] does not use the [concept_encyclical] system#!#!"
+ kog_gui_no_encyclical: "#italic #lore There are no $kog_encyclicals$ in circulation#!"
+ 
+ ## Community Panel
+ kog_community_header: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Community"
+ kog_community_members_in_communion: "Members $kog_in_communion$"
+ kog_community_members_in_schism: "Members in [concept_schism]"
+ kog_community_members_with_autocephaly: "Members with [concept_autocephaly]"
+ kog_community_church_undivided: "#filler The Church is Undivided#!"
+ 
+ ## Holy Sites Panel
+ kog_gui_holy_sites_header: "Holy Sites"
+ kog_gui_holy_site_count: "[GetPlayer.GetName] $kog_controls$ #bold #khoine [GetPlayer.MakeScope.Var('kog_local').Var('kog_episcopal_seats_var').GetValue]#!#! $kog_holy_sites$!"
+ kog_block_holy_site_name: "#dummy Override holy_site_name!"
+ kog_block_holy_site_location: "#dummy Override kog_holy_site_location!"
+ kog_block_holy_site_controller: "#dummy Override holy_site_controller!"
+ kog_block_holy_site_perk: "#dummy Override holy_site_perk!"
+ 
+ ## Major Action Scripted Buttons
+ kog_gui_major_actions: "Major Decisions"
+ 
+ kog_gui_declare_autocephaly: "@kog_break_communion! Declare Autocephaly"
+ kog_gui_declare_autocephaly_desc: "Once the symbol of unity in the Eastern Church, the Ecumenical Patriarch in Constantinople has increasingly come under the influence of the Ottoman Sultan. Unless we sever our connections with Constantinople, the Ottomans are sure to continue to interfere in our politics and may even try to further their attempts to suppress our culture."
+ kog_gui_autocephaly_header: "#bold #khoine Autocephaly Progress#!#!"
+ kog_gui_autocephaly_progress: "TODO"
+ 
+ kog_gui_convoke_council: "@kog_convoke_council! Convoke Ecumenical Council"
+ kog_gui_convoke_council_desc: "Our influence within the [GetPlayer.GetStateReligion.GetName] community is obvious. We could use this power to summon an [concept_ecumenical_council] to settle long-standing issues within the [GetPlayer.GetStateReligion.GetName] Church."
+ 
+ kog_gui_found_cayacoa_name: "@kog_found_seat! Establish Exarchate in Cayacoa"
+ kog_gui_found_cayacoa_desc: ""
+ kog_gui_found_cayacoa_possible: "[GetPlayer.GetNameNoFlag] owns the [concept_province] of #bold Cayacoa#!"
+ kog_gui_found_cayacoa_effect: ""
+ 
+ kog_gui_secure_tetrarchy: "@kog_unify_prefecture! Secure the Tetrarchy"
+ kog_gui_secure_tetrarchy_desc: "Under the auspices of the Byzantine state, the Ancient Patriarchates existed in a unified structure to administer the ecclesiarchy and shepherd the faithful. Should we secure control over these holy nexuses of the faith, we will be able to reunify the old heart of the Eastern Orthodoxy."
+ kog_gui_secure_pentarchy: "@kog_unify_prefecture! Secure the Pentarchy"
+ kog_gui_secure_pentarchy_desc: "The Pentarchy, consisting of the Eastern seats plus Rome, once ruled over the united Christian church before the Germanic invaders tore Rome away from the Empire for their political aspirations. If we can secure control over the Eternal City, we will be able to unify the Eastern and Western Patriarchates after almost a millennium of estrangement."
+ 
+ kog_gui_mend_schism: "@kog_establish_communion! Mend the Great Schism"
+ kog_gui_mend_schism_desc: "The five Ancient Seats of the Orthodoxy lie within our control, yet the two churches are divided by a millennium of deviations in legal frameworks and dogmatic principles. To truly combine the two Churches into one Great Church will be a herculean task, one that already failed many times over the centuries."
+ kog_gui_mending_header: "#bold #khoine Mending Progress#!#!"
+ kog_gui_mending_progress: "#dummy kog_gui_mending_progress"
+
+ 
+ ####---------- Metropolis Overview Panel ----------####
+ ## Metropolitan Portrait & Details
+ kog_gui_national_church_name: "The [GetPlayer.GetStateReligion.GetNameNoFormatting] Church of [GetPlayer.GetNameNoFlag]"
+ kog_gui_metropolis_header: "Metropolis"
+ kog_gui_metropolis_header_long: "Metropolis of [GetPlayer.GetCapital.GetCityHubName]"
+ kog_gui_religious_law_header: "#o #tooltip:[GetRawTextTooltipTag('kog_gui_religious_law_tooltip')] Religious Law#!#!"
+ kog_gui_religious_law_tooltip: "[GetLawGroup('lawgroup_church_and_state').GetDesc]"
+ kog_gui_national_piety: "[concept_national_piety]"
+ kog_gui_national_piety_amount: "@kog_piety_dutiful!"
+ kog_gui_national_piety_breakdown: "#todo kog_gui_national_piety_breakdown"
+ 
+ ## Communion & Eminence Panel
+ kog_gui_communion_status: "[GetPlayer.GetCustom('kog_communion_type')]"
+ kog_gui_capacity_amount: "[GetPlayer.GetCustom('kog_faith_capacity_type')]: #bold #khoine [GetPlayer.GetModifier.GetValueWithBreakdownFor('country_kog_faith_capacity_add')]#!#!"
+ kog_gui_capacity_breakdown: "[GetPlayer.GetModifier.GetFullEntryDescFor('country_kog_faith_capacity_add')]"
+ kog_gui_in_communion: "[GetPlayer.GetName] is #green #bold $kog_in_communion$#!#! with [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_in_schism: "[GetPlayer.GetName] is #red #bold $kog_in_schism$#!#! with [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_is_autocephalous: "[GetPlayer.GetName] has #bold #green Been Recognized#!#! as [Concept('concept_autocephaly','$concept_autocephalous$')] by [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_has_supremacy: "[GetPlayer.GetName] has #bold #green Supremacy Over#!#! [GetPlayer.MakeScope.Var('kog_local').Var('kog_mother_church_var').Var('kog_seat_name_var').GetFlagName]"
+ 
+ ## Metropolitan Focus Scripted Buttons
+ kog_gui_focus_button_tooltip: "[ConcatIfNeitherEmpty('\n', ScriptedButton.GetDesc)]$kog_linebreak$[ConcatIfNeitherEmpty(ScriptedButton.GetPossibleDesc, '\n\n')]#title Effects:#!\n[ScriptedButton.GetEffectDesc]"
+ kog_gui_emphasize_unity: "@kog_emphasize_unity!"
+ kog_gui_emphasize_unity_desc: "#header Emphasize Unity#! [AddLocalizationIf(ScriptedButton.IsSelected, 'SCRIPTED_ACTION_TOOLTIP_IS_SELECTED')]\nThe universal message of the Church has tied Christendom together since the fracturing of the Roman Empire. Our bishops could emphasize this common bond that supersedes nationalist thought."
+ kog_gui_enforce_attendance: "@kog_enforce_attendance!"
+ kog_gui_enforce_attendance_desc: "#header Enforce Church Attendance#! [AddLocalizationIf(ScriptedButton.IsSelected, 'SCRIPTED_ACTION_TOOLTIP_IS_SELECTED')]\nMany in our communities attend masses only for the holiest of days. We could empower social activists to "persuade" these people to participate more regularly in church services."
+ kog_gui_theologize_dogma: "@kog_theologize_dogma!"
+ kog_gui_theologize_dogma_desc: "#header Theologize Novel Dogma#! [AddLocalizationIf(ScriptedButton.IsSelected, 'SCRIPTED_ACTION_TOOLTIP_IS_SELECTED')]\nThe theology of the Church has always been slow to chance. With the ongoing explosion of science and industry across the world, the philosophy and dogma of the Church lags far behind the innovations of Europe, leaving it unsuited to guide the faithful into this new era."
+ kog_gui_promote_ecumenism: "@kog_promote_ecumenism!"
+ kog_gui_promote_ecumenism_desc: "#header Promote Ecumenism#! [AddLocalizationIf(ScriptedButton.IsSelected, 'SCRIPTED_ACTION_TOOLTIP_IS_SELECTED')]\nAs the early fathers said, we are one flock divided only by our disagreements over interpretations. We could pressure the church to reach out to its counterparts to seek some type of common understanding."
+ kog_gui_kog_focus_status: "Current Focus: [GetPlayer.MakeScope.GetCountry.GetCustom('kog_metropolitan_focus_type')]"
+ 
+ ## Metropolitan Stats Panel
+ kog_gui_metropolitan_header: "#bold Metropolitan: [GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader.GetFullName]#!"
+ kog_gui_metropolitan_state_religion: "[concept_state_religion]: [GetPlayer.GetStateReligion.GetName]"
+ kog_gui_metropolitan_religion_law: "Religious [concept_law]: [AccessPlayer.AccessActiveLawFromGroup('lawgroup_church_and_state').GetName]"
+ kog_gui_metropolitan_national_piety: "[concept_national_piety]: [GetPlayer.GetCustom('kog_national_piety_icon_only_type')] #bold [GetPlayer.MakeScope.Var('kog_local').Var('kog_national_piety_var').GetValue|+=0]#! ([GetPlayer.GetCustom('kog_national_piety_no_icon_type')])"
+ kog_gui_metropolitan_liturgical_language: "[concept_liturgical_language]: [GetPlayer.MakeScope.Var('kog_local').Var('kog_liturgical_language_var').GetFlagName]"
+ kog_gui_metropolitan_liturgical_rite: "[concept_liturgical_rite]: [GetPlayer.MakeScope.Var('kog_local').Var('kog_liturgical_rite_var').GetFlagName]"
+ kog_gui_metropolitan_episcopal_seats: "$kog_episcopal_seats$: #v [GetPlayer.MakeScope.Var('kog_local').Var('kog_episcopal_seats_var').GetValue]#!"
+ kog_gui_metropolitan_holy_sites: "$kog_holy_sites$: #v [GetPlayer.MakeScope.Var('kog_local').Var('kog_holy_sites_var').GetValue]#!"
+ 
+ kog_no_focus: "#bold None#!"
+ kog_emphasize_unity_focus: "#bold #green Emphasizing Church Unity#!#!"
+ kog_enforce_attendance_focus: "#bold #red Enforcing Church Attendance#!#!"
+ kog_theologize_dogma_focus: "#bold #khoine Theologizing Novel Dogma#!#!"
+ kog_promote_ecumenism_focus: "#bold #purple Promoting Christian Ecumenism#!#!"
+ 
+ ## Catholic Scripted Buttons
+ kog_gui_venerate_apparition: "@kog_call_omen! Venerate Apparition"
+ kog_gui_venerate_apparation_desc: "We can use our contacts within the Church to encourage the popular devotion of an approved Marian Apparition. This devotion will last ten years before requiring reinforcement."
+ 
+ ## Orthodox Scripted Buttons
+ kog_gui_commission_icon: "@kog_call_omen! Venerate an Icon"
+ kog_gui_commission_icon_desc: "We can use some of our influence over the Church to commission icons to inspire the faithful. These icons will endure for 29_kog_episcopal_seat_effects.txt years before needing replacement."
+ 
+ ## Metropolitan Decision Buttons
+ kog_gui_metropolitan_buttons: "Metropolitan Decisions"
+ kog_gui_reform_synod: "@kog_reform_synod! Reform National Synod"
+ kog_gui_reform_synod_desc: "$kog_canon_law_constantinianism$, the idea of merging the church and state, has gained traction as a means of both protecting and enforcing our independent identity as a people. By subjugating the church to the state apparatus, we can insulate ourselves from further interference by the Sultan."
+ kog_gui_restore_synod: "@kog_restore_synod! Restore National Synod"
+ kog_gui_restore_synod_desc: "The act of subjugating the Church has had profound effects. Chafing under the yoke of the state, the Church has lost a lot of its former influence. If we wish, we could restore the independence of the clergy."
+ kog_gui_establish_schools: "@kog_fund_sunday_schools! Establish Sunday Schools"
+ kog_gui_establish_schools_desc: "The best way to spread the divine word and to bring literacy to the poorest of our children is by providing them with weekly education following liturgical services."
+ kog_gui_disband_schools: "@kog_defund_sunday_schools! Disband Sunday Schools"
+ kog_gui_disband_schools_desc: "While weekend school programs have proven successful in guiding our youth to the faith, they have also proven a major expense for the state."
+
+ 
+ ####---------- Canon Laws Panel ----------####
+ ## Compliance Panel
+ kog_gui_canon_law_compliance: "[concept_canon_law_compliance] in [GetPlayer.GetNameNoFlag]: [GetPlayer.MakeScope.Var('kog_local').Var('kog_canon_law_compliance_var').GetValue|+=0]"
+ kog_gui_canon_law_compliance_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_canon_law_compliance_value')]"
+ 
+ ## Canon Law Containers
+ kog_gui_canon_law_header: "Canon Laws"
+ kog_gui_law_type_header: "Active Law:"
+ kog_gui_canon_law_apostolic_succession: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_apostolic_succession').GetFlagName]#!"
+ kog_gui_canon_law_almsgiving: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_almsgiving').GetFlagName]#!"
+ kog_gui_canon_law_iconography: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_iconography').GetFlagName]#!"
+ kog_gui_canon_law_statism: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_statism').GetFlagName]#!"
+ kog_gui_canon_law_nationalism: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_nationalism').GetFlagName]#!"
+ kog_gui_canon_law_clerical_marriage: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_clerical_marriage').GetFlagName]#!"
+ kog_gui_canon_law_social_role: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_social_role').GetFlagName]#!"
+ kog_gui_canon_law_sciences_stance: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_stance_on_sciences').GetFlagName]#!"
+ kog_gui_canon_law_crusades: "#bold Doctrine: [JournalEntry.MakeScope.Var('kog_canon_lawgroup_crusades').GetFlagName]#!"
+ 
+ ## Canon Law Scripted Buttons
+ kog_block_canon_law_group: "#dummy Override canon_law_group!"
+ kog_block_canon_law_flag: "#dummy Override canon_law_flag!"
+ kog_block_canon_law_button_content: "#dummy Override canon_law_button_content!"
+ 
+ kog_gui_debate_canon_law: "@kog_raise_issue! Debate Canon Law"
+ kog_gui_debate_canon_law_desc: "During an [concept_ecumenical_council] bishops of all stripes have the chance to raise issues they believe are afflicting the church."
+ kog_gui_support_canon_law_effect: "The $kog_devout$ of [ROOT.GetCountry.GetNameNoFlag] will support the enactment of [TopScope.GetLocalVariable('kog_canon_law_loc').GetFlagName]"
+ 
+ kog_gui_debate_apostolic_succession: "@kog_raise_issue! Debate Apostolic Succession"
+ kog_gui_support_papal_primacy: ""
+ kog_gui_support_papal_primacy_desc: ""
+ kog_gui_support_synodality: ""
+ kog_gui_support_synodality_desc: ""
+ kog_gui_support_congregationalism: ""
+ kog_gui_support_congregationalism_desc: ""
+ 
+ kog_gui_debate_almsgiving: "@kog_raise_issue! Debate Almsgiving"
+ kog_gui_support_no_alms: ""
+ kog_gui_support_no_alms_desc: ""
+ kog_gui_support_offertory: ""
+ kog_gui_support_offertory_desc: ""
+ kog_gui_support_tithing: ""
+ kog_gui_support_tithing_desc: ""
+
+ kog_gui_debate_iconography: "@kog_raise_issue! Debate Iconography"
+ 
+ kog_gui_debate_statism: "@kog_raise_issue! Debate Church and State"
+ 
+ kog_gui_debate_nationalism: "@kog_raise_issue! Debate Church and Nation"
+ 
+ kog_gui_debate_clerical_marriage: "@kog_raise_issue! Debate Clerical Marriage"
+ 
+ kog_gui_debate_social_role: "@kog_raise_issue! Debate Social Role"
+ 
+ kog_gui_debate_stance_on_sciences: "@kog_raise_issue! Debate the Sciences"
+ 
+ kog_gui_debate_crusades: "@kog_raise_issue! Debate Renewed Crusading"
+ 
+ kog_gui_ecumenical_council_header: "The Council of [JournalEntry.MakeScope.Var('kog_council_location_var').GetStateRegion.GetCityHubName]"
+ kog_gui_ecumenical_council_none: "#italic #lore There is no [concept_ecumenical_council] in session#!"
+ kog_gui_ecumenical_council_commit_votes: "This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to supporting this stance."
+
+ 
+####---------- College of Cardinals Panel ----------####
+ ## Papabili Panel
+ kog_gui_college_header: "Collegium"
+ kog_gui_college_header_long: "College of Cardinals"
+ 
+ kog_gui_papabili_header: "Papabili"
+ kog_gui_papabili_tooltip: "[Character.GetPrimaryRole.GetName] [Character.GetLastName] is likely to take [JournalEntry.GetName] in a [Character.GetCustom('kog_character_ideological_intent_type')] direction if elected."
+ kog_gui_revolutionary: "Revolutionary"
+ kog_gui_reformist: "Reformist"
+ kog_gui_conservative: "Conservative"
+ kog_gui_reactionary: "Reactionary"
+ kog_gui_moderate: "Moderate"
+ 
+ ## Cardinals List
+ kog_gui_cardinals_list: "View all Cardinals"
+ kog_gui_perferatus_statline_name: "#bold [concept_preferatus] [Character.GetFullName]#!"
+ kog_gui_cardinal_statline_name: "#bold [Character.GetPrimaryRole.GetName] [Character.GetFullName]#!"
+ kog_gui_cardinal_statline_title: "[concept_ideology]: #bold [Character.GetIdeology.GetName]#!"
+ kog_gui_cardinal_statline_gravitas: "Eminence: @kog_gravitas! #bold #khoine [Character.MakeScope.ScriptValue('kog_character_gravitas_value')]#!#!"
+ kog_gui_cardinal_statline_homeland: "[concept_home_state]: [Character.GetHomeState.GetName]"
+ 
+ kog_cardinal_gravitas: "@kog_gravitas! #bold #khoine [Character.MakeScope.ScriptValue('kog_character_gravitas_value')]#!#!"
+ kog_cardinal_gravitas_breakdown: "[Character.MakeScope.GetScriptValueDesc('kog_character_gravitas_value')]"
+
+ 
+ ####---------- Episcopal Seats Panel ----------####
+
+ ## General Seat Localization
+ kog_gui_seats_header: "Episcopal Seats"
+ kog_title_bishop: "Bishop"
+ kog_title_patriarch: "Patriarch"
+ kog_no_owner: "#yellow #bold No One#!#!"
+ kog_catholic_seats_filter: "[GetReligion('catholic').GetName] Seats"
+ kog_orthodox_seats_filter: "[GetReligion('orthodox').GetName] Seats"
+ kog_oriental_seats_filter: "[GetReligion('oriental_orthodox').GetName] Seats"
+ kog_lutheran_seats_filter: "[GetReligion('protestant').GetName] Seats"
+ kog_anglican_seats_filter: "[GetReligion('protestant').GetName] Seats"
+ kog_elysian_seats_filter: "#todo Replace kog_elysian_seats_filter!#!"
+ 
+ kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_seat_header_var').GetFlagName]"
+ kog_gui_seat_controller: "#bold Answers to: [ScriptContainer.GetCustom('kog_seat_controller_type')]#!"
+ kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.GetName]"
+ kog_gui_no_controller: "@kog! #yellow God Alone#!"
+ kog_gui_religious_union_name: "[ScriptContainer.MakeScope.Var('kog_religious_union_var').GetFlagName]"
+ 
+ kog_gui_opinion: "Opinion:\n[Scope.GetVariableFromVariableMap('kog_opinions_map', GetPlayer.MakeScope).GetValue|+=]"
+ kog_gui_patriarch_name: "[concept_bishop]: [Character.GetFullName]"
+ kog_gui_seat_location: "Seated in: [ScriptContainer.MakeScope.Var('kog_seat_state_region_var').GetStateRegion.GetName]"
+ kog_gui_liturgical_language: "[concept_liturgical_rite]: [ScriptContainer.MakeScope.Var('kog_liturgical_rite_var').GetFlagName]"
+ kog_gui_liturgical_rite: "[concept_liturgical_language]: [ScriptContainer.MakeScope.Var('kog_liturgical_language_var').GetFlagName]"
+ 
+ kog_seat_details: ""
+ 
+ ## Episcopal Seat Buttons
+ kog_gui_sway_seat: "@kog_improve_relations! #bold Improve Relations#!"
+ kog_gui_sway_seat_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state."
+ kog_gui_sway_seat_effect: "[GetPlayer.GetNameNoFlag] will begin #bold improving#! $kog_relations$ with [Container.GetName.GetFlagName]"
+ kog_gui_antagonize_seat: "@kog_damage_relations! #bold Damage Relations#!"
+ kog_gui_antagonize_seat_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ensuring hostilities between ourselves and certain seats, we can earn the respect of those of our faith community."
+ kog_gui_antagonize_seat_effect: "[GetPlayer.GetNameNoFlag] will begin #bold harming#! $kog_relations$ with [Container.GetName.GetFlagName]"
+ kog_gui_integrate_seat: "@kog_integrate_seat! #bold Integrate Seat#!"
+ kog_gui_integrate_seat_desc: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large."
+ kog_gui_integrate_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of seizing ecclesial control over [Container.GetName.GetFlagName]"
+ kog_gui_enforce_seat: "@kog_enforce_rite! #bold Enforce Rites#!"
+ kog_gui_enforce_seat_desc: "In the centuries since the collapse of the Roman Empire, the many churches have deviated from each other in their chosen [concept_liturgical_rite]. Should the location of this seat come under our control, we could enforce their compliance with our [concept_liturgical_rite]."
+ kog_gui_enforce_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon [Container.GetName.GetFlagName]"
+ kog_gui_assert_seat: "@kog_integrate_seat! #bold Assert Seat Control#!"
+ kog_gui_assert_seat_desc: ""
+ kog_gui_install_seat: "@kog_install_bishop! #bold Install Bishop#!"
+ kog_gui_install_seat_desc: "Despite the church nominally serving only to spread the word of faith, politics penetrates deep into the administration of the church. Should a state have sufficient leverage over a seat, they could strong arm the installment of a friendlier bishop."
+ 
+ kog_enforce_seat_sgui_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ this $concept_episcopal_seat$"
+ kog_enforce_seat_sgui_effect: "[GetPlayer.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon this $concept_episcopal_seat$"
+ 
+ kog_assert_seat_sgui_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the $kog_home_province of this$ $concept_episcopal_seat$"
+ kog_assert_seat_sgui_effect: "[GetPlayer.GetNameNoFlag] will seize $kog_control$ over this $concept_episcopal_seat$"
+ 
+ ## Episcopal Seat Names
+ # Catholic Seats
+ kog_rome: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_rome_details $kog_rome_name$#!#!"
+ kog_rome_name: "Rome"
+ kog_rome_header: "Patriarchate of Rome"
+ kog_rome_details: ""
+ 
+ kog_santiago: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_santiago_details $kog_santiago_name$#!#!"
+ kog_santiago_name: "Santiago"
+ kog_santiago_header: "Archdiocese of Santiago"
+ kog_santiago_details: ""
+ 
+ kog_paris: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_paris_details $kog_paris_name$#!#!"
+ kog_paris_name: "Paris"
+ kog_paris_header: "Archdiocese of Paris"
+ kog_paris_details: ""
+ 
+ kog_koln: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_koln_details $kog_koln_name$#!#!"
+ kog_koln_name: "Cologne"
+ kog_koln_header: "Archdiocese of Cologne"
+ kog_koln_details: ""
+ 
+ kog_vienna: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_vienna_details $kog_vienna_name$#!#!"
+ kog_vienna_name: "Vienna"
+ kog_vienna_header: "Archdiocese of Vienna"
+ kog_vienna_details: ""
+ 
+ kog_constantinople: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_constantinople_details $kog_constantinople_name$#!#!"
+ kog_constantinople_name: "Constantinople"
+ kog_constantinople_header: "Ecumenical Patriarchate of Constantinople"
+ kog_constantinople_details: ""
+ 
+ kog_antioch: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_antioch_details $kog_antioch_name$#!#!"
+ kog_antioch_name: "Antioch"
+ kog_antioch_header: "Patriarchate of Antioch"
+ kog_antioch_details: ""
+ 
+ kog_jerusalem: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_jerusalem_details $kog_jerusalem_name$#!#!"
+ kog_jerusalem_name: "Jerusalem"
+ kog_jerusalem_header: "Patriarchate of Jerusalem"
+ kog_jerusalem_details: ""
+ 
+ kog_alexandria: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_alexandria_details $kog_alexandria_name$#!#!"
+ kog_alexandria_name: "Alexandria"
+ kog_alexandria_header: "Patriarchate of Alexandria"
+ kog_alexandria_details: ""
+ 
+ kog_moscow: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_moscow_details $kog_moscow_name$#!#!"
+ kog_moscow_name: "Moscow"
+ kog_moscow_header: "Patriarchate of Moscow"
+ kog_moscow_details: ""
+ 
+ kog_coptic_alexandria: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_coptic_alexandria_details $kog_coptic_alexandria_name$#!#!"
+ kog_coptic_alexandria_name: "Coptic Alexandria"
+ kog_coptic_alexandria_header: "Patriarchate of Coptic Alexandria"
+ kog_coptic_alexandria_details: ""
+ 
+ kog_syriac_antioch: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_syriac_antioch_details $kog_syriac_antioch_name$#!#!"
+ kog_syriac_antioch_name: "Syriac Antioch"
+ kog_syriac_antioch_header: "Patriarchate of Syriac Antioch"
+ kog_syriac_antioch_details: ""
+ 
+ kog_etchmiadzin: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_etchmiadzin_details $kog_etchmiadzin_name$#!#!"
+ kog_etchmiadzin_name: "Etchmiadzin"
+ kog_etchmiadzin_header: "Patriarchate of Etchmiadzin"
+ kog_etchmiadzin_details: ""
+ 
+ kog_addis_ababa: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_addis_ababa_details $kog_addis_ababa_name$#!#!"
+ kog_addis_ababa_name: "Addis Ababa"
+ kog_addis_ababa_header: "Patriarchate of Addis Ababa"
+ kog_addis_ababa_details: ""
+ 
+ kog_konak: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_konak_details $kog_konak_name$#!#!"
+ kog_konak_name: "Konak"
+ kog_konak_header: "Patriarchate of Konak"
+ kog_konak_details: ""
+ 
+ kog_elysium: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_elysium_details $kog_elysium_name$#!#!"
+ kog_elysium_name: "Elysium"
+ kog_elysium_header: "The High Patriarchate of Holy Elysium"
+ kog_elysium_details: ""
+ 
+ kog_onondaga: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_onondaga_details $kog_onondaga_name$#!#!"
+ kog_onondaga_name: "Onondaga"
+ kog_onondaga_header: "The Patriarchate of Onondaga and All the North"
+ kog_onondaga_details: ""
+ 
+ kog_tututepec: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_tututepec_details $kog_tututepec_name$#!#!"
+ kog_tututepec_name: "Yucu Dzaa"
+ kog_tututepec_header: "Patriarchate of Yucu Dzaa and All Cēmānāhuac"
+ kog_tututepec_details: ""
+ 
+ kog_cahokia: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_cahokia_details $kog_cahokia_name$#!#!"
+ kog_cahokia_name: "Cahokia"
+ kog_cahokia_header: "Patriarchate of Cahokia and All the West"
+ kog_cahokia_details: ""
+ 
+ kog_cayacoa: "@kog_seat! #yellow #tooltip:[GetPlayer.GetTooltipTag],kog_cayacoa_details $kog_cayacoa_name$#!#!"
+ kog_cayacoa_name: "Cayacoa"
+ kog_cayacoa_header: "Patriarchate of Cayacoa and the Carib"
+ kog_cayacoa_details: ""
+
+
+ ####---------- Crusades Panel ----------####
+ kog_crusade_header: "The [concept_crusades] of [JournalEntry.MakeScope.Var('kog_current_crusade_start_date_var').GetValue]"

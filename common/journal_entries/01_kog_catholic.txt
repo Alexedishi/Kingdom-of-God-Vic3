@@ -92,102 +92,20 @@ je_kog_catholic = {
 			name = kog_global_faith_journal_var
 		}
 	}
-}
-
-je_kog_catholic_council = {
-	group = je_group_global_international_situations
-	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
-	weight = 100
-	dlc = dlc_kog
-
-	activation_description = {
-        always = yes
-    }
-	
-	should_be_pinned_by_default_involved = yes
-	
-	widget = {
-		gui = "gui/journal_entry_widgets/kog_journal_widgets.gui"
-		name = "widget_kog_ecumenical_council"
-		container = "custom_widget_container_je_icon"
-	}
-	
-	should_be_involved = {
-		is_involved_in_journal_entry = je_kog_catholic
-	}
-	
-	should_show_when_not_involved = {
-		kog_content_scope_trigger = yes
-	}
-	
-	immediate = {
-		scope:journal_entry = {
-			set_variable = com_hide_scripted_buttons
-			set_variable = com_hide_timeout
-			set_variable = com_hide_journal_reason
-			com_situation_start_date_today_effect = yes
-			com_set_situation_illustration_background_effect = {
-				texture = kog_situation_background_catholic_council
-			}
-		}
-		com_save_journal_to_global_variable = {
-			name = je_kog_catholic_council
-		}
-		set_variable = {
-			name = kog_global_faith_journal_var
-			value = global_var:je_kog_catholic
-		}
-		global_var:je_kog_catholic = {
-			set_variable = {
-				name = kog_ecumenical_council_var
-				value = scope:journal_entry
-			}
-		}
-	}
-	
-	immediate_all_involved = {
-		if = {
-			limit = {
-				NOT = {
-					has_modifier = modifier_kog_convoked_council
-				}
-			}
-			# trigger event
-		}
-	}
-	
-	outcome = {
-		header = JOURNAL_ENTRY_TIMEOUT
-		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
-		
-		flags = { timeout }
-		
-		effect = {
-			scope:journal_entry = {
-				every_scope_je_involved = {
-					kog_AI_evaluate_council_debate_stances_effect = yes
-				}
-			}
-			remove_global_variable = je_kog_catholic_council
-			var:kog_global_faith_journal_var = {
-				remove_variable = kog_ecumenical_council_var
-			}
-		}
-		effect_all_involved = {
-			clear_variable_map = kog_ecumenical_council_map
-		}
-	}
-	timeout = 1000
 	
 	on_monthly_pulse = {
 		effect = {
-			scope:journal_entry = {
-				every_scope_je_involved = {
-					kog_AI_evaluate_council_debate_stances_effect = yes
+			if = {
+				limit = {
+					kog_journal_has_ongoing_council_trigger = yes
 				}
-				kog_tally_council_votes_effect = yes
-				kog_determine_leading_council_positions_effect = yes
+				scope:journal_entry = {
+					every_scope_je_involved = {
+						kog_AI_evaluate_council_debate_stances_effect = yes
+					}
+					kog_tally_council_votes_effect = yes
+					kog_determine_leading_council_positions_effect = yes
+				}
 			}
 		}
 	}
