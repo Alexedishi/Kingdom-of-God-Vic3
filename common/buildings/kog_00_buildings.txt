@@ -1,0 +1,31 @@
+building_kog_monastic_holdings = {
+	building_group = bg_agriculture
+	icon = "gfx/interface/icons/building_icons/kog_building_monastic_holdings.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+	
+	expandable = no
+	buildable = no
+	downsizeable = no
+	
+	owners = clergymen
+	economic_contribution = 0.0
+	
+	required_construction = construction_cost_low
+	
+	potential = {
+		owner = {
+			kog_content_scope_trigger = yes
+		}
+	}
+	
+	production_method_groups = {
+		pmg_kog_monastic_holdings_base
+		pmg_kog_monastic_holdings_workhops
+		pmg_serfdom_building_subsistence_farm
+	}
+	ownership_type = self
+	
+	ai_value = {
+		value = 0
+	}
+}
