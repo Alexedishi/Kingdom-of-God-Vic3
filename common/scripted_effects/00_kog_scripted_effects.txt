@@ -133,7 +133,7 @@ kog_validate_holy_site_methods_effect = {
 			limit = {
 				any_scope_state = {
 					is_production_method_active = {
-						building_type = kog_building_masjid_al_haram
+						building_type = building_kog_masjid_al_haram
 						production_method = pm_kog_masjid_al_haram_base
 					}
 					owner = {
@@ -144,7 +144,7 @@ kog_validate_holy_site_methods_effect = {
 			random_scope_state = {
 				limit = {
 					is_production_method_active = {
-						building_type = kog_building_masjid_al_haram
+						building_type = building_kog_masjid_al_haram
 						production_method = pm_kog_masjid_al_haram_base
 					}
 					owner = {
@@ -155,6 +155,36 @@ kog_validate_holy_site_methods_effect = {
 					trigger_event = kog_holy_site_events.002
 				}
 			}
+		}
+	}
+}
+
+kog_update_church_tax_modifier_effect = {
+	kog_remove_church_tax_modifier_effect = yes
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_church_grants
+					has_law = law_type:law_individual_church_tax
+					has_law = law_type:law_general_church_tax
+				}
+			}
+			add_modifier = {
+				name = modifier_kog_church_tax_payments
+				multiplier = kog_church_tax_payments_value
+			}
+		}
+	}
+}
+
+kog_remove_church_tax_modifier_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_modifier = modifier_kog_church_tax_payments
+			}
+			remove_modifier = modifier_kog_church_tax_payments
 		}
 	}
 }
@@ -430,5 +460,23 @@ kog_update_national_piety_effect = {
 	add_modifier = {
 		name = modifier_kog_national_piety
 		multiplier = kog_piety_multiplier_value
+	}
+}
+
+
+####---------- Effects Not Otherwise Classified ----------####
+# This exists because of 1.15's law_caesaropapism variant; KoG retains this for base game compatibility
+kog_activate_caesaropapism_law = {
+	if = {
+		limit = {
+			OR = {
+				kog_country_is_eastern_orthodox_trigger = yes
+				kog_country_is_rus_orthodox_trigger = yes
+			}
+		}
+		activate_law = law_type:law_caesaropapism
+	}
+	else = {
+		activate_law = law_type:law_state_church
 	}
 }
