@@ -123,4 +123,58 @@ kog_council_events.001 = {
 		default_option = yes
 		custom_tooltip = kog_nothing_happens
 	}
+	
+	after = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_modifier = modifier_kog_convoked_council
+				}
+				global_var:je_kog_catholic = {
+					every_scope_je_involved = {
+						trigger_event = kog_council_events.002
+					}
+				}
+			}
+		}
+	}
+}
+
+kog_council_events.002 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/event_icons/event_catholic.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_council_events.002.t
+	desc = kog_council_events.002.d
+	flavor = kog_council_events.002.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_global_variable = je_kog_catholic_council
+		}
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = kog_council_events.002.a
+		default_option = yes
+		kog_join_ecumenical_council_effect = yes
+	}
+	
+	option = {
+		name = kog_council_events.002.b
+	}
 }
