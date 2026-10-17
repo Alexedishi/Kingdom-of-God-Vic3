@@ -387,3 +387,29 @@ character_role_kog_bishop_custom_loc = {
 		localization_key = kog_role_title_catholicos
 	}
 }
+
+character_role_favorite_custom_loc = {
+	type = character
+	random_valid = yes
+	
+	text = {
+		localization_key = character_role_camerlengo
+		trigger = {
+			owner = {
+				c:PAP ?= this
+				has_law = law_type:law_papal_see
+			}
+		}
+	}
+	text = {
+		localization_key = character_role_favorite
+		trigger = {
+			owner = {
+				NOR = {
+					c:PAP ?= this
+					has_law = law_type:law_papal_see
+				}
+			}
+		}
+	}
+}
