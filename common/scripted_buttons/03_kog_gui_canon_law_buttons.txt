@@ -3,7 +3,7 @@ kog_gui_debate_theological_matter = {
 	name = "kog_gui_debate_theological_matter"
 	desc = "kog_gui_debate_canon_law_desc"
 	
-	tags = { canon_lawgroup_theological_matter raise_issue }
+	tags = { canon_lawgroup_theological_matter }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -37,7 +37,7 @@ kog_gui_support_conservative_stance = {
 	
 	visible = {
 		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = canon_lawgroup_theological_matter
+			canon_law_group = kog_canon_lawgroup_theological_matter
 		}
 	}
 	selected = {
@@ -49,20 +49,20 @@ kog_gui_support_conservative_stance = {
 		kog_country_matches_journal_religion_trigger = yes
 		kog_country_is_ecumenical_council_participant_trigger = yes
 		custom_description = {
-			text = canon_lawgroup_theological_matter_debate_trigger
+			text = kog_canon_lawgroup_theological_matter_debate_trigger
 			scope:journal_entry = {
-				has_variable = canon_lawgroup_theological_matter
+				has_variable = kog_canon_lawgroup_theological_matter
 			}
 		}
 		hidden_trigger = {
 			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_conservative_stance
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_conservative_stance
 			}
 		}
 	}
 	effect = {
 		kog_set_support_for_council_stance_effect = {
-			debate_matter = canon_lawgroup_theological_matter
+			debate_matter = kog_canon_lawgroup_theological_matter
 			stance = kog_canon_law_conservative_stance
 		}
 	}
@@ -80,32 +80,32 @@ kog_gui_support_fundamentalist_stance = {
 	
 	visible = {
 		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = canon_lawgroup_theological_matter
+			canon_law_group = kog_canon_lawgroup_theological_matter
 		}
 	}
 	selected = {
 		scope:journal_entry = {
-			"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_fundamentalist_stance
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_fundamentalist_stance
 		}
 	}
 	possible = {
 		kog_country_matches_journal_religion_trigger = yes
 		kog_country_is_ecumenical_council_participant_trigger = yes
 		custom_description = {
-			text = canon_lawgroup_theological_matter_debate_trigger
+			text = kog_canon_lawgroup_theological_matter_debate_trigger
 			scope:journal_entry = {
-				has_variable = canon_lawgroup_theological_matter
+				has_variable = kog_canon_lawgroup_theological_matter
 			}
 		}
 		hidden_trigger = {
 			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_fundamentalist_stance
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_fundamentalist_stance
 			}
 		}
 	}
 	effect = {
 		kog_set_support_for_council_stance_effect = {
-			debate_matter = canon_lawgroup_theological_matter
+			debate_matter = kog_canon_lawgroup_theological_matter
 			stance = kog_canon_law_fundamentalist_stance
 		}
 	}
@@ -123,32 +123,32 @@ kog_gui_support_legalistic_stance = {
 	
 	visible = {
 		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = canon_lawgroup_theological_matter
+			canon_law_group = kog_canon_lawgroup_theological_matter
 		}
 	}
 	selected = {
 		scope:journal_entry = {
-			"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_legalistic_stance
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_legalistic_stance
 		}
 	}
 	possible = {
 		kog_country_matches_journal_religion_trigger = yes
 		kog_country_is_ecumenical_council_participant_trigger = yes
 		custom_description = {
-			text = canon_lawgroup_theological_matter_debate_trigger
+			text = kog_canon_lawgroup_theological_matter_debate_trigger
 			scope:journal_entry = {
-				has_variable = canon_lawgroup_theological_matter
+				has_variable = kog_canon_lawgroup_theological_matter
 			}
 		}
 		hidden_trigger = {
 			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_legalistic_stance
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_legalistic_stance
 			}
 		}
 	}
 	effect = {
 		kog_set_support_for_council_stance_effect = {
-			debate_matter = canon_lawgroup_theological_matter
+			debate_matter = kog_canon_lawgroup_theological_matter
 			stance = kog_canon_law_legalistic_stance
 		}
 	}
@@ -166,32 +166,32 @@ kog_gui_support_modernizer_stance = {
 	
 	visible = {
 		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = canon_lawgroup_theological_matter
+			canon_law_group = kog_canon_lawgroup_theological_matter
 		}
 	}
 	selected = {
 		scope:journal_entry = {
-			"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_modernizer_stance
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_modernizer_stance
 		}
 	}
 	possible = {
 		kog_country_matches_journal_religion_trigger = yes
 		kog_country_is_ecumenical_council_participant_trigger = yes
 		custom_description = {
-			text = canon_lawgroup_theological_matter_debate_trigger
+			text = kog_canon_lawgroup_theological_matter_debate_trigger
 			scope:journal_entry = {
-				has_variable = canon_lawgroup_theological_matter
+				has_variable = kog_canon_lawgroup_theological_matter
 			}
 		}
 		hidden_trigger = {
 			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_modernizer_stance
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_modernizer_stance
 			}
 		}
 	}
 	effect = {
 		kog_set_support_for_council_stance_effect = {
-			debate_matter = canon_lawgroup_theological_matter
+			debate_matter = kog_canon_lawgroup_theological_matter
 			stance = kog_canon_law_modernizer_stance
 		}
 	}
@@ -209,12 +209,12 @@ kog_gui_support_reformer_stance = {
 	
 	visible = {
 		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = canon_lawgroup_theological_matter
+			canon_law_group = kog_canon_lawgroup_theological_matter
 		}
 	}
 	selected = {
 		scope:journal_entry = {
-			"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_reformer_stance
+			"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_reformer_stance
 		}
 	}
 	possible = {
@@ -223,18 +223,18 @@ kog_gui_support_reformer_stance = {
 		custom_description = {
 			text = canon_lawgroup_theological_matter_debate_trigger
 			scope:journal_entry = {
-				has_variable = canon_lawgroup_theological_matter
+				has_variable = kog_canon_lawgroup_theological_matter
 			}
 		}
 		hidden_trigger = {
 			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_reformer_stance
+				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_theological_matter)" ?= flag:kog_canon_law_reformer_stance
 			}
 		}
 	}
 	effect = {
 		kog_set_support_for_council_stance_effect = {
-			debate_matter = canon_lawgroup_theological_matter
+			debate_matter = kog_canon_lawgroup_theological_matter
 			stance = kog_canon_law_reformer_stance
 		}
 	}
@@ -249,7 +249,7 @@ kog_gui_debate_apostolic_succession = {
 	name = "kog_gui_debate_apostolic_succession"
 	desc = "kog_gui_debate_canon_law_desc"
 	
-	tags = { canon_lawgroup_apostolic_succession raise_issue }
+	tags = { debate_apostolic_succession }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -411,7 +411,7 @@ kog_gui_debate_almsgiving = {
 	name = "kog_gui_debate_almsgiving"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_almsgiving raise_issue }
+	tags = { debate_almsgiving }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -573,7 +573,7 @@ kog_gui_debate_iconography = {
 	name = "kog_gui_debate_iconography"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_iconography raise_issue }
+	tags = { debate_iconography }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -778,7 +778,7 @@ kog_gui_debate_statism = {
 	name = "kog_gui_debate_statism"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_statism raise_issue }
+	tags = { debate_statism }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -1026,7 +1026,7 @@ kog_gui_debate_nationalism = {
 	name = "kog_gui_debate_nationalism"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_statism raise_issue }
+	tags = { debate_statism }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -1231,7 +1231,7 @@ kog_gui_debate_clerical_marriage = {
 	name = "kog_gui_debate_clerical_marriage"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_statism raise_issue }
+	tags = { debate_cleric_marriage }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -1272,7 +1272,7 @@ kog_gui_support_priests_celibate = {
 	}
 	selected = {
 		scope:journal_entry = {
-			var:canon_lawgroup_clerical_marriage ?= flag:kog_canon_law_priests_celibate
+			var:kog_canon_lawgroup_clerical_marriage ?= flag:kog_canon_law_priests_celibate
 		}
 	}
 	possible = {
@@ -1315,7 +1315,7 @@ kog_gui_support_marriage_allowed = {
 	}
 	selected = {
 		scope:journal_entry = {
-			var:canon_lawgroup_clerical_marriage ?= flag:kog_canon_law_marriage_allowed
+			var:kog_canon_lawgroup_clerical_marriage ?= flag:kog_canon_law_marriage_allowed
 		}
 	}
 	possible = {
@@ -1350,7 +1350,7 @@ kog_gui_debate_social_role = {
 	name = "kog_gui_debate_social_role"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_social_role raise_issue }
+	tags = { debate_social_role }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -1555,7 +1555,7 @@ kog_gui_debate_stance_on_sciences = {
 	name = "kog_gui_debate_stance_on_sciences"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_stance_on_sciences raise_issue }
+	tags = { debate_stance_on_sciences }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
@@ -1803,7 +1803,7 @@ kog_gui_debate_crusades = {
 	name = "kog_gui_debate_crusades"
 	desc = "kog_gui_debate_canon_law_desc"
 		
-	tags = { canon_lawgroup_crusades raise_issue }
+	tags = { debate_crusades }
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes

@@ -1883,13 +1883,13 @@ kog_initialize_metropolis_effect = {
 }
 
 kog_initialize_mother_church_variables = {
-	global_var:je_kog_catholic ?= {
+	global_var:je_kog_catholic = {
 		set_variable = {
 			name = kog_mother_church_var
 			value = container:kog_rome
 		}
 	}
-	global_var:je_kog_orthodox ?= {
+	global_var:je_kog_orthodox = {
 		set_variable = {
 			name = kog_mother_church_var
 			value = container:kog_constantinople
@@ -1898,13 +1898,18 @@ kog_initialize_mother_church_variables = {
 	global_var:je_kog_oriental ?= {
 		set_variable = {
 			name = kog_mother_church_var
-			value = container:kog_constantinople
+			value = container:kog_coptic_alexandria
 		}
 	}
-	global_var:je_kog_elysian ?= {
-		set_variable = {
-			name = kog_mother_church_var
-			value = container:kog_constantinople
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		global_var:je_kog_elysian = {
+			set_variable = {
+				name = kog_mother_church_var
+				value = container:kog_elysium
+			}
 		}
 	}
 }

@@ -5,8 +5,10 @@
 }
 
 kog_country_matches_journal_religion_trigger = {
-	scope:journal_entry = {
-		var:kog_religion_var ?= root.religion
+	hidden_trigger = {
+		scope:journal_entry = {
+			var:kog_religion_var ?= root.religion
+		}
 	}
 }
 
@@ -41,7 +43,7 @@ kog_country_is_ecumenical_council_participant_trigger = {
 		subject = this
 		object = var:kog_mother_church_var
 		text = kog_country_is_ecumenical_council_participant_trigger
-		var:kog_mother_church_var = {
+		var:kog_local.var:kog_mother_church_var = {
 			has_variable_map = kog_ecumenical_council_map
 		}
 		OR = {
