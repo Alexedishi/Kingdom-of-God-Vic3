@@ -3,7 +3,6 @@ kog_convoke_council_effect = {
 	custom_tooltip = {
 		text = kog_convoke_council_effect
 		save_scope_as = kog_council_caller
-		add_contextless_journal_entry = je_kog_$type$_council
 		var:kog_global_faith_journal_var = {
 			com_change_variable = {
 				name = kog_council_counter_var
@@ -84,35 +83,35 @@ kog_add_canon_law_group_to_council_effect = {
 
 kog_add_conservative_theological_debate_stance_effect = {
 	set_variable = {
-		name = kog_theological_debate_1_var
+		name = kog_conservative_theological_debate_stance_var
 		value = flag:$stance$
 	}
 }
 
 kog_add_reformer_theological_debate_stance_effect = {
 	set_variable = {
-		name = kog_theological_debate_2_var
+		name = kog_reformer_theological_debate_stance_var
 		value = flag:$stance$
 	}
 }
 
 kog_add_fundamentalist_theological_debate_stance_effect = {
 	set_variable = {
-		name = kog_theological_debate_3_var
+		name = kog_fundamentalist_theological_debate_stance_var
 		value = flag:$stance$
 	}
 }
 
 kog_add_modernizer_theological_debate_stance_effect = {
 	set_variable = {
-		name = kog_theological_debate_4_var
+		name = kog_modernizer_theological_debate_stance_var
 		value = flag:$stance$
 	}
 }
 
 kog_add_legalistic_theological_debate_stance_effect = {
 	set_variable = {
-		name = kog_theological_debate_5_var
+		name = kog_legalistic_theological_debate_stance_var
 		value = flag:$stance$
 	}
 }
@@ -145,66 +144,66 @@ kog_tally_council_votes_effect = {
 		}
 		if = {
 			limit = {
-				has_variable = kog_theological_debate_1_var
+				has_variable = kog_conservative_theological_debate_stance_var
 			}
-			var:kog_theological_debate_1_var = {
-				save_scope_as = kog_theological_debate_1_var
+			var:kog_conservative_theological_debate_stance_var = {
+				save_scope_as = kog_conservative_theological_debate_stance_var
 			}
 			com_update_value_in_variable_map = {
 				name = kog_theological_matter_debate_votes_map
-				key = scope:kog_theological_debate_1_var
+				key = scope:kog_conservative_theological_debate_stance_var
 				value = kog_theological_debate_1_value
 			}
 		}
 		if = {
 			limit = {
-				has_variable = kog_theological_debate_2_var
+				has_variable = kog_reformer_theological_debate_stance_var
 			}
-			var:kog_theological_debate_2_var = {
-				save_scope_as = kog_theological_debate_2_var
+			var:kog_reformer_theological_debate_stance_var = {
+				save_scope_as = kog_reformer_theological_debate_stance_var
 			}
 			com_update_value_in_variable_map = {
 				name = kog_theological_matter_debate_votes_map
-				key = scope:kog_theological_debate_2_var
+				key = scope:kog_reformer_theological_debate_stance_var
 				value = kog_theological_debate_2_value
 			}
 		}
 		if = {
 			limit = {
-				has_variable = kog_theological_debate_3_var
+				has_variable = kog_fundamentalist_theological_debate_stance_var
 			}
-			var:kog_theological_debate_3_var = {
-				save_scope_as = kog_theological_debate_3_var
+			var:kog_fundamentalist_theological_debate_stance_var = {
+				save_scope_as = kog_fundamentalist_theological_debate_stance_var
 			}
 			com_update_value_in_variable_map = {
 				name = kog_theological_matter_debate_votes_map
-				key = scope:kog_theological_debate_3_var
+				key = scope:kog_fundamentalist_theological_debate_stance_var
 				value = kog_theological_debate_3_value
 			}
 		}
 		if = {
 			limit = {
-				has_variable = kog_theological_debate_4_var
+				has_variable = kog_modernizer_theological_debate_stance_var
 			}
-			var:kog_theological_debate_4_var = {
-				save_scope_as = kog_theological_debate_4_var
+			var:kog_modernizer_theological_debate_stance_var = {
+				save_scope_as = kog_modernizer_theological_debate_stance_var
 			}
 			com_update_value_in_variable_map = {
 				name = kog_theological_matter_debate_votes_map
-				key = scope:kog_theological_debate_4_var
+				key = scope:kog_modernizer_theological_debate_stance_var
 				value = kog_theological_debate_4_value
 			}
 		}
 		if = {
 			limit = {
-				has_variable = kog_theological_debate_5_var
+				has_variable = kog_legalistic_theological_debate_stance_var
 			}
-			var:kog_theological_debate_5_var = {
-				save_scope_as = kog_theological_debate_5_var
+			var:kog_legalistic_theological_debate_stance_var = {
+				save_scope_as = kog_legalistic_theological_debate_stance_var
 			}
 			com_update_value_in_variable_map = {
 				name = kog_theological_matter_debate_votes_map
-				key = scope:kog_theological_debate_5_var
+				key = scope:kog_legalistic_theological_debate_stance_var
 				value = kog_theological_debate_5_value
 			}
 		}
