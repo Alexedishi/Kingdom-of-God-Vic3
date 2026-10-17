@@ -77,8 +77,9 @@
  
  
  ####---------- Canon Law Triggers  ----------####
- kog_not_supporting_this_stance_trigger: "[GetPlayer.GetNameNoFlag] is #bold not#! already supporting this stance"
- kog_not_supporting_this_law_trigger: "[GetPlayer.GetNameNoFlag] is #bold not#! already supporting this $kog_canon_law$"
+ kog_faith_has_canon_law: "The [SCOPE.sReligion('religion').GetName] Church has the [SCOPE.GetFlagName('canon_law')] [concept_canon_law]"
+ kog_own_faith_has_canon_law: "The [Country.GetStateReligion.GetName] Church has the [SCOPE.GetFlagName('canon_law')] [concept_canon_law]"
+ kog_any_faith_has_canon_law_trigger: "Any Christian Church has the [SCOPE.GetFlagName('canon_law')] [concept_canon_law]"
  
  ####---------- Schism and Autocephaly Triggers  ----------####
  kog_country_schism_threshold_trigger: "[COUNTRY.GetNameNoFlag] has #bold at least#! #v $VALUE$#! $kog_faith_capacity$"
@@ -92,8 +93,8 @@
  
  
  ####---------- Ecumenical Council Triggers ----------####
- kog_has_ongoing_council_trigger: "The [COUNTRY.MakeScope.Var('kog_local').Var('kog_global_faith_journal_var').Var('kog_religion_var').GetReligion.GetName] Church has an ongoing [concept_ecumenical_council]"
- kog_has_ongoing_council_trigger_NOT: "The [COUNTRY.MakeScope.Var('kog_local').Var('kog_global_faith_journal_var').Var('kog_religion_var').GetReligion.GetName] Church does #bold not#! have an ongoing [concept_ecumenical_council]"
+ kog_has_ongoing_council_trigger: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church has an ongoing [concept_ecumenical_council]"
+ kog_has_ongoing_council_trigger_NOT: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church does #bold not#! have an ongoing [concept_ecumenical_council]"
  
  kog_country_is_ecumenical_council_participant_trigger: "The $ig_variant_devout$ of [COUNTRY.GetNameNoFlag] is participating in the [concept_ecumenical_council]"
  kog_country_is_ecumenical_council_participant_trigger_NOT: "The $ig_variant_devout$ of [COUNTRY.GetNameNoFlag] is #bold not#! participating in the [concept_ecumenical_council]"
@@ -127,6 +128,9 @@
  
  kog_canon_lawgroup_crusades_debate_trigger: "$kog_canon_lawgroup_crusades$ is a matter of debate in the current [concept_ecumenical_council]"
  kog_canon_lawgroup_crusades_debate_trigger_NOT: "$kog_canon_lawgroup_crusades$ is #bold not#! a matter of debate in the current [concept_ecumenical_council]"
+ 
+ kog_not_supporting_this_stance_trigger: "[GetPlayer.GetNameNoFlag] is #bold not#! already supporting this stance"
+ kog_not_supporting_this_law_trigger: "[GetPlayer.GetNameNoFlag] is #bold not#! already supporting this $kog_canon_law$"
  
  
  ####----------- Seat Diplomacy Triggers ----------####
