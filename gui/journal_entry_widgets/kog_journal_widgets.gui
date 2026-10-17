@@ -1347,43 +1347,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_apostolic_succession"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_apostolic_succession')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_apostolic_succession'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_papal_primacy.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_synodality.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_synodality_sgui').IsShown( GuiScope.SetRoot(JournalEntry.MakeScope).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_congregationalism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_congregationalism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_apostolic_succession')]"
 			}
 		}
 		
@@ -1398,43 +1369,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_almsgiving"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_almsgiving')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_almsgiving'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_alms.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_no_alms_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_offertory.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_offertory_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_tithing.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_tithing_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_almsgiving')]"
 			}
 		}
 		
@@ -1449,54 +1391,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_iconography"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_iconography')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_iconography'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconoclasm.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_iconoclasm_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_aniconism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_aniconism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconodulism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_iconodulism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_iconolatry.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_iconolatry_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_iconography')]"
 			}
 		}
 		
@@ -1511,65 +1413,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_statism"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_statism')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_statism'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_hierocracy.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_hierocracy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ultramontanism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_ultramontanism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_secularism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_secularism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_gallicanism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_gallicanism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_constantinianism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_constantinianism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_statism')]"
 			}
 		}
 		
@@ -1584,54 +1435,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_nationalism"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_nationalism')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_statism'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_uranopolitism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_uranopolitism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ecclesial_communities.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_ecclesial_communities_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_ethnophyletism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_ethnophyletism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_kinism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_kinism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_statism')]"
 			}
 		}
 		
@@ -1646,32 +1457,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_clerical_marriage"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_clerical_marriage')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_statism'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_priests_celibate.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_priests_celibate_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_marriage_allowed.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_marriage_allowed_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_statism')]"
 			}
 		}
 		
@@ -1686,54 +1479,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_social_role"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_social_role')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_social_role'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_moral_authority.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_moral_authority_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_moral_guidance.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_moral_guidance_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_social_activism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_social_activism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_modernizing_force.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_modernizing_force_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_social_role')]"
 			}
 		}
 		
@@ -1748,65 +1501,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_sciences_stance"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_sciences')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_stance_on_sciences'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_supremacy.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_scriptural_supremacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scriptural_favoritism.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_scriptural_favoritism_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_disengagement.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_scientific_disengagement_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_patronage.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_scientific_patronage_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_scientific_crusade.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_scientific_crusage_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_stance_on_sciences')]"
 			}
 		}
 		
@@ -1821,54 +1523,14 @@ types kog_canon_laws_panel_types {
 			blockoverride "active_canon_law_flag" {
 				text = "kog_gui_canon_law_crusades"
 			}
-			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('canon_law_crusades')]"
+			blockoverride "canon_law_debate_tags" {
+				visible = "[And(
+					ScriptedButton.HasTag('canon_lawgroup_iconography'),
+					ScriptedButton.HasTag('raise_issue')
+				)]"
 			}
-			blockoverride "canon_law_button_content" {
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_no_crusades.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_no_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_heathen_crusades.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_heathen_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_heretic_crusades.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_heretic_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
-				kog_canon_law_type_entry = {
-					blockoverride "kog_canon_law_icon_texture" {
-						texture = "gfx/interface/icons/canon_law_icons/kog_canon_law_unlimited_crusades.dds"
-					}
-					blockoverride "kog_canon_law_icon_tooltip" {
-						tooltip = "kog_placeholder_text"
-					}
-					blockoverride "canon_law_active_glow" {
-						visible = "[GetScriptedGui('kog_canon_law_unlimited_crusades_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End)]"
-					}
-				}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_iconography')]"
 			}
 		}
 	}
@@ -1934,7 +1596,7 @@ types kog_canon_laws_panel_types {
 				textbox = {
 					parentanchor = left|vcenter
 					size = { 300 35 }
-					position = { 5 0 }
+					position = { 5 -5 }
 					
 					block "active_canon_law_flag" {
 						text = "kog_block_canon_law_flag"
@@ -1943,7 +1605,7 @@ types kog_canon_laws_panel_types {
 					autoresize = yes
 					max_width = 320
 					elide = right
-					using = fontsize_medium
+					using = fontsize_large
 				}
 			}
 			
@@ -1956,20 +1618,12 @@ types kog_canon_laws_panel_types {
 					ignoreinvisible = yes
 					
 					flowcontainer = {
-						datamodel = "[JournalEntry.GetScriptedButtons]"
 						direction = vertical
+						datamodel = "[JournalEntry.GetScriptedButtons]"
 						
 						item = {
-							widget = {
-								size = { 160 35 }
-								
-								block "canon_law_button_tag" {
-									visible = "no"
-								}
-								
-								kog_canon_law_debate_button = {
-									parentanchor = center
-								}
+							kog_canon_law_debate_button = {
+								parentanchor = center
 							}
 						}
 					}
@@ -1982,20 +1636,15 @@ types kog_canon_laws_panel_types {
 			minimumsize = { 500 35 }
 			spacing = 10
 			
+			datamodel = "[JournalEntry.GetScriptedButtons]"
+			
 			background = {
 				using = dark_area
 				margin = { 5 5 }
 			}
 			
-			block "canon_law_button_content" {
-				textbox = {
-					text = "kog_block_canon_law_button_content"
-					using = look_at_me_text_animation
-					parentanchor = center
-					autoresize = yes
-					elide = right
-					using = fontsize_medium
-				}
+			item = {
+				kog_canon_law_type_entry = {}
 			}
 		}
 	}
@@ -2004,6 +1653,10 @@ types kog_canon_laws_panel_types {
 		parentanchor = center
 		size = { 184 35 }
 		position = { 0 -5 }
+		
+		block "canon_law_debate_tags" {
+			visible = "[ScriptedButton.HasTag('hidden_button')]"
+		}
 		
 		using = default_button_action
 		tooltip = "SCRIPTED_ACTION_TOOLTIP"
@@ -2035,14 +1688,16 @@ types kog_canon_laws_panel_types {
 		}
 	}
 	
-	type kog_canon_law_type_entry = widget {
+	type kog_canon_law_type_entry = button {
 		parentanchor = center
 		size = { 35 35 }
 		
+		block "canon_law_button_tag" {
+			visible = "[ScriptedButton.HasTag('hidden_button')]"
+		}
+		
 		icon = {
-			block "canon_law_active_glow" {
-				visible = "no"
-			}
+			visible = "[ScriptedButton.IsSelected]"
 			using = rotate_glow_animation_02
 			size = { 90 90 }
 			alwaystransparent = yes
@@ -2056,14 +1711,11 @@ types kog_canon_laws_panel_types {
 			
 			icon = {
 				parentanchor = center
-				block "kog_canon_law_icon_texture" {
-					texture = "gfx/interface/error_frog.dds"
-					using = look_at_me_text_animation
-				}
+				texture = "[ScriptedButton.GetIcon]"
 				size = { 80% 80% }
 			}
 		}
-		block "kog_canon_law_icon_tooltip" { }
+		tooltip = SCRIPTED_ACTION_TOOLTIP
 	}
 	
 	type kog_ecumenical_council_panel = flowcontainer {
