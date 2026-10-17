@@ -1220,7 +1220,7 @@ types kog_canon_laws_panel_types {
 	type kog_ecumenical_inactive_council_container = flowcontainer {
 		parentanchor = top|hcenter
 		minimumsize = { 520 100 }
-		visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list'))]"
+		visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_participants_list'))]"
 		background = {
 			texture = "gfx/interface/illustrations/window_backgrounds/kog_no_council_background.dds"
 			size = { 100% 100% }
@@ -1271,7 +1271,7 @@ types kog_canon_laws_panel_types {
 	type kog_ecumenical_active_council_container = widget {
 		parentanchor = top|hcenter
 		size = { 520 220 }
-		visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list')))]"
+		visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_participants_list')))]"
 		
 		background = {
 			texture = "gfx/interface/illustrations/window_backgrounds/kog_council_background.dds"

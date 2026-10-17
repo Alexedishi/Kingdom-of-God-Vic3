@@ -162,7 +162,7 @@ kog_votes_value = {
 kog_participants_value = {
 	value = 0
 	every_in_list = {
-		variable = kog_ecumenical_council_list
+		variable = kog_ecumenical_council_participants_list
 		add = 1
 	}
 }
@@ -175,15 +175,17 @@ kog_council_matters_value = {
 	}
 }
 
-kog_council_event_delays_value = {
-	value = 0
-}
-
 kog_council_remaining_duration_value = {
 	# Ecumenical Council will conclude when the journal sees this value hit zero
+	value = 0
 	add = kog_council_duration_base_value
 	add = kog_council_matters_value
-	add = kog_council_event_delays_value
+	if = {
+		limit = {
+			has_variable = kog_council_event_delays_var
+		}
+		add = var:kog_council_event_delays_var
+	}
 	subtract = {
 		add = game_date
 		subtract = var:kog_council_start_date_var

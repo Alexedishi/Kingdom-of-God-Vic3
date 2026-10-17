@@ -133,15 +133,15 @@
  
  ## Ecumenical Council Panel
  kog_gui_ecumenical_council_header: "The [concept_ecumenical_council] of [JournalEntry.MakeScope.Var('kog_council_location_var').GetStateRegion.GetCityHubName]"
- kog_gui_ecumenical_council_timer: "@clock! #o Schema#![JournalEntry.MakeScope.ScriptValue('kog_council_remaining_duration_value')]"
+ kog_gui_ecumenical_council_timer: "@clock! #o Schema#! will be voted on in [JournalEntry.MakeScope.ScriptValue('kog_council_remaining_duration_value')] days"
  kog_gui_caller_header: "Convoked By"
- kog_gui_caller_name: "[JournalEntry.MakeScope.Var('kog_council_caller_var').GetStateRegion.GetCityHubName]"
+ kog_gui_caller_name: "[JournalEntry.MakeScope.Var('kog_council_caller_var').GetCountry.GetNameNoFlag]"
  kog_gui_gathering_header: "Gathered In"
  kog_gui_gathering_name: "[JournalEntry.MakeScope.Var('kog_council_location_var').GetStateRegion.GetName]"
  kog_gui_participants_name: "Participants"
  kog_gui_participants_header: "[JournalEntry.MakeScope.ScriptValue('kog_participants_value')]"
  kog_gui_matters_name: "Matters for Debate"
- kog_gui_matters_header: "[JournalEntry.MakeScope.ScriptValue('kog_matters_value')]"
+ kog_gui_matters_header: "[JournalEntry.MakeScope.ScriptValue('kog_council_remaining_duration_value')]"
  kog_gui_ecumenical_council_none: "#italic #lore There is no [concept_ecumenical_council] in session#!"
  
  ## Canon Law Containers

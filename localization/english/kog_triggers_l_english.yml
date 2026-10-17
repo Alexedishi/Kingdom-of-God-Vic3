@@ -81,6 +81,7 @@
  kog_own_faith_has_canon_law: "The [Country.GetStateReligion.GetName] Church has the [SCOPE.GetFlagName('canon_law')] [concept_canon_law]"
  kog_any_faith_has_canon_law_trigger: "Any Christian Church has the [SCOPE.GetFlagName('canon_law')] [concept_canon_law]"
  
+ 
  ####---------- Schism and Autocephaly Triggers  ----------####
  kog_country_schism_threshold_trigger: "[COUNTRY.GetNameNoFlag] has #bold at least#! #v $VALUE$#! $kog_faith_capacity$"
  kog_country_schism_threshold_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have at least #v $VALUE$#! $kog_faith_capacity$"
@@ -93,8 +94,11 @@
  
  
  ####---------- Ecumenical Council Triggers ----------####
- kog_has_ongoing_council_trigger: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church has an ongoing [concept_ecumenical_council]"
- kog_has_ongoing_council_trigger_NOT: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church does #bold not#! have an ongoing [concept_ecumenical_council]"
+ kog_faith_has_eligible_papacy_candidate_trigger: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church has an #tooltippable #tooltip:[GetRawTextTooltipTag('kog_faith_has_eligible_papacy_candidate_trigger_desc')] Eligible#!#! member"
+ kog_faith_has_eligible_papacy_candidate_trigger_desc: "$com_bp$Has any variant of the [GetLawType('theocracy').GetName] [concept_law] active$com_nlbp$$kog_controls$ #bold any#! $kog_episcopal_seat$$com_nlbp$Is $kog_autocephalous$"
+ 
+ kog_country_has_ongoing_council_trigger: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church has an ongoing [concept_ecumenical_council]"
+ kog_country_has_ongoing_council_trigger_NOT: "The [JournalEntry.MakeScope.Var('kog_religion_var').GetReligion.GetName] Church does #bold not#! have an ongoing [concept_ecumenical_council]"
  
  kog_country_is_ecumenical_council_participant_trigger: "The $ig_variant_devout$ of [COUNTRY.GetNameNoFlag] is participating in the [concept_ecumenical_council]"
  kog_country_is_ecumenical_council_participant_trigger_NOT: "The $ig_variant_devout$ of [COUNTRY.GetNameNoFlag] is #bold not#! participating in the [concept_ecumenical_council]"

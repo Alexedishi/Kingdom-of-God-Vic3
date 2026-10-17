@@ -112,10 +112,40 @@ kog_church_tax_payments_value = {
 	min = 0
 }
 
+kog_convoke_council_cost = {
+	value = 0
+	if = {
+		limit = {
+			kog_own_faith_has_canon_law_trigger = {
+				canon_law = kog_canon_law_papal_primacy
+			}
+		}
+		add = kog_convoke_council_cost_base
+	}
+	if = {
+		limit = {
+			kog_own_faith_has_canon_law_trigger = {
+				canon_law = kog_canon_law_synodality
+			}
+		}
+		add = kog_convoke_council_cost_low
+	}
+	if = {
+		limit = {
+			kog_own_faith_has_canon_law_trigger = {
+				canon_law = kog_canon_law_congregationalism
+			}
+		}
+		add = kog_convoke_council_cost_high
+	}
+}
+
 ####---------- Static Values ----------####
 kog_omen_base_cost = 200
 kog_schism_base_cost = 500
-kog_council_base_cost = 1000
+kog_convoke_council_cost_base = 1000
+kog_convoke_council_cost_low = 800
+kog_convoke_council_cost_high = 1500
 kog_found_seat_base_cost = 500
 kog_seat_diplomacy_base_cost = 100
 kog_integrate_seat_base_cost = 200
