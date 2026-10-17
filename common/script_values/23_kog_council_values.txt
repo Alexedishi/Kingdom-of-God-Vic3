@@ -1,4 +1,6 @@
 ﻿####---------- General Council Values ----------####
+kog_council_duration_base_value = 365 # Councils only last a year if no issues are raised
+
 kog_votes_value = {
 	value = 0
 	
@@ -154,6 +156,38 @@ kog_votes_value = {
 	}
 	
 	round_to = 1
+	min = 0
+}
+
+kog_participants_value = {
+	value = 0
+	every_in_list = {
+		variable = kog_ecumenical_council_list
+		add = 1
+	}
+}
+
+kog_council_matters_value = {
+	value = 0
+	every_key_in_variable_map = {
+		variable = kog_ecumenical_council_map
+		add = 183
+	}
+}
+
+kog_council_event_delays_value = {
+	value = 0
+}
+
+kog_council_remaining_duration_value = {
+	# Ecumenical Council will conclude when the journal sees this value hit zero
+	add = kog_council_duration_base_value
+	add = kog_council_matters_value
+	add = kog_council_event_delays_value
+	subtract = {
+		add = game_date
+		subtract = var:kog_council_start_date_var
+	}
 	min = 0
 }
 

@@ -1,4 +1,4 @@
-﻿####---------- Ecumenical Council Effects ---------- ####
+﻿####---------- Ecumenical Council Content Effects ---------- ####
 kog_convoke_council_effect = {
 	custom_tooltip = {
 		text = kog_convoke_council_effect
@@ -32,6 +32,10 @@ kog_convoke_council_effect = {
 			add_to_variable_list = {
 				name = kog_ecumenical_council_list
 				target = scope:kog_council_caller
+			}
+			set_variable = {
+				name = kog_council_caller_var
+				value = scope:kog_council_caller
 			}
 		}
 	}
@@ -74,10 +78,29 @@ kog_add_canon_law_group_to_council_effect = {
 			kog_tally_council_votes_effect = yes
 		}
 	}
+	kog_change_council_duration_effect = {
+		value = 26
+	}
 	add_modifier = {
 		name = modifier_kog_raised_theological_debate
-		months = long_modifier_time
+		days = long_modifier_time
 		is_decaying = yes
+	}
+}
+
+kog_change_council_duration_effect = {
+	custom_tooltip = {
+		text = kog_change_council_duration_effect
+		set_local_variable = {
+			name = kog_change_council_duration_value
+			value = $value$
+		}
+		var:kog_global_faith_journal_var = {
+			com_change_variable = {
+				name = kog_council_var
+				value = $value$
+			}
+		}
 	}
 }
 
@@ -154,6 +177,30 @@ kog_set_support_for_council_stance_effect = {
 		}
 		var:kog_global_faith_journal_var = {
 			kog_tally_council_votes_effect = yes
+		}
+	}
+}
+
+####---------- Ecumenical Council Maintenance Effects ----------####
+kog_ecumenical_council_pulse_effect = {
+	# This effect handles all of the upkeep logic for an ecumenical council
+	scope:journal_entry = {
+		if = {
+			limit = {
+				has_variable_list = kog_ecumenical_council_list
+			}
+		}
+		
+		# Tally Votes and determine leaders
+		kog_tally_council_votes_effect = yes
+		kog_determine_leading_council_positions_effect = yes
+		
+		# Check if the council has ended
+		if = {
+			limit = {
+				kog_council_remaining_duration_value <= 0
+			}
+			kog_finish_council_effect = yes
 		}
 	}
 }

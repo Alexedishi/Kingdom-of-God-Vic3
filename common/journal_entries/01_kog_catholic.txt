@@ -151,24 +151,18 @@ je_kog_catholic = {
 		}
 	}
 	
-	on_monthly_pulse = {
+	on_weekly_pulse = {
 		effect = {
-			if = {
-				limit = {
-					scope:journal_entry = {
-						has_variable_list = kog_ecumenical_council_list
-					}
-				}
-				scope:journal_entry = {
-					every_scope_je_involved = {
-						kog_AI_evaluate_council_debate_stances_effect = yes
-					}
-					kog_tally_council_votes_effect = yes
-					kog_determine_leading_council_positions_effect = yes
-				}
-			}
+			kog_ecumenical_council_pulse_effect = yes
+			kog_papal_conclave_pulse_effect = yes
 		}
 	}
+	
+	# on_monthly_pulse = {
+	# 	effect = {
+	# 		kog_AI_evaluate_catholic_interorg_actions = yes
+	# 	}
+	# }
 }
 
 ####---------- CATHOLIC ENCYCLICAL JOURNALS ----------#####

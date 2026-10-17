@@ -1,4 +1,24 @@
-﻿####---------- on_law_activated ----------####
+﻿on_new_ruler = {
+	on_actions = {
+		kog_on_new_ruler
+	}
+}
+
+kog_on_new_ruler = {
+	trigger = {
+		owner = {
+			has_law = law_type:law_papal_see
+			kog_own_faith_has_canon_law_trigger = {
+				canon_law = kog_canon_law_papal_primacy
+			}
+		}
+	}
+	effect = {
+		kog_convene_papal_conclave_effect = yes
+	}
+}
+
+####---------- on_law_activated ----------####
 on_law_activated = {
 	on_actions = {
 		kog_on_theocracy_enacted

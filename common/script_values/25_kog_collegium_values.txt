@@ -268,3 +268,20 @@ kog_character_piety_value = {
 		}
 	}
 }
+
+kog_conclave_duration_base_value = 90
+
+kog_conclave_event_delays_value = {
+	value = 0
+}
+
+kog_conclave_remaining_duration_value = {
+	# Papal Conclave will conclude when the journal sees this value hit zero
+	add = kog_council_duration_base_value
+	add = kog_conclave_event_delays_value
+	subtract = {
+		add = game_date
+		subtract = var:kog_council_start_date_var
+	}
+	min = 0
+}
