@@ -225,6 +225,7 @@ kog_update_controlled_seats_modifier_effect = {
 	}
 }
 
+
 ####---------- Episcopal Seat Liturgical Rite Enforcement Effects ----------####
 kog_update_seat_enforcements_modifier_effect = {
 	if = {
@@ -264,6 +265,7 @@ kog_seat_enforcement_monthly_progress_effect = {
 		}
 	}
 }
+
 
 ####---------- Episcopal Seat Selection Effects ----------####
 kog_select_random_seat_in_faith_effect = {
@@ -547,6 +549,15 @@ kog_update_seat_patriarchs_effect = {
 			set_variable = {
 				name = kog_patriarch_var
 				value = scope:kog_patriarch_scope
+			}
+		}
+		# Once that's done, make sure the Ecumenical Patriarch gets his cool title
+		scope:kog_patriarch_scope ?= {
+			if = {
+				limit = {
+					scope:kog_episcopal_seat_scope.var:kog_seat_name_var ?= flag:kog_constantinople
+				}
+				set_variable = kog_ecumenical_patriarch_var
 			}
 		}
 	}

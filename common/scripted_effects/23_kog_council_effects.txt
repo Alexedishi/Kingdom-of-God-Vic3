@@ -81,6 +81,30 @@ kog_add_canon_law_group_to_council_effect = {
 	}
 }
 
+kog_add_theological_matter_to_council_effect = {
+	custom_tooltip = {
+		text = kog_add_canon_law_group_to_council_effect
+		set_local_variable = {
+			name = kog_theological_matter_loc
+			value = flag:kog_canon_lawgroup_theological_matter
+		}
+		var:kog_global_faith_journal_var = {
+			if = {
+				limit = {
+					NOT = {
+						has_variable = kog_canon_lawgroup_theological_matter
+					}
+				}
+				# kog_initialize_theological_matter_debate
+			}
+			else = {
+				error_log = "Effect kog_add_theological_matter_to_council_effect was called, but the specified variable is already present."
+			}
+			kog_tally_council_votes_effect = yes
+		}
+	}
+}
+
 kog_add_conservative_theological_debate_stance_effect = {
 	set_variable = {
 		name = kog_conservative_theological_debate_stance_var
