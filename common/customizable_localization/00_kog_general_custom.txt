@@ -249,3 +249,141 @@ kog_national_piety_no_icon_type = {
 		}
 	}
 }
+
+character_role_kog_bishop_custom_loc = {
+	type = character
+	random_valid = yes
+	
+	## BISHOP RANK TITLES
+	text = {
+		trigger = {
+			is_ruler_of_own_country = no
+			kog_religion_is_eastern_christian_trigger = no
+			NOR = {
+				has_trait = kog_cardinal
+				has_trait = kog_patriarch
+			}
+		}
+		localization_key = kog_role_title_bishop
+	}
+	text = {
+		trigger = {
+			is_ruler_of_own_country = no
+			kog_religion_is_eastern_christian_trigger = yes
+			NOR = {
+				has_trait = kog_cardinal
+				has_trait = kog_patriarch
+			}
+		}
+		localization_key = kog_role_title_episkopos
+	}
+	
+	## ARCHBISHOP RANK TITLES
+	text = {
+		trigger = {
+			is_ruler_of_own_country = no
+			religion = rel:catholic
+			has_trait = kog_patriarch
+			NOT = {
+				has_trait = kog_cardinal
+			}
+		}
+		localization_key = kog_role_title_archbishop
+	}
+	text = {
+		trigger = {
+			is_ruler_of_own_country = no
+			religion = rel:orthodox
+			has_trait = kog_patriarch
+			NOR = {
+				has_trait = kog_cardinal
+				has_variable = kog_ecumenical_patriarch_var
+			}
+		}
+		localization_key = kog_role_title_patriarchos
+	}
+	text = {
+		trigger = {
+			is_ruler_of_own_country = no
+			religion = rel:orthodox
+			has_trait = kog_patriarch
+			NOT = {
+				has_trait = kog_cardinal
+			}
+			has_variable = kog_ecumenical_patriarch_var
+		}
+		localization_key = kog_role_title_ecumenical_patriarch
+	}
+	text = {
+		trigger = {
+			basileia_is_active = yes
+			is_ruler_of_own_country = no
+			kog_religion_is_elysian_orthodox_trigger = yes
+			has_trait = kog_patriarch
+			NOT = {
+				has_trait = kog_cardinal
+			}
+		}
+		localization_key = kog_role_title_arkepiskopos
+	}
+	
+	## CARDINAL RANK TITLES
+	text = { 
+		trigger = {
+			is_ruler_of_own_country = yes
+			religion = rel:catholic
+			has_trait = kog_cardinal
+		}
+		localization_key = kog_role_title_cardinal
+	}
+	text = {
+		trigger = {
+			is_ruler_of_own_country = no
+			religion = rel:orthodox
+			has_trait = kog_cardinal
+		}
+		localization_key = kog_role_title_presbyteros
+	}
+	text = {
+		trigger = {
+			basileia_is_active = yes
+			is_ruler_of_own_country = no
+			kog_religion_is_elysian_orthodox_trigger = yes
+			has_trait = kog_cardinal
+		}
+		localization_key = kog_role_title_exokatakoilos
+	}
+	
+	## POPE RANK TITLES
+	text = {
+		trigger = {
+			religion = rel:catholic
+			is_ruler_of_own_country = yes
+			owner = {
+				has_law_or_variant = law_type:law_theocracy
+			}
+		}
+		localization_key = kog_role_title_pope
+	}
+	text = {
+		trigger = {
+			is_ruler_of_own_country = yes
+			religion = rel:orthodox
+			owner = {
+				has_law_or_variant = law_type:law_theocracy
+			}
+		}
+		localization_key = kog_role_title_papa
+	}
+	text = {
+		trigger = {
+			basileia_is_active = yes
+			is_ruler_of_own_country = yes
+			kog_religion_is_elysian_orthodox_trigger = yes
+			owner = {
+				has_law_or_variant = law_type:law_theocracy
+			}
+		}
+		localization_key = kog_role_title_catholicos
+	}
+}
