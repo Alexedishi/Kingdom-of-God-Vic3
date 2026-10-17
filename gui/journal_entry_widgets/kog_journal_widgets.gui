@@ -1310,13 +1310,14 @@ types kog_canon_laws_panel_types {
 		}
 		
 		textbox = {
-			raw_text = "Schema will be voted on in -- days"
+			raw_text = "@clock! Schema will be voted on in -- days"
 			parentanchor = top|hcenter
 			position = { 0 41 }
 			autoresize = yes
 			max_width = 520
 			elide = right
-			using = fontsize_medium
+			fontsize = 16
+			using = tooltip_font
 			default_format = "#b;lore;italic"
 			
 			background = {
@@ -1340,176 +1341,133 @@ types kog_canon_laws_panel_types {
 			}
 		}
 		
-		widget = {
-			parentanchor = center
-			size = { 200 50 }
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { -120 -5 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/prestige.dds"
+			}
+			blockoverride "widget_header" {
+				raw_text = "Convoked By"
+			}
+			blockoverride "widget_subtext" {
+				raw_text = "[GetPlayer.GetNameNoFlag]"
+			}
+		}
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { -120 65 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/government_building_icon.dds"
+			}
+			blockoverride "widget_header" {
+				raw_text = "Gathered In"
+			}
+			blockoverride "widget_subtext" {
+				raw_text = "[GetPlayer.GetCapital.GetStateRegion.GetCityHubName]"
+			}
+		}
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { 120 -5 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/leading_interest_group_icon.dds"
+			}
+			blockoverride "widget_header" {
+				raw_text = "Participants"
+			}
+			blockoverride "widget_subtext" {
+				raw_text = "42"
+			}
+		}
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { 120 65 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/mandate.dds"
+			}
+			blockoverride "widget_header" {
+				raw_text = "Matters for Debate"
+			}
+			blockoverride "widget_subtext" {
+				raw_text = "1"
+			}
+		}
+	}
+	
+	type kog_ecumenical_council_detail_widget = widget {
+		parentanchor = center
+		size = { 220 50 }
+		block "widget_position" {
 			position = { -120 -5 }
+		}
+		
+		background = {
+			using = dark_area
+			margin = { 5 5 }
+			alpha = 0.55
 			
-			background = {
-				using = dark_area
-				margin = { 5 5 }
-				alpha = 0.55
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_horizontal_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-				}
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_vertical_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-					alpha = 0.5
-				}
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_horizontal_center.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
 			}
 			
-			background = {
-				using = entry_bg
-				margin = { 5 5 }
-			}
-			
-			textbox = {
-				parentanchor = center
-				raw_text = "Location: Your Mom's House"
-				autoresize = yes
-				max_width = 520
-				elide = left
-				using = fontsize_medium
-				default_format = "#b;lore"
-				align = left|nobaseline
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_center.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+				alpha = 0.5
 			}
 		}
 		
-		widget = {
-			parentanchor = center
-			size = { 200 50 }
-			position = { -120 65 }
-			
-			background = {
-				using = dark_area
-				margin = { 5 5 }
-				alpha = 0.55
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_horizontal_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-				}
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_vertical_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-					alpha = 0.5
-				}
-			}
-			
-			background = {
-				using = entry_bg
-				margin = { 5 5 }
-			}
-			
-			textbox = {
-				parentanchor = center
-				raw_text = "Participants: Just You. Loser."
-				autoresize = yes
-				max_width = 520
-				elide = left
-				using = fontsize_medium
-				default_format = "#b;lore"
-				align = left|nobaseline
+		background = {
+			using = entry_bg
+			margin = { 5 5 }
+		}
+		
+		icon = {
+			parentanchor = left|vcenter
+			size = { 50 50 }
+			position = { 10 0 }
+			block "widget_icon" {
+				texture = "gfx/interface/error_frog.dds"
+				using = look_at_me_animation
 			}
 		}
 		
-		widget = {
+		textbox = {
 			parentanchor = center
-			size = { 200 50 }
-			position = { 120 -5 }
-			
-			background = {
-				using = dark_area
-				margin = { 5 5 }
-				alpha = 0.55
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_horizontal_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-				}
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_vertical_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-					alpha = 0.5
-				}
+			position = { 50 -15 }
+			size = { 180 20 }
+			block "widget_header" {
+				raw_text = "#todo widget_header"
+				using = look_at_me_animation
 			}
-			
-			background = {
-				using = entry_bg
-				margin = { 5 5 }
-			}
-			
-			textbox = {
-				parentanchor = center
-				raw_text = "Called By: Some Jamoke"
-				autoresize = yes
-				max_width = 520
-				elide = left
-				using = fontsize_medium
-				default_format = "#b;lore"
-				align = left|nobaseline
-			}
+			elide = left
+			align = left|nobaseline
+			using = fontsize_medium
+			default_format = "#lore;i"
 		}
 		
-		widget = {
+		textbox = {
 			parentanchor = center
-			size = { 200 50 }
-			position = { 120 65 }
-			
-			background = {
-				using = dark_area
-				margin = { 5 5 }
-				alpha = 0.55
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_horizontal_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-				}
-				
-				modify_texture = {
-					texture = "gfx/interface/masks/fade_vertical_center.dds"
-					spriteType = Corneredstretched
-					spriteborder = { 0 0 }
-					blend_mode = alphamultiply
-					alpha = 0.5
-				}
+			position = { 50 10 }
+			size = { 180 20 }
+			block "widget_subtext" {
+				raw_text = "#todo widget_subtext#!"
+				using = look_at_me_animation
 			}
-			
-			background = {
-				using = entry_bg
-				margin = { 5 5 }
-			}
-			
-			textbox = {
-				parentanchor = center
-				raw_text = "Salad? Nah, it expired."
-				autoresize = yes
-				max_width = 520
-				elide = left
-				using = fontsize_medium
-				default_format = "#b;lore"
-				align = left|nobaseline
-			}
+			elide = left
+			align = left|nobaseline
+			using = fontsize_large
+			default_format = "#b"
 		}
 	}
 	
@@ -1714,11 +1672,11 @@ types kog_canon_laws_panel_types {
 	type kog_canon_law_group_entry = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
-		
-		minimumsize = { 520 120 }
-		maximumsize = { 520 120 }
+		minimumsize = { 520 -1 }
+		maximumsize = { 520 -1 }
 		spacing = 5
 		margin_left = 10
+		margin_bottom = 10
 		
 		using = entry_bg_fancy
 		
@@ -1740,8 +1698,8 @@ types kog_canon_laws_panel_types {
 		}
 		
 		default_header_clean_faded = {
-			position = { 0 0 }
-			size = { 500 35 }
+			parentanchor = top|hcenter
+			size = { 500 40 }
 			blockoverride "text" {
 			}
 			textbox = {
@@ -1754,7 +1712,7 @@ types kog_canon_laws_panel_types {
 				autoresize = yes
 				max_width = 520
 				elide = right
-				using = fontsize_large
+				fontsize = 18
 			}
 		}
 		
@@ -1762,17 +1720,16 @@ types kog_canon_laws_panel_types {
 		flowcontainer = {
 			parentanchor = top|hcenter
 			direction = horizontal
-			minimumsize = { 500 35 }
-			maximumsize = { 500 35 }
+			minimumsize = { 500 -1 }
 			spacing = 5
 			
 			widget = {
 				parentanchor = left|vcenter
-				size = { 300 35 }
+				size = { 320 35 }
 				
 				textbox = {
 					parentanchor = left|vcenter
-					size = { 300 35 }
+					size = { 340 35 }
 					position = { 5 -5 }
 					
 					block "active_canon_law_flag" {
@@ -1780,7 +1737,7 @@ types kog_canon_laws_panel_types {
 						using = look_at_me_text_animation
 					}
 					autoresize = yes
-					max_width = 320
+					max_width = 290
 					elide = right
 					using = fontsize_large
 				}
@@ -1788,7 +1745,7 @@ types kog_canon_laws_panel_types {
 			
 			flowcontainer = {
 				parentanchor = top|hcenter
-				minmumsize = { 200 35 }
+				minimumsize = { 180 -1 }
 				
 				direction = vertical
 				datamodel = "[JournalEntry.GetScriptedButtons]"
@@ -1803,8 +1760,8 @@ types kog_canon_laws_panel_types {
 		flowcontainer = {
 			parentanchor = top|hcenter
 			direction = horizontal
-			minimumsize = { 500 35 }
-			spacing = 15
+			minimumsize = { 500 -1 }
+			spacing = 10
 			
 			datamodel = "[JournalEntry.GetScriptedButtons]"
 			
@@ -1819,41 +1776,48 @@ types kog_canon_laws_panel_types {
 		}
 	}
 	
-	type kog_canon_law_group_debate_button = button {
-		parentanchor = center
-		size = { 185 20 }
+	type kog_canon_law_group_debate_button = widget {
+		parentanchor = top|hcenter
+		size = { 180 40 }
 		
 		block "canon_law_debate_tag" {
 			visible = "[ScriptedButton.HasTag('hidden_button')]"
 		}
 		
-		using = default_button_action
-		tooltip = "SCRIPTED_ACTION_TOOLTIP"
-		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
-		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
-		
-		widget = {
-			visible = "[ScriptedButton.IsSelected]"
-			size = { 100% 100% }
-			
-			background = {
-				using = paper_bg
-			}
-		}
-		
-		textbox = {
+		button = {
 			parentanchor = center
-			align = nobaseline
-			autoresize = yes
-			max_width = 230
-			elide = right
-			using = fontsize_small
-			text = "[ScriptedButton.GetName]"
-		}
-		
-		icon = {
-			visible = "[ScriptedButton.IsSelected]"
-			using = highlighted_square_selection
+			size = { 180 40 }
+			position = { -5 -5 }
+			using = default_button_action
+			tooltip = "SCRIPTED_ACTION_TOOLTIP"
+			enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+			onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+			
+			widget = {
+				parentanchor = center
+				visible = "[ScriptedButton.IsSelected]"
+				size = { 100% 100% }
+				
+				background = {
+					using = paper_bg
+				}
+			}
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 200
+				elide = right
+				fontsize = 18
+				text = "kog_gui_debate_canon_law"
+			}
+			
+			icon = {
+				parentanchor = center
+				visible = "[ScriptedButton.IsSelected]"
+				using = highlighted_square_selection
+			}
 		}
 	}
 	
