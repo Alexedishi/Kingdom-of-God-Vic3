@@ -782,7 +782,10 @@ kog_gui_debate_statism = {
 	
 	visible = {
 		kog_country_matches_journal_religion_trigger = yes
+	}
+	possible = {
 		kog_has_ongoing_council_trigger = yes
+		kog_country_is_ecumenical_council_participant_trigger = yes
 		NOT = {
 			custom_description = {
 				text = kog_canon_lawgroup_statism_debate_trigger
@@ -791,9 +794,6 @@ kog_gui_debate_statism = {
 				}
 			}
 		}
-	}
-	possible = {
-		kog_country_is_ecumenical_council_participant_trigger = yes
 	}
 	effect = {
 		kog_add_canon_law_group_to_council_effect = {

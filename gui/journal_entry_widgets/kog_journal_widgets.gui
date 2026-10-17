@@ -1211,13 +1211,13 @@ types kog_canon_laws_panel_types {
 		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
 		
 		kog_canon_law_compliance_widget = { }
-		kog_ecumenical_council_inactive_container = { }
-		kog_ecumenical_council_active_container = { }
+		kog_ecumenical_inactive_council_container = { }
+		kog_ecumenical_active_council_container = { }
 		divider_decorative = { }
 		kog_canon_laws_container = { }
 	}
 	
-	type kog_ecumenical_council_inactive_container = flowcontainer {
+	type kog_ecumenical_inactive_council_container = flowcontainer {
 		parentanchor = top|hcenter
 		minimumsize = { 520 100 }
 		visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list'))]"
@@ -1269,7 +1269,7 @@ types kog_canon_laws_panel_types {
 		}
 	}
 	
-	type kog_ecumenical_council_active_container = widget {
+	type kog_ecumenical_active_council_container = widget {
 		parentanchor = top|hcenter
 		size = { 520 220 }
 		#visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list')))]"
@@ -1540,7 +1540,7 @@ types kog_canon_laws_panel_types {
 		direction = vertical
 		
 		# Apostolic Succession
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/apostolic_succession.dds"
 			}
@@ -1559,7 +1559,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Almsgiving
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/almsgiving.dds"
 			}
@@ -1578,7 +1578,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Stance Towards Icons
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/iconography.dds"
 			}
@@ -1597,7 +1597,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Church and State
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/church_and_state.dds"
 			}
@@ -1608,15 +1608,15 @@ types kog_canon_laws_panel_types {
 				text = "kog_gui_canon_law_statism"
 			}
 			blockoverride "canon_law_debate_tag" {
-				visible = "[ScriptedButton.HasTag('debate_apostolic_succession')]"
+				visible = "[ScriptedButton.HasTag('debate_statism')]"
 			}
 			blockoverride "canon_law_button_tag" {
-				visible = "[ScriptedButton.HasTag('debate_statism')]"
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_statism')]"
 			}
 		}
 		
 		# Church and Nation
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/church_and_nation.dds"
 			}
@@ -1635,7 +1635,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Clerical Marriage
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/clerical_marriage.dds"
 			}
@@ -1654,7 +1654,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Social Role
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/social_role.dds"
 			}
@@ -1673,7 +1673,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Stance on Sciences
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/stance_on_sciences.dds"
 			}
@@ -1692,7 +1692,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		# Crusades
-		kog_canon_lawgroup_entry = {
+		kog_canon_law_group_entry = {
 			blockoverride "canon_law_background" {
 				texture = "gfx/interface/illustrations/canon_laws/crusades.dds"
 			}
@@ -1711,7 +1711,7 @@ types kog_canon_laws_panel_types {
 		}
 	}
 	
-	type kog_canon_lawgroup_entry = flowcontainer {
+	type kog_canon_law_group_entry = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
 		
@@ -1786,59 +1786,15 @@ types kog_canon_laws_panel_types {
 				}
 			}
 			
-			widget = {
-				parentanchor = right|vcenter
-				size = { 200 35 }
+			flowcontainer = {
+				parentanchor = top|hcenter
+				minmumsize = { 200 35 }
 				
-				flowcontainer = {
-					parentanchor = center
-					ignoreinvisible = yes
-					
-					flowcontainer = {
-						direction = vertical
-						datamodel = "[JournalEntry.GetScriptedButtons]"
-						
-						item = {
-							button = {
-								parentanchor = center
-								size = { 184 35 }
-								position = { 0 -5 }
-								
-								block "canon_law_debate_tag" {
-									visible = "[ScriptedButton.HasTag('hidden_button')]"
-								}
-								
-								using = default_button_action
-								tooltip = "SCRIPTED_ACTION_TOOLTIP"
-								enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
-								onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
-								
-								widget = {
-									visible = "[ScriptedButton.IsSelected]"
-									size = { 100% 100% }
-									
-									background = {
-										using = paper_bg
-									}
-								}
-								
-								textbox = {
-									parentanchor = center
-									align = nobaseline
-									autoresize = yes
-									max_width = 230
-									elide = right
-									using = fontsize_small
-									text = "[ScriptedButton.GetName]"
-								}
-								
-								icon = {
-									visible = "[ScriptedButton.IsSelected]"
-									using = highlighted_square_selection
-								}
-							}
-						}
-					}
+				direction = vertical
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				
+				item = {
+					kog_canon_law_group_debate_button = { }
 				}
 			}
 		}
@@ -1858,12 +1814,50 @@ types kog_canon_laws_panel_types {
 			}
 			
 			item = {
-				kog_canon_law_type_entry = { }
+				kog_canon_law_type_button = { }
 			}
 		}
 	}
 	
-	type kog_canon_law_type_entry = button {
+	type kog_canon_law_group_debate_button = button {
+		parentanchor = center
+		size = { 185 20 }
+		
+		block "canon_law_debate_tag" {
+			visible = "[ScriptedButton.HasTag('hidden_button')]"
+		}
+		
+		using = default_button_action
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 230
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
+		}
+	}
+	
+	type kog_canon_law_type_button = button {
 		parentanchor = center
 		size = { 35 35 }
 		
