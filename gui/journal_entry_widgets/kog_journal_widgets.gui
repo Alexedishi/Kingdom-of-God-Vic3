@@ -1221,7 +1221,6 @@ types kog_canon_laws_panel_types {
 		parentanchor = top|hcenter
 		minimumsize = { 520 100 }
 		visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list'))]"
-		
 		background = {
 			texture = "gfx/interface/illustrations/window_backgrounds/kog_no_council_background.dds"
 			size = { 100% 100% }
@@ -1272,7 +1271,7 @@ types kog_canon_laws_panel_types {
 	type kog_ecumenical_active_council_container = widget {
 		parentanchor = top|hcenter
 		size = { 520 220 }
-		#visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list')))]"
+		visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_list')))]"
 		
 		background = {
 			texture = "gfx/interface/illustrations/window_backgrounds/kog_council_background.dds"
@@ -1299,7 +1298,7 @@ types kog_canon_laws_panel_types {
 			blockoverride "text" {
 			}
 			textbox = {
-				raw_text = "The Ecumenical Council of FOO"
+				text = "kog_gui_ecumenical_council_header"
 				parentanchor = center
 				position = { 0 0 }
 				autoresize = yes
@@ -1310,7 +1309,7 @@ types kog_canon_laws_panel_types {
 		}
 		
 		textbox = {
-			raw_text = "@clock! Schema will be voted on in -- days"
+			text = "kog_gui_ecumenical_council_timer"
 			parentanchor = top|hcenter
 			position = { 0 41 }
 			autoresize = yes
@@ -1349,10 +1348,10 @@ types kog_canon_laws_panel_types {
 				texture = "gfx/interface/icons/generic_icons/prestige.dds"
 			}
 			blockoverride "widget_header" {
-				raw_text = "Convoked By"
+				text = "kog_gui_caller_header"
 			}
 			blockoverride "widget_subtext" {
-				raw_text = "[GetPlayer.GetNameNoFlag]"
+				text = "kog_gui_caller_name"
 			}
 		}
 		kog_ecumenical_council_detail_widget = {
@@ -1363,10 +1362,10 @@ types kog_canon_laws_panel_types {
 				texture = "gfx/interface/icons/generic_icons/government_building_icon.dds"
 			}
 			blockoverride "widget_header" {
-				raw_text = "Gathered In"
+				text = "kog_gui_gathering_header"
 			}
 			blockoverride "widget_subtext" {
-				raw_text = "[GetPlayer.GetCapital.GetStateRegion.GetCityHubName]"
+				text = "kog_gui_gathering_name"
 			}
 		}
 		kog_ecumenical_council_detail_widget = {
@@ -1377,10 +1376,10 @@ types kog_canon_laws_panel_types {
 				texture = "gfx/interface/icons/generic_icons/leading_interest_group_icon.dds"
 			}
 			blockoverride "widget_header" {
-				raw_text = "Participants"
+				text = "kog_gui_participants_name"
 			}
 			blockoverride "widget_subtext" {
-				raw_text = "42"
+				text = "kog_gui_participants_header"
 			}
 		}
 		kog_ecumenical_council_detail_widget = {
@@ -1391,10 +1390,10 @@ types kog_canon_laws_panel_types {
 				texture = "gfx/interface/icons/generic_icons/mandate.dds"
 			}
 			blockoverride "widget_header" {
-				raw_text = "Matters for Debate"
+				text = "kog_gui_matters_name"
 			}
 			blockoverride "widget_subtext" {
-				raw_text = "1"
+				text = "kog_gui_matters_header"
 			}
 		}
 	}

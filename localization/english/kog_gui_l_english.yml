@@ -131,6 +131,19 @@
  kog_gui_canon_law_compliance: "[concept_canon_law_compliance] in [GetPlayer.GetNameNoFlag]: [GetPlayer.MakeScope.Var('kog_local').Var('kog_canon_law_compliance_var').GetValue|+=0]"
  kog_gui_canon_law_compliance_breakdown: "[GetPlayer.MakeScope.GetScriptValueDesc('kog_canon_law_compliance_value')]"
  
+ ## Ecumenical Council Panel
+ kog_gui_ecumenical_council_header: "The [concept_ecumenical_council] of [JournalEntry.MakeScope.Var('kog_council_location_var').GetStateRegion.GetCityHubName]"
+ kog_gui_ecumenical_council_timer: "@clock! #o Schema#![JournalEntry.MakeScope.ScriptValue('kog_council_remaining_duration_value')]"
+ kog_gui_caller_header: "Convoked By"
+ kog_gui_caller_name: "[JournalEntry.MakeScope.Var('kog_council_caller_var').GetStateRegion.GetCityHubName]"
+ kog_gui_gathering_header: "Gathered In"
+ kog_gui_gathering_name: "[JournalEntry.MakeScope.Var('kog_council_location_var').GetStateRegion.GetName]"
+ kog_gui_participants_name: "Participants"
+ kog_gui_participants_header: "[JournalEntry.MakeScope.ScriptValue('kog_participants_value')]"
+ kog_gui_matters_name: "Matters for Debate"
+ kog_gui_matters_header: "[JournalEntry.MakeScope.ScriptValue('kog_matters_value')]"
+ kog_gui_ecumenical_council_none: "#italic #lore There is no [concept_ecumenical_council] in session#!"
+ 
  ## Canon Law Containers
  kog_gui_canon_law_header: "Canon Laws"
  kog_gui_law_type_header: "Active Law:"
@@ -151,7 +164,7 @@
  
  kog_gui_debate_canon_law: "@kog_raise_issue! Raise Issue"
  kog_gui_debate_canon_law_desc: "During an [concept_ecumenical_council] bishops of all stripes have the chance to raise issues they believe are afflicting the church."
- kog_gui_support_canon_law_effect: "The $kog_devout$ of [ROOT.GetCountry.GetNameNoFlag] will support the enactment of [TopScope.GetLocalVariable('kog_canon_law_loc').GetFlagName]"
+ kog_gui_support_canon_law_effect: "The $kog_devout$ of [ROOT.GetCountry.GetNameNoFlag] will support the enactment of [TopScope.GetLocalVariable('kog_canon_law_loc').GetFlagName]. This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to supporting this stance."
  
  kog_gui_debate_theological_matter: "@kog_raise_issue! Debate Theological Matter"
  kog_gui_support_conservative_stance: "[JournalEntry.MakeScope.Var('kog_conservative_theological_debate_stance_var').GetFlagName]"
@@ -169,17 +182,17 @@
  kog_gui_support_papal_primacy: "$kog_canon_law_papal_primacy$"
  kog_gui_support_papal_primacy_desc: "$kog_canon_law_papal_primacy_flavor$"
  kog_gui_support_synodality: "$kog_canon_law_synodality$"
- kog_gui_support_synodality_desc: "$kog_canon_law_synodality_desc$"
+ kog_gui_support_synodality_desc: "$kog_canon_law_synodality_flavor$"
  kog_gui_support_congregationalism: "$kog_canon_law_congregationalism$"
- kog_gui_support_congregationalism_desc: "$kog_canon_law_congregationalism_desc$"
+ kog_gui_support_congregationalism_desc: "$kog_canon_law_congregationalism_flavor$"
  
  kog_gui_debate_almsgiving: "$kog_gui_debate_canon_law$"
  kog_gui_support_no_alms: "$kog_canon_law_no_alms$"
  kog_gui_support_no_alms_desc: "$kog_canon_law_no_alms_flavor$"
  kog_gui_support_offertory: "$kog_canon_law_offertory$"
- kog_gui_support_offertory_desc: ""
+ kog_gui_support_offertory_desc: "$kog_canon_law_offertory_flavor$"
  kog_gui_support_tithing: "$kog_canon_law_tithing$"
- kog_gui_support_tithing_desc: ""
+ kog_gui_support_tithing_desc: "$kog_canon_law_tithing_flavor$"
  
  kog_gui_debate_iconography: "$kog_gui_debate_canon_law$"
  kog_gui_support_iconoclasm: "$kog_canon_law_iconoclasm$"
@@ -251,10 +264,6 @@
  kog_gui_support_unlimited_crusades: "$kog_canon_law_unlimited_crusades$"
  kog_gui_support_unlimited_crusades_desc: ""
  
- kog_gui_ecumenical_council_header: "The Council of [JournalEntry.MakeScope.Var('kog_council_location_var').GetStateRegion.GetCityHubName]"
- kog_gui_ecumenical_council_none: "#italic #lore There is no [concept_ecumenical_council] in session#!"
- kog_gui_ecumenical_council_commit_votes: "This will commit our #bold #white [GetPlayer.MakeScope.Var('kog_votes_var').GetValue]#!#! votes to supporting this stance."
-
  
 ####---------- College of Cardinals Panel ----------####
  ## Papabili Panel
