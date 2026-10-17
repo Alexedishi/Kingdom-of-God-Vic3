@@ -219,10 +219,10 @@ kog_initialize_eastern_orthodox_variables_effect = {
 }
 
 kog_initialize_elysian_orthodox_variables_effect = {
-	global_var:je_kog_orthodox = {
+	global_var:je_kog_elysian = {
 		set_variable = {
 			name = kog_religion_var
-			value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
+			value = rel:br_religion_elysian_orthodox
 		}
 		set_variable = {
 			name = kog_location_var
@@ -282,8 +282,6 @@ kog_initialize_elysian_orthodox_variables_effect = {
 kog_initialize_database_variable_map_effect = {
 	kog_add_rhomaios_culture_to_database_effect = yes
 	kog_add_elysian_culture_to_database_effect = yes
-	kog_add_elysian_orthodox_religion_to_database_effect = yes
-	kog_add_russian_orthodox_religion_to_database_effect = yes
 }
 
 ####---------- Episcopal Seat Script Container Initialization ----------####
@@ -981,7 +979,7 @@ kog_initialize_elysium_container_effect = {
 			}
 			set_variable = {
 				name = kog_religion_var
-				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
+				value = rel:br_religion_elysian_orthodox
 			}
 			set_variable = {
 				name = kog_liturgical_language_var
@@ -1026,7 +1024,7 @@ kog_initialize_onondaga_container_effect = {
 			}
 			set_variable = {
 				name = kog_religion_var
-				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
+				value = rel:br_religion_elysian_orthodox
 			}
 			set_variable = {
 				name = kog_liturgical_language_var
@@ -1071,7 +1069,7 @@ kog_initialize_tututepec_container_effect = {
 			}
 			set_variable = {
 				name = kog_religion_var
-				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
+				value = rel:br_religion_elysian_orthodox
 			}
 			set_variable = {
 				name = kog_liturgical_language_var
@@ -1116,7 +1114,7 @@ kog_initialize_cahokia_container_effect = {
 			}
 			set_variable = {
 				name = kog_religion_var
-				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
+				value = rel:br_religion_elysian_orthodox
 			}
 			set_variable = {
 				name = kog_liturgical_language_var
@@ -1161,7 +1159,7 @@ kog_initialize_cayacoa_container_effect = {
 			}
 			set_variable = {
 				name = kog_religion_var
-				value = "global_variable_map(kog_database|flag:kog_elysian_orthodox)"
+				value = rel:br_religion_elysian_orthodox
 			}
 			set_variable = {
 				name = kog_liturgical_language_var
@@ -2009,21 +2007,5 @@ kog_add_elysian_culture_to_database_effect = {
 		name = kog_database
 		key = flag:kog_elysian
 		value = cu:greek
-	}
-}
-
-kog_add_elysian_orthodox_religion_to_database_effect = {
-	add_to_global_variable_map = {
-		name = kog_database
-		key = flag:kog_elysian_orthodox
-		value = rel:orthodox
-	}
-}
-
-kog_add_russian_orthodox_religion_to_database_effect = {
-	add_to_global_variable_map = {
-		name = kog_database
-		key = flag:kog_russian_orthodox
-		value = rel:orthodox
 	}
 }

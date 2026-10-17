@@ -189,6 +189,78 @@ kog_remove_church_tax_modifier_effect = {
 	}
 }
 
+kog_process_country_conversion_requests = {
+	if = {
+		limit = {
+			OR = {
+				has_variable = country_should_be_lutheran
+				has_variable = country_should_be_anglican
+				has_variable = country_should_be_calvinist
+				has_variable = country_should_be_methodist
+				has_variable = country_should_be_baptist
+				has_variable = country_should_be_mormon
+			}
+		}
+		switch = {
+			trigger = has_variable
+			country_should_be_lutheran = {
+				set_state_religion = rel:lutheran
+			}
+			country_should_be_anglican = {
+				set_state_religion = rel:anglican
+			}
+			country_should_be_calvinist = {
+				set_state_religion = rel:calvinist
+			}
+			country_should_be_methodist = {
+				set_state_religion = rel:methodist
+			}
+			country_should_be_baptist = {
+				set_state_religion = rel:baptist
+			}
+			country_should_be_mormon = {
+				set_state_religion = rel:mormon
+			}
+		}
+	}
+}
+
+kog_process_character_conversion_requests = {
+	every_scope_character = {
+		limit = {
+			OR = {
+				has_variable = character_should_be_lutheran
+				has_variable = character_should_be_anglican
+				has_variable = character_should_be_calvinist
+				has_variable = character_should_be_methodist
+				has_variable = character_should_be_baptist
+				has_variable = character_should_be_mormon
+			}
+		}
+		switch = {
+			trigger = has_variable
+			character_should_be_lutheran = {
+				change_character_religion = rel:lutheran
+			}
+			character_should_be_anglican = {
+				change_character_religion = rel:anglican
+			}
+			character_should_be_calvinist = {
+				change_character_religion = rel:calvinist
+			}
+			character_should_be_methodist = {
+				change_character_religion = rel:methodist
+			}
+			character_should_be_baptist = {
+				change_character_religion = rel:baptist
+			}
+			character_should_be_mormon = {
+				change_character_religion = rel:mormon
+			}
+		}
+	}
+}
+
 
 ####---------- Metropolitan Effects ----------####
 kog_set_metropolitan_focus_modifier_effect = {

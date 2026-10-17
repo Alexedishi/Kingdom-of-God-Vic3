@@ -1,0 +1,53 @@
+﻿REPLACE_OR_CREATE:kog_is_active_trigger = {
+	always = yes
+}
+
+####---------- Protestant Faith Detection Triggers ----------####
+# These triggers do not use the kog_ prefixing scheme- these are meant to be used in other mods. DO NOT use these within KoG.
+REPLACE_OR_CREATE:country_is_protestant_trigger = { 
+	OR = {
+		country_has_state_religion = rel:protestant
+		country_has_state_religion = rel:lutheran
+		country_has_state_religion = rel:anglican
+		country_has_state_religion = rel:calvinist
+		country_has_state_religion = rel:methodist
+		country_has_state_religion = rel:baptist
+		country_has_state_religion = rel:mormon
+	}
+}
+
+REPLACE_OR_CREATE:religion_is_protestant_trigger = {
+	OR = {
+		religion ?= rel:protestant
+		religion ?= rel:lutheran
+		religion ?= rel:anglican
+		religion ?= rel:calvinist
+		religion ?= rel:methodist
+		religion ?= rel:baptist
+		religion ?= rel:mormon
+	}
+}
+
+REPLACE_OR_CREATE:pop_is_protestant_trigger = { 
+	OR = {
+		has_pop_religion = protestant
+		has_pop_religion = lutheran
+		has_pop_religion = anglican
+		has_pop_religion = calvinist
+		has_pop_religion = methodist
+		has_pop_religion = baptist
+		has_pop_religion = mormon
+	}
+}
+
+REPLACE_OR_CREATE:character_is_protestant_trigger = {
+	OR = {
+		has_religion = protestant
+		has_religion = lutheran
+		has_religion = anglican
+		has_religion = calvinist
+		has_religion = methodist
+		has_religion = baptist
+		has_religion = mormon
+	}
+}

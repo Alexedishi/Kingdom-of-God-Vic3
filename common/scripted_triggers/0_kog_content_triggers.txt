@@ -5,8 +5,8 @@ kog_content_scope_trigger = {
 		kog_country_is_eastern_orthodox_trigger = yes
 		#		kog_country_is_oriental_orthodox_trigger = yes
 		#		kog_country_is_protestant_trigger = yes
-		#		kog_country_is_rus_orthodox_trigger = yes
-		#		kog_country_is_elysian_orthodox_trigger = yes
+		kog_country_is_rus_orthodox_trigger = yes
+		kog_country_is_elysian_orthodox_trigger = yes
 	}
 }
 
@@ -28,8 +28,8 @@ kog_country_is_eastern_christian_trigger = {
 	OR = {
 		kog_country_is_eastern_orthodox_trigger = yes
 		kog_country_is_oriental_orthodox_trigger = yes
-		kog_country_is_rus_orthodox_trigger = yes # Basileia Romaion
-		kog_country_is_elysian_orthodox_trigger = yes # Basileia Romaion
+		kog_country_is_rus_orthodox_trigger = yes
+		kog_country_is_elysian_orthodox_trigger = yes
 	}
 }
 
@@ -56,15 +56,95 @@ kog_country_is_oriental_armenian_trigger = {
 	var:kog_local.var:kog_liturgical_rite_var = flag:kog_armenian_rite
 }
 
+####---------- Religion Object Comparison Triggers ----------####
+kog_religion_is_christian_trigger = {
+	OR = {
+		kog_religion_is_western_christian_trigger = yes
+		kog_religion_is_eastern_christian_trigger = yes
+	}
+}
+
+kog_religion_is_western_christian_trigger = {
+	OR = {
+		kog_religion_is_roman_catholic_trigger = yes
+		kog_religion_is_protestant_trigger = yes
+	}
+}
+
+kog_religion_is_eastern_christian_trigger = {
+	OR = {
+		kog_religion_is_eastern_orthodox_trigger = yes
+		kog_religion_is_oriental_orthodox_trigger = yes
+		kog_religion_is_rus_orthodox_trigger = yes
+		kog_religion_is_elysian_orthodox_trigger = yes
+	}
+}
+
+kog_religion_is_roman_catholic_trigger = {
+	religion = rel:catholic
+}
+
+kog_religion_is_protestant_trigger = {
+	religion = rel:protestant
+}
+
+kog_religion_is_eastern_orthodox_trigger = {
+	religion = rel:orthodox
+}
+
+kog_religion_is_oriental_orthodox_trigger = {
+	religion = rel:oriental_orthodox
+}
+
+kog_religion_is_rus_orthodox_trigger = {
+	trigger_if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		religion = rel:br_religion_rus_orthodox
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+kog_religion_is_elysian_orthodox_trigger = {
+	trigger_if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		religion = rel:br_religion_elysian_orthodox
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+
 
 ####---------- Basileia Romaion Denomination Triggers ----------####
-##BR NOTE: Override these triggers
 kog_country_is_rus_orthodox_trigger = {
-	always = no
+	trigger_if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		religion = rel:br_religion_rus_orthodox
+	}
+	trigger_else = {
+		always = no
+	}
 }
 
 kog_country_is_elysian_orthodox_trigger = {
-	always = no
+	trigger_if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		religion = rel:br_religion_elysian_orthodox
+	}
+	trigger_else = {
+		always = no
+	}
 }
 
 kog_country_is_tututepec_orthodox_trigger = {
