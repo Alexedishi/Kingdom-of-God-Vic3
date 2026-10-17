@@ -274,9 +274,6 @@ kog_gui_support_papal_primacy = {
 	tags = { canon_lawgroup_apostolic_succession }
 	
 	visible = {
-		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = kog_canon_lawgroup_apostolic_succession
-		}
 	}
 	selected = {
 		scope:journal_entry = {
@@ -284,25 +281,43 @@ kog_gui_support_papal_primacy = {
 		}
 	}
 	possible = {
-		kog_country_matches_journal_religion_trigger = yes
-		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_description = {
-			text = kog_canon_lawgroup_apostolic_succession_debate_trigger
-			scope:journal_entry = {
-				has_variable = kog_canon_lawgroup_apostolic_succession
+		trigger_if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_country_is_ecumenical_council_participant_trigger = yes
+			custom_description = {
+				text = kog_canon_lawgroup_apostolic_succession_debate_trigger
+				scope:journal_entry = {
+					has_variable = kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			custom_tooltip = { 
+				text = kog_not_supporting_this_law_trigger
+				NOT = {
+					"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_papal_primacy
+				}
 			}
 		}
-		hidden_trigger = {
-			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_papal_primacy
+		trigger_else = { 
+			hidden_trigger = { 
+				always = no
 			}
 		}
 	}
 	effect = {
-		kog_set_support_for_council_stance_effect = {
-			debate_matter = kog_canon_lawgroup_apostolic_succession
-			stance = kog_canon_law_papal_primacy
+		if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_set_support_for_council_stance_effect = {
+				debate_matter = kog_canon_lawgroup_apostolic_succession
+				stance = kog_canon_law_papal_primacy
+			}
 		}
+		custom_tooltip_no_bullet = kog_canon_law_papal_primacy_modifier
 	}
 	ai_chance = {
 		value = 0
@@ -317,9 +332,6 @@ kog_gui_support_synodality = {
 	tags = { canon_lawgroup_apostolic_succession }
 	
 	visible = {
-		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = kog_canon_lawgroup_apostolic_succession
-		}
 	}
 	selected = {
 		scope:journal_entry = {
@@ -327,25 +339,43 @@ kog_gui_support_synodality = {
 		}
 	}
 	possible = {
-		kog_country_matches_journal_religion_trigger = yes
-		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_description = {
-			text = kog_canon_lawgroup_apostolic_succession_debate_trigger
-			scope:journal_entry = {
-				has_variable = kog_canon_lawgroup_apostolic_succession
+		trigger_if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_country_is_ecumenical_council_participant_trigger = yes
+			custom_description = {
+				text = kog_canon_lawgroup_apostolic_succession_debate_trigger
+				scope:journal_entry = {
+					has_variable = kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			custom_tooltip = { 
+				text = kog_not_supporting_this_law_trigger
+				NOT = {
+					"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_synodality
+				}
 			}
 		}
-		hidden_trigger = {
-			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_synodality
+		trigger_else = { 
+			hidden_trigger = { 
+				always = no
 			}
 		}
 	}
 	effect = {
-		kog_set_support_for_council_stance_effect = {
-			debate_matter = kog_canon_lawgroup_apostolic_succession
-			stance = kog_canon_law_synodality
+		if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_set_support_for_council_stance_effect = {
+				debate_matter = kog_canon_lawgroup_apostolic_succession
+				stance = kog_canon_law_synodality
+			}
 		}
+		custom_tooltip_no_bullet = kog_canon_law_synodality_modifier
 	}
 	ai_chance = {
 		value = 0
@@ -360,9 +390,6 @@ kog_gui_support_congregationalism = {
 	tags = { canon_lawgroup_apostolic_succession }
 	
 	visible = {
-		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = kog_canon_lawgroup_apostolic_succession
-		}
 	}
 	selected = {
 		scope:journal_entry = {
@@ -370,25 +397,43 @@ kog_gui_support_congregationalism = {
 		}
 	}
 	possible = {
-		kog_country_matches_journal_religion_trigger = yes
-		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_description = {
-			text = kog_canon_lawgroup_apostolic_succession_debate_trigger
-			scope:journal_entry = {
-				has_variable = kog_canon_lawgroup_apostolic_succession
+		trigger_if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_country_is_ecumenical_council_participant_trigger = yes
+			custom_description = {
+				text = kog_canon_lawgroup_apostolic_succession_debate_trigger
+				scope:journal_entry = {
+					has_variable = kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			custom_tooltip = { 
+				text = kog_not_supporting_this_law_trigger
+				NOT = {
+					"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_congregationalism
+				}
 			}
 		}
-		hidden_trigger = {
-			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_congregationalism
+		trigger_else = { 
+			hidden_trigger = { 
+				always = no
 			}
 		}
 	}
 	effect = {
-		kog_set_support_for_council_stance_effect = {
-			debate_matter = kog_canon_lawgroup_apostolic_succession
-			stance = kog_canon_law_congregationalism
+		if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_set_support_for_council_stance_effect = {
+				debate_matter = kog_canon_lawgroup_apostolic_succession
+				stance = kog_canon_law_congregationalism
+			}
 		}
+		custom_tooltip_no_bullet = kog_canon_law_congregationalism_modifier
 	}
 	ai_chance = {
 		value = 0
@@ -436,35 +481,50 @@ kog_gui_support_no_alms = {
 	tags = { canon_lawgroup_almsgiving }
 	
 	visible = {
-		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = kog_canon_lawgroup_almsgiving
-		}
 	}
 	selected = {
 		scope:journal_entry = {
-			var:kog_canon_lawgroup_almsgiving ?= flag:kog_canon_law_no_alms
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_no_alms
 		}
 	}
 	possible = {
-		kog_country_matches_journal_religion_trigger = yes
-		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_description = {
-			text = kog_canon_lawgroup_almsgiving_debate_trigger
-			scope:journal_entry = {
-				has_variable = kog_canon_lawgroup_almsgiving
+		trigger_if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_country_is_ecumenical_council_participant_trigger = yes
+			custom_description = {
+				text = kog_canon_lawgroup_apostolic_succession_debate_trigger
+				scope:journal_entry = {
+					has_variable = kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			custom_tooltip = { 
+				text = kog_not_supporting_this_law_trigger
+				NOT = {
+					"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_no_alms
+				}
 			}
 		}
-		hidden_trigger = {
-			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_no_alms
+		trigger_else = { 
+			hidden_trigger = { 
+				always = no
 			}
 		}
 	}
 	effect = {
-		kog_set_support_for_council_stance_effect = {
-			debate_matter = kog_canon_lawgroup_almsgiving
-			stance = kog_canon_law_no_alms
+		if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_set_support_for_council_stance_effect = {
+				debate_matter = kog_canon_lawgroup_apostolic_succession
+				stance = kog_canon_law_no_alms
+			}
 		}
+		custom_tooltip_no_bullet = kog_canon_law_no_alms_modifier
 	}
 	ai_chance = {
 		value = 0
@@ -479,35 +539,50 @@ kog_gui_support_offertory = {
 	tags = { canon_lawgroup_almsgiving }
 	
 	visible = {
-		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = kog_canon_lawgroup_almsgiving
-		}
 	}
 	selected = {
 		scope:journal_entry = {
-			var:kog_canon_lawgroup_almsgiving ?= flag:kog_canon_law_offertory
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_offertory
 		}
 	}
 	possible = {
-		kog_country_matches_journal_religion_trigger = yes
-		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_description = {
-			text = kog_canon_lawgroup_almsgiving_debate_trigger
-			scope:journal_entry = {
-				has_variable = kog_canon_lawgroup_almsgiving
+		trigger_if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_country_is_ecumenical_council_participant_trigger = yes
+			custom_description = {
+				text = kog_canon_lawgroup_apostolic_succession_debate_trigger
+				scope:journal_entry = {
+					has_variable = kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			custom_tooltip = { 
+				text = kog_not_supporting_this_law_trigger
+				NOT = {
+					"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_offertory
+				}
 			}
 		}
-		hidden_trigger = {
-			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_offertory
+		trigger_else = { 
+			hidden_trigger = { 
+				always = no
 			}
 		}
 	}
 	effect = {
-		kog_set_support_for_council_stance_effect = {
-			debate_matter = kog_canon_lawgroup_almsgiving
-			stance = kog_canon_law_offertory
+		if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_set_support_for_council_stance_effect = {
+				debate_matter = kog_canon_lawgroup_apostolic_succession
+				stance = kog_canon_law_offertory
+			}
 		}
+		custom_tooltip_no_bullet = kog_canon_law_offertory_modifier
 	}
 	ai_chance = {
 		value = 0
@@ -522,35 +597,50 @@ kog_gui_support_tithing = {
 	tags = { canon_lawgroup_almsgiving }
 	
 	visible = {
-		kog_council_is_debating_canon_lawgroup_trigger = {
-			canon_law_group = kog_canon_lawgroup_almsgiving
-		}
 	}
 	selected = {
 		scope:journal_entry = {
-			var:kog_canon_lawgroup_almsgiving ?= flag:kog_canon_law_tithing
+			var:kog_canon_lawgroup_apostolic_succession ?= flag:kog_canon_law_tithing
 		}
 	}
 	possible = {
-		kog_country_matches_journal_religion_trigger = yes
-		kog_country_is_ecumenical_council_participant_trigger = yes
-		custom_description = {
-			text = kog_canon_lawgroup_almsgiving_debate_trigger
-			scope:journal_entry = {
-				has_variable = kog_canon_lawgroup_almsgiving
+		trigger_if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_country_is_ecumenical_council_participant_trigger = yes
+			custom_description = {
+				text = kog_canon_lawgroup_apostolic_succession_debate_trigger
+				scope:journal_entry = {
+					has_variable = kog_canon_lawgroup_apostolic_succession
+				}
+			}
+			custom_tooltip = { 
+				text = kog_not_supporting_this_law_trigger
+				NOT = {
+					"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_apostolic_succession)" ?= flag:kog_canon_law_tithing
+				}
 			}
 		}
-		hidden_trigger = {
-			NOT = {
-				"variable_map(kog_ecumenical_council_map|flag:kog_canon_lawgroup_almsgiving)" ?= flag:kog_canon_law_tithing
+		trigger_else = { 
+			hidden_trigger = { 
+				always = no
 			}
 		}
 	}
 	effect = {
-		kog_set_support_for_council_stance_effect = {
-			debate_matter = kog_canon_lawgroup_almsgiving
-			stance = kog_canon_law_tithing
+		if = {
+			limit = {
+				kog_country_matches_journal_religion_trigger = yes
+				kog_has_ongoing_council_trigger = yes
+			}
+			kog_set_support_for_council_stance_effect = {
+				debate_matter = kog_canon_lawgroup_apostolic_succession
+				stance = kog_canon_law_tithing
+			}
 		}
+		custom_tooltip_no_bullet = kog_canon_law_tithing_modifier
 	}
 	ai_chance = {
 		value = 0
