@@ -17,35 +17,93 @@ je_kog_catholic = {
 		container = "custom_widget_container_je_icon"
 	}
 	
-	# Omen Button ( tag = omen )
+	# Omen Button
 	scripted_button = kog_gui_venerate_apparition
 	
-	# Metropolis Buttons ( tag = focus )
+	# Metropolis Buttons
 	scripted_button = kog_gui_emphasize_unity
 	scripted_button = kog_gui_enforce_attendance
 	scripted_button = kog_gui_theologize_dogma
 	scripted_button = kog_gui_promote_ecumenism
 	
-	# Minor Decision Buttons ( tag = minor_decision )
-	# //
+	# Minor Decision Buttons
+	# scripted_button =
 	
-	# Major Decision Buttons (tag = major_decision )
+	# Major Decision Buttons
 	scripted_button = kog_gui_declare_autocephaly
 	scripted_button = kog_gui_convoke_council
 	scripted_button = kog_gui_secure_tetrarchy
 	scripted_button = kog_gui_secure_pentarchy
 	scripted_button = kog_gui_mend_schism
 	
-	# Canon Law Debate Buttons ( tag = canon_law_debate )
+	# Theological Matter Debates
+	scripted_button = kog_gui_debate_theological_matter
+	scripted_button = kog_gui_support_conservative_stance
+	scripted_button = kog_gui_support_fundamentalist_stance
+	scripted_button = kog_gui_support_legalistic_stance
+	scripted_button = kog_gui_support_modernizer_stance
+	scripted_button = kog_gui_support_reformer_stance
+	
+	# Apostolic Succession Law Group
 	scripted_button = kog_gui_debate_apostolic_succession
+	scripted_button = kog_gui_support_papal_primacy
+	scripted_button = kog_gui_support_synodality
+	scripted_button = kog_gui_support_congregationalism
+	
+	# Almsgiving Law Group
 	scripted_button = kog_gui_debate_almsgiving
+	scripted_button = kog_gui_support_no_alms
+	scripted_button = kog_gui_support_offertory
+	scripted_button = kog_gui_support_tithing
+	
+	# Iconography Law Group
 	scripted_button = kog_gui_debate_iconography
+	scripted_button = kog_gui_support_iconoclasm
+	scripted_button = kog_gui_support_aniconism
+	scripted_button = kog_gui_support_iconodulism
+	scripted_button = kog_gui_support_iconolatry
+	
+	# Church and State Law Group
 	scripted_button = kog_gui_debate_statism
+	scripted_button = kog_gui_support_hierocracy
+	scripted_button = kog_gui_support_ultramontanism
+	scripted_button = kog_gui_support_secularism
+	scripted_button = kog_gui_support_gallicanism
+	scripted_button = kog_gui_support_constantinianism
+	
+	# Church and Nation Law Group
 	scripted_button = kog_gui_debate_nationalism
+	scripted_button = kog_gui_support_uranopolitism
+	scripted_button = kog_gui_support_ecclesial_communities
+	scripted_button = kog_gui_support_ethnophyletism
+	scripted_button = kog_gui_support_kinism
+	
+	# Clerical Marriage Law Group
 	scripted_button = kog_gui_debate_clerical_marriage
+	scripted_button = kog_gui_support_priests_celibate
+	scripted_button = kog_gui_support_marriage_allowed
+	
+	# Social Role Law Group
 	scripted_button = kog_gui_debate_social_role
+	scripted_button = kog_gui_support_moral_authority
+	scripted_button = kog_gui_support_moral_guidance
+	scripted_button = kog_gui_support_social_activism
+	scripted_button = kog_gui_support_modernizing_force
+	
+	# Stance on Sciences Law Group
 	scripted_button = kog_gui_debate_stance_on_sciences
+	scripted_button = kog_gui_support_scriptural_supremacy
+	scripted_button = kog_gui_support_scriptural_favoritism
+	scripted_button = kog_gui_support_scientific_disengagement
+	scripted_button = kog_gui_support_scientific_patronage
+	scripted_button = kog_gui_support_scientific_crusade
+	
+	# Crusades Law Group
 	scripted_button = kog_gui_debate_crusades
+	scripted_button = kog_gui_support_no_crusades
+	scripted_button = kog_gui_support_heathen_crusades
+	scripted_button = kog_gui_support_heretic_crusades
+	scripted_button = kog_gui_support_unlimited_crusades
 	
 	is_shown_in_lobby = {
 		kog_country_is_roman_catholic_trigger = yes
@@ -97,7 +155,9 @@ je_kog_catholic = {
 		effect = {
 			if = {
 				limit = {
-					kog_journal_has_ongoing_council_trigger = yes
+					scope:journal_entry = {
+						has_variable_list = kog_ecumenical_council_list
+					}
 				}
 				scope:journal_entry = {
 					every_scope_je_involved = {
