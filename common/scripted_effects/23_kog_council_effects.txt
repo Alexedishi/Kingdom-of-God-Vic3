@@ -203,6 +203,7 @@ kog_purge_ecumenical_council_maps_effect = {
 	clear_variable_map = kog_social_role_votes_map
 	clear_variable_map = kog_stance_on_sciences_votes_map
 	clear_variable_map = kog_crusades_votes_map
+	clear_variable_map = kog_ecumenical_council_schema_map
 	
 	clear_variable_list = kog_ecumenical_council_laws_list
 	clear_variable_list = kog_ecumenical_council_laws_list
@@ -221,7 +222,10 @@ kog_ecumenical_council_pulse_effect = {
 			limit = {
 				kog_council_remaining_duration_value <= 0
 			}
-			clear_variable_list = kog_ecumenical_council_participants_list# This is all the UI checks for; stale council data is intentionally left behind
+			# kog_ecumenical_council_participants_list is all the UI checks for; stale council data is intentionally left behind
+			clear_variable_list = kog_ecumenical_council_participants_list
+			# Enact canon law changes first, then trigger event
+			kog_enact_council_schema_effect = yes
 			every_scope_je_involved = {
 				#trigger_event = # TODO council completion event
 			}
@@ -604,15 +608,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_apostolic_succession = scope:kog_canon_lawgroup_apostolic_succession_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_apostolic_succession_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_apostolic_succession
+				value = var:kog_canon_lawgroup_apostolic_succession_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_apostolic_succession_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_apostolic_succession
+				value = scope:kog_canon_lawgroup_apostolic_succession_leader
 			}
 		}
 	}
@@ -636,15 +642,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_almsgiving = scope:kog_canon_lawgroup_almsgiving_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_almsgiving_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_almsgiving
+				value = var:kog_canon_lawgroup_almsgiving_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_almsgiving_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_almsgiving
+				value = scope:kog_canon_lawgroup_almsgiving_leader
 			}
 		}
 	}
@@ -668,15 +676,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_statism = scope:kog_canon_lawgroup_statism_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_statism_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_statism
+				value = var:kog_canon_lawgroup_statism_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_statism_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_statism
+				value = scope:kog_canon_lawgroup_statism_leader
 			}
 		}
 	}
@@ -700,15 +710,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_nationalism = scope:kog_canon_lawgroup_nationalism_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_nationalism_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_nationalism
+				value = var:kog_canon_lawgroup_nationalism_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_nationalism_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_nationalism
+				value = scope:kog_canon_lawgroup_nationalism_leader
 			}
 		}
 	}
@@ -732,15 +744,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_iconography = scope:kog_canon_lawgroup_iconography_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_iconography_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_iconography
+				value = var:kog_canon_lawgroup_iconography_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_iconography_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_iconography
+				value = scope:kog_canon_lawgroup_iconography_leader
 			}
 		}
 	}
@@ -764,15 +778,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_clerical_marriage = scope:kog_canon_lawgroup_clerical_marriage_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_clerical_marriage_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_clerical_marriage
+				value = var:kog_canon_lawgroup_clerical_marriage_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_clerical_marriage_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_clerical_marriage
+				value = scope:kog_canon_lawgroup_clerical_marriage_leader
 			}
 		}
 	}
@@ -796,15 +812,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_social_role = scope:kog_canon_lawgroup_social_role_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_social_role_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_social_role
+				value = var:kog_canon_lawgroup_social_role_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_social_role_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_social_role
+				value = scope:kog_canon_lawgroup_social_role_leader
 			}
 		}
 	}
@@ -828,15 +846,17 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_stance_on_sciences = scope:kog_canon_lawgroup_stance_on_sciences_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_stance_on_sciences_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_stance_on_sciences
+				value = var:kog_canon_lawgroup_stance_on_sciences_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_stance_on_sciences_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_stance_on_sciences
+				value = scope:kog_canon_lawgroup_stance_on_sciences_leader
 			}
 		}
 	}
@@ -860,16 +880,102 @@ kog_tally_council_votes_effect = {
 			limit = {
 				var:kog_canon_lawgroup_crusades = scope:kog_canon_lawgroup_crusades_leader
 			}
-			add_to_variable_list = {
-				name = kog_ecumenical_council_laws_list
-				target = var:kog_canon_lawgroup_crusades_current_law
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_crusades
+				value = var:kog_canon_lawgroup_crusades_current_law
 			}
 		}
 		else = {
-			add_to_variable_list = { 
-				name = kog_ecumenical_council_laws_list
-				target = scope:kog_canon_lawgroup_crusades_leader
+			com_update_value_in_variable_map = {
+				name = kog_ecumenical_council_schema_map
+				key = flag:kog_canon_lawgroup_crusades
+				value = scope:kog_canon_lawgroup_crusades_leader
 			}
+		}
+	}
+}
+
+kog_enact_council_schema_effect = {
+	if = {
+		limit = {
+			has_variable_map = kog_apostolic_succession_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_crusades
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_crusades)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_almsgiving_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_almsgiving
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_almsgiving)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_statism_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_statism
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_statism)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_nationalism_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_nationalism
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_nationalism)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_iconography_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_iconography
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_iconography)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_clerical_marriage_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_clerical_marriage
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_clerical_marriage)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_social_role_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_social_role
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_social_role)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_stance_on_sciences_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_stance_on_sciences
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_stance_on_sciences)"
+		}
+	}
+	if = {
+		limit = {
+			has_variable_map = kog_crusades_votes_map
+		}
+		set_variable = {
+			name = kog_canon_lawgroup_crusades
+			value = "variable_map(kog_ecumenical_council_schema_map|flag:kog_canon_lawgroup_crusades)"
 		}
 	}
 }
