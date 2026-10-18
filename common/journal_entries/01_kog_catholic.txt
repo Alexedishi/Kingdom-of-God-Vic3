@@ -17,16 +17,16 @@ je_kog_catholic = {
 		container = "custom_widget_container_je_icon"
 	}
 	
-	# Omen Button
-	scripted_button = kog_gui_venerate_apparition
+	# Call Down Omen Button
+	scripted_button = kog_gui_call_down_omen
 	
-	# Metropolis Buttons
+	# Metropolitan Focus Buttons
 	scripted_button = kog_gui_emphasize_unity
 	scripted_button = kog_gui_enforce_attendance
 	scripted_button = kog_gui_theologize_dogma
 	scripted_button = kog_gui_promote_ecumenism
 	
-	# Minor Decision Buttons
+	# Catholic Minor Decision Buttons
 	# scripted_button =
 	
 	# Major Decision Buttons
@@ -158,11 +158,11 @@ je_kog_catholic = {
 		}
 	}
 	
-	# on_monthly_pulse = {
-	# 	effect = {
-	# 		kog_AI_evaluate_catholic_interorg_actions = yes
-	# 	}
-	# }
+	on_monthly_pulse = {
+		effect = {
+			kog_AI_evaluate_interorg_actions_effect = yes
+		}
+	}
 }
 
 ####---------- CATHOLIC ENCYCLICAL JOURNALS ----------#####

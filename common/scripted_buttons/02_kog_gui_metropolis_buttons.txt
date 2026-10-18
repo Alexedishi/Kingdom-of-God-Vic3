@@ -1,12 +1,11 @@
-﻿####---------- Catholic Metropolis Buttons ----------####
-kog_gui_venerate_apparition = {
-	name = "kog_gui_venerate_apparition"
-	desc = "kog_gui_venerate_apparation_desc"
+﻿kog_gui_call_down_omen = {
+	name = kog_gui_call_down_omen
+	desc = kog_gui_call_down_omen_desc
 	
 	tags = { omen }
 	
 	visible = {
-		kog_country_is_roman_catholic_trigger = yes
+		kog_country_matches_journal_religion_trigger = yes
 	}
 	selected = {
 		kog_has_veneration_trigger = yes
@@ -27,7 +26,25 @@ kog_gui_venerate_apparition = {
 		kog_country_is_selecting_omen_trigger = no
 	}
 	effect = {
-		trigger_event = kog_catholic_events.002
+		if = {
+			limit = {
+				kog_country_is_roman_catholic_trigger = yes
+			}
+			trigger_event = {
+				id = kog_catholic_events.002
+				popup = yes
+			}
+		}
+		else_if = {
+			limit = {
+				kog_country_is_eastern_orthodox_trigger = yes
+			}
+			trigger_event = {
+				id = kog_orthodox_events.002
+				popup = yes
+			}
+		}
+		
 		set_variable = {
 			name = kog_selecting_omen_var
 			days = kog_3_months
@@ -39,49 +56,11 @@ kog_gui_venerate_apparition = {
 	}
 }
 
+
+####---------- Catholic Metropolis Buttons ----------####
+
+
 ####---------- Orthodox Metropolis Buttons ----------####
-kog_gui_commission_icon = {
-	name = "kog_gui_commission_icon"
-	desc = "kog_gui_commission_icon_desc"
-	
-	tags = { omen }
-	
-	visible = {
-		kog_country_is_eastern_orthodox_trigger = yes
-	}
-	selected = {
-		kog_has_icon_trigger = yes
-	}
-	possible = {
-		has_technology_researched = romanticism
-		trigger_if = {
-			limit = {
-				kog_has_icon_trigger = no
-			}
-			custom_description = {
-				text = kog_capacity_trigger
-				subject = this
-				value = kog_omen_base_cost
-				kog_capacity_value >= kog_omen_base_cost
-			}
-		}
-		kog_country_is_selecting_omen_trigger = no
-	}
-	effect = {
-		trigger_event = {
-			id = kog_orthodox_events.002
-			popup = yes
-		}
-		set_variable = {
-			name = kog_selecting_omen_var
-			days = kog_3_months
-		}
-	}
-	
-	ai_chance = {
-		value = 0
-	}
-}
 
 kog_gui_reform_synod = {
 	name = "kog_gui_reform_synod"
