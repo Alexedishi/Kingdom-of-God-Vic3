@@ -5,10 +5,16 @@ kog_debug_menu = {
 types kog_debug_menu_types {
 	
 	type kog_debug_menu = flowcontainer {
+		minimumsize = { 600 400 }
 		parentanchor = center
 		direction = vertical
+		spacing = 5
 		
-		minimumsize = { 600 400 }
+		layer = popups
+		using = clickthrough_blocker
+		filter_mouse = all
+		
+		using = dockable_background
 		
 		background = {
 			using = dark_area
