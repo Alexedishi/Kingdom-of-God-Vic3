@@ -2001,17 +2001,27 @@ kog_initialization_cleanup_effect = {
 ####---------- Compatibility Database Effects ----------####
 # These effects are here to be overridden by GotB/BR for their custom cultures and religions
 kog_add_rhomaios_culture_to_database_effect = {
-	add_to_global_variable_map = {
-		name = kog_database
-		key = flag:kog_rhomaios
-		value = cu:greek
+	if = {
+		limit = {
+			grefm_is_active = no
+		}
+		add_to_global_variable_map = {
+			name = kog_database
+			key = flag:kog_rhomaios
+			value = cu:greek
+		}
 	}
 }
 
 kog_add_elysian_culture_to_database_effect = {
-	add_to_global_variable_map = {
-		name = kog_database
-		key = flag:kog_elysian
-		value = cu:greek
+	if = {
+		limit = {
+			basileia_is_active = no
+		}
+		add_to_global_variable_map = {
+			name = kog_database
+			key = flag:kog_elysian
+			value = cu:greek
+		}
 	}
 }
