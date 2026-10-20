@@ -2184,12 +2184,16 @@ kog_initialize_collegium_effect = {
 
 kog_initialize_metropolis_effect = {
 	# Step 0: Save Country Scope; this might not always have the country as root
-	save_scope_as = kog_root_scope
+#	save_scope_as = kog_root_scope
+	set_local_variable = { 
+		name = kog_root_scope
+		value = this
+	}
 	
 	# Step 1: Create Script Container
 	create_container = {
 		tags = { local_metropolis }
-		parent = scope:kog_root_scope
+		parent = local_var:kog_root_scope
 		save_scope_as = kog_local
 	}
 	set_variable = {
@@ -2293,6 +2297,42 @@ kog_initialize_metropolis_effect = {
 		limit = {
 			kog_country_is_elysian_orthodox_trigger = yes
 		}
+		var:kog_local = {
+			set_variable = {
+				name = kog_mother_church_var
+				value = container:kog_elysium
+			}
+		}
+		if = {
+			limit = {
+				always = no ## TODO Haudenosaunee support
+			}
+			var:kog_local = {
+				set_variable = {
+					name = kog_liturgical_rite_var
+					value = flag:kog_haudenosaunee_rite
+				}
+				set_variable = {
+					name = kog_liturgical_language_var
+					value = flag:kog_language_haudenosaunee
+				}
+			}
+		}
+		if = {
+			limit = {
+				always = no ## TODO Cahokian support
+			}
+			var:kog_local = {
+				set_variable = {
+					name = kog_liturgical_rite_var
+					value = flag:kog_cahokian_rite
+				}
+				set_variable = {
+					name = kog_liturgical_language_var
+					value = flag:kog_language_haudenosaunee
+				}
+			}
+		}
 		if = {
 			limit = {
 				country_has_primary_culture = cu:mixtec
@@ -2303,8 +2343,8 @@ kog_initialize_metropolis_effect = {
 					value = flag:kog_mixtec_rite
 				}
 				set_variable = {
-					name = kog_mother_church_var
-					value = container:kog_elysium
+					name = kog_liturgical_language_var
+					value = flag:kog_language_haudenosaunee
 				}
 			}
 		}
@@ -2314,12 +2354,10 @@ kog_initialize_metropolis_effect = {
 					name = kog_liturgical_rite_var
 					value = flag:kog_elysian_rite
 				}
-			}
-		}
-		var:kog_local = {
-			set_variable = {
-				name = kog_liturgical_language_var
-				value = flag:kog_language_khoine # TODO replace this once Elysian Churches are added
+				set_variable = {
+					name = kog_liturgical_language_var
+					value = flag:kog_language_elysian
+				}
 			}
 		}
 	}
@@ -2346,17 +2384,17 @@ kog_initialize_metropolis_effect = {
 		variable = kog_global_seat_list
 		add_to_variable_map = {
 			name = kog_relations_map
-			key = scope:kog_root_scope
+			key = local_var:kog_root_scope
 			value = 0
 		}
 		add_to_variable_map = {
 			name = kog_opinions_map
-			key = scope:kog_root_scope
+			key = local_var:kog_root_scope
 			value = 0
 		}
 		add_to_variable_map = {
 			name = kog_diplomacy_map
-			key = scope:kog_root_scope
+			key = local_var:kog_root_scope
 			value = 0
 		}
 	}
