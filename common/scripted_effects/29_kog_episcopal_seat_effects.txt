@@ -555,7 +555,10 @@ kog_update_seat_patriarchs_effect = {
 		scope:kog_patriarch_scope ?= {
 			if = {
 				limit = {
-					scope:kog_episcopal_seat_scope.var:kog_seat_name_var ?= flag:kog_constantinople
+					OR = {
+						scope:kog_episcopal_seat_scope.var:kog_seat_name_var ?= flag:kog_constantinople
+						scope:kog_episcopal_seat_scope.var:kog_seat_name_var ?= flag:kog_constantinople_greek
+					}
 				}
 				set_variable = kog_ecumenical_patriarch_var
 			}

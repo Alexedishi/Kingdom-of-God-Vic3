@@ -519,13 +519,28 @@ kog_initialize_constantinople_container_effect = {
 		name = kog_constantinople
 		tags = { episcopal_seat eastern_christian eastern_orthodox }
 		on_created = {
-			set_variable = {
-				name = kog_seat_name_var
-				value = flag:kog_constantinople
+			if = {
+				limit = {
+					basileia_is_active = yes
+				}
+				set_variable = {
+					name = kog_seat_name_var
+					value = flag:kog_constantinople_greek
+				}
+				set_variable = {
+					name = kog_seat_header_var
+					value = flag:kog_constantinople_header_greek
+				}
 			}
-			set_variable = {
-				name = kog_seat_header_var
-				value = flag:kog_constantinople_header
+			else = {
+				set_variable = {
+					name = kog_seat_name_var
+					value = flag:kog_constantinople
+				}
+				set_variable = {
+					name = kog_seat_header_var
+					value = flag:kog_constantinople_header
+				}
 			}
 			set_variable = {
 				name = kog_religion_var
@@ -1207,7 +1222,7 @@ kog_initialize_container_lists_effect = {
 			has_tag = episcopal_seat
 			has_tag = roman_catholic
 		}
-		global_var:je_kog_catholic ?= {
+		global_var:je_kog_catholic = {
 			add_to_variable_list = {
 				name = kog_seats_list
 				target = prev
@@ -1221,7 +1236,7 @@ kog_initialize_container_lists_effect = {
 			has_tag = episcopal_seat
 			has_tag = eastern_orthodox
 		}
-		global_var:je_kog_orthodox ?= {
+		global_var:je_kog_orthodox = {
 			add_to_variable_list = {
 				name = kog_seats_list
 				target = prev
@@ -1229,19 +1244,20 @@ kog_initialize_container_lists_effect = {
 		}
 	}
 	
+	# TODO uncomment when ready
 	# Build Oriental Seat List
-	every_container = {
-		limit = {
-			has_tag = episcopal_seat
-			has_tag = oriental_orthodox
-		}
-		global_var:je_kog_oriental ?= {
-			add_to_variable_list = {
-				name = kog_seats_list
-				target = prev
-			}
-		}
-	}
+	# every_container = {
+	# 	limit = {
+	# 		has_tag = episcopal_seat
+	# 		has_tag = oriental_orthodox
+	# 	}
+	# 	global_var:je_kog_oriental ?= {
+	# 		add_to_variable_list = {
+	# 			name = kog_seats_list
+	# 			target = prev
+	# 		}
+	# 	}
+	# }
 	
 	# Build Elysian Seat List
 	every_container = {
@@ -1249,7 +1265,7 @@ kog_initialize_container_lists_effect = {
 			has_tag = episcopal_seat
 			has_tag = elysian_orthodox
 		}
-		global_var:je_kog_elysian ?= {
+		global_var:je_kog_elysian = {
 			add_to_variable_list = {
 				name = kog_seats_list
 				target = prev
@@ -1999,7 +2015,6 @@ kog_initialization_cleanup_effect = {
 }
 
 ####---------- Compatibility Database Effects ----------####
-# These effects are here to be overridden by GotB/BR for their custom cultures and religions
 kog_add_rhomaios_culture_to_database_effect = {
 	if = {
 		limit = {
