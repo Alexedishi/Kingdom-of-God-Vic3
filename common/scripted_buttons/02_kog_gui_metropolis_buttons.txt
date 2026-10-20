@@ -58,7 +58,62 @@
 
 
 ####---------- Catholic Metropolis Buttons ----------####
-
+kog_gui_assess_marian_apparition = {
+	name = "kog_gui_assess_marian_apparition"
+	desc = "kog_gui_assess_marian_apparition_desc"
+	
+	visible = {
+		NAND = {
+			scope:journal_entry.var:kog_medaille_assessed ?= yes
+			scope:journal_entry.var:kog_lourdes_assessed ?= yes
+			scope:journal_entry.var:kog_fatima_assessed ?= yes
+		}
+	}
+	selected = {
+		scope:journal_entry = {
+			has_variable = kog_assessing_apparition_var
+		}
+	}
+	possible = {
+		OR = {
+			trigger_if = { 
+				limit = {
+					scope:journal_entry.var:kog_medaille_assessed ?= no
+				}
+				custom_tooltip = {
+					text = kog_gui_assess_marian_apparition_medaille_trigger
+				}
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry.var:kog_lourdes_assessed ?= no
+				}
+				custom_tooltip = {
+					text = kog_gui_assess_marian_apparition_lourdes_trigger
+				}
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry.var:kog_fatima_assessed ?= no
+				}
+				custom_tooltip = {
+					text = kog_gui_assess_marian_apparition_fatima_trigger
+				}
+			}
+		}
+	}
+	effect = {
+		trigger_event = {
+			id = kog_omen_events.001
+			popup = yes
+		}
+		set_variable = kog_assessing_apparition_var
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
 
 ####---------- Orthodox Metropolis Buttons ----------####
 
