@@ -14,6 +14,7 @@
 	#	kog_initialize_oriental_orthodox_variables_effect = yes
 	#	kog_initialize_lutheran_protestant_variables_effect = yes
 	#	kog_initialize_anglican_protestant_variables_effect = yes
+	#	kog_initialize_american_clusterfuck_variables_effect = yes
 	if = {
 		limit = {
 			basileia_is_active = yes
@@ -32,6 +33,11 @@
 	kog_initialize_jerusalem_container_effect = yes
 	kog_initialize_alexandria_container_effect = yes
 	kog_initialize_moscow_container_effect = yes
+	# kog_initialize_coptic_alexandria_container_effect = yes
+	# kog_initialize_syriac_antioch_container_effect = yes
+	# kog_initialize_etchmiadzin_container_effect = yes
+	# kog_initialize_addis_ababa_container_effect = yes
+	# kog_initialize_konak_container_effect = yes
 	if = {
 		limit = {
 			basileia_is_active = yes
@@ -88,6 +94,7 @@ kog_activate_contextless_journals_effect = {
 #	add_contextless_journal_entry = je_kog_oriental
 #	add_contextless_journal_entry = je_kog_lutheran
 #	add_contextless_journal_entry = je_kog_anglican
+#	add_contextless_journal_entry = je_kog_america
 	if = {
 		limit = {
 			basileia_is_active = yes
@@ -1153,7 +1160,7 @@ kog_initialize_cahokia_container_effect = {
 			}
 			set_variable = {
 				name = kog_foundation_var
-				value = year
+				value = 680
 			}
 		}
 	}
@@ -1272,69 +1279,171 @@ kog_initialize_container_lists_effect = {
 			}
 		}
 	}
+	
+	# Sort the Seat Lists by Seniority
+	every_in_global_list = {
+		variable = kog_global_journals_list
+		sort_variable_list = {
+			name = kog_seats_list
+			order = var:kog_foundation_var
+		}
+	}
 }
 
 ####---------- Other Content Initialization Effects ----------####
 kog_initialize_seat_controllers_effect = {
-	# Override this in BR
-	container:kog_rome = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:PAP
+	# Handling for Basileia Romaion
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		container:kog_rome = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
+		}
+		container:kog_santiago = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
+		}
+		container:kog_paris = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
+		}
+		container:kog_koln = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
+		}
+		container:kog_vienna = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
+		}
+		container:kog_constantinople = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:BYZ
+			}
+		}
+		container:kog_antioch = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:BYZ
+			}
+		}
+		container:kog_jerusalem = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:BYZ
+			}
+		}
+		container:kog_alexandria = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:BYZ
+			}
+		}
+		container:kog_moscow = {
+			set_variable = {
+				name = kog_controller_var
+				value = p:x13D91C.owner # Tag does not exist in KoG
+			}
+		}
+		container:kog_elysium = {
+			set_variable = {
+				name = kog_controller_var
+				value = p:x700080.owner # Tag does not exist in KoG
+			}
+		}
+		container:kog_onondaga = {
+			set_variable = {
+				name = kog_controller_var
+				value = p:x01D042.owner # Tag does not exist in KoG
+			}
+		}
+		container:kog_cahokia = {
+			set_variable = {
+				name = kog_controller_var
+				value = p:x2938A5.owner # Tag does not exist in KoG
+			}
+		}
+		container:kog_mixtec = {
+			set_variable = {
+				name = kog_controller_var
+				value = p:x1BC4D0.owner # Tag does not exist in KoG
+			}
 		}
 	}
-	container:kog_santiago = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:PAP
+	
+	# Base KoG Controllers
+	else = {
+		container:kog_rome = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
 		}
-	}
-	container:kog_paris = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:PAP
+		container:kog_santiago = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
 		}
-	}
-	container:kog_koln = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:PAP
+		container:kog_paris = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
 		}
-	}
-	container:kog_vienna = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:PAP
+		container:kog_koln = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
 		}
-	}
-	container:kog_constantinople = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:TUR
+		container:kog_vienna = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:PAP
+			}
 		}
-	}
-	container:kog_antioch = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:TUR
+		container:kog_constantinople = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:TUR
+			}
 		}
-	}
-	container:kog_jerusalem = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:EGY
+		container:kog_antioch = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:TUR
+			}
 		}
-	}
-	container:kog_alexandria = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:EGY
+		container:kog_jerusalem = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:EGY
+			}
 		}
-	}
-	container:kog_moscow = {
-		set_variable = {
-			name = kog_controller_var
-			value = c:RUS
+		container:kog_alexandria = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:EGY
+			}
+		}
+		container:kog_moscow = {
+			set_variable = {
+				name = kog_controller_var
+				value = c:RUS
+			}
 		}
 	}
 }
@@ -1661,7 +1770,306 @@ kog_initialize_1836_patriarchs_effect = {
 	}
 }
 
-kog_initialize_1736_patriarchs_effect = {} # Override this in BR
+kog_initialize_1736_patriarchs_effect = {
+	## Catholic Churches ##
+	c:PAP = {
+		ruler = {
+			save_scope_as = kog_rome_patriarch
+			add_trait = kog_patriarch
+			set_variable = {
+				name = kog_seat_var
+				value = container:kog_rome
+			}
+			container:kog_rome = {
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_rome_patriarch
+				}
+			}
+			global_var:je_kog_catholic = {
+				set_variable = {
+					name = com_interorg_chair_var
+					value = scope:kog_rome_patriarch
+				}
+			}
+		}
+		# Prominent Italian Cardinals
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
+			}
+		}
+	}
+	c:SPA = {
+		# Santiago
+		create_character = {
+			template = kog_cardinal_template
+			first_name = "Rafael"
+			last_name = "Velez"
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			age = 60 # birth date unknown, position vacated in 1850
+			save_scope_as = kog_santiago_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 190
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_santiago
+				}
+			}
+		}
+		container:kog_santiago = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_santiago_patriarch
+			}
+		}
+	}
+	c:FRA = {
+		# Paris
+		create_character = {
+			template = kog_cardinal_template
+			first_name = "Hyacinthe"
+			last_name = "De_Quelen"
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			birth_date = 1778.10.8
+			save_scope_as = kog_paris_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 210
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_paris
+				}
+			}
+		}
+		container:kog_paris = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_paris_patriarch
+			}
+		}
+	}
+	c:PRU = {
+		# Koln
+		create_character = {
+			template = kog_cardinal_template
+			first_name = "Clemens"
+			last_name = "Droste_zu_Vischering"
+			historical = yes
+			culture = cu:north_german
+			religion = rel:catholic
+			birth_date = 1773.1.21
+			save_scope_as = kog_koln_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 170
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_koln
+				}
+			}
+		}
+		container:kog_koln = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_koln_patriarch
+			}
+		}
+	}
+	c:AUS = {
+		# Vienna
+		create_character = {
+			template = kog_cardinal_template
+			first_name = "Vinzenz"
+			last_name = "Milde"
+			historical = yes
+			culture = cu:south_german
+			religion = rel:catholic
+			birth_date = 1777.5.11
+			save_scope_as = kog_vienna_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 210
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_vienna
+				}
+			}
+		}
+		container:kog_vienna = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_vienna_patriarch
+			}
+		}
+	}
+	
+	## Orthodox Churches ##
+	c:TUR = {
+		# Constantinople
+		create_character = {
+			template = kog_patriarch_template
+			first_name = "Georgios"
+			last_name = "Fourtouniadis"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_constantinople_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 140
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_constantinople
+				}
+				set_variable = kog_ecumenical_patriarch_var
+			}
+		}
+		container:kog_constantinople = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_constantinople_patriarch
+			}
+		}
+		global_var:je_kog_orthodox = {
+			set_variable = {
+				name = com_interorg_chair_var
+				value = scope:kog_constantinople_patriarch
+			}
+		}
+	}
+	# Antioch
+	c:EGY = {
+		create_character = {
+			template = kog_patriarch_template
+			first_name = "Methodius"
+			last_name = "Methodius"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_antioch_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 110
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_antioch
+				}
+			}
+		}
+		container:kog_antioch = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_antioch_patriarch
+			}
+		}
+	}
+	c:EGY = {
+		# Jerusalem
+		create_character = {
+			template = kog_patriarch_template
+			first_name = "Methodius"
+			last_name = "Methodius"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_jerusalem_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 200
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_jerusalem
+				}
+			}
+		}
+		container:kog_jerusalem = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_jerusalem_patriarch
+			}
+		}
+	}
+	c:EGY = {
+		# Alexandria
+		create_character = {
+			template = kog_patriarch_template
+			first_name = "Hierotheus"
+			last_name = "Hierotheus"
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_alexandria_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 205
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_alexandria
+				}
+			}
+		}
+		container:kog_alexandria = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_alexandria_patriarch
+			}
+		}
+	}
+	c:RUS = {
+		# Moscow
+		create_character = {
+			template = kog_patriarch_template
+			first_name = "Vasily"
+			last_name = "Drozdov"
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			save_scope_as = kog_moscow_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_moscow
+				}
+			}
+		}
+		container:kog_moscow = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_moscow_patriarch
+			}
+		}
+	}
+}
 
 kog_initialize_collegium_effect = {
 	# First, place extant Catholic Devout leaders into the Cardinal list
@@ -1860,12 +2268,12 @@ kog_initialize_metropolis_effect = {
 		add_to_variable_map = {
 			name = kog_relations_map
 			key = scope:kog_root_scope
-			value = kog_opinion_start_value
+			value = 0
 		}
 		add_to_variable_map = {
 			name = kog_opinions_map
 			key = scope:kog_root_scope
-			value = kog_opinion_start_value
+			value = 0
 		}
 		add_to_variable_map = {
 			name = kog_diplomacy_map

@@ -155,13 +155,16 @@ je_kog_elysian = {
 		}
 	}
 	
-	outcome = {
-		conclusion_desc = je_standard_failure_conclusion_desc
-		flags = { invalid_outcome hidden }
-		
-		trigger = {
-			basileia_is_active = no
+	on_weekly_pulse = {
+		effect = {
+			kog_ecumenical_council_pulse_effect = yes
+			kog_papal_conclave_pulse_effect = yes
 		}
-		effect = { }
+	}
+	
+	on_monthly_pulse = {
+		effect = {
+			kog_AI_evaluate_episcopal_seat_diplomacy_effect = yes
+		}
 	}
 }
