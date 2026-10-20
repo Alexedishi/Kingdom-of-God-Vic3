@@ -1,0 +1,57 @@
+﻿CHARACTERS = {
+	c:PAP ?= {
+		if = {
+			limit = {
+				basileia_is_active = yes
+			}
+			create_character = {
+				culture = primary_culture
+				# Benedict XIII
+				first_name = Benedict
+				last_name = Francesco
+				ruler = yes
+				birth_date = 1649.2.2
+				interest_group = ig_devout
+				ideology = ideology_theocrat
+				traits = {
+					inept
+					erudite
+					literary
+					kog_patriarch
+				}
+			}
+			create_character = {
+				culture = primary_culture
+				# Lorenzo Corsini, future Clement XII
+				first_name = Lorenzo
+				last_name = Corsini
+				birth_date = 1676.3.6
+				ig_leader = yes
+				interest_group = ig_devout
+				ideology = ideology_moderate
+				traits = {
+					imperious
+					aesthete
+					wrathful
+				}
+			}
+		}
+		else = {
+			create_character = {
+				template = PAP_gregorius_cappellari
+			}
+			create_character = {
+				template = PAP_carlo_armellini
+			}
+			create_character = {
+				template = PAP_luigi_lambruschini
+			}
+			create_character = {
+				template = PAP_giovanni_maria_ferretti
+			}
+			create_character = {
+				template = PAP_filippo_resta
+			}
+		}
+	}
+}
