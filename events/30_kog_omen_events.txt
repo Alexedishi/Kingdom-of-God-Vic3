@@ -1,0 +1,50 @@
+﻿namespace = kog_omen_events
+
+####	TABLE OF CONTENTS	####	#TOC
+
+# The ## before an event indicates content not yet implemented; the >> indicates an event being moved in from another event module
+
+#1-XXX - Hidden Events
+#	001 - Venerating the Virgin Mother
+#	002 - Elevating an Icon
+#	003 - ##--Oriental Event
+#	004 - ##--Lutheran Event
+#	005 - ##--Anglican Event
+#	010 - Enthroning a Votive
+#	020 - ##A Vision of the Holy Mother
+
+
+kog_omen_events.001 = {
+	type = country_event
+	placement = root
+	icon = gfx/interface/icons/generic_icons/kog_icon.dds
+	duration = 3
+	dlc = dlc_kog
+	
+	title = kog_omen_events.001.t
+	desc = kog_omen_events.001.d
+	flavor = kog_omen_events.001.f
+	
+	event_image = {
+		video = "southamerica_christianity"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = .a
+		default_option = yes
+	}
+	
+	option = {
+		name = .b
+	}
+	
+	after = {
+	}
+}
