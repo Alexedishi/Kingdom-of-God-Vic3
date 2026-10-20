@@ -2416,6 +2416,7 @@ types kog_episcopal_seats_panel_types {
 		)]"
 		
 		datamodel = "[JournalEntry.MakeScope.GetList('kog_seats_list')]"
+		bottomtotop = yes
 		
 		item = {
 			kog_episcopal_seat_item = { }
@@ -2587,7 +2588,7 @@ types kog_episcopal_seats_panel_types {
 				# Liturgical Rite
 				textbox = {
 					parentanchor = left|vcenter
-					text = "kog_gui_liturgical_language"
+					text = "kog_gui_liturgical_rite"
 					size = { 170 20 }
 					elide = right
 					using = fontsize_medium
@@ -2599,7 +2600,7 @@ types kog_episcopal_seats_panel_types {
 				# Opinion
 				textbox = {
 					parentanchor = left|vcenter
-					text = "kog_gui_liturgical_rite"
+					text = "kog_gui_liturgical_language"
 					size = { 170 20 }
 					elide = right
 					using = fontsize_medium
@@ -2744,10 +2745,23 @@ types kog_episcopal_seats_panel_types {
 					datacontext = "[GetScriptedGui('kog_enforce_seat_sgui')]"
 				}
 				blockoverride "button_tooltip" {
-					tooltip = "kog_gui_sway_seat_desc"
+					tooltip = "kog_gui_enforce_seat_desc"
 				}
 				blockoverride "button_icon_texture" {
 					texture = "gfx/interface/icons/scripted_actions/kog_enforce_rite.dds"
+				}
+			}
+			
+			# Enforce Rite
+			kog_episcopal_seat_button = {
+				blockoverride "button_datacontext" {
+					datacontext = "[GetScriptedGui('kog_install_seat_sgui')]"
+				}
+				blockoverride "button_tooltip" {
+					tooltip = "kog_gui_install_seat_desc"
+				}
+				blockoverride "button_icon_texture" {
+					texture = "gfx/interface/icons/scripted_actions/kog_install_bishop.dds"
 				}
 			}
 		}

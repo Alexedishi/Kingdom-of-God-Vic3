@@ -61,12 +61,7 @@
 	kog_update_faith_journal_lists_effect = yes
 	
 	#### Step 8, Initialize Local Script Container and Variables
-	every_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-		}
-		kog_initialize_metropolis_effect = yes
-	}
+	kog_initialize_local_containers_effect = yes
 	
 	#### Step 9, Apply Seat Control and Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
@@ -2182,6 +2177,18 @@ kog_initialize_collegium_effect = {
 	}
 }
 
+kog_initialize_local_containers_effect = {
+	# This is wrapped to allow for easier overrides for sub-mods; PAP is a valid tag in both Base Game and BR
+	c:PAP = {
+		every_country = {
+			limit = {
+				kog_content_scope_trigger = yes
+			}
+			kog_initialize_metropolis_effect = yes
+		}
+	}
+}
+
 kog_initialize_metropolis_effect = {
 	# Step 0: Save Country Scope; this might not always have the country as root
 #	save_scope_as = kog_root_scope
@@ -2390,7 +2397,7 @@ kog_initialize_metropolis_effect = {
 		add_to_variable_map = {
 			name = kog_opinions_map
 			key = local_var:kog_root_scope
-			value = 0
+			value = 25
 		}
 		add_to_variable_map = {
 			name = kog_diplomacy_map
