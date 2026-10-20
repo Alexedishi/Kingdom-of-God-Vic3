@@ -50,15 +50,7 @@
 	kog_initialize_container_lists_effect = yes
 	
 	#### Step 5, Create Patriarchs, Capture Heads of Faith, and Assign Seat Controllers
-	if = {
-		limit = {
-			basileia_is_active = yes
-		}
-		kog_initialize_1736_patriarchs_effect = yes
-	}
-	else = {
-		kog_initialize_1836_patriarchs_effect = yes
-	}
+	kog_initialize_patriarchs_effect = yes
 	kog_initialize_seat_controllers_effect = yes
 	kog_initialize_mother_church_variables = yes
 	
@@ -1290,6 +1282,716 @@ kog_initialize_container_lists_effect = {
 	}
 }
 
+####---------- Patriarch & Controller Effects ----------####
+kog_initialize_patriarchs_effect = {
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		kog_initialize_1736_patriarchs_effect = yes
+	}
+	else = {
+		kog_initialize_1836_patriarchs_effect = yes
+	}
+}
+
+kog_initialize_1836_patriarchs_effect = {
+	# Override this effect for mod-specific starting Patriarchs
+	# These are specific to the 1836 start in Victoria 3
+	
+	## Catholic Churches ##
+	c:PAP = {
+		# Rome; with special handling for the PAP tag existing
+		ruler = {
+			save_scope_as = kog_rome_patriarch
+			set_variable = {
+				name = kog_seat_var
+				value = container:kog_rome
+			}
+		}
+		container:kog_rome = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_rome_patriarch
+			}
+		}
+		global_var:je_kog_catholic = {
+			set_variable = {
+				name = com_interorg_chair_var
+				value = scope:kog_rome_patriarch
+			}
+		}
+		
+		# Prominent Italian Cardinals
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
+			}
+		}
+	}
+	c:SPA = {
+		# Santiago
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Rafael
+			last_name = Velez
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			age = 60 # birth date unknown, position vacated in 1850
+			save_scope_as = kog_santiago_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 190
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_santiago
+				}
+			}
+		}
+		container:kog_santiago = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_santiago_patriarch
+			}
+		}
+	}
+	c:FRA = {
+		# Paris
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Hyacinthe
+			last_name = De_Quelen
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			birth_date = 1778.10.8
+			save_scope_as = kog_paris_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 210
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_paris
+				}
+			}
+		}
+		container:kog_paris = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_paris_patriarch
+			}
+		}
+	}
+	c:PRU = {
+		# Koln
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Clemens
+			last_name = Droste_zu_Vischering
+			historical = yes
+			culture = cu:north_german
+			religion = rel:catholic
+			birth_date = 1773.1.21
+			save_scope_as = kog_koln_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 170
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_koln
+				}
+			}
+		}
+		container:kog_koln = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_koln_patriarch
+			}
+		}
+	}
+	c:AUS = {
+		# Vienna
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Vinzenz
+			last_name = Milde
+			historical = yes
+			culture = cu:south_german
+			religion = rel:catholic
+			birth_date = 1777.5.11
+			save_scope_as = kog_vienna_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 210
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_vienna
+				}
+			}
+		}
+		container:kog_vienna = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_vienna_patriarch
+			}
+		}
+	}
+	
+	## Orthodox Churches ##
+	c:TUR = {
+		# Constantinople
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Georgios
+			last_name = Fourtouniadis
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_constantinople_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 140
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_constantinople
+				}
+				set_variable = kog_ecumenical_patriarch_var
+			}
+		}
+		container:kog_constantinople = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_constantinople_patriarch
+			}
+		}
+		global_var:je_kog_orthodox = {
+			set_variable = {
+				name = com_interorg_chair_var
+				value = scope:kog_constantinople_patriarch
+			}
+		}
+	}
+	# Antioch
+	c:EGY = {
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Methodius
+			last_name = Methodius
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_antioch_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 110
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_antioch
+				}
+			}
+		}
+		container:kog_antioch = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_antioch_patriarch
+			}
+		}
+	}
+	c:EGY = {
+		# Jerusalem
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Methodius
+			last_name = Methodius
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_jerusalem_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 200
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_jerusalem
+				}
+			}
+		}
+		container:kog_jerusalem = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_jerusalem_patriarch
+			}
+		}
+	}
+	c:EGY = {
+		# Alexandria
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Hierotheus
+			last_name = Hierotheus
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_alexandria_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 205
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_alexandria
+				}
+			}
+		}
+		container:kog_alexandria = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_alexandria_patriarch
+			}
+		}
+	}
+	c:RUS = {
+		# Moscow
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Vasily
+			last_name = Drozdov
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			save_scope_as = kog_moscow_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_moscow
+				}
+			}
+		}
+		container:kog_moscow = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_moscow_patriarch
+			}
+		}
+	}
+}
+
+kog_initialize_1736_patriarchs_effect = {
+	## Catholic Churches ##
+	c:PAP = {
+		ruler = {
+			save_scope_as = kog_rome_patriarch
+			set_variable = {
+				name = kog_seat_var
+				value = container:kog_rome
+			}
+			container:kog_rome = {
+				set_variable = {
+					name = kog_patriarch_var
+					value = scope:kog_rome_patriarch
+				}
+			}
+			global_var:je_kog_catholic = {
+				set_variable = {
+					name = com_interorg_chair_var
+					value = scope:kog_rome_patriarch
+				}
+			}
+		}
+		# Prominent Italian Cardinals
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
+			}
+		}
+		
+		# Santiago
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Jose_Yermo
+			last_name = Santibanez
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			age = 72 # birth date unknown, position vacated in 1837
+			save_scope_as = kog_santiago_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 190
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_santiago
+				}
+			}
+		}
+		container:kog_santiago = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_santiago_patriarch
+			}
+		}
+		
+		# Paris
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Charles-Gaspard-Guillaume
+			last_name = Vintimille_du_Luc
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			birth_date = 1655.12.15
+			save_scope_as = kog_paris_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 210
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_paris
+				}
+			}
+		}
+		container:kog_paris = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_paris_patriarch
+			}
+		}
+		
+		# Koln
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Clemens
+			last_name = von_Bayern
+			historical = yes
+			culture = cu:north_german
+			religion = rel:catholic
+			birth_date = 1700.8.17
+			save_scope_as = kog_koln_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 170
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_koln
+				}
+			}
+		}
+		container:kog_koln = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_koln_patriarch
+			}
+		}
+		
+		# Vienna
+		create_character = {
+			template = kog_cardinal_template
+			first_name = Sigismund
+			last_name = von_Kollonitsch
+			historical = yes
+			culture = cu:south_german
+			religion = rel:catholic
+			birth_date = 1677.5.30
+			save_scope_as = kog_vienna_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 210
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_vienna
+				}
+			}
+		}
+		container:kog_vienna = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_vienna_patriarch
+			}
+		}
+	}
+	
+	## Orthodox Churches ##
+	c:BYZ = {
+		# Constantinople
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Neophytus
+			last_name = of_Patmos
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_constantinople_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 140
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_constantinople
+				}
+				set_variable = kog_ecumenical_patriarch_var
+			}
+		}
+		container:kog_constantinople = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_constantinople_patriarch
+			}
+		}
+		global_var:je_kog_orthodox = {
+			set_variable = {
+				name = com_interorg_chair_var
+				value = scope:kog_constantinople_patriarch
+			}
+		}
+		
+		# Antioch
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Sylvesteros
+			last_name = Dabbas
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_antioch_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 110
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_antioch
+				}
+			}
+		}
+		container:kog_antioch = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_antioch_patriarch
+			}
+		}
+		
+		# Jerusalem
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Athanasius
+			last_name = of_Jerusalem
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_jerusalem_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 200
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_jerusalem
+				}
+			}
+		}
+		container:kog_jerusalem = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_jerusalem_patriarch
+			}
+		}
+		
+		# Alexandria
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Cosmas
+			last_name = of_Alexandria
+			historical = yes
+			culture = cu:greek
+			religion = rel:orthodox
+			save_scope_as = kog_alexandria_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 205
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_alexandria
+				}
+			}
+		}
+		container:kog_alexandria = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_alexandria_patriarch
+			}
+		}
+		
+		# Moscow
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Joseph
+			last_name = Volchansky
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			save_scope_as = kog_moscow_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_moscow
+				}
+			}
+		}
+		container:kog_moscow = {
+			set_variable = {
+				name = kog_patriarch_var
+				value = scope:kog_moscow_patriarch
+			}
+		}
+	}
+	
+	## Elysian Churches ##
+	
+	# Elysium
+	p:x700080.owner = {
+		save_scope_as = elysium_scope
+	}
+	scope:elysium_scope = {
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Alessandro
+			last_name = Konstantinos
+			culture = culture
+			religion = religion
+			save_scope_as = kog_elysium_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_elysium
+				}
+			}
+		}
+	}
+	global_var:je_kog_catholic = {
+		set_variable = {
+			name = com_interorg_chair_var
+			value = scope:kog_elysium_patriarch
+		}
+	}
+	
+	# Onondaga
+	p:x01D042.owner = {
+		save_scope_as = onondaga_scope
+	}
+	scope:onondaga_scope = {
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Domagaya
+			last_name = Kispokotha
+			culture = culture
+			religion = religion
+			save_scope_as = kog_onondaga_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_onondaga
+				}
+			}
+		}
+	}
+	
+	# Cahokia
+	p:x2938A5.owner = {
+		save_scope_as = cahokia_scope
+	}
+	scope:cahokia_scope = {
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Hokoleskwa
+			last_name = Eskippakithiki
+			culture = culture
+			religion = religion
+			save_scope_as = kog_cahokia_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_cahokia
+				}
+			}
+		}
+	}
+	
+	# x1BC4D0
+	p:x700080.owner = {
+		save_scope_as = tututepec_scope
+	}
+	scope:tututepec_scope = {
+		create_character = {
+			template = kog_patriarch_template
+			first_name = Akbal
+			last_name = Ixquiac
+			culture = culture
+			religion = religion
+			save_scope_as = kog_tututepec_patriarch
+			on_created = {
+				add_trait = kog_patriarch
+				place_character_in_void = 250
+				set_variable = {
+					name = kog_seat_var
+					value = container:kog_tututepec
+				}
+			}
+		}
+	}
+}
+
 ####---------- Other Content Initialization Effects ----------####
 kog_initialize_seat_controllers_effect = {
 	# Handling for Basileia Romaion
@@ -1443,629 +2145,6 @@ kog_initialize_seat_controllers_effect = {
 			set_variable = {
 				name = kog_controller_var
 				value = c:RUS
-			}
-		}
-	}
-}
-
-kog_initialize_1836_patriarchs_effect = {
-	# Override this effect for mod-specific starting Patriarchs
-	# These are specific to the 1836 start in Victoria 3
-	
-	## Catholic Churches ##
-	c:PAP = {
-		# Rome; overwriting Vanilla character for the template
-		create_character = {
-			template = kog_patriarch_template
-			# Gregory XVI, captured from the vanilla file to ensure usage of kog_patriarch_template
-			first_name = "Gregorius"
-			last_name = "Cappellari"
-			historical = yes
-			culture = primary_culture
-			ruler = yes
-			birth_date = 1765.9.18
-			dna = dna_pope_gregory_16
-			interest_group = ig_devout
-			ideology = ideology_theocrat
-			traits = {
-				imperious
-			}
-			save_scope_as = kog_rome_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_rome
-				}
-			}
-		}
-		container:kog_rome = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_rome_patriarch
-			}
-		}
-		global_var:je_kog_catholic = {
-			set_variable = {
-				name = com_interorg_chair_var
-				value = scope:kog_rome_patriarch
-			}
-		}
-		
-		# Prominent Italian Cardinals
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
-			}
-		}
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
-			}
-		}
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
-			}
-		}
-	}
-	c:SPA = {
-		# Santiago
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Rafael"
-			last_name = "Velez"
-			historical = yes
-			culture = cu:spanish
-			religion = rel:catholic
-			age = 60 # birth date unknown, position vacated in 1850
-			save_scope_as = kog_santiago_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 190
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_santiago
-				}
-			}
-		}
-		container:kog_santiago = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_santiago_patriarch
-			}
-		}
-	}
-	c:FRA = {
-		# Paris
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Hyacinthe"
-			last_name = "De_Quelen"
-			historical = yes
-			culture = cu:french
-			religion = rel:catholic
-			birth_date = 1778.10.8
-			save_scope_as = kog_paris_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 210
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_paris
-				}
-			}
-		}
-		container:kog_paris = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_paris_patriarch
-			}
-		}
-	}
-	c:PRU = {
-		# Koln
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Clemens"
-			last_name = "Droste_zu_Vischering"
-			historical = yes
-			culture = cu:north_german
-			religion = rel:catholic
-			birth_date = 1773.1.21
-			save_scope_as = kog_koln_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 170
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_koln
-				}
-			}
-		}
-		container:kog_koln = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_koln_patriarch
-			}
-		}
-	}
-	c:AUS = {
-		# Vienna
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Vinzenz"
-			last_name = "Milde"
-			historical = yes
-			culture = cu:south_german
-			religion = rel:catholic
-			birth_date = 1777.5.11
-			save_scope_as = kog_vienna_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 210
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_vienna
-				}
-			}
-		}
-		container:kog_vienna = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_vienna_patriarch
-			}
-		}
-	}
-	
-	## Orthodox Churches ##
-	c:TUR = {
-		# Constantinople
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Georgios"
-			last_name = "Fourtouniadis"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_constantinople_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 140
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_constantinople
-				}
-				set_variable = kog_ecumenical_patriarch_var
-			}
-		}
-		container:kog_constantinople = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_constantinople_patriarch
-			}
-		}
-		global_var:je_kog_orthodox = {
-			set_variable = {
-				name = com_interorg_chair_var
-				value = scope:kog_constantinople_patriarch
-			}
-		}
-	}
-	# Antioch
-	c:EGY = {
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Methodius"
-			last_name = "Methodius"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_antioch_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 110
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_antioch
-				}
-			}
-		}
-		container:kog_antioch = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_antioch_patriarch
-			}
-		}
-	}
-	c:EGY = {
-		# Jerusalem
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Methodius"
-			last_name = "Methodius"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_jerusalem_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 200
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_jerusalem
-				}
-			}
-		}
-		container:kog_jerusalem = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_jerusalem_patriarch
-			}
-		}
-	}
-	c:EGY = {
-		# Alexandria
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Hierotheus"
-			last_name = "Hierotheus"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_alexandria_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 205
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_alexandria
-				}
-			}
-		}
-		container:kog_alexandria = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_alexandria_patriarch
-			}
-		}
-	}
-	c:RUS = {
-		# Moscow
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Vasily"
-			last_name = "Drozdov"
-			historical = yes
-			culture = cu:russian
-			religion = rel:orthodox
-			save_scope_as = kog_moscow_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 250
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_moscow
-				}
-			}
-		}
-		container:kog_moscow = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_moscow_patriarch
-			}
-		}
-	}
-}
-
-kog_initialize_1736_patriarchs_effect = {
-	## Catholic Churches ##
-	c:PAP = {
-		ruler = {
-			save_scope_as = kog_rome_patriarch
-			add_trait = kog_patriarch
-			set_variable = {
-				name = kog_seat_var
-				value = container:kog_rome
-			}
-			container:kog_rome = {
-				set_variable = {
-					name = kog_patriarch_var
-					value = scope:kog_rome_patriarch
-				}
-			}
-			global_var:je_kog_catholic = {
-				set_variable = {
-					name = com_interorg_chair_var
-					value = scope:kog_rome_patriarch
-				}
-			}
-		}
-		# Prominent Italian Cardinals
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
-			}
-		}
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
-			}
-		}
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
-			}
-		}
-	}
-	c:SPA = {
-		# Santiago
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Rafael"
-			last_name = "Velez"
-			historical = yes
-			culture = cu:spanish
-			religion = rel:catholic
-			age = 60 # birth date unknown, position vacated in 1850
-			save_scope_as = kog_santiago_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 190
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_santiago
-				}
-			}
-		}
-		container:kog_santiago = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_santiago_patriarch
-			}
-		}
-	}
-	c:FRA = {
-		# Paris
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Hyacinthe"
-			last_name = "De_Quelen"
-			historical = yes
-			culture = cu:french
-			religion = rel:catholic
-			birth_date = 1778.10.8
-			save_scope_as = kog_paris_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 210
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_paris
-				}
-			}
-		}
-		container:kog_paris = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_paris_patriarch
-			}
-		}
-	}
-	c:PRU = {
-		# Koln
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Clemens"
-			last_name = "Droste_zu_Vischering"
-			historical = yes
-			culture = cu:north_german
-			religion = rel:catholic
-			birth_date = 1773.1.21
-			save_scope_as = kog_koln_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 170
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_koln
-				}
-			}
-		}
-		container:kog_koln = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_koln_patriarch
-			}
-		}
-	}
-	c:AUS = {
-		# Vienna
-		create_character = {
-			template = kog_cardinal_template
-			first_name = "Vinzenz"
-			last_name = "Milde"
-			historical = yes
-			culture = cu:south_german
-			religion = rel:catholic
-			birth_date = 1777.5.11
-			save_scope_as = kog_vienna_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 210
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_vienna
-				}
-			}
-		}
-		container:kog_vienna = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_vienna_patriarch
-			}
-		}
-	}
-	
-	## Orthodox Churches ##
-	c:TUR = {
-		# Constantinople
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Georgios"
-			last_name = "Fourtouniadis"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_constantinople_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 140
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_constantinople
-				}
-				set_variable = kog_ecumenical_patriarch_var
-			}
-		}
-		container:kog_constantinople = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_constantinople_patriarch
-			}
-		}
-		global_var:je_kog_orthodox = {
-			set_variable = {
-				name = com_interorg_chair_var
-				value = scope:kog_constantinople_patriarch
-			}
-		}
-	}
-	# Antioch
-	c:EGY = {
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Methodius"
-			last_name = "Methodius"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_antioch_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 110
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_antioch
-				}
-			}
-		}
-		container:kog_antioch = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_antioch_patriarch
-			}
-		}
-	}
-	c:EGY = {
-		# Jerusalem
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Methodius"
-			last_name = "Methodius"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_jerusalem_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 200
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_jerusalem
-				}
-			}
-		}
-		container:kog_jerusalem = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_jerusalem_patriarch
-			}
-		}
-	}
-	c:EGY = {
-		# Alexandria
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Hierotheus"
-			last_name = "Hierotheus"
-			historical = yes
-			culture = cu:greek
-			religion = rel:orthodox
-			save_scope_as = kog_alexandria_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 205
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_alexandria
-				}
-			}
-		}
-		container:kog_alexandria = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_alexandria_patriarch
-			}
-		}
-	}
-	c:RUS = {
-		# Moscow
-		create_character = {
-			template = kog_patriarch_template
-			first_name = "Vasily"
-			last_name = "Drozdov"
-			historical = yes
-			culture = cu:russian
-			religion = rel:orthodox
-			save_scope_as = kog_moscow_patriarch
-			on_created = {
-				add_trait = kog_patriarch
-				place_character_in_void = 250
-				set_variable = {
-					name = kog_seat_var
-					value = container:kog_moscow
-				}
-			}
-		}
-		container:kog_moscow = {
-			set_variable = {
-				name = kog_patriarch_var
-				value = scope:kog_moscow_patriarch
 			}
 		}
 	}
