@@ -1,0 +1,164 @@
+﻿INJECT:headgear = {
+	kog_priest_western_headgear_base = {
+		# This is intentionally has the broadest triggers; it serves as the universal fallback
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = catholic_clergy_headgear
+				range = { 0 0.66 }
+				#accessory = male_headgear_european_religious_catholic_01_black
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					kog_religion_is_eastern_christian_trigger = no
+					NOR = {
+						has_trait = kog_cardinal
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	kog_priest_western_headgear_cardinal = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = catholic_clergy_headgear_colors
+				#accessory = male_headgear_dark_straw_hat
+				accessory = male_headgear_european_religious_catholic_01_red
+				
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 11000
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					has_trait = kog_cardinal
+					kog_religion_is_eastern_christian_trigger = no
+					NOR = {
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	kog_catholic_advent_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = catholic_clergy_headgear_colors
+				accessory = male_headgear_european_religious_catholic_01_purple
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 11500
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					religion = rel:catholic
+					month = 11
+					NOR = {
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	orthodox_clergy_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = male_headgear_historical
+				accessory = male_headgear_petar_ii_petrovic_njegos
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				NOT = {
+					has_dlc_feature = ip5_cosmetics
+				}
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					kog_religion_is_eastern_christian_trigger = yes
+				}
+			}
+		}
+	}
+	
+	orthodox_clergy_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = orthodox_headgear
+				accessory = male_headgear_slavic_orthodox_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				has_dlc_feature = ip5_cosmetics
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					kog_religion_is_eastern_christian_trigger = yes
+				}
+			}
+		}
+	}
+	
+	papal_headgear = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = headgear
+				template = european_pope_headgear
+				accessory = male_headgear_european_religious_catholic_02
+			}
+		}
+		
+		weight = {
+			base = 0
+			modifier = {
+				add = 12000
+				scope:character ?= {
+					is_interest_group_type = ig_devout
+					kog_country_is_eastern_christian_trigger = no
+					is_ruler_of_own_country = yes
+					has_law_or_variant = law_type:law_theocracy
+				}
+			}
+		}
+	}
+}

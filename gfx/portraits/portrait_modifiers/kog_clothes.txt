@@ -1,0 +1,204 @@
+﻿INJECT:clothes = {
+	kog_priest_western_vestments_base = {
+		# This is intentionally has the broadest triggers; it serves as the universal fallback
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = outfits
+				template = christian_outfits
+				accessory = male_outfit_christian_priest_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					kog_religion_is_eastern_christian_trigger = no
+					NOR = {
+						has_trait = kog_cardinal
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	kog_priest_western_vestments_cardinal = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = outfits
+				template = christian_outfits
+				accessory = male_outfit_christian_cardinal_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 11000
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					has_trait = kog_cardinal
+					kog_religion_is_eastern_christian_trigger = no
+					NOR = {
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	kog_catholic_advent_vestments = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = outfits
+				template = christian_outfits
+				accessory = male_outfit_christian_advent_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 11500
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					religion = rel:catholic
+					month = 11
+					NOR = {
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_template = PHI_appolinario_de_la_cruz
+				}
+			}
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_template = PHI_manuel_blanco_ramos
+				}
+			}
+		}
+	}
+	
+	kog_priest_western_vestments_papal = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = outfits
+				template = pope_outfits
+				accessory = male_outfit_christian_pope_01
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 12000
+				scope:character ?= {
+					is_interest_group_type = ig_devout
+					kog_country_is_eastern_christian_trigger = no
+					is_ruler_of_own_country = yes
+					has_law_or_variant = law_type:law_theocracy
+				}
+			}
+		}
+	}
+	
+	kog_priest_eastern_vestments_base = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = outfits
+				template = semitic_upper_outfits
+				accessory = male_civilian_coat_arabic_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = european_legwear_colors
+				accessory = male_legwear_european_01_black
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				NOT = {
+					has_dlc_feature = ip5_cosmetics
+				}
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					kog_religion_is_eastern_christian_trigger = yes
+					NOR = {
+						has_trait = kog_cardinal
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	kog_priest_eastern_vestments_base_ip5 = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = necklaces
+				template = necklace_slavic_orthodox_01
+				accessory = male_necklace_slavic_orthodox_01
+			}
+			accessory = {
+				mode = add
+				gene = outfits
+				template = orthodox_outfits
+				accessory = male_outfit_slavic_orthodox_01
+			}
+			accessory = {
+				mode = add
+				gene = legwear
+				template = european_legwear_colors
+				accessory = male_legwear_european_01_black
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 10000
+				has_dlc_feature = ip5_cosmetics
+				military_clothes_trigger = no
+				scope:character ?= {
+					has_role = character_role_kog_bishop
+					kog_religion_is_eastern_christian_trigger = yes
+					NOR = {
+						has_trait = kog_cardinal
+						is_ruler_of_own_country = yes
+						owner = {
+							has_law_or_variant = law_type:law_theocracy
+						}
+					}
+				}
+			}
+		}
+	}
+}

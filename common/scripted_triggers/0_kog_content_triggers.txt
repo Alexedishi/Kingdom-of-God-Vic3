@@ -48,7 +48,15 @@ kog_country_is_oriental_orthodox_trigger = {
 }
 
 kog_country_is_protestant_trigger = {
-	country_has_state_religion = rel:protestant
+	OR = {
+		country_has_state_religion = rel:protestant
+		country_has_state_religion = rel:lutheran
+		country_has_state_religion = rel:calvinist
+		country_has_state_religion = rel:anglican
+		country_has_state_religion = rel:methodist
+		country_has_state_religion = rel:baptist
+		country_has_state_religion = rel:mormon
+	}
 }
 
 kog_country_is_oriental_armenian_trigger = {
@@ -85,7 +93,15 @@ kog_religion_is_roman_catholic_trigger = {
 }
 
 kog_religion_is_protestant_trigger = {
-	religion = rel:protestant
+	OR = {
+		religion = rel:protestant
+		religion = rel:lutheran
+		religion = rel:calvinist
+		religion = rel:anglican
+		religion = rel:methodist
+		religion = rel:baptist
+		religion = rel:mormon
+	}
 }
 
 kog_religion_is_eastern_orthodox_trigger = {
@@ -119,7 +135,6 @@ kog_religion_is_elysian_orthodox_trigger = {
 		always = no
 	}
 }
-
 
 
 ####---------- Basileia Romaion Denomination Triggers ----------####
