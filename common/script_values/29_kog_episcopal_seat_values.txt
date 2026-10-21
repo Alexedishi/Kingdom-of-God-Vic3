@@ -36,7 +36,6 @@ kog_seat_integrations_value = {
 		variable = kog_global_seat_list
 		limit = {
 			var:kog_integrator_var ?= prev
-			
 		}
 		add = 100
 	}
@@ -48,7 +47,6 @@ kog_seat_enforcements_value = {
 		variable = kog_global_seat_list
 		limit = {
 			var:kog_enforcer_var ?= prev
-			
 		}
 		add = 100
 	}
@@ -96,30 +94,30 @@ kog_seat_relations_decay_target_value = {
 
 kog_episcopal_seat_monthly_change_value = {
 	value = 0
-	add = "variable_map(kog_relations_map|scope:kog_root_scope)"
+	add = "variable_map(kog_relations_map|root)"
 	if = {
 		limit = {
-			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = 1
+			"variable_map(kog_diplomacy_map|root)" = 1
 		}
-		add = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_progress_add
+		add = root.modifier:country_kog_monthly_seat_relations_progress_add
 	}
 	else_if = {
 		limit = {
-			"variable_map(kog_diplomacy_map|scope:kog_root_scope)" = -1
+			"variable_map(kog_diplomacy_map|root)" = -1
 		}
-		subtract = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_progress_add
+		subtract = root.modifier:country_kog_monthly_seat_relations_progress_add
 	}
 	else_if = {
 		limit = {
-			"variable_map(kog_relations_map|scope:kog_root_scope)" > scope:kog_root_scope.modifier:country_kog_seat_relations_base_add
+			"variable_map(kog_relations_map|root)" > root.modifier:country_kog_seat_relations_base_add
 		}
-		subtract = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_decay_add
+		subtract = root.modifier:country_kog_monthly_seat_relations_decay_add
 	}
 	else_if = {
 		limit = {
-			"variable_map(kog_relations_map|scope:kog_root_scope)" < scope:kog_root_scope.modifier:country_kog_seat_relations_base_add
+			"variable_map(kog_relations_map|root)" < root.modifier:country_kog_seat_relations_base_add
 		}
-		add = scope:kog_root_scope.modifier:country_kog_monthly_seat_relations_decay_add
+		add = root.modifier:country_kog_monthly_seat_relations_decay_add
 	}
 	multiply = {
 		add = 1
@@ -139,7 +137,7 @@ kog_episcopal_seat_opinion_value = {
 	# Sources
 	if = {
 		limit = {
-			var:kog_religion_var = scope:kog_root_scope.religion
+			var:kog_religion_var = root.religion
 		}
 		add = {
 			desc = kog_value_from_matching_religion
@@ -148,7 +146,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				has_law = law_type:law_state_religion
 			}
 		}
@@ -159,7 +157,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				has_law = law_type:law_freedom_of_conscience
 			}
 		}
@@ -170,7 +168,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				has_law = law_type:law_charitable_health_system
 			}
 		}
@@ -178,14 +176,14 @@ kog_episcopal_seat_opinion_value = {
 			desc = kog_value_from_charity_hospitals
 			value = {
 				add = 2
-				multiply = scope:kog_root_scope.institution_investment_level:institution_health_system
+				multiply = root.institution_investment_level:institution_health_system
 				max = 10
 			}
 		}
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				has_law = law_type:law_religious_schools
 			}
 		}
@@ -193,14 +191,14 @@ kog_episcopal_seat_opinion_value = {
 			desc = kog_value_from_religious_schools
 			value = {
 				add = 2
-				multiply = scope:kog_root_scope.institution_investment_level:institution_schools
+				multiply = root.institution_investment_level:institution_schools
 				max = 10
 			}
 		}
 	}
 	if = {
 		limit = {
-			var:kog_controller_var = scope:kog_root_scope
+			var:kog_controller_var = root
 		}
 		add = {
 			desc = kog_value_from_seat_control
@@ -209,7 +207,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			var:kog_liturgical_rite_var = scope:kog_root_scope.var:kog_local.var:kog_liturgical_rite_var
+			var:kog_liturgical_rite_var = root.var:kog_local.var:kog_liturgical_rite_var
 		}
 		add = {
 			desc = kog_value_from_matching_liturgical_rite
@@ -220,13 +218,13 @@ kog_episcopal_seat_opinion_value = {
 	# Mixed
 	add = {
 		desc = kog_value_from_relations
-		value = "global_variable_map(kog_relations_map|scope:kog_root_scope)"
+		value = "global_variable_map(kog_relations_map|root)"
 	}
 	
 	#Penalities
 	if = {
 		limit = {
-			var:kog_religion_var != scope:kog_root_scope.religion
+			var:kog_religion_var != root.religion
 		}
 		add = {
 			desc = kog_value_from_different_religion
@@ -235,7 +233,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				has_law = law_type:law_total_separation
 			}
 		}
@@ -246,7 +244,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				has_law = law_type:law_state_atheism
 			}
 		}
@@ -257,7 +255,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				OR = {
 					has_law = law_type:law_public_schools
 					has_law = law_type:law_private_schools
@@ -268,18 +266,18 @@ kog_episcopal_seat_opinion_value = {
 			desc = kog_value_from_non_religious_schools
 			value = {
 				add = 2
-				multiply = scope:kog_root_scope.institution_investment_level:institution_schools
+				multiply = root.institution_investment_level:institution_schools
 				max = 10
 			}
 		}
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				kog_is_autocephalous_trigger = yes
 			}
-			var:kog_controller_var != scope:kog_root_scope
-			var:kog_religion_var != scope:kog_root_scope.religion
+			var:kog_controller_var != root
+			var:kog_religion_var != root.religion
 		}
 		add = {
 			desc = kog_value_from_autocephaly
@@ -288,10 +286,10 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			scope:kog_root_scope = {
+			root = {
 				kog_is_schismatic_trigger = yes
 			}
-			var:kog_religion_var = scope:kog_root_scope.religion
+			var:kog_religion_var = root.religion
 		}
 		add = {
 			desc = kog_value_from_schismatic
@@ -300,7 +298,7 @@ kog_episcopal_seat_opinion_value = {
 	}
 	if = {
 		limit = {
-			var:kog_liturgical_rite_var != scope:kog_root_scope.var:kog_local.var:kog_liturgical_rite_var
+			var:kog_liturgical_rite_var != root.var:kog_local.var:kog_liturgical_rite_var
 		}
 		add = {
 			value = -10

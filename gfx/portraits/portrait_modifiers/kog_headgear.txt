@@ -154,9 +154,11 @@
 				add = 12000
 				scope:character ?= {
 					is_interest_group_type = ig_devout
-					kog_country_is_eastern_christian_trigger = no
+					kog_religion_is_eastern_christian_trigger = no
 					is_ruler_of_own_country = yes
-					has_law_or_variant = law_type:law_theocracy
+					owner = {
+						has_law_or_variant = law_type:law_theocracy
+					}
 				}
 			}
 		}

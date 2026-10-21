@@ -317,9 +317,9 @@
  kog_elysian_seats_filter: "#todo Replace kog_elysian_seats_filter!#!"
  
  kog_gui_seat_name: "[ScriptContainer.MakeScope.Var('kog_seat_header_var').GetFlagName]"
- kog_gui_seat_controller: "#bold Answers to: [ScriptContainer.GetCustom('kog_seat_controller_type')]#!"
+ kog_gui_seat_controller: "#bold Answers to: [AddLocalizationIf(And(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet, ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.IsValid), 'kog_gui_controller_name')][AddLocalizationIf(Or(Not(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet), And(ScriptContainer.MakeScope.Var('kog_controller_var').IsSet, Not(ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.IsValid))), 'kog_gui_no_controller')][AddLocalizationIf(ScriptContainer.MakeScope.Var('kog_religious_union_var').IsSet, 'kog_gui_religious_union_name')]#!"
  kog_gui_controller_name: "[ScriptContainer.MakeScope.Var('kog_controller_var').GetCountry.GetName]"
- kog_gui_no_controller: "@kog! #yellow God Alone#!"
+ kog_gui_no_controller: "@kog! #yellow God Alone#! "
  kog_gui_religious_union_name: "[ScriptContainer.MakeScope.Var('kog_religious_union_var').GetFlagName]"
  
  kog_gui_opinion: "Opinion:\n[Scope.GetVariableFromVariableMap('kog_opinions_map', GetPlayer.MakeScope).GetValue|+=]"
@@ -331,9 +331,25 @@
  kog_seat_details: ""
  
  ## Episcopal Seat Buttons
- kog_gui_sway_seat: "@kog_improve_relations! #bold Improve Relations#!"
+ kog_gui_tempkey: "@kog_improve_relations! #bold #tooltip:[GetRawTextTooltipTag('kog_gui_tempkey_tooltip')] $kog_gui_tempkey_name$#!#!"
+ kog_gui_tempkey_name: "Increase Relations"
+ kog_gui_tempkey_desc: ""
+ kog_gui_tempkey_effect: "[GetPlayer.GetNameNoFlag] will begin #bold improving#! $kog_relations$ with [Container.GetName.GetFlagName]"
+ kog_gui_tempkey_tooltip: "#header $kog_gui_tempkey_name$#!\n$com_ttdl$$kog_gui_tempkey_desc$$kog_gui_sgui_buildtooltip$"
+ kog_gui_sgui_buildtooltip: "[ScriptedGui.IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]\nEffects:\n[ScriptedGui.ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+ 
+ kog_gui_sway_seat: "@kog_improve_relations! #bold #tooltip:[GetRawTextTooltipTag('kog_gui_sway_seat_tooltip')] $kog_gui_sway_seat_name$#!#!"
+ kog_gui_sway_seat_name: "Increase Relations"
  kog_gui_sway_seat_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ingratiating ourselves to them, we may be able to count on their support in the spiritual affairs of the state."
  kog_gui_sway_seat_effect: "[GetPlayer.GetNameNoFlag] will begin #bold improving#! $kog_relations$ with [Container.GetName.GetFlagName]"
+ kog_gui_sway_seat_tooltip: "#header $kog_gui_sway_seat_name$#!\n$kog_gui_sway_seat_desc$$com_ttdl$$kog_gui_sgui_buildtooltip$"
+ 
+ 
+ 
+ 
+ 
+ kog_gui_stop_sway_seat: ""
+ kog_gui_stop_sway_seat_desc: ""
  kog_gui_antagonize_seat: "@kog_damage_relations! #bold Damage Relations#!"
  kog_gui_antagonize_seat_desc: "Within the fabric of Christendom, the Patriarchates often find themselves at odds with each other. By ensuring hostilities between ourselves and certain seats, we can earn the respect of those of our faith community."
  kog_gui_antagonize_seat_effect: "[GetPlayer.GetNameNoFlag] will begin #bold harming#! $kog_relations$ with [Container.GetName.GetFlagName]"

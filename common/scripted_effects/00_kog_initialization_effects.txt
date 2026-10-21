@@ -2387,24 +2387,10 @@ kog_initialize_metropolis_effect = {
 	}
 	
 	# Step 3: Set Relations Variables
-	every_in_global_list = {
-		variable = kog_global_seat_list
-		add_to_variable_map = {
-			name = kog_relations_map
-			key = local_var:kog_root_scope
-			value = 0
-		}
-		add_to_variable_map = {
-			name = kog_opinions_map
-			key = local_var:kog_root_scope
-			value = 25
-		}
-		add_to_variable_map = {
-			name = kog_diplomacy_map
-			key = local_var:kog_root_scope
-			value = 0
-		}
+	trigger_event = {
+		on_action = kog_initialize_values_in_variable_maps
 	}
+	
 	# Step 4, Set Up Country Modifiers & Variables
 	save_scope_value_as = {
 		name = kog_votes_value

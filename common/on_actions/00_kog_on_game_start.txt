@@ -61,3 +61,26 @@ kog_after_lobby = {
 		kog_update_faith_journal_lists_effect = yes
 	}
 }
+
+kog_initialize_values_in_variable_maps = {
+	effect = {
+		every_in_global_list = {
+			variable = kog_global_seat_list
+			com_update_value_in_variable_map = {
+				name = kog_relations_map
+				key = root
+				value = 0
+			}
+			com_update_value_in_variable_map = {
+				name = kog_opinions_map
+				key = root
+				value = 15
+			}
+			com_update_value_in_variable_map = {
+				name = kog_diplomacy_map
+				key = root
+				value = 0
+			}
+		}
+	}
+}

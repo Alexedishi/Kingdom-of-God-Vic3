@@ -2667,7 +2667,7 @@ types kog_episcopal_seats_panel_types {
 					datacontext = "[GetScriptedGui('kog_start_sway_sgui')]"
 				}
 				blockoverride "button_tooltip" {
-					tooltip = "kog_gui_sway_seat_desc"
+					tooltip = "kog_gui_sway_seat_tooltip"
 				}
 				blockoverride "button_icon_texture" {
 					texture = "gfx/interface/icons/scripted_actions/kog_increase_relations.dds"
@@ -2683,7 +2683,11 @@ types kog_episcopal_seats_panel_types {
 					tooltip = "kog_gui_sway_seat_desc"
 				}
 				blockoverride "button_icon_texture" {
-					texture = "gfx/interface/icons/scripted_actions/kog_increase_relations.dds"
+					texture = "gfx/interface/icons/scripted_actions/kog_stop_increase_relations.dds"
+				}
+				icon = {
+					using = highlighted_square_selection
+					alpha = 0.75
 				}
 			}
 			
@@ -2709,7 +2713,11 @@ types kog_episcopal_seats_panel_types {
 					tooltip = "kog_gui_antagonize_seat_desc"
 				}
 				blockoverride "button_icon_texture" {
-					texture = "gfx/interface/icons/scripted_actions/kog_damage_relations.dds"
+					texture = "gfx/interface/icons/scripted_actions/kog_stop_damage_relations.dds"
+				}
+				icon = {
+					using = highlighted_square_selection
+					alpha = 0.75
 				}
 			}
 			

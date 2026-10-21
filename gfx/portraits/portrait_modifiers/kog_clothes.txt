@@ -114,9 +114,11 @@
 				add = 12000
 				scope:character ?= {
 					is_interest_group_type = ig_devout
-					kog_country_is_eastern_christian_trigger = no
+					kog_religion_is_eastern_christian_trigger = no
 					is_ruler_of_own_country = yes
-					has_law_or_variant = law_type:law_theocracy
+					owner = {
+						has_law_or_variant = law_type:law_theocracy
+					}
 				}
 			}
 		}
@@ -148,13 +150,6 @@
 				scope:character ?= {
 					has_role = character_role_kog_bishop
 					kog_religion_is_eastern_christian_trigger = yes
-					NOR = {
-						has_trait = kog_cardinal
-						is_ruler_of_own_country = yes
-						owner = {
-							has_law_or_variant = law_type:law_theocracy
-						}
-					}
 				}
 			}
 		}
@@ -190,13 +185,6 @@
 				scope:character ?= {
 					has_role = character_role_kog_bishop
 					kog_religion_is_eastern_christian_trigger = yes
-					NOR = {
-						has_trait = kog_cardinal
-						is_ruler_of_own_country = yes
-						owner = {
-							has_law_or_variant = law_type:law_theocracy
-						}
-					}
 				}
 			}
 		}
