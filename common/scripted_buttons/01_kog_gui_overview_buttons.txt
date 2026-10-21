@@ -23,28 +23,26 @@
 			has_law = law_type:law_theocracy
 			has_modifier = modifier_kog_autocephaly_abandoned
 		}
+		custom_description = {
+			text = kog_seat_opinion_hostile_trigger
+			subject = this
+			object = var:kog_local.var:kog_mother_church_var
+			value = kog_opinion_threshold_hostile
+			var:kog_local.var:kog_mother_church_var = {
+				"variable_map(kog_opinions_map|prev)" <= kog_opinion_threshold_hostile
+			}
+		}
 		trigger_if = {
 			limit = {
-				kog_country_is_roman_catholic_trigger = yes
-			}
-			always = no
-		}
-		trigger_else_if = {
-			limit = {
-				kog_country_is_eastern_orthodox_trigger = yes
-			}
-			trigger_if = {
-				limit = {
-					OR = {
-						c:MOL ?= this
-						c:WAL ?= this
-					}
+				OR = {
+					c:MOL ?= this
+					c:WAL ?= this
 				}
-				custom_tooltip = {
-					text = kog_romania_united
-					hidden_trigger = {
-						c:ROM ?= this
-					}
+			}
+			custom_tooltip = {
+				text = kog_romania_united
+				hidden_trigger = {
+					c:ROM ?= this
 				}
 			}
 		}
@@ -67,7 +65,41 @@
 	}
 	
 	ai_chance = {
-		value = 0
+		value = -10
+		if = {
+			limit = {
+				ruler = {
+					law_stance = {
+						law = law_type:law_state_religion
+						value >= approve
+					}
+					OR = {
+						has_trait = imperious
+						has_ideology = ideology:ideology_fascist
+						has_ideology = ideology:ideology_ethno_nationalist
+						has_ideology = ideology:ideology_ethno_nationalist
+						has_ideology = ideology:ideology_ethno_nationalist
+					}
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				ruler = {
+					OR = {
+						has_trait = reserved
+						has_ideology = ideology:ideology_traditionalist
+						has_ideology = ideology:ideology_integralist
+						has_ideology = ideology:ideology_theocrat
+						has_ideology = ideology:ideology_legitimist
+						character_has_carlist_ideology = yes
+						character_has_miguelist_ideology = yes
+					}
+				}
+			}
+			add = -100
+		}
 	}
 }
 
@@ -109,7 +141,44 @@ kog_gui_convoke_council = {
 	}
 	
 	ai_chance = {
-		value = -100
+		value = 0
+		if = {
+			limit = {
+				c:PAP ?= this
+				year >= 1860
+				has_global_variable = peoples_springtime_happened
+				ruler = {
+					has_reactionary_ideology = yes
+				}
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				c:PAP ?= this
+				year >= 1860
+				ruler = {
+					has_liberal_ideology = yes
+				}
+			}
+			add = 70
+		}
+		if = {
+			limit = {
+				c:PAP ?= this
+				year >= 1860
+				ruler = {
+					has_progressive_ideology = yes
+				}
+			}
+			add = 100
+		}
+		if = {
+			limit = {
+				kog_ig_disapproves_of_any_canon_law = yes
+			}
+			add = 50
+		}
 	}
 }
 
@@ -162,6 +231,40 @@ kog_gui_found_cayacoa = {
 	}
 }
 
+kog_gui_reconcile_with_constantinople = {
+	name = "kog_gui_reconcile_with_constantinople"
+	desc = "kog_gui_reconcile_with_constantinople_desc"
+	
+	visible = {
+		basileia_is_active = yes
+		NOT = {
+			has_global_variable = kog_reconciled_with_constantinople
+		}
+	}
+	selected = {
+	}
+	possible = {
+		custom_description = {
+			text = kog_controls_seat_trigger
+			subject = this
+			object = container:kog_elysium
+			container:kog_elysium.var:kog_controller_var ?= this
+		}
+		trigger_if = {
+			limit = {
+				exists = container:kog_constantinople.var:kog_controller_var
+			}
+			
+		}
+	}
+	effect = {
+	}
+	
+	ai_chance = {
+		value = 0
+	}
+}
+
 kog_gui_secure_tetrarchy = {
 	name = "kog_gui_secure_tetrarchy"
 	desc = "kog_gui_secure_tetrarchy_desc"
@@ -207,7 +310,7 @@ kog_gui_secure_tetrarchy = {
 	}
 	
 	ai_chance = {
-		value = 0
+		value = 100
 	}
 }
 
@@ -268,7 +371,7 @@ kog_gui_secure_pentarchy = {
 	}
 	
 	ai_chance = {
-		value = 0
+		value = 100
 	}
 }
 
@@ -315,6 +418,6 @@ kog_gui_mend_schism = {
 	}
 	
 	ai_chance = {
-		value = 0
+		value = 100
 	}
 }

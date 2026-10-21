@@ -195,7 +195,7 @@ kog_owns_seat_province_trigger = {
 kog_owns_seat_province_SGUI_trigger = {
 	custom_tooltip = {
 		text = kog_owns_seat_province_SGUI_trigger
-
+		container:$seat$.var:kog_seat_province_var.owner ?= this
 	}
 }
 

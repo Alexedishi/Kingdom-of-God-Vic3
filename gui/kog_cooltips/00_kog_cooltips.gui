@@ -1,0 +1,27 @@
+kog_episcopal_seat_tooltip = {
+	name = "kog_episcopal_seat_tooltip"
+}
+
+
+types KingdomOfGodTooltipTypes {
+	type kog_episcopal_seat_tooltip = FancyTooltipWidgetType {
+		blockoverride "name" {
+			text = "kog_gui_seat_name"
+		}
+		blockoverride "type" {
+			text = "[concept_episcopal_seat]"
+		}
+		blockoverride "icon_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_episcopal_seat.dds"
+		}
+		blockoverride "progress" {}
+		blockoverride "go_to_button" {}
+		blockoverride "zoom_to_button" {}
+		
+		blockoverride "tooltip_content" {
+			icon = {
+				texture = "gfx/interface/error_deer.dds"
+			}
+		}
+	}
+}

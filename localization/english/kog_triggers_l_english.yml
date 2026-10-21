@@ -42,8 +42,8 @@
  kog_country_shares_liturgical_rite_with_trigger: "[COUNTRY.GetNameNoFlag] practices the same [concept_liturgical_rite] as [TARGET_COUNTRY.GetNameNoFlag]"
  kog_country_shares_liturgical_rite_with_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! practice the same [concept_liturgical_rite] as [TARGET_COUNTRY.GetNameNoFlag]"
  
- kog_country_has_same_liturgical_rite_as_seat_trigger: "[COUNTRY.GetNameNoFlag] practices the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_country_has_same_liturgical_rite_as_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! practice the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_country_has_same_liturgical_rite_as_seat_trigger: "[COUNTRY.GetNameNoFlag] practices the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_country_has_same_liturgical_rite_as_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! practice the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
  kog_has_roman_rite_trigger: "[GetPlayer.GetNameNoFlag] practices the $kog_roman_rite$"
  kog_has_roman_rite_trigger_NOT: "[GetPlayer.GetNameNoFlag] does #bold not#! practice the $kog_roman_rite$"
@@ -141,26 +141,26 @@
  kog_is_swaying_any_seat_trigger: "[COUNTRY.GetNameNoFlag] is improving $kog_relations$ with any $kog_episcopal_seat$"
  kog_is_swaying_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! improving $kog_relations$ with any $kog_episcopal_seat$"
  
- kog_is_swaying_seat_trigger: "[COUNTRY.GetNameNoFlag] is improving $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_is_swaying_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! improving $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_is_swaying_seat_trigger: "[COUNTRY.GetNameNoFlag] is improving $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_is_swaying_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! improving $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
  kog_is_antagonizing_any_seat_trigger: "[COUNTRY.GetNameNoFlag] is harming $kog_relations$ with any $kog_episcopal_seat$"
  kog_is_antagonizing_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! harming $kog_relations$ with any $kog_episcopal_seat$"
  
- kog_is_antagonizing_seat_trigger: "[COUNTRY.GetNameNoFlag] is harming $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_is_antagonizing_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! harming $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_is_antagonizing_seat_trigger: "[COUNTRY.GetNameNoFlag] is harming $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_is_antagonizing_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! harming $kog_relations$ with the $kog_episcopal_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
- kog_seat_opinion_greater_than_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_seat_opinion_greater_than_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_greater_than_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_seat_opinion_greater_than_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
- kog_seat_opinion_less_than_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_seat_opinion_less_than_trigger_NOT: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_less_than_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_seat_opinion_less_than_trigger_NOT: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
- kog_seat_opinion_friendly_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_seat_opinion_friendly_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_friendly_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_seat_opinion_friendly_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
- kog_seat_opinion_hostile_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_seat_opinion_hostile_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_seat_opinion_hostile_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_seat_opinion_hostile_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
  kog_any_seat_opinion_friendly_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with #bold any#! $kog_episcopal_seat$"
  kog_any_seat_opinion_friendly_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or greater#! with #bold any#! $kog_episcopal_seat$"
@@ -168,26 +168,26 @@
  kog_any_seat_opinion_hostile_trigger: "[COUNTRY.GetNameNoFlag] has $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with #bold any#! $kog_episcopal_seat$"
  kog_any_seat_opinion_hostile_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have $kog_relations$ of #v $VALUE|0+=$#! #bold or lower#! with #bold any#! $kog_episcopal_seat$"
  
- kog_can_sway_seat_SGUI_trigger: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName] and [COUNTRY.GetNameNoFlag] are less than [COUNTRY.MakeScope.ScriptValue('kog_relations_max_value')]"
- kog_can_sway_seat_SGUI_trigger_NOT: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName] and [COUNTRY.GetNameNoFlag] are greater than [COUNTRY.MakeScope.ScriptValue('kog_relations_max_value')]"
+ kog_can_sway_seat_SGUI_trigger: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName] and [COUNTRY.GetNameNoFlag] are less than [COUNTRY.MakeScope.ScriptValue('kog_relations_max_value')]"
+ kog_can_sway_seat_SGUI_trigger_NOT: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName] and [COUNTRY.GetNameNoFlag] are greater than [COUNTRY.MakeScope.ScriptValue('kog_relations_max_value')]"
  
- kog_can_antagonize_seat_SGUI_trigger: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName] and [COUNTRY.GetNameNoFlag] are greater than [COUNTRY.MakeScope.ScriptValue('kog_relations_min_value')]"
- kog_can_antagonize_seat_SGUI_trigger_NOT: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName] and [COUNTRY.GetNameNoFlag] are less than [COUNTRY.MakeScope.ScriptValue('kog_relations_min_value')]"
+ kog_can_antagonize_seat_SGUI_trigger: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName] and [COUNTRY.GetNameNoFlag] are greater than [COUNTRY.MakeScope.ScriptValue('kog_relations_min_value')]"
+ kog_can_antagonize_seat_SGUI_trigger_NOT: "$kog_relations$ between [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName] and [COUNTRY.GetNameNoFlag] are less than [COUNTRY.MakeScope.ScriptValue('kog_relations_min_value')]"
  
  ####----------- Seat Integration Triggers ----------####
- kog_can_integrate_seat_trigger: "[COUNTRY.GetNameNoFlag] is able to $kog_integrate$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_can_integrate_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! able to $kog_integrate$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_can_integrate_seat_trigger: "[COUNTRY.GetNameNoFlag] is able to $kog_integrate$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_can_integrate_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! able to $kog_integrate$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
- kog_is_integrating_seat_trigger: "[COUNTRY.GetNameNoFlag] is $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_is_integrating_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_is_integrating_seat_trigger: "[COUNTRY.GetNameNoFlag] is $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_is_integrating_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! $kog_integrating$ the $kog_seat$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
  kog_is_integrating_any_seat_trigger: "[COUNTRY.GetNameNoFlag] is $kog_integrating$ #bold any#! $kog_episcopal_seat$"
  kog_is_integrating_any_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] is #bold not#! $kog_integrating$ #bold any#! $kog_episcopal_seat$"
  
  
  ####----------- Seat Province Ownership Triggers ----------####
- kog_owns_seat_province_trigger: "[COUNTRY.GetNameNoFlag] owns the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_owns_seat_province_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! own the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_owns_seat_province_trigger: "[COUNTRY.GetNameNoFlag] owns the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_owns_seat_province_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! own the $kog_home_province$ of [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  kog_owns_seat_province_SGUI_trigger: "[GetPlayer.GetNameNoFlag] owns the $kog_home_province$ of this $kog_episcopal_seat$"
  
  
@@ -224,8 +224,8 @@
  
  
  ####---------- Episcopal Seat Enforcement Triggers ----------####
- kog_country_has_same_rite_as_seat_trigger: "[COUNTRY.GetNameNoFlag] has the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
- kog_country_has_same_rite_as_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.GetName.GetFlagName]"
+ kog_country_has_same_rite_as_seat_trigger: "[COUNTRY.GetNameNoFlag] has the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_country_has_same_rite_as_seat_trigger_NOT: "[COUNTRY.GetNameNoFlag] does #bold not#! have the same [concept_liturgical_rite] as [TARGET_SCRIPT_CONTAINER.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  
  kog_enforcing_seat: "[GetPlayer.GetNameNoFlag] is currently enforcing its [concept_liturgical_rite] onto a [concept_episcopal_seat]"
  kog_enforcing_seat_NOT: "[GetPlayer.GetNameNoFlag] is #bold NOT#! currently enforcing its [concept_liturgical_rite] onto a [concept_episcopal_seat]"

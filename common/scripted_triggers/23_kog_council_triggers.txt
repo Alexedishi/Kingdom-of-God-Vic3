@@ -14,7 +14,6 @@ kog_journal_has_canon_law_group_debate_trigger = {
 	}
 }
 
-
 kog_country_matches_journal_religion_trigger = {
 	hidden_trigger = {
 		scope:journal_entry = {
@@ -97,5 +96,147 @@ kog_council_has_modernizer_stance_option_trigger = {
 kog_council_has_reformer_stance_option_trigger = {
 	scope:journal_entry = {
 		has_variable = kog_reformer_theological_debate_stance_var
+	}
+}
+
+kog_ig_disapproves_of_any_canon_law = {
+	OR = {
+		AND = {
+			has_conservative_ideology = yes
+			OR = {
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_no_alms
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_iconoclasm
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_iconolatry
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_secularism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_gallicanism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_constantinianism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_kinism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_social_activism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_modernizing_force
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scientific_crusade
+				}
+			}
+		}
+		AND = {
+			has_reactionary_ideology = yes
+			OR = {
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_no_alms
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_iconodulism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_iconolatry
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_secularism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_gallicanism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_constantinianism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_kinism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_marriage_allowed
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_moral_guidance
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_social_activism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_modernizing_force
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scientific_disengagement
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scientific_patronage
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scientific_crusade
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_no_crusades
+				}
+			}
+		}
+		AND = {
+			OR = {
+				has_liberal_ideology = yes
+				has_progressive_ideology = yes
+			}
+			OR = {
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_papal_primacy
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_tithing
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_iconoclasm
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_hierocracy
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_ultramontanism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_ethnophyletism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_kinism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_priests_celibate
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_moral_authority
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_moral_guidance
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scriptural_supremacy
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scriptural_favoritism
+				}
+				kog_own_faith_has_canon_law_trigger = {
+					canon_law = kog_canon_law_scientific_disengagement
+				}
+				NOT = {
+					kog_own_faith_has_canon_law_trigger = {
+						canon_law = kog_canon_law_no_crusades
+					}
+				}
+			}
+		}
 	}
 }
