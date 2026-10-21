@@ -1,7 +1,9 @@
 types KingdomOfGodTooltipTypes {
 	type kog_episcopal_seat_tooltip = FancyTooltipWidgetType {
+		datacontext = "[Scope.GetScriptContainer]"
+		
 		blockoverride "name" {
-			text = "kog_gui_seat_name"
+			raw_text = "#todo kog_gui_seat_name"
 		}
 		blockoverride "type" {
 			text = "[concept_episcopal_seat]"
@@ -14,8 +16,114 @@ types KingdomOfGodTooltipTypes {
 		blockoverride "zoom_to_button" {}
 		
 		blockoverride "tooltip_content" {
-			icon = {
-				texture = "gfx/interface/error_deer.dds"
+			flowcontainer = {
+				minimumsize = { 340 -1 }
+				parentanchor = top|hcenter
+				direction = horizontal
+				spacing = 10
+				margin_bottom = 10
+				
+				kog_episcopal_seat_tooltip_portrait = {	}
+				
+				flowcontainer = {
+					parentanchor = right|vcenter
+					direction = vertical
+					minimumsize = { 220 135 }
+					spacing = 5
+					margin = { 10 10 }
+					
+					background = {
+						using = entry_bg_simple_solid
+						margin_top = -10
+						margin_bottom = 20
+					}
+					
+					# Seat Location
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "Answers to:"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {
+						parentanchor = center
+					}
+					
+					
+					# Seat Location
+					textbox = {
+						datacontext = "[ScriptContainer.MakeScope.Var('kog_patriarch_var').GetCharacter]"
+						parentanchor = left|vcenter
+						text = "kog_gui_patriarch_name"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {
+						parentanchor = center
+					}
+					
+					# Liturgical Language
+					textbox = {
+						parentanchor = left|vcenter
+						text = "kog_gui_seat_location"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {
+						parentanchor = center
+					}
+					
+					# Liturgical Rite
+					textbox = {
+						parentanchor = left|vcenter
+						text = "kog_gui_liturgical_rite"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+					divider_clean = {
+						parentanchor = center
+					}
+					
+					# Opinion
+					textbox = {
+						parentanchor = left|vcenter
+						raw_text = "Language"
+						size = { 170 20 }
+						elide = right
+						using = fontsize_medium
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_episcopal_seat_tooltip_portrait = character_portrait_medium_torso {
+		parentanchor = top|hcenter
+		position = { 0 10 }
+		datacontext = "[ScriptContainer.MakeScope.Var('kog_patriarch_var').GetCharacter]"
+		blockoverride "show_hat" { }
+		blockoverride "tooltip" { } # Error Suppression
+		blockoverride "portrait_icons" { } # Error Suppression
+		blockoverride "portrait_button" { } # Error Suppression
+		
+		default_header_clean_faded = {
+			size = { 150 35 }
+			position = { 0 80 }
+			parentanchor = center
+			blockoverride "text" { }
+			visible = "no"
+			textbox = {
+				text = "kog_gui_patriarch_name"
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 190
+				elide = right
+				using = fontsize_medium
 			}
 		}
 	}
