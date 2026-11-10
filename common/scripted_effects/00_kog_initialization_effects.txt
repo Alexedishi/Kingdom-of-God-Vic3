@@ -61,7 +61,7 @@
 	kog_update_faith_journal_lists_effect = yes
 	
 	#### Step 8, Initialize Local Script Container and Variables
-	kog_initialize_local_containers_effect = yes
+	kog_initialize_local_content_effect = yes
 	
 	#### Step 9, Apply Seat Control and Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
@@ -2177,14 +2177,13 @@ kog_initialize_collegium_effect = {
 	}
 }
 
-kog_initialize_local_containers_effect = {
-	# This is wrapped to allow for easier overrides for sub-mods; PAP is a valid tag in both Base Game and BR
-	c:PAP = {
-		every_country = {
-			limit = {
-				kog_content_scope_trigger = yes
-			}
-			kog_initialize_metropolis_effect = yes
+kog_initialize_local_content_effect = {
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		trigger_event = {
+			on_action = kog_initialize_local_content
 		}
 	}
 }
@@ -2387,31 +2386,46 @@ kog_initialize_metropolis_effect = {
 	}
 	
 	# Step 3: Set Relations Variables
-	trigger_event = {
-		on_action = kog_initialize_values_in_variable_maps
+	every_in_global_list = {
+		variable = kog_global_seat_list
+		com_update_value_in_variable_map = {
+			name = kog_relations_map
+			key = root
+			value = 0
+		}
+		com_update_value_in_variable_map = {
+			name = kog_opinions_map
+			key = root
+			value = 15
+		}
+		com_update_value_in_variable_map = {
+			name = kog_diplomacy_map
+			key = root
+			value = 0
+		}
 	}
 	
 	# Step 4, Set Up Country Modifiers & Variables
-	save_scope_value_as = {
-		name = kog_votes_value
-		value = kog_votes_value
-	}
 	var:kog_local = {
 		set_variable = {
+			name = kog_canon_law_compliance_var
+			value = root.kog_canon_law_compliance_value
+		}
+		set_variable = {
 			name = kog_national_piety_var
-			value = 250
+			value = root.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_target_var
-			value = 250
+			value = root.kog_national_piety_target_value
 		}
 		set_variable = {
 			name = kog_national_piety_progress_var
-			value = 0
+			value = root.kog_national_piety_progress_value
 		}
 		set_variable = {
 			name = kog_votes_var
-			value = scope:kog_votes_value
+			value = root.kog_votes_value
 		}
 	}
 }

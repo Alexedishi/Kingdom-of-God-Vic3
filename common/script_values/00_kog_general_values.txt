@@ -50,17 +50,15 @@ kog_national_piety_target_value = {
 	}
 	
 	# Canon Law Compliance
-	add = {
-		desc = kog_value_from_canon_law_compliance
-		value = {
+	if = {
+		limit = {
 			var:kog_local ?= {
-				if = {
-					limit = {
-						has_variable = kog_canon_law_compliance_var
-					}
-					add = var:kog_canon_law_compliance_var
-				}
+				has_variable = kog_canon_law_compliance_var
 			}
+		}
+		add = {
+			desc = kog_value_from_canon_law_compliance
+			value = var:kog_local.var:kog_canon_law_compliance_var
 		}
 	}
 	

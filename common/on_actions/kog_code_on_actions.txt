@@ -1,4 +1,26 @@
-﻿on_new_ruler = {
+﻿####---------- on_game_started ----------####
+# These stacked on_actions exist to provide ROOT as a country scope for kog_initialize_metropolis_effect
+on_game_started = {
+	on_actions = {
+		kog_game_start
+	}
+}
+
+kog_game_start = {
+	effect = {
+		kog_initialize_content_effect = yes
+	}
+}
+
+kog_initialize_local_content = {
+	effect = {
+		kog_initialize_metropolis_effect = yes
+	}
+}
+
+
+####---------- on_new_ruler ----------####
+on_new_ruler = {
 	on_actions = {
 		kog_on_new_ruler
 	}
@@ -17,6 +39,7 @@ kog_on_new_ruler = {
 		kog_convene_papal_conclave_effect = yes
 	}
 }
+
 
 ####---------- on_law_activated ----------####
 on_law_activated = {
@@ -38,6 +61,7 @@ kog_on_theocracy_enacted = {
 		}
 	}
 }
+
 
 ####---------- on_law_enactment_pass ----------####
 on_law_enactment_pass = {
