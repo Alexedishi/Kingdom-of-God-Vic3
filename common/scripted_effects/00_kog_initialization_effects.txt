@@ -61,7 +61,12 @@
 	kog_update_faith_journal_lists_effect = yes
 	
 	#### Step 8, Initialize Local Script Container and Variables
-	kog_initialize_local_content_effect = yes
+	every_country = {
+		limit = {
+			kog_content_scope_trigger = yes
+		}
+		kog_initialize_local_content_effect = yes
+	}
 	
 	#### Step 9, Apply Seat Control and Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
@@ -2178,23 +2183,15 @@ kog_initialize_collegium_effect = {
 }
 
 kog_initialize_local_content_effect = {
-	every_country = {
-		limit = {
-			kog_content_scope_trigger = yes
-		}
-		trigger_event = {
-			on_action = kog_initialize_local_content
-		}
+	# This executes kog_initialize_metropolis_effect wrapped in an on_action; this is to ensure that the engine provides a country root scope to the effect
+	trigger_event = {
+		on_action = kog_initialize_local_content
 	}
 }
 
 kog_initialize_metropolis_effect = {
-	# Step 0: Save Country Scope; this might not always have the country as root
-#	save_scope_as = kog_root_scope
-	set_local_variable = { 
-		name = kog_root_scope
-		value = this
-	}
+	### ROOT = COUNTRY; this is provided by the on_action wrapper
+	### DO NOT DO A NAKED CALL OF THIS EFFECT
 	
 	# Step 1: Create Script Container
 	create_container = {
