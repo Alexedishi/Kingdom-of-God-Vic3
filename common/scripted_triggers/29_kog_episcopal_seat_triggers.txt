@@ -98,7 +98,7 @@ kog_any_seat_opinion_friendly_trigger = {
 		value = kog_opinion_threshold_friendly
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			"variable_map(kog_opinions_map|scope:kog_root_scope)" <= kog_opinion_threshold_friendly
+			"variable_map(kog_opinions_map|this)" <= kog_opinion_threshold_friendly
 		}
 	}
 }
@@ -110,7 +110,7 @@ kog_any_seat_opinion_hostile_trigger = {
 		value = kog_opinion_threshold_hostile
 		any_in_global_list = {
 			variable = kog_global_seat_list
-			"variable_map(kog_opinions_map|scope:kog_root_scope)" >= kog_opinion_threshold_hostile
+			"variable_map(kog_opinions_map|this)" >= kog_opinion_threshold_hostile
 		}
 	}
 }
