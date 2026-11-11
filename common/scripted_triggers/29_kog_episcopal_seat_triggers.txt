@@ -127,7 +127,15 @@ kog_can_integrate_seat_alert_trigger = {
 	}
 	any_in_global_list = {
 		variable = kog_global_seat_list
-		var:kog_controller_var != root
+		OR = {
+			NOT = {
+				has_variable = kog_controller_var
+			}
+			AND = {
+				has_variable = kog_controller_var
+				var:kog_controller_var != root
+			}
+		}
 		var:kog_seat_state_region_var = {
 			any_scope_state = {
 				count = all

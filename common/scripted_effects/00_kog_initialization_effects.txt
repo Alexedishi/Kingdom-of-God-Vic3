@@ -278,11 +278,6 @@ kog_initialize_elysian_orthodox_variables_effect = {
 	}
 }
 
-kog_initialize_database_variable_map_effect = {
-	kog_add_rhomaios_culture_to_database_effect = yes
-	kog_add_elysian_culture_to_database_effect = yes
-}
-
 ####---------- Episcopal Seat Script Container Initialization ----------####
 kog_initialize_rome_container_effect = {
 	create_container = {
@@ -1013,7 +1008,7 @@ kog_initialize_elysium_container_effect = {
 			}
 			set_variable = {
 				name = kog_culture_var
-				value = "global_variable_map(kog_database|flag:kog_elysian)"
+				value = cu:elysian
 			}
 			set_variable = {
 				name = kog_foundation_var
@@ -1902,8 +1897,8 @@ kog_initialize_1736_patriarchs_effect = {
 			template = kog_patriarch_template
 			first_name = Alessandro
 			last_name = Konstantinos
-			culture = culture
-			religion = religion
+			culture = cu:elysian
+			religion = rel:br_religion_elysian_orthodox
 			save_scope_as = kog_elysium_patriarch
 			on_created = {
 				add_trait = kog_patriarch
@@ -1931,8 +1926,8 @@ kog_initialize_1736_patriarchs_effect = {
 			template = kog_patriarch_template
 			first_name = Domagaya
 			last_name = Kispokotha
-			culture = culture
-			religion = religion
+			culture = cu:iroquoian
+			religion = rel:br_religion_elysian_orthodox
 			save_scope_as = kog_onondaga_patriarch
 			on_created = {
 				add_trait = kog_patriarch
@@ -1977,8 +1972,8 @@ kog_initialize_1736_patriarchs_effect = {
 			template = kog_patriarch_template
 			first_name = Akbal
 			last_name = Ixquiac
-			culture = culture
-			religion = religion
+			culture = cu:mixtec
+			religion = rel:br_religion_elysian_orthodox
 			save_scope_as = kog_tututepec_patriarch
 			on_created = {
 				add_trait = kog_patriarch
@@ -2077,7 +2072,7 @@ kog_initialize_seat_controllers_effect = {
 				value = p:x2938A5.owner # Tag does not exist in KoG
 			}
 		}
-		container:kog_mixtec = {
+		container:kog_tututepec = {
 			set_variable = {
 				name = kog_controller_var
 				value = p:x1BC4D0.owner # Tag does not exist in KoG
@@ -2466,16 +2461,16 @@ kog_specific_country_setups_effect = {
 	# Law setup is handled in COUNTRIES history
 	
 	## Catholic Setup ##
-	c:PAP = {
+	c:PAP ?= {
 		add_modifier = modifier_kog_autocephalous
 	}
 	
 	## Orthodox Setup ##
-	c:RUS = {
+	c:RUS ?= {
 		add_modifier = modifier_kog_autocephalous
 		add_modifier = modifier_kog_reformed_synod
 	}
-	c:GRE = {
+	c:GRE ?= {
 		add_modifier = modifier_kog_schismatic
 		add_modifier = modifier_kog_reformed_synod
 		set_variable = kog_ruler_conversion_considered
@@ -2539,33 +2534,6 @@ kog_initialization_cleanup_effect = {
 				kog_country_is_eastern_orthodox_trigger = yes
 			}
 			trigger_event = kog_orthodox_events.001
-		}
-	}
-}
-
-####---------- Compatibility Database Effects ----------####
-kog_add_rhomaios_culture_to_database_effect = {
-	if = {
-		limit = {
-			grefm_is_active = no
-		}
-		add_to_global_variable_map = {
-			name = kog_database
-			key = flag:kog_rhomaios
-			value = cu:greek
-		}
-	}
-}
-
-kog_add_elysian_culture_to_database_effect = {
-	if = {
-		limit = {
-			basileia_is_active = no
-		}
-		add_to_global_variable_map = {
-			name = kog_database
-			key = flag:kog_elysian
-			value = cu:greek
 		}
 	}
 }
