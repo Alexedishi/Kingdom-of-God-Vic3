@@ -171,7 +171,7 @@ kog_integrate_seat_sgui = {
 			kog_capacity_value >= kog_integrate_seat_base_cost
 		}
 		custom_tooltip = {
-			text = "kog_owns_seat_province_SGUI_trigger"
+			text = kog_gui_integrate_seat_trigger
 			scope:kog_episcopal_seat_scope = {
 				var:kog_seat_province_var.owner = root
 			}
@@ -198,6 +198,17 @@ kog_integrate_seat_sgui = {
 	}
 }
 
+kog_integrating_seat_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+		scope:kog_episcopal_seat_scope.var:kog_integrator_var ?= root
+	}
+}
+
 kog_enforce_seat_sgui = {
 	scope = country
 	saved_scopes = {
@@ -209,7 +220,7 @@ kog_enforce_seat_sgui = {
 	}
 	is_valid = {
 		custom_tooltip = {
-			text = kog_enforce_seat_sgui_trigger
+			text = kog_enforce_seat_trigger
 			scope:kog_episcopal_seat_scope.var:kog_controller_var ?= root
 		}
 		custom_description = {
@@ -222,7 +233,7 @@ kog_enforce_seat_sgui = {
 	}
 	effect = {
 		custom_tooltip = {
-			text = kog_enforce_seat_sgui_effect
+			text = kog_gui_enforce_seat_effect
 			scope:kog_episcopal_seat_scope = {
 				set_variable = {
 					name = kog_enforcement_var
@@ -240,6 +251,17 @@ kog_enforce_seat_sgui = {
 	}
 }
 
+kog_integrating_seat_sgui = {
+	scope = country
+	saved_scopes = {
+		kog_episcopal_seat_scope
+	}
+	
+	is_shown = {
+		scope:kog_episcopal_seat_scope.var:kog_enforcer_var ?= root
+	}
+}
+
 kog_assert_seat_sgui = {
 	scope = country
 	saved_scopes = {
@@ -249,16 +271,27 @@ kog_assert_seat_sgui = {
 	is_shown = {
 		kog_is_autocephalous_trigger = yes
 		var:kog_local.var:kog_mother_church_var = scope:kog_episcopal_seat_scope
+		scope:kog_episcopal_seat_scope = {
+			OR = {
+				NOT = {
+					has_variable = kog_controller_var
+				}
+				AND = {
+					has_variable = kog_controller_var
+					var:kog_controller_var != root
+				}
+			}
+		}
 	}
 	is_valid = {
 		custom_tooltip = {
-			text = kog_assert_seat_sgui_trigger
+			text = kog_assert_seat_trigger
 			scope:kog_episcopal_seat_scope.var:kog_seat_province_var.owner = root
 		}
 	}
 	effect = {
 		custom_tooltip = {
-			text = kog_assert_seat_sgui_effect
+			text = kog_assert_seat_effect
 			scope:kog_episcopal_seat_scope = {
 				set_variable = {
 					name = kog_controller_var

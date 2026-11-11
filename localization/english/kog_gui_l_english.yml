@@ -347,7 +347,7 @@
  kog_gui_sway_seat_trigger: "#lore [GetPlayer.GetNameNoFlag] has $kog_relations$ of less than #v 50#! with the $kog_seat$ of [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]#!"
  kog_gui_sway_seat_effect_start: "[GetPlayer.GetNameNoFlag] will begin #bold improving#! $kog_relations$ with [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  kog_gui_sway_seat_effect_stop: "[GetPlayer.GetNameNoFlag] will begin #bold improving#! $kog_relations$ with [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
- kog_gui_sway_seat_tooltip: "#header $kog_gui_sway_seat_name$#!$com_ttdl$#bold Maintenance Cost: [GetPlayer.GetCustom('kog_faith_capacity_icon_only_type')] #khoine 50#!#!\n\n$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_sway_seat_desc$"
+ kog_gui_sway_seat_tooltip: "#header $kog_gui_sway_seat_name$#!$com_ttdl$#bold Maintenance Cost: [GetPlayer.GetCustom('kog_faith_capacity_icon_only_type')] #khoine [GetPlayer.MakeScope.ScriptValue('kog_seat_diplomacy_base_cost')]#!#!\n\n$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_sway_seat_desc$"
  
  kog_gui_antagonize_seat: "@kog_damage_relations! #bold Damage Relations#!"
  kog_gui_antagonize_seat_name: "Decrease Relations with [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
@@ -355,27 +355,31 @@
  kog_gui_antagonize_seat_trigger: "#lore [GetPlayer.GetNameNoFlag] has $kog_relations$ of greater than #v -50#! with the $kog_seat$ of [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]#!"
  kog_gui_antagonize_seat_effect_start: "[GetPlayer.GetNameNoFlag] will begin #bold harming#! $kog_relations$ with [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
  kog_gui_antagonize_seat_effect_stop: "[GetPlayer.GetNameNoFlag] will stop #bold harming#! $kog_relations$ with [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
- kog_gui_antagonize_seat_tooltip: "#header $kog_gui_antagonize_seat_name$#!$com_ttdl$#bold Maintenance Cost: [GetPlayer.GetCustom('kog_faith_capacity_icon_only_type')] #khoine 50#!#!\n\n$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_antagonize_seat_desc$"
- 
+ kog_gui_antagonize_seat_tooltip: "#header $kog_gui_antagonize_seat_name$#!$com_ttdl$#bold Maintenance Cost: [GetPlayer.GetCustom('kog_faith_capacity_icon_only_type')] #khoine [GetPlayer.MakeScope.ScriptValue('kog_seat_diplomacy_base_cost')]#!#!\n\n$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_antagonize_seat_desc$"
  
  kog_gui_integrate_seat: "@kog_integrate_seat! #bold Integrate Seat#!"
- kog_gui_integrate_seat_desc: "Should the location of this seat come under our control, we could replace its leadership with bishops loyal to our cause. This may anger their former patrons and well as the Catholic world at large."
+ kog_gui_integrate_seat_name: "Seize Ecclesial Control of [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_integrate_seat_desc: "Replaces the administration of this [concept_episcopal_seat] with one aligned with [GetPlayer.GetNameNoFlag]"
+ kog_gui_integrate_seat_trigger: "[GetPlayer.GetNameNoFlag] owns the $kog_home_province$ of this $kog_episcopal_seat$"
  kog_gui_integrate_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of seizing ecclesial control over [Container.GetName.GetFlagName]"
+ kog_gui_integrate_seat_tooltip: "#header $kog_gui_integrate_seat_name$#!$com_ttdl$#bold Maintenance Cost: [GetPlayer.GetCustom('kog_faith_capacity_icon_only_type')] #khoine [GetPlayer.MakeScope.ScriptValue('kog_integrate_seat_base_cost')]#!#!\n\n$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_integrate_seat_desc$"
  
  kog_gui_enforce_seat: "@kog_enforce_rite! #bold Enforce Rites#!"
- kog_gui_enforce_seat_desc: "In the centuries since the collapse of the Roman Empire, the many churches have deviated from each other in their chosen [concept_liturgical_rite]. Should the location of this seat come under our control, we could enforce their compliance with our [concept_liturgical_rite]."
+ kog_gui_enforce_seat_name: "Enforce [concept_liturgical_rite] over [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_enforce_seat_desc: "Enforces the [concept_liturgical_rite] of [GetPlayer.GetName] onto an [concept_episcopal_seat]"
+ kog_enforce_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ this $concept_episcopal_seat$"
  kog_gui_enforce_seat_effect: "[GetPlayer.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon [Container.GetName.GetFlagName]"
+ kog_gui_enforce_seat_tooltip: "#header $kog_gui_enforce_seat_name$#!$com_ttdl$#bold Maintenance Cost: [GetPlayer.GetCustom('kog_faith_capacity_icon_only_type')] #khoine [GetPlayer.MakeScope.ScriptValue('kog_enforce_seat_base_cost')]#!#!\n\n$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_enforce_seat_desc$"
  
  kog_gui_assert_seat: "@kog_integrate_seat! #bold Assert Seat Control#!"
- kog_gui_assert_seat_desc: ""
+ kog_gui_assert_seat_name: "Assert Seat Control over [ScriptContainer.MakeScope.Var('kog_seat_name_var').GetFlagName]"
+ kog_gui_assert_seat_desc: "Replaces the administration of this [concept_episcopal_seat] with one aligned with [GetPlayer.GetNameNoFlag]"
+ kog_assert_seat_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the $kog_home_province of this$ $concept_episcopal_seat$"
+ kog_assert_seat_effect: "[GetPlayer.GetNameNoFlag] will seize $kog_control$ over this $concept_episcopal_seat$"
+ kog_gui_assert_seat_tooltip: "#header $kog_gui_assert_seat_name$#!$com_ttdl$$kog_gui_sgui_buildtooltip$$com_ttdl$$kog_gui_assert_seat_desc$"
+ 
  kog_gui_install_seat: "@kog_install_bishop! #bold Install Bishop#!"
  kog_gui_install_seat_desc: "Despite the church nominally serving only to spread the word of faith, politics penetrates deep into the administration of the church. Should a state have sufficient leverage over a seat, they could strong arm the installment of a friendlier bishop."
- 
- kog_enforce_seat_sgui_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ this $concept_episcopal_seat$"
- kog_enforce_seat_sgui_effect: "[GetPlayer.GetNameNoFlag] will begin the process of enforcing our $kog_liturgical_rite$ upon this $concept_episcopal_seat$"
- 
- kog_assert_seat_sgui_trigger: "[GetPlayer.GetNameNoFlag] $kog_controls$ the $kog_home_province of this$ $concept_episcopal_seat$"
- kog_assert_seat_sgui_effect: "[GetPlayer.GetNameNoFlag] will seize $kog_control$ over this $concept_episcopal_seat$"
  
  ## Episcopal Seat Localization
  kog_seat_name_tooltip: "foo"
