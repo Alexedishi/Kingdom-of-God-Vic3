@@ -64,6 +64,28 @@ kog_update_opinion_variable_maps_effect = {
 	}
 }
 
+kog_update_seat_diplomacy_modifier_effect = {
+	if = {
+		limit = {
+			has_modifier = modifier_kog_swaying_seats
+		}
+		remove_modifier = modifier_kog_swaying_seats
+	}
+	save_scope_value_as = {
+		name = kog_seat_diplomacy_value
+		value = kog_seat_diplomacy_value
+	}
+	if = {
+		limit = {
+			kog_seat_diplomacy_value > 0
+		}
+		add_modifier = {
+			name = modifier_kog_swaying_seats
+			multiplier = scope:kog_seat_diplomacy_value
+		}
+	}
+}
+
 kog_update_seat_endorsements_modifier_effect = {
 	kog_clear_seat_endorsements_effect = yes
 	if = {

@@ -17,25 +17,24 @@ kog_start_sway_sgui = {
 			value = kog_seat_diplomacy_base_cost
 			kog_capacity_value >= kog_seat_diplomacy_base_cost
 		}
-		custom_description = {
-			text = kog_can_sway_seat_SGUI_trigger
-			subject = this
-			object = scope:kog_episcopal_seat_scope
+		custom_tooltip = {
+			text = kog_gui_sway_seat_trigger
 			scope:kog_episcopal_seat_scope = {
 				"variable_map(kog_relations_map|root)" < 50
 			}
 		}
 	}
 	effect = {
-		show_as_tooltip = {
-			add_modifier = modifier_kog_swaying_seats
-		}
-		scope:kog_episcopal_seat_scope = {
-			com_update_value_in_variable_map = {
-				name = kog_diplomacy_map
-				key = root
-				value = 1
+		custom_tooltip = {
+			text = kog_gui_sway_seat_effect_start
+			scope:kog_episcopal_seat_scope = {
+				com_update_value_in_variable_map = {
+					name = kog_diplomacy_map
+					key = root
+					value = 1
+				}
 			}
+			kog_update_seat_diplomacy_modifier_effect = yes
 		}
 	}
 }
@@ -55,15 +54,16 @@ kog_stop_sway_sgui = {
 		always = yes
 	}
 	effect = {
-		show_as_tooltip = {
-			remove_modifier = modifier_kog_swaying_seat_placeholder
-		}
-		scope:kog_episcopal_seat_scope = {
-			com_update_value_in_variable_map = {
-				name = kog_diplomacy_map
-				key = root
-				value = 0
+		custom_tooltip = {
+			text = kog_gui_sway_seat_effect_stop
+			scope:kog_episcopal_seat_scope = {
+				com_update_value_in_variable_map = {
+					name = kog_diplomacy_map
+					key = root
+					value = 0
+				}
 			}
+			kog_update_seat_diplomacy_modifier_effect = yes
 		}
 	}
 }
@@ -86,26 +86,24 @@ kog_start_antagonize_sgui = {
 			value = kog_seat_diplomacy_base_cost
 			kog_capacity_value >= kog_seat_diplomacy_base_cost
 		}
-		custom_description = {
-			text = kog_can_antagonize_seat_SGUI_trigger
-			subject = this
-			object = scope:kog_episcopal_seat_scope
+		custom_tooltip = {
+			text = kog_gui_sway_seat_trigger
 			scope:kog_episcopal_seat_scope = {
 				"variable_map(kog_relations_map|root)" > -50
 			}
 		}
 	}
 	effect = {
-		custom_tooltip = kog_gui_sway_seat_effect
-		show_as_tooltip = {
-			add_modifier = modifier_kog_antagonizing_seats
-		}
-		scope:kog_episcopal_seat_scope = {
-			com_update_value_in_variable_map = {
-				name = kog_diplomacy_map
-				key = root
-				value = -1
+		custom_tooltip = {
+			text = kog_gui_antagonize_seat_effect_start
+			scope:kog_episcopal_seat_scope = {
+				com_update_value_in_variable_map = {
+					name = kog_diplomacy_map
+					key = root
+					value = -1
+				}
 			}
+			kog_update_seat_diplomacy_modifier_effect = yes
 		}
 	}
 }
@@ -125,15 +123,16 @@ kog_stop_antagonize_sgui = {
 		always = yes
 	}
 	effect = {
-		show_as_tooltip = {
-			remove_modifier = modifier_kog_antagonizing_seat_placeholder
-		}
-		scope:kog_episcopal_seat_scope = {
-			com_update_value_in_variable_map = {
-				name = kog_diplomacy_map
-				key = root
-				value = 0
+		custom_tooltip = {
+			text = kog_gui_antagonize_seat_effect_stop
+			scope:kog_episcopal_seat_scope = {
+				com_update_value_in_variable_map = {
+					name = kog_diplomacy_map
+					key = root
+					value = 0
+				}
 			}
+			kog_update_seat_diplomacy_modifier_effect = yes
 		}
 	}
 }
