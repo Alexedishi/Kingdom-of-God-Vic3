@@ -34,26 +34,32 @@ kog_change_seat_relations_effect = {
 	}
 }
 
-# This effect saves the country scope just in case the desired country isn't root
 kog_monthly_seat_relations_effect = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_operation_value
+			value = kog_episcopal_seat_monthly_change_value
+		}
 		com_update_value_in_variable_map = {
 			name = kog_relations_map
 			key = root
-			value = root.kog_episcopal_seat_monthly_change_value
+			value = scope:kog_operation_value
 		}
 	}
 }
 
-# This effect saves the country scope just in case the desired country isn't root
 kog_update_opinion_variable_maps_effect = {
 	every_in_global_list = {
 		variable = kog_global_seat_list
+		save_scope_value_as = {
+			name = kog_operation_value
+			value = kog_episcopal_seat_opinion_value
+		}
 		com_update_value_in_variable_map = {
 			name = kog_opinions_map
 			key = root
-			value = root.kog_episcopal_seat_opinion_value
+			value = scope:kog_operation_value
 		}
 	}
 }

@@ -121,7 +121,7 @@ kog_episcopal_seat_monthly_change_value = {
 	}
 	multiply = {
 		add = 1
-		add = modifier:country_kog_monthly_seat_relations_progress_mult
+		add = root.modifier:country_kog_monthly_seat_relations_progress_mult
 		min = 0.01
 	}
 	max = 50
@@ -218,7 +218,7 @@ kog_episcopal_seat_opinion_value = {
 	# Mixed
 	add = {
 		desc = kog_value_from_relations
-		value = "global_variable_map(kog_relations_map|root)"
+		value = "variable_map(kog_relations_map|root)"
 	}
 	
 	#Penalities
