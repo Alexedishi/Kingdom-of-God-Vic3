@@ -5,10 +5,7 @@
 	#### Step 1, Activate Contextless Journals
 	kog_activate_contextless_journals_effect = yes
 	
-	#### Step 2, Initialize Compatibility Variable Map
-	kog_initialize_database_variable_map_effect = yes
-	
-	#### Step 3, Initialize Denomination Journal Variables
+	#### Step 2, Initialize Denomination Journal Variables
 	kog_initialize_roman_catholic_variables_effect = yes
 	kog_initialize_eastern_orthodox_variables_effect = yes
 	#	kog_initialize_oriental_orthodox_variables_effect = yes
@@ -22,7 +19,7 @@
 		kog_initialize_elysian_orthodox_variables_effect = yes
 	}
 	
-	#### Step 4, Create Script Containers
+	#### Step 3, Create Script Containers
 	kog_initialize_rome_container_effect = yes
 	kog_initialize_santiago_container_effect = yes
 	kog_initialize_paris_container_effect = yes
@@ -49,18 +46,18 @@
 	}
 	kog_initialize_container_lists_effect = yes
 	
-	#### Step 5, Create Patriarchs, Capture Heads of Faith, and Assign Seat Controllers
+	#### Step 4, Create Patriarchs, Capture Heads of Faith, and Assign Seat Controllers
 	kog_initialize_patriarchs_effect = yes
 	kog_initialize_seat_controllers_effect = yes
 	kog_initialize_mother_church_variables = yes
 	
-	#### Step 6, Create the College of Cardinals
+	#### Step 5, Create the College of Cardinals
 	kog_initialize_collegium_effect = yes
 	
-	#### Step 7, Initialize the Faith Ranking Lists
+	#### Step 6, Initialize the Faith Ranking Lists
 	kog_update_faith_journal_lists_effect = yes
 	
-	#### Step 8, Initialize Local Script Container and Variables
+	#### Step 7, Initialize Local Script Container and Variables
 	every_country = {
 		limit = {
 			kog_content_scope_trigger = yes
@@ -68,10 +65,10 @@
 		kog_initialize_local_content_effect = yes
 	}
 	
-	#### Step 9, Apply Seat Control and Canon Law Modifiers
+	#### Step 8, Apply Seat Control and Canon Law Modifiers
 	kog_update_canon_law_modifiers_effect = yes
 	
-	#### Step 10, Apply Any Country-specific details
+	#### Step 9, Apply Any Country-specific details
 	kog_specific_country_setups_effect = yes
 	
 	#### Step 10, Apply Final Effects
@@ -1315,35 +1312,6 @@ kog_initialize_1836_patriarchs_effect = {
 				value = scope:kog_rome_patriarch
 			}
 		}
-		
-		# Prominent Italian Cardinals
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
-			}
-		}
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
-			}
-		}
-		create_character = {
-			template = kog_cardinal_template
-			culture = cu:south_italian
-			on_created = {
-				add_trait = kog_cardinal
-				place_character_in_void = 600 # 50 year shelf life
-				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
-			}
-		}
 	}
 	c:SPA = {
 		# Santiago
@@ -2145,7 +2113,39 @@ kog_initialize_seat_controllers_effect = {
 }
 
 kog_initialize_collegium_effect = {
-	# First, place extant Catholic Devout leaders into the Cardinal list
+	# Generate some random cardinals
+	c:PAP = {
+		# Prominent Italian Cardinals
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Seriously put on some goddamn clothes dude
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Literally leave the whole creepo bit to the real priests
+			}
+		}
+		create_character = {
+			template = kog_cardinal_template
+			culture = cu:south_italian
+			on_created = {
+				add_trait = kog_cardinal
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_politician # Jesus said live in poverty not nudity dumbass
+			}
+		}
+	}
+	
+	# Place extant Catholic Devout leaders into the Cardinal list
 	every_country = {
 		limit = {
 			kog_country_is_roman_catholic_trigger = yes
@@ -2159,6 +2159,7 @@ kog_initialize_collegium_effect = {
 			}
 		}
 	}
+	
 	# Add Void Cardinals to List
 	every_character_in_void = {
 		limit = {
@@ -2169,6 +2170,7 @@ kog_initialize_collegium_effect = {
 			target = this
 		}
 	}
+	
 	# Sort the list
 	sort_global_variable_list = {
 		name = kog_cardinals_list
