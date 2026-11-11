@@ -2458,21 +2458,41 @@ kog_specific_country_setups_effect = {
 	# This is done this way to avoid having to integrate dummy country definitions into kog
 	# Unless you are making a TC or alt-history mod, probably leave this untouched
 	# Law setup is handled in COUNTRIES history
-	
-	## Catholic Setup ##
-	c:PAP ?= {
-		add_modifier = modifier_kog_autocephalous
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+		## Catholic Setup ##
+		c:PAP = {
+			add_modifier = modifier_kog_autocephalous
+		}
+		## Orthodox Setup ##
+		c:BYZ = {
+			add_modifier = modifier_kog_autocephalous
+		}
+		## Elysian Setup ##
+		c:br_elysium = {
+			add_modifier = modifier_kog_autocephalous
+		}
+		c:MIX = {
+			add_modifier = modifier_kog_autocephalous
+		}
 	}
-	
-	## Orthodox Setup ##
-	c:RUS ?= {
-		add_modifier = modifier_kog_autocephalous
-		add_modifier = modifier_kog_reformed_synod
-	}
-	c:GRE ?= {
-		add_modifier = modifier_kog_schismatic
-		add_modifier = modifier_kog_reformed_synod
-		set_variable = kog_ruler_conversion_considered
+	else = {
+		## Catholic Setup ##
+		c:PAP = {
+			add_modifier = modifier_kog_autocephalous
+		}
+		## Orthodox Setup ##
+		c:RUS = {
+			add_modifier = modifier_kog_autocephalous
+			add_modifier = modifier_kog_reformed_synod
+		}
+		c:GRE = {
+			add_modifier = modifier_kog_schismatic
+			add_modifier = modifier_kog_reformed_synod
+			set_variable = kog_ruler_conversion_considered
+		}
 	}
 }
 
