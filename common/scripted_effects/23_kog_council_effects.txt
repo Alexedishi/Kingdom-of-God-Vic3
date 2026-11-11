@@ -216,18 +216,18 @@ kog_ecumenical_council_pulse_effect = {
 			limit = {
 				has_variable_list = kog_ecumenical_council_participants_list
 			}
-		}
-		kog_tally_council_votes_effect = yes
-		if = { # Check if the council has ended, and if so, execute completion logic
-			limit = {
-				kog_council_remaining_duration_value <= 0
-			}
-			# kog_ecumenical_council_participants_list is all the UI checks for; stale council data is intentionally left behind
-			clear_variable_list = kog_ecumenical_council_participants_list
-			# Enact canon law changes first, then trigger event
-			kog_enact_council_schema_effect = yes
-			every_scope_je_involved = {
-				#trigger_event = # TODO council completion event
+			kog_tally_council_votes_effect = yes
+			if = { # Check if the council has ended, and if so, execute completion logic
+				limit = {
+					kog_council_remaining_duration_value <= 0
+				}
+				# kog_ecumenical_council_participants_list is all the UI checks for; stale council data is intentionally left behind
+				clear_variable_list = kog_ecumenical_council_participants_list
+				# Enact canon law changes first, then trigger event
+				kog_enact_council_schema_effect = yes
+				every_scope_je_involved = {
+					#trigger_event = # TODO council completion event
+				}
 			}
 		}
 	}
