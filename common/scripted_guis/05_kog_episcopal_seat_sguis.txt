@@ -320,13 +320,16 @@ kog_install_seat_sgui = {
 	}
 	is_valid = {
 		custom_tooltip = {
-			text = kog_placeholder_text
+			text = kog_gui_install_seat_trigger
 			scope:kog_episcopal_seat_scope.var:kog_seat_province_var.owner = root
 		}
-		ruler.culture != scope:kog_episcopal_seat_scope.var:kog_patriarch_var.culture
+		custom_tooltip = {
+			text = kog_placeholder_text
+			ruler.culture != scope:kog_episcopal_seat_scope.var:kog_patriarch_var.culture
+		}
 	}
 	effect = {
-		custom_tooltip = kog_placeholder_text
+		custom_tooltip = kog_gui_install_seat_effect
 	}
 }
 
