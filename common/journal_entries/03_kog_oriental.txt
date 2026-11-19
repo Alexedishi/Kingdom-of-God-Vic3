@@ -16,6 +16,62 @@ je_kog_oriental = {
 		container = "custom_widget_container_je_icon"
 	}
 	
+	map_color = {
+		if = {
+			limit = {
+				owner = {
+					kog_country_is_roman_catholic_trigger = yes
+				}
+			}
+			value = rgb{ 0.6 0.776 0.8 }
+		}
+		else_if = {
+			limit = {
+				owner = {
+					kog_country_is_eastern_orthodox_trigger = yes
+				}
+			}
+			value = rgb{ 0.624 0.306 0.533 }
+		}
+		else_if = {
+			limit = {
+				owner = {
+					kog_country_is_oriental_orthodox_trigger = yes
+				}
+			}
+			value = rgb{ 0.761 0.761 0.482 }
+		}
+		else_if = {
+			limit = {
+				owner = {
+					kog_country_is_elysian_orthodox_trigger = yes
+				}
+			}
+			value = rgb{ 68 49 64 }
+		}
+		else_if = {
+			limit = {
+				is_in_geographic_region = geographic_region_europe
+				owner = {
+					NOT = {
+						c:GBR ?= this
+					}
+					kog_country_is_protestant_trigger = yes
+				}
+			}
+			value = rgb{ 95 107 44 }
+		}
+		else_if = {
+			limit = {
+				region = sr:region_western_europe
+				owner = {
+					c:GBR ?= this
+				}
+			}
+			value = rgb{ 0.412 0.071 0.149 }
+		}
+	}
+	
 	# Call Down Omen Button
 	scripted_button = kog_gui_call_down_omen
 	
@@ -148,6 +204,13 @@ je_kog_oriental = {
 	on_become_involved_after_activation = {
 		com_save_journal_to_variable = {
 			name = je_kog_oriental
+		}
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			kog_ecumenical_council_pulse_effect = yes
+			kog_papal_conclave_pulse_effect = yes
 		}
 	}
 }
