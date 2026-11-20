@@ -1,161 +1,173 @@
 ﻿kog_update_collegium_effect = {
-	# Clear list
-	clear_global_variable_list = kog_cardinals_list
-
-	# Place extant Catholic Devout leaders into the Cardinal list
-	every_country = {
-		limit = {
-			kog_country_is_roman_catholic_trigger = yes
-		}
-		ig:ig_devout = {
-			leader = {
-				add_to_global_variable_list = {
-					name = kog_cardinals_list
-					target = this
+	scope:journal_entry = {
+		# Clear journal list; this is always done just in case
+		clear_variable_list = kog_cardinals_list
+		
+		# Only re-build the list if kog_canon_law_papal_primacy is the active canon law
+		if = {
+			limit = {
+				var:kog_canon_lawgroup_apostolic_succession = flag:kog_canon_law_papal_primacy
+			}
+			
+			# Save a random country scope in case culture generation is needed
+			random_scope_je_involved = {
+				save_scope_as = kog_cardinal_generator_scope
+			}
+			
+			# Place involved tag Devout leaders into the Cardinal list
+			every_scope_je_involved = {
+				ig:ig_devout = {
+					leader = {
+						if = {
+							limit = {
+								NOT = {
+									has_trait = kog_cardinal
+								}
+							}
+							add_trait = kog_cardinal
+						}
+						save_scope_as = kog_devout_leader_scope
+					}
 				}
-				if = {
+				scope:journal_entry = {
+					add_to_variable_list = {
+						name = kog_cardinals_list
+						target = scope:kog_devout_leader_scope
+					}
+				}
+			}
+			
+			# Capture Void Characters and generate any that are missing
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+					}
+				}
+				random_character_in_void = {
 					limit = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+					}
+					save_scope_as = kog_void_cardinal_1
+				}
+			}
+			else = {
+				kog_generate_curia_cardinal_effect = yes
+				random_character_in_void = {
+					limit = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+					}
+					save_scope_as = kog_void_cardinal_1
+				}
+			}
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
 						NOT = {
-							has_trait = kog_cardinal
+							scope:kog_void_cardinal_1 = this
 						}
 					}
-					add_trait = kog_cardinal
+				}
+				random_character_in_void = {
+					limit = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+						NOT = {
+							scope:kog_void_cardinal_1 = this
+						}
+					}
+					save_scope_as = kog_void_cardinal_2
 				}
 			}
-		}
-	}
-
-	# Capture Void Characters and generate any that are missing
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = kog_cardinal_template
-			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = kog_cardinal_template
-			}
-			save_scope_as = kog_void_cardinal_1
-		}
-	}
-	else = {
-		kog_generate_curia_cardinal_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = kog_cardinal_template
-			}
-			save_scope_as = kog_void_cardinal_1
-		}
-	}
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = kog_cardinal_template
-				NOT = {
-					scope:kog_void_cardinal_1 = this
+			else = {
+				kog_generate_curia_cardinal_effect = yes
+				random_character_in_void = {
+					limit = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+						NOT = {
+							scope:kog_void_cardinal_1 = this
+						}
+					}
+					save_scope_as = kog_void_cardinal_2
 				}
 			}
-		}
-		random_character_in_void = {
-			limit = {
-				has_template = kog_cardinal_template
-				NOT = {
-					scope:kog_void_cardinal_1 = this
+			if = {
+				limit = {
+					any_character_in_void = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+						NOR = {
+							scope:kog_void_cardinal_1 = this
+							scope:kog_void_cardinal_2 = this
+						}
+					}
+				}
+				random_character_in_void = {
+					limit = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+						NOR = {
+							scope:kog_void_cardinal_1 = this
+							scope:kog_void_cardinal_2 = this
+						}
+					}
+					save_scope_as = kog_void_cardinal_3
 				}
 			}
-			save_scope_as = kog_void_cardinal_2
-		}
-	}
-	else = {
-		kog_generate_curia_cardinal_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = kog_cardinal_template
-				NOT = {
-					scope:kog_void_cardinal_1 = this
+			else = {
+				kog_generate_curia_cardinal_effect = yes
+				random_character_in_void = {
+					limit = {
+						has_template = kog_cardinal_template
+						religion = scope:journal_entry.var:kog_religion_var
+						NOR = {
+							scope:kog_void_cardinal_1 = this
+							scope:kog_void_cardinal_2 = this
+						}
+					}
+					save_scope_as = kog_void_cardinal_3
 				}
 			}
-			save_scope_as = kog_void_cardinal_2
-		}
-	}
-	if = {
-		limit = {
-			any_character_in_void = {
-				has_template = kog_cardinal_template
-				NOR = {
-					scope:kog_void_cardinal_1 = this
-					scope:kog_void_cardinal_2 = this
-				}
+			
+			# Add the captured cardinals to the list
+			add_to_variable_list = {
+				name = kog_cardinals_list
+				target = scope:kog_void_cardinal_1
+			}
+			add_to_variable_list = {
+				name = kog_cardinals_list
+				target = scope:kog_void_cardinal_2
+			}
+			add_to_variable_list = {
+				name = kog_cardinals_list
+				target = scope:kog_void_cardinal_3
+			}
+			
+			# Sort the list
+			sortvariable_list = {
+				name = kog_cardinals_list
+				order = kog_character_gravitas_value
 			}
 		}
-		random_character_in_void = {
-			limit = {
-				has_template = kog_cardinal_template
-				NOR = {
-					scope:kog_void_cardinal_1 = this
-					scope:kog_void_cardinal_2 = this
-				}
-			}
-			save_scope_as = kog_void_cardinal_3
-		}
 	}
-	else = {
-		kog_generate_curia_cardinal_effect = yes
-		random_character_in_void = {
-			limit = {
-				has_template = kog_cardinal_template
-				NOR = {
-					scope:kog_void_cardinal_1 = this
-					scope:kog_void_cardinal_2 = this
-				}
-			}
-			save_scope_as = kog_void_cardinal_3
-		}
-	}
-
-	# Purge Excess Cardinals
-	every_character_in_void = {
-		limit = {
-			has_template = kog_cardinal_template
-			NOR = {
-				scope:kog_void_cardinal_1 = this
-				scope:kog_void_cardinal_2 = this
-				scope:kog_void_cardinal_3 = this
-			}
-		}
-		free_character_from_void = yes
-	}
-
-	# Add Cardinals to the list
-	add_to_global_variable_list = {
-		name = kog_cardinals_list
-		target = scope:kog_void_cardinal_1
-	}
-	add_to_global_variable_list = {
-		name = kog_cardinals_list
-		target = scope:kog_void_cardinal_2
-	}
-	add_to_global_variable_list = {
-		name = kog_cardinals_list
-		target = scope:kog_void_cardinal_3
-	}
-
-	# Sort the list
-	sort_global_variable_list = {
-		name = kog_cardinals_list
-		order = kog_character_gravitas_value
-	}
-
 }
 
 kog_generate_curia_cardinal_effect = {
-	create_character = {
-		template = kog_cardinal_template
-		culture = cu:south_italian
-		on_created = {
-			place_character_in_void = 600 # 50 year shelf life
-			add_character_role = character_role_politician # activate_law = law_type:law_nudity_banned
+	scope:kog_cardinal_generator_scope = {
+		create_character = {
+			template = kog_cardinal_template
+			culture = var:kog_global_faith_journal_var.var:kog_culture_var
+			religion = var:kog_global_faith_journal_var.var:kog_religion_var
+			on_created = {
+				place_character_in_void = 600 # 50 year shelf life
+				add_character_role = character_role_kog_bishop # activate_law = law_type:law_nudity_banned
+			}
 		}
 	}
 }

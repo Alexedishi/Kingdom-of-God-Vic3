@@ -98,6 +98,10 @@ kog_initialize_roman_catholic_variables_effect = {
 			value = rel:catholic
 		}
 		set_variable = {
+			name = kog_culture_var
+			value = cu:north_italian
+		}
+		set_variable = {
 			name = kog_location_var
 			value = s:STATE_LAZIO
 		}
@@ -157,6 +161,21 @@ kog_initialize_eastern_orthodox_variables_effect = {
 		set_variable = {
 			name = kog_religion_var
 			value = rel:orthodox
+		}
+		if = {
+			limit = {
+				grefm_is_active = yes
+			}
+			set_variable = {
+				name = kog_culture_var
+				value = cu:rhomaios
+			}
+		}
+		else = {
+			set_variable = {
+				name = kog_culture_var
+				value = cu:greek
+			}
 		}
 		set_variable = {
 			name = kog_location_var
@@ -218,6 +237,10 @@ kog_initialize_elysian_orthodox_variables_effect = {
 		set_variable = {
 			name = kog_religion_var
 			value = rel:br_religion_elysian_orthodox
+		}
+		set_variable = {
+			name = kog_culture_var
+			value = cu:elysian
 		}
 		set_variable = {
 			name = kog_location_var

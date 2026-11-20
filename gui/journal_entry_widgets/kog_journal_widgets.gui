@@ -1857,7 +1857,7 @@ types kog_collegium_panel_types {
 		direction = vertical
 		
 		visible = "[And(
-			DataModelHasItems(GetGlobalList('kog_cardinals_list')),
+			DataModelHasItems(JournalEntry.MakeScope.GetList('kog_cardinals_list')),
 			GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
 		)]"
 		
@@ -1917,7 +1917,7 @@ types kog_collegium_panel_types {
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
-							datamodel = "[GetGlobalList('kog_cardinals_list')]"
+							datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
 							index = 1
 						}
 					}
@@ -1942,7 +1942,7 @@ types kog_collegium_panel_types {
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
-							datamodel = "[GetGlobalList('kog_cardinals_list')]"
+							datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
 							index = 0
 						}
 					}
@@ -1970,7 +1970,7 @@ types kog_collegium_panel_types {
 					blockoverride "papabile_datacontext" {
 						datacontext = "[Scope.GetCharacter]"
 						datacontext_from_model = {
-							datamodel = "[GetGlobalList('kog_cardinals_list')]"
+							datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
 							index = 2
 						}
 					}
@@ -2019,7 +2019,7 @@ types kog_collegium_panel_types {
 			direction = vertical
 			visible = "[GetVariableSystem.Exists('kog_collegium_toggle')]"
 			
-			datamodel = "[GetGlobalList('kog_cardinals_list')]"
+			datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
 			
 			item = {
 				kog_collegium_cardinal_widget = { }
