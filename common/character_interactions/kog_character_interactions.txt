@@ -1,1 +1,129 @@
-﻿
+﻿kog_appoint_bishop = {
+	icon = gfx/interface/icons/character_interaction_icons/kog_appoint_bishop.dds
+	show_requirements = yes
+	
+	potential = {
+		owner ?= scope:actor
+		is_interest_group_type = ig_devout
+		owner = {
+			kog_content_scope_trigger = yes
+		}
+	}
+	possible = {
+		NOT = {
+			ig:ig_devout.leader = {
+				has_modifier = modifier_kog_invested_bishop
+			}
+		}
+		owner = {
+			has_law_or_variant = law_type:law_concordat_of_investment
+			custom_description = {
+				text = kog_capacity_trigger
+				subject = this
+				value = 50
+				kog_capacity_value >= 50
+			}
+		}
+	}
+	effect = {
+		set_as_interest_group_leader = yes
+		add_modifier = modifier_kog_invested_bishop
+		scope:actor = {
+			add_modifier = {
+				name = modifier_kog_appointed_bishop
+				months = long_modifier_time
+			}
+		}
+	}
+	
+	should_ai_evaluate = {
+		country_rank >= rank_value:minor_power
+		kog_content_scope_trigger = yes
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_excommunicate = {
+	icon = gfx/interface/icons/character_interaction_icons/kog_excommunicate.dds
+	show_requirements = yes
+	
+	potential = {
+		scope:actor = {
+			kog_country_is_head_of_faith_trigger = yes
+		}
+		owner = {
+			kog_content_scope_trigger = yes
+		}
+		owner.religion = scope:actor.religion
+		religion = scope:actor.religion
+	}
+	possible = {
+		scope:actor = {
+			custom_description = {
+				text = kog_capacity_trigger
+				subject = this
+				value = 100
+				kog_capacity_value >= 100
+			}
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_excommunicated
+		owner = {
+			trigger_event = kog_generic_events.001
+		}
+		scope:actor = {
+			create_incident = {
+				country = root.owner
+				value = 10
+			}
+			add_modifier = {
+				name = modifier_kog_excommunicated_bishop
+				days = normal_modifier_time
+			}
+		}
+	}
+	
+	should_ai_evaluate = {
+		always = no
+	}
+	ai_chance = {
+		value = 0
+	}
+}
+
+kog_invest_bishop = {
+	icon = gfx/interface/icons/character_interaction_icons/kog_invest_bishop.dds
+	show_requirements = yes
+	
+	potential = {
+		owner ?= scope:actor
+		is_interest_group_type = ig_devout
+		owner = {
+			kog_content_scope_trigger = yes
+		}
+	}
+	possible = {
+		NOT = {
+			ig:ig_devout.leader = {
+				has_modifier = modifier_kog_invested_bishop
+			}
+		}
+		owner = {
+			has_law_or_variant = law_type:law_concordat_of_investment
+		}
+	}
+	effect = {
+		add_modifier = modifier_kog_invested_bishop
+	}
+	
+	should_ai_evaluate = {
+		country_rank >= rank_value:minor_power
+		kog_content_scope_trigger = yes
+	}
+	ai_chance = {
+		value = 100
+	}
+}
