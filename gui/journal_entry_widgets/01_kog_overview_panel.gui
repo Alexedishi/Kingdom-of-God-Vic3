@@ -1,0 +1,659 @@
+# INHERITED FROM BASE GAME
+@panel_width_minus_30 = 510
+@panel_width_minus_20 = 520
+@panel_width_minus_10 = 530 # used to be 450
+@panel_width = 540 # used to be 460
+@panel_width_half = 270 # used to be 230
+@panel_width_plus_10 = 550 # used to be 470
+@panel_width_plus_14 = 554 # used to be 474
+@panel_width_plus_14_half = 277 # used to be 237
+@panel_width_plus_20 = 560 # used to be 480
+@panel_width_plus_30 = 570 # used to be 490
+@panel_width_plus_70 = 610 # used to be 530
+
+####---------- KOG OVERVIEW PANEL TYPES ----------####
+types kog_overview_panel_types {
+	type kog_denominational_overview_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+		
+		kog_encyclicals_container = { }
+		kog_denominational_actions_container = { }
+		com_international_organization_modifiers = { }
+		kog_membership_panel = { }
+		# kog_holy_sites_panel = {} # TODO enable holy sites when ready
+	}
+	
+	type kog_encyclicals_container = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		ignoreinvisible = yes
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 20
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "kog_gui_encyclical_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[Not(GetScriptedGui('kog_encyclicals_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End))]"
+			autoresize = yes
+			text = "kog_gui_encyclicals_disabled"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		textbox = {
+			parentanchor = top|hcenter
+			visible = "[And(
+				GetScriptedGui('kog_encyclicals_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope ).End),
+				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
+			)]"
+			autoresize = yes
+			text = "kog_gui_no_encyclical"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			visible = "[Not(
+				IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_encyclicals_list'))
+			)]"
+			datamodel = "[JournalEntry.MakeScope.GetList('kog_encyclicals_list')]"
+			spacing = 2
+			item = {
+				kog_encyclical_item = { }
+			}
+		}
+	}
+	
+	type kog_encyclical_item = flowcontainer {
+		direction = vertical
+		minimumsize = { @panel_width_minus_30 -1 }
+		margin_bottom = 10
+		
+		datacontext = "[Scope.GetJournalEntry]"
+		visible = "[JournalEntry.IsValid]"
+		
+		background = {
+			using = dark_area
+			alpha = 0.25
+			margin = { -5 -5 }
+		}
+		
+		button = {
+			minimumsize = { @panel_width_minus_30 40 }
+			using = com_international_organization_entry_properties
+			onclick = "[InformationPanelBar.OpenJournalEntryPanel(JournalEntry.AccessSelf)]"
+			enabled = "[JournalEntry.IsActive]"
+			
+			background = {
+				using = default_header_bg
+				margin = { -5 0 }
+			}
+			
+			widget = {
+				size = { 100% 100% }
+				using = entry_bg_fancy
+			}
+			
+			tooltipwidget = {
+				FancyTooltip_JournalEntry = { }
+			}
+			
+			onmousehierarchyenter = "[PdxGuiWidget.FindChild('journal_pin_button').InterruptThenTriggerAnimation('hide_journal_pin_button','show_journal_pin_button')]"
+			onmousehierarchyleave = "[PdxGuiWidget.FindChild('journal_pin_button').InterruptThenTriggerAnimation('show_journal_pin_button','hide_journal_pin_button')]"
+			
+			## UPPER ROW
+			flowcontainer = {
+				resizeparent = yes
+				direction = horizontal
+				minimumsize = { @panel_width_minus_30 -1 }
+				spacing = 5
+				
+				widget = {
+					size = { 50 40 }
+					icon = {
+						parentanchor = top|left
+						position = { -7 -7 }
+						size = { 60 60 }
+						texture = "gfx/interface/backgrounds/round_button_bg.dds"
+						
+						icon = {
+							parentanchor = center
+							size = { 40 40 }
+							texture = "[JournalEntry.GetIcon]"
+						}
+					}
+				}
+				
+				widget = {
+					size = { 23 23 }
+					parentanchor = center
+					visible = "[JournalEntry.IsActive]"
+					
+					button = {
+						name = "journal_pin_button"
+						texture = "gfx/interface/outliner/unpinned_icon.dds"
+						using = check_button_sound
+						size = { 100% 100% }
+						visible = "[Not(JournalEntry.IsPinnedInOutliner)]"
+						onclick = "[JournalEntry.TogglePinInOutliner]"
+						tooltip = "PIN"
+						parentanchor = center
+					}
+					button = {
+						using = check_button_sound
+						texture = "gfx/interface/outliner/pinned_icon.dds"
+						size = { 100% 100% }
+						visible = "[JournalEntry.IsPinnedInOutliner]"
+						onclick = "[JournalEntry.TogglePinInOutliner]"
+						tooltip = "UNPIN"
+						parentanchor = center
+					}
+				}
+				
+				widget = {
+					parentanchor = center
+					size = { 390 30 }
+					textbox = {
+						position = { 0 1 }
+						text = "[JournalEntry.GetName]"
+						autoresize = yes
+						align = left|nobaseline
+						multiline = yes
+						default_format = "#header"
+						using = fontsize_large
+					}
+				}
+			}
+		}
+		
+		## MIDDLE ROW
+		flowcontainer = {
+			direction = vertical
+			spacing = 5
+			margin_top = 4
+			margin_left = 40
+			minimumsize = { @panel_width_minus_30 40 }
+			
+			flowcontainer = {
+				visible = "[And(JournalEntry.CanTimeOut, JournalEntry.IsActive)]"
+				spacing = 5
+				
+				icon = {
+					size = { 18 18 }
+					texture = "gfx/interface/icons/generic_icons/clock.dds"
+					parentanchor = vcenter
+				}
+				textbox = {
+					text = "[JournalEntry.GetTimeoutTooltip]"
+					autoresize = yes
+					align = left|nobaseline
+					parentanchor = vcenter
+				}
+			}
+			
+			textbox = {
+				text = "[JournalEntry.GetStatusDesc]"
+				visible = "[Not(StringIsEmpty(JournalEntry.GetStatusDesc))]"
+				autoresize = yes
+				align = right|nobaseline
+				multiline = yes
+			}
+		}
+	}
+	
+	type kog_denominational_actions_container = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		spacing = 10
+		margin_bottom = 15
+		
+		using = entry_bg_fancy
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_major_actions"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			spacing = 5
+			
+			datamodel = "[JournalEntry.GetScriptedButtons]"
+			
+			item = {
+				kog_scripted_button_item = {
+					visible = "[ScriptedButton.HasTag('major_decision')]"
+				}
+			}
+		}
+	}
+	
+	type kog_membership_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 15
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_community_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		# MEMBERS IN COMMUNION CONTAINER
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_communion_list')))]"
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_in_communion"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_communion_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						datacontext = "[Scope.GetCountry]"
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_in_schism"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_schism_list'))]"
+				autoresize = yes
+				text = "kog_community_church_undivided"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_schism_list')))]"
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_schism_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						datacontext = "[Scope.GetCountry]"
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_autocephalous_list')))]"
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_community_members_with_autocephaly"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_autocephalous_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				
+				item = {
+					widget = {
+						datacontext = "[Scope.GetCountry]"
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+	}
+	
+	type kog_holy_sites_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 15
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_holy_sites_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		# Rome
+		kog_holy_site_item = {
+			blockoverride "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/kog_saint_peters_basilica.dds"
+			}
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_rome.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_rome_header"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Santiago
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_santiago.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_santiago_header"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Paris
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_paris.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_paris_header"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Koln
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_koln.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_koln_header"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+		
+		# Vienna
+		kog_holy_site_item = {
+			blockoverride "holy_site_texture" {
+				texture = "gfx/interface/icons/holy_site_icons/unused/kog_holy_site_vienna.dds"
+			}
+			blockoverride "holy_site_control_visibility" { }
+			blockoverride "holy_site_not_controlled_visibility" {
+				visible = "no"
+			}
+			blockoverride "holy_site_name" {
+				text = "kog_vienna_header"
+			}
+			blockoverride "holy_site_tooltip" { }
+		}
+	}
+	
+	type kog_holy_site_item = widget {
+		size = { 520 120 }
+		parentanchor = top|hcenter
+		
+		using = entry_bg_fancy
+		
+		background = {
+			block "holy_site_background" {
+				texture = "gfx/interface/illustrations/holy_sites/ck3_temple_generic_grass.dds"
+			}
+			fittype = centercrop
+			using = frame_small_mask
+			alpha = 0.75
+		}
+		icon = {
+			using = dark_area
+			parentanchor = top|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		icon = {
+			using = dark_area
+			parentanchor = bottom|hcenter
+			size = { 100% 30% }
+			alpha = 0.65
+			position = { 0 -4 }
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_top.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+		}
+		
+		flowcontainer = {
+			direction = horizontal
+			minimumsize = { 520 120 }
+			margin = { 10 0 }
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 100 100 }
+				icon = {
+					block "holy_site_control_visibility" { }
+					using = selected_sidepanel_animation
+					size = { 90% 90% }
+					alwaystransparent = yes
+					parentanchor = center
+					using = default_fade_in_out
+				}
+				icon = {
+					size = { 100 100 }
+					block "holy_site_texture" {
+						texture = "gfx/interface/icons/holy_site_icons/kog_holy_site_generic.dds"
+					}
+					modify_texture = {
+						block "holy_site_not_controlled_visibility" {
+							visible = "no"
+						}
+						texture = "gfx/interface/backgrounds/grey.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = normal
+						alpha = 0.5
+					}
+				}
+				block "holy_site_tooltip" { }
+			}
+			
+			widget = {
+				size = { 400 120 }
+				
+				background = {
+					using = dark_area
+					margin = { 0 -10 }
+				}
+				
+				flowcontainer = {
+					direction = vertical
+					margin_left = 10
+					spacing = 5
+					
+					textbox = {
+						block "holy_site_name" {
+							text = "kog_block_holy_site_name"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_large
+					}
+					textbox = {
+						block "holy_site_location" {
+							text = "kog_block_holy_site_location"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_controller" {
+							text = "kog_block_holy_site_controller"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+					textbox = {
+						block "holy_site_perk" {
+							text = "kog_block_holy_site_perk"
+							using = look_at_me_text_animation
+						}
+						parentanchor = left|vcenter
+						position = { 0 0 }
+						autoresize = yes
+						max_width = 250
+						elide = right
+						using = fontsize_medium
+					}
+				}
+			}
+		}
+	}
+}

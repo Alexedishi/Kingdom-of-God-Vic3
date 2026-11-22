@@ -1,0 +1,564 @@
+# INHERITED FROM BASE GAME
+@panel_width_minus_30 = 510
+@panel_width_minus_20 = 520
+@panel_width_minus_10 = 530 # used to be 450
+@panel_width = 540 # used to be 460
+@panel_width_half = 270 # used to be 230
+@panel_width_plus_10 = 550 # used to be 470
+@panel_width_plus_14 = 554 # used to be 474
+@panel_width_plus_14_half = 277 # used to be 237
+@panel_width_plus_20 = 560 # used to be 480
+@panel_width_plus_30 = 570 # used to be 490
+@panel_width_plus_70 = 610 # used to be 530
+
+####---------- KOG CANON LAWS PANEL TYPES ----------####
+types kog_collegium_panel_types {
+	type kog_collegium_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		
+		visible = "[And(
+			DataModelHasItems(JournalEntry.MakeScope.GetList('kog_cardinals_list')),
+			GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
+		)]"
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			minimumsize = { 520 -1 }
+			spacing = 0
+			margin_bottom = 15
+			
+			using = entry_bg_fancy
+			
+			default_header_clean_faded = {
+				parentanchor = top|hcenter
+				blockoverride "text" {
+					text = "kog_gui_papabili_header"
+				}
+				blockoverride "size" {
+					size = { 532 45 }
+				}
+			}
+			
+			flowcontainer = {
+				parentanchor = top|hcenter
+				direction = horizontal
+				minimumsize = { 520 -1 }
+				spacing = 5
+				margin_left = 8
+				
+				background = {
+					texture = "gfx/interface/illustrations/journal_backgrounds/kog_church_hallway_illus.dds"
+					fittype = centercrop
+					alpha = 0.75
+					margin = { 0 5 }
+					
+					modify_texture = {
+						texture = "gfx/interface/backgrounds/default_bg_shading.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = overlay
+					}
+					modify_texture = {
+						using = texture_velvet
+					}
+					modify_texture = {
+						texture = "gfx/interface/masks/fade_vertical_center.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 10 }
+						blend_mode = alphamultiply
+						alpha = 0.75
+					}
+					
+				}
+				
+				## RANK 2
+				kog_collegium_papabili_widget = {
+					blockoverride "papabile_datacontext" {
+						datacontext = "[Scope.GetCharacter]"
+						datacontext_from_model = {
+							datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
+							index = 1
+						}
+					}
+					blockoverride "pababile_pose" {
+						portrait_texture = "[Character.GetAnimatedPortrait(
+							'ruler_environment',
+							'camera_leader',
+							'commander_vs_left',
+							GetPortraitRenderSize(PdxGuiWidget.Self))
+						]"
+					}
+				}
+				
+				## RANK 1
+				kog_collegium_papabili_widget = {
+					blockoverride "papabile_title_text" {
+						raw_text = "#bold [concept_preferatus]"
+					}
+					blockoverride "papabile_chad_factor" {
+						size = { 230 230 }
+					}
+					blockoverride "papabile_datacontext" {
+						datacontext = "[Scope.GetCharacter]"
+						datacontext_from_model = {
+							datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
+							index = 0
+						}
+					}
+					blockoverride "pababile_pose" {
+						portrait_texture = "[Character.GetAnimatedPortrait(
+							'ruler_environment',
+							'camera_leader',
+							'commander_vs_left',
+							GetPortraitRenderSize(PdxGuiWidget.Self))
+						]"
+					}
+					
+					blockoverride "pababile_pose" {
+						portrait_texture = "[Character.GetAnimatedPortrait(
+							'ruler_environment',
+							'camera_leader',
+							'idle',
+							GetPortraitRenderSize(PdxGuiWidget.Self))
+						]"
+					}
+				}
+				
+				## RANK 3
+				kog_collegium_papabili_widget = {
+					blockoverride "papabile_datacontext" {
+						datacontext = "[Scope.GetCharacter]"
+						datacontext_from_model = {
+							datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
+							index = 2
+						}
+					}
+					blockoverride "pababile_pose" {
+						portrait_texture = "[Character.GetAnimatedPortrait(
+							'ruler_environment',
+							'camera_leader',
+							'commander_vs_left',
+							GetPortraitRenderSize(PdxGuiWidget.Self))
+						]"
+					}
+					blockoverride "pababile_pose" {
+						portrait_texture = "[Character.GetAnimatedPortrait(
+							'ruler_environment',
+							'camera_leader',
+							'commander_vs_right',
+							GetPortraitRenderSize(PdxGuiWidget.Self))
+						]"
+					}
+				}
+			}
+		}
+		
+		## CARDINAL LIST TOGGLE
+		section_header_button = {
+			blockoverride "layout" {
+				size = { 520 38 }
+			}
+			blockoverride "left_text" {
+				text = "kog_gui_cardinals_list"
+			}
+			blockoverride "onclick" {
+				onclick = "[GetVariableSystem.Toggle('kog_collegium_toggle')]"
+			}
+			blockoverride "onclick_showmore" {
+				visible = "[Not(GetVariableSystem.Exists('kog_collegium_toggle'))]"
+			}
+			blockoverride "onclick_showless" {
+				visible = "[GetVariableSystem.Exists('kog_collegium_toggle')]"
+			}
+		}
+		
+		## CARDINAL LIST CONTAINER
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			visible = "[GetVariableSystem.Exists('kog_collegium_toggle')]"
+			
+			datamodel = "[JournalEntry.MakeScope.GetList('kog_cardinals_list')]"
+			
+			item = {
+				kog_collegium_cardinal_widget = { }
+			}
+		}
+	}
+	
+	type kog_collegium_papabili_widget = widget {
+		parentanchor = top|hcenter
+		size = { 165 190 }
+		
+		icon = {
+			parentanchor = center
+			position = { 0 15 }
+			scale = 0.25
+			texture = "gfx/interface/portraits/kog_portrait_stained_glass.dds"
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_bottom.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 10 }
+				blend_mode = alphamultiply
+				alpha = 1
+			}
+		}
+		
+		character_portrait_base_no_mask = {
+			parentanchor = center
+			position = { 0 15 }
+			ignore_in_debug_draw = yes
+			size = { 180 180 }
+			
+			block "papabile_datacontext" {
+				datacontext = "[GetPlayer.GetRuler]"
+			}
+			blockoverride "portrait_size" {
+				block "papabile_chad_factor" {
+					size = { 210 210 }
+				}
+			}
+			blockoverride "portrait_texture" {
+				block "pababile_pose" {
+					portrait_texture = "[Character.GetAnimatedPortrait(
+						'ruler_environment',
+						'camera_leader',
+						'idle',
+						GetPortraitRenderSize(PdxGuiWidget.Self))
+					]"
+				}
+			}
+			
+			flowcontainer = {
+				direction = vertical
+				parentanchor = bottom|hcenter
+				position = { 0 -10 }
+				spacing = 10
+				
+				flowcontainer = {
+					direction = vertical
+					parentanchor = top|hcenter
+					
+					background = {
+						using = dark_area
+						alpha = 0.7
+						margin = { 20 5 }
+						
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_horizontal_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+						}
+						
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_vertical_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+							alpha = 0.5
+						}
+					}
+					textbox = {
+						parentanchor = top|hcenter
+						block "papabile_title_text" {
+							raw_text = "#bold [Character.GetPrimaryRole.GetName]"
+						}
+						autoresize = yes
+						elide = right
+						using = fontsize_medium
+						max_width = 160
+						
+					}
+					textbox = {
+						parentanchor = top|hcenter
+						raw_text = "[Character.GetLastName]"
+						autoresize = yes
+						elide = right
+						using = fontsize_medium
+						max_width = 160
+						
+					}
+				}
+				
+				textbox = {
+					parentanchor = top|hcenter
+					text = "kog_cardinal_gravitas"
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+					multiline = yes
+					max_width = 160
+					
+					background = {
+						using = dark_area
+						alpha = 0.8
+						margin = { 20 5 }
+						
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_horizontal_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+						}
+						modify_texture = {
+							texture = "gfx/interface/masks/fade_vertical_center.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = alphamultiply
+							alpha = 0.5
+						}
+					}
+					
+					background = {
+						using = entry_bg
+						margin = { 10 8 }
+					}
+					
+					tooltip = "kog_cardinal_gravitas_breakdown"
+				}
+			}
+		}
+		
+		widget = {
+			parentanchor = top|right
+			size = { 40 40 }
+			position = { -16 20 }
+			
+			block "papabile_datacontext" {
+				datacontext = "[GetPlayer.GetRuler]"
+			}
+			
+			icon = {
+				texture = "gfx/interface/backgrounds/round_button_bg.dds"
+				parentanchor = center
+				size = { 110% 110% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_revolutionary_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_modernizer.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_reformer_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_reformer.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_conservative_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_conservative.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_reactionary_intent_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_fundamentalist.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			icon = {
+				visible = "[GetScriptedGui('kog_reactionary_moderate_sgui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				texture = "gfx/interface/icons/theological_debate_icons/kog_debate_stance_legalistic.dds"
+				parentanchor = center
+				size = { 75% 75% }
+			}
+			tooltip = "kog_gui_papabili_tooltip"
+		}
+	}
+	
+	type kog_collegium_cardinal_widget = flowcontainer {
+		minimumsize = { 520 120 }
+		direction = horizontal
+		spacing = 10
+		
+		datacontext = "[Scope.GetCharacter]"
+		
+		using = entry_bg_fancy
+		
+		widget = {
+			size = { 120 120 }
+			parentanchor = center
+			
+			character_portrait_medium = {
+				parentanchor = center
+				position = { 0 0 }
+				blockoverride "show_hat" { }
+				blockoverride "tooltip" { }
+				blockoverride "portrait_icons" { }
+				blockoverride "portrait_button" { }
+				blockoverride "ig_button" { }
+				
+				icon = {
+					size = { 27 18 }
+					position = { -10 0 }
+					parentanchor = bottom|left
+					
+					texture = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagTexture]"
+					alwaystransparent = yes
+					
+					frame = "[Scope.GetCharacter.GetCountry.GetFlag.GetSmallFlagFrame]"
+					framesize = "[GetSmallFlagFrameSize]"
+					
+					using = flag_overlay
+					
+					icon = {
+						name = frame
+						texture = "gfx/interface/flag/flag_power_tiny.dds"
+						size = { 33 24 }
+						framesize = { 66 48 }
+						frame = "[Scope.GetCharacter.GetCountry.GetRankIconIndex]"
+						alwaystransparent = yes
+						parentanchor = center
+						block "visibility" { }
+					}
+				}
+				textbox = {
+					text = "kog_cardinal_gravitas"
+					position = { 14 0 }
+					parentanchor = bottom|right
+					autoresize = yes
+					elide = right
+					using = fontsize_medium
+					
+					background = {
+						using = dark_area
+						alpha = 0.5
+						margin = { 2 2 }
+					}
+					
+					tooltip = "kog_cardinal_gravitas_breakdown"
+				}
+				
+				widget = {
+					parentanchor = top|right
+					position = { 5 -5 }
+					size = { 35 35 }
+					
+					visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+					
+					icon = {
+						using = rotate_glow_animation_02
+						size = { 60 60 }
+						parentanchor = center
+						position = { 0 0 }
+						
+						icon = {
+							texture = "gfx/interface/icons/generic_icons/kog_preferatus.dds"
+							parentanchor = center
+							size = { 35 35 }
+							position = { 4 4 }
+							
+							
+						}
+					}
+					
+					tooltip = "kog_placeholder_text"
+				}
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = center
+			direction = vertical
+			minimumsize = { 220 100 }
+			
+			margin = { 10 0 }
+			
+			background = {
+				using = dark_area
+				alpha = 0.25
+			}
+			
+			default_header_clean_faded = {
+				visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0')]"
+				size = { 220 30 }
+				parentanchor = top|hcenter
+				blockoverride "text" { }
+				textbox = {
+					text = "kog_gui_perferatus_statline_name"
+					parentanchor = center
+					position = { 0 0 }
+					autoresize = yes
+					max_width = 240
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			default_header_clean_faded = {
+				visible = "[Not(EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, '(int32)0'))]"
+				size = { 220 30 }
+				parentanchor = top|hcenter
+				blockoverride "text" { }
+				textbox = {
+					text = "kog_gui_cardinal_statline_name"
+					parentanchor = center
+					position = { 0 0 }
+					autoresize = yes
+					max_width = 240
+					elide = right
+					using = fontsize_medium
+				}
+			}
+			textbox = {
+				text = "kog_gui_cardinal_statline_title"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+			textbox = {
+				text = "kog_gui_cardinal_statline_gravitas"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+			textbox = {
+				text = "kog_gui_cardinal_statline_homeland"
+				parentanchor = left|vcenter
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 250
+				elide = right
+				using = fontsize_medium
+			}
+		}
+		
+		dynamicgridbox = {
+			parentanchor = center
+			layoutpolicy_vertical = preferred
+			datamodel = "[Character.AccessTraits]"
+			datamodel_wrap = 3
+			flipdirection = yes
+			
+			background = {
+				using = dark_area
+				alpha = 0.25
+			}
+			
+			item = {
+				flowcontainer = {
+					margin = { 5 5 }
+					alpha = "[TransparentIfTrue(CharacterTrait.IsDisabled)]"
+					
+					tooltipwidget = {
+						FancyTooltip_CharacterTrait = { }
+					}
+					icon = {
+						size = { 32 45 }
+						texture = "[CharacterTrait.GetTexture]"
+					}
+				}
+			}
+		}
+	}
+}

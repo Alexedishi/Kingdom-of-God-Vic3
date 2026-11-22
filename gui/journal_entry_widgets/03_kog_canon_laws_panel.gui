@@ -1,0 +1,662 @@
+# INHERITED FROM BASE GAME
+@panel_width_minus_30 = 510
+@panel_width_minus_20 = 520
+@panel_width_minus_10 = 530 # used to be 450
+@panel_width = 540 # used to be 460
+@panel_width_half = 270 # used to be 230
+@panel_width_plus_10 = 550 # used to be 470
+@panel_width_plus_14 = 554 # used to be 474
+@panel_width_plus_14_half = 277 # used to be 237
+@panel_width_plus_20 = 560 # used to be 480
+@panel_width_plus_30 = 570 # used to be 490
+@panel_width_plus_70 = 610 # used to be 530
+
+####---------- KOG CANON LAWS PANEL TYPES ----------####
+types kog_canon_laws_panel_types {
+	type kog_canon_laws_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		spacing = 10
+		
+		visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+		
+		kog_canon_law_compliance_widget = { }
+		kog_ecumenical_inactive_council_container = { }
+		kog_ecumenical_active_council_container = { }
+		divider_decorative = { }
+		kog_canon_laws_container = { }
+	}
+	
+	type kog_ecumenical_inactive_council_container = flowcontainer {
+		parentanchor = top|hcenter
+		minimumsize = { 520 100 }
+		visible = "[IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_participants_list'))]"
+		background = {
+			texture = "gfx/interface/illustrations/window_backgrounds/kog_no_council_background.dds"
+			size = { 100% 100% }
+			fittype = centercrop
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		using = entry_bg_fancy
+		
+		textbox = {
+			parentanchor = center
+			size = { 100% 100% }
+			text = "kog_gui_ecumenical_council_none"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+			
+			background = {
+				using = dark_area
+				alpha = 0.4
+				margin = { -5 -5 }
+				
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_horizontal_center.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+				}
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_vertical_center.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+					alpha = 0.5
+				}
+			}
+		}
+	}
+	
+	type kog_ecumenical_active_council_container = widget {
+		parentanchor = top|hcenter
+		size = { 520 220 }
+		visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecumenical_council_participants_list')))]"
+		
+		background = {
+			texture = "gfx/interface/illustrations/window_backgrounds/kog_council_background.dds"
+			size = { 100% 100% }
+			fittype = centercrop
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		using = entry_bg_fancy
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			position = { 0 0 }
+			size = { 500 35 }
+			
+			blockoverride "text" {
+			}
+			textbox = {
+				text = "kog_gui_ecumenical_council_header"
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 520
+				elide = right
+				using = fontsize_large
+			}
+		}
+		
+		textbox = {
+			text = "kog_gui_ecumenical_council_timer"
+			parentanchor = top|hcenter
+			position = { 0 41 }
+			autoresize = yes
+			max_width = 520
+			elide = right
+			fontsize = 16
+			using = tooltip_font
+			default_format = "#b;lore;italic"
+			
+			background = {
+				using = dark_area
+				alpha = 0.6
+				margin = { 50 10 }
+				
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_horizontal_center.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+				}
+				
+				modify_texture = {
+					texture = "gfx/interface/masks/fade_vertical_center.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 0 0 }
+					blend_mode = alphamultiply
+				}
+			}
+		}
+		
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { -120 -5 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/prestige.dds"
+			}
+			blockoverride "widget_header" {
+				text = "kog_gui_caller_header"
+			}
+			blockoverride "widget_subtext" {
+				text = "kog_gui_caller_name"
+			}
+		}
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { -120 65 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/government_building_icon.dds"
+			}
+			blockoverride "widget_header" {
+				text = "kog_gui_gathering_header"
+			}
+			blockoverride "widget_subtext" {
+				text = "kog_gui_gathering_name"
+			}
+		}
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { 120 -5 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/leading_interest_group_icon.dds"
+			}
+			blockoverride "widget_header" {
+				text = "kog_gui_participants_name"
+			}
+			blockoverride "widget_subtext" {
+				text = "kog_gui_participants_header"
+			}
+		}
+		kog_ecumenical_council_detail_widget = {
+			blockoverride "widget_position" {
+				position = { 120 65 }
+			}
+			blockoverride "widget_icon" {
+				texture = "gfx/interface/icons/generic_icons/mandate.dds"
+			}
+			blockoverride "widget_header" {
+				text = "kog_gui_matters_name"
+			}
+			blockoverride "widget_subtext" {
+				text = "kog_gui_matters_header"
+			}
+		}
+	}
+	
+	type kog_ecumenical_council_detail_widget = widget {
+		parentanchor = center
+		size = { 220 50 }
+		block "widget_position" {
+			position = { -120 -5 }
+		}
+		
+		background = {
+			using = dark_area
+			margin = { 5 5 }
+			alpha = 0.55
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_horizontal_center.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+			}
+			
+			modify_texture = {
+				texture = "gfx/interface/masks/fade_vertical_center.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 0 0 }
+				blend_mode = alphamultiply
+				alpha = 0.5
+			}
+		}
+		
+		background = {
+			using = entry_bg
+			margin = { 5 5 }
+		}
+		
+		icon = {
+			parentanchor = left|vcenter
+			size = { 50 50 }
+			position = { 10 0 }
+			block "widget_icon" {
+				texture = "gfx/interface/error_frog.dds"
+				using = look_at_me_animation
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			position = { 50 -15 }
+			size = { 180 20 }
+			block "widget_header" {
+				raw_text = "#todo widget_header"
+				using = look_at_me_animation
+			}
+			elide = left
+			align = left|nobaseline
+			using = fontsize_medium
+			default_format = "#lore;i"
+		}
+		
+		textbox = {
+			parentanchor = center
+			position = { 50 10 }
+			size = { 180 20 }
+			block "widget_subtext" {
+				raw_text = "#todo widget_subtext#!"
+				using = look_at_me_animation
+			}
+			elide = left
+			align = left|nobaseline
+			using = fontsize_large
+			default_format = "#b"
+		}
+	}
+	
+	type kog_canon_law_compliance_widget = widget {
+		parentanchor = top|hcenter
+		size = { 520 60 }
+		
+		textbox = {
+			parentanchor = center
+			size = { 100% 100% }
+			text = "kog_gui_canon_law_compliance"
+			align = center|nobaseline
+			elide = right
+			using = fontsize_large
+			
+			background = {
+				alpha = 0.5
+				using = entry_bg_fancy_dark
+			}
+			
+			tooltip = "kog_gui_canon_law_compliance_breakdown"
+		}
+	}
+	
+	type kog_canon_laws_container = flowcontainer {
+		parentanchor = top|hcenter
+		spacing = 10
+		direction = vertical
+		
+		# Apostolic Succession
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/apostolic_succession.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_apostolic_succession"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_apostolic_succession"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_apostolic_succession')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_apostolic_succession')]"
+			}
+		}
+		
+		# Almsgiving
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/almsgiving.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_almsgiving"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_almsgiving"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_iconography')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_almsgiving')]"
+			}
+		}
+		
+		# Stance Towards Icons
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/iconography.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_iconography"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_iconography"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_apostolic_succession')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_iconography')]"
+			}
+		}
+		
+		# Church and State
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/church_and_state.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_statism"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_statism"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_statism')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_statism')]"
+			}
+		}
+		
+		# Church and Nation
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/church_and_nation.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_nationalism"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_nationalism"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_nationalism')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_nationalism')]"
+			}
+		}
+		
+		# Clerical Marriage
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/clerical_marriage.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_clerical_marriage"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_clerical_marriage"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_cleric_marriage')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_clerical_marriage')]"
+			}
+		}
+		
+		# Social Role
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/social_role.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_social_role"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_social_role"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_social_role')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_social_role')]"
+			}
+		}
+		
+		# Stance on Sciences
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/stance_on_sciences.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_stance_on_sciences"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_sciences_stance"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_stance_on_sciences')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_stance_on_sciences')]"
+			}
+		}
+		
+		# Crusades
+		kog_canon_law_group_entry = {
+			blockoverride "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/crusades.dds"
+			}
+			blockoverride "canon_law_group_name" {
+				text = "kog_canon_lawgroup_crusades"
+			}
+			blockoverride "active_canon_law_flag" {
+				text = "kog_gui_canon_law_crusades"
+			}
+			blockoverride "canon_law_debate_tag" {
+				visible = "[ScriptedButton.HasTag('debate_crusades')]"
+			}
+			blockoverride "canon_law_button_tag" {
+				visible = "[ScriptedButton.HasTag('canon_lawgroup_iconography')]"
+			}
+		}
+	}
+	
+	type kog_canon_law_group_entry = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 520 -1 }
+		maximumsize = { 520 -1 }
+		spacing = 5
+		margin_left = 10
+		margin_bottom = 10
+		
+		using = entry_bg_fancy
+		
+		background = {
+			block "canon_law_background" {
+				texture = "gfx/interface/illustrations/canon_laws/placeholder.dds"
+			}
+			size = { 100% 100% }
+			fittype = centercrop
+			spriteborder = { 0 20 }
+			margin = { -5 -3 }
+			
+			modify_texture = {
+				texture = "gfx/interface/illustrations/canon_laws/canon_law_image_mask.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			size = { 500 40 }
+			blockoverride "text" {
+			}
+			textbox = {
+				block "canon_law_group_name" {
+					text = "kog_block_canon_law_group"
+					using = look_at_me_text_animation
+				}
+				parentanchor = center
+				position = { 0 0 }
+				autoresize = yes
+				max_width = 520
+				elide = right
+				fontsize = 18
+			}
+		}
+		
+		## Top Row - Active Doctrine + Debate Button
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 500 -1 }
+			spacing = 5
+			
+			widget = {
+				parentanchor = left|vcenter
+				size = { 320 35 }
+				
+				textbox = {
+					parentanchor = left|vcenter
+					size = { 340 35 }
+					position = { 5 -5 }
+					
+					block "active_canon_law_flag" {
+						text = "kog_block_canon_law_flag"
+						using = look_at_me_text_animation
+					}
+					autoresize = yes
+					max_width = 290
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			flowcontainer = {
+				parentanchor = top|hcenter
+				minimumsize = { 180 -1 }
+				
+				direction = vertical
+				datamodel = "[JournalEntry.GetScriptedButtons]"
+				
+				item = {
+					kog_canon_law_group_debate_button = { }
+				}
+			}
+		}
+		
+		## Lower Row - Canon Law Types
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = horizontal
+			minimumsize = { 500 -1 }
+			spacing = 10
+			
+			datamodel = "[JournalEntry.GetScriptedButtons]"
+			
+			background = {
+				using = dark_area
+				margin = { 5 5 }
+			}
+			
+			item = {
+				kog_canon_law_type_button = { }
+			}
+		}
+	}
+	
+	type kog_canon_law_group_debate_button = widget {
+		parentanchor = top|hcenter
+		size = { 180 40 }
+		
+		block "canon_law_debate_tag" {
+			visible = "[ScriptedButton.HasTag('hidden_button')]"
+		}
+		
+		button = {
+			parentanchor = center
+			size = { 180 40 }
+			position = { -5 -5 }
+			using = default_button_action
+			tooltip = "SCRIPTED_ACTION_TOOLTIP"
+			enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+			onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+			
+			widget = {
+				parentanchor = center
+				visible = "[ScriptedButton.IsSelected]"
+				size = { 100% 100% }
+				
+				background = {
+					using = paper_bg
+				}
+			}
+			
+			textbox = {
+				parentanchor = center
+				align = nobaseline
+				autoresize = yes
+				max_width = 200
+				elide = right
+				fontsize = 18
+				text = "kog_gui_debate_canon_law"
+			}
+			
+			icon = {
+				parentanchor = center
+				visible = "[ScriptedButton.IsSelected]"
+				using = highlighted_square_selection
+			}
+		}
+	}
+	
+	type kog_canon_law_type_button = button {
+		parentanchor = center
+		size = { 35 35 }
+		
+		block "canon_law_button_tag" {
+			visible = "[ScriptedButton.HasTag('hidden_button')]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = rotate_glow_animation_02
+			size = { 90 90 }
+			alwaystransparent = yes
+			parentanchor = center
+			using = default_fade_in_out
+		}
+		icon = {
+			parentanchor = center
+			size = { 35 35 }
+			texture = "gfx/interface/backgrounds/round_button_bg.dds"
+			
+			icon = {
+				parentanchor = center
+				texture = "[ScriptedButton.GetIcon]"
+				size = { 80% 80% }
+			}
+		}
+		tooltip = SCRIPTED_ACTION_TOOLTIP
+	}
+}

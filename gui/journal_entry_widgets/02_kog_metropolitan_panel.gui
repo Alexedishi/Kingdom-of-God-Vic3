@@ -1,0 +1,314 @@
+# INHERITED FROM BASE GAME
+@panel_width_minus_30 = 510
+@panel_width_minus_20 = 520
+@panel_width_minus_10 = 530 # used to be 450
+@panel_width = 540 # used to be 460
+@panel_width_half = 270 # used to be 230
+@panel_width_plus_10 = 550 # used to be 470
+@panel_width_plus_14 = 554 # used to be 474
+@panel_width_plus_14_half = 277 # used to be 237
+@panel_width_plus_20 = 560 # used to be 480
+@panel_width_plus_30 = 570 # used to be 490
+@panel_width_plus_70 = 610 # used to be 530
+
+####---------- KOG METROPOLIS PANEL TYPES ----------####
+types kog_metropolitan_panel_types {
+	type kog_metropolis_panel = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		spacing = 5
+		
+		visible = "[And(
+			GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'),
+			GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)
+		)]"
+		
+		kog_metropolitan_status_panel = { }
+		kog_metropolitan_actions_container = { }
+	}
+	
+	type kog_metropolitan_status_panel = flowcontainer {
+		direction = vertical
+		parentanchor = top|hcenter
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 5
+		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			direction = vertical
+			parentanchor = top|hcenter
+			minimumsize = { 520 -1 }
+			spacing = 10
+			margin = { 0 12 }
+			
+			background = {
+				alpha = 0.5
+				using = entry_bg_fancy_dark
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 400 30 }
+				
+				textbox = {
+					parentanchor = center
+					autoresize = yes
+					text = "kog_gui_communion_status"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 400 40 }
+				
+				green_progressbar_horizontal = {
+					parentanchor = center
+					size = { 480 28 }
+					blockoverride "values" {
+						min = 0
+						max = 1000
+						value = "[FixedPointToFloat(GetPlayer.MakeScope.ScriptValue('kog_capacity_value'))]"
+					}
+					textbox = {
+						parentanchor = center
+						autoresize = yes
+						text = "kog_gui_capacity_amount"
+						align = center|nobaseline
+						elide = right
+						using = fontsize_medium
+					}
+					tooltip = "kog_gui_capacity_breakdown"
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 400 30 }
+				
+				textbox = {
+					parentanchor = center
+					autoresize = yes
+					text = "kog_gui_kog_focus_status"
+					align = center|nobaseline
+					elide = right
+					using = fontsize_large
+				}
+			}
+			
+			widget = {
+				parentanchor = top|hcenter
+				size = { 300 60 }
+				
+				background = {
+					using = dark_area
+					margin = { 0 0 }
+				}
+				
+				hbox = {
+					margin = { 10 0 }
+					spacing = 10
+					datamodel = "[JournalEntry.GetScriptedButtons]"
+					ignoreinvisible = yes
+					
+					item = {
+						widget = {
+							visible = "[ScriptedButton.HasTag('focus')]"
+							size = { 50 50 }
+							kog_metropolitan_focus_button = { }
+						}
+					}
+				}
+			}
+		}
+		
+		flowcontainer = {
+			direction = horizontal
+			parentanchor = top|hcenter
+			minimumsize = { 520 -1 }
+			spacing = 5
+			margin = { 10 0 }
+			margin_bottom = 20
+			
+			character_portrait_medium_torso = {
+				parentanchor = center
+				position = { 10 -22 }
+				datacontext = "[GetInterestGroupVariant('ig_devout',GetPlayer).GetLeader]"
+				blockoverride "show_hat" { }
+				blockoverride "tooltip" { } # Error Suppression
+				blockoverride "portrait_icons" { } # Error Suppression
+				blockoverride "portrait_button" { } # Error Suppression
+			}
+			
+			flowcontainer = {
+				parentanchor = center
+				direction = vertical
+				minimumsize = { 220 -1 }
+				margin = { 10 0 }
+				margin_bottom = 10
+				spacing = 4
+				
+				background = {
+					using = dark_area
+					alpha = 0.25
+				}
+				
+				default_header_clean_faded = {
+					size = { 320 40 }
+					parentanchor = top|hcenter
+					blockoverride "text" { }
+					textbox = {
+						text = "kog_gui_metropolitan_header"
+						parentanchor = center
+						position = { 0 1 }
+						autoresize = yes
+						max_width = 300
+						elide = right
+						using = fontsize_medium
+					}
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_state_religion"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_religion_law"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_national_piety"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_liturgical_language"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_liturgical_rite"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_clean = {
+					parentanchor = center
+				}
+				textbox = {
+					text = "kog_gui_metropolitan_episcopal_seats"
+					parentanchor = left|vcenter
+					autoresize = yes
+					max_width = 320
+					elide = right
+					using = fontsize_medium
+				}
+				divider_decorative = {
+					parentanchor = center
+				}
+			}
+		}
+	}
+	
+	type kog_metropolitan_focus_button = button_icon_round {
+		parentanchor = center
+		size = { 55 55 }
+		
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		blockoverride "sound" {
+			clicksound = "event:/SFX/kog/kog_focus"
+		}
+		tooltip = "kog_gui_focus_button_tooltip"
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = rotate_glow_animation_02
+			size = { 90 90 }
+			alwaystransparent = yes
+			parentanchor = center
+			using = default_fade_in_out
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 50
+			elide = right
+			using = fontsize_small
+			text = "[ScriptedButton.GetName]"
+		}
+	}
+	
+	type kog_metropolitan_actions_container = flowcontainer {
+		parentanchor = top|hcenter
+		direction = vertical
+		minimumsize = { 540 -1 }
+		spacing = 10
+		
+		using = entry_bg_fancy
+		
+		default_header_clean_faded = {
+			parentanchor = hcenter
+			blockoverride "text" {
+				text = "kog_gui_metropolitan_buttons"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
+		
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			datamodel = "[JournalEntry.GetScriptedButtons]"
+			spacing = 5
+			
+			item = {
+				kog_scripted_button_item = {
+					visible = "[ScriptedButton.HasTag('minor_decision')]"
+				}
+			}
+		}
+	}
+}

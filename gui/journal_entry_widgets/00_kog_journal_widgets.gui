@@ -1,0 +1,256 @@
+# INHERITED FROM BASE GAME
+@panel_width_minus_30 = 510
+@panel_width_minus_20 = 520
+@panel_width_minus_10 = 530 # used to be 450
+@panel_width = 540 # used to be 460
+@panel_width_half = 270 # used to be 230
+@panel_width_plus_10 = 550 # used to be 470
+@panel_width_plus_14 = 554 # used to be 474
+@panel_width_plus_14_half = 277 # used to be 237
+@panel_width_plus_20 = 560 # used to be 480
+@panel_width_plus_30 = 570 # used to be 490
+@panel_width_plus_70 = 610 # used to be 530
+
+####---------- KOG GLOBAL JOURNAL ENTRY WIDGETS ----------####
+flowcontainer = {
+	name = "widget_kog_church_interorg"
+	ignoreinvisible = yes
+	
+	flowcontainer = {
+		direction = vertical
+		spacing = 10
+		
+		com_international_organization_header = {
+			blockoverride "spacer_size" {
+				size = { 540 60 }
+			}
+		}
+		kog_head_of_faith_panel = { }
+		kog_tab_buttons = { }
+		kog_denominational_overview_panel = { }
+		kog_metropolis_panel = { }
+		kog_canon_laws_panel = { }
+		kog_collegium_panel = { }
+		kog_episcopal_seats_panel = { }
+	}
+}
+
+####---------- KOG JOURNAL ENTRY TYPES ----------####
+types kog_interorg_widget_types {
+	type kog_journal_icon = widget {
+		parentanchor = top|hcenter
+		size = { 150 150 }
+		position = { 0 -50 }
+		icon = {
+			parentanchor = center
+			size = { 150 150 }
+			position = { 2 2 }
+			texture = "gfx/interface/backgrounds/com_bg_pb_frame.dds"
+		}
+		icon = {
+			parentanchor = center
+			size = { 150 150 }
+			position = { 0 -20 }
+			texture = "gfx/coat_of_arms/textured_emblems/kog_frame_leaves_christian.dds"
+		}
+		icon = {
+			parentanchor = center
+			texture = "[JournalEntry.GetIcon]"
+			position = { 0 -3 }
+			size = { 75 75 }
+		}
+	}
+	
+	type kog_head_of_faith_panel = com_international_organization_panel {
+		blockoverride "interorg_journal_icon" {
+			kog_journal_icon = { }
+		}
+		blockoverride "interorg_leader_title" {
+			text = "kog_gui_head_of_faith"
+		}
+		blockoverride "interorg_backdrop_texture" {
+			texture = "gfx/interface/character_panel/backgrounds/kog_char_role_holy_see.dds"
+		}
+		blockoverride "interorg_detail_1_visibility" {
+			visible = "[ComJournalVar('kog_mother_church_var').IsSet]"
+		}
+		blockoverride "interorg_detail_1_name" {
+			text = "kog_gui_mother_church_header"
+		}
+		blockoverride "interorg_detail_1_content" {
+			text = "kog_gui_top_church_name"
+		}
+		blockoverride "interorg_detail_1_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_autocephalous_patriarchate.dds"
+		}
+		blockoverride "interorg_detail_2_visibility" {
+			visible = "[ComJournalVar('kog_location_var').IsSet]"
+		}
+		blockoverride "interorg_detail_2_name" {
+			text = "kog_gui_location_header"
+		}
+		blockoverride "interorg_detail_2_content" {
+			text = "kog_gui_location_name"
+		}
+		blockoverride "interorg_detail_2_texture" {
+			texture = "gfx/interface/icons/generic_icons/kog_holy_site.dds"
+		}
+		blockoverride "interorg_detail_3_name" {
+			text = "kog_gui_membership_header"
+		}
+		vfx = {
+			position = { 0 -2 }
+			
+			blockoverride "entity_instance" {
+				entity_instance = vfx_entity_ui_powerbloc_rank_02_rulers
+			}
+		}
+		state = {
+			name = _show
+			alpha = 1
+			duration = 0.1
+			using = Animation_Curve_Default
+			start_sound = {
+				soundeffect = "event:/SFX/kog/kog_bell"
+			}
+		}
+	}
+	
+	type kog_tab_buttons = widget {
+		parentanchor = top|hcenter
+		size = { 540 40 }
+		
+		tab_buttons = {
+			parentanchor = center
+			# OVERVIEW TAB
+			blockoverride "first_button" {
+				text = "kog_gui_overview_header"
+			}
+			blockoverride "first_button_selected" {
+				text = "kog_gui_overview_header"
+			}
+			blockoverride "first_button_visibility_checked" {
+				visible = "[And(Not(GetVariableSystem.HasValue('kog_denominational_tab', 'overview')), GetVariableSystem.Exists('kog_denominational_tab'))]"
+			}
+			blockoverride "first_button_visibility" {
+				visible = "[Or(GetVariableSystem.HasValue('kog_denominational_tab', 'overview'), Not(GetVariableSystem.Exists('kog_denominational_tab')))]"
+			}
+			blockoverride "first_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'overview')]"
+			}
+			
+			# METROPOLIS TAB
+			blockoverride "second_button" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "second_button_selected" {
+				text = "kog_gui_metropolis_header"
+			}
+			blockoverride "second_button_visibility_checked" {
+				visible = "[And(
+					GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End),
+					Not(GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis'))
+				)]"
+			}
+			blockoverride "second_button_visibility" {
+				visible = "[And(
+					GetScriptedGui(Concatenate(JournalEntry.GetType.GetKey, '_involvement_sgui')).IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End),
+					GetVariableSystem.HasValue('kog_denominational_tab', 'metropolis')
+				)]"
+			}
+			blockoverride "second_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'metropolis')]"
+			}
+			
+			# CANON LAW TAB
+			blockoverride "third_button" {
+				text = "kog_gui_canon_law_header"
+			}
+			blockoverride "third_button_selected" {
+				text = "kog_gui_canon_law_header"
+			}
+			blockoverride "third_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'laws'))]"
+			}
+			blockoverride "third_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'laws')]"
+			}
+			blockoverride "third_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'laws')]"
+			}
+			
+			# COLLEGIUM TAB
+			blockoverride "fourth_button" {
+				text = "kog_gui_college_header"
+			}
+			blockoverride "fourth_button_selected" {
+				text = "kog_gui_college_header"
+			}
+			blockoverride "fourth_button_visibility_checked" {
+				visible = "[And(
+					GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End),
+					Not(GetVariableSystem.HasValue('kog_denominational_tab', 'curia'))
+				)]"
+			}
+			blockoverride "fourth_button_visibility" {
+				visible = "[And(
+					GetScriptedGui('kog_canon_law_papal_primacy_sgui').IsShown(GuiScope.SetRoot(JournalEntry.MakeScope).End),
+					GetVariableSystem.HasValue('kog_denominational_tab', 'curia')
+				)]"
+			}
+			blockoverride "fourth_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'curia')]"
+			}
+			
+			# EPISCOPAL SEATS TAB
+			blockoverride "fifth_button" {
+				text = "kog_gui_seats_header"
+			}
+			blockoverride "fifth_button_selected" {
+				text = "kog_gui_seats_header"
+			}
+			blockoverride "fifth_button_visibility_checked" {
+				visible = "[Not(GetVariableSystem.HasValue('kog_denominational_tab', 'seats'))]"
+			}
+			blockoverride "fifth_button_visibility" {
+				visible = "[GetVariableSystem.HasValue('kog_denominational_tab', 'seats')]"
+			}
+			blockoverride "fifth_button_click" {
+				onclick = "[GetVariableSystem.Set('kog_denominational_tab', 'seats')]"
+			}
+		}
+	}
+	
+	type kog_scripted_button_item = button {
+		parentanchor = top|hcenter
+		using = default_button_action
+		tooltip = "SCRIPTED_ACTION_TOOLTIP"
+		enabled = "[IsValid( ScriptedButton.ExecuteEffect )]"
+		onclick = "[Execute( ScriptedButton.ExecuteEffect )]"
+		size = { 460 45 }
+		
+		widget = {
+			visible = "[ScriptedButton.IsSelected]"
+			size = { 100% 100% }
+			
+			background = {
+				using = paper_bg
+			}
+		}
+		
+		textbox = {
+			parentanchor = center
+			align = nobaseline
+			autoresize = yes
+			max_width = 300
+			elide = right
+			fontsize = 18
+			text = "[ScriptedButton.GetName]"
+		}
+		
+		icon = {
+			visible = "[ScriptedButton.IsSelected]"
+			using = highlighted_square_selection
+		}
+	}
+}
