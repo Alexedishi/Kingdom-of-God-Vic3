@@ -1,0 +1,38 @@
+﻿kog_ecyclical_mirari_vos_sgui = {
+	scope = country
+	is_valid = {
+		has_law_or_variant = law_type:law_state_religion
+		OR = {
+			has_law = law_type:law_ecclesiastic_investiture
+			has_law = law_type:law_oath_of_supremacy
+		}
+	}
+	effect = {
+		custom_tooltip = je_kog_ecyclical_mirari_vos_criteria_1
+		custom_tooltip = je_kog_ecyclical_mirari_vos_criteria_2
+	}
+}
+
+kog_ecyclical_singulari_nos = {
+	scope = country
+	is_valid = {
+		calc_true_if = {
+			amount >= 3
+			country_has_voting_franchise = no
+			has_law_or_variant = law_type:law_subjecthood
+			has_law_or_variant = law_type:law_freedom_of_conscience
+			has_law_or_variant = law_type:law_religious_schools
+			OR = {
+				has_law_or_variant = law_type:law_censorship
+				has_law_or_variant = law_type:law_outlawed_dissent
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = je_kog_ecyclical_singulari_nos_criteria_1
+		custom_tooltip = je_kog_ecyclical_singulari_nos_criteria_2
+		custom_tooltip = je_kog_ecyclical_singulari_nos_criteria_3
+		custom_tooltip = je_kog_ecyclical_singulari_nos_criteria_4
+		custom_tooltip = je_kog_ecyclical_singulari_nos_criteria_5
+	}
+}

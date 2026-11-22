@@ -255,6 +255,24 @@ je_kog_ecyclical_mirari_vos = {
 		}
 	}
 	
+	immediate_all_involved = {
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_state_religion
+				OR = {
+					has_law = law_type:law_ecclesiastic_investiture
+					has_law = law_type:law_oath_of_supremacy
+				}
+			}
+			global_var:je_kog_ecyclical_mirari_vos = {
+				add_to_variable_list = {
+					name = kog_ecyclical_compliant_list
+					target = prev
+				}
+			}
+		}
+	}
+	
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
@@ -291,43 +309,23 @@ je_kog_ecyclical_mirari_vos = {
 		effect = {
 			scope:journal_entry = {
 				clear_variable_list = kog_ecyclical_compliant_list
-				clear_variable_list = kog_ecyclical_non_compliant_list
-			}
-			every_country = {
-				limit = {
-					is_involved_in_journal_entry = je_kog_ecyclical_mirari_vos
-					has_law = law_type:law_state_religion
-					has_law = law_type:law_ecclesiastic_investiture
-				}
-				global_var:je_kog_ecyclical_mirari_vos = {
-					add_to_variable_list = {
-						name = kog_ecyclical_compliant_list
-						target = prev
+				every_scope_je_involved = {
+					limit = {
+						has_law_or_variant = law_type:law_state_religion
+						OR = {
+							has_law = law_type:law_ecclesiastic_investiture
+							has_law = law_type:law_oath_of_supremacy
+						}
+					}
+					global_var:je_kog_ecyclical_mirari_vos = {
+						add_to_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = prev
+						}
 					}
 				}
-			}
-			every_country = {
-				limit = {
-					is_involved_in_journal_entry = je_kog_ecyclical_mirari_vos
-					NOR = {
-						has_law = law_type:law_state_religion
-						has_law = law_type:law_ecclesiastic_investiture
-					}
-				}
-				global_var:je_kog_ecyclical_mirari_vos = {
-					add_to_variable_list = {
-						name = kog_ecyclical_non_compliant_list
-						target = prev
-					}
-				}
-			}
-			scope:journal_entry = {
 				sort_variable_list = {
 					name = kog_ecyclical_compliant_list
-					order = prestige
-				}
-				sort_variable_list = {
-					name = kog_ecyclical_non_compliant_list
 					order = prestige
 				}
 			}
@@ -335,7 +333,20 @@ je_kog_ecyclical_mirari_vos = {
 	}
 	
 	status_desc = {
-		desc = kog_placeholder_text
+		first_valid = {
+			triggered_desc = {
+				desc = kog_compliant
+				trigger = {
+					scope:journal_entry = {
+						is_target_in_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = root
+						}
+					}
+				}
+			}
+			desc = kog_noncompliant
+		}
 	}
 }
 
@@ -370,6 +381,31 @@ je_kog_ecyclical_singulari_nos = {
 			}
 		}
 	}
+	
+	immediate_all_involved = {
+		if = {
+			limit = {
+				calc_true_if = {
+					amount >= 3
+					country_has_voting_franchise = no
+					has_law_or_variant = law_type:law_subjecthood
+					has_law_or_variant = law_type:law_freedom_of_conscience
+					has_law_or_variant = law_type:law_religious_schools
+					OR = {
+						has_law_or_variant = law_type:law_censorship
+						has_law_or_variant = law_type:law_outlawed_dissent
+					}
+				}
+			}
+			global_var:je_kog_ecyclical_singulari_nos = {
+				add_to_variable_list = {
+					name = kog_ecyclical_compliant_list
+					target = prev
+				}
+			}
+		}
+	}
+	
 	outcome = {
 		header = JOURNAL_ENTRY_TIMEOUT
 		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
@@ -406,59 +442,29 @@ je_kog_ecyclical_singulari_nos = {
 		effect = {
 			scope:journal_entry = {
 				clear_variable_list = kog_ecyclical_compliant_list
-				clear_variable_list = kog_ecyclical_non_compliant_list
-			}
-			every_country = {
-				limit = {
-					is_involved_in_journal_entry = je_kog_ecyclical_singulari_nos
-					calc_true_if = {
-						amount >= 3
-						country_has_voting_franchise = no
-						has_law_or_variant = law_type:law_subjecthood
-						has_law_or_variant = law_type:law_freedom_of_conscience
-						has_law_or_variant = law_type:law_religious_schools
-						OR = {
-							has_law_or_variant = law_type:law_censorship
-							has_law_or_variant = law_type:law_outlawed_dissent
+				every_scope_je_involved = {
+					limit = {
+						calc_true_if = {
+							amount >= 3
+							country_has_voting_franchise = no
+							has_law_or_variant = law_type:law_subjecthood
+							has_law_or_variant = law_type:law_freedom_of_conscience
+							has_law_or_variant = law_type:law_religious_schools
+							OR = {
+								has_law_or_variant = law_type:law_censorship
+								has_law_or_variant = law_type:law_outlawed_dissent
+							}
+						}
+					}
+					global_var:je_kog_ecyclical_singulari_nos = {
+						add_to_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = prev
 						}
 					}
 				}
-				global_var:je_kog_ecyclical_singulari_nos = {
-					add_to_variable_list = {
-						name = kog_ecyclical_compliant_list
-						target = prev
-					}
-				}
-			}
-			every_country = {
-				limit = {
-					is_involved_in_journal_entry = je_kog_ecyclical_singulari_nos
-					calc_true_if = {
-						amount < 3
-						country_has_voting_franchise = no
-						has_law_or_variant = law_type:law_subjecthood
-						has_law_or_variant = law_type:law_freedom_of_conscience
-						has_law_or_variant = law_type:law_religious_schools
-						OR = {
-							has_law_or_variant = law_type:law_censorship
-							has_law_or_variant = law_type:law_outlawed_dissent
-						}
-					}
-				}
-				global_var:je_kog_ecyclical_singulari_nos = {
-					add_to_variable_list = {
-						name = kog_ecyclical_non_compliant_list
-						target = prev
-					}
-				}
-			}
-			scope:journal_entry = {
 				sort_variable_list = {
 					name = kog_ecyclical_compliant_list
-					order = prestige
-				}
-				sort_variable_list = {
-					name = kog_ecyclical_non_compliant_list
 					order = prestige
 				}
 			}
@@ -466,7 +472,20 @@ je_kog_ecyclical_singulari_nos = {
 	}
 	
 	status_desc = {
-		desc = kog_placeholder_text
+		first_valid = {
+			triggered_desc = {
+				desc = kog_compliant
+				trigger = {
+					scope:journal_entry = {
+						is_target_in_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = root
+						}
+					}
+				}
+			}
+			desc = kog_noncompliant
+		}
 	}
 }
 
