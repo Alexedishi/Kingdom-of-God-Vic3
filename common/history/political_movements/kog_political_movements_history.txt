@@ -1,0 +1,18 @@
+﻿POLITICAL_MOVEMENTS = {
+	c:SWI = {
+		create_political_movement = {
+			type = movement_religious_minority
+			religion = rel:catholic
+		}
+		random_political_movement = {
+			limit = {
+				is_political_movement_type = movement_religious_minority
+				religion = rel:catholic
+			}
+			add_modifier = {
+				name = modifier_kog_catholic_regeneration
+				days = moderately_long_modifier_time
+			}
+		}
+	}
+}
