@@ -120,10 +120,21 @@ kog_catholic_events.001 = {
 		name = kog_catholic_events.001.a
 		default_option = yes
 		custom_tooltip = kog_welcome_text
-		custom_tooltip = je_kog_ecyclical_mirari_vos_tt
-		custom_tooltip = je_kog_ecyclical_singulari_nos_tt
 		if = {
 			limit = {
+				has_global_variable = je_kog_ecyclical_mirari_vos
+			}
+			custom_tooltip = je_kog_ecyclical_mirari_vos_tt
+		}
+		if = {
+			limit = {
+				has_global_variable = je_kog_ecyclical_singulari_nos
+			}
+			custom_tooltip = je_kog_ecyclical_singulari_nos_tt
+		}
+		if = {
+			limit = {
+				has_global_variable = je_kog_encyclical_cum_primum
 				OR = {
 					c:PAP ?= this
 					c:POL ?= this
@@ -133,6 +144,7 @@ kog_catholic_events.001 = {
 		}
 		if = {
 			limit = {
+				has_global_variable = je_kog_commissum_divinitus
 				OR = {
 					c:PAP ?= this
 					c:SWI ?= this
