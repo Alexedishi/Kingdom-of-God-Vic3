@@ -5,8 +5,12 @@
  kog_welcome_text: "Content from $kog$ can be accessed via the [concept_com_international_organization] panel"
  
  kog_papacy: "#yellow;tooltip:[GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_head_of_faith_country_var').GetCountry.GetTooltipTag],DATA_COUNTRY_NAME_TOOLTIP,CountryTooltip @kog_catholic! Papacy#!"
+ kog_holy_see: "#yellow;tooltip:[GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_head_of_faith_country_var').GetCountry.GetTooltipTag],DATA_COUNTRY_NAME_TOOLTIP,CountryTooltip @kog_catholic! Holy See#!"
+ 
  kog_ecumeme: "#yellow;tooltip:[GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_head_of_faith_country_var').GetCountry.GetTooltipTag],DATA_COUNTRY_NAME_TOOLTIP,CountryTooltip @kog_orthodox! Ecumene#!"
+ 
  kog_oikoumene: "#yellow;tooltip:[GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_head_of_faith_country_var').GetCountry.GetTooltipTag],DATA_COUNTRY_NAME_TOOLTIP,CountryTooltip @kog_oriental! Oikouménē#!"
+ 
  kog_eukosmos: "#yellow;tooltip:[GetPlayer.MakeScope.Var('kog_global_faith_journal_var').Var('kog_head_of_faith_country_var').GetCountry.GetTooltipTag],DATA_COUNTRY_NAME_TOOLTIP,CountryTooltip @kog_elysian! Eúkosmos#"
  
  kog_sinful: "@kog_piety_sinful! #red #bold Sinful#!#!"
@@ -58,11 +62,12 @@
  kog_romania_united: "We have #bold United the Principalities#!"
  kog_orthodox_realms_info: "Should they manage to claim all the #tooltippable #tooltip:[GetRawTextTooltipTag('kog_eastern_seats')] Eastern Patriarchates#!#!, they will be able to form the #bold Orthodox Commonwealth#!"
  
- kog_enacted: "[Concept('concept_enactment_of_laws', '$concept_enactment_of_laws_enacted|q$')]"
- kog_voting_franchise: "[Concept('concept_election', '$concept_election_voting_franchise|q$')]"
- 
- kog_compliant: "[GetPlayer.GetNameNoFlag] is #bold #green compliant#!#! with this [concept_encyclical]"
- kog_noncompliant: "[GetPlayer.GetNameNoFlag] is #bold #red not compliant#!#! with this [concept_encyclical]"
+ kog_encyclical_compliant: "#bold;green Compliant#!"
+ kog_encyclical_in_compliance: "#bold;green In Compliance#!"
+ kog_encyclical_noncompliant: "#bold;red Not Compliant#!"
+ kog_encyclical_not_in_compliance: "#bold;red Not In Compliance#!"
+ kog_encyclical_status_compliant: "[GetPlayer.GetNameNoFlag] is $kog_encyclical_compliant$ with this [concept_encyclical]"
+ kog_encyclical_status_noncompliant: "[GetPlayer.GetNameNoFlag] is $kog_encyclical_noncompliant$ with this [concept_encyclical]"
 
  # Game Concept Text Replacements
  kog_capacity: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_type')]"
@@ -175,3 +180,6 @@
  kog_secessionist: "[Concept('concept_secession','$concept_secessionist|q$')]"
  kog_secessionists: "[Concept('concept_secession','$concept_secessionists|q$')]"
  kog_seceding: "[Concept('concept_secession','$concept_seceding|q$')]"
+ 
+ kog_enacted: "[Concept('concept_enactment_of_laws', '$concept_enactment_of_laws_enacted|q$')]"
+ kog_voting_franchise: "[Concept('concept_election', '$concept_election_voting_franchise|q$')]"
