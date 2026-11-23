@@ -12,11 +12,115 @@
 @panel_width_plus_70 = 610 # used to be 530
 
 ####---------- KOG ENCYCLICAL PANEL TYPES ----------####
-types kog_encyclical_panel_types = {
+types kog_encyclical_panel_types {
 	type kog_encyclical_compliance_container = flowcontainer {
 		parentanchor = top|hcenter
 		direction = vertical
+		minimumsize = { 540 -1 }
+		using = entry_bg_fancy
+		spacing = 10
+		margin_bottom = 15
 		
+		default_header_clean_faded = {
+			parentanchor = top|hcenter
+			blockoverride "text" {
+				text = "kog_encyclical_compliance_header"
+			}
+			blockoverride "size" {
+				size = { 532 45 }
+			}
+		}
 		
+		# MEMBERS IN COMPLIANCE
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecyclical_compliant_list')))]"
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_countries_in_compliance"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_ecyclical_compliant_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						datacontext = "[Scope.GetCountry]"
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
+		
+		# MEMBERS NOT IN COMPLIANCE
+		flowcontainer = {
+			parentanchor = top|hcenter
+			direction = vertical
+			using = default_list_position
+			min_width = @panel_width_minus_30
+			max_width = @panel_width_minus_30
+			margin = { 5 10 }
+			spacing = 10
+			
+			background = {
+				using = entry_bg_simple
+			}
+			
+			visible = "[Not(IsDataModelEmpty(JournalEntry.MakeScope.GetList('kog_ecyclical_non_compliant_list')))]"
+			
+			textbox = {
+				parentanchor = top|hcenter
+				autoresize = yes
+				text = "kog_countries_not_in_compliance"
+				align = center|nobaseline
+				elide = right
+				using = fontsize_large
+			}
+			
+			divider_decorative = {
+				parentanchor = top|hcenter
+			}
+			
+			dynamicgridbox = {
+				parentanchor = top|hcenter
+				datamodel = "[JournalEntry.MakeScope.GetList('kog_ecyclical_non_compliant_list')]"
+				datamodel_wrap = 8
+				flipdirection = yes
+				ignoreinvisible = yes
+				
+				item = {
+					widget = {
+						datacontext = "[Scope.GetCountry]"
+						size = { 60 40 }
+						small_flag = { }
+					}
+				}
+			}
+		}
 	}
 }

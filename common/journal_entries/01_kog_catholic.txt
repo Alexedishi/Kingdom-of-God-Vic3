@@ -349,6 +349,12 @@ je_kog_ecyclical_mirari_vos = {
 	
 	should_be_pinned_by_default_involved = yes
 	
+	widget = {
+		gui = gui/journal_entry_widgets/00_kog_journal_widgets.gui
+		name = "widget_kog_encyclical_compliance"
+		container = "custom_widget_container_5"
+	}
+	
 	should_be_involved = {
 		kog_country_is_roman_catholic_trigger = yes
 	}
@@ -367,21 +373,39 @@ je_kog_ecyclical_mirari_vos = {
 				target = scope:journal_entry
 			}
 		}
+		scope:journal_entry = {
+			set_variable = com_hide_involved_countries
+		}
 	}
 	
 	immediate_all_involved = {
 		if = {
 			limit = {
-				has_law_or_variant = law_type:law_state_religion
-				OR = {
-					has_law = law_type:law_ecclesiastic_investiture
-					has_law = law_type:law_oath_of_supremacy
+				NOT = {
+					c:PAP ?= this # TODO replace with explicit HOF handling
 				}
 			}
-			global_var:je_kog_ecyclical_mirari_vos = {
-				add_to_variable_list = {
-					name = kog_ecyclical_compliant_list
-					target = prev
+			if = {
+				limit = {
+					has_law_or_variant = law_type:law_state_religion
+					OR = {
+						has_law = law_type:law_ecclesiastic_investiture
+						has_law = law_type:law_oath_of_supremacy
+					}
+				}
+				global_var:je_kog_ecyclical_mirari_vos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_compliant_list
+						target = prev
+					}
+				}
+			}
+			else = {
+				global_var:je_kog_ecyclical_mirari_vos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_non_compliant_list
+						target = prev
+					}
 				}
 			}
 		}
@@ -425,6 +449,7 @@ je_kog_ecyclical_mirari_vos = {
 		effect = {
 			scope:journal_entry = {
 				clear_variable_list = kog_ecyclical_compliant_list
+				clear_variable_list = kog_ecyclical_non_compliant_list
 				every_scope_je_involved = {
 					limit = {
 						NOT = {
@@ -459,6 +484,10 @@ je_kog_ecyclical_mirari_vos = {
 					name = kog_ecyclical_compliant_list
 					order = prestige
 				}
+				sort_variable_list = {
+					name = kog_ecyclical_non_compliant_list
+					order = prestige
+				}
 			}
 		}
 	}
@@ -480,6 +509,12 @@ je_kog_ecyclical_singulari_nos = {
 	
 	should_be_pinned_by_default_involved = yes
 	
+	widget = {
+		gui = gui/journal_entry_widgets/00_kog_journal_widgets.gui
+		name = "widget_kog_encyclical_compliance"
+		container = "custom_widget_container_5"
+	}
+	
 	should_be_involved = {
 		kog_country_is_roman_catholic_trigger = yes
 	}
@@ -498,27 +533,45 @@ je_kog_ecyclical_singulari_nos = {
 				target = scope:journal_entry
 			}
 		}
+		scope:journal_entry = {
+			set_variable = com_hide_involved_countries
+		}
 	}
 	
 	immediate_all_involved = {
 		if = {
 			limit = {
-				calc_true_if = {
-					amount >= 3
-					country_has_voting_franchise = no
-					has_law_or_variant = law_type:law_subjecthood
-					has_law_or_variant = law_type:law_freedom_of_conscience
-					has_law_or_variant = law_type:law_religious_schools
-					OR = {
-						has_law_or_variant = law_type:law_censorship
-						has_law_or_variant = law_type:law_outlawed_dissent
+				NOT = {
+					c:PAP ?= this # TODO replace with explicit HOF handling
+				}
+			}
+			if = {
+				limit = {
+					calc_true_if = {
+						amount >= 3
+						country_has_voting_franchise = no
+						has_law_or_variant = law_type:law_subjecthood
+						has_law_or_variant = law_type:law_freedom_of_conscience
+						has_law_or_variant = law_type:law_religious_schools
+						OR = {
+							has_law_or_variant = law_type:law_censorship
+							has_law_or_variant = law_type:law_outlawed_dissent
+						}
+					}
+				}
+				global_var:je_kog_ecyclical_singulari_nos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_compliant_list
+						target = prev
 					}
 				}
 			}
-			global_var:je_kog_ecyclical_singulari_nos = {
-				add_to_variable_list = {
-					name = kog_ecyclical_compliant_list
-					target = prev
+			else = {
+				global_var:je_kog_ecyclical_singulari_nos = {
+					add_to_variable_list = {
+						name = kog_ecyclical_non_compliant_list
+						target = prev
+					}
 				}
 			}
 		}
@@ -560,6 +613,7 @@ je_kog_ecyclical_singulari_nos = {
 		effect = {
 			scope:journal_entry = {
 				clear_variable_list = kog_ecyclical_compliant_list
+				clear_variable_list = kog_ecyclical_non_compliant_list
 				every_scope_je_involved = {
 					limit = {
 						NOT = {
@@ -598,6 +652,10 @@ je_kog_ecyclical_singulari_nos = {
 				}
 				sort_variable_list = {
 					name = kog_ecyclical_compliant_list
+					order = prestige
+				}
+				sort_variable_list = {
+					name = kog_ecyclical_non_compliant_list
 					order = prestige
 				}
 			}
