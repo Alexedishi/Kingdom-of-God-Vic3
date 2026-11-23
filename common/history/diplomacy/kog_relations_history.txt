@@ -1,0 +1,28 @@
+﻿DIPLOMACY = {
+	c:PAP ?= {
+		change_relations = {
+			country = c:AUS
+			value = 50
+		}
+		change_relations = {
+			country = c:POL
+			value = -30
+		}
+		if = {
+			limit = {
+				basileia_is_active = yes
+			}
+			set_relations = {
+				country = c:BYZ
+				value = -50
+			}
+		}
+	}
+	
+	c:AUS ?= {
+		set_secret_goal = {
+			country = c:PAP
+			secret_goal = protect
+		}
+	}
+}
