@@ -1,265 +1,58 @@
-﻿####----------- Interest Group Ideology Injections ----------#####
-INJECT:ideology_oligarchic = {
+﻿ideology_kog_swiss_catholic_minoritarian_movement = {
+	icon = "gfx/interface/icons/ideology_icons/traditionalist.dds"
+	
+	lawgroup_caste_hegemony = {
+		law_hindu_caste_enforced = strongly_approve
+		law_hindu_caste_codified = approve
+		law_hindu_caste_not_enforced = disapprove
+		law_affirmative_action = strongly_disapprove
+	}
+	
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_disapprove
+		law_freedom_of_conscience = strongly_approve
+		law_total_separation = disapprove
+		law_state_atheism = strongly_disapprove
+	}
+	
+	lawgroup_education_system = {
+		law_religious_schools = strongly_approve
+		law_no_schools = disapprove
+		law_public_schools = neutral
+		law_private_schools = strongly_disapprove
+	}
+	
+	lawgroup_health_system = {
+		law_charitable_health_system = approve
+		law_public_health_insurance = neutral
+		law_no_health_system = neutral
+		law_private_health_insurance = neutral
+	}
+	
+	lawgroup_rights_of_women = {
+		law_no_womens_rights = approve
+		law_women_own_property = neutral
+		law_women_in_the_workplace = disapprove
+		law_womens_suffrage = strongly_disapprove
+	}
+	
 	lawgroup_investiture = {
-		law_ecclesiastic_investiture = disapprove
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = approve
+		law_ecclesiastic_investiture = strongly_approve
+		law_oath_of_supremacy = approve
+		law_concordat_of_investment = disapprove
 		law_lay_investiture = strongly_disapprove
 	}
+	
 	lawgroup_church_holdings = {
 		law_monastic_secularization = disapprove
 		law_monastic_suppression = neutral
 		law_monastic_holdings = approve
 	}
+	
 	lawgroup_church_tax = {
-		law_no_church_tax = approve
-		law_church_grants = neutral
-		law_individual_church_tax = neutral
-		law_general_church_tax = disapprove
-	}
-}
-
-INJECT:ideology_moralist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_montenegrin_moralist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_anti_clerical = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = approve
-		law_lay_investiture = strongly_approve
-	}
-}
-
-INJECT:ideology_papal_moralist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_moderantist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_carlist_ig = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_conservative_praetorian = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-####----------- Character Ideology Injections ----------#####
-INJECT:ideology_traditionalist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_traditionalist_minoritarian = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_nihilist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = strongly_disapprove
-		law_concordat_of_investment = approve
-		law_lay_investiture = strongly_approve
-	}
-}
-
-INJECT:ideology_communist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = approve
-		law_lay_investiture = strongly_approve
-	}
-}
-
-INJECT:ideology_theocrat = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_positivist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = neutral
-		law_lay_investiture = approve
-	}
-}
-
-INJECT:ideology_integralist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_despotic_utopian = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = neutral
-		law_lay_investiture = approve
-	}
-}
-
-INJECT:ideology_carlist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_miguelist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_legitimist = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-####----------- Political Movement Injections ----------#####
-INJECT:ideology_communist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = approve
-		law_lay_investiture = strongly_approve
-	}
-}
-
-INJECT:ideology_nihilist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = strongly_disapprove
-		law_concordat_of_investment = approve
-		law_lay_investiture = strongly_approve
-	}
-}
-
-INJECT:ideology_positivist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_disapprove
-		law_oath_of_supremacy = disapprove
-		law_concordat_of_investment = neutral
-		law_lay_investiture = approve
-	}
-}
-
-INJECT:ideology_traditionalist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_traditionalist_minoritarian_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_legitimist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_integralist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = approve
-		law_oath_of_supremacy = neutral
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_carlist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
-	}
-}
-
-INJECT:ideology_miguelist_movement = {
-	lawgroup_investiture = {
-		law_ecclesiastic_investiture = strongly_approve
-		law_oath_of_supremacy = approve
-		law_concordat_of_investment = strongly_disapprove
-		law_lay_investiture = strongly_disapprove
+		law_no_church_tax = neutral
+		law_church_grants = approve
+		law_individual_church_tax = approve
+		law_general_church_tax = strongly_approve
 	}
 }
