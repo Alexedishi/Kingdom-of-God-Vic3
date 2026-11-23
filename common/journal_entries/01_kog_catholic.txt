@@ -337,7 +337,7 @@ je_kog_encyclical_cum_primum = {
 	}
 }
 
-je_kog_ecyclical_mirari_vos = {
+je_kog_encyclical_mirari_vos = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
 	weight = 100
@@ -365,7 +365,7 @@ je_kog_ecyclical_mirari_vos = {
 	
 	immediate = {
 		com_save_journal_to_global_variable = {
-			name = je_kog_ecyclical_mirari_vos
+			name = je_kog_encyclical_mirari_vos
 		}
 		global_var:je_kog_catholic = {
 			add_to_variable_list = {
@@ -393,7 +393,7 @@ je_kog_ecyclical_mirari_vos = {
 						has_law = law_type:law_oath_of_supremacy
 					}
 				}
-				global_var:je_kog_ecyclical_mirari_vos = {
+				global_var:je_kog_encyclical_mirari_vos = {
 					add_to_variable_list = {
 						name = kog_ecyclical_compliant_list
 						target = prev
@@ -401,7 +401,7 @@ je_kog_ecyclical_mirari_vos = {
 				}
 			}
 			else = {
-				global_var:je_kog_ecyclical_mirari_vos = {
+				global_var:je_kog_encyclical_mirari_vos = {
 					add_to_variable_list = {
 						name = kog_ecyclical_non_compliant_list
 						target = prev
@@ -420,7 +420,7 @@ je_kog_ecyclical_mirari_vos = {
 		
 		effect = {
 			custom_tooltip = {
-				text = je_kog_ecyclical_mirari_vos_success_effect
+				text = je_kog_encyclical_mirari_vos_success_effect
 				scope:journal_entry = {
 					every_in_list = {
 						variable = kog_ecyclical_compliant_list
@@ -428,7 +428,7 @@ je_kog_ecyclical_mirari_vos = {
 				}
 			}
 			custom_tooltip = {
-				text = je_kog_ecyclical_mirari_vos_failure_effect
+				text = je_kog_encyclical_mirari_vos_failure_effect
 				scope:journal_entry = {
 					every_in_list = {
 						variable = kog_ecyclical_non_compliant_list
@@ -464,7 +464,7 @@ je_kog_ecyclical_mirari_vos = {
 								has_law = law_type:law_oath_of_supremacy
 							}
 						}
-						global_var:je_kog_ecyclical_mirari_vos = {
+						global_var:je_kog_encyclical_mirari_vos = {
 							add_to_variable_list = {
 								name = kog_ecyclical_compliant_list
 								target = prev
@@ -472,7 +472,7 @@ je_kog_ecyclical_mirari_vos = {
 						}
 					}
 					else = {
-						global_var:je_kog_ecyclical_mirari_vos = {
+						global_var:je_kog_encyclical_mirari_vos = {
 							add_to_variable_list = {
 								name = kog_ecyclical_non_compliant_list
 								target = prev
@@ -493,11 +493,11 @@ je_kog_ecyclical_mirari_vos = {
 	}
 	
 	status_desc = {
-		desc = je_kog_ecyclical_mirari_vos_status
+		desc = je_kog_encyclical_mirari_vos_status
 	}
 }
 
-je_kog_ecyclical_singulari_nos = {
+je_kog_encyclical_singulari_nos = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
 	weight = 100
@@ -525,7 +525,7 @@ je_kog_ecyclical_singulari_nos = {
 	
 	immediate = {
 		com_save_journal_to_global_variable = {
-			name = je_kog_ecyclical_singulari_nos
+			name = je_kog_encyclical_singulari_nos
 		}
 		global_var:je_kog_catholic = {
 			add_to_variable_list = {
@@ -559,7 +559,7 @@ je_kog_ecyclical_singulari_nos = {
 						}
 					}
 				}
-				global_var:je_kog_ecyclical_singulari_nos = {
+				global_var:je_kog_encyclical_singulari_nos = {
 					add_to_variable_list = {
 						name = kog_ecyclical_compliant_list
 						target = prev
@@ -567,7 +567,7 @@ je_kog_ecyclical_singulari_nos = {
 				}
 			}
 			else = {
-				global_var:je_kog_ecyclical_singulari_nos = {
+				global_var:je_kog_encyclical_singulari_nos = {
 					add_to_variable_list = {
 						name = kog_ecyclical_non_compliant_list
 						target = prev
@@ -586,7 +586,7 @@ je_kog_ecyclical_singulari_nos = {
 		
 		effect = {
 			custom_tooltip = {
-				text = je_kog_ecyclical_singulari_nos_success_effect
+				text = je_kog_encyclical_singulari_nos_success_effect
 				scope:journal_entry = {
 					every_in_list = {
 						variable = kog_ecyclical_compliant_list
@@ -594,7 +594,7 @@ je_kog_ecyclical_singulari_nos = {
 				}
 			}
 			custom_tooltip = {
-				text = je_kog_ecyclical_singulari_nos_failure_effect
+				text = je_kog_encyclical_singulari_nos_failure_effect
 				every_in_list = {
 					variable = kog_ecyclical_non_compliant_list
 				}
@@ -634,7 +634,7 @@ je_kog_ecyclical_singulari_nos = {
 								}
 							}
 						}
-						global_var:je_kog_ecyclical_singulari_nos = {
+						global_var:je_kog_encyclical_singulari_nos = {
 							add_to_variable_list = {
 								name = kog_ecyclical_compliant_list
 								target = prev
@@ -642,7 +642,7 @@ je_kog_ecyclical_singulari_nos = {
 						}
 					}
 					else = {
-						global_var:je_kog_ecyclical_singulari_nos = {
+						global_var:je_kog_encyclical_singulari_nos = {
 							add_to_variable_list = {
 								name = kog_ecyclical_non_compliant_list
 								target = prev
@@ -663,11 +663,11 @@ je_kog_ecyclical_singulari_nos = {
 	}
 	
 	status_desc = {
-		desc = je_kog_ecyclical_singulari_nos_status
+		desc = je_kog_encyclical_singulari_nos_status
 	}
 }
 
-je_kog_commissum_divinitus = {
+je_kog_encyclical_commissum_divinitus = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
 	weight = 100
@@ -698,7 +698,7 @@ je_kog_commissum_divinitus = {
 	
 	immediate = {
 		com_save_journal_to_global_variable = {
-			name = je_kog_commissum_divinitus
+			name = je_kog_encyclical_commissum_divinitus
 		}
 		global_var:je_kog_catholic = {
 			add_to_variable_list = {
@@ -835,7 +835,7 @@ je_kog_commissum_divinitus = {
 	
 	status_desc = {
 		triggered_desc = {
-			desc = je_kog_commissum_divinitus_status
+			desc = je_kog_encyclical_commissum_divinitus_status
 			trigger = {
 				scope:journal_entry = {
 					has_variable = kog_swiss_catholic_radicalism_var_
