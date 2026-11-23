@@ -95,7 +95,7 @@ kog_catholic_events.001 = {
 	}
 	flavor = kog_catholic_events.001.f
 	
-	gui_window = event_window_com_introduction_victoria
+	gui_window = event_window_com_base
 	
 	event_image = {
 		video = "southamerica_christianity"
@@ -122,6 +122,24 @@ kog_catholic_events.001 = {
 		custom_tooltip = kog_welcome_text
 		custom_tooltip = je_kog_ecyclical_mirari_vos_tt
 		custom_tooltip = je_kog_ecyclical_singulari_nos_tt
+		if = {
+			limit = {
+				OR = {
+					c:PAP ?= this
+					c:POL ?= this
+				}
+			}
+			custom_tooltip = je_kog_encyclical_cum_primum_tt
+		}
+		if = {
+			limit = {
+				OR = {
+					c:PAP ?= this
+					c:SWI ?= this
+				}
+			}
+			custom_tooltip = je_kog_commissum_divinitus_tt
+		}
 	}
 }
 

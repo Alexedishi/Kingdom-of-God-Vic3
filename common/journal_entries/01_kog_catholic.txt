@@ -489,19 +489,190 @@ je_kog_ecyclical_singulari_nos = {
 	}
 }
 
-je_kog_commissum_divinitus = {
-	group = je_group_kog_content
-	icon = gfx/interface/icons/event_icons/event_catholic.dds
-	weight = 500
-	dlc = dlc_kog
-
+je_kog_encyclical_cum_primum = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
+	
 	activation_description = {
-        always = yes
-    }
-
-	should_be_pinned_by_default_uninvolved_or_context = yes
+		always = yes
+	}
+	
+	should_be_pinned_by_default_involved = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_in_lobby = {
+		c:POL ?= this
+	}
+	
+	should_be_involved = {
+		OR = {
+			c:PAP ?= this
+			c:POL ?= this
+		}
+	}
+	
+	should_show_when_not_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
 	
 	immediate = {
+		com_save_journal_to_global_variable = {
+			name = je_kog_encyclical_cum_primum
+		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
+		}
+		scope:journal_entry = {
+			set_variable = {
+				name = kog_congress_poland_scope
+				value = c:POL
+			}
+		}
+	}
+	
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		conclusion_desc = je_standard_completion_conclusion_desc
+		color = gold_positive
+		
+		trigger = {
+			c:POL ?= {
+				is_subject = no
+			}
+		}
+		effect = {
+			global_var:je_kog_catholic = {
+				remove_list_variable = {
+					name = kog_encyclicals_list
+					target = scope:journal_entry
+				}
+			}
+		}
+	}
+	
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		conclusion_desc = je_standard_failure_conclusion_desc
+		color = blue_negative
+		
+		trigger = {
+			c:POL ?= {
+				is_subject = yes
+				is_at_war_with_overlord = yes
+			}
+		}
+		effect = {
+			global_var:je_kog_catholic = {
+				remove_list_variable = {
+					name = kog_encyclicals_list
+					target = scope:journal_entry
+				}
+			}
+		}
+	}
+	
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { invalid_outcome hidden }
+		
+		trigger = {
+			NOT = {
+				exists = c:POL
+			}
+		}
+		effect = {
+			global_var:je_kog_catholic = {
+				remove_list_variable = {
+					name = kog_encyclicals_list
+					target = scope:journal_entry
+				}
+			}
+		}
+	}
+	
+	status_desc = {
+		triggered_desc = {
+			desc = je_kog_encyclical_cum_primum_compliant
+			trigger = {
+				exists = c:POL
+				scope:journal_entry = {
+					is_target_in_variable_list = {
+						name = kog_ecyclical_compliant_list
+						target = c:POL
+					}
+				}
+			}
+		}
+		triggered_desc = {
+			desc = je_kog_encyclical_cum_primum_noncompliant
+			trigger = {
+				exists = c:POL
+				scope:journal_entry = {
+					NOT = {
+						is_target_in_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = c:POL
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+je_kog_commissum_divinitus = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
+	
+	activation_description = {
+		always = yes
+	}
+	
+	should_be_pinned_by_default_involved = yes
+	can_revolution_inherit = yes
+	transferable = no
+	can_deactivate = no
+	
+	is_shown_in_lobby = {
+		c:SWI ?= this
+	}
+	
+	should_be_involved = {
+		OR = {
+			c:PAP ?= this
+			c:SWI ?= this
+		}
+	}
+	
+	should_show_when_not_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	immediate = {
+		com_save_journal_to_global_variable = {
+			name = je_kog_commissum_divinitus
+		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
+		}
+		scope:journal_entry = {
+			set_variable = {
+				name = kog_switzerland_scope
+				value = c:SWI
+			}
+		}
 	}
 
 	outcome = {
