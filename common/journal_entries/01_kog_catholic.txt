@@ -794,7 +794,9 @@ je_kog_commissum_divinitus = {
 		flags = { invalid_outcome hidden }
 		
 		trigger = {
-			has_law_or_variant = law_type:law_theocracy
+			c:SWI ?= {
+				has_law_or_variant = law_type:law_theocracy
+			}
 		}
 		effect = { }
 	}
