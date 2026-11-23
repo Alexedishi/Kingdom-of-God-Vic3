@@ -223,272 +223,6 @@ je_kog_catholic = {
 }
 
 ####---------- CATHOLIC ENCYCLICAL JOURNALS ----------#####
-je_kog_ecyclical_mirari_vos = {
-	group = je_group_kog_encyclicals
-	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
-	weight = 100
-	dlc = dlc_kog
-
-	activation_description = {
-        always = yes
-    }
-	
-	should_be_pinned_by_default_involved = yes
-	
-	should_be_involved = {
-		kog_country_is_roman_catholic_trigger = yes
-	}
-	
-	should_show_when_not_involved = {
-		kog_content_scope_trigger = yes
-	}
-	
-	immediate = {
-		com_save_journal_to_global_variable = {
-			name = je_kog_ecyclical_mirari_vos
-		}
-		global_var:je_kog_catholic = {
-			add_to_variable_list = {
-				name = kog_encyclicals_list
-				target = scope:journal_entry
-			}
-		}
-	}
-	
-	immediate_all_involved = {
-		if = {
-			limit = {
-				has_law_or_variant = law_type:law_state_religion
-				OR = {
-					has_law = law_type:law_ecclesiastic_investiture
-					has_law = law_type:law_oath_of_supremacy
-				}
-			}
-			global_var:je_kog_ecyclical_mirari_vos = {
-				add_to_variable_list = {
-					name = kog_ecyclical_compliant_list
-					target = prev
-				}
-			}
-		}
-	}
-	
-	outcome = {
-		header = JOURNAL_ENTRY_TIMEOUT
-		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
-		
-		flags = { timeout }
-		
-		effect = {
-			custom_tooltip = {
-				text = je_kog_ecyclical_mirari_vos_success_effect
-				scope:journal_entry = {
-					every_in_list = {
-						variable = kog_ecyclical_compliant_list
-					}
-				}
-			}
-			custom_tooltip = {
-				text = je_kog_ecyclical_mirari_vos_failure_effect
-				every_in_list = {
-					variable = kog_ecyclical_non_compliant_list
-				}
-			}
-			global_var:je_kog_catholic = {
-				remove_list_variable = {
-					name = kog_encyclicals_list
-					target = scope:journal_entry
-				}
-			}
-		}
-	}
-	timeout = 2435 # Published in August 1832
-	
-	on_weekly_pulse = {
-		effect = {
-			scope:journal_entry = {
-				clear_variable_list = kog_ecyclical_compliant_list
-				every_scope_je_involved = {
-					limit = {
-						has_law_or_variant = law_type:law_state_religion
-						OR = {
-							has_law = law_type:law_ecclesiastic_investiture
-							has_law = law_type:law_oath_of_supremacy
-						}
-					}
-					global_var:je_kog_ecyclical_mirari_vos = {
-						add_to_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = prev
-						}
-					}
-				}
-				sort_variable_list = {
-					name = kog_ecyclical_compliant_list
-					order = prestige
-				}
-			}
-		}
-	}
-	
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = kog_compliant
-				trigger = {
-					scope:journal_entry = {
-						is_target_in_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = root
-						}
-					}
-				}
-			}
-			desc = kog_noncompliant
-		}
-	}
-}
-
-je_kog_ecyclical_singulari_nos = {
-	group = je_group_kog_encyclicals
-	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
-	weight = 100
-	dlc = dlc_kog
-
-	activation_description = {
-        always = yes
-    }
-	
-	should_be_pinned_by_default_involved = yes
-	
-	should_be_involved = {
-		kog_country_is_roman_catholic_trigger = yes
-	}
-	
-	should_show_when_not_involved = {
-		kog_content_scope_trigger = yes
-	}
-	
-	immediate = {
-		com_save_journal_to_global_variable = {
-			name = je_kog_ecyclical_singulari_nos
-		}
-		global_var:je_kog_catholic = {
-			add_to_variable_list = {
-				name = kog_encyclicals_list
-				target = scope:journal_entry
-			}
-		}
-	}
-	
-	immediate_all_involved = {
-		if = {
-			limit = {
-				calc_true_if = {
-					amount >= 3
-					country_has_voting_franchise = no
-					has_law_or_variant = law_type:law_subjecthood
-					has_law_or_variant = law_type:law_freedom_of_conscience
-					has_law_or_variant = law_type:law_religious_schools
-					OR = {
-						has_law_or_variant = law_type:law_censorship
-						has_law_or_variant = law_type:law_outlawed_dissent
-					}
-				}
-			}
-			global_var:je_kog_ecyclical_singulari_nos = {
-				add_to_variable_list = {
-					name = kog_ecyclical_compliant_list
-					target = prev
-				}
-			}
-		}
-	}
-	
-	outcome = {
-		header = JOURNAL_ENTRY_TIMEOUT
-		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
-		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
-		
-		flags = { timeout }
-		
-		effect = {
-			custom_tooltip = {
-				text = je_kog_ecyclical_singulari_nos_success_effect
-				scope:journal_entry = {
-					every_in_list = {
-						variable = kog_ecyclical_compliant_list
-					}
-				}
-			}
-			custom_tooltip = {
-				text = je_kog_ecyclical_singulari_nos_failure_effect
-				every_in_list = {
-					variable = kog_ecyclical_non_compliant_list
-				}
-			}
-			global_var:je_kog_catholic = {
-				remove_list_variable = {
-					name = kog_encyclicals_list
-					target = scope:journal_entry
-				}
-			}
-		}
-	}
-	timeout =  3225 # Published in June 1834
-	
-	on_weekly_pulse = {
-		effect = {
-			scope:journal_entry = {
-				clear_variable_list = kog_ecyclical_compliant_list
-				every_scope_je_involved = {
-					limit = {
-						calc_true_if = {
-							amount >= 3
-							country_has_voting_franchise = no
-							has_law_or_variant = law_type:law_subjecthood
-							has_law_or_variant = law_type:law_freedom_of_conscience
-							has_law_or_variant = law_type:law_religious_schools
-							OR = {
-								has_law_or_variant = law_type:law_censorship
-								has_law_or_variant = law_type:law_outlawed_dissent
-							}
-						}
-					}
-					global_var:je_kog_ecyclical_singulari_nos = {
-						add_to_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = prev
-						}
-					}
-				}
-				sort_variable_list = {
-					name = kog_ecyclical_compliant_list
-					order = prestige
-				}
-			}
-		}
-	}
-	
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = kog_compliant
-				trigger = {
-					scope:journal_entry = {
-						is_target_in_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = root
-						}
-					}
-				}
-			}
-			desc = kog_noncompliant
-		}
-	}
-}
-
 je_kog_encyclical_cum_primum = {
 	group = je_group_kog_encyclicals
 	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
@@ -624,6 +358,294 @@ je_kog_encyclical_cum_primum = {
 					}
 				}
 			}
+		}
+	}
+}
+
+je_kog_ecyclical_mirari_vos = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
+	dlc = dlc_kog
+
+	activation_description = {
+        always = yes
+    }
+	
+	should_be_pinned_by_default_involved = yes
+	
+	should_be_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	immediate = {
+		com_save_journal_to_global_variable = {
+			name = je_kog_ecyclical_mirari_vos
+		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
+		}
+	}
+	
+	immediate_all_involved = {
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_state_religion
+				OR = {
+					has_law = law_type:law_ecclesiastic_investiture
+					has_law = law_type:law_oath_of_supremacy
+				}
+			}
+			global_var:je_kog_ecyclical_mirari_vos = {
+				add_to_variable_list = {
+					name = kog_ecyclical_compliant_list
+					target = prev
+				}
+			}
+		}
+	}
+	
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		
+		flags = { timeout }
+		
+		effect = {
+			custom_tooltip = {
+				text = je_kog_ecyclical_mirari_vos_success_effect
+				scope:journal_entry = {
+					every_in_list = {
+						variable = kog_ecyclical_compliant_list
+					}
+				}
+			}
+			custom_tooltip = {
+				text = je_kog_ecyclical_mirari_vos_failure_effect
+				scope:journal_entry = {
+					every_in_list = {
+						variable = kog_ecyclical_non_compliant_list
+					}
+				}
+			}
+			global_var:je_kog_catholic = {
+				remove_list_variable = {
+					name = kog_encyclicals_list
+					target = scope:journal_entry
+				}
+			}
+		}
+	}
+	timeout = 2435 # Published in August 1832
+	
+	on_weekly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				clear_variable_list = kog_ecyclical_compliant_list
+				every_scope_je_involved = {
+					if = {
+						limit = {
+							has_law_or_variant = law_type:law_state_religion
+							OR = {
+								has_law = law_type:law_ecclesiastic_investiture
+								has_law = law_type:law_oath_of_supremacy
+							}
+						}
+						global_var:je_kog_ecyclical_mirari_vos = {
+							add_to_variable_list = {
+								name = kog_ecyclical_compliant_list
+								target = prev
+							}
+						}
+					}
+					else = {
+						global_var:je_kog_ecyclical_mirari_vos = {
+							add_to_variable_list = {
+								name = kog_ecyclical_non_compliant_list
+								target = prev
+							}
+						}
+					}
+				}
+				sort_variable_list = {
+					name = kog_ecyclical_compliant_list
+					order = prestige
+				}
+			}
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = kog_compliant
+				trigger = {
+					scope:journal_entry = {
+						is_target_in_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = root
+						}
+					}
+				}
+			}
+			desc = kog_noncompliant
+		}
+	}
+}
+
+je_kog_ecyclical_singulari_nos = {
+	group = je_group_kog_encyclicals
+	icon = "gfx/interface/icons/event_icons/event_catholic.dds"
+	weight = 100
+	dlc = dlc_kog
+
+	activation_description = {
+        always = yes
+    }
+	
+	should_be_pinned_by_default_involved = yes
+	
+	should_be_involved = {
+		kog_country_is_roman_catholic_trigger = yes
+	}
+	
+	should_show_when_not_involved = {
+		kog_content_scope_trigger = yes
+	}
+	
+	immediate = {
+		com_save_journal_to_global_variable = {
+			name = je_kog_ecyclical_singulari_nos
+		}
+		global_var:je_kog_catholic = {
+			add_to_variable_list = {
+				name = kog_encyclicals_list
+				target = scope:journal_entry
+			}
+		}
+	}
+	
+	immediate_all_involved = {
+		if = {
+			limit = {
+				calc_true_if = {
+					amount >= 3
+					country_has_voting_franchise = no
+					has_law_or_variant = law_type:law_subjecthood
+					has_law_or_variant = law_type:law_freedom_of_conscience
+					has_law_or_variant = law_type:law_religious_schools
+					OR = {
+						has_law_or_variant = law_type:law_censorship
+						has_law_or_variant = law_type:law_outlawed_dissent
+					}
+				}
+			}
+			global_var:je_kog_ecyclical_singulari_nos = {
+				add_to_variable_list = {
+					name = kog_ecyclical_compliant_list
+					target = prev
+				}
+			}
+		}
+	}
+	
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		
+		flags = { timeout }
+		
+		effect = {
+			custom_tooltip = {
+				text = je_kog_ecyclical_singulari_nos_success_effect
+				scope:journal_entry = {
+					every_in_list = {
+						variable = kog_ecyclical_compliant_list
+					}
+				}
+			}
+			custom_tooltip = {
+				text = je_kog_ecyclical_singulari_nos_failure_effect
+				every_in_list = {
+					variable = kog_ecyclical_non_compliant_list
+				}
+			}
+			global_var:je_kog_catholic = {
+				remove_list_variable = {
+					name = kog_encyclicals_list
+					target = scope:journal_entry
+				}
+			}
+		}
+	}
+	timeout =  3225 # Published in June 1834
+	
+	on_weekly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				clear_variable_list = kog_ecyclical_compliant_list
+				every_scope_je_involved = {
+					if = {
+						limit = {
+							calc_true_if = {
+								amount >= 3
+								country_has_voting_franchise = no
+								has_law_or_variant = law_type:law_subjecthood
+								has_law_or_variant = law_type:law_freedom_of_conscience
+								has_law_or_variant = law_type:law_religious_schools
+								OR = {
+									has_law_or_variant = law_type:law_censorship
+									has_law_or_variant = law_type:law_outlawed_dissent
+								}
+							}
+						}
+						global_var:je_kog_ecyclical_singulari_nos = {
+							add_to_variable_list = {
+								name = kog_ecyclical_compliant_list
+								target = prev
+							}
+						}
+					}
+					else = {
+						global_var:je_kog_ecyclical_singulari_nos = {
+							add_to_variable_list = {
+								name = kog_ecyclical_non_compliant_list
+								target = prev
+							}
+						}
+					}
+				}
+				sort_variable_list = {
+					name = kog_ecyclical_compliant_list
+					order = prestige
+				}
+			}
+		}
+	}
+	
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = kog_compliant
+				trigger = {
+					scope:journal_entry = {
+						is_target_in_variable_list = {
+							name = kog_ecyclical_compliant_list
+							target = root
+						}
+					}
+				}
+			}
+			desc = kog_noncompliant
 		}
 	}
 }
