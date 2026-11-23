@@ -690,20 +690,22 @@ je_kog_commissum_divinitus = {
         color = gold_positive
 
 		trigger = {
-			has_law = law_type:law_total_separation
-            has_law = law_type:law_monastic_secularization
-            OR = {
-                has_law = law_type:law_concordat_of_investment
-                has_law = law_type:law_oath_of_supremacy
-            }
-            radical_fraction = {
-                religion = rel:catholic
-                value < 0.25
-            }
-            NOR = {
-                has_revolution = yes
-                has_any_secessionists_broken_out = yes
-            }
+			c:SWI ?= {
+				has_law = law_type:law_total_separation
+				has_law = law_type:law_monastic_secularization
+				OR = {
+					has_law = law_type:law_concordat_of_investment
+					has_law = law_type:law_oath_of_supremacy
+				}
+				radical_fraction = {
+					religion = rel:catholic
+					value < 0.25
+				}
+				NOR = {
+					has_revolution = yes
+					has_any_secessionists_broken_out = yes
+				}
+			}
 		}
 		effect = { }
 	}
@@ -715,12 +717,14 @@ je_kog_commissum_divinitus = {
 		color = blue_negative
 		
 		trigger = {
-			any_political_movement = {
-				is_political_movement_type = movement_religious_minority
-				religion = rel:catholic
-				OR = {
-					is_revolutionary = yes
-					is_secessionist = yes
+			c:SWI ?= {
+				any_political_movement = {
+					is_political_movement_type = movement_religious_minority
+					religion = rel:catholic
+					OR = {
+						is_revolutionary = yes
+						is_secessionist = yes
+					}
 				}
 			}
 		}

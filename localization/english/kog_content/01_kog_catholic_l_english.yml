@@ -38,8 +38,8 @@
  je_kog_ecyclical_singulari_nos_tt: "The $kog_papacy$ has commanded that the faith abide by @kog_catholic! #bold #italic Singulari Nos#!#!"
  
  je_kog_commissum_divinitus: "$kog_encyclical$: #italic Commissum Divinitus#!"
- je_kog_commissum_divinitus_reason: "#italic \"--\"#!\n\n--$com_ttdl$#white The Holy See expects compliance with its dictates. This [concept_encyclical] stipulates that [JournalEntry.Var('kog_switzerland_scope').GetCountry.GetNameNoFlag] abide by the following:\n[GetScriptedGui('kog_encyclical_commissum_divinitus_sgui').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
- je_kog_commissum_divinitus_status: "[GetReligion('catholic').GetName] $kog_radicalism$ is at [JournalEntry.MakeScope.Var('kog_swiss_catholic_radicalism_var_').GetValue|-+%]"
+ je_kog_commissum_divinitus_reason: "#italic \"--\"#!\n\n--$com_ttdl$#white The Holy See expects compliance with its dictates. This [concept_encyclical] stipulates that [JournalEntry.MakeScope.Var('kog_switzerland_scope').GetCountry.GetNameNoFlag] abide by the following:\n[GetScriptedGui('kog_encyclical_commissum_divinitus_sgui').ExecuteTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+ je_kog_commissum_divinitus_status: "[GetReligion('catholic').GetName] $kog_radicalism$ is at [GetGlobalVariable('je_kog_commissum_divinitus').Var('kog_swiss_catholic_radicalism_var').GetValue|-+%]"
  je_kog_commissum_divinitus_tt: "The $kog_papacy$ has commanded that [GetGlobalVariable('je_kog_commissum_divinitus').Var('kog_switzerland_scope').GetCountry.GetNameNoFlag] abide by @kog_catholic! #bold #italic Commissum Divinitus#!#!"
  
  je_kog_inter_praecipuas_machinationes: "$kog_encyclical$: #italic Inter Praecipuas Machinationes#!"
