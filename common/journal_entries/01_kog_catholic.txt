@@ -333,32 +333,7 @@ je_kog_encyclical_cum_primum = {
 	}
 	
 	status_desc = {
-		triggered_desc = {
-			desc = je_kog_encyclical_cum_primum_compliant
-			trigger = {
-				exists = c:POL
-				scope:journal_entry = {
-					is_target_in_variable_list = {
-						name = kog_ecyclical_compliant_list
-						target = c:POL
-					}
-				}
-			}
-		}
-		triggered_desc = {
-			desc = je_kog_encyclical_cum_primum_noncompliant
-			trigger = {
-				exists = c:POL
-				scope:journal_entry = {
-					NOT = {
-						is_target_in_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = c:POL
-						}
-					}
-				}
-			}
-		}
+		desc = je_kog_encyclical_cum_primum_status
 	}
 }
 
@@ -451,6 +426,11 @@ je_kog_ecyclical_mirari_vos = {
 			scope:journal_entry = {
 				clear_variable_list = kog_ecyclical_compliant_list
 				every_scope_je_involved = {
+					limit = {
+						NOT = {
+							c:PAP ?= this # TODO replace with explicit HOF handling
+						}
+					}
 					if = {
 						limit = {
 							has_law_or_variant = law_type:law_state_religion
@@ -484,20 +464,7 @@ je_kog_ecyclical_mirari_vos = {
 	}
 	
 	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = kog_compliant
-				trigger = {
-					scope:journal_entry = {
-						is_target_in_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = root
-						}
-					}
-				}
-			}
-			desc = kog_noncompliant
-		}
+		desc = je_kog_ecyclical_mirari_vos_status
 	}
 }
 
@@ -594,6 +561,11 @@ je_kog_ecyclical_singulari_nos = {
 			scope:journal_entry = {
 				clear_variable_list = kog_ecyclical_compliant_list
 				every_scope_je_involved = {
+					limit = {
+						NOT = {
+							c:PAP ?= this # TODO replace with explicit HOF handling
+						}
+					}
 					if = {
 						limit = {
 							calc_true_if = {
@@ -633,20 +605,7 @@ je_kog_ecyclical_singulari_nos = {
 	}
 	
 	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = kog_compliant
-				trigger = {
-					scope:journal_entry = {
-						is_target_in_variable_list = {
-							name = kog_ecyclical_compliant_list
-							target = root
-						}
-					}
-				}
-			}
-			desc = kog_noncompliant
-		}
+		desc = je_kog_ecyclical_singulari_nos_status
 	}
 }
 
@@ -693,6 +652,33 @@ je_kog_commissum_divinitus = {
 			set_variable = {
 				name = kog_switzerland_scope
 				value = c:SWI
+			}
+		}
+		scope:journal_entry = {
+			set_variable = {
+				name = kog_swiss_catholic_radicalism_var_
+				value = {
+					c:SWI = {
+						every_scope_pop = {
+							limit = {
+								has_pop_religion = catholic
+							}
+							add = total_size
+							multiply = pop_radical_fraction
+						}
+						divide = {
+							every_scope_pop = {
+								limit = {
+									has_pop_religion = catholic
+								}
+								add = total_size
+							}
+						}
+					}
+					round_to = 0.01
+					max = 100
+					min = 0
+				}
 			}
 		}
 	}
@@ -749,5 +735,48 @@ je_kog_commissum_divinitus = {
 			has_law_or_variant = law_type:law_theocracy
 		}
 		effect = { }
+	}
+	
+	on_weekly_pulse = {
+		effect = {
+			scope:journal_entry = {
+				set_variable = {
+					name = kog_swiss_catholic_radicalism_var_
+					value = {
+						c:SWI = {
+							every_scope_pop = {
+								limit = {
+									has_pop_religion = catholic
+								}
+								add = total_size
+								multiply = pop_radical_fraction
+							}
+							divide = {
+								every_scope_pop = {
+									limit = {
+										has_pop_religion = catholic
+									}
+									add = total_size
+								}
+							}
+						}
+						round_to = 0.01
+						max = 100
+						min = 0
+					}
+				}
+			}
+		}
+	}
+	
+	status_desc = {
+		triggered_desc = {
+			desc = je_kog_commissum_divinitus_status
+			trigger = {
+				scope:journal_entry = {
+					has_variable = kog_swiss_catholic_radicalism_var_
+				}
+			}
+		}
 	}
 }

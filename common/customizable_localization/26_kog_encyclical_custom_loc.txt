@@ -1,0 +1,80 @@
+﻿je_kog_encyclical_cum_primum_type = {
+	type = country
+	
+	text = {
+		localization_key = je_kog_encyclical_cum_primum_compliant
+		trigger = {
+			c:POL ?= {
+				is_subject = yes
+				is_at_war_with_overlord = no
+				"c:POL.relations(c:POL.overlord)" >= relations_threshold:cordial
+			}
+		}
+	}
+	text = {
+		localization_key = je_kog_encyclical_cum_primum_noncompliant
+		trigger = {
+			NOT = {
+				c:POL ?= {
+					is_subject = yes
+					is_at_war_with_overlord = no
+					"c:POL.relations(c:POL.overlord)" >= relations_threshold:cordial
+				}
+			}
+		}
+	}
+}
+
+je_kog_ecyclical_mirari_vos_type = {
+	type = country
+	
+	text = {
+		localization_key = kog_compliant
+		trigger = {
+			global_var:je_kog_ecyclical_mirari_vos = {
+				is_target_in_variable_list = {
+					name = kog_ecyclical_compliant_list
+					target = root
+				}
+			}
+		}
+	}
+	text = {
+		localization_key = kog_noncompliant
+		trigger = {
+			global_var:je_kog_ecyclical_mirari_vos = {
+				is_target_in_variable_list = {
+					name = kog_ecyclical_non_compliant_list
+					target = root
+				}
+			}
+		}
+	}
+}
+
+je_kog_ecyclical_singulari_nos_type = {
+	type = country
+	
+	text = {
+		localization_key = kog_compliant
+		trigger = {
+			global_var:je_kog_ecyclical_singulari_nos = {
+				is_target_in_variable_list = {
+					name = kog_ecyclical_compliant_list
+					target = root
+				}
+			}
+		}
+	}
+	text = {
+		localization_key = kog_noncompliant
+		trigger = {
+			global_var:je_kog_ecyclical_singulari_nos = {
+				is_target_in_variable_list = {
+					name = kog_ecyclical_non_compliant_list
+					target = root
+				}
+			}
+		}
+	}
+}
