@@ -192,13 +192,7 @@
 		activate_law = law_type:law_church_grants
 	}
 	
-	# Papal States
-	c:PAP ?= {
-		activate_law = law_type:law_papal_see
-		activate_law = law_type:law_theocratic_investiture
-		activate_law = law_type:law_monastic_suppression
-		activate_law = law_type:law_church_grants
-	}
+	# Papal States history directly overridden
 	
 	# Parma
 	c:PAR ?= {
@@ -428,7 +422,7 @@
 	c:SWI ?= {
 		active_law:lawgroup_church_and_state = {
 			add_amendment = {
-				type = amendment_kog_jesuit_suppression
+				type = amendment_kog_baden_articles
 				sponsor = prev.ig:ig_devout
 			}
 		}
