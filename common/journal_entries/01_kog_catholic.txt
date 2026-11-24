@@ -711,10 +711,8 @@ je_kog_encyclical_commissum_divinitus = {
 				name = kog_switzerland_scope
 				value = c:SWI
 			}
-		}
-		scope:journal_entry = {
 			set_variable = {
-				name = kog_swiss_catholic_radicalism_var_
+				name = kog_swiss_catholic_radicalism_var
 				value = {
 					c:SWI = {
 						every_scope_pop = {
@@ -805,7 +803,7 @@ je_kog_encyclical_commissum_divinitus = {
 		effect = {
 			scope:journal_entry = {
 				set_variable = {
-					name = kog_swiss_catholic_radicalism_var_
+					name = kog_swiss_catholic_radicalism_var
 					value = {
 						c:SWI = {
 							every_scope_pop = {
@@ -838,7 +836,7 @@ je_kog_encyclical_commissum_divinitus = {
 			desc = je_kog_encyclical_commissum_divinitus_status
 			trigger = {
 				scope:journal_entry = {
-					has_variable = kog_swiss_catholic_radicalism_var_
+					has_variable = kog_swiss_catholic_radicalism_var
 				}
 			}
 		}
