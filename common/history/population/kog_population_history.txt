@@ -1,9 +1,24 @@
 ﻿POPULATION = {
-	c:SWI ?= {
-		every_scope_state = {
-			add_radicals_in_state = {
-				religion = rel:catholic
-				value = 0.25
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+	}
+	else = {
+		c:PAP ?= {
+			every_scope_state = {
+				add_radicals_in_state = {
+					pop_type = peasants
+					value = 0.35 # This is meant to be catastrophic for a starting position
+				}
+			}
+		}
+		c:SWI ?= {
+			every_scope_state = {
+				add_radicals_in_state = {
+					religion = rel:catholic
+					value = 0.25 # the Sonderbund War was almost certainly locked in by 1836
+				}
 			}
 		}
 	}
