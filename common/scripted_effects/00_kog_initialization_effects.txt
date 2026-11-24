@@ -72,7 +72,8 @@
 	kog_specific_country_setups_effect = yes
 	
 	#### Step 10, Apply Final Effects
-	kog_initialization_cleanup_effect = yes
+	kog_activate_starting_encyclicals_effect = yes
+	kog_initialization_technical_cleanup_effect = yes
 }
 
 ####---------- Journal and Variable Initialization ----------####
@@ -2526,15 +2527,25 @@ kog_specific_country_setups_effect = {
 	}
 }
 
-kog_initialization_cleanup_effect = {
+kog_activate_starting_encyclicals_effect = {
+	if = {
+		limit = {
+			basileia_is_active = yes
+		}
+	}
+	else = {
+		add_contextless_journal_entry = je_kog_encyclical_cum_primum
+		add_contextless_journal_entry = je_kog_encyclical_mirari_vos
+		add_contextless_journal_entry = je_kog_encyclical_singulari_nos
+		add_contextless_journal_entry = je_kog_encyclical_commissum_divinitus
+	}
+}
+
+kog_initialization_technical_cleanup_effect = {
 	## Update Communion Lists
 	kog_update_heads_of_faith_effect = yes
 	
 	## Prepare Interorg Functionality
-	add_contextless_journal_entry = je_kog_encyclical_cum_primum
-	add_contextless_journal_entry = je_kog_encyclical_mirari_vos
-	add_contextless_journal_entry = je_kog_encyclical_singulari_nos
-	add_contextless_journal_entry = je_kog_encyclical_commissum_divinitus
 	com_activate_interorg_sidebar = yes
 	com_add_journal_group_to_situations_list = {
 		name = je_group_kog_encyclicals
