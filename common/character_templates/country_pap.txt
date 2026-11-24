@@ -15,3 +15,62 @@
 		kog_patriarch
 	}
 }
+
+REPLACE_OR_CREATE:PAP_carlo_armellini = {
+	# Carlo Armellini
+	first_name = Carlo
+	last_name = Armellini
+	historical = yes
+	age = 59 # born in 1777, can't find his exact birth date
+	ig_leader = yes
+	culture = cu:south_italian
+	religion = rel:catholic
+	interest_group = ig_intelligentsia
+	ideology = ideology_republican_leader # You CANNOT convince me this man was a moderate
+	home_region = STATE_LAZIO
+	traits = {
+	}
+}
+
+PAP_aurelio_saffi = {
+	# Aurelio Saffi, memeber of the Triumvirate of the Roman Republic
+	first_name = Aurelio
+	last_name = Saffi
+	historical = yes
+	birth_date = 1819.8.13
+	culture = cu:north_italian
+	religion = rel:catholic
+	interest_group = ig_intelligentsia
+	ideology = ideology_republican_leader
+	home_region = STATE_ROMAGNA
+	traits = {
+		erudite
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			c:PAP ?= this
+			any_scope_state = {
+				state_region = s:STATE_ROMAGNA
+			}
+		}
+		interest_group_trigger = {
+			is_marginal = no
+			is_interest_group_type = ig_intelligentsia
+		}
+		earliest_usage_date = 1843.1.1 # Earliest record I could find of him being politically active, but its likely closer to 1840
+		latest_usage_date = 1890.4.10
+		chance = 10
+	}
+	agitator_usage = {
+		country_trigger = {
+			c:PAP ?= this
+			has_law_or_variant = law_type:law_theocracy
+		}
+		interest_group_trigger = {
+			is_interest_group_type = ig_intelligentsia
+		}
+		earliest_usage_date = 1843.1.1 # as above
+		latest_usage_date = 1890.4.10
+		#guaranteed to spawn if possible
+	}
+}
