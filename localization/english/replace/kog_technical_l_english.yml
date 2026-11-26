@@ -1,11 +1,48 @@
 ﻿l_english:
  # DLC info
  dlc_kog: "The Kingdom of God"
- dlc_kog_desc: "Take up the cross and lead the followers of Christ into the Victorian Era! From the centralized and dogmatic Catholic Church in Rome to the disunified Churches of the East under Muslim rule, take charge of the flock as the faith struggles to find its place in this rapidly changing world."
- kog: "@kog! #bold #khoine Kingdom of God#!#!"
- kog_no_icon: "#bold #khoine Kingdom of God#!#!"
+ dlc_kog_desc: "Take up the cross and lead the followers of Christ into the Victorian Era! From the centralized and dogmatic Catholic Church in Rome to the disunified Churches of the East under Muslim rule, take charge of the flock as the faith struggles to find its place in this rapidly changing world.$com_ttdl$#bold The Kingdom of God#! currently covers the following faiths: $com_nlbp$$kog_catholic$ $com_nlbp$$kog_orthodox$ $com_nlbp$$kog_br_religion_elysian_orthodox$ \n#bold The Kingdom of God#! is dependent on the following mods:\n • $gbbf_cmf$\n$kog_compatibility_br$"
+ 
+ kog_journal_lobby: "#v Added by Mod: $kog_name$#!"
+ kog_integrates_votp: "@information! #italic #bold #lore #tooltippable #tooltip:[GetRawTextTooltipTag('kog_dlc_content_info')] Integrates Content#!#! from DLC: Voice of the People#!#!#!"
+ kog_integrates_ip3: "@information! #italic #bold #lore #tooltippable #tooltip:[GetRawTextTooltipTag('kog_dlc_content_info')] Integrates Content#!#! from DLC: National Awakening#!#!#!"
+ kog_integrates_ip4: "@information! #italic #bold #lore #tooltippable #tooltip:[GetRawTextTooltipTag('kog_dlc_content_info')] Integrates Content#!#! from DLC: Iberian Twilight#!#!#!"
+ 
+ kog_dlc_content_info: "DLC-specific content will only be provided if that DLC is owned and active"
+ kog_compatibility_br: "@warning! Expanded content is available with $kog_br$"
+ kog_compatibility_mfaa: "@warning! Expanded content is available with $kog_mfaa$"
+ kog_compatibility_mgr: "@warning! Expanded content is available with $kog_mgr$"
+ 
+ kog_name: "@kog! #bold #khoine The Kingdom of God#!#!"
+ kog_name_no_icon: "#bold #khoine The Kingdom of God#!#!"
+ kog_cmf: "@kog_cmf_icon! #bold #darker_white Community Mod Framework#!#!"
+ kog_cmf_no_icon: "#bold #darker_white Community Mod Framework#!#!"
+ kog_gotb_name: "@kog_gotb_icon! #bold #blue Gates of the Bosphorus#!#!"
+ kog_gotb_name_no_icon: "#bold #blue Gates of the Bosphorus#!#!"
+ kog_br: "@kog_br_icon! #bold #purple Basileía Romaíon: 1736#!#!"
+ kog_br_no_icon: "#bold #purple Basileía Romaíon: 1736#!#!"
+ kog_tlim: "@kog_tlim_icon! #bold #green This Land is Mine#!#!"
+ kog_tlim_no_icon: "#bold #green This Land is Mine#!#!"
+ kog_mgr: "@kog_mgr_icon! #bold #red Morgenröte - Dawn of Flavor#!#!"
+ kog_mgr_no_icon: "#bold #red Morgenröte - Dawn of Flavor#!#!"
+ kog_mfaa: "@kog_mfaa_icon! #bold #grey Manaflow: Ankaris Arrival#!#!"
+ kog_mfaa_no_icon: "#bold #grey Manaflow: Ankaris Arrival#!#!"
  
  # Technical
+ kog_catholic: "[GetReligion('catholic').GetName]"
+ kog_orthodox: "[GetReligion('orthodox').GetName]"
+ kog_oriental: "[GetReligion('oriental').GetName]"
+ kog_protestant: "[GetReligion('protestant').GetName]"
+ kog_lutheran: "[GetReligion('lutheran').GetName]"
+ kog_calvinist : "[GetReligion('calvinist').GetName]"
+ kog_anglican: "[GetReligion('anglican').GetName]"
+ kog_methodist : "[GetReligion('methodist').GetName]"
+ kog_baptist : "[GetReligion('baptist').GetName]"
+ kog_christianity: "[GetReligion('christianity').GetName]"
+ kog_mormon : "[GetReligion('mormon').GetName]"
+ kog_br_religion_elysian_orthodox : "[GetReligion('br_religion_elysian_orthodox').GetName]"
+ kog_br_religion_rus_orthodox : "[GetReligion('br_religion_rus_orthodox').GetName]"
+ 
  kog_topbar_element_capacity: "kog_topbar_element_capacity"
  kog_topbar_element_capacity_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_icon_only_type')]"
  kog_topbar_element_capacity_value: "#v [GetPlayer.MakeScope.ScriptValue('kog_capacity_value')]#!"
@@ -16,7 +53,7 @@
  kog_linebreak: "\n@divider_start!@divider_mid!@divider_mid!@divider_mid!@divider_end!\n"
  kog_divider: "@divider_start!@divider_mid!@divider_mid!@divider_mid!@divider_end!"
  
- kog_error_deer: "Provided by the mod: $dlc_kog$"
+ kog_error_deer: "Provided by the mod: $kog_name$"
  kog_error_deer_desc: "#bold #italic We have [ErrorDeer.NumberOrErrors|v] Sin(s)! Go to Church!#!#!"
  
  kog_situation_background_generic_council: "kog_situation_background_generic_council"
@@ -26,10 +63,21 @@
  kog_situation_background_orthodox_council: "kog_situation_background_orthodox_council"
  kog_situation_background_orthodox_council_desc: "kog_situation_background_orthodox_council_desc"
  
- # Localization Shorthands
- _nl: "\n"
- _bp: "•"
- _nlbp: "\n • "
+ # Game Concept Text Replacements
+ kog_capacity: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_type')]"
+ kog_catholic_power: "@kog_catholic_power! [Concept('concept_faith_capacity','$concept_faith_capacity_catholic|q$')]"
+ kog_orthodox_power: "@kog_orthodox_power! [Concept('concept_faith_capacity','$concept_faith_capacity_orthodox|q$')]"
+ kog_oriental_power: "@kog_oriental_power! [Concept('concept_faith_capacity','$concept_faith_capacity_oriental|q$')]"
+ kog_elysian_power: "@kog_elysian_power! [Concept('concept_faith_capacity','$concept_faith_capacity_elysian|q$')]"
+ 
+ kog_capacity_no_icon: "[GetPlayer.MakeScope.GetCountry.GetCustom('kog_faith_capacity_no_icon_type')]"
+ kog_catholic_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_catholic|q$')]"
+ kog_orthodox_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_orthodox|q$')]"
+ kog_oriental_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_oriental|q$')]"
+ kog_elysian_power_no_icon: "[Concept('concept_faith_capacity','$concept_faith_capacity_elysian|q$')]"
+ 
+ kog_journal: "[Concept('concept_journal_entry','$concept_journal|q$')]"
+ kog_journal_entries: "[Concept('concept_journal_entry','$concept_journal_entries|q$')] "
  
  kog_armed_forces: "[GetInterestGroupVariant('ig_armed_forces',GetPlayer).GetName]"
  kog_devout: "[GetInterestGroupVariant('ig_devout',GetPlayer).GetName]"
@@ -41,8 +89,90 @@
  kog_trade_unions: "[GetInterestGroupVariant('ig_trade_unions',GetPlayer).GetName]"
  
  # [Concept('','$$')]
- kog_countries: "[Concept('concept_country','$concept_countries|q$')]"
- kog_state_regions: "[Concept('concept_state_region','$concept_state_regions|q$')]"
  kog_faith: "[Concept('concept_religion','$concept_faith|q$')]"
  kog_faiths: "[Concept('concept_religion','$concept_faiths|q$')]"
+ 
+ kog_pops: "[Concept('concept_pop','$concept_pops|q$')]"
+ kog_population: "[Concept('concept_pop', '$concept_population|q$')]"
+ kog_loyal: "[Concept('concept_loyalist','$concept_loyal|q$')]"
+ kog_loyalists: "[Concept('concept_loyalist','$concept_loyalists|q$')]"
+ kog_loyalism: "[Concept('concept_loyalist', '$concept_loyalism|q$')]"
+ kog_radicals: "[Concept('concept_radical','$concept_radicals|q$')]"
+ kog_radicalism: "[Concept('concept_radical','$concept_radicalism|q$')]"
+ 
+ kog_mortality: "[Concept('concept_pop_growth','$concept_pop_growth_mortality|q$')]"
+ 
+ kog_provinces: "[Concept('concept_province','$concept_provinces|q$')]"
  kog_states: "[Concept('concept_state','$concept_states|q$')]"
+ kog_split_states: "[Concept('concept_split_state','$concept_split_states|q$')]"
+ kog_state_regions: "[Concept('concept_state_region','$concept_state_regions|q$')]"
+ kog_countries: "[Concept('concept_country','$concept_countries|q$')]"
+ kog_homelands: "[Concept('concept_homeland','$concept_homelands|q$')]"
+ kog_incorporated_states: "[Concept('concept_incorporated_state','$concept_incorporated_states|q$')]"
+ kog_unincorporated_states: "[Concept('concept_unincorporated_state','$concept_unincorporated_states|q$')]"
+ kog_decentralized_nations: "[Concept('concept_decentralized_nation','$concept_decentralized_nations|q$')]"
+ kog_decentralized: "[Concept('concept_decentralized_nation','$concept_decentralized|q$')]"
+ 
+ kog_region: "Region"
+ kog_state_region_short: "[Concept('concept_state_region','$kog_region|q$')]"
+ kog_georegion_short: "[Concept('concept_georegion','$kog_region|q$')]"
+ kog_strat_region_short: "[Concept('concept_strategic_region','$kog_region|q$')]"
+ 
+ kog_cultures: "[Concept('concept_culture','$concept_cultures|q$')]"
+ kog_primary_culture: "[Concept('concept_primary_cultures','$concept_primary_culture|q$')]"
+ kog_religions: "[Concept('concept_religion','$concept_religions|q$')]"
+ kog_decrees: "[Concept('concept_decree','$concept_decrees|q$')]"
+ kog_technologies: "[Concept('concept_technology', '$concept_technologies|q$')]"
+ kog_goods: "[Concept('concept_good','$concept_goods|q$')]"
+ kog_consumption_taxes: "[Concept('concept_consumption_tax', '$concept_consumption_taxes|q$')]"
+ 
+ kog_diplomatic_plays: "[Concept('concept_diplomatic_play','$concept_diplomatic_plays|q$')]"
+ kog_great_powers: "[Concept('concept_great_power','$concept_great_powers|q$')]"
+ kog_subjects: "[Concept('concept_subject','$concept_subjects|q$')]"
+ kog_overlords: "[Concept('concept_overlord','$concept_overlords|q$')]"
+ kog_strait_controller: "[Concept('concept_strait_control','$concept_strait_controller|q$')]"
+ 
+ kog_buildings: "[Concept('concept_building','$concept_buildings|q$')]"
+ kog_building_levels: "[Concept('concept_building_level', '$concept_building_levels|q$')]"
+ kog_profit: "[Concept('concept_building_balance','$concept_building_balance_profit|q$')]"
+ kog_country_monopolies: "[Concept('concept_country_monopoly','$concept_country_monopolies|q$')]"
+ 
+ kog_investment_levels: "[Concept('concept_investment_level','$concept_investment_levels|q$')]"
+ kog_modifiers: "[Concept('concept_modifier', '$concept_modifiers|q$')]"
+ kog_characters: "[Concept('concept_character','$concept_characters|q$')]"
+ kog_voting_rights: "[Concept('concept_votes','$concept_voting_rights|q$')]"
+ 
+ kog_units: "[Concept('concept_unit','$concept_units_short|q$')]"
+ kog_commanders: "[Concept('concept_commander','$concept_commanders|q$')]"
+ kog_armies: "[Concept('concept_army','$concept_armies|q$')]"
+ kog_battalions: "[Concept('concept_battalion','$concept_battalions|q$')]"
+ kog_combat_unit_types: "[Concept('concept_combat_unit_type', '$concept_combat_unit_types|q$')]"
+ kog_military_formations: "[Concept('concept_military_formation','$concept_military_formations|q$')]"
+ 
+ kog_interest_groups: "[Concept('concept_interest_group','$concept_interest_groups|q$')]"
+ kog_leaders: "[Concept('concept_leader', '$concept_leaders|q$')]"
+ kog_agitators: "[Concept('concept_agitator','$concept_agitators|q$')]"
+ kog_laws: "[Concept('concept_law', '$concept_laws|q$')]"
+ 
+ kog_lobbies: "[Concept('concept_political_lobby','$concept_political_lobbies_short|q$')]"
+ kog_diplomatic_catalysts: "[Concept('concept_diplomatic_catalyst','$concept_diplomatic_catalysts|q$')]"
+ kog_wars: "[Concept('concept_war','$concept_wars|q$')]"
+ 
+ kog_political_movements: "[Concept('concept_political_movement','$concept_political_movements|q$')]"
+ kog_support: "[Concept('concept_political_movement_support', '$concept_political_movement_support_short|q$')]"
+ kog_movement: "[Concept('concept_political_movement','$concept_political_movement_short|q$')]"
+ kog_movements: "[Concept('concept_political_movement','$concept_political_movements_short|q$')]"
+ kog_movement_support: "[Concept('concept_political_movement_support','$concept_political_movement_support_short|q$')]"
+ kog_status: "[Concept('concept_acceptance_status','$concept_acceptance_status_short|q$')]"
+ kog_bolstering: "[Concept('concept_bolster', '$concept_bolstering|q$')]"
+ kog_suppressing: "[Concept('concept_suppress','$concept_suppressing|q$')]"
+ kog_activism: "[Concept('concept_activism','$concept_activism_short|q$')]"
+ 
+ kog_insurrectionary: "[Concept('concept_insurrection','$concept_insurrectionary|q$')]"
+ kog_secessions: "[Concept('concept_secession','$concept_secessions|q$')]"
+ kog_secessionist: "[Concept('concept_secession','$concept_secessionist|q$')]"
+ kog_secessionists: "[Concept('concept_secession','$concept_secessionists|q$')]"
+ kog_seceding: "[Concept('concept_secession','$concept_seceding|q$')]"
+ 
+ kog_enacted: "[Concept('concept_enactment_of_laws', '$concept_enactment_of_laws_enacted|q$')]"
+ kog_voting_franchise: "[Concept('concept_election', '$concept_election_voting_franchise|q$')]"
