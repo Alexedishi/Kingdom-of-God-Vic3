@@ -382,7 +382,6 @@ kog_gui_mend_schism = {
 	tags = { major_decision }
 	
 	visible = {
-		has_global_variable = kog_pentarchy_secured_var
 		NOT = {
 			has_global_variable = kog_schism_mended_var
 		}
@@ -391,7 +390,22 @@ kog_gui_mend_schism = {
 		has_global_variable = kog_mending_var
 	}
 	possible = {
+		custom_tooltip = {
+			text = kog_leads_religious_power_bloc_trigger
+			is_power_bloc_leader = yes
+			power_bloc ?= {
+				has_identity = identity:identity_religious
+			}
+		}
 		kog_controls_and_owns_pentarchy_trigger = yes
+		custom_tooltip = {
+			text = kog_controls_75_percent_of_all_christians_trigger
+			var:kog_local.var:kog_local_christian_population_var >= {
+				value = 0
+				add = global_var:kog_kog_global_christian_population_var
+				multiply = 0.75
+			}
+		}
 	}
 	effect = {
 		set_global_variable = {
