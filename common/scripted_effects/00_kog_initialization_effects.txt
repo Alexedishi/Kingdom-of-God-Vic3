@@ -2208,7 +2208,8 @@ kog_initialize_collegium_effect = {
 }
 
 kog_initialize_local_content_effect = {
-	# This executes kog_initialize_metropolis_effect wrapped in an on_action; this is to ensure that the engine provides a country root scope to the effect
+	# This executes kog_initialize_metropolis_effect wrapped in an on_action
+	# this is to ensure that the engine provides a country root scope to the contained effect
 	trigger_event = {
 		on_action = kog_initialize_local_content
 	}
@@ -2448,6 +2449,20 @@ kog_initialize_metropolis_effect = {
 		set_variable = {
 			name = kog_votes_var
 			value = root.kog_votes_value
+		}
+		set_variable = {
+			name = kog_local_christian_population_var
+			value = {
+				root = {
+					every_scope_pop = {
+						limit = {
+							kog_religion_is_christian_trigger = yes
+						}
+						add = total_size
+					}
+					min = 1 # div/0 protection
+				}
+			}
 		}
 	}
 }

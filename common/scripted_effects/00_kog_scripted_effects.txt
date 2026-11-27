@@ -7,7 +7,6 @@ kog_gui_toogle_effect = {
 
 
 ####---------- General Maintenance Effects ---------- ####
-## Overview Effects
 kog_validate_global_journal_involvement_effect = {
 	every_country = {
 		limit = {
@@ -189,7 +188,7 @@ kog_remove_church_tax_modifier_effect = {
 	}
 }
 
-kog_process_country_conversion_requests = {
+kog_process_country_conversion_requests_effect = {
 	if = {
 		limit = {
 			OR = {
@@ -225,7 +224,7 @@ kog_process_country_conversion_requests = {
 	}
 }
 
-kog_process_character_conversion_requests = {
+kog_process_character_conversion_requests_effect = {
 	every_scope_character = {
 		limit = {
 			OR = {
@@ -256,6 +255,40 @@ kog_process_character_conversion_requests = {
 			}
 			character_should_be_mormon = {
 				change_character_religion = rel:mormon
+			}
+		}
+	}
+}
+
+kog_calculate_global_christian_population_effect = {
+	set_global_variable = {
+		name = kog_total_christian_population_var
+		value = {
+			every_scope_pop = {
+				limit = {
+					kog_religion_is_christian_trigger = yes
+				}
+				add = total_size
+			}
+			min = 1 # div/0 protection
+		}
+	}
+}
+
+kog_calculate_local_christian_population_effect = {
+	var:kog_local = {
+		set_variable = {
+			name = kog_local_christian_population_var
+			value = {
+				root = {
+					every_scope_pop = {
+						limit = {
+							kog_religion_is_christian_trigger = yes
+						}
+						add = total_size
+					}
+					min = 1 # div/0 protection
+				}
 			}
 		}
 	}
